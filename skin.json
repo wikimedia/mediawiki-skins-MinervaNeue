@@ -1,0 +1,36 @@
+{
+  "AutoloadClasses": {},
+  "ConfigRegistry": {
+    "minerva-neue": "GlobalVarConfig::newInstance"
+  },
+  "Hooks": {},
+  "MessagesDirs": {
+    "MinervaNeue": [
+      "i18n"
+    ]
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "",
+    "remoteSkinPath": "MinervaNeue"
+  },
+  "ResourceModuleSkinStyles": {
+    "minerva-neue": {}
+  },
+  "ResourceModules": {},
+  "ValidSkinNames": {
+    "minerva": "Minerva"
+  },
+  "author": [],
+  "callback": "MinervaHooks::onRegistration",
+  "config": {},
+  "descriptionmsg": "minerva-neue-skin-desc",
+  "license-name": "GPL-2.0+",
+  "manifest_version": 1,
+  "name": "MinervaNeue",
+  "namemsg": "skinname-minerva-neue",
+  "requires": {
+    "MediaWiki": ">= 1.25.0"
+  },
+  "type": "skin",
+  "url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue"
+}
