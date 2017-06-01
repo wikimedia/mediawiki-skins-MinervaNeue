@@ -36,6 +36,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.hlist": [
+				"skinStyles/mediawiki.hlist/minerva.less"
+			],
 			"mobile.languages.structured": [
 				"skinStyles/mobile.languages.structured/LanguageOverlay.less"
 			],

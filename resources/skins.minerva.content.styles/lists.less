@@ -2,25 +2,8 @@
 @import 'minerva.variables.less';
 @import 'minerva.mixins.less';
 
-// FIXME: to support hlists on enwiki projects - this should be deprecated
-.hlist > ul,
-// Horizontal Lists
-//
-// Use hlist class when dealing with lists where items should be horizontal.
-//
-// Markup:
-// <ul class="hlist">
-// <li>item 1</li>
-// <li>item 2</li>
-// </ul>
-//
-// Styleguide 1.5.
-ul.hlist {
-	li {
-		display: inline-block;
-		margin-right: 8px;
-	}
-}
+// FIXME: Delete this in 7 days time (T42062)
+@import '../../skinStyles/mediawiki.hlist/minerva.less';
 
 .content {
 	ul {
@@ -80,15 +63,3 @@ body.mw-hide-empty-elt .mw-empty-elt {
 	display: none;
 }
 
-.hlist-separated {
-	li:after {
-		content: '•';
-		padding-left: 8px;
-		color: @linkColor;
-		font-size: 16px;
-		line-height: 1;
-	}
-	:last-child:after {
-		content: '';
-	}
-}
