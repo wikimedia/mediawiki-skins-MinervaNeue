@@ -21,7 +21,6 @@
 		"minerva": "Minerva"
 	},
 	"author": [],
-	"callback": "MinervaHooks::onRegistration",
 	"config": {},
 	"descriptionmsg": "minerva-neue-skin-desc",
 	"license-name": "GPL-2.0+",
