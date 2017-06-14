@@ -1,7 +1,9 @@
 {
 	"@metadata": {
-		"authors": [ "Jdlrobson" ]
+		"authors": [
+			"Jdlrobson"
+		]
 	},
 	"skinname-minerva-neue": "Minerva",
-	"minerva-neue-skin-desc": "A responsive powerful JavaScript based skin as used in Wikimedia's mobile projects"
+	"minerva-neue-skin-desc": "A responsive powerful JavaScript-based skin, as used in Wikimedia's mobile projects"
 }
