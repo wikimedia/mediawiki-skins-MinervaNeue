@@ -11,6 +11,7 @@
  * Hook handler method names should be in the form of:
  *	on<HookName>()
  */
+use MediaWiki\MediaWikiServices;
 
 class MinervaHooks {
 	/**
@@ -22,8 +23,9 @@ class MinervaHooks {
 	 * @param array &$lessVars Variables already added
 	 */
 	public static function onResourceLoaderGetLessVars( &$lessVars ) {
-		// FIXME: Load from Minerva.Config when MobileFrontend and Minerva are separated
-		$config = MobileContext::singleton()->getMFConfig();
+		$config = MediaWikiServices::getInstance()->getService( 'ConfigFactory' )
+			->makeConfig( 'minerva' );
+
 		$lessVars = array_merge( $lessVars,
 			[
 				'wgMinervaApplyKnownTemplateHacks' => "{$config->get( 'MinervaApplyKnownTemplateHacks' )}",

@@ -507,7 +507,9 @@
 		}
 	},
 	"ValidSkinNames": {
-		"minerva-neue": "MinervaNeue"
+		"minervaneue": "MinervaNeue",
+		"minerva-neue": "MinervaNeue",
+		"minerva": "Minerva"
 	},
 	"author": [],
 	"config": {
