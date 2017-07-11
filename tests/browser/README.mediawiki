@@ -1,3 +1,7 @@
+= Git history =
+Browser tests were migrated here from MobileFrontend.
+For any git history prior to the migration, please review the git history of MobileFrontend (see https://gerrit.wikimedia.org/r/364325).
+
 = Setup =
 Include the LocalSettings.php in this folder into your MediaWiki LocalSettings.php.
 Note including this in a production instance is not advised given it fiddles with permissions.
