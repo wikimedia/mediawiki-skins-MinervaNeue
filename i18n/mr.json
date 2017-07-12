@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "संपादन करा",
+	"mobile-frontend-editor-tutorial-cancel": "नाही, धन्यवाद",
+	"mobile-frontend-editor-tutorial-confirm": "संपादन चालू करा",
+	"mobile-frontend-editor-unavailable": "भ्रमणध्वानीद्वारे संपादन आपल्या न्याहाळकावर सध्या उपलब्ध नाही.कृपया वेगळा न्याहाळक वापरा.",
+	"mobile-frontend-history": "या पानाचा संपादन इतिहास बघा.",
+	"mobile-frontend-home-button": "मुखपृष्ठ",
+	"mobile-frontend-language-article-heading": "इतर भाषांत वाचा",
+	"mobile-frontend-language-change": "भाषा बदला",
+	"mobile-frontend-languages-not-available": "हे पान इतर भाषांमध्ये उपलब्ध नाही.",
+	"mobile-frontend-main-menu-button-tooltip": "मुख्य मेनू उघडा",
+	"mobile-frontend-main-menu-contributions": "योगदाने",
+	"mobile-frontend-main-menu-login": "सनोंद-प्रवेश करा",
+	"mobile-frontend-main-menu-logout": "सनोंद-निर्गम",
+	"mobile-frontend-main-menu-nearby": "जवळपास",
+	"mobile-frontend-main-menu-settings": "मांडणी",
+	"mobile-frontend-main-menu-watchlist": "निरीक्षणसूची",
+	"mobile-frontend-meta-data-issues": "पानाच्या समस्या",
+	"mobile-frontend-meta-data-issues-header": "समस्या",
+	"mobile-frontend-meta-data-issues-header-talk": "या पानाविषयी",
+	"mobile-frontend-meta-data-issues-talk": "या चर्चा पानाविषयी",
+	"mobile-frontend-pageaction-edit-tooltip": "या पानाचा प्रथम च्छेद संपादित करा",
+	"mobile-frontend-placeholder": "{{SITENAME}} शोधा",
+	"mobile-frontend-random-button": "अविशिष्ट",
+	"mobile-frontend-talk-back-to-page": "\"$1\" पानाकडे परत चला.",
+	"mobile-frontend-user-page-contributions": "योगदाने",
+	"mobile-frontend-user-page-member-since": "$1 पासूनचा {{GENDER:$2|सदस्य}}",
+	"mobile-frontend-user-page-talk": "चर्चा करा",
+	"mobile-frontend-user-page-uploads": "अपभारणे"
+}

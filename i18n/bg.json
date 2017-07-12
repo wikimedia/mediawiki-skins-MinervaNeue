@@ -1,8 +1,31 @@
 {
 	"@metadata": {
-		"authors": [
-			"StanProg"
-		]
+		"authors": []
 	},
-	"minerva-neue-skin-desc": "Отзивчив и мощен облик базиран на JavaScript, използван в мобилните проекти на Уикимедия"
+	"mobile-frontend-editor-cta": "Помогнете за подобряването на тази страница!",
+	"mobile-frontend-editor-disabled": "Тази страница е защитена с цел предотвратяване на вандализъм.",
+	"mobile-frontend-editor-edit": "Редактиране",
+	"mobile-frontend-editor-redlink-create": "Създаване на страница",
+	"mobile-frontend-editor-redlink-explain": "Тази страница все още не е създадена.",
+	"mobile-frontend-editor-redlink-leave": "Не, благодаря.",
+	"mobile-frontend-editor-tutorial-cancel": "Не, благодаря",
+	"mobile-frontend-editor-tutorial-confirm": "Започнете да редактирате",
+	"mobile-frontend-history": "Вижте историята на тази страница.",
+	"mobile-frontend-home-button": "Начало",
+	"mobile-frontend-language-article-heading": "Прочитане на друг език",
+	"mobile-frontend-language-change": "Промяна на езика",
+	"mobile-frontend-main-menu-button-tooltip": "Отвори главното меню",
+	"mobile-frontend-main-menu-contributions": "Приноси",
+	"mobile-frontend-main-menu-login": "Влизане",
+	"mobile-frontend-main-menu-logout": "Излизане",
+	"mobile-frontend-main-menu-nearby": "Наблизо",
+	"mobile-frontend-main-menu-settings": "Настройки",
+	"mobile-frontend-main-menu-watchlist": "Списък за наблюдение",
+	"mobile-frontend-pageaction-edit-tooltip": "Редактиране на водещия раздел на страницата.",
+	"mobile-frontend-placeholder": "Търсене в {{SITENAME}}",
+	"mobile-frontend-random-button": "Случайна",
+	"mobile-frontend-user-page-contributions": "Приноси",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Член}} от $1",
+	"mobile-frontend-user-page-talk": "Беседа",
+	"mobile-frontend-user-page-uploads": "Kачвания"
 }

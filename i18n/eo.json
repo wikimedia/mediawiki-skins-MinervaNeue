@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Redakti",
+	"mobile-frontend-editor-tutorial-cancel": "Ne, dankon",
+	"mobile-frontend-home-button": "Ĉefpaĝo",
+	"mobile-frontend-language-article-heading": "Legi en alia lingvo",
+	"mobile-frontend-language-change": "Ŝanĝi lingvon",
+	"mobile-frontend-main-menu-button-tooltip": "Malfermi ĉefmenuon",
+	"mobile-frontend-main-menu-contributions": "Kontribuoj",
+	"mobile-frontend-main-menu-login": "Ensaluti",
+	"mobile-frontend-main-menu-logout": "Elsaluti",
+	"mobile-frontend-main-menu-nearby": "Ĉirkaŭe",
+	"mobile-frontend-main-menu-settings": "Agordoj",
+	"mobile-frontend-main-menu-watchlist": "Atentaro",
+	"mobile-frontend-meta-data-issues": "Problemoj pri paĝo",
+	"mobile-frontend-meta-data-issues-header": "Problemoj",
+	"mobile-frontend-pageaction-edit-tooltip": "Redakti la unuan sekcion de ĉi tiu paĝo.",
+	"mobile-frontend-placeholder": "Serĉi tra {{SITENAME}}",
+	"mobile-frontend-random-button": "Hazarde"
+}

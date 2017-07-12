@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-cta": "ГӀодеша хӀара агӀо дика ян!",
+	"mobile-frontend-editor-edit": "Нисъе",
+	"mobile-frontend-editor-redlink-create": "АгӀо кхолла",
+	"mobile-frontend-editor-redlink-leave": "ХӀахӀа, баркалла",
+	"mobile-frontend-editor-tutorial-cancel": "ХӀахӀа, баркалла",
+	"mobile-frontend-editor-tutorial-confirm": "Доладе тадар",
+	"mobile-frontend-history": "ХӀокху агӀона исторега хьажар.",
+	"mobile-frontend-home-button": "ЦӀехьа",
+	"mobile-frontend-language-article-heading": "Еша кхечу маттахь",
+	"mobile-frontend-main-menu-button-tooltip": "Коьрта меню схьаелла",
+	"mobile-frontend-main-menu-login": "Системин довзийтар",
+	"mobile-frontend-main-menu-logout": "Болх дӀаберзор",
+	"mobile-frontend-main-menu-nearby": "Уллехь",
+	"mobile-frontend-main-menu-settings": "Параметраш",
+	"mobile-frontend-main-menu-watchlist": "Тергаме могӀам",
+	"mobile-frontend-meta-data-issues": "АгӀонгахь долу хаттарш",
+	"mobile-frontend-meta-data-issues-header": "Хаттарш",
+	"mobile-frontend-meta-data-issues-header-talk": "ХӀокху агӀонах лаьцна",
+	"mobile-frontend-meta-data-issues-talk": "ХӀокху дийцаре агӀонах лаьцна",
+	"mobile-frontend-placeholder": "{{grammar:prepositional|{{SITENAME}}}} чухула леха",
+	"mobile-frontend-random-button": "Нисделларг",
+	"mobile-frontend-talk-back-to-page": "Юха гӀо «$1» агӀонг.",
+	"mobile-frontend-user-newmessages": "Хьан дийцаре агӀонгахь керла хаамаш бу",
+	"mobile-frontend-user-page-contributions": "Къинхьегам",
+	"mobile-frontend-user-page-talk": "Дийцаре",
+	"mobile-frontend-user-page-uploads": "Чуйяьккхина"
+}

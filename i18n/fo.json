@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Rætta",
+	"mobile-frontend-editor-tutorial-confirm": "Byrja við at skriva",
+	"mobile-frontend-home-button": "Heim",
+	"mobile-frontend-language-article-heading": "Les á øðrum máli",
+	"mobile-frontend-main-menu-button-tooltip": "Lat upp høvuðsmeny",
+	"mobile-frontend-main-menu-login": "Rita inn",
+	"mobile-frontend-main-menu-logout": "Rita út",
+	"mobile-frontend-main-menu-nearby": "Tætt við",
+	"mobile-frontend-main-menu-settings": "Innstillingar",
+	"mobile-frontend-main-menu-watchlist": "Eftirlitslisti",
+	"mobile-frontend-meta-data-issues": "Henda síðan hevur nakrar trupulleikar",
+	"mobile-frontend-meta-data-issues-header": "Trupulleikar",
+	"mobile-frontend-pageaction-edit-tooltip": "Rætta inngangin til hesa síðuna.",
+	"mobile-frontend-placeholder": "Leita á {{SITENAME}}",
+	"mobile-frontend-random-button": "Tilvildarlig"
+}

@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Үзгәртү",
+	"mobile-frontend-history": "Әлеге битнең үзгәртүләр тарихын карау.",
+	"mobile-frontend-home-button": "Баш биткә",
+	"mobile-frontend-language-article-heading": "Башка телдә уку",
+	"mobile-frontend-main-menu-button-tooltip": "Төп менюны ачу",
+	"mobile-frontend-main-menu-login": "Керү",
+	"mobile-frontend-main-menu-logout": "Чыгу",
+	"mobile-frontend-main-menu-nearby": "Якында",
+	"mobile-frontend-main-menu-settings": "Көйләнмәләр",
+	"mobile-frontend-main-menu-watchlist": "Күзәтү исемлегем",
+	"mobile-frontend-pageaction-edit-tooltip": "Битнең алдынгы өлешен үзгәртү.",
+	"mobile-frontend-placeholder": "{{SITENAME}} эчендә эзләү",
+	"mobile-frontend-random-button": "Очраклы",
+	"mobile-frontend-user-newmessages": "Сезнең бәхәс битегездә яңа хатлар бар",
+	"mobile-frontend-user-page-uploads": "Йөкләүләр"
+}

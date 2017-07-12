@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-cta": "Palīdziet uzlabot šo lapu",
+	"mobile-frontend-editor-disabled": "Šī lapa ir aizsargāta, lai novērstu vandalismu.",
+	"mobile-frontend-editor-edit": "Labot",
+	"mobile-frontend-editor-redlink-create": "Izveidot lapu",
+	"mobile-frontend-editor-redlink-leave": "Nē, paldies",
+	"mobile-frontend-editor-tutorial-cancel": "Nē, paldies",
+	"mobile-frontend-editor-tutorial-confirm": "Sākt labošanu",
+	"mobile-frontend-history": "Apskatīt šīs lapas labojumu vēsturi",
+	"mobile-frontend-home-button": "Sākumlapa",
+	"mobile-frontend-language-article-heading": "Lasīt citā valodā",
+	"mobile-frontend-language-change": "Mainīt valodu",
+	"mobile-frontend-main-menu-button-tooltip": "Atvērt galveno izvēlni",
+	"mobile-frontend-main-menu-login": "Pieslēgties",
+	"mobile-frontend-main-menu-logout": "Iziet",
+	"mobile-frontend-main-menu-nearby": "Tuvumā",
+	"mobile-frontend-main-menu-settings": "Iestatījumi",
+	"mobile-frontend-main-menu-watchlist": "Uzraugāmie raksti",
+	"mobile-frontend-meta-data-issues": "Lapas problēmas",
+	"mobile-frontend-meta-data-issues-categories": "Par šo kategoriju",
+	"mobile-frontend-meta-data-issues-header": "Problēmas",
+	"mobile-frontend-meta-data-issues-header-talk": "Par šo lapu",
+	"mobile-frontend-meta-data-issues-talk": "Par šo diskusiju lapu",
+	"mobile-frontend-pageaction-edit-tooltip": "Labot šīs lapas ievadsadaļu.",
+	"mobile-frontend-placeholder": "Meklēt {{SITENAME}}",
+	"mobile-frontend-random-button": "Nejaušs raksts",
+	"mobile-frontend-user-page-talk": "Diskusija",
+	"mobile-frontend-user-page-uploads": "Augšupielādes"
+}

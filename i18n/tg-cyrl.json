@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Вироиш",
+	"mobile-frontend-home-button": "Хона",
+	"mobile-frontend-main-menu-login": "Вуруд",
+	"mobile-frontend-main-menu-nearby": "Наздикӣ",
+	"mobile-frontend-main-menu-settings": "Танзимот",
+	"mobile-frontend-pageaction-edit-tooltip": "Қисмати асосии ин саҳифаро вироиш кунед.",
+	"mobile-frontend-placeholder": "Ҷустуҷӯ дар {{SITENAME}}",
+	"mobile-frontend-random-button": "Тасодуфӣ"
+}

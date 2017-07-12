@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Biguherîne",
+	"mobile-frontend-editor-redlink-create": "Rûpelekê çêke",
+	"mobile-frontend-editor-redlink-leave": "Na, spas.",
+	"mobile-frontend-editor-tutorial-cancel": "Na, spas",
+	"mobile-frontend-editor-tutorial-confirm": "Dest bi guherandinê bike",
+	"mobile-frontend-history": "Dîroka guherandina vê rûpelê bibîne.",
+	"mobile-frontend-home-button": "Destpêk",
+	"mobile-frontend-language-article-heading": "Di zimanên din de bixwîne",
+	"mobile-frontend-language-change": "Ziman biguherîne",
+	"mobile-frontend-languages-not-available": "Ev rûpel bi zimanên din de tune ye.",
+	"mobile-frontend-main-menu-contributions": "Beşdarî",
+	"mobile-frontend-main-menu-login": "Têkeve",
+	"mobile-frontend-main-menu-logout": "Derkeve",
+	"mobile-frontend-main-menu-settings": "Eyar",
+	"mobile-frontend-main-menu-watchlist": "Lîsteya şopandinê",
+	"mobile-frontend-meta-data-issues-categories": "Di derbarê vê kategoriyê de",
+	"mobile-frontend-meta-data-issues-header-talk": "Di derbarê vê rûpelê de",
+	"mobile-frontend-meta-data-issues-talk": "Di derbarê vê rûpela gotûbêjê de",
+	"mobile-frontend-placeholder": "Li ser {{SITENAME}} bigere",
+	"mobile-frontend-random-button": "Ketober",
+	"mobile-frontend-talk-back-to-filepage": "Vegere dosyeya \"$1\".",
+	"mobile-frontend-talk-back-to-page": "Vegere rûpela \"$1\".",
+	"mobile-frontend-talk-back-to-projectpage": "Vegere rûpela projeya \"$1\".",
+	"mobile-frontend-user-page-contributions": "Beşdarî",
+	"mobile-frontend-user-page-member-since": "Ji $1an ve {{GENDER:$2|endam e}}",
+	"mobile-frontend-user-page-talk": "Gotûbêj",
+	"mobile-frontend-user-page-uploads": "Barkirin"
+}

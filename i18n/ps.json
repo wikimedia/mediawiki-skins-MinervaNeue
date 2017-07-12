@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "سمول",
+	"mobile-frontend-editor-redlink-create": "مخ جوړول",
+	"mobile-frontend-editor-redlink-leave": "نه، مننه.",
+	"mobile-frontend-editor-tutorial-cancel": "نه مننه",
+	"mobile-frontend-history": "د دې مخ د سمون پېښليک کتل.",
+	"mobile-frontend-home-button": "کور",
+	"mobile-frontend-language-article-heading": "په بلې ژبې کې لوستل",
+	"mobile-frontend-language-change": "ژبه بدلول",
+	"mobile-frontend-main-menu-button-tooltip": "آرنۍ غورنۍ پرانيستل",
+	"mobile-frontend-main-menu-contributions": "ونډې",
+	"mobile-frontend-main-menu-login": "ننوتل",
+	"mobile-frontend-main-menu-logout": "وتل",
+	"mobile-frontend-main-menu-nearby": "نژدې",
+	"mobile-frontend-main-menu-settings": "امستنې",
+	"mobile-frontend-main-menu-watchlist": "کتنلړ",
+	"mobile-frontend-meta-data-issues": "د مخ ستونزې",
+	"mobile-frontend-meta-data-issues-categories": "د دې وېشنيزې په اړه",
+	"mobile-frontend-meta-data-issues-header-talk": "د دې مخ په اړه",
+	"mobile-frontend-pageaction-edit-tooltip": "د دې مخ د پيل برخه سمول.",
+	"mobile-frontend-placeholder": "{{SITENAME}} پلټل",
+	"mobile-frontend-random-button": "بېلابېل",
+	"mobile-frontend-user-page-contributions": "ونډې",
+	"mobile-frontend-user-page-talk": "خبرې اترې",
+	"mobile-frontend-user-page-uploads": "پورته کېدنې"
+}

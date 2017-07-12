@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-blocked-info-loggedin": "તમારા ખાતા પર {{GENDER:$2|$2}} એ $1 ને કારણે પ્રતિબંધ મુક્યો છે.",
+	"mobile-frontend-editor-cta": "આ પાનું સુધારવા મદદ!",
+	"mobile-frontend-editor-edit": "ફેરફાર કરો",
+	"mobile-frontend-editor-tutorial-cancel": "ના, આભાર",
+	"mobile-frontend-editor-tutorial-confirm": "ફેરફાર શરૂ કરો",
+	"mobile-frontend-editor-tutorial-summary": "આ $1 પાનું સુધારવા પ્રયાસ કરો.<br />માર્કઅપ થી ભયભીત ના થાઓ.",
+	"mobile-frontend-editor-unavailable": "મોબાઇલ સંપાદન તમારા બ્રાઉઝર પર હાલમાં ઉપલબ્ધ નથી. અલગ બ્રાઉઝર પ્રયાસ કરો.",
+	"mobile-frontend-editor-undo-unsupported": "પૂર્વવત હાલમાં મોબાઇલ ઉપકરણો પર આધારભૂત નથી.",
+	"mobile-frontend-editor-uploadenable": "સંપાદન સક્રિય કરવા માટે પ્રથમ એક ફોટો અપલોડ કરો.",
+	"mobile-frontend-home-button": "ઘર",
+	"mobile-frontend-language-article-heading": "અન્ય ભાષામાં વાંચો",
+	"mobile-frontend-main-menu-button-tooltip": "મુખ્ય મેનુ ખોલો",
+	"mobile-frontend-main-menu-login": "પ્રવેશ કરો",
+	"mobile-frontend-main-menu-logout": "પ્રસ્થાન",
+	"mobile-frontend-main-menu-nearby": "નજીકમાં",
+	"mobile-frontend-main-menu-settings": "ગોઠવણીઓ",
+	"mobile-frontend-main-menu-watchlist": "ધ્યાનસૂચિ",
+	"mobile-frontend-meta-data-issues-header": "ખરાબી",
+	"mobile-frontend-meta-data-issues-header-talk": "આ પાનાં વિષે",
+	"mobile-frontend-pageaction-edit-tooltip": "પૃષ્ઠના શરૂઆતના વિભાગમાં ફેરફાર કરો.",
+	"mobile-frontend-placeholder": "{{SITENAME}} શોધો",
+	"mobile-frontend-random-button": "ગમે તે",
+	"mobile-frontend-user-page-talk": "ચર્ચા"
+}

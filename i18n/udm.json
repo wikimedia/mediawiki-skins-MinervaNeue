@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Тупатон",
+	"mobile-frontend-editor-tutorial-confirm": "Тупатыны кутсконо",
+	"mobile-frontend-home-button": "Доре",
+	"mobile-frontend-language-article-heading": "Мукет кылын лыдӟыны",
+	"mobile-frontend-main-menu-button-tooltip": "Валтӥсь меню усьтыны",
+	"mobile-frontend-main-menu-login": "Пырыны",
+	"mobile-frontend-main-menu-logout": "Потыны",
+	"mobile-frontend-main-menu-nearby": "Матысьёсыз",
+	"mobile-frontend-main-menu-settings": "Настройкаос",
+	"mobile-frontend-main-menu-watchlist": "Чаклан список",
+	"mobile-frontend-pageaction-edit-tooltip": "Та бамлэсь валтӥсь люкетсэ тупатыны.",
+	"mobile-frontend-placeholder": "Утчано {{SITENAME}}",
+	"mobile-frontend-random-button": "Олокыӵе"
+}

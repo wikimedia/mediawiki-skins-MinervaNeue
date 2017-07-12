@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Upraviť",
+	"mobile-frontend-history": "Zobraziť históriu úprav tejto stránky.",
+	"mobile-frontend-home-button": "Hlavná stránka",
+	"mobile-frontend-language-article-heading": "Čítať v inom jazyku",
+	"mobile-frontend-language-change": "Zmeniť jazyk",
+	"mobile-frontend-main-menu-button-tooltip": "Otvoriť hlavné menu",
+	"mobile-frontend-main-menu-login": "Prihlásiť sa",
+	"mobile-frontend-main-menu-logout": "Odhlásiť sa",
+	"mobile-frontend-main-menu-nearby": "V blízkosti",
+	"mobile-frontend-main-menu-settings": "Nastavenia",
+	"mobile-frontend-main-menu-watchlist": "Sledované stránky",
+	"mobile-frontend-pageaction-edit-tooltip": "Upraviť úvodnú sekciu",
+	"mobile-frontend-placeholder": "Sem napíšte hľadaný výraz...",
+	"mobile-frontend-random-button": "Náhodná",
+	"mobile-frontend-user-newmessages": "Vo svojej diskusii máte nové správy",
+	"mobile-frontend-user-page-uploads": "Nahrané súbory"
+}

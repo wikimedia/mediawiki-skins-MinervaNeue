@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-cta": "Ika dapat nakalaog na tanganing makapagliwat nin mga pahina na magíwas.",
+	"mobile-frontend-editor-disabled": "Ika dae tabi pinagtutugutan na magliliwat kaining pahina.",
+	"mobile-frontend-editor-edit": "Liwaton",
+	"mobile-frontend-editor-uploadenable": "Pakikarga ngunang enot nin sarong ritrato tangani kang makakapagliwat.",
+	"mobile-frontend-home-button": "Ginikanan",
+	"mobile-frontend-language-article-heading": "Basahon sa ibang lengguwahe",
+	"mobile-frontend-main-menu-button-tooltip": "Bukasan an pangenot na hùyagan",
+	"mobile-frontend-main-menu-login": "Maglaog",
+	"mobile-frontend-main-menu-logout": "Magluwas",
+	"mobile-frontend-main-menu-nearby": "Haranihon",
+	"mobile-frontend-main-menu-settings": "Mga Panuytoy",
+	"mobile-frontend-main-menu-watchlist": "Bantay-listahan",
+	"mobile-frontend-meta-data-issues": "Mga isyu sa pahina",
+	"mobile-frontend-meta-data-issues-header": "Mga isyu",
+	"mobile-frontend-pageaction-edit-tooltip": "Liwata an pangenot na seksyon kaining pahina.",
+	"mobile-frontend-placeholder": "Hanápon an {{SITENAME}}",
+	"mobile-frontend-random-button": "Purak",
+	"mobile-frontend-user-newmessages": "Ika igwa nin baguhong mga mensahe sa saimong pahina nin orolayan."
+}

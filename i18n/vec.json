@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Modìfega",
+	"mobile-frontend-home-button": "Inissio",
+	"mobile-frontend-language-article-heading": "Lexe inte n'altra léngua",
+	"mobile-frontend-main-menu-button-tooltip": "Verxi el menu prinsipałe",
+	"mobile-frontend-main-menu-login": "Entra",
+	"mobile-frontend-main-menu-logout": "Và fora",
+	"mobile-frontend-main-menu-nearby": "Arente cuà",
+	"mobile-frontend-main-menu-settings": "Inpostasion",
+	"mobile-frontend-main-menu-watchlist": "Pàjine tegnùe d'ocio",
+	"mobile-frontend-meta-data-issues": "Sta pàjina ła ga calche problema",
+	"mobile-frontend-meta-data-issues-header": "Anomałie",
+	"mobile-frontend-pageaction-edit-tooltip": "Modifica la prima sezion de sta pagina.",
+	"mobile-frontend-placeholder": "Serca drento de {{SITENAME}}",
+	"mobile-frontend-random-button": "A caso"
+}

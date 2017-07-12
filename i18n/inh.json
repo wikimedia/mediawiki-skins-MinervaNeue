@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Нийсде",
+	"mobile-frontend-home-button": "ЦӀенга",
+	"mobile-frontend-language-article-heading": "Дéша кхыча меттала",
+	"mobile-frontend-main-menu-button-tooltip": "Хьаела кертера меню",
+	"mobile-frontend-main-menu-login": "Чувала/яла",
+	"mobile-frontend-main-menu-nearby": "Уллув",
+	"mobile-frontend-main-menu-settings": "ГIирсаш тоаяраш",
+	"mobile-frontend-main-menu-watchlist": "Зем бара хьаязъяьр",
+	"mobile-frontend-pageaction-edit-tooltip": "Хувца укх оагIона хьалхале леладу дакъа",
+	"mobile-frontend-placeholder": "Хьалáха {{grammar:prepositional|{{SITENAME}}}} чу",
+	"mobile-frontend-random-button": "Ца ховш нийсъенна"
+}

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "cangia",
+	"mobile-frontend-home-button": "Paggina prinçipâ",
+	"mobile-frontend-language-article-heading": "Lezi inte n'atra lengua",
+	"mobile-frontend-main-menu-button-tooltip": "Arvi o menù prinçipâ",
+	"mobile-frontend-main-menu-login": "Intra",
+	"mobile-frontend-main-menu-nearby": "Vexin",
+	"mobile-frontend-main-menu-settings": "Impostassioin",
+	"mobile-frontend-main-menu-watchlist": "Sotta oservaçion",
+	"mobile-frontend-pageaction-edit-tooltip": "Modiffica a primma seçion de sta paggina.",
+	"mobile-frontend-placeholder": "Çerca {{SITENAME}}",
+	"mobile-frontend-random-button": "Una paggina a brettio"
+}

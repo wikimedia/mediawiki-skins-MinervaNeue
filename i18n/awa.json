@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "सम्पादन",
+	"mobile-frontend-home-button": "घर",
+	"mobile-frontend-language-article-heading": "दुसरे भाषा में पढा जाय",
+	"mobile-frontend-main-menu-button-tooltip": "मुख्य मेनू खोला जाय",
+	"mobile-frontend-main-menu-login": "लॉग इन करा जाय",
+	"mobile-frontend-main-menu-nearby": "नजदिक में",
+	"mobile-frontend-main-menu-settings": "सेटिङ्ग",
+	"mobile-frontend-main-menu-watchlist": "अवलोकन सुची",
+	"mobile-frontend-pageaction-edit-tooltip": "इ पन्ना कय भूमिका सम्पादित करा जाय।",
+	"mobile-frontend-placeholder": "{{SITENAME}} में खोजा जाय",
+	"mobile-frontend-random-button": "कवनो भी एक"
+}

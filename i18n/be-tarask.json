@@ -1,8 +1,21 @@
 {
 	"@metadata": {
-		"authors": [
-			"Red Winged Duck"
-		]
+		"authors": []
 	},
-	"minerva-neue-skin-desc": "Хуткадзейная і магутная тэма афармленьня, заснаваная на JavaScript, якая выкарыстоўваецца ў мабільных праектах «Вікімэдыі»"
+	"mobile-frontend-console-recruit": "\\o/ Гэй! Гэта праграмнае забесьпячэньне з адкрытым кодам і нам патрэбныя добраахвотнікі, каб дапамагчы яго ўдасканаліць, зрабіць яго лепш і выправіць любыя памылкі, якія вы можаце бачыць у гэтай кансолі JavaScript!\n\nВы можаце знайсьці наш сьпіс «што зрабіць» @ https://phabricator.wikimedia.org/project/profile/67/",
+	"mobile-frontend-editor-edit": "Рэдагаваць",
+	"mobile-frontend-history": "Праглядзець гісторыю зьменаў гэтай старонкі.",
+	"mobile-frontend-home-button": "Дадому",
+	"mobile-frontend-language-article-heading": "Чытаць на іншай мове",
+	"mobile-frontend-main-menu-button-tooltip": "Адкрыць галоўнае мэню",
+	"mobile-frontend-main-menu-login": "Увайсьці",
+	"mobile-frontend-main-menu-logout": "Выйсьці",
+	"mobile-frontend-main-menu-nearby": "Побач",
+	"mobile-frontend-main-menu-settings": "Налады",
+	"mobile-frontend-main-menu-watchlist": "Сьпіс назіраньня",
+	"mobile-frontend-meta-data-issues": "Хібы старонкі",
+	"mobile-frontend-meta-data-issues-header": "Хібы",
+	"mobile-frontend-pageaction-edit-tooltip": "Рэдагаваць асноўны разьдзел гэтай старонкі.",
+	"mobile-frontend-placeholder": "Шукайце ў {{GRAMMAR:месны|{{SITENAME}}}}",
+	"mobile-frontend-random-button": "Выпадковая"
 }

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Redaktar",
+	"mobile-frontend-home-button": "Frontispico",
+	"mobile-frontend-language-article-heading": "Lektar en altra linguo.",
+	"mobile-frontend-main-menu-button-tooltip": "Apertar la precipua menuo",
+	"mobile-frontend-main-menu-login": "Enirar",
+	"mobile-frontend-main-menu-nearby": "Vicina",
+	"mobile-frontend-main-menu-settings": "Parametri",
+	"mobile-frontend-main-menu-watchlist": "Surveyo-listo",
+	"mobile-frontend-pageaction-edit-tooltip": "Redaktar la precipua segmento de ica pagino.",
+	"mobile-frontend-placeholder": "Serchez en {{SITENAME}}",
+	"mobile-frontend-random-button": "Hazarde"
+}

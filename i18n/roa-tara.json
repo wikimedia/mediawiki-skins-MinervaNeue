@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Cange",
+	"mobile-frontend-home-button": "Cáse",
+	"mobile-frontend-language-article-heading": "Ligge jndr'à 'n'otra lènghe",
+	"mobile-frontend-main-menu-button-tooltip": "Iapre 'u menu prengepàle",
+	"mobile-frontend-main-menu-login": "Tràse",
+	"mobile-frontend-main-menu-logout": "Isse",
+	"mobile-frontend-main-menu-nearby": "Vicine a",
+	"mobile-frontend-main-menu-settings": "'Mbostaziune",
+	"mobile-frontend-main-menu-watchlist": "Pàggene condrollate",
+	"mobile-frontend-meta-data-issues-header": "Argominde",
+	"mobile-frontend-pageaction-edit-tooltip": "Cange 'a sezione prengepàle de sta pàgene.",
+	"mobile-frontend-placeholder": "Cirche {{SITENAME}}",
+	"mobile-frontend-random-button": "A uecchije"
+}

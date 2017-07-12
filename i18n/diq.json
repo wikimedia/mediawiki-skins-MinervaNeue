@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Bıvurne",
+	"mobile-frontend-editor-redlink-create": "Pele vıraze",
+	"mobile-frontend-editor-redlink-explain": "İn per hona nëvıraziya ya.",
+	"mobile-frontend-editor-redlink-leave": "Nê, teşekur.",
+	"mobile-frontend-editor-tutorial-cancel": "Nê, teşekur kenan",
+	"mobile-frontend-editor-tutorial-confirm": "Dest bıke vırnayış",
+	"mobile-frontend-home-button": "Keye",
+	"mobile-frontend-language-article-heading": "Yewbina zıwan de bıwane",
+	"mobile-frontend-language-change": "Zıwani bıvurne",
+	"mobile-frontend-main-menu-button-tooltip": "Menuyê bıngehi ake",
+	"mobile-frontend-main-menu-contributions": "İştıraki",
+	"mobile-frontend-main-menu-login": "Cı kewe",
+	"mobile-frontend-main-menu-logout": "Bıveciye",
+	"mobile-frontend-main-menu-nearby": "Nezdi ra",
+	"mobile-frontend-main-menu-settings": "Eyari",
+	"mobile-frontend-main-menu-watchlist": "Lista cıewniyayışi",
+	"mobile-frontend-meta-data-issues": "Mewzuy perer",
+	"mobile-frontend-meta-data-issues-categories": "Heqa ena kategori",
+	"mobile-frontend-meta-data-issues-header": "Meseley",
+	"mobile-frontend-meta-data-issues-header-talk": "Heqa na pele de",
+	"mobile-frontend-meta-data-issues-talk": "Heqa na pela werênayışi de",
+	"mobile-frontend-pageaction-edit-tooltip": "Cay dekewtena pela bıvurnê",
+	"mobile-frontend-placeholder": "{{SITENAME}} de cıgeyre",
+	"mobile-frontend-random-button": "Raştameye",
+	"mobile-frontend-user-page-contributions": "İştıraki",
+	"mobile-frontend-user-page-talk": "Vatış",
+	"mobile-frontend-user-page-uploads": "Barkerdışi"
+}

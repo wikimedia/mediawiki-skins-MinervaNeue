@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Editëjë",
+	"mobile-frontend-history": "Òbaczë historiã zjinaków ti starnë.",
+	"mobile-frontend-home-button": "Przédnô",
+	"mobile-frontend-language-article-heading": "Przeczëtôj w jinszim jãzëkù",
+	"mobile-frontend-main-menu-button-tooltip": "Òtemkni przédné menu",
+	"mobile-frontend-main-menu-login": "Wlogùjë mie",
+	"mobile-frontend-main-menu-logout": "Wëlogùj",
+	"mobile-frontend-main-menu-nearby": "W òkòlim",
+	"mobile-frontend-main-menu-settings": "Nastôwë",
+	"mobile-frontend-main-menu-watchlist": "Lësta ùzérónëch artiklów",
+	"mobile-frontend-pageaction-edit-tooltip": "Editëjë przédny dzél ti starnë",
+	"mobile-frontend-placeholder": "Szëkba {{GRAMMAR:B.lp|{{SITENAME}}}}",
+	"mobile-frontend-random-button": "Kawlowò"
+}

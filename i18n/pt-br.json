@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-cta": "Ajude a melhorar esta página!",
+	"mobile-frontend-editor-disabled": "Esta página está protegida para prevenir vandalismos.",
+	"mobile-frontend-editor-edit": "Editar",
+	"mobile-frontend-editor-redlink-leave": "Não, obrigado.",
+	"mobile-frontend-editor-tutorial-cancel": "Não, obrigado",
+	"mobile-frontend-editor-tutorial-confirm": "Começar a editar",
+	"mobile-frontend-editor-tutorial-summary": "Tente melhorar a página $1.<br />Não fique com medo de editar.",
+	"mobile-frontend-editor-unavailable": "Edições mobile não estão disponíveis para seu navegador. Por favor tente com outro navegador.",
+	"mobile-frontend-editor-undo-unsupported": "Desfazer não está disponível para dispositivos móveis.",
+	"mobile-frontend-history": "Ver o histórico de edição desta página",
+	"mobile-frontend-home-button": "Início",
+	"mobile-frontend-language-article-heading": "Ler em outro idioma",
+	"mobile-frontend-language-change": "Mudar idioma",
+	"mobile-frontend-languages-not-available": "Esta página não está disponível em outros idiomas.",
+	"mobile-frontend-main-menu-button-tooltip": "Abrir menu principal",
+	"mobile-frontend-main-menu-login": "Entrar",
+	"mobile-frontend-main-menu-logout": "Sair",
+	"mobile-frontend-main-menu-nearby": "Redondezas",
+	"mobile-frontend-main-menu-settings": "Configurações",
+	"mobile-frontend-main-menu-watchlist": "Páginas vigiadas",
+	"mobile-frontend-meta-data-issues": "Problemas da página",
+	"mobile-frontend-meta-data-issues-header": "Problemas",
+	"mobile-frontend-pageaction-edit-tooltip": "Editar introdução desta página.",
+	"mobile-frontend-placeholder": "Pesquisar {{SITENAME}}",
+	"mobile-frontend-random-button": "Aleatório",
+	"mobile-frontend-talk-back-to-page": "Retornar a página \"$1\".",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Membro}} desde $1"
+}

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Baguhin",
+	"mobile-frontend-home-button": "Tahanan",
+	"mobile-frontend-language-article-heading": "Basahin sa ibang wika",
+	"mobile-frontend-main-menu-button-tooltip": "Buksan ang pangunahing menu",
+	"mobile-frontend-main-menu-login": "Lumagda",
+	"mobile-frontend-main-menu-logout": "Umalis sa pagkaka-login",
+	"mobile-frontend-main-menu-nearby": "Kalapit",
+	"mobile-frontend-main-menu-settings": "Mga kagustuhan",
+	"mobile-frontend-main-menu-watchlist": "Talaan ng mga binabantayan",
+	"mobile-frontend-pageaction-edit-tooltip": "Baguhin ang unang seksiyon ng pahinang ito.",
+	"mobile-frontend-placeholder": "Maghanap sa {{SITENAME}}",
+	"mobile-frontend-random-button": "Alin man"
+}

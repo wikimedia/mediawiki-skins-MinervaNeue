@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-home-button": "Әсосә сәһифә",
+	"mobile-frontend-language-article-heading": "Co zıvınədə hande",
+	"mobile-frontend-main-menu-button-tooltip": "Əsas menü okə",
+	"mobile-frontend-main-menu-login": "Dəşi",
+	"mobile-frontend-main-menu-nearby": "Neziyədə",
+	"mobile-frontend-main-menu-settings": "Nizamon",
+	"mobile-frontend-main-menu-watchlist": "Çəşəvəno kardə siyohi",
+	"mobile-frontend-pageaction-edit-tooltip": "Çı səhifə sə sərost bıkə",
+	"mobile-frontend-placeholder": "{{SITENAME}} də nəve",
+	"mobile-frontend-random-button": "Рајрастә"
+}

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mobile-frontend-editor-edit": "Redaktə",
+	"mobile-frontend-history": "Bu səhifənin dəyişikliklər tarixinə bax",
+	"mobile-frontend-home-button": "Ana səhifə",
+	"mobile-frontend-language-article-heading": "Başqa dillərdə oxuyun",
+	"mobile-frontend-main-menu-button-tooltip": "Əsas menyunu aç",
+	"mobile-frontend-main-menu-login": "Daxil ol",
+	"mobile-frontend-main-menu-logout": "Çıxış",
+	"mobile-frontend-main-menu-nearby": "Yaxınlıqdakılar",
+	"mobile-frontend-main-menu-settings": "Nizamlamalar",
+	"mobile-frontend-main-menu-watchlist": "İzlədiyim səhifələr",
+	"mobile-frontend-placeholder": "{{SITENAME}} saytında axtarış",
+	"mobile-frontend-random-button": "Təsadüfi"
+}
