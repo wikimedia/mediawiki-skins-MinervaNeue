@@ -206,11 +206,15 @@ saveJSON(mfdir + '/extension.json', mfExtensionData)
 print('migrating i18n')
 for root, dirs, files in os.walk(mfdir + '/i18n/'):
     for language in files:
-        f = open(mfdir + '/i18n/' + language, 'r')
         try:
+            f = open('/i18n/' + language, 'r')
             newLanguageData = json.load(f, object_pairs_hook=OrderedDict)
-        except IOError:
-            newLanguageData = {}
+        except FileNotFoundError:
+            newLanguageData = {
+                "@metadata": {
+                    "authors": []
+                }
+            }
         f.close()
 
         f = open(mfdir + '/i18n/' + language, 'r')
