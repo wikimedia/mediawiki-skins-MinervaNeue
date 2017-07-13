@@ -1,0 +1,34 @@
+{
+	"--title": "MinervaNeue - Documentation",
+	"--output": "docs",
+	"--processes": "0",
+	"--warnings-exit-nonzero": true,
+	"--builtin-classes": true,
+	"--external": [
+		"Hogan.Template",
+		"HandleBars.Template",
+		"jQuery.Deferred",
+		"jQuery.Promise",
+		"jQuery.Event",
+		"jQuery.Object",
+		"jqXHR",
+		"View",
+		"Page",
+		"File",
+		"Router",
+		"MainMenu",
+		"mw.user",
+		"mw.Api",
+		"mw.ForeignApi",
+		"OO.ui.ToolGroup",
+		"OO.ui.Tool",
+		"OO.ui.mixin.LookupElement",
+		"OO.EventEmitter",
+		"ve.init.mw.MobileArticleTarget",
+		"mw.echo.dm.NotificationItem"
+	],
+	"--warnings": ["-nodoc(class,public)", "-dup_member", "-link_ambiguous"],
+	"--": [
+		"resources"
+	]
+}

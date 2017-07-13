@@ -31,7 +31,6 @@
 
 	OO.mfExtend( NotificationBadge, View, {
 		/**
-		 * @inheritdoc
 		 * @cfg {Object} defaults Default options hash.
 		 * @cfg {String} defaults.notificationIconClass e.g. mw-ui-icon for icon
 		 * @cfg {String} defaults.loadingIconHtml for spinner
@@ -45,9 +44,6 @@
 			hasUnseenNotifications: false,
 			notificationCount: 0
 		},
-		/**
-		 * @inheritdoc
-		 */
 		isBorderBox: false,
 		/**
 		 * Loads a ResourceLoader module script. Shows ajax loader whilst loading.
@@ -107,7 +103,6 @@
 				} );
 			} );
 		},
-		/** @inheritdoc */
 		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.hogan' ),
 		/**
 		 * Click handler for clicking on the badge

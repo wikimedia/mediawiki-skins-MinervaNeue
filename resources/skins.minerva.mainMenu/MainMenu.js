@@ -17,11 +17,8 @@
 	}
 
 	OO.mfExtend( MainMenu, View, {
-		/** @inheritdoc */
 		isTemplateMode: true,
-		/** @inheritdoc */
 		template: mw.template.get( 'skins.minerva.mainMenu', 'menu.hogan' ),
-		/** @inheritdoc */
 		templatePartials: {
 			menuGroup: mw.template.get( 'skins.minerva.mainMenu', 'menuGroup.hogan' )
 		},
@@ -51,7 +48,6 @@
 			} );
 		},
 		/**
-		 * @inheritdoc
 		 * Remove the nearby menu entry if the browser doesn't support geo location
 		 */
 		postRender: function () {
