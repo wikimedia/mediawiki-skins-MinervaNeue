@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Changiér",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Reçua",
 	"mobile-frontend-language-article-heading": "Liére dens n’ôtra lengoua",
+	"mobile-frontend-logged-in-homepage-notification": "Benvegnua, $1 !",
 	"mobile-frontend-main-menu-button-tooltip": "Uvrir lo menu principâl",
 	"mobile-frontend-main-menu-login": "Sè branchiér",
 	"mobile-frontend-main-menu-logout": "Sè dèbranchiér",

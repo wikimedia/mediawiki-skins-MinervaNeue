@@ -3,6 +3,7 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Bewirk",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Veurblaad",
 	"mobile-frontend-main-menu-login": "Aanmèlde",
 	"mobile-frontend-main-menu-nearby": "Kórtbie",

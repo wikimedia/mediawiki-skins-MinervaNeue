@@ -7,9 +7,11 @@
 	"mobile-frontend-editor-cta": "Hjelp til å betra denne sida!",
 	"mobile-frontend-editor-disabled": "Denne sida er verna for å motvirka hærverk.",
 	"mobile-frontend-editor-edit": "Endra",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Sjå endringshistorikken til sida.",
 	"mobile-frontend-home-button": "Heim",
 	"mobile-frontend-language-article-heading": "Les på eit anna språk",
+	"mobile-frontend-logged-in-homepage-notification": "Velkomen, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Opna hovudmenyen",
 	"mobile-frontend-main-menu-login": "Logg inn",
 	"mobile-frontend-main-menu-logout": "Logg ut",
@@ -21,5 +23,6 @@
 	"mobile-frontend-meta-data-issues-header": "Vanskar",
 	"mobile-frontend-pageaction-edit-tooltip": "Endre innleiinga til denne sida.",
 	"mobile-frontend-placeholder": "Søk i {{SITENAME}}",
-	"mobile-frontend-random-button": "Tilfeldig"
+	"mobile-frontend-random-button": "Tilfeldig",
+	"mobile-frontend-user-button-tooltip": "Vis meldingane mine"
 }

@@ -9,10 +9,12 @@
 	"mobile-frontend-editor-redlink-leave": "Nē, paldies",
 	"mobile-frontend-editor-tutorial-cancel": "Nē, paldies",
 	"mobile-frontend-editor-tutorial-confirm": "Sākt labošanu",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Apskatīt šīs lapas labojumu vēsturi",
 	"mobile-frontend-home-button": "Sākumlapa",
 	"mobile-frontend-language-article-heading": "Lasīt citā valodā",
 	"mobile-frontend-language-change": "Mainīt valodu",
+	"mobile-frontend-logged-in-homepage-notification": "Esi {{GENDER:$1|sveicināts|sveicināta}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Atvērt galveno izvēlni",
 	"mobile-frontend-main-menu-login": "Pieslēgties",
 	"mobile-frontend-main-menu-logout": "Iziet",
@@ -27,6 +29,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Labot šīs lapas ievadsadaļu.",
 	"mobile-frontend-placeholder": "Meklēt {{SITENAME}}",
 	"mobile-frontend-random-button": "Nejaušs raksts",
+	"mobile-frontend-user-button-tooltip": "Rādīt manus paziņojumus",
 	"mobile-frontend-user-page-talk": "Diskusija",
 	"mobile-frontend-user-page-uploads": "Augšupielādes"
 }

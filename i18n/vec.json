@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Modìfega",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Inissio",
 	"mobile-frontend-language-article-heading": "Lexe inte n'altra léngua",
+	"mobile-frontend-logged-in-homepage-notification": "Benvegnù, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Verxi el menu prinsipałe",
 	"mobile-frontend-main-menu-login": "Entra",
 	"mobile-frontend-main-menu-logout": "Và fora",

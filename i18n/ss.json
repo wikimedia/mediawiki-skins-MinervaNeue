@@ -2,5 +2,6 @@
 	"@metadata": {
 		"authors": []
 	},
+	"mobile-frontend-footer-sitename": "{{LIGAMALELISAYITI}}",
 	"mobile-frontend-home-button": "Ekhaya"
 }

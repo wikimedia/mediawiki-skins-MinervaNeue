@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "исправлѥниѥ",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "главьна страница",
 	"mobile-frontend-language-article-heading": "дроугꙑ ѩꙁꙑкꙑ",
+	"mobile-frontend-logged-in-homepage-notification": "добрѣ прити · $1!",
 	"mobile-frontend-main-menu-login": "въниди",
 	"mobile-frontend-main-menu-logout": "ис̾ходъ",
 	"mobile-frontend-main-menu-nearby": "блиꙁъ",

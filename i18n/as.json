@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "সম্পাদনা কৰক",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "বেটুপাত",
 	"mobile-frontend-language-article-heading": "অন্য ভাষাত পঢ়ক",
+	"mobile-frontend-logged-in-homepage-notification": "আদৰিছোঁ, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "মূল মেনু খোলক",
 	"mobile-frontend-main-menu-login": "প্ৰৱেশ",
 	"mobile-frontend-main-menu-logout": "প্ৰস্থান",

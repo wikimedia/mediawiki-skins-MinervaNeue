@@ -14,9 +14,11 @@
 	"mobile-frontend-editor-unavailable": "Шолғышыңызда мобайлмен өңдеу мүмкіндігі жоқ. Басқа шолғышпен қайта байқап көріңіз.",
 	"mobile-frontend-editor-undo-unsupported": "Қазіргі уақытта жоққа шығару мобиль құрылғыларда қолдамайды",
 	"mobile-frontend-editor-uploadenable": "Бірінші өңдеуді іске қосып барып сурет жүктеңіз.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Бұл беттің өңдеу тарихын қарау",
 	"mobile-frontend-home-button": "Басты бет",
 	"mobile-frontend-language-article-heading": "Басқа тілде оқу",
+	"mobile-frontend-logged-in-homepage-notification": "Қош келдіңіз, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Басты мәзірді ашу",
 	"mobile-frontend-main-menu-login": "Кіру",
 	"mobile-frontend-main-menu-logout": "Шығу",
@@ -34,6 +36,7 @@
 	"mobile-frontend-talk-back-to-filepage": " «$1» файлына қайту.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" бетін қайта қосу.",
 	"mobile-frontend-talk-back-to-projectpage": " «$1» жоба ьетіне қайту.",
+	"mobile-frontend-user-button-tooltip": "Мендегі ескертпелерді көрсет",
 	"mobile-frontend-user-newmessages": "Талқылау бетіңізде жаңа хабарлама бар",
 	"mobile-frontend-user-page-talk": "Талқылауы"
 }

@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Baguhin",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Tahanan",
 	"mobile-frontend-language-article-heading": "Basahin sa ibang wika",
+	"mobile-frontend-logged-in-homepage-notification": "Mabuhay, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Buksan ang pangunahing menu",
 	"mobile-frontend-main-menu-login": "Lumagda",
 	"mobile-frontend-main-menu-logout": "Umalis sa pagkaka-login",
@@ -13,5 +15,6 @@
 	"mobile-frontend-main-menu-watchlist": "Talaan ng mga binabantayan",
 	"mobile-frontend-pageaction-edit-tooltip": "Baguhin ang unang seksiyon ng pahinang ito.",
 	"mobile-frontend-placeholder": "Maghanap sa {{SITENAME}}",
-	"mobile-frontend-random-button": "Alin man"
+	"mobile-frontend-random-button": "Alin man",
+	"mobile-frontend-user-button-tooltip": "Ipakita ang aking mga notipikasyon."
 }

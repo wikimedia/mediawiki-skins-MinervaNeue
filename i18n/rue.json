@@ -3,6 +3,7 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Редагувати",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Домів",
 	"mobile-frontend-language-article-heading": "Читати іншою мовою",
 	"mobile-frontend-main-menu-button-tooltip": "Відкрити головне меню",

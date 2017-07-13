@@ -7,6 +7,7 @@
 	"mobile-frontend-history": "Глядзець гісторыю правак гэтай старонкі.",
 	"mobile-frontend-home-button": "Дадому",
 	"mobile-frontend-language-article-heading": "Чытаць на іншай мове",
+	"mobile-frontend-logged-in-homepage-notification": "Вітаем, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Адкрыць галоўнае меню",
 	"mobile-frontend-main-menu-login": "Увайсці",
 	"mobile-frontend-main-menu-logout": "Выйсці",
@@ -15,5 +16,6 @@
 	"mobile-frontend-main-menu-watchlist": "Спіс назірання",
 	"mobile-frontend-pageaction-edit-tooltip": "Правіць вядучы раздзел старонкі.",
 	"mobile-frontend-placeholder": "Шукаць у {{GRAMMAR:месны|{{SITENAME}}}}",
-	"mobile-frontend-random-button": "Выпадкова"
+	"mobile-frontend-random-button": "Выпадкова",
+	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленні"
 }

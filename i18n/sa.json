@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "सम्पाद्यताम्",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "मुखपृष्ठम्‌",
 	"mobile-frontend-language-article-heading": "अन्यभाषया पठ्यताम्",
+	"mobile-frontend-logged-in-homepage-notification": "स्वागतम्, $1 !",
 	"mobile-frontend-main-menu-button-tooltip": "प्रमुखा विकल्पसूचिः उद्घाट्यताम्",
 	"mobile-frontend-main-menu-login": "प्रविश्यताम्",
 	"mobile-frontend-main-menu-logout": "निर्गम्यताम्",

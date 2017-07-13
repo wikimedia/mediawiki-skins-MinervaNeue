@@ -17,9 +17,11 @@
 	"mobile-frontend-editor-unavailable": "മൊബൈലുപയോഗിച്ചുള്ള തിരുത്തൽ ഇപ്പോൾ താങ്കളുടെ ബ്രൗസറിൽ ലഭ്യമല്ല. ദയവായി മറ്റൊരു ബ്രൗസർ പരീക്ഷിക്കുക.",
 	"mobile-frontend-editor-undo-unsupported": "മൊബൈൽ ഉപകരണങ്ങളിൽ തിരസ്കരിക്കൽ പിന്തുണയ്ക്കുന്നില്ല.",
 	"mobile-frontend-editor-uploadenable": "തിരുത്തൽ സജ്ജമാക്കാനായി ആദ്യം ഒരു ചിത്രം അപ്‌ലോഡ് ചെയ്യുക.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "ഈ താളിന്റെ തിരുത്തൽ നാൾവഴി കാണുക.",
 	"mobile-frontend-home-button": "പ്രധാനം",
 	"mobile-frontend-language-article-heading": "മറ്റൊരു ഭാഷയിൽ വായിക്കുക",
+	"mobile-frontend-logged-in-homepage-notification": "സ്വാഗതം, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "പ്രധാന മെനു തുറക്കുക",
 	"mobile-frontend-main-menu-login": "പ്രവേശിക്കുക",
 	"mobile-frontend-main-menu-logout": "ലോഗൗട്ട്",
@@ -38,5 +40,6 @@
 	"mobile-frontend-talk-back-to-page": "\"$1\" താളിലേക്ക് മടങ്ങുക.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" എന്ന പദ്ധതി താളിലേക്ക് മടങ്ങുക.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" എന്ന ഉപയോക്തൃതാളിലേക്ക് മടങ്ങുക.",
+	"mobile-frontend-user-button-tooltip": "എനിക്കുള്ള അറിയിപ്പുകൾ പ്രദർശിപ്പിക്കുക",
 	"mobile-frontend-user-newmessages": "താങ്കൾക്ക് താങ്കളുടെ സംവാദത്താളിൽ സന്ദേശങ്ങളുണ്ട്"
 }

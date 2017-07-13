@@ -14,9 +14,11 @@
 	"mobile-frontend-editor-tutorial-summary": "Prøv at forbedre siden $1. Du skal ikke være bange for wikiteksten.",
 	"mobile-frontend-editor-unavailable": "Mobilredigering er i øjeblikket ikke tilgængelig på din browser. Prøv en anden browser.",
 	"mobile-frontend-editor-undo-unsupported": "Fortryd er i øjeblikket ikke understøttet på mobile enheder.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Se redigeringshistorik for denne side.",
 	"mobile-frontend-home-button": "Hjem",
 	"mobile-frontend-language-article-heading": "Læs på et andet sprog",
+	"mobile-frontend-logged-in-homepage-notification": "Velkommen, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Åbn hovedmenuen",
 	"mobile-frontend-main-menu-login": "Log på",
 	"mobile-frontend-main-menu-logout": "Log af",
@@ -34,5 +36,6 @@
 	"mobile-frontend-talk-back-to-page": "Tilbage til siden \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Tilbage til projektsiden \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "Tilbage til brugersiden for \"{{GENDER:$1|$1}}\".",
+	"mobile-frontend-user-button-tooltip": "Vis mine meddelelser",
 	"mobile-frontend-user-newmessages": "Du har nye beskeder på din diskussionsside"
 }

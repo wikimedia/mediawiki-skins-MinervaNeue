@@ -34,5 +34,6 @@
 	"mobile-frontend-talk-back-to-page": "بازگشت به وةڵگة «$1».",
 	"mobile-frontend-talk-back-to-projectpage": "بازگشت به وةڵگة پروژهٔ «$1».",
 	"mobile-frontend-talk-back-to-userpage": "بازگشت به وةڵگة  کاربةر «{{GENDER:$1|$1}}»",
+	"mobile-frontend-user-button-tooltip": "نمایش اعلان‌های من",
 	"mobile-frontend-user-newmessages": "پیغامةل تازة إ وةڵگة گةپ ووژتان درین"
 }
