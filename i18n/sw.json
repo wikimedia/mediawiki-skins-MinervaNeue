@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Mwanzo",
 	"mobile-frontend-main-menu-nearby": "Karibu",
 	"mobile-frontend-main-menu-settings": "Mpangilio",

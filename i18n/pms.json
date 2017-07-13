@@ -11,9 +11,11 @@
 	"mobile-frontend-editor-tutorial-summary": "Ch'a l'abia nen peur dë scrive. Ch'a serca d'amelioré la pàgina $1.",
 	"mobile-frontend-editor-unavailable": "La modìfica con un sacociàbil al moment a l'é nen disponìbil su sò navigador. Për piasì, ch'a preuva un navigador diferent.",
 	"mobile-frontend-editor-undo-unsupported": "Al moment l'anulament a l'é nen mantnù an sij terminaj sacociàbij.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Smon-e la stòria dle modìfiche ëd costa pàgina.",
 	"mobile-frontend-home-button": "Pàgina Prinsipal",
 	"mobile-frontend-language-article-heading": "Les an n'àutra lenga",
+	"mobile-frontend-logged-in-homepage-notification": "Bin ëvnù, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Duverté lë mnù prinsipal",
 	"mobile-frontend-main-menu-login": "Intra",
 	"mobile-frontend-main-menu-logout": "Seurte dal sistema",
@@ -25,5 +27,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Modifiché la session ëd trama ëd sa pàgina.",
 	"mobile-frontend-placeholder": "Sërca an {{SITENAME}}",
 	"mobile-frontend-random-button": "A cas",
-	"mobile-frontend-talk-back-to-page": "Torné a la pàgina «$1»."
+	"mobile-frontend-talk-back-to-page": "Torné a la pàgina «$1».",
+	"mobile-frontend-user-button-tooltip": "Smon-e mie notìfiche"
 }

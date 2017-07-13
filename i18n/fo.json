@@ -4,8 +4,10 @@
 	},
 	"mobile-frontend-editor-edit": "Rætta",
 	"mobile-frontend-editor-tutorial-confirm": "Byrja við at skriva",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Heim",
 	"mobile-frontend-language-article-heading": "Les á øðrum máli",
+	"mobile-frontend-logged-in-homepage-notification": "Vælkomin, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Lat upp høvuðsmeny",
 	"mobile-frontend-main-menu-login": "Rita inn",
 	"mobile-frontend-main-menu-logout": "Rita út",
@@ -16,5 +18,6 @@
 	"mobile-frontend-meta-data-issues-header": "Trupulleikar",
 	"mobile-frontend-pageaction-edit-tooltip": "Rætta inngangin til hesa síðuna.",
 	"mobile-frontend-placeholder": "Leita á {{SITENAME}}",
-	"mobile-frontend-random-button": "Tilvildarlig"
+	"mobile-frontend-random-button": "Tilvildarlig",
+	"mobile-frontend-user-button-tooltip": "Vís mínar fráboðanir"
 }

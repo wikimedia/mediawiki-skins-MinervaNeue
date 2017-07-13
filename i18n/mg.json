@@ -12,5 +12,6 @@
 	"mobile-frontend-main-menu-watchlist": "Pejy arahana",
 	"mobile-frontend-pageaction-edit-tooltip": "Hanova ny lohafizaran'ity pejy ity.",
 	"mobile-frontend-placeholder": "Karohina amin'i {{SITENAME}}",
-	"mobile-frontend-random-button": "Takelaka kisendra"
+	"mobile-frontend-random-button": "Takelaka kisendra",
+	"mobile-frontend-user-button-tooltip": "Aseho ny fampahafantarako"
 }

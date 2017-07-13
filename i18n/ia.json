@@ -11,9 +11,11 @@
 	"mobile-frontend-editor-tutorial-summary": "Tenta meliorar le pagina $1.<br />Non sia intimidate per le codice.",
 	"mobile-frontend-editor-unavailable": "Modificar in modo mobile non es actualmente possibile in tu navigator. Per favor proba un altere navigator.",
 	"mobile-frontend-editor-undo-unsupported": "Disfacer non es actualmente possibile con dispositivos mobile.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Vider le historia de modificationes de iste pagina.",
 	"mobile-frontend-home-button": "Initio",
 	"mobile-frontend-language-article-heading": "Leger in un altere lingua",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvenite}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Aperir le menu principal",
 	"mobile-frontend-main-menu-login": "Aperir session",
 	"mobile-frontend-main-menu-logout": "Clauder session",
@@ -25,5 +27,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Modificar le section introductori de iste pagina.",
 	"mobile-frontend-placeholder": "Cercar in {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatori",
-	"mobile-frontend-talk-back-to-page": "Retornar al pagina \"$1\"."
+	"mobile-frontend-talk-back-to-page": "Retornar al pagina \"$1\".",
+	"mobile-frontend-user-button-tooltip": "Monstrar mi notificationes"
 }

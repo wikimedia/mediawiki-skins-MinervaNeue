@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "แก้ไข",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "หน้าหลัก",
 	"mobile-frontend-language-article-heading": "อ่านในภาษาอื่น",
+	"mobile-frontend-logged-in-homepage-notification": "ยินดีต้อนรับ $1!",
 	"mobile-frontend-main-menu-button-tooltip": "เปิดรายการเลือกหลัก",
 	"mobile-frontend-main-menu-login": "ล็อกอิน",
 	"mobile-frontend-main-menu-logout": "ล็อกเอาต์",
@@ -13,5 +15,6 @@
 	"mobile-frontend-main-menu-watchlist": "รายการเฝ้าดู",
 	"mobile-frontend-pageaction-edit-tooltip": "แก้ไขส่วนนำของหน้านี้",
 	"mobile-frontend-placeholder": "ค้นหา{{SITENAME}}",
-	"mobile-frontend-random-button": "สุ่ม"
+	"mobile-frontend-random-button": "สุ่ม",
+	"mobile-frontend-user-button-tooltip": "แสดงประกาศของฉัน"
 }

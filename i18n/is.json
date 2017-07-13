@@ -15,9 +15,11 @@
 	"mobile-frontend-editor-unavailable": "Það er ekki stuðningur fyrir að gera breytingar í farsímanum með vafranum þínum. Prófaðu annan vafra.",
 	"mobile-frontend-editor-undo-unsupported": "Afturköllun er ekki aðgengileg í farsímaútgáfunni.",
 	"mobile-frontend-editor-uploadenable": "Hladdu upp mynd til að geta gert breytingar.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Skoða breytingarskrá síðunnar",
 	"mobile-frontend-home-button": "Forsíða",
 	"mobile-frontend-language-article-heading": "Lesa á öðru tungumáli",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Velkominn|Velkomin|Velkomin(n)}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Opna aðalvalmynd",
 	"mobile-frontend-main-menu-login": "Innskrá",
 	"mobile-frontend-main-menu-logout": "Útskrá",
@@ -36,5 +38,6 @@
 	"mobile-frontend-talk-back-to-page": "Fara aftur á síðuna „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Fara aftur á verkefnissíðu „$1“.",
 	"mobile-frontend-talk-back-to-userpage": "Fara aftur á notandasíðu „{{GENDER:$1|$1}}“.",
+	"mobile-frontend-user-button-tooltip": "Sýna tilkynningar mínar",
 	"mobile-frontend-user-newmessages": "Þú hefur ný skilaboð á spjallsíðunni þinni"
 }

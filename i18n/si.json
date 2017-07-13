@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "සංස්කරණය",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "මුල් පිටුව",
 	"mobile-frontend-language-article-heading": "වෙන භාෂාවකින් කියවන්න",
+	"mobile-frontend-logged-in-homepage-notification": "ආයුබෝවන්, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "ප්‍රධාන මෙනුව විවෘත කරන්න",
 	"mobile-frontend-main-menu-login": "පිවිසෙන්න",
 	"mobile-frontend-main-menu-logout": "නික්මීම",

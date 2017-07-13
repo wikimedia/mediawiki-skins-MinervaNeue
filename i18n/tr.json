@@ -17,10 +17,12 @@
 	"mobile-frontend-editor-unavailable": "Mobil düzenleme şu anda tarayıcınızda kullanılabilir değil. Lütfen farklı bir tarayıcıda deneyiniz.",
 	"mobile-frontend-editor-undo-unsupported": "Geri alma şu anda mobil cihazlarda desteklenmiyor.",
 	"mobile-frontend-editor-uploadenable": "Düzenlemeyi etkinleştirmek için lütfen önce bir fotoğraf yükleyin.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Bu sayfanın düzenleme geçmişini göster.",
 	"mobile-frontend-home-button": "Anasayfa",
 	"mobile-frontend-language-article-heading": "Başka dilde oku",
 	"mobile-frontend-languages-not-available": "Bu sayfa diğer dillerde bulunmamaktadır.",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Hoş geldin}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ana menüyü aç",
 	"mobile-frontend-main-menu-login": "Oturum aç",
 	"mobile-frontend-main-menu-logout": "Oturumu kapat",
@@ -39,5 +41,6 @@
 	"mobile-frontend-talk-back-to-page": "\"$1\" sayfasına geri dön.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" proje sayfasına dön.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" kullanıcı sayfasına dön.",
+	"mobile-frontend-user-button-tooltip": "Bildirimlerimi göster",
 	"mobile-frontend-user-newmessages": "Mesaj sayfanızda yeni mesajlar var"
 }

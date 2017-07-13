@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Chanjya",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Folen dre",
 	"mobile-frontend-language-article-heading": "Redya yn yeth aral",
+	"mobile-frontend-logged-in-homepage-notification": "Dynnargh, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ygeri an bennrol",
 	"mobile-frontend-main-menu-login": "Omgelmi",
 	"mobile-frontend-main-menu-logout": "Digelmi",
@@ -15,5 +17,6 @@
 	"mobile-frontend-meta-data-issues-header": "Kudynnow",
 	"mobile-frontend-pageaction-edit-tooltip": "Chanjya tregh penn an folen ma.",
 	"mobile-frontend-placeholder": "Hwilas {{SITENAME}}",
-	"mobile-frontend-random-button": "Dre happ"
+	"mobile-frontend-random-button": "Dre happ",
+	"mobile-frontend-user-button-tooltip": "Diskwedhes ow gwarnyansow"
 }

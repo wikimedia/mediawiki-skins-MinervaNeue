@@ -10,9 +10,11 @@
 	"mobile-frontend-editor-tutorial-summary": "Poskusite izboljšati stran $1.<br />Ne bojte se označevalnega jezika.",
 	"mobile-frontend-editor-unavailable": "Na vašem brskalniku mobilno urejanje trenutno ni mogoče. Poskusite z drugim brskalnikom.",
 	"mobile-frontend-editor-undo-unsupported": "Razveljavljanje trenutno ni podprto na mobilnih napravah.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Zgodovina urejanja te strani.",
 	"mobile-frontend-home-button": "Domov",
 	"mobile-frontend-language-article-heading": "Preberite v drugem jeziku",
+	"mobile-frontend-logged-in-homepage-notification": "$1, {{GENDER:$1|dobrodošel|dobrodošla}}!",
 	"mobile-frontend-main-menu-button-tooltip": "Odpre glavni meni",
 	"mobile-frontend-main-menu-login": "Prijava",
 	"mobile-frontend-main-menu-logout": "Odjava",
@@ -27,5 +29,6 @@
 	"mobile-frontend-placeholder": "Iskanje po {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Naključno",
 	"mobile-frontend-talk-back-to-page": "Vrnitev na stran »$1«.",
+	"mobile-frontend-user-button-tooltip": "Prikaži obvestila",
 	"mobile-frontend-user-page-uploads": "Nalaganja"
 }

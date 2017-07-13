@@ -3,8 +3,10 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Tahrirlash",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Boshiga",
 	"mobile-frontend-language-article-heading": "Boshqa tilda oʻqish",
+	"mobile-frontend-logged-in-homepage-notification": "Xush kelibsiz, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Bosh menuni och",
 	"mobile-frontend-main-menu-login": "Kirish",
 	"mobile-frontend-main-menu-logout": "Chiqish",

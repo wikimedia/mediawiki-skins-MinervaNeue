@@ -11,11 +11,13 @@
 	"mobile-frontend-editor-tutorial-summary": "Tente melhorar a página $1.<br />Não fique com medo de editar.",
 	"mobile-frontend-editor-unavailable": "Edições mobile não estão disponíveis para seu navegador. Por favor tente com outro navegador.",
 	"mobile-frontend-editor-undo-unsupported": "Desfazer não está disponível para dispositivos móveis.",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Ver o histórico de edição desta página",
 	"mobile-frontend-home-button": "Início",
 	"mobile-frontend-language-article-heading": "Ler em outro idioma",
 	"mobile-frontend-language-change": "Mudar idioma",
 	"mobile-frontend-languages-not-available": "Esta página não está disponível em outros idiomas.",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bem-vindo|Bem-vinda|Bem-vindo(a)}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Abrir menu principal",
 	"mobile-frontend-main-menu-login": "Entrar",
 	"mobile-frontend-main-menu-logout": "Sair",
@@ -28,5 +30,6 @@
 	"mobile-frontend-placeholder": "Pesquisar {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatório",
 	"mobile-frontend-talk-back-to-page": "Retornar a página \"$1\".",
+	"mobile-frontend-user-button-tooltip": "Mostrar minhas notificações",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Membro}} desde $1"
 }

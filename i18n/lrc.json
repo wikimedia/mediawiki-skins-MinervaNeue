@@ -10,9 +10,11 @@
 	"mobile-frontend-editor-tutorial-cancel": "نه منمون",
 	"mobile-frontend-editor-tutorial-confirm": "شرو د ویرایشت",
 	"mobile-frontend-editor-uploadenable": "لطف بکید سی یه که ویرایشت کردن کنشتگر با یه گل عسگ سوار بکید.",
+	"mobile-frontend-footer-sitename": "{{نوم سیلجا}}",
 	"mobile-frontend-history": "ویرگار ویرایشت ای بلگه نه.",
 	"mobile-frontend-home-button": "سرآسونه",
 	"mobile-frontend-language-article-heading": "د یه گل زون هنی بحون",
+	"mobile-frontend-logged-in-homepage-notification": "خوش اومايت،$1!",
 	"mobile-frontend-main-menu-button-tooltip": "نوم جاگه اصلی نه واز بکیت.",
 	"mobile-frontend-main-menu-login": "اومائن د سامونه",
 	"mobile-frontend-main-menu-logout": "د سيستم دراومائن",
@@ -30,5 +32,6 @@
 	"mobile-frontend-talk-back-to-filepage": "ؤرئشتن د جانیا \"$1\".",
 	"mobile-frontend-talk-back-to-page": "ؤرئشتن د بلگه \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "ؤرئشتن د بلگه کاریاری \"{{GENDER:$1|$1}}\".",
+	"mobile-frontend-user-button-tooltip": "نشو دئن وارسیاری یا مه",
 	"mobile-frontend-user-newmessages": "شما یه گل پیغوم تازه د بلگه چک چنه تو داریت"
 }

@@ -3,6 +3,7 @@
 		"authors": []
 	},
 	"mobile-frontend-editor-edit": "Хисизабизе",
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Рукъ",
 	"mobile-frontend-language-article-heading": "Цоги мацӀалда цӀализе",
 	"mobile-frontend-main-menu-button-tooltip": "Аслияб меню рагьизе",

@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": []
 	},
+	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Start",
 	"mobile-frontend-language-article-heading": "W drugej rěcy cytaś",
+	"mobile-frontend-logged-in-homepage-notification": "Witaj, $1",
 	"mobile-frontend-main-menu-button-tooltip": "Głowny meni wócyniś",
 	"mobile-frontend-main-menu-login": "Pśizjawiś",
 	"mobile-frontend-main-menu-logout": "Wótzjawiś",
