@@ -52,5 +52,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Joined}} $1",
 	"mobile-frontend-user-page-talk": "Talk",
 	"mobile-frontend-user-page-uploads": "Uploads",
-	"skinname-minerva": "Minerva"
+	"skinname-minerva": "Minerva",
+	"minerva-skin-desc": "A responsive mobile first skin."
 }
