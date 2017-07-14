@@ -1,8 +1,14 @@
 <?php
+
+namespace Tests\MediaWiki\Minerva;
+
 use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWikiTestCase;
+use Title;
+use IContextSource;
 
 /**
- * @group MobileFrontend
+ * @group MinervaNeue
  * @coversDefaultClass MediaWiki\Minerva\SkinUserPageHelper
  */
 class SkinUserPageHelperTest extends MediaWikiTestCase {

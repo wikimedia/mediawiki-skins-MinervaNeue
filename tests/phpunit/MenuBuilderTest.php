@@ -6,7 +6,7 @@ use MediaWiki\Minerva\MenuBuilder;
 use MediaWiki\Minerva\MenuEntry;
 
 /**
- * @group MobileFrontend
+ * @group MinervaNeue
  */
 class MenuTest extends \PHPUnit_Framework_TestCase {
 	private $homeComponent = [

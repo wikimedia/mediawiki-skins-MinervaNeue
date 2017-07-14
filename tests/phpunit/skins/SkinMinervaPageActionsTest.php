@@ -1,5 +1,13 @@
 <?php
 
+namespace Tests\MediaWiki\Minerva;
+
+use SkinMinerva;
+use MediaWikiTestCase;
+use Title;
+use RequestContext;
+use ContentHandler;
+
 // FIXME: That this class exists is an indicator that at least SkinMinerva#isAllowedPageAction
 // should be extracted from SkinMinerva.
 class TestSkinMinerva extends SkinMinerva {
@@ -21,7 +29,7 @@ class TestSkinMinerva extends SkinMinerva {
 }
 
 /**
- * @group MobileFrontend
+ * @group MinervaNeue
  */
 class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 

@@ -62,7 +62,7 @@ Given(/^my browser doesn't support JavaScript$/) do
 end
 
 Given(/^the "(.*?)" page is protected\.$/) do |page|
-  api.protect_page(page, 'MobileFrontend Selenium test protected this page')
+  api.protect_page(page, 'MinervaNeue Selenium test protected this page')
 end
 
 When(/^I click the browser back button$/) do

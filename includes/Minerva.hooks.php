@@ -5,8 +5,6 @@
 
 /**
  * Hook handlers for Minerva skin.
- * Hooks specific to all skins running in mobile mode should belong in
- * MobileFrontend.hooks.php
  *
  * Hook handler method names should be in the form of:
  *	on<HookName>()
@@ -38,7 +36,7 @@ class MinervaHooks {
 		$wgResourceLoaderLESSImportPaths[] = dirname( __DIR__ ) . "/minerva.less/";
 
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			die( 'This version of the MobileFrontend extension requires MediaWiki 1.25+' );
+			die( 'This version of the Minerva skin requires MobileFrontend' );
 		}
 		// Setup alias for compatibility with SkinMinervaNeue.
 		if ( !class_exists( 'SkinMinervaNeue' ) ) {
@@ -62,7 +60,7 @@ class MinervaHooks {
 				'skins.minerva.notifications.badge'
 			],
 			'localBasePath' => dirname( __DIR__ ),
-			'remoteExtPath' => 'MobileFrontend',
+			'remoteExtPath' => 'MinervaNeue',
 			'targets' => [ 'mobile', 'desktop' ],
 			'scripts' => [
 				'tests/qunit/skins.minerva.notifications.badge/test_NotificationBadge.js'
