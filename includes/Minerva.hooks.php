@@ -23,14 +23,10 @@ class MinervaHooks {
 	 * @param array &$lessVars Variables already added
 	 */
 	public static function onResourceLoaderGetLessVars( &$lessVars ) {
-		$config = MediaWikiServices::getInstance()->getService( 'ConfigFactory' )
+		$config = MediaWikiServices::getInstance()->getConfigFactory()
 			->makeConfig( 'minerva' );
 
-		$lessVars = array_merge( $lessVars,
-			[
-				'wgMinervaApplyKnownTemplateHacks' => "{$config->get( 'MinervaApplyKnownTemplateHacks' )}",
-			]
-		);
+		$lessVars['wgMinervaApplyKnownTemplateHacks'] = $config->get( 'MinervaApplyKnownTemplateHacks' );
 	}
 
 	/**
