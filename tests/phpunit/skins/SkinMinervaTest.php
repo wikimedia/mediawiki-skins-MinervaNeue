@@ -33,7 +33,7 @@ class EchoNotifUser {
 }
 
 /**
- * @coversDefaultClass  SkinMinerva
+ * @coversDefaultClass SkinMinerva
  * @group MobileFrontend
  */
 class SkinMinervaTest extends MediaWikiTestCase {
@@ -170,12 +170,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	public function testGetContextSpecificModules( $fontchangerValue, $backToTopValue,
 		$moduleName, $expected
 	) {
-		$skin = TestingAccessWrapper::newFromObject(
-			$this->getMockBuilder( SkinMinerva::class )
-				->disableOriginalConstructor()
-				->setMethods( [ 'getTitle' ] )
-				->getMock()
-		);
+		$skin = new SkinMinerva();
 		$title = Title::newFromText( 'Test' );
 		$testContext = RequestContext::getMain();
 		$testContext->setTitle( $title );
