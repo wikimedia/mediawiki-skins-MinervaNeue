@@ -177,10 +177,10 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				->getMock()
 		);
 		$title = Title::newFromText( 'Test' );
-		$skin->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+		$testContext = RequestContext::getMain();
+		$testContext->setTitle( $title );
 
+		$skin->setContext ( $testContext );
 		$skin->setSkinOptions( [
 			'fontChanger' => $fontchangerValue,
 			'backToTop' => $backToTopValue,
