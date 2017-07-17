@@ -175,7 +175,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$testContext = RequestContext::getMain();
 		$testContext->setTitle( $title );
 
-		$skin->setContext ( $testContext );
+		$skin->setContext( $testContext );
 		$skin->setSkinOptions( [
 			'fontChanger' => $fontchangerValue,
 			'backToTop' => $backToTopValue,
