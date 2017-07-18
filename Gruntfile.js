@@ -49,12 +49,13 @@ module.exports = function ( grunt ) {
 			all: [
 				'*.json',
 				'**/*.json',
+				'.stylelintrc',
 				'!node_modules/**'
 			]
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'eslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'jsonlint', 'banana', 'stylelint' ] );
 	grunt.registerTask( 'test', [ 'lint' ] );
 
 	grunt.registerTask( 'default', [ 'test' ] );
