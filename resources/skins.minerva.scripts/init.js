@@ -81,14 +81,20 @@
 	 * @return {jQuery.Deferred}
 	 */
 	function loadImageOverlay( title ) {
-		return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
-			var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' );
-			return new ImageOverlay( {
-				api: new mw.Api(),
-				thumbnails: thumbs,
-				title: decodeURIComponent( title )
+		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {
+			// This means MultimediaViewer has been installed and is loaded.
+			// Avoid loading it (T169622)
+			return $.Deferred().reject();
+		} else {
+			return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
+				var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' );
+				return new ImageOverlay( {
+					api: new mw.Api(),
+					thumbnails: thumbs,
+					title: decodeURIComponent( title )
+				} );
 			} );
-		} );
+		}
 	}
 
 	// Routes
