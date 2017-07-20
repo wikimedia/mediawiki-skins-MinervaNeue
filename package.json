@@ -1,9 +1,11 @@
 {
 	"private": true,
 	"scripts": {
-		"test": "grunt test && dev-scripts/svg_check.sh"
+		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
+		"doc": "jsduck"
 	},
 	"dependencies": {
+		"jsdoc": "3.4.2",
 		"svgo": ">=0.4.4"
 	},
 	"devDependencies": {
