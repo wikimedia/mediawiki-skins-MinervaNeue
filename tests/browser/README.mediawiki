@@ -7,7 +7,7 @@ Include the LocalSettings.php in this folder into your MediaWiki LocalSettings.p
 Note including this in a production instance is not advised given it fiddles with permissions.
 
 <pre>
-include_once "$IP/extensions/MobileFrontend/tests/browser/LocalSettings.php";
+include_once "$IP/skins/MinervaNeue/tests/browser/LocalSettings.php";
 </pre>
 
 Further tweaks may be necessary to run tests that are not tagged @integration:
@@ -18,11 +18,6 @@ Further tweaks may be necessary to run tests that are not tagged @integration:
 * Create an account and store the username in MEDIAWIKI_USER which has
 ** an edit count of greater than 0
 ** Ensure user has bureaucrat and admin rights (set via Special:UserRights)
-
-= MobileFrontend Extension =
-
-For general information about MobileFrontend Extension please see
-README.mediawiki file in the root of the repository.
 
 ==== Selenium tests ====
 
@@ -58,9 +53,9 @@ Tests that use steps that create pages (create_page_api_steps.rb) need to set
 the MEDIAWIKI_API_URL environment variable, e.g.
 export MEDIAWIKI_API_URL=http://en.wikipedia.beta.wmflabs.org/w/api.php
 
-Run the tests from the MobileFrontend directory with:
+Run the tests from the Minerva directory with:
 
-  make cucumber
+  bundle exec cucumber tests/browser/features
 
 If you want to run a single set of tests, go to the tests/browser directory and
 call 'bundle exec cucumber' with the path to the test file. For example, to run

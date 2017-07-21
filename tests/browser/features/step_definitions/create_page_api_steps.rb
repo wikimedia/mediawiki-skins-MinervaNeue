@@ -1,6 +1,6 @@
 # export MEDIAWIKI_API_URL = http://en.wikipedia.beta.wmflabs.org/w/api.php
 Given(/^I go to a page that has references$/) do
-  wikitext = "MobileFrontend is a MediaWiki extension.
+  wikitext = "MinervaNeue is a MediaWiki skin.
 {{#tag:ref|This is a note.<ref>This is a nested ref.</ref>|group=note}}
 ==Notes==
 <references group=note />

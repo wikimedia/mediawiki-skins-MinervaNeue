@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\MobileFrontend\Skins;
+namespace Tests\MediaWiki\Minerva;
 
 use MediaWikiTestCase;
 use MobileUI;
@@ -34,7 +34,7 @@ class EchoNotifUser {
 
 /**
  * @coversDefaultClass SkinMinerva
- * @group MobileFrontend
+ * @group MinervaNeue
  */
 class SkinMinervaTest extends MediaWikiTestCase {
 
