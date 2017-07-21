@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Kening Aldgilles",
+			"Robin van der Vliet"
+		]
 	},
 	"mobile-frontend-editor-edit": "Bewurkje",
 	"mobile-frontend-home-button": "Startside",

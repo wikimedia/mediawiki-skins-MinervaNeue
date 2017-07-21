@@ -1,7 +1,12 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"ChrisiPK",
+			"Kghbln",
+			"Metalhead64"
+		]
 	},
+	"minerva-talk-add-topic": "Diskussion hinzufügen",
 	"mobile-frontend-console-recruit": "\\o/ Hey! Dies ist Open-Source-Software und wir brauchen Freiwillige, um uns beim Erstellen dieser Sache zu unterstützen, sie besser zu machen und Fehler zu beheben, die du vielleicht in dieser JavaScript-Konsole gesehen hast!\n\nDu findest unser Backlog unter https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktiviere sie und versuche es erneut.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Dein Benutzerkonto ist für das Bearbeiten gesperrt. Die Sperre wurde von {{GENDER:$2|$2}} aus dem folgenden Grund durchgeführt: $1",
@@ -17,7 +22,6 @@
 	"mobile-frontend-editor-unavailable": "Das mobile Bearbeiten ist derzeit für deinen Browser nicht verfügbar. Bitte versuche einen anderen Browser.",
 	"mobile-frontend-editor-undo-unsupported": "Das Rückgängigmachen wird derzeit von mobilen Geräten nicht unterstützt.",
 	"mobile-frontend-editor-uploadenable": "Bitte lade zuerst ein Foto hoch, damit du die Seite bearbeiten kannst.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Die Versionsgeschichte dieser Seite ansehen.",
 	"mobile-frontend-home-button": "Start",
 	"mobile-frontend-language-article-heading": "In einer anderen Sprache lesen",
@@ -50,5 +54,6 @@
 	"mobile-frontend-user-page-contributions": "Beiträge",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Beigetreten}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
-	"mobile-frontend-user-page-uploads": "Hochgeladene Dateien"
+	"mobile-frontend-user-page-uploads": "Hochgeladene Dateien",
+	"minerva-skin-desc": "Eine ansprechende mobile Benutzeroberfläche."
 }

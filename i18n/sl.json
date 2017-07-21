@@ -1,16 +1,21 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Dbc334",
+			"Eleassar",
+			"Janezdrilc",
+			"Skalcaa",
+			"Yerpo"
+		]
 	},
 	"mobile-frontend-editor-cta": "Pomagajte izboljšati stran!",
 	"mobile-frontend-editor-disabled": "Stran je zaščitena zaradi preprečitve vandalizma.",
 	"mobile-frontend-editor-edit": "Uredi",
 	"mobile-frontend-editor-redlink-explain": "Stran še ni bila ustvarjena.",
-	"mobile-frontend-editor-tutorial-confirm": "Začetek urejanja",
+	"mobile-frontend-editor-tutorial-confirm": "Pričnite urejati",
 	"mobile-frontend-editor-tutorial-summary": "Poskusite izboljšati stran $1.<br />Ne bojte se označevalnega jezika.",
-	"mobile-frontend-editor-unavailable": "Na vašem brskalniku mobilno urejanje trenutno ni mogoče. Poskusite z drugim brskalnikom.",
+	"mobile-frontend-editor-unavailable": "Na vašem brskalniku mobilno urejanje trenutno ni na voljo. Poskusite z drugim brskalnikom.",
 	"mobile-frontend-editor-undo-unsupported": "Razveljavljanje trenutno ni podprto na mobilnih napravah.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Zgodovina urejanja te strani.",
 	"mobile-frontend-home-button": "Domov",
 	"mobile-frontend-language-article-heading": "Preberite v drugem jeziku",
@@ -22,13 +27,13 @@
 	"mobile-frontend-main-menu-settings": "Nastavitve",
 	"mobile-frontend-main-menu-watchlist": "Spisek nadzorov",
 	"mobile-frontend-meta-data-issues": "Težave strani",
-	"mobile-frontend-meta-data-issues-header": "Problemi",
+	"mobile-frontend-meta-data-issues-header": "Težave",
 	"mobile-frontend-meta-data-issues-header-talk": "O tej strani",
 	"mobile-frontend-meta-data-issues-talk": "O tej pogovorni strani",
 	"mobile-frontend-pageaction-edit-tooltip": "Uredi vodilni razdelek strani.",
 	"mobile-frontend-placeholder": "Iskanje po {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Naključno",
 	"mobile-frontend-talk-back-to-page": "Vrnitev na stran »$1«.",
-	"mobile-frontend-user-button-tooltip": "Prikaži obvestila",
+	"mobile-frontend-user-button-tooltip": "Prikaži moja obvestila",
 	"mobile-frontend-user-page-uploads": "Nalaganja"
 }

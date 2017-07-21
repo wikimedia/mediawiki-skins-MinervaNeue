@@ -1,8 +1,23 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"0x010C",
+			"DavidL",
+			"Gomoko",
+			"Jean-Frédéric",
+			"Louperivois",
+			"Macofe",
+			"Mattho69",
+			"Od1n",
+			"Orlodrim",
+			"Sherbrooke",
+			"Urhixidur",
+			"Weft",
+			"Wladek92"
+		]
 	},
-	"mobile-frontend-console-recruit": "\\o/ Hé ! Ceci est un logiciel développé en source ouverte et nous avons besoin de volontaires pour nous aider à le construire, l’améliorer et résoudre les anomalies que vous pourriez trouver dans cette console JavaScript !\n\nVous pouvez consulter notre journal de tâches à faire sur https://phabricator.wikimedia.org/project/view/67/",
+	"minerva-talk-add-topic": "Ajouter une discussion",
+	"mobile-frontend-console-recruit": "\\o/ Hé ! Ceci est un logiciel développé en source ouverte et nous avons besoin de volontaires pour nous aider à le construire, l’améliorer et résoudre les anomalies que vous pourriez trouver dans cette console JavaScript !\n\nVous pouvez consulter notre journal de tâches à faire sur https://phabricator.wikimedia.org/project/view/67/",
 	"mobile-frontend-cookies-required": "Les témoins (cookies) sont nécessaires pour basculer entre les modes d’affichage. Veuillez les autoriser et réessayer.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Votre compte est bloqué et ne peut faire de modifications. Le blocage a été mis en place par {{GENDER:$2|$2}} pour la raison suivante : $1",
 	"mobile-frontend-editor-cta": "Aidez à améliorer cette page !",
@@ -16,8 +31,7 @@
 	"mobile-frontend-editor-tutorial-summary": "Essayez d’améliorer la page $1.<br />N’ayez pas peur du balisage.",
 	"mobile-frontend-editor-unavailable": "La modification via mobile n’est actuellement pas disponible sur votre navigateur. Veuillez essayer un autre navigateur.",
 	"mobile-frontend-editor-undo-unsupported": "L’annulation n’est pour le moment pas prise en charge sur les terminaux mobiles.",
-	"mobile-frontend-editor-uploadenable": "Veuillez d’abord téléverser une photo pour autoriser la modification.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
+	"mobile-frontend-editor-uploadenable": "Veuillez d’abord télécharger une photo pour autoriser la modification.",
 	"mobile-frontend-history": "Afficher l’historique des modifications de cette page.",
 	"mobile-frontend-home-button": "Accueil",
 	"mobile-frontend-language-article-heading": "Lire dans une autre langue",
@@ -26,8 +40,8 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bienvenue}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ouvrir le menu principal",
 	"mobile-frontend-main-menu-contributions": "Contributions",
-	"mobile-frontend-main-menu-login": "Connectez-vous",
-	"mobile-frontend-main-menu-logout": "Se déconnecter",
+	"mobile-frontend-main-menu-login": "Connexion",
+	"mobile-frontend-main-menu-logout": "Déconnexion",
 	"mobile-frontend-main-menu-nearby": "À proximité",
 	"mobile-frontend-main-menu-settings": "Configuration",
 	"mobile-frontend-main-menu-watchlist": "Liste de suivi",
@@ -41,14 +55,15 @@
 	"mobile-frontend-placeholder": "Rechercher sur {{SITENAME}}",
 	"mobile-frontend-random-button": "Au hasard",
 	"mobile-frontend-redirected-from": "Redirigé depuis « $1 »",
-	"mobile-frontend-talk-back-to-filepage": "Retour au fichier \"$1\".",
+	"mobile-frontend-talk-back-to-filepage": "Retour au fichier « $1 ».",
 	"mobile-frontend-talk-back-to-page": "Revenir à la page « $1 ».",
-	"mobile-frontend-talk-back-to-projectpage": "Retour à la page du projet \"$1\".",
-	"mobile-frontend-talk-back-to-userpage": "Retour à la page utilisateur de \"{{GENDER:$1|$1}}\".",
+	"mobile-frontend-talk-back-to-projectpage": "Retour à la page du projet « $1 ».",
+	"mobile-frontend-talk-back-to-userpage": "Retour à la page utilisateur de « {{GENDER:$1|$1}} ».",
 	"mobile-frontend-user-button-tooltip": "Afficher mes notifications",
 	"mobile-frontend-user-newmessages": "Vous avez de nouveaux messages sur votre page de discussion",
 	"mobile-frontend-user-page-contributions": "Contributions",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|A rejoint}} le $1",
 	"mobile-frontend-user-page-talk": "Discussion",
-	"mobile-frontend-user-page-uploads": "Imports"
+	"mobile-frontend-user-page-uploads": "Imports",
+	"minerva-skin-desc": "Un habillage réactif conçu pour les mobiles."
 }

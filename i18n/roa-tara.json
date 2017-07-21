@@ -1,20 +1,36 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Joetaras"
+		]
 	},
+	"minerva-talk-add-topic": "Aggiunge 'nu 'ngazzamende",
 	"mobile-frontend-editor-edit": "Cange",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
+	"mobile-frontend-editor-redlink-leave": "No, grazie.",
+	"mobile-frontend-editor-tutorial-cancel": "No, grazie.",
 	"mobile-frontend-home-button": "Cáse",
 	"mobile-frontend-language-article-heading": "Ligge jndr'à 'n'otra lènghe",
+	"mobile-frontend-language-change": "Cange 'a lènghe",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bovègne}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Iapre 'u menu prengepàle",
+	"mobile-frontend-main-menu-contributions": "Condrebbute",
 	"mobile-frontend-main-menu-login": "Tràse",
 	"mobile-frontend-main-menu-logout": "Isse",
 	"mobile-frontend-main-menu-nearby": "Vicine a",
 	"mobile-frontend-main-menu-settings": "'Mbostaziune",
 	"mobile-frontend-main-menu-watchlist": "Pàggene condrollate",
 	"mobile-frontend-meta-data-issues-header": "Argominde",
+	"mobile-frontend-meta-data-issues-header-talk": "Sus a sta pàgene",
+	"mobile-frontend-meta-data-issues-talk": "Sus a sta pàgene de le 'ngazzaminde",
+	"mobile-frontend-notifications-filter": "Filtre",
 	"mobile-frontend-pageaction-edit-tooltip": "Cange 'a sezione prengepàle de sta pàgene.",
 	"mobile-frontend-placeholder": "Cirche {{SITENAME}}",
-	"mobile-frontend-random-button": "A uecchije"
+	"mobile-frontend-random-button": "A uecchije",
+	"mobile-frontend-redirected-from": "(Riderette da $1)",
+	"mobile-frontend-talk-back-to-filepage": "Tuèrne a 'u file \"$1\".",
+	"mobile-frontend-talk-back-to-page": "Tuerne 'a pàgena \"$1\"",
+	"mobile-frontend-user-page-contributions": "Condrebbute",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Trasute}} $1",
+	"mobile-frontend-user-page-talk": "'Ngazzamende",
+	"mobile-frontend-user-page-uploads": "Carecaminde"
 }
