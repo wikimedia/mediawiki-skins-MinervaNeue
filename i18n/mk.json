@@ -1,7 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bjankuloski06"
+		]
 	},
+	"minerva-talk-add-topic": "Додај расправа",
 	"mobile-frontend-console-recruit": "\\o/ Еј! Ова е програм со отворен код и ни требаат доброволци за да ни помогнат да го разработиме, да го подобриме и да ги поправиме грешките на кои можете да наидете во оваа конзола со JavaScript!\n\nСпсиокот на потребни доработки и исправки ќе го најдете на https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "За да ги префрлате режимите на преглед, ќе ви требаат колачиња. Овозможете ги, па обидете се повторно.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Вашата сметка има забрана за уредување. Забраната ја даде {{GENDER:$2|$2}} од следнава причина: $1",
@@ -17,7 +20,6 @@
 	"mobile-frontend-editor-unavailable": "Вашиот прелистувач моментално не поддржува мобилно уредување. Користете друг.",
 	"mobile-frontend-editor-undo-unsupported": "Поништувањето засега не е достапно на мобилни уреди.",
 	"mobile-frontend-editor-uploadenable": "Најпрвин подигнете слика за да можете да уредувате.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Преглед и уредување на историјата на страницава.",
 	"mobile-frontend-home-button": "Почетна",
 	"mobile-frontend-language-article-heading": "На други јазици",
@@ -51,5 +53,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Членува од}} $1",
 	"mobile-frontend-user-page-talk": "Разговор",
 	"mobile-frontend-user-page-uploads": "Подигања",
-	"skinname-minerva": "Минерва"
+	"skinname-minerva": "Минерва",
+	"minerva-skin-desc": "Одѕивно руво за првенствено мобилна употреба."
 }
