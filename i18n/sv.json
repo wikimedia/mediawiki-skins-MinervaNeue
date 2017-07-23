@@ -1,10 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ainali",
+			"Cybjit",
+			"Jopparn",
+			"Lokal Profil",
+			"WikiPhoenix"
+		]
 	},
-	"mobile-frontend-console-recruit": "\\o/ Hej! Det här är en öppen programvara för källkod och vi behöver frivilliga som hjälper oss att bygga, förbättra och vara med och fixa fel som du hittar i JavaScript-konsolen!\n\nDu hittar vår backlog @ https://phabricator.wikimedia.org/project/profile/67/",
+	"minerva-talk-add-topic": "Lägg till diskussion",
+	"mobile-frontend-console-recruit": "\\o/ Hej! Det här är en programvara med öppen källkod och vi behöver frivilliga som hjälper oss att bygga, förbättra och vara med och fixa fel som du hittar i denna JavaScript-konsol!\n\nDu hittar vår backlog på https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Kakor krävs för att växla mellan visningslägen. Aktivera dem och försök igen.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Ditt konto är blockerat från att redigera. Blockeeringen gjordes av {{GENDER:$2|$2}} av följande anledning: $1",
+	"mobile-frontend-editor-blocked-info-loggedin": "Ditt konto är blockerat från att redigera. Blockeringen gjordes av {{GENDER:$2|$2}} av följande anledning: $1",
 	"mobile-frontend-editor-cta": "Hjälp till att förbättra denna sida!",
 	"mobile-frontend-editor-disabled": "Denna sida är skyddad för att förhindra vandalism.",
 	"mobile-frontend-editor-edit": "Redigera",
@@ -14,10 +21,9 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nej tack",
 	"mobile-frontend-editor-tutorial-confirm": "Börja redigera",
 	"mobile-frontend-editor-tutorial-summary": "Försök att förbättra sidan $1.<br />Var inte rädd för wikitext.",
-	"mobile-frontend-editor-unavailable": "Mobil redigering är för närvarande inte tillgänglig i din webbläsare. Vänligen prova en annan webbläsare.",
+	"mobile-frontend-editor-unavailable": "Mobilredigering är för närvarande inte tillgänglig i din webbläsare. Vänligen prova en annan webbläsare.",
 	"mobile-frontend-editor-undo-unsupported": "Ångrafunktionen stöds för tillfället inte på mobila enheter.",
 	"mobile-frontend-editor-uploadenable": "Vänligen ladda först upp ett foto för att aktivera redigering.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Visa redigeringshistorik för denna sida.",
 	"mobile-frontend-home-button": "Huvudsida",
 	"mobile-frontend-language-article-heading": "Läs på ett annat språk",
@@ -40,15 +46,16 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Redigera huvudavsnittet på denna sida.",
 	"mobile-frontend-placeholder": "Sök på {{SITENAME}}",
 	"mobile-frontend-random-button": "Slumpartikel",
-	"mobile-frontend-redirected-from": "Omdirigerad från \"$1\"",
+	"mobile-frontend-redirected-from": "Omdirigerades från \"$1\"",
 	"mobile-frontend-talk-back-to-filepage": "Tillbaka till filen \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Tillbaka till sidan \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Tillbaka till projektsidan \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "Tillbaka till användarsidan \"{{GENDER:$1|$1}}\".",
-	"mobile-frontend-user-button-tooltip": "Visa mina meddelanden",
+	"mobile-frontend-user-button-tooltip": "Visa mina aviseringar",
 	"mobile-frontend-user-newmessages": "Du har nya meddelanden på din diskussionssida",
 	"mobile-frontend-user-page-contributions": "Bidrag",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Registrerade sig}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
-	"mobile-frontend-user-page-uploads": "Uppladdningar"
+	"mobile-frontend-user-page-uploads": "Uppladdningar",
+	"minerva-skin-desc": "Ett responsivt mobilutseende."
 }
