@@ -7,13 +7,13 @@
  * Extended Template class of BaseTemplate for mobile devices
  */
 class MinervaTemplate extends BaseTemplate {
-	/** @var boolean Specify whether the page is a special page */
+	/** @var bool Specify whether the page is a special page */
 	protected $isSpecialPage;
 
-	/** @var boolean Whether or not the user is on the Special:MobileMenu page */
+	/** @var bool Whether or not the user is on the Special:MobileMenu page */
 	protected $isSpecialMobileMenuPage;
 
-	/** @var boolean Specify whether the page is main page */
+	/** @var bool Specify whether the page is main page */
 	protected $isMainPage;
 
 	/**

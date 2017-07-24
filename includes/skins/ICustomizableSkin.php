@@ -10,7 +10,7 @@ interface ICustomizableSkin {
 	/**
 	 * Return whether a skin option is truthy
 	 * @param string $key
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getSkinOption( $key );
 }

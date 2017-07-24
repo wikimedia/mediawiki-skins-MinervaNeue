@@ -24,7 +24,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	public $skinname = 'minerva';
 	/** @var string $template Name of this used template */
 	public $template = 'MinervaTemplate';
-	/** @var boolean $useHeadElement Specify whether show head elements */
+	/** @var bool $useHeadElement Specify whether show head elements */
 	public $useHeadElement = true;
 	/** @var ContentHandler Content handler of page; only access through getContentHandler */
 	protected $contentHandler = null;
@@ -92,7 +92,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	/**
 	 * Return whether a skin option is truthy
 	 * @param string $key
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getSkinOption( $key ) {
 		return $this->skinOptions[$key];
@@ -189,7 +189,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * is truthy.
 	 *
 	 * @param string $action
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isAllowedPageAction( $action ) {
 		$title = $this->getTitle();
@@ -1137,7 +1137,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * This is mostly the same check that sets wgIsProbablyEditable later in the page output
 	 * process.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isCurrentPageEditableByUser() {
 		$title = $this->getTitle();
@@ -1152,7 +1152,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * This is mostly the same check that sets wgIsProbablyEditable later in the page output
 	 * process.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isCurrentPageContentModelEditable() {
 		$contentHandler = $this->getContentHandler();
@@ -1214,7 +1214,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 	/**
 	 * Returns true, if the page can have a talk page and user is logged in.
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isTalkAllowed() {
 		$title = $this->getTitle();
@@ -1226,7 +1226,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 	/*
 	 * Returns true, if the talk page of this page is wikitext-based.
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isWikiTextTalkPage() {
 		$title = $this->getTitle();

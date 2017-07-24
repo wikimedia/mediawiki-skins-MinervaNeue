@@ -39,7 +39,7 @@ class MenuBuilder {
 	 * Insert an entry into the menu.
 	 *
 	 * @param string $name A unique name identifying the menu entry
-	 * @param boolean [$isJSOnly] Whether the menu entry works without JS
+	 * @param bool [$isJSOnly] Whether the menu entry works without JS
 	 * @throws DomainException When the entry already exists
 	 * @return MenuEntry
 	 */
@@ -77,7 +77,7 @@ class MenuBuilder {
 	 * @param string $targetName The name of the existing entry to insert
 	 *  the new entry after
 	 * @param string $name The name of the new entry
-	 * @param boolean [$isJSOnly] Whether the entry works without JS
+	 * @param bool [$isJSOnly] Whether the entry works without JS
 	 * @throws DomainException When the existing entry doesn't exist
 	 * @return MenuEntry
 	 */
@@ -109,7 +109,7 @@ class MenuEntry {
 
 	/**
 	 * @param string $name
-	 * @param boolean $isJSOnly Whether the entry works without JS
+	 * @param bool $isJSOnly Whether the entry works without JS
 	 */
 	public function __construct( $name, $isJSOnly ) {
 		$this->name = $name;
@@ -128,7 +128,7 @@ class MenuEntry {
 	 * Gets whether the entry should only be shown if JavaScript is disabled
 	 * in the client.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isJSOnly() {
 		return $this->isJSOnly;
