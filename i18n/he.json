@@ -1,8 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Amire80",
+			"Guycn2",
+			"YaronSh"
+		]
 	},
-	"mobile-frontend-console-recruit": "אהלן! /ס\\ זוהי תכנה בקוד פתוח ואנחנו מחפשים מתנדבים שיעזרו לבנות אותה, לשפר אותה ולמצוא באגים שאולי מוצגים במסוף ג'אווה־סקריפט!\n\nאפשר למצוא את הבאגים שלנו בדף https://phabricator.wikimedia.org/project/profile/67/",
+	"minerva-talk-add-topic": "הוספת דיון",
+	"mobile-frontend-console-recruit": "אהלן! /ס\\ זוהי תוכנה בקוד פתוח ואנחנו מחפשים מתנדבים שיעזרו לבנות את הדבר הזה, ישפרו אותו, וימצאו באגים שאולי מוצגים במסוף ג'אווה־סקריפט!\n\nאפשר למצוא את הבאגים שלנו בדף https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "נדרשות עוגיות כדי לעבור בין מצבים. נא להפעיל אותן ולנסות שוב.",
 	"mobile-frontend-editor-blocked-info-loggedin": "החשבון שלך נחסם לעריכה. החסימה נעשתה על־ידי {{GENDER:$2|$2}} מהסיבה הבאה: $1",
 	"mobile-frontend-editor-cta": "עזרו לשפר את הדף הזה!",
@@ -13,16 +18,15 @@
 	"mobile-frontend-editor-redlink-leave": "לא, תודה.",
 	"mobile-frontend-editor-tutorial-cancel": "לא, תודה",
 	"mobile-frontend-editor-tutorial-confirm": "להתחיל לערוך",
-	"mobile-frontend-editor-tutorial-summary": "בואו לנסות לשפר את הדף $1.<br />אל תפחדו משפת העיצוב.",
+	"mobile-frontend-editor-tutorial-summary": "נסו לשפר את הדף $1.<br />אל תפחדו משפת העיצוב.",
 	"mobile-frontend-editor-unavailable": "עריכה ממכשירים ניידים אינה מופעלת בדפדפן שלך. נא לנסות דפדפן אחר.",
 	"mobile-frontend-editor-undo-unsupported": "פעולת הביטול אינה נתמכת במכשירים ניידים בשלב זה.",
 	"mobile-frontend-editor-uploadenable": "נא להעלות תמונה כדי להפעיל עריכה.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "הצגת היסטוריית העריכה של הדף הזה.",
 	"mobile-frontend-home-button": "דף הבית",
 	"mobile-frontend-language-article-heading": "לקרוא בשפה אחרת",
 	"mobile-frontend-language-change": "שינוי שפה",
-	"mobile-frontend-languages-not-available": "דף זה אינו זמין בשפות אחרות.",
+	"mobile-frontend-languages-not-available": "הדף הזה אינו זמין בשפות אחרות.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ברוך הבא|ברוכה הבאה}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "פתיחת התפריט הראשי",
 	"mobile-frontend-main-menu-contributions": "תרומות",
@@ -37,11 +41,11 @@
 	"mobile-frontend-meta-data-issues-header-talk": "אודות הדף הזה",
 	"mobile-frontend-meta-data-issues-talk": "אודות דף השיחה הזה",
 	"mobile-frontend-notifications-filter": "סינון",
-	"mobile-frontend-pageaction-edit-tooltip": "עריכת הפסקה הראשונה בדף.",
-	"mobile-frontend-placeholder": "חיפוש באתר {{SITENAME}}...",
-	"mobile-frontend-random-button": "דף אקראי",
+	"mobile-frontend-pageaction-edit-tooltip": "עריכת פסקה הפתיחה של דף.",
+	"mobile-frontend-placeholder": "חיפוש באתר {{SITENAME}}",
+	"mobile-frontend-random-button": "אקראי",
 	"mobile-frontend-redirected-from": "הופנה מהדף \"$1\"",
-	"mobile-frontend-talk-back-to-filepage": "חזרה אל הקובץ \"$1\".",
+	"mobile-frontend-talk-back-to-filepage": "חזרה לקובץ \"$1\".",
 	"mobile-frontend-talk-back-to-page": "חזרה לדף \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "חזרה לדף המיזם \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "חזרה לדף המשתמש של \"{{GENDER:$1|$1}}\".",
@@ -51,5 +55,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|הצטרף|הצטרפה}} ב־$1",
 	"mobile-frontend-user-page-talk": "שיחה",
 	"mobile-frontend-user-page-uploads": "העלאות",
-	"skinname-minerva": "מינרווה"
+	"skinname-minerva": "מינרווה",
+	"minerva-skin-desc": "ערכת עיצוב שמתאימה את עצמה לסוג המכשיר ומפותחת ראשית למכשירים מיידים."
 }

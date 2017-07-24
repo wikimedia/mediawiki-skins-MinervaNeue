@@ -1,35 +1,40 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Banjo",
+			"Elisardojm",
+			"Fisterraeomar",
+			"Toliño"
+		]
 	},
+	"minerva-talk-add-topic": "Engadir conversa",
 	"mobile-frontend-console-recruit": "\\o/ Ola! Isto é software de código aberto e necesitamos voluntarios que nos boten unha man para construílo, melloralo e reparar os fallos que se cadra atopa nesta consola de JavaScript!\n\nPode atopar a nosa lista de tarefas en https://phabricator.wikimedia.org/project/profile/67/",
-	"mobile-frontend-cookies-required": "As cookies son necesarias para cambiar o modo de visualización. Permita o uso de cookies e inténteo de novo.",
+	"mobile-frontend-cookies-required": "As cookies son necesarias para cambiar o modo de visualización. Permita o uso de cookies e inténteo de novo por favor.",
 	"mobile-frontend-editor-blocked-info-loggedin": "A súa conta está bloqueada e non pode realizar edicións. O bloqueo foi feito por {{GENDER:$2|$2}} polo seguinte motivo: $1",
 	"mobile-frontend-editor-cta": "Axude a mellorar esta páxina!",
 	"mobile-frontend-editor-disabled": "Esta páxina está protexida para evitar o vandalismo.",
 	"mobile-frontend-editor-edit": "Editar",
-	"mobile-frontend-editor-redlink-create": "Crear a páxina",
+	"mobile-frontend-editor-redlink-create": "Crear unha páxina",
 	"mobile-frontend-editor-redlink-explain": "Esta páxina aínda non foi creada.",
 	"mobile-frontend-editor-redlink-leave": "Non, grazas",
 	"mobile-frontend-editor-tutorial-cancel": "Non, grazas",
-	"mobile-frontend-editor-tutorial-confirm": "Comece a editar",
-	"mobile-frontend-editor-tutorial-summary": "Intente mellorar a páxina $1.<br /> Non lle teña medo á sintaxe do wiki.",
-	"mobile-frontend-editor-unavailable": "A edición a través do móbil non está dispoñible no seu navegador. Probe cun navegador diferente.",
+	"mobile-frontend-editor-tutorial-confirm": "Comezar a editar",
+	"mobile-frontend-editor-tutorial-summary": "Intente mellorar a páxina $1.<br /> Non lle teña medo ás etiquetas.",
+	"mobile-frontend-editor-unavailable": "A edición a través do móbil actualmente non está dispoñible no seu navegador. Por favor, probe cun navegador diferente.",
 	"mobile-frontend-editor-undo-unsupported": "A función de desfacer non está soportada actualmente nos dispositivos móbiles.",
 	"mobile-frontend-editor-uploadenable": "Por favor, suba unha foto primeiro para habilitar a edición.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Mostrar o historial de edicións desta páxina.",
 	"mobile-frontend-home-button": "Portada",
 	"mobile-frontend-language-article-heading": "Ler noutra lingua",
 	"mobile-frontend-language-change": "Cambiar a lingua",
-	"mobile-frontend-languages-not-available": "Esta páxina non está dispoñible noutras linguas",
+	"mobile-frontend-languages-not-available": "Esta páxina non está dispoñible noutras linguas.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvido|Benvida}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Abrir o menú principal",
 	"mobile-frontend-main-menu-contributions": "Contribucións",
 	"mobile-frontend-main-menu-login": "Acceder ao sistema",
 	"mobile-frontend-main-menu-logout": "Saír",
 	"mobile-frontend-main-menu-nearby": "Preto",
-	"mobile-frontend-main-menu-settings": "Configuracións",
+	"mobile-frontend-main-menu-settings": "Configuración",
 	"mobile-frontend-main-menu-watchlist": "Lista de vixilancia",
 	"mobile-frontend-meta-data-issues": "Problemas da páxina",
 	"mobile-frontend-meta-data-issues-categories": "Sobre esta categoría",
@@ -50,5 +55,6 @@
 	"mobile-frontend-user-page-contributions": "Contribucións",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Uniuse}} $1",
 	"mobile-frontend-user-page-talk": "Conversa",
-	"mobile-frontend-user-page-uploads": "Subas"
+	"mobile-frontend-user-page-uploads": "Subas",
+	"minerva-skin-desc": "Un tema inicial de resposta rápida para móbiles."
 }

@@ -1,15 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Har-wradim",
+			"פוילישער"
+		]
 	},
 	"mobile-frontend-editor-cta": "העלפט פארבעסערן דעם בלאט!",
-	"mobile-frontend-editor-disabled": "דער דאזיקער בלאט איז געשיצט צו פארמיידן וואנדאליזם.",
+	"mobile-frontend-editor-disabled": "דער דאזיקער בלאט איז געשיצט צו פֿארמיידן וואנדאליזם.",
 	"mobile-frontend-editor-edit": "רעדאַקטירן",
 	"mobile-frontend-editor-redlink-create": "שאַפֿן בלאַט",
 	"mobile-frontend-editor-redlink-leave": "ניין, א דאנק",
 	"mobile-frontend-editor-tutorial-cancel": "ניין, א דאנק",
 	"mobile-frontend-editor-tutorial-confirm": "אנהייבן רעדאקטירן",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "באקוקן רעדאקטירן היסטאריע פון דעם בלאט.",
 	"mobile-frontend-home-button": "היימבלאַט",
 	"mobile-frontend-language-article-heading": "לייענען אין אן אנדער שפראך",
@@ -20,7 +22,7 @@
 	"mobile-frontend-main-menu-contributions": "בײַשטײַערונגען",
 	"mobile-frontend-main-menu-login": "אַרײַנלאָגירן",
 	"mobile-frontend-main-menu-logout": "אַרויסלאָגירן",
-	"mobile-frontend-main-menu-nearby": "דערבײַ",
+	"mobile-frontend-main-menu-nearby": "דערבײ",
 	"mobile-frontend-main-menu-settings": "איינשטעלונגען",
 	"mobile-frontend-main-menu-watchlist": "אויפֿפאַסונג ליסטע",
 	"mobile-frontend-meta-data-issues": "בלאט־פֿראגעס",
@@ -28,7 +30,7 @@
 	"mobile-frontend-meta-data-issues-header": "פראגעס",
 	"mobile-frontend-meta-data-issues-header-talk": "וועגן דעם בלאט",
 	"mobile-frontend-meta-data-issues-talk": "וועגן דעם רעדן־בלאט",
-	"mobile-frontend-pageaction-edit-tooltip": "רעדאקטירן דעם איינפיר אפטייל פון דעם בלאט.",
+	"mobile-frontend-pageaction-edit-tooltip": "רעדאקטירן דעם איינפֿיר אפטייל פון דעם בלאט.",
 	"mobile-frontend-placeholder": "זוכן {{SITENAME}}",
 	"mobile-frontend-random-button": "צופֿעליג",
 	"mobile-frontend-talk-back-to-page": "צוריק צו \"$1\" בלאט.",
