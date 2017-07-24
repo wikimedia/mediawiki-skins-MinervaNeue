@@ -35,9 +35,6 @@ class MinervaHooks {
 		global $wgResourceLoaderLESSImportPaths;
 		$wgResourceLoaderLESSImportPaths[] = dirname( __DIR__ ) . "/minerva.less/";
 
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			die( 'This version of the Minerva skin requires MobileFrontend' );
-		}
 		// Setup alias for compatibility with SkinMinervaNeue.
 		if ( !class_exists( 'SkinMinervaNeue' ) ) {
 			class_alias( 'SkinMinerva', 'SkinMinervaNeue', true );

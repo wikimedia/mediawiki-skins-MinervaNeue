@@ -544,7 +544,10 @@
 	"name": "MinervaNeue",
 	"namemsg": "skinname-minerva",
 	"requires": {
-		"MediaWiki": ">= 1.25.0"
+		"MediaWiki": ">= 1.25.0",
+		"extensions": {
+			"MobileFrontend": ">= 2.0.0"
+		}
 	},
 	"type": "skin",
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
