@@ -1,17 +1,20 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Mehtab ahmed",
+			"Sindhu"
+		]
 	},
 	"mobile-frontend-editor-edit": "سنواريو",
 	"mobile-frontend-home-button": "گھر",
 	"mobile-frontend-language-article-heading": "ٻي ٻوليءَ ۾ پڙھو",
-	"mobile-frontend-main-menu-button-tooltip": "مکيہ مينيو کوليو",
+	"mobile-frontend-main-menu-button-tooltip": "مک مينيو کوليو",
 	"mobile-frontend-main-menu-login": "داخل ٿيو",
 	"mobile-frontend-main-menu-nearby": "ويجھا",
 	"mobile-frontend-main-menu-settings": "ترتيبون",
 	"mobile-frontend-main-menu-watchlist": "نظر ۾ فھرست",
 	"mobile-frontend-pageaction-edit-tooltip": "ھن صفحي جي نمائنده سيڪشن کي سنواريو.",
-	"mobile-frontend-placeholder": "ڳوليو {{SITENAME}}",
+	"mobile-frontend-placeholder": "{{SITENAME}} ڳوليو",
 	"mobile-frontend-random-button": "بلاترتيب",
 	"mobile-frontend-user-page-contributions": "ڀاڱيداريون"
 }
