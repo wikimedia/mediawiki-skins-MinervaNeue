@@ -1,7 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Edgars2007",
+			"Papuass"
+		]
 	},
+	"minerva-talk-add-topic": "Pievienot diskusiju",
 	"mobile-frontend-editor-cta": "Palīdziet uzlabot šo lapu",
 	"mobile-frontend-editor-disabled": "Šī lapa ir aizsargāta, lai novērstu vandalismu.",
 	"mobile-frontend-editor-edit": "Labot",
@@ -9,7 +13,6 @@
 	"mobile-frontend-editor-redlink-leave": "Nē, paldies",
 	"mobile-frontend-editor-tutorial-cancel": "Nē, paldies",
 	"mobile-frontend-editor-tutorial-confirm": "Sākt labošanu",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Apskatīt šīs lapas labojumu vēsturi",
 	"mobile-frontend-home-button": "Sākumlapa",
 	"mobile-frontend-language-article-heading": "Lasīt citā valodā",
@@ -26,7 +29,7 @@
 	"mobile-frontend-meta-data-issues-header": "Problēmas",
 	"mobile-frontend-meta-data-issues-header-talk": "Par šo lapu",
 	"mobile-frontend-meta-data-issues-talk": "Par šo diskusiju lapu",
-	"mobile-frontend-pageaction-edit-tooltip": "Labot šīs lapas ievadsadaļu.",
+	"mobile-frontend-pageaction-edit-tooltip": "Labot šīs lapas ievadsadaļu",
 	"mobile-frontend-placeholder": "Meklēt {{SITENAME}}",
 	"mobile-frontend-random-button": "Nejaušs raksts",
 	"mobile-frontend-user-button-tooltip": "Rādīt manus paziņojumus",

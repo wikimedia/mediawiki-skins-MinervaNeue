@@ -5,7 +5,8 @@
 			"Eleassar",
 			"Janezdrilc",
 			"Skalcaa",
-			"Yerpo"
+			"Yerpo",
+			"HairyFotr"
 		]
 	},
 	"mobile-frontend-editor-cta": "Pomagajte izboljšati stran!",
@@ -30,7 +31,7 @@
 	"mobile-frontend-meta-data-issues-header": "Težave",
 	"mobile-frontend-meta-data-issues-header-talk": "O tej strani",
 	"mobile-frontend-meta-data-issues-talk": "O tej pogovorni strani",
-	"mobile-frontend-pageaction-edit-tooltip": "Uredi vodilni razdelek strani.",
+	"mobile-frontend-pageaction-edit-tooltip": "Uredi vodilni razdelek strani",
 	"mobile-frontend-placeholder": "Iskanje po {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Naključno",
 	"mobile-frontend-talk-back-to-page": "Vrnitev na stran »$1«.",
