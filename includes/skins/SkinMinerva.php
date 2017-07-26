@@ -223,10 +223,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return string
 	 */
 	public function doEditSectionLink( Title $nt, $section, $tooltip = null, $lang = false ) {
-		$noJsEdit = $this->getConfig()->get( 'MFAllowNonJavaScriptEditing' );
-
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$additionalClass = $noJsEdit ? ' nojs-edit': '';
 			$lang = wfGetLangObj( $lang );
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span' );
@@ -236,7 +233,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				'data-section' => $section,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
 				// we default to enabled even though this may not be true.
-				'class' => MobileUI::iconClass( 'edit-enabled', 'element', 'edit-page' . $additionalClass ),
+				'class' => MobileUI::iconClass( 'edit-enabled', 'element', 'edit-page' ),
 			], $message );
 			$html .= Html::closeElement( 'span' );
 			return $html;
@@ -665,7 +662,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 */
 	protected function insertLogInOutMenuItem( MenuBuilder $menu ) {
 		$query = [];
-		$canEdit = $this->getConfig()->get( 'MFAllowNonJavaScriptEditing' );
 		if ( !$this->getRequest()->wasPosted() ) {
 			$returntoquery = $this->getRequest()->getValues();
 			unset( $returntoquery['title'] );
@@ -686,7 +682,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$url = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $query );
 			$username = $user->getName();
 
-			$menu->insert( 'auth', $isJSOnly = !$canEdit )
+			$menu->insert( 'auth', false )
 				->addComponent(
 					$username,
 					Title::newFromText( $username, NS_USER )->getLocalUrl(),
@@ -708,7 +704,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			unset( $returntoquery['campaign'] );
 			$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
 			$url = $this->getLoginUrl( $query );
-			$menu->insert( 'auth', $isJSOnly = !$canEdit )
+			$menu->insert( 'auth', false )
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-login' )->escaped(),
 					$url,
@@ -1053,20 +1049,17 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return array A map compatible with BaseTemplate#makeListItem
 	 */
 	protected function createEditPageAction() {
-		$noJsEdit = $this->getConfig()->get( 'MFAllowNonJavaScriptEditing' );
-		$additionalClass = $noJsEdit ? ' nojs-edit' : '';
-
 		return [
 			'id' => 'ca-edit',
 			'text' => '',
 			'itemtitle' => $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ),
-			'class' => MobileUI::iconClass( 'edit-enabled', 'element' . $additionalClass ),
+			'class' => MobileUI::iconClass( 'edit-enabled', 'element' ),
 			'links' => [
 				'edit' => [
 					'href' => $this->getTitle()->getLocalURL( [ 'action' => 'edit', 'section' => 0 ] )
 				],
 			],
-			'is_js_only' => !$noJsEdit
+			'is_js_only' => false
 		];
 	}
 
