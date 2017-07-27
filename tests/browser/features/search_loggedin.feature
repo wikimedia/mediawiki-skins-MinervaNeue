@@ -12,4 +12,4 @@ Feature: Search
       And I see the search overlay
       And I type into search box "Selenium search tes"
     When I click a search watch star
-    Then I should see a toast
+    Then I should see a toast notification

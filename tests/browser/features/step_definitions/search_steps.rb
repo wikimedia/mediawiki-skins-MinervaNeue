@@ -78,7 +78,3 @@ end
 Then(/^I should not see '#\/search' in URL$/) do
   expect(on(ArticlePage).current_url.end_with? '#/search').to be false
 end
-
-Then(/^I should see a toast$/) do
-  expect(on(ArticlePage).toast_element.when_present).to be_visible
-end

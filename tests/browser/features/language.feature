@@ -27,7 +27,7 @@ Feature: Language selection
   Scenario: Tapping the disabled icon shows a toast
     Given I go to a page that does not have languages
     When I click the switch-language page action
-    Then I should see a toast with message about page not being available in other languages
+    Then I should see a toast with message "This page is not available in other languages."
 
   Scenario: Closing language overlay (overlay button)
     Given I go to a page that has languages

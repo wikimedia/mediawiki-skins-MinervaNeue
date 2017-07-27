@@ -30,6 +30,11 @@ Then(/^I should see a toast notification$/) do
   expect(on(ArticlePage).toast_element.when_present(10)).to be_visible
 end
 
+Then(/^I should see a toast with message "(.+)"$/) do |msg|
+  step "I should see a toast notification"
+  expect(on(ArticlePage).toast_element.when_present.text).to match msg
+end
+
 Then /^I should see a drawer with message "(.+)"$/ do |text|
   expect(on(ArticlePage).drawer_element.when_present.text).to match text
 end
