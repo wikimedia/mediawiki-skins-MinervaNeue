@@ -1,6 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Dvorapa",
+			"Marek Pavlica",
+			"Matěj Suchánek",
+			"Michaelbrabec",
+			"Mormegil",
+			"Vks"
+		]
 	},
 	"mobile-frontend-console-recruit": "\\o/ Ahój! Tohle je open source software a potřebujeme dobrovolníky, aby nám pomohli s jeho tvorbou, vylepšováním a opravováním všech chyb, které v téhle JavaScriptové konzoli můžete zahlédnout!\n\nNaše resty najdete na https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Pro přepnutí verzí jsou vyžadovány cookies. Povolte je a zkuste to znovu.",
@@ -17,7 +24,6 @@
 	"mobile-frontend-editor-unavailable": "Mobilní editování není na vašem prohlížeči momentálně dostupné. Zkuste jiný prohlížeč.",
 	"mobile-frontend-editor-undo-unsupported": "Vracení zpět není na mobilních zařízeních momentálně podporováno.",
 	"mobile-frontend-editor-uploadenable": "Abyste mohli stránku editovat, musíte nejprve načíst soubor.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Zobrazit historii editací této stránky.",
 	"mobile-frontend-home-button": "Domů",
 	"mobile-frontend-language-article-heading": "Přečíst v jiném jazyce",
@@ -37,7 +43,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "O této stránce",
 	"mobile-frontend-meta-data-issues-talk": "O této diskusi",
 	"mobile-frontend-notifications-filter": "Filtr",
-	"mobile-frontend-pageaction-edit-tooltip": "Editovat úvodní sekci této stránky.",
+	"mobile-frontend-pageaction-edit-tooltip": "Editovat úvodní sekci této stránky",
 	"mobile-frontend-placeholder": "Hledání na {{grammar:6sg|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Náhodně",
 	"mobile-frontend-redirected-from": "Přesměrováno z „$1“",

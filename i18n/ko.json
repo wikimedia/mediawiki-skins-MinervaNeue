@@ -1,7 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bluemersen",
+			"Hwangjy9",
+			"Kwj2772",
+			"LiteHell",
+			"SeoJeongHo",
+			"Ykhwong",
+			"관인생략",
+			"아라"
+		]
 	},
+	"minerva-talk-add-topic": "토론 추가",
 	"mobile-frontend-console-recruit": "\\o/ 이보세요! 이것은 오픈 소스 소프트웨어이며 우리는 더 잘 만들고 이 자바스크립트 콘손에서 볼 수 있는 어떠한 버그를 고칠 수 있는, 이러한 일을 구축하는 것을 도울 자원자가 필요합니다!\n\n당신은 우리의 백로그를 찾을 수 있습니다 @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "보기 모드를 전환하려면 쿠키가 필요합니다. 쿠키를 활성화하고 나서 다시 시도하세요.",
 	"mobile-frontend-editor-blocked-info-loggedin": "당신의 계정이 편집에서 차단되어 있습니다. 다음 이유로 {{GENDER:$2|$2}}님이 차단했습니다: $1",
@@ -17,7 +27,6 @@
 	"mobile-frontend-editor-unavailable": "모바일 편집은 현재 사용 중인 브라우저에서 사용할 수 없습니다. 다른 브라우저로 다시 시도하세요.",
 	"mobile-frontend-editor-undo-unsupported": "되돌리기는 현재 모바일 장치에서 지원하지 않습니다.",
 	"mobile-frontend-editor-uploadenable": "편집을 활성화하기 위해 먼저 사진을 올려주시기 바랍니다.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "이 문서의 편집 역사를 봅니다.",
 	"mobile-frontend-home-button": "대문",
 	"mobile-frontend-language-article-heading": "다른 언어로 읽기",
@@ -37,7 +46,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "이 문서에 대해",
 	"mobile-frontend-meta-data-issues-talk": "이 토론 문서에 대해",
 	"mobile-frontend-notifications-filter": "필터",
-	"mobile-frontend-pageaction-edit-tooltip": "이 문서의 선두 문단을 편집합니다.",
+	"mobile-frontend-pageaction-edit-tooltip": "이 문서의 선두 문단을 편집합니다",
 	"mobile-frontend-placeholder": "{{SITENAME}} 검색",
 	"mobile-frontend-random-button": "임의 문서",
 	"mobile-frontend-redirected-from": "\"$1\"에서 넘어옴",
