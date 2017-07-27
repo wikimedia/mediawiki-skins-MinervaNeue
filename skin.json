@@ -36,6 +36,7 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.skinning.content.parsoid": [],
 			"mediawiki.hlist": [
 				"skinStyles/mediawiki.hlist/minerva.less"
 			],
