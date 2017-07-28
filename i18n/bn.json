@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Aftabuzzaman",
+			"Bellayet",
+			"Nasir8891"
+		]
 	},
 	"mobile-frontend-console-recruit": "\\o/ এই যে আপনি! এটি একটি ওপেন সোর্স সফটওয়্যার এবং এই জিনিস গড়ে তুলতে আমাদের সাহায্য করার স্বেচ্ছাসেবক প্রয়োজন, এটি সর্বোত্তম করে তুলুন এবং এই জাভাস্ক্রিপ্ট কনসোলে আপনার দেখা যে কোনো বাগ বা সমস্যা সমাধান করুন!\n\nআপনি আমাদের জমা কাজ @ https://phabricator.wikimedia.org/project/profile/67/ -এ খুঁজে পেতে পারেন",
 	"mobile-frontend-cookies-required": "দর্শন মোডে যেতে কুকিজের প্রয়োজন। দয়া করে তাদের সক্রিয় করে আবার চেষ্টা করুন।",
@@ -17,7 +21,6 @@
 	"mobile-frontend-editor-unavailable": "মোবাইল সম্পাদনা আপনার ব্রাউজারে বর্তমানে উপলব্ধ নয়। একটি ভিন্ন ব্রাউজার দিয়ে চেষ্টা করুন।",
 	"mobile-frontend-editor-undo-unsupported": "পূর্বাবস্থায় ফিরুন বর্তমানে মোবাইল ডিভাইসে সমর্থিত নয়।",
 	"mobile-frontend-editor-uploadenable": "সম্পাদনা সক্রিয় করতে প্রথমে একটি ছবি আপলোড করুন।",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "এই পাতার ইতিহাস দেখাও।",
 	"mobile-frontend-home-button": "প্রধান পাতা",
 	"mobile-frontend-language-article-heading": "অন্য ভাষায় পড়ুন",
@@ -37,7 +40,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "এই পাতা সম্পর্কে",
 	"mobile-frontend-meta-data-issues-talk": "এই আলাপ পাতা সম্পর্কে",
 	"mobile-frontend-notifications-filter": "ছাঁকনি",
-	"mobile-frontend-pageaction-edit-tooltip": "এই পাতার শীর্ষ অনুচ্ছেদ সম্পাদনা করুন।",
+	"mobile-frontend-pageaction-edit-tooltip": "এই পাতার শীর্ষ অনুচ্ছেদ সম্পাদনা করুন",
 	"mobile-frontend-placeholder": "{{SITENAME}} অনুসন্ধান",
 	"mobile-frontend-random-button": "অজানা পাতা",
 	"mobile-frontend-redirected-from": "\"$1\" থেকে পুনর্নির্দেশিত",

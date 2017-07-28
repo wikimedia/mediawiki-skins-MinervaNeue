@@ -59,5 +59,6 @@
 	"mobile-frontend-user-page-contributions": "기여",
 	"mobile-frontend-user-page-member-since": "$1에 {{GENDER:$2|가입함}}",
 	"mobile-frontend-user-page-talk": "토론",
-	"mobile-frontend-user-page-uploads": "업로드"
+	"mobile-frontend-user-page-uploads": "업로드",
+	"minerva-skin-desc": "즉각 반응하는 모바일 최초 스킨."
 }
