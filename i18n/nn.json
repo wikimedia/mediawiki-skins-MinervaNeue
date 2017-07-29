@@ -1,13 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Gaute",
+			"Jon Harald Søby",
+			"Njardarlogar",
+			"Ranveig"
+		]
 	},
 	"mobile-frontend-cookies-required": "Informasjonskapslar vert krevd for å bytte visingsmodus. Slå dei på og prøv igjen.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Kontoen din er blokkert frå å endra. Blokkeringa vart gjort av {{GENDER:$2|$2}} med fylgjande årsak: $1",
 	"mobile-frontend-editor-cta": "Hjelp til å betra denne sida!",
 	"mobile-frontend-editor-disabled": "Denne sida er verna for å motvirka hærverk.",
 	"mobile-frontend-editor-edit": "Endra",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Sjå endringshistorikken til sida.",
 	"mobile-frontend-home-button": "Heim",
 	"mobile-frontend-language-article-heading": "Les på eit anna språk",
@@ -24,5 +28,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Endre innleiinga til denne sida.",
 	"mobile-frontend-placeholder": "Søk i {{SITENAME}}",
 	"mobile-frontend-random-button": "Tilfeldig",
-	"mobile-frontend-user-button-tooltip": "Vis meldingane mine"
+	"mobile-frontend-user-button-tooltip": "Vis meldingane mine",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1"
 }
