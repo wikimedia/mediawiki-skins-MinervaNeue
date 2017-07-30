@@ -797,7 +797,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$heading = $this->getUserPageHelper()->getPageUser()->getName();
 		} else {
 			$pageTitle = $this->getOutput()->getPageTitle();
-			if ( $pageTitle ) {
+			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
+			if ( $pageTitle != '' ) {
 				$heading = $pageTitle;
 			}
 		}
