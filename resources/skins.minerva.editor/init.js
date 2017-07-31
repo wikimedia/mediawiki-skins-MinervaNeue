@@ -123,7 +123,8 @@
 	 * @param {Page} page The page to edit.
 	 */
 	function setupEditor( page ) {
-		var isNewPage = page.options.id === 0;
+		var isNewPage = page.options.id === 0,
+			leadSection = page.getLeadSectionElement();
 
 		if ( mw.util.getParamValue( 'undo' ) ) {
 			// TODO: Replace with an OOUI dialog
@@ -249,11 +250,11 @@
 			$( '.nojs-edit' ).removeClass( 'nojs-edit' );
 			$( '#ca-edit a' ).remove();
 			// FIXME: unfortunately the main page is special cased.
-			if ( mw.config.get( 'wgIsMainPage' ) || isNewPage || page.getLeadSectionElement().text() ) {
+			if ( mw.config.get( 'wgIsMainPage' ) || isNewPage || ( leadSection && leadSection.text() ) ) {
 				// if lead section is not empty, open editor with lead section
 				addEditButton( 0, '#ca-edit' );
 			} else {
-				// if lead section is empty, open editor with first section
+				// if lead section is empty or does not exist, open editor with first section
 				addEditButton( 1, '#ca-edit' );
 			}
 		}
