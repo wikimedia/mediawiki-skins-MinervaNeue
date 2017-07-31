@@ -144,6 +144,7 @@ class ArticlePage
   div(:spinner_loading, class: 'spinner loading')
 
   # toast
+  div(:notification_area, id: 'mw-notification-area')
   div(:toast, class: 'mw-notification')
 
   # loader

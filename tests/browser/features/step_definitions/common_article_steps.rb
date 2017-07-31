@@ -27,7 +27,9 @@ When(/^I click the watch star$/) do
 end
 
 Then(/^I should see a toast notification$/) do
-  expect(on(ArticlePage).toast_element.when_present(10)).to be_visible
+  # To avoid flakey tests check the notification area element first (T170890)
+  expect(on(ArticlePage).notification_area_element.when_visible).to be_visible
+  expect(on(ArticlePage).toast_element.when_visible).to be_visible
 end
 
 Then(/^I should see a toast with message "(.+)"$/) do |msg|
