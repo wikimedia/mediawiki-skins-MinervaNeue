@@ -29,5 +29,6 @@
 	"mobile-frontend-placeholder": "Søk i {{SITENAME}}",
 	"mobile-frontend-random-button": "Tilfeldig",
 	"mobile-frontend-user-button-tooltip": "Vis meldingane mine",
-	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1"
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1",
+	"mobile-frontend-user-page-uploads": "Opplastingar"
 }
