@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Robby"
+		]
 	},
 	"mobile-frontend-editor-blocked-info-loggedin": "Äre Benotzerkont ass gespaart fir z'änneren. D'Spär gouf vum {{GENDER:$2|$2}} aus dësem Grond gemaach: $1",
 	"mobile-frontend-editor-cta": "Hëlleft dës Säit ze verbesseren!",
@@ -15,7 +17,6 @@
 	"mobile-frontend-editor-unavailable": "D'Ännere per mobilen Apparat ass elo fir Äre Browser net disponibel. Probéiert. w.e.g. en anere Browser aus.",
 	"mobile-frontend-editor-undo-unsupported": "D'Réckgängegmaache gëtt elo net op mobilen Apparaten ënnerstëtzt.",
 	"mobile-frontend-editor-uploadenable": "Lued w.e.g. d'éischt eng Foto erop fir d'Änneren ze erméiglechen.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "D'Lëscht vun de Versioune vun dëser Säit weisen.",
 	"mobile-frontend-home-button": "Haaptsäit",
 	"mobile-frontend-language-article-heading": "An enger anerer Sprooch liesen",
@@ -35,7 +36,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "Iwwer dës Säit",
 	"mobile-frontend-meta-data-issues-talk": "Iwwer dës Diskussiouns-Säit",
 	"mobile-frontend-notifications-filter": "Filter",
-	"mobile-frontend-pageaction-edit-tooltip": "Ännert den Aleedungs-Abschnitt vun dëser Säit.",
+	"mobile-frontend-pageaction-edit-tooltip": "Ännert den Aleedungs-Abschnitt vun dëser Säit",
 	"mobile-frontend-placeholder": "Op {{SITENAME}} sichen",
 	"mobile-frontend-random-button": "Zoufall",
 	"mobile-frontend-redirected-from": "Virugeleet vu(n) \"$1\"",
