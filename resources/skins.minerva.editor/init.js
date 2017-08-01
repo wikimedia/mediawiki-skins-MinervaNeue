@@ -250,8 +250,11 @@
 			$( '.nojs-edit' ).removeClass( 'nojs-edit' );
 			$( '#ca-edit a' ).remove();
 			// FIXME: unfortunately the main page is special cased.
-			if ( mw.config.get( 'wgIsMainPage' ) || isNewPage || ( leadSection && leadSection.text() ) ) {
+			if ( mw.config.get( 'wgIsMainPage' ) || isNewPage ||
+					( leadSection && leadSection.text() ) || page.getSections().length === 0 ) {
 				// if lead section is not empty, open editor with lead section
+				// In some namespaces (controlled by MFNamespacesWithoutCollapsibleSections)
+				// sections are not marked. Use the lead section for such cases.
 				addEditButton( 0, '#ca-edit' );
 			} else {
 				// if lead section is empty or does not exist, open editor with first section
