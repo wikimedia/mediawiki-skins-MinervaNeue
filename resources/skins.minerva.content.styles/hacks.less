@@ -17,6 +17,11 @@ FIXME: Review all of these hacks to see if they still apply.
 }
 
 .content {
+	.vertical-navbox,
+	.navbox {
+		display: none;
+	}
+
 	// Hide cleanup templates by default to non-javascript users as these stop them from reading the article itself
 	// Talk page informational boxes
 	.tmbox,
@@ -24,7 +29,7 @@ FIXME: Review all of these hacks to see if they still apply.
 	.ambox,
 	#coordinates,
 	// Hide article badges, clean-up notices, stub notices, and navigation boxes
-	.navbox, .vertical-navbox, .topicon, .metadata {
+	.topicon, .metadata {
 		// It's important as some of these are tables which become display: table on larger screens
 		display: none !important;
 	}
@@ -110,6 +115,16 @@ FIXME: Review all of these hacks to see if they still apply.
 .quotebox {
 	margin: 0 0 0.8em !important;
 	width: auto !important;
+}
+
+@media all and ( min-width: @deviceWidthTablet ) {
+	// When in the HTML these should be revealed at tablet resolution (T172078)
+	.content {
+		.vertical-navbox,
+		.navbox {
+			display: inherit;
+		}
+	}
 }
 
 // Hacks to render galleries and multicol tables better on mobile
