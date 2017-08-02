@@ -1,6 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Chrumps",
+			"Lazowik",
+			"Mateuszek045",
+			"Matma Rex",
+			"WTM",
+			"Woytecr"
+		]
 	},
 	"mobile-frontend-editor-cta": "Pomóż ulepszyć tę stronę!",
 	"mobile-frontend-editor-disabled": "Ta strona została zabezpieczona.",
@@ -14,7 +21,6 @@
 	"mobile-frontend-editor-unavailable": "Mobilna edycja nie jest dostępna w twojej przeglądarce. Proszę, spróbuj z innej przeglądarki.",
 	"mobile-frontend-editor-undo-unsupported": "Anulowanie czynności nie jest obecnie możliwe na urządzeniach mobilnych.",
 	"mobile-frontend-editor-uploadenable": "Aby móc edytować, najpierw prześlij zdjęcie.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Zobacz historię zmian tej strony.",
 	"mobile-frontend-home-button": "Główna",
 	"mobile-frontend-language-article-heading": "Przeczytaj w innym języku",
@@ -33,7 +39,7 @@
 	"mobile-frontend-meta-data-issues-header": "Problemy",
 	"mobile-frontend-meta-data-issues-header-talk": "O tej stronie",
 	"mobile-frontend-meta-data-issues-talk": "O tej stronie dyskusji",
-	"mobile-frontend-pageaction-edit-tooltip": "Edytuj sekcję główną tej strony.",
+	"mobile-frontend-pageaction-edit-tooltip": "Edycja głównej sekcji tej strony",
 	"mobile-frontend-placeholder": "Przeszukaj {{GRAMMAR:B.lp|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Losuj",
 	"mobile-frontend-redirected-from": "Przekierowano z „$1”",
