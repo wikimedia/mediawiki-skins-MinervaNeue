@@ -249,8 +249,7 @@
 		if ( $caEdit.find( '.edit-page' ).length === 0 ) {
 			$( '.nojs-edit' ).removeClass( 'nojs-edit' );
 			$( '#ca-edit a' ).remove();
-			// FIXME: unfortunately the main page is special cased.
-			if ( mw.config.get( 'wgIsMainPage' ) || isNewPage ||
+			if ( isNewPage ||
 					( leadSection && leadSection.text() ) || page.getSections().length === 0 ) {
 				// if lead section is not empty, open editor with lead section
 				// In some namespaces (controlled by MFNamespacesWithoutCollapsibleSections)
@@ -262,10 +261,8 @@
 			}
 		}
 
-		// enable all edit pencils in sub-sections for the article namespace except for the main
-		// page, the pencils are unstyled there, see bug T89559
-		// FIXME: Merge this with the line under it after main page special handling is killed
-		if ( !mw.config.get( 'wgIsMainPage' ) && currentPage.getNamespaceId() === 0 ) {
+		// enable all edit pencils in sub-sections for the article namespace
+		if ( currentPage.getNamespaceId() === 0 ) {
 			$( '.in-block>.edit-page' ).show();
 		}
 		$( '.edit-page' ).on( 'click', function ( ev ) {
