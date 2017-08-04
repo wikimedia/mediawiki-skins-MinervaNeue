@@ -49,7 +49,7 @@ class MinervaTemplate extends BaseTemplate {
 		foreach ( $data['footerlinks'] as $category => $links ) {
 			$items = [];
 			foreach ( $links as $link ) {
-				if ( isset( $this->data[$link] ) && $data[$link] !== '' ) {
+				if ( isset( $this->data[$link] ) && $data[$link] !== '' && $data[$link] !== false ) {
 					$items[] = [
 						'category' => $category,
 						'name' => $link,
