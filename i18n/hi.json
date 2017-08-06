@@ -1,6 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Anamdas",
+			"Jayprakash12345",
+			"NehalDaveND",
+			"Rajat11",
+			"Sfic",
+			"Siddhartha Ghai",
+			"Smtchahal"
+		]
 	},
 	"mobile-frontend-cookies-required": "दृश्य मोड को स्विच करने के लिए कुकीज की आवश्यकता है कृपया उन्हें सक्षम करें और पुनः प्रयास करें।",
 	"mobile-frontend-editor-blocked-info-loggedin": "आपका खाता संपादन से अवरुद्ध है। निम्न कारण से {{GENDER:$2|$2}} द्वारा ब्लॉक किया गया था: $1",
@@ -16,7 +24,6 @@
 	"mobile-frontend-editor-unavailable": "वर्तमान में मोबाइल एडिटिंग आपके ब्राउज़र पर उपलब्ध नहीं है। कृपया एक अलग ब्राउज़र को आज़माएं",
 	"mobile-frontend-editor-undo-unsupported": "पूर्ववत करें मोबाइल उपकरणों पर वर्तमान में समर्थित नहीं है।",
 	"mobile-frontend-editor-uploadenable": "संपादन को सक्षम करने के लिए पहले एक फोटो अपलोड करें।",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "इस पृष्ठ के संपादन इतिहास को देखें।",
 	"mobile-frontend-home-button": "घर",
 	"mobile-frontend-language-article-heading": "किसी अन्य भाषा में पढ़ें",
@@ -40,7 +47,7 @@
 	"mobile-frontend-random-button": "कोई भी",
 	"mobile-frontend-redirected-from": "\"$1\" से अनुप्रेषित",
 	"mobile-frontend-talk-back-to-page": "\"$1\" में वापस जाएँ।",
-	"mobile-frontend-user-button-tooltip": "मेरी अधिसूचनाएँ दिखाएँ",
+	"mobile-frontend-user-button-tooltip": "मेरी सूचनायें दिखाएँ",
 	"mobile-frontend-user-newmessages": "आपके वार्ता पृष्ठ पर नया सन्देश प्राप्त हुआ है।",
 	"mobile-frontend-user-page-contributions": "योगदान",
 	"mobile-frontend-user-page-member-since": "$1 से सदस्य",
