@@ -7,7 +7,7 @@ Feature: Manage Watchlist
   Scenario: Add an article to the watchlist
     Given I am viewing an unwatched page
     When I click the watch star
-    Then I should see a toast with "Added Selenium mobile watch test to your watchlist"
+    Then I should see a toast with message "Added Selenium mobile watch test to your watchlist"
       And the watch star should be selected
 
   Scenario: Remove an article from the watchlist

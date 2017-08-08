@@ -145,7 +145,7 @@ class ArticlePage
 
   # toast
   div(:notification_area, id: 'mw-notification-area')
-  div(:toast, class: 'mw-notification')
+  div(:toast, css: '.mw-notification')
 
   # loader
   div(:content_wrapper, id: 'content')
