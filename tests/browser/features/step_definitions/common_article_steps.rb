@@ -32,14 +32,13 @@ Then(/^I should see a toast notification$/) do
     # Minerva loads mediawiki.notify at startup which defers the loading of this module
     # We must wait until the lazy loading has happened before checking for the toast (T170890)
     page.wait_until_rl_module_ready('mediawiki.notification')
+    expect(page.notification_area_element.when_visible).to be_visible
   end
-  expect(on(ArticlePage).notification_area_element.when_visible).to be_visible
-  expect(on(ArticlePage).toast_element.when_visible).to be_visible
 end
 
 Then(/^I should see a toast with message "(.+)"$/) do |msg|
-  step "I should see a toast notification"
   on(ArticlePage) do |page|
+    page.wait_until_rl_module_ready('mediawiki.notification')
     page.wait_until do
       page.toast_element.when_present.text.include? msg
     end
