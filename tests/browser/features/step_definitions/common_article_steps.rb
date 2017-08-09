@@ -39,9 +39,6 @@ end
 Then(/^I should see a toast with message "(.+)"$/) do |msg|
   on(ArticlePage) do |page|
     page.wait_until_rl_module_ready('mediawiki.notification')
-    page.wait_until do
-      page.toast_element.when_present.text.include? msg
-    end
     expect(page.toast_element.when_present.text).to match msg
   end
 end
