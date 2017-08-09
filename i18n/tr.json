@@ -1,6 +1,18 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Arystanbek",
+			"Emperyan",
+			"Hcagri",
+			"Incelemeelemani",
+			"McAang",
+			"Rapsar",
+			"Sayginer",
+			"Stultiwikia",
+			"Uğurkent",
+			"Violetanka",
+			"Vito Genovese"
+		]
 	},
 	"mobile-frontend-console-recruit": "\\o/ Hey! Bu açık kaynak kodlu bir yazılım ve bizim oluşturmak, daha iyi yapmak, JavaScript konsolunda görünebilecek olası hataları düzeltmek amacıyla yardımcı olacak gönüllülere ihtiyacımız var! \n\nBekleme listemizi şurada bulabilirsiniz @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Görünüm modları arasında geçiş yapabilmeniz için çerezlerin açık olması gereklidir. Bunları etkinleştirdikten sonra tekrar deneyin.",
@@ -17,13 +29,13 @@
 	"mobile-frontend-editor-unavailable": "Mobil düzenleme şu anda tarayıcınızda kullanılabilir değil. Lütfen farklı bir tarayıcıda deneyiniz.",
 	"mobile-frontend-editor-undo-unsupported": "Geri alma şu anda mobil cihazlarda desteklenmiyor.",
 	"mobile-frontend-editor-uploadenable": "Düzenlemeyi etkinleştirmek için lütfen önce bir fotoğraf yükleyin.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Bu sayfanın düzenleme geçmişini göster.",
 	"mobile-frontend-home-button": "Anasayfa",
 	"mobile-frontend-language-article-heading": "Başka dilde oku",
 	"mobile-frontend-languages-not-available": "Bu sayfa diğer dillerde bulunmamaktadır.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Hoş geldin}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ana menüyü aç",
+	"mobile-frontend-main-menu-contributions": "Katkılar",
 	"mobile-frontend-main-menu-login": "Oturum aç",
 	"mobile-frontend-main-menu-logout": "Oturumu kapat",
 	"mobile-frontend-main-menu-nearby": "Yakınındakiler",
@@ -42,5 +54,6 @@
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" proje sayfasına dön.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" kullanıcı sayfasına dön.",
 	"mobile-frontend-user-button-tooltip": "Bildirimlerimi göster",
-	"mobile-frontend-user-newmessages": "Mesaj sayfanızda yeni mesajlar var"
+	"mobile-frontend-user-newmessages": "Mesaj sayfanızda yeni mesajlar var",
+	"mobile-frontend-user-page-contributions": "Katkılar"
 }

@@ -1,8 +1,16 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Danmichaelo",
+			"Haakon K",
+			"Jeblad",
+			"Jon Harald Søby",
+			"Njardarlogar",
+			"Pmt"
+		]
 	},
-	"mobile-frontend-console-recruit": "\\o/ Hei du! Dette er åpen kildekode-programvare som du kan være med å bygge – og du kan bli med å fikse feil du kommer over i JavaScript-konsollen!\n\nDu finner backloggen vår @ https://phabricator.wikimedia.org/project/profile/67/",
+	"minerva-talk-add-topic": "Legg til diskusjon",
+	"mobile-frontend-console-recruit": "\\o/ Hei du! Dette er åpen kildekode-programvare som du kan være med å bygge – og du kan bli med å fikse feil du kommer over i JavaScript-konsollen!\n\nDu finner backloggen vår på https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Informasjonskapsler kreves for å bytte visningstilstand. Aktiver dem og prøv igjen.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Kontoen din er blokkert fra å redigere. Blokkeringen ble utført av {{GENDER:$2|$2}} med følgende begrunnelse: $1",
 	"mobile-frontend-editor-cta": "Hjelp til med å forbedre denne siden!",
@@ -10,20 +18,19 @@
 	"mobile-frontend-editor-edit": "Rediger",
 	"mobile-frontend-editor-redlink-create": "Opprett side",
 	"mobile-frontend-editor-redlink-explain": "Denne siden har ikke blitt opprettet enda.",
-	"mobile-frontend-editor-redlink-leave": "Nei takk",
+	"mobile-frontend-editor-redlink-leave": "Nei takk.",
 	"mobile-frontend-editor-tutorial-cancel": "Nei takk",
 	"mobile-frontend-editor-tutorial-confirm": "Begynn å redigere",
 	"mobile-frontend-editor-tutorial-summary": "Prøv å se om du kan forbedre $1.<br />Ikke bli skremt av wikikoden.",
-	"mobile-frontend-editor-unavailable": "Mobilredigering er foreløpig ikke støttet av nettleseren din. Prøv gjerne med en annen nettleser.",
+	"mobile-frontend-editor-unavailable": "Mobilredigering er støttes foreløpig ikke av nettleseren din. Prøv gjerne med en annen nettleser.",
 	"mobile-frontend-editor-undo-unsupported": "Angre er foreløpig ikke søttet på mobile enheter.",
 	"mobile-frontend-editor-uploadenable": "Last opp et foto først for å aktivere redigering.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Vis sidens redigeringshistorikk.",
 	"mobile-frontend-home-button": "Hjem",
 	"mobile-frontend-language-article-heading": "Les på et annet språk",
 	"mobile-frontend-language-change": "Endre språk",
-	"mobile-frontend-languages-not-available": "Siden er ikke tilgjengelig på andre språk.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Velkommen}} $1!",
+	"mobile-frontend-languages-not-available": "Denne siden er ikke tilgjengelig på andre språk.",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Velkommen}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Åpne hovedmenyen",
 	"mobile-frontend-main-menu-contributions": "Bidrag",
 	"mobile-frontend-main-menu-login": "Logg inn",
@@ -50,5 +57,6 @@
 	"mobile-frontend-user-page-contributions": "Bidrag",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Ble}} med $1",
 	"mobile-frontend-user-page-talk": "Diskusjon",
-	"mobile-frontend-user-page-uploads": "Opplastinger"
+	"mobile-frontend-user-page-uploads": "Opplastinger",
+	"minerva-skin-desc": "Ei responsiv drakt for mobil-først."
 }

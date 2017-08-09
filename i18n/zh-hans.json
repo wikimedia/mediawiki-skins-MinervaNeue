@@ -6,11 +6,12 @@
 			"Hzy980512",
 			"Liuxinyu970226",
 			"Shizhao",
-			"Xiaomingyan"
+			"Xiaomingyan",
+			"Yfdyh000"
 		]
 	},
 	"minerva-talk-add-topic": "添加讨论",
-	"mobile-frontend-console-recruit": "\\o/ 嘿！这是一个开源软件，并且我们需要志愿者来帮助我们打造它、使其更好和修复错误，比如您这样查阅JavaScript控制台的人！\n\n您可以找到我们的积压问题 @ https://phabricator.wikimedia.org/project/profile/67/",
+	"mobile-frontend-console-recruit": "\\o/ 嘿！这是一个开源软件，我们也需要志愿者来帮助我们打造它、改进它和修复问题，包括可能在此 JavaScript 控制台中看到的错误！\n\n我们积压的问题在这儿: https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "需要Cookie以切换视图模式。请启用它们后重试。",
 	"mobile-frontend-editor-blocked-info-loggedin": "您的账户被封禁，不能编辑。封禁是由{{GENDER:$2|$2}}做出的，原因是：$1",
 	"mobile-frontend-editor-cta": "帮助改善此页面！",
