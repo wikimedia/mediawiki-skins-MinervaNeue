@@ -1,18 +1,34 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Kaszeba",
+			"Kirsan"
+		]
 	},
+	"minerva-talk-add-topic": "Dodôj diskùsëjã",
 	"mobile-frontend-editor-edit": "Editëjë",
-	"mobile-frontend-history": "Òbaczë historiã zjinaków ti starnë.",
+	"mobile-frontend-editor-redlink-create": "Ùsôdzë starnã",
+	"mobile-frontend-history": "Òbôczë historijã edicëji ti starnë.",
 	"mobile-frontend-home-button": "Przédnô",
 	"mobile-frontend-language-article-heading": "Przeczëtôj w jinszim jãzëkù",
+	"mobile-frontend-language-change": "Zmieni jãzëk",
 	"mobile-frontend-main-menu-button-tooltip": "Òtemkni przédné menu",
+	"mobile-frontend-main-menu-contributions": "Mój wkłôd",
 	"mobile-frontend-main-menu-login": "Wlogùjë mie",
-	"mobile-frontend-main-menu-logout": "Wëlogùj",
+	"mobile-frontend-main-menu-logout": "Wëlogùjë",
 	"mobile-frontend-main-menu-nearby": "W òkòlim",
 	"mobile-frontend-main-menu-settings": "Nastôwë",
 	"mobile-frontend-main-menu-watchlist": "Lësta ùzérónëch artiklów",
+	"mobile-frontend-notifications-filter": "Filter",
 	"mobile-frontend-pageaction-edit-tooltip": "Editëjë przédny dzél ti starnë",
-	"mobile-frontend-placeholder": "Szëkba {{GRAMMAR:B.lp|{{SITENAME}}}}",
-	"mobile-frontend-random-button": "Kawlowò"
+	"mobile-frontend-placeholder": "Szëkba {{SITENAME}}",
+	"mobile-frontend-random-button": "Kawlowò",
+	"mobile-frontend-redirected-from": "Przeczerowóné z \"$1\"",
+	"mobile-frontend-talk-back-to-filepage": "Nazôd do lopka \"$1\".",
+	"mobile-frontend-talk-back-to-page": "Nazôd do starnë \"$1\"",
+	"mobile-frontend-talk-back-to-projectpage": "Nazôd do starnë ùdbë \"$1\".",
+	"mobile-frontend-talk-back-to-userpage": "Nazôd do starnë brëkòwnika òd \"{{GENDER:$1|$1}}\".",
+	"mobile-frontend-user-page-contributions": "Mój wkłôd",
+	"mobile-frontend-user-page-talk": "Diskùsëjô",
+	"mobile-frontend-user-page-uploads": "Wladowóné lopczi"
 }
