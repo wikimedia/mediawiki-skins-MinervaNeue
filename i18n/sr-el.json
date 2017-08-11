@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Milicevic01",
+			"Obsuser",
+			"Srdjan m"
+		]
 	},
 	"mobile-frontend-editor-blocked-info-loggedin": "Vašem nalog je onemogućeno uređivanje. {{GENDER:$2|Blokirao|Blokirala}} vas je $2 iz sledećeg razloga: $1",
 	"mobile-frontend-editor-cta": "Pomozite nam da poboljšamo stranicu!",
@@ -10,7 +14,6 @@
 	"mobile-frontend-editor-redlink-leave": "Ne, hvala.",
 	"mobile-frontend-editor-tutorial-cancel": "Ne, hvala",
 	"mobile-frontend-editor-unavailable": "Vaš veb-pregledač ne podržava mobilno uređivanje. Pokušajte sa nekim drugim veb-pregledačem.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Istorija izmena ove stranice.",
 	"mobile-frontend-home-button": "Početna",
 	"mobile-frontend-language-article-heading": "Drugi jezici",
@@ -21,8 +24,8 @@
 	"mobile-frontend-main-menu-nearby": "U blizini",
 	"mobile-frontend-main-menu-settings": "Podešavanja",
 	"mobile-frontend-main-menu-watchlist": "Nadgledanja",
-	"mobile-frontend-meta-data-issues": "Nedostaci stranice",
-	"mobile-frontend-meta-data-issues-header": "Nedostaci",
+	"mobile-frontend-meta-data-issues": "<i>Nedostaci ili obaveštenja stranice</i>",
+	"mobile-frontend-meta-data-issues-header": "Nedostaci ili obaveštenja",
 	"mobile-frontend-meta-data-issues-header-talk": "O ovoj stranici",
 	"mobile-frontend-meta-data-issues-talk": "O ovoj stranici za razgovor",
 	"mobile-frontend-pageaction-edit-tooltip": "Uredi uvodni odeljak ove stranice.",
