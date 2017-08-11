@@ -1306,8 +1306,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$this->getContextSpecificModules(),
 			[
 				'skins.minerva.scripts.top',
-				'skins.minerva.scripts',
-				'mobile.site',
+				'skins.minerva.scripts'
 			]
 		);
 
