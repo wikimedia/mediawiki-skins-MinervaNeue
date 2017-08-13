@@ -1,6 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bowleerin",
+			"Cwlin0416",
+			"LNDDYL",
+			"Liuxinyu970226",
+			"Simon Shek",
+			"Waihorace",
+			"Wwycheuk",
+			"一個正常人"
+		]
 	},
 	"mobile-frontend-cookies-required": "切換檢視模式需要開啟 Cookies，請先開啟後再重試。",
 	"mobile-frontend-editor-blocked-info-loggedin": "您的帳號已被封鎖禁止編輯，封鎖您的人為 {{GENDER:$1|$1}}，由於下列原因：$2",
@@ -16,7 +25,6 @@
 	"mobile-frontend-editor-unavailable": "手機編輯器尚不支援您的瀏覽器。請嘗試使用其他瀏覽器。",
 	"mobile-frontend-editor-undo-unsupported": "手機裝置目前尚未支援還原。",
 	"mobile-frontend-editor-uploadenable": "請先上傳一張照片然後編輯。",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "檢視此頁面的編輯歷史。",
 	"mobile-frontend-home-button": "首頁",
 	"mobile-frontend-language-article-heading": "以其他語言閱讀",
@@ -34,6 +42,7 @@
 	"mobile-frontend-meta-data-issues-header": "問題",
 	"mobile-frontend-meta-data-issues-header-talk": "關於此頁面",
 	"mobile-frontend-meta-data-issues-talk": "關於此對話頁面",
+	"mobile-frontend-notifications-filter": "篩選器",
 	"mobile-frontend-pageaction-edit-tooltip": "編輯此頁面的導言章節。",
 	"mobile-frontend-placeholder": "搜尋 {{SITENAME}}",
 	"mobile-frontend-random-button": "隨機",
