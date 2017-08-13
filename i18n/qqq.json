@@ -11,6 +11,7 @@
 			"Umherirrender"
 		]
 	},
+	"skinname-minervaneue": "The skin name for MinervaNeue.",
 	"minerva-talk-add-topic": "Label for button which shows at bottom of talk pages in mobile view prompting addition of topic",
 	"mobile-frontend-console-recruit": "Message that is displayed in the JavaScript console aimed at developers in an attempt to recruit volunteers. The \\o/ emoticon is a man with his arms in the air with the purpose of drawing attention to the message. If this doesn't translate into the destination language feel free to omit it or use something more applicable.",
 	"mobile-frontend-cookies-required": "Error message shown when user attempts to switch site modes and cookies are not enabled.",
