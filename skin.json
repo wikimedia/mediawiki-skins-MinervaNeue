@@ -1,5 +1,7 @@
 {
 	"AutoloadClasses": {
+		"MinervaResourceLoaderParsedMessageModule": "includes/MinervaResourceLoaderParsedMessageModule.php",
+		"MinervaUI": "includes/MinervaUI.php",
 		"MinervaHooks": "includes/Minerva.hooks.php",
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/skins/SkinMinerva.php",
@@ -350,7 +352,7 @@
 			]
 		},
 		"skins.minerva.editor": {
-			"class": "MFResourceLoaderParsedMessageModule",
+			"class": "MinervaResourceLoaderParsedMessageModule",
 			"dependencies": [
 				"mediawiki.util",
 				"mediawiki.router",
@@ -426,7 +428,7 @@
 			]
 		},
 		"skins.minerva.toggling": {
-			"class": "MFResourceLoaderParsedMessageModule",
+			"class": "MinervaResourceLoaderParsedMessageModule",
 			"dependencies": [
 				"mobile.toggle",
 				"skins.minerva.icons.images.variants",

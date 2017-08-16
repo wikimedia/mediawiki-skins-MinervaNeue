@@ -3,7 +3,7 @@
 namespace Tests\MediaWiki\Minerva;
 
 use MediaWikiTestCase;
-use MobileUI;
+use MinervaUI;
 use MWTimestamp;
 use OutputPage;
 use QuickTemplate;
@@ -289,7 +289,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$hasUnseen
 	) {
 		return [
-			'notificationIconClass' => MobileUI::iconClass( 'notifications' ),
+			'notificationIconClass' => MinervaUI::iconClass( 'notifications' ),
 			'title' => $notificationsMsg,
 			'url' => SpecialPage::getTitleFor( $notificationsTitle )
 				->getLocalURL(

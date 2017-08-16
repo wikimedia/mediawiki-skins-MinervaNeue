@@ -236,7 +236,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				'data-section' => $section,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
 				// we default to enabled even though this may not be true.
-				'class' => MobileUI::iconClass( 'edit-enabled', 'element', 'edit-page' ),
+				'class' => MinervaUI::iconClass( 'edit-enabled', 'element', 'edit-page' ),
 			], $message );
 			$html .= Html::closeElement( 'span' );
 			return $html;
@@ -408,7 +408,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				[ 'returnto' => $currentTitle->getPrefixedText() ] );
 
 			$tpl->set( 'secondaryButtonData', [
-				'notificationIconClass' => MobileUI::iconClass( 'notifications' ),
+				'notificationIconClass' => MinervaUI::iconClass( 'notifications' ),
 				'title' => $notificationsMsg,
 				'url' => $url,
 				'notificationCount' => $countLabel,
@@ -452,7 +452,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			->addComponent(
 				$this->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
 				SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalUrl(),
-				MobileUI::iconClass( 'mf-contributions', 'before' ),
+				MinervaUI::iconClass( 'mf-contributions', 'before' ),
 				[ 'data-event-name' => 'contributions' ]
 			);
 	}
@@ -490,7 +490,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 					'mobile-frontend-watchlist-purpose',
 					$watchlistQuery
 				),
-				MobileUI::iconClass( 'mf-watchlist', 'before' ),
+				MinervaUI::iconClass( 'mf-watchlist', 'before' ),
 				[ 'data-event-name' => 'watchlist' ]
 			);
 	}
@@ -512,7 +512,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 					$this->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
 					SpecialPage::getTitleFor( 'MobileOptions' )->
 						getLocalUrl( [ 'returnto' => $returnToTitle ] ),
-					MobileUI::iconClass( 'mf-settings', 'before' ),
+					MinervaUI::iconClass( 'mf-settings', 'before' ),
 					[ 'data-event-name' => 'settings' ]
 				);
 
@@ -527,7 +527,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 						SpecialPage::getTitleFor( 'Preferences' ),
 						'prefsnologintext2'
 					),
-					MobileUI::iconClass( 'mf-settings', 'before' ),
+					MinervaUI::iconClass( 'mf-settings', 'before' ),
 					[ 'data-event-name' => 'preferences' ]
 				);
 		}
@@ -613,7 +613,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			->addComponent(
 				$this->msg( 'mobile-frontend-home-button' )->escaped(),
 				Title::newMainPage()->getLocalUrl(),
-				MobileUI::iconClass( 'mf-home', 'before' ),
+				MinervaUI::iconClass( 'mf-home', 'before' ),
 				[ 'data-event-name' => 'home' ]
 			);
 
@@ -622,7 +622,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			->addComponent(
 				$this->msg( 'mobile-frontend-random-button' )->escaped(),
 				SpecialPage::getTitleFor( 'Randompage' )->getLocalUrl() . '#/random',
-				MobileUI::iconClass( 'mf-random', 'before' ),
+				MinervaUI::iconClass( 'mf-random', 'before' ),
 				[
 					'id' => 'randomButton',
 					'data-event-name' => 'random',
@@ -639,7 +639,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
-					MobileUI::iconClass( 'mf-nearby', 'before', 'nearby' ),
+					MinervaUI::iconClass( 'mf-nearby', 'before', 'nearby' ),
 					[ 'data-event-name' => 'nearby' ]
 				);
 		}
@@ -689,13 +689,13 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$username,
 					Title::newFromText( $username, NS_USER )->getLocalUrl(),
-					MobileUI::iconClass( 'mf-profile', 'before', 'truncated-text primary-action' ),
+					MinervaUI::iconClass( 'mf-profile', 'before', 'truncated-text primary-action' ),
 					[ 'data-event-name' => 'profile' ]
 				)
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-logout' )->escaped(),
 					$url,
-					MobileUI::iconClass(
+					MinervaUI::iconClass(
 						'mf-logout', 'element', 'secondary-action truncated-text' ),
 					[ 'data-event-name' => 'logout' ]
 				);
@@ -711,7 +711,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-login' )->escaped(),
 					$url,
-					MobileUI::iconClass( 'mf-anonymous', 'before' ),
+					MinervaUI::iconClass( 'mf-anonymous', 'before' ),
 					[ 'data-event-name' => 'login' ]
 				);
 		}
@@ -913,7 +913,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			Html::element( 'a', [
 				'title' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' ),
 				'href' => $url,
-				'class' => MobileUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
+				'class' => MinervaUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
 				'id' => 'mw-mf-main-menu-button',
 			], $this->msg( 'mobile-frontend-main-menu-button-tooltip' ) )
 		);
@@ -1105,7 +1105,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			'id' => 'ca-edit',
 			'text' => '',
 			'itemtitle' => $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ),
-			'class' => MobileUI::iconClass( 'edit-enabled', 'element' ),
+			'class' => MinervaUI::iconClass( 'edit-enabled', 'element' ),
 			'links' => [
 				'edit' => [
 					'href' => $title->getLocalURL( $editArgs )
@@ -1127,7 +1127,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$baseResult = [
 			'id' => 'ca-watch',
 			// Use blank icon to reserve space for watchstar icon once JS loads
-			'class' => MobileUI::iconClass( '', 'element', 'watch-this-article' ),
+			'class' => MinervaUI::iconClass( '', 'element', 'watch-this-article' ),
 			'is_js_only' => true
 		];
 		$title = $this->getTitle();
@@ -1170,7 +1170,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		return [
 			'text' => '',
 			'itemtitle' => $this->msg( 'mobile-frontend-language-article-heading' ),
-			'class' => MobileUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
+			'class' => MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
 			'links' => $languageSwitcherLinks,
 			'is_js_only' => false
 		];

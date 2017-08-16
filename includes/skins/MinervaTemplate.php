@@ -109,8 +109,8 @@ class MinervaTemplate extends BaseTemplate {
 		if ( isset( $data['historyLink'] ) && $action === 'view' ) {
 			$historyLink = $data['historyLink'];
 			$args = [
-				'clockIconClass' => MobileUI::iconClass( 'clock-gray', 'before' ),
-				'arrowIconClass' => MobileUI::iconClass(
+				'clockIconClass' => MinervaUI::iconClass( 'clock-gray', 'before' ),
+				'arrowIconClass' => MinervaUI::iconClass(
 					'arrow-gray', 'element', 'mw-ui-icon-small mf-mw-ui-icon-rotate-anti-clockwise indicator' ),
 				'isMainPage' => $this->getSkin()->getTitle()->isMainPage(),
 				'link' => $historyLink['href'],
@@ -146,7 +146,7 @@ class MinervaTemplate extends BaseTemplate {
 	 * @return string
 	 */
 	protected function getSecondaryActionsHtml() {
-		$baseClass = MobileUI::buttonClass( '', 'button' );
+		$baseClass = MinervaUI::buttonClass( '', 'button' );
 		$html = Html::openElement( 'div', [
 			'class' => 'post-content',
 			'id' => 'page-secondary-actions'
@@ -281,7 +281,7 @@ class MinervaTemplate extends BaseTemplate {
 			// which is problematic in Opera Mini (see T140490)
 			'searchButton' => Html::rawElement( 'button', [
 				'id' => 'searchIcon',
-				'class' => MobileUI::iconClass( 'magnifying-glass', 'element' ),
+				'class' => MinervaUI::iconClass( 'magnifying-glass', 'element' ),
 			], wfMessage( 'searchbutton' ) ),
 			'secondaryButtonData' => $data['secondaryButtonData'],
 			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
