@@ -629,6 +629,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 		// Nearby link (if supported)
 		if (
+			SpecialPageFactory::exists( 'Nearby' ) &&
 			$config->get( 'MFNearby' ) &&
 			( $config->get( 'MFNearbyEndpoint' ) || class_exists( 'GeoData\GeoData' ) )
 		) {
@@ -738,11 +739,18 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				$this->getLanguage()->userTime( $timestamp, $user )
 			)->parse();
 		}
+
+		if ( SpecialPageFactory::exists( 'History' ) ) {
+			$historyUrl = SpecialPage::getTitleFor( 'History', $title )->getLocalURL();
+		} else {
+			$historyUrl = $title->getLocalURL( [ 'action' => 'history' ] );
+		}
+
 		$edit = $mp->getLatestEdit();
 		$link = [
 			// Use $edit['timestamp'] (Unix format) instead of $timestamp (MW format)
 			'data-timestamp' => $isMainPage ? '' : $edit['timestamp'],
-			'href' => SpecialPage::getTitleFor( 'History', $title )->getLocalURL(),
+			'href' => $historyUrl,
 			'text' => $lastModified,
 			'data-user-name' => $edit['name'],
 			'data-user-gender' => $edit['gender'],
@@ -864,7 +872,9 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 */
 	protected function prepareMenuButton( BaseTemplate $tpl ) {
 		// menu button
-		$url = SpecialPage::getTitleFor( 'MobileMenu' )->getLocalUrl();
+		$url = SpecialPageFactory::exists( 'MobileMenu' ) ?
+			SpecialPage::getTitleFor( 'MobileMenu' )->getLocalUrl() : '#';
+
 		$tpl->set( 'menuButton',
 			Html::element( 'a', [
 				'title' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' ),
