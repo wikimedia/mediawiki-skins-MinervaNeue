@@ -734,7 +734,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$lastModified = $this->msg( 'mobile-frontend-history' )->plain();
 		} else {
 			$lastModified = $this->msg(
-				'mobile-frontend-last-modified-date',
+				'minerva-last-modified-date',
 				$this->getLanguage()->userDate( $timestamp, $user ),
 				$this->getLanguage()->userTime( $timestamp, $user )
 			)->parse();
