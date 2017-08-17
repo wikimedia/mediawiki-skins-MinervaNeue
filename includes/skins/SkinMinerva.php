@@ -470,13 +470,16 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$watchlistQuery = [];
 		$user = $this->getUser();
 		if ( $user ) {
-			$view = $user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
-			$filter = $user->getOption( SpecialMobileWatchlist::FILTER_OPTION_NAME, false );
-			if ( $view ) {
-				$watchlistQuery['watchlistview'] = $view;
-			}
-			if ( $filter && $view === 'feed' ) {
-				$watchlistQuery['filter'] = $filter;
+			// Avoid fatal when MobileFrontend not available (T171241)
+			if ( class_exists( 'SpecialMobileWatchlist' ) ) {
+				$view = $user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
+				$filter = $user->getOption( SpecialMobileWatchlist::FILTER_OPTION_NAME, false );
+				if ( $view ) {
+					$watchlistQuery['watchlistview'] = $view;
+				}
+				if ( $filter && $view === 'feed' ) {
+					$watchlistQuery['filter'] = $filter;
+				}
 			}
 		}
 
