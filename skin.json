@@ -59,6 +59,9 @@
 			"mediawiki.action.edit.styles": [
 				"skinStyles/mediawiki.action.edit.styles/minerva.less"
 			],
+			"mediawiki.special.preferences.styles": [
+				"skinStyles/mediawiki.special.preferences.styles/styles.less"
+			],
 			"mobile.pointerOverlay": [
 				"skinStyles/mobile.pointerOverlay/minerva.less"
 			],

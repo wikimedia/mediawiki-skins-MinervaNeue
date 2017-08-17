@@ -1,0 +1,49 @@
+@import 'minerva.variables';
+
+// FIXME: All this code can be removed when T117781/T171238 is resolved.
+#preftoc {
+	text-align: center;
+
+	li {
+		display: inline-block;
+		color: @colorGray2;
+		border: 1px solid @colorFieldBorder;
+		border-radius: 0;
+
+		&:first-child {
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+		}
+
+		&:last-child {
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+		}
+
+		&:not( :first-child ) {
+			border-left: 0;
+		}
+
+		&.selected {
+			background-color: @colorProgressiveActive;
+			border-color: @colorProgressiveActive;
+			color: #fff;
+			box-shadow: none;
+		}
+
+		a {
+			padding: 0.5em 1em;
+			color: inherit;
+			display: block;
+		}
+	}
+}
+
+.mw-htmlform-submit-buttons,
+.mw-input {
+	select,
+	input {
+		border: solid 1px @colorFieldBorder;
+		padding: 8px;
+	}
+}
