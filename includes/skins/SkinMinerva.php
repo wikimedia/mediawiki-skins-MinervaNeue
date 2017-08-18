@@ -264,8 +264,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 		if ( $title->isMainPage() ) {
 			$className .= ' page-Main_Page ';
-		} elseif ( $title->isSpecialPage() ) {
-			$className .= ' mw-mf-special ';
 		}
 
 		if ( $this->isAuthenticatedUser() ) {
@@ -1369,12 +1367,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
 			$styles[] = 'skins.minerva.userpage.icons';
-		} elseif ( $title->isSpecialPage() ) {
-			$styles[] = 'mobile.messageBox.styles';
-			$styles['special'] = 'skins.minerva.special.styles';
-		}
-		if ( $this->getOutput()->getRequest()->getText( 'oldid' ) ) {
-			$styles[] = 'mobile.messageBox.styles';
 		}
 
 		return $styles;

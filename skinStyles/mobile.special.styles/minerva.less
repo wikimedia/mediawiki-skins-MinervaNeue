@@ -1,0 +1,25 @@
+@import 'minerva.variables';
+
+.ns-special {
+	#content {
+		@verticalPadding: 0.5em;
+		#section_0 {
+			padding: @verticalPadding 0;
+			text-align: center;
+			font-size: 1.25em;
+			font-weight: bold;
+			border: 0;
+		}
+
+		.pre-content {
+			padding: 0;
+			border-bottom: 0;
+		}
+	}
+
+	h1,
+	h2 {
+		// Important given we have no idea which rules special pages are enforcing
+		font-family: @fontFamily !important;
+	}
+}

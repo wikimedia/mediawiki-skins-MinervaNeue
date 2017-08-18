@@ -106,7 +106,7 @@ class MinervaHooks {
 				case 'CreateAccount':
 					// FIXME: Note mobile.ajax.styles should not be necessary here.
 					// It's used by the Captcha extension (see T162196)
-					$out->addModuleStyles( [ 'mobile.ajax.styles', 'skins.minerva.special.userlogin.styles' ] );
+					$out->addModuleStyles( [ 'mobile.ajax.styles' ] );
 					// Add default warning message to Special:UserLogin and Special:UserCreate
 					// if no warning message set.
 					if (
@@ -116,9 +116,6 @@ class MinervaHooks {
 					) {
 						$request->setVal( 'warning', 'mobile-frontend-generic-login-new' );
 					}
-					break;
-				case 'Search':
-					$out->addModuleStyles( 'skins.minerva.special.search.styles' );
 					break;
 			}
 		}
