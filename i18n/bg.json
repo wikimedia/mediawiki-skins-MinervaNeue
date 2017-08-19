@@ -1,7 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"DCLXVI",
+			"Dicto23456",
+			"Ivanko",
+			"ShockD",
+			"StanProg",
+			"Stanqo",
+			"Termininja",
+			"Vodnokon4e"
+		]
 	},
+	"minerva-last-modified-date": "Последна промяна: в $2, на $1",
 	"mobile-frontend-editor-cta": "Помогнете за подобряването на тази страница!",
 	"mobile-frontend-editor-disabled": "Тази страница е защитена с цел предотвратяване на вандализъм.",
 	"mobile-frontend-editor-edit": "Редактиране",
@@ -10,7 +20,6 @@
 	"mobile-frontend-editor-redlink-leave": "Не, благодаря.",
 	"mobile-frontend-editor-tutorial-cancel": "Не, благодаря",
 	"mobile-frontend-editor-tutorial-confirm": "Започнете да редактирате",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Вижте историята на тази страница.",
 	"mobile-frontend-home-button": "Начало",
 	"mobile-frontend-language-article-heading": "Прочитане на друг език",

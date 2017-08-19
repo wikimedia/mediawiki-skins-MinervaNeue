@@ -10,6 +10,7 @@
 			"Yfdyh000"
 		]
 	},
+	"minerva-last-modified-date": "最后编辑于$1 $2",
 	"minerva-talk-add-topic": "添加讨论",
 	"mobile-frontend-console-recruit": "\\o/ 嘿！这是一个开源软件，我们也需要志愿者来帮助我们打造它、改进它和修复问题，包括可能在此 JavaScript 控制台中看到的错误！\n\n我们积压的问题在这儿: https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "需要Cookie以切换视图模式。请启用它们后重试。",

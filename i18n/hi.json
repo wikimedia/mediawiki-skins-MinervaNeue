@@ -7,9 +7,11 @@
 			"Rajat11",
 			"Sfic",
 			"Siddhartha Ghai",
-			"Smtchahal"
+			"Smtchahal",
+			"Sachinkatiyar"
 		]
 	},
+	"minerva-last-modified-date": "अंतिम बार $1 को $2 बजे संपादित किया गया",
 	"mobile-frontend-cookies-required": "दृश्य मोड को स्विच करने के लिए कुकीज की आवश्यकता है कृपया उन्हें सक्षम करें और पुनः प्रयास करें।",
 	"mobile-frontend-editor-blocked-info-loggedin": "आपका खाता संपादन से अवरुद्ध है। निम्न कारण से {{GENDER:$2|$2}} द्वारा ब्लॉक किया गया था: $1",
 	"mobile-frontend-editor-cta": "इस पृष्ठ को बेहतर बनाने में मदद करें!",
