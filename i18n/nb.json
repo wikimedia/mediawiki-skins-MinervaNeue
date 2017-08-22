@@ -6,9 +6,11 @@
 			"Jeblad",
 			"Jon Harald Søby",
 			"Njardarlogar",
-			"Pmt"
+			"Pmt",
+			"Event"
 		]
 	},
+	"minerva-last-modified-date": "Sist redigert den $1, kl. $2",
 	"minerva-talk-add-topic": "Legg til diskusjon",
 	"mobile-frontend-console-recruit": "\\o/ Hei du! Dette er åpen kildekode-programvare som du kan være med å bygge – og du kan bli med å fikse feil du kommer over i JavaScript-konsollen!\n\nDu finner backloggen vår på https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Informasjonskapsler kreves for å bytte visningstilstand. Aktiver dem og prøv igjen.",

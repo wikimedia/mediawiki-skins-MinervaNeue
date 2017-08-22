@@ -12,6 +12,7 @@
 			"Ryo567"
 		]
 	},
+	"minerva-last-modified-date": "Última edición el $1 a las $2",
 	"mobile-frontend-console-recruit": "\\o/ ¡Ey! Esto es software de código abierto y necesitamos voluntarios que nos ayuden a construirlo, mejorarlo y corregir los posibles errores que puedas encontrar en esta consola de JavaScript.\n\nPuedes ver el trabajo pendiente en https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Se requieren \"cookies\" para cambiar los modos de visualización. Habilítalas y vuelve a intentarlo.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Tu cuenta está bloqueada para editar. El bloqueo lo realizó {{GENDER:$2|$2}} por el siguiente motivo: $1.",

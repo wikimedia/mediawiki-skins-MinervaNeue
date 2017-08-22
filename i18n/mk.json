@@ -47,7 +47,7 @@
 	"mobile-frontend-talk-back-to-filepage": "Назад на податотеката „$1“.",
 	"mobile-frontend-talk-back-to-page": "Назад на страницата „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Назад на проектната страница „$1“.",
-	"mobile-frontend-talk-back-to-userpage": "Наза на корисничката страница на „{{GENDER:$1|$1}}“.",
+	"mobile-frontend-talk-back-to-userpage": "Назад на корисничката страница на „{{GENDER:$1|$1}}“.",
 	"mobile-frontend-user-button-tooltip": "Прикажи ги моите известувања",
 	"mobile-frontend-user-newmessages": "Имате нови пораки на вашата страница за разговор",
 	"mobile-frontend-user-page-contributions": "Учесници",
