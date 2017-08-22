@@ -24,6 +24,7 @@
 		popup = M.require( 'mobile.startup/toast' ),
 		// FIXME: Disable on IE < 10 for time being
 		blacklisted = /MSIE \d\./.test( navigator.userAgent ),
+		contentModel = mw.config.get( 'wgPageContentModel' ),
 		isEditingSupported = router.isSupported() && !blacklisted,
 		// FIXME: Use currentPage.getId()
 		isNewPage = currentPage.options.id === 0,
@@ -345,7 +346,11 @@
 		} );
 	}
 
-	if ( !isEditingSupported ) {
+	if ( contentModel !== 'wikitext' ) {
+		// Only load the wikitext editor on wikitext. Otherwise we'll rely on the fallback behaviour
+		// (You can test this on MediaWiki:Common.css) ?action=edit url (T173800)
+		return;
+	} else if ( !isEditingSupported ) {
 		// Editing is disabled (or browser is blacklisted)
 		$caEdit.removeClass( 'hidden' );
 		showSorryToast( mw.msg( 'mobile-frontend-editor-unavailable' ) );

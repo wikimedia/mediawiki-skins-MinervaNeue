@@ -19,6 +19,9 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	const OPTION_BACK_TO_TOP = 'backToTop';
 	const OPTION_TOGGLING = 'toggling';
 	const OPTIONS_MOBILE_BETA = 'beta';
+	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
+	  in editing mode */
+	const LEAD_SECTION_NUMBER = 0;
 
 	/** @var string $skinname Name of this skin */
 	public $skinname = 'minerva';
@@ -1063,6 +1066,13 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return array A map compatible with BaseTemplate#makeListItem
 	 */
 	protected function createEditPageAction() {
+		$title = $this->getTitle();
+		$editArgs = [ 'action' => 'edit' ];
+		if ( $title->isWikitextPage() ) {
+			// If the content model is wikitext we'll default to editing the lead section.
+			// Full wikitext editing is not possible via the api and hard on mobile devices.
+			$editArgs['section'] = self::LEAD_SECTION_NUMBER;
+		}
 		return [
 			'id' => 'ca-edit',
 			'text' => '',
@@ -1070,7 +1080,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			'class' => MobileUI::iconClass( 'edit-enabled', 'element' ),
 			'links' => [
 				'edit' => [
-					'href' => $this->getTitle()->getLocalURL( [ 'action' => 'edit', 'section' => 0 ] )
+					'href' => $title->getLocalURL( $editArgs )
 				],
 			],
 			'is_js_only' => false
@@ -1240,7 +1250,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		if ( !$title->isTalkPage() ) {
 			$title = $title->getTalkPage();
 		}
-		return $title->getContentModel() === CONTENT_MODEL_WIKITEXT;
+		return $title->isWikitextPage();
 	}
 
 	/**
