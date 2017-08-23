@@ -166,3 +166,9 @@ FIXME: Review all of these hacks to see if they still apply.
 		}
 	}
 }
+
+// Hack to assign info boxes properly when using RTL languages on LTR wiki
+[dir='rtl'] .content .infobox {
+	/* @noflip */
+	text-align: left;
+}
