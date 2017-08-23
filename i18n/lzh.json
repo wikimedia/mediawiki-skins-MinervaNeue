@@ -1,13 +1,20 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Itsmine",
+			"LNDDYL",
+			"SolidBlock",
+			"StephDC",
+			"Suchichi02",
+			"逆襲的天邪鬼"
+		]
 	},
 	"mobile-frontend-editor-cta": "助善本頁！",
 	"mobile-frontend-editor-edit": "纂",
 	"mobile-frontend-editor-tutorial-confirm": "始纂",
-	"mobile-frontend-history": "閱本頁之纂誌。",
+	"mobile-frontend-history": "編輯紀錄",
 	"mobile-frontend-home-button": "卷首",
-	"mobile-frontend-language-article-heading": "閱他山",
+	"mobile-frontend-language-article-heading": "外文",
 	"mobile-frontend-logged-in-homepage-notification": "$1，歡迎蒞臨！",
 	"mobile-frontend-main-menu-button-tooltip": "啟主列",
 	"mobile-frontend-main-menu-login": "登簿",
