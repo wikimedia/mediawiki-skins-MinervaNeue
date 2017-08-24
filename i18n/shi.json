@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Amara-Amaziɣ"
+		]
 	},
 	"mobile-frontend-editor-edit": "ⵙⵏⴼⵍ",
 	"mobile-frontend-home-button": "ⴰⵙⵏⵓⴱⴳ",
@@ -8,6 +10,6 @@
 	"mobile-frontend-main-menu-login": "ⴽⵛⵎ",
 	"mobile-frontend-main-menu-settings": "ⵜⵉⵙⵖⴰⵍ",
 	"mobile-frontend-main-menu-watchlist": "ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵔ",
-	"mobile-frontend-placeholder": "ⵙⵉⴳⴳⵍ ⴳ {{SITENAME}}",
+	"mobile-frontend-placeholder": "ⵙⵉⴳⴳⵍ ⵖ {{SITENAME}}",
 	"mobile-frontend-random-button": "ⵙ ⵓⴷⵀⵎⴰⵙ"
 }
