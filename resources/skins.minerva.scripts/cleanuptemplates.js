@@ -1,7 +1,8 @@
 ( function ( M, $ ) {
 
 	( function () {
-		var overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		var action = mw.config.get( 'wgAction' ),
+			overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 			CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' );
 
 		/**
@@ -50,7 +51,7 @@
 		 * @ignore
 		 */
 		function createBanner( $container, labelText, headingText ) {
-			var selector = 'table.ambox, table.tmbox, table.cmbox',
+			var selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 				$metadata = $container.find( selector ),
 				issues = [],
 				$link;
@@ -100,11 +101,16 @@
 				$container = ns === 14 ? $( '#bodyContent' ) :
 					M.getCurrentPage().getLeadSectionElement();
 
-			if ( $container === null ) {
+			if ( action === 'edit' ) {
+				$container = $( '#mw-content-text' );
+			} else if ( $container === null ) {
 				return;
 			}
 
-			if ( ns === 0 ) {
+			if ( action === 'edit' ) {
+				createBanner( $container, mw.msg( 'edithelp' ),
+					mw.msg( 'edithelp' ) );
+			} else if ( ns === 0 ) {
 				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues' ),
 					mw.msg( 'mobile-frontend-meta-data-issues-header' ) );
 			// Create a banner for talk pages (namespace 1) in beta mode to make them more readable.
