@@ -3,6 +3,10 @@
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
 		Toggler = M.require( 'mobile.toggle/Toggler' );
 
+	if ( !page.getLeadSectionElement() ) {
+		// Operating in desktop Minerva mode. Stop execution. (T172948)
+		return;
+	}
 	// If there was no mw-parser-output wrapper, just use the parent
 	if ( $contentContainer.length === 0 ) {
 		$contentContainer = $( '#mw-content-text' );
