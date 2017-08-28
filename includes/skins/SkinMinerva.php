@@ -317,8 +317,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	public function initPage( OutputPage $out ) {
 		parent::initPage( $out );
 		$styles = [];
-		// FIXME: Merge this module with skins.minerva.base.styles
-		$styles[] = 'skins.minerva.print.styles';
 
 		$out->addModuleStyles( $styles );
 		$out->addJsConfigVars( $this->getSkinConfigVariables() );

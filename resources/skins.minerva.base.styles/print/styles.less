@@ -1,3 +1,33 @@
+@media print {
+	.noprint,
+	.banner-container,
+	.header,
+	.pre-content,
+	.post-content {
+		display: none;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		page-break-after: avoid;
+	}
+
+	table,
+	figure,
+	img,
+	.lazy-image-placeholder {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100%;
+	}
+}
+
 @media print and ( max-device-width: @deviceWidthTablet ) {
 	// Chrome: override the default margins and reveal the footer
 	// Experimental technology (see https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size)

@@ -109,7 +109,7 @@
 				"resources/skins.minerva.base.styles/icons.less",
 				"resources/skins.minerva.base.styles/images.less",
 				"resources/skins.minerva.base.styles/footer.less",
-				"resources/skins.minerva.base.styles/print.less"
+				"resources/skins.minerva.base.styles/print/styles.less"
 			]
 		},
 		"skins.minerva.content.styles": {
@@ -120,16 +120,6 @@
 			"position": "top",
 			"styles": [
 				"resources/skins.minerva.content.styles/styles.less"
-			]
-		},
-		"skins.minerva.print.styles": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"position": "top",
-			"styles": [
-				"resources/skins.minerva.print.styles/styles.less"
 			]
 		},
 		"skins.minerva.tablet.styles": {
