@@ -13,6 +13,7 @@
 			"محمد أحمد عبد الفتاح"
 		]
 	},
+	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، في $2",
 	"minerva-talk-add-topic": "أضف نقاشًا",
 	"mobile-frontend-console-recruit": "\\o/ مرحبا! هذا برنامج مفتوح المصدر ونحتاج لمتطوعين لمساعدتنا في بناء هذا الشيء، وجعله أفضل وإصلاح أي علل ربما تكون تراها في كونصول JavaScript هذا!\n\nيمكنك أن تجد سجلنا المتأخر @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "إن ملفات تعريف الإرتباط (كوكيز) ضرورية لتغيير واجهة العرض; الرجاء تفعيل خاصية الاحتفاظ بهذه الملفات والمحاولة مرة أخرى.",
