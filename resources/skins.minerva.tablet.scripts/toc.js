@@ -15,9 +15,7 @@
 			$toc = $( '#toc' ),
 			enableToc = mw.config.get( 'wgMinervaTocEnabled' );
 
-		if ( enableToc ||
-			// Fallback for old cached HTML, added 26 June, 2014
-			( enableToc === null && sections.length > 0 && !page.isMainPage() ) ) {
+		if ( enableToc ) {
 			toc = new TableOfContents( {
 				sections: sections
 			} );

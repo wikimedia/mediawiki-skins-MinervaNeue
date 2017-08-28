@@ -31,11 +31,6 @@ footer {
 		position: absolute;
 		right: -1em;
 
-		// FIXME: Remove pseudo selector rule in 1 weeks time [T145479]
-		&:before {
-			.transform( rotate( -90deg ) );
-		}
-
 		.client-nojs & {
 			// Certain browsers e.g. Opera Mini do not support css transforms
 			// We assume that we do not run JS on these browsers so hide the chevron
@@ -68,11 +63,6 @@ footer {
 			font-size: 0.875em;
 		}
 	}
-}
-
-// FIXME: Remove pseudo selector rule in 1 weeks time [T145479]
-.rtl footer .indicator:before {
-	.transform( rotate( 90deg ) );
 }
 
 @media ( min-width: @deviceWidthTablet ) {

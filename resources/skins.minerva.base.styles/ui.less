@@ -150,21 +150,6 @@ body {
 	}
 }
 
-// Make search input more visible for users on small screens.
-// Opera Mini doesn't support placeholders.
-// FIXME: As soon as HeaderV2 feature flag is removed this entire block can disappear as a search icon
-// will now be shown on Opera Mini instead.
-@media all and ( max-width: @wgMFDeviceWidthMobileSmall ) {
-	.header {
-		.search {
-			border: 1px solid @grayLight;
-			// Remove the space for the search icon inside the search bar and increase height to size of button
-			padding: 0.5em 0.1em;
-			background: none;  // so that the icon doesn't overlap with the placeholder
-		}
-	}
-}
-
 #searchInput {
 	cursor: text;
 }
@@ -177,8 +162,6 @@ body {
 }
 
 .search-box {
-	// FIXME: remove when micro.tap in stable and rule from common-js.less too
-	-webkit-tap-highlight-color: rgba( 255, 255, 255, 0 );
 
 	.search {
 		@searchIconSize: 20px;
