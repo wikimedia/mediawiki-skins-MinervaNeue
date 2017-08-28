@@ -36,6 +36,12 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.special.userlogin.common.styles": [
+				"skinStyles/mediawiki.special.userlogin.common.styles/minerva.less"
+			],
+			"mediawiki.special.search.styles": [
+				"skinStyles/mediawiki.special.search.styles/minerva.less"
+			],
 			"mediawiki.skinning.content.parsoid": [],
 			"mediawiki.hlist": [
 				"skinStyles/mediawiki.hlist/minerva.less"
@@ -46,6 +52,12 @@
 			"mobile.startup": [
 				"skinStyles/mobile.startup/toast.less",
 				"skinStyles/mobile.startup/Overlay.less"
+			],
+			"mediawiki.special": [
+				"skinStyles/mobile.special.styles/minerva.less"
+			],
+			"mobile.special.styles": [
+				"skinStyles/mobile.special.styles/minerva.less"
 			],
 			"mobile.toggle": [
 				"skinStyles/mobile.toggle/minerva.less"
@@ -241,45 +253,6 @@
 			},
 			"scripts": [
 				"resources/skins.minerva.mainMenu/MainMenu.js"
-			]
-		},
-		"skins.minerva.special.styles": {
-			"targets": "mobile",
-			"position": "top",
-			"styles": [
-				"resources/skins.minerva.special.styles/common.less",
-				"resources/skins.minerva.special.styles/forms.less"
-			]
-		},
-		"skins.minerva.special.search.styles": {
-			"targets": "mobile",
-			"position": "top",
-			"styles": [
-				"resources/skins.minerva.special.search.styles/search.less"
-			]
-		},
-		"skins.minerva.special.watchlist.styles": {
-			"targets": "mobile",
-			"position": "top",
-			"styles": [
-				"resources/skins.minerva.special.watchlist.styles/specialWatchlist.less"
-			]
-		},
-		"skins.minerva.special.watchlist.scripts": {
-			"targets": "mobile",
-			"dependencies": [
-				"mobile.startup",
-				"mobile.watchlist"
-			],
-			"scripts": [
-				"resources/skins.minerva.special.watchlist.scripts/watchlist.js"
-			]
-		},
-		"skins.minerva.special.userlogin.styles": {
-			"targets": "mobile",
-			"position": "top",
-			"styles": [
-				"resources/skins.minerva.special.userlogin.styles/userlogin.less"
 			]
 		},
 		"skins.minerva.scripts": {
