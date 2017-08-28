@@ -23,6 +23,8 @@
 		// Compare with mediawiki.legacy/shared.css
 		&.wikitable {
 			border: 1px solid @grayLight;
+			// Note older browsers will fall back to @grayLight
+			border-color: fade( @grayLight, 20 );
 
 			// We only style cells that are direct children of the wikitable table since
 			// table tags may be used for non-table purposes within the cells.
@@ -31,6 +33,8 @@
 			> * > tr > th,
 			> * > tr > td {
 				border: 1px solid @grayLight;
+				// Note older browsers will fall back to @grayLight
+				border-color: fade( @grayLight, 20 );
 				padding: 0.2em;
 			}
 
