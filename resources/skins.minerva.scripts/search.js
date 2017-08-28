@@ -2,8 +2,7 @@
 	var SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
 		SearchGateway = M.require( 'mobile.search.api/SearchGateway' ),
 		router = require( 'mediawiki.router' ),
-		searchLogger = M.require( 'mobile.search/MobileWebSearchLogger' ),
-		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
+		searchLogger = M.require( 'mobile.search/MobileWebSearchLogger' );
 
 	/**
 	 * Reveal the search overlay
@@ -39,18 +38,13 @@
 		return;
 	}
 
-	// See https://phabricator.wikimedia.org/T76882 for why we disable search on Android 2
-	if ( browser.isAndroid2() ) {
-		$( 'body' ).addClass( 'client-use-basic-search' );
-	} else {
-		// don't use focus event (https://bugzilla.wikimedia.org/show_bug.cgi?id=47499)
-		//
-		// focus() (see SearchOverlay#show) opens virtual keyboard only if triggered
-		// from user context event, so using it in route callback won't work
-		// http://stackoverflow.com/questions/6837543/show-virtual-keyboard-on-mobile-phones-in-javascript
-		$( '#searchInput, #searchIcon' ).on( 'click', openSearchOverlay )
-			// Apparently needed for main menu to work correctly.
-			.prop( 'readonly', true );
-	}
+	// don't use focus event (https://bugzilla.wikimedia.org/show_bug.cgi?id=47499)
+	//
+	// focus() (see SearchOverlay#show) opens virtual keyboard only if triggered
+	// from user context event, so using it in route callback won't work
+	// http://stackoverflow.com/questions/6837543/show-virtual-keyboard-on-mobile-phones-in-javascript
+	$( '#searchInput, #searchIcon' ).on( 'click', openSearchOverlay )
+		// Apparently needed for main menu to work correctly.
+		.prop( 'readonly', true );
 
 }( mw.mobileFrontend, jQuery ) );
