@@ -1237,7 +1237,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$title = $this->getTitle();
 		return $this->isAllowedPageAction( 'talk' ) &&
 			!$title->isTalkPage() &&
-			$title->canTalk() &&
+			$title->canHaveTalkPage() &&
 			$this->getUser()->isLoggedIn();
 	}
 
