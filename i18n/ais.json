@@ -4,6 +4,14 @@
 			"Bunukwiki"
 		]
 	},
+	"mobile-frontend-editor-edit": "mikawaway tu kalumyiti",
 	"mobile-frontend-home-button": "saayaway a belih",
-	"mobile-frontend-main-menu-login": "patalabu"
+	"mobile-frontend-main-menu-contributions": "paanin",
+	"mobile-frontend-main-menu-login": "patalabu",
+	"mobile-frontend-main-menu-logout": "katahkal",
+	"mobile-frontend-main-menu-watchlist": "miazihay a piazihan tu sulit",
+	"mobile-frontend-notifications-filter": "kilim",
+	"mobile-frontend-placeholder": "kilim {{SITENAME}}",
+	"mobile-frontend-user-page-contributions": "paanin",
+	"mobile-frontend-user-page-talk": "sasukamu"
 }
