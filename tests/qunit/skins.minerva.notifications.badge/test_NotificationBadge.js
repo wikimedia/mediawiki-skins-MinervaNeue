@@ -9,7 +9,7 @@
 		}
 	} );
 
-	QUnit.test( '#setCount', 2, function ( assert ) {
+	QUnit.test( '#setCount', function ( assert ) {
 		var initialClassExpectationsMet,
 			badge = new NotificationBadge( {
 				overlayManager: this.OverlayManager,
@@ -25,7 +25,7 @@
 		assert.ok( badge.$el.find( '.zero' ).length === 1, 'A zero class is present on the badge' );
 	} );
 
-	QUnit.test( '#render [hasUnseenNotifications]', 1, function ( assert ) {
+	QUnit.test( '#render [hasUnseenNotifications]', function ( assert ) {
 		var badge = new NotificationBadge( {
 			notificationCount: 0,
 			overlayManager: this.OverlayManager,
@@ -35,7 +35,7 @@
 		assert.ok( badge.$el.find( '.mw-ui-icon' ).length === 1, 'A bell icon is visible' );
 	} );
 
-	QUnit.test( '#markAsSeen', 2, function ( assert ) {
+	QUnit.test( '#markAsSeen', function ( assert ) {
 		var badge = new NotificationBadge( {
 			notificationCount: 2,
 			overlayManager: this.OverlayManager,
