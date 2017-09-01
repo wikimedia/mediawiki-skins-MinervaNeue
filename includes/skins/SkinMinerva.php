@@ -48,7 +48,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 		// If there's a custom site logo, use that instead of text
 		if ( isset( $customLogos['copyright'] ) ) {
-			$attributes =  [
+			$attributes = [
 				'src' => $customLogos['copyright'],
 				'alt' => $footerSitename,
 			];
@@ -231,7 +231,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span' );
 			$html .= Html::element( 'a', [
-				'href' =>  $this->getTitle()->getLocalUrl( [ 'action' => 'edit', 'section' => $section ] ),
+				'href' => $this->getTitle()->getLocalUrl( [ 'action' => 'edit', 'section' => $section ] ),
 				'title' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
 				'data-section' => $section,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
@@ -882,7 +882,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				'title' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' ),
 				'href' => $url,
 				'class' => MobileUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
-				'id'=> 'mw-mf-main-menu-button',
+				'id' => 'mw-mf-main-menu-button',
 			], $this->msg( 'mobile-frontend-main-menu-button-tooltip' ) )
 		);
 	}

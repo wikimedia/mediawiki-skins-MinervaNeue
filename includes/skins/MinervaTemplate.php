@@ -213,7 +213,7 @@ class MinervaTemplate extends BaseTemplate {
 			$html .= $postHeadingHtml;
 			$html .= $data['subtitle'];
 			$html .= $internalBanner;
-			$html .=  '</div>';
+			$html .= '</div>';
 		}
 		return $html;
 	}
@@ -242,7 +242,7 @@ class MinervaTemplate extends BaseTemplate {
 	/**
 	 * Gets the main menu only on Special:MobileMenu.
 	 * On other pages the menu is rendered via JS.
-	 * @param array [$data] Data used to build the page
+	 * @param array [ $data] Data used to build the page
 	 * @return string
 	 */
 	protected function getMainMenuHtml( $data ) {
