@@ -1,7 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Muhammad Shuaib",
+			"Obaid Raza",
+			"عثمان خان شاہ",
+			"පසිඳු කාවින්ද"
+		]
 	},
+	"minerva-last-modified-date": "آخری ترمیم مورخہ $1 بوقت $2",
+	"mobile-frontend-editor-blocked-info-loggedin": "آپ کے کھاتے سے ترمیم کاری ممنوع ہے۔ {{GENDER:$2|$2}} نے درج ذیل وجہ کی بنا پر پابندی عائد کی ہے: $1",
 	"mobile-frontend-editor-cta": "اس صفحہ کو بہتر بنانے میں معاونت کریں!",
 	"mobile-frontend-editor-disabled": "تخریب کاری سے بچنے کے لیے اس صفحہ کو محفوظ کردیا گیا ہے۔",
 	"mobile-frontend-editor-edit": "ترميم",
@@ -10,7 +17,6 @@
 	"mobile-frontend-editor-redlink-leave": "نہیں، شکریہ۔",
 	"mobile-frontend-editor-tutorial-cancel": "نہیں، شکریہ",
 	"mobile-frontend-editor-tutorial-confirm": "ترمیم شروع کریں",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "اس صفحہ کا ترمیمی تاریخچہ ملاحظہ کریں۔",
 	"mobile-frontend-home-button": "صفحۂ اول",
 	"mobile-frontend-language-article-heading": "دوسری زبانوں میں پڑھیں",
@@ -20,19 +26,21 @@
 	"mobile-frontend-main-menu-button-tooltip": "مرکزی مینیو کھولیں",
 	"mobile-frontend-main-menu-contributions": "شراکتیں",
 	"mobile-frontend-main-menu-login": "داخل ہوں",
-	"mobile-frontend-main-menu-logout": "خارج",
+	"mobile-frontend-main-menu-logout": "خارج ہوں",
 	"mobile-frontend-main-menu-nearby": "آس پاس",
 	"mobile-frontend-main-menu-settings": "ترتیبات",
 	"mobile-frontend-main-menu-watchlist": "زیرِ نظر فہرست",
 	"mobile-frontend-meta-data-issues": "مسائل صفحہ",
 	"mobile-frontend-meta-data-issues-categories": "اس زمرہ کے متعلق",
 	"mobile-frontend-meta-data-issues-header": "مسائل",
-	"mobile-frontend-meta-data-issues-header-talk": "اس صفحہ کے بارے میں",
+	"mobile-frontend-meta-data-issues-header-talk": "اس صفحہ کے متعلق",
 	"mobile-frontend-meta-data-issues-talk": "اس تبادلۂ خیال صفحہ کے متعلق",
-	"mobile-frontend-pageaction-edit-tooltip": "اس صفحے کے مقدمہ میں ترمیم کریں",
+	"mobile-frontend-notifications-filter": "فلٹر",
+	"mobile-frontend-pageaction-edit-tooltip": "اس صفحے کے دیباچہ میں ترمیم کریں",
 	"mobile-frontend-placeholder": "{{SITENAME}} میں تلاش",
 	"mobile-frontend-random-button": "جستہ جستہ",
-	"mobile-frontend-talk-back-to-filepage": "فائل $1 کے صفحہ پر واپس جائیں۔",
+	"mobile-frontend-redirected-from": "\"$1\" سے رجوع مکرر",
+	"mobile-frontend-talk-back-to-filepage": "فائل \"$1\" کے صفحہ پر واپس جائیں۔",
 	"mobile-frontend-talk-back-to-page": "صفحہ $1 میں واپس جائیں۔",
 	"mobile-frontend-talk-back-to-projectpage": "منصوبہ صفحہ $1 میں واپس جائیں۔",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" کے صارف صفحہ پر واپس جائیں۔",
@@ -41,6 +49,6 @@
 	"mobile-frontend-user-page-contributions": "شراکتیں",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|رکن}} از $1",
 	"mobile-frontend-user-page-talk": "تبادلہ خیال",
-	"mobile-frontend-user-page-uploads": "اپلوڈ",
+	"mobile-frontend-user-page-uploads": "اپلوڈ کردہ",
 	"skinname-minerva": "مائینروا"
 }
