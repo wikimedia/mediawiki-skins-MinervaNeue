@@ -11,6 +11,7 @@
 			"Peter Fernando"
 		]
 	},
+	"minerva-last-modified-date": "Modificado pela última vez em $1 às $2",
 	"minerva-talk-add-topic": "Adicionar discussão",
 	"mobile-frontend-console-recruit": "\\o/ Hey! Este é um software de código aberto e nós precisamos de voluntários para nos ajudar a criar isso, torná-lo melhor e corrigir todos os erros que você possa estar vendo neste console de JavaScript!\n\nVocê pode encontrar nosso backlog @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Os cookies são necessários para alternar os modos de exibição. Por favor, ative-os e tente novamente.",
@@ -46,7 +47,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "Sobre esta página",
 	"mobile-frontend-meta-data-issues-talk": "Sobre esta página de discussão",
 	"mobile-frontend-notifications-filter": "Filtro",
-	"mobile-frontend-pageaction-edit-tooltip": "Editar a introdução desta página.",
+	"mobile-frontend-pageaction-edit-tooltip": "Editar a introdução desta página",
 	"mobile-frontend-placeholder": "Pesquisar {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatório",
 	"mobile-frontend-redirected-from": "Redirecionado de \"$1\"",

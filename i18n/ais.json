@@ -6,14 +6,18 @@
 	},
 	"mobile-frontend-editor-edit": "mikawaway tu kalumyiti",
 	"mobile-frontend-home-button": "saayaway a belih",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|manamuh tu tayniay}}, $1!",
 	"mobile-frontend-main-menu-contributions": "paanin",
 	"mobile-frontend-main-menu-login": "patalabu",
 	"mobile-frontend-main-menu-logout": "katahkal",
 	"mobile-frontend-main-menu-nearby": "capi",
+	"mobile-frontend-main-menu-settings": "setin",
 	"mobile-frontend-main-menu-watchlist": "miazihay a piazihan tu sulit",
+	"mobile-frontend-meta-data-issues-header": "munday",
 	"mobile-frontend-notifications-filter": "kilim",
 	"mobile-frontend-placeholder": "kilim {{SITENAME}}",
 	"mobile-frontend-random-button": "kakibalucu’",
 	"mobile-frontend-user-page-contributions": "paanin",
-	"mobile-frontend-user-page-talk": "sasukamu"
+	"mobile-frontend-user-page-talk": "sasukamu",
+	"mobile-frontend-user-page-uploads": "patapabaw"
 }
