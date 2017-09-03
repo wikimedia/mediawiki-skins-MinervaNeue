@@ -1,7 +1,16 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Cheers!",
+			"Darcy Le",
+			"Minh Nguyen",
+			"Nguyên Lê",
+			"Trần Nguyễn Minh Huy",
+			"Vinhtantran"
+		]
 	},
+	"minerva-last-modified-date": "Sửa đổi lần cuối lúc $2 vào $1",
+	"minerva-talk-add-topic": "Thêm thảo luận",
 	"mobile-frontend-console-recruit": "\\o/ Này! Đây là phần mềm nguồn mở và chúng tôi cần những người tình nguyện giúp chúng ta xây dựng nó, cải thiện nó, và sửa lỗi nào đang xuất hiện trong bảng điều khiển JavaScript này!\n\nXem hàng đợi công việc của chúng tôi @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Bạn cần cho phép các cookie để đổi chế độ xem. Xin vui lòng kích hoạt cookie và thử lần nữa.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Tài khoản của bạn bị khóa sửa đổi. Người đã khóa là {{GENDER:$2}}$2 với lý do: $1",
@@ -11,13 +20,12 @@
 	"mobile-frontend-editor-redlink-create": "Tạo trang",
 	"mobile-frontend-editor-redlink-explain": "Trang này chưa được tạo ra.",
 	"mobile-frontend-editor-redlink-leave": "Thôi.",
-	"mobile-frontend-editor-tutorial-cancel": "Thôi, cám ơn",
+	"mobile-frontend-editor-tutorial-cancel": "Thôi",
 	"mobile-frontend-editor-tutorial-confirm": "Bắt đầu sửa đổi",
 	"mobile-frontend-editor-tutorial-summary": "Hãy thử cải thiện trang $1.<br />Đừng lo ngại về các mã cú pháp.",
 	"mobile-frontend-editor-unavailable": "Tính năng sửa đổi di động hiện không có sẵn cho trình duyệt của bạn. Xin vui lòng thử một trình duyệt khác.",
 	"mobile-frontend-editor-undo-unsupported": "Chưa hỗ trợ hoàn tác trên các thiết bị di động.",
 	"mobile-frontend-editor-uploadenable": "Xin hãy tải lên hình ảnh trước tiên để sửa đổi nó.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Xem lịch sử sửa đổi của trang này.",
 	"mobile-frontend-home-button": "Trang đầu",
 	"mobile-frontend-language-article-heading": "Đọc trong ngôn ngữ khác",
@@ -36,7 +44,8 @@
 	"mobile-frontend-meta-data-issues-header": "Các vấn đề",
 	"mobile-frontend-meta-data-issues-header-talk": "Giới thiệu về trang này",
 	"mobile-frontend-meta-data-issues-talk": "Giới thiệu về trang thảo luận này",
-	"mobile-frontend-pageaction-edit-tooltip": "Sửa đổi phần mở đầu của trang này.",
+	"mobile-frontend-notifications-filter": "Bộ lọc",
+	"mobile-frontend-pageaction-edit-tooltip": "Sửa đổi phần mở đầu của trang này",
 	"mobile-frontend-placeholder": "Tìm kiếm {{SITENAME}}",
 	"mobile-frontend-random-button": "Ngẫu nhiên",
 	"mobile-frontend-redirected-from": "Đổi hướng từ “$1”",
@@ -47,7 +56,8 @@
 	"mobile-frontend-user-button-tooltip": "Xem thông báo của tôi",
 	"mobile-frontend-user-newmessages": "Bạn có tin nhắn mới trong trang thảo luận của mình",
 	"mobile-frontend-user-page-contributions": "Đóng góp",
-	"mobile-frontend-user-page-member-since": "{{GENDER:$2}}Thành viên từ $1",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2}}Gia nhập $1",
 	"mobile-frontend-user-page-talk": "Thảo luận",
-	"mobile-frontend-user-page-uploads": "Tập tin tải lên"
+	"mobile-frontend-user-page-uploads": "Tập tin tải lên",
+	"minerva-skin-desc": "Giao diện di động trước hết mang tính phản hồi"
 }
