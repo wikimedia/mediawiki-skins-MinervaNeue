@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Benel"
 		]
 	},
-	"mobile-frontend-editor-edit": "mikawaway tu kalumyiti",
+	"mobile-frontend-editor-edit": "mikawaway-kalumyiti",
 	"mobile-frontend-home-button": "saayaway a belih",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|manamuh tu tayniay}}, $1!",
 	"mobile-frontend-main-menu-contributions": "paanin",
