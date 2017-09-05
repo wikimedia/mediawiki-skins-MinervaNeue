@@ -168,14 +168,19 @@
 			 * @method
 			 */
 			function logInit( editor ) {
-				mw.track( 'mf.schemaEdit', {
-					action: 'init',
-					type: 'section',
-					mechanism: initMechanism,
-					editor: editor,
-					editingSessionId: editorOptions.sessionId
+				// If MobileFrontend is not available this will not be possible so
+				// check first.
+				mw.loader.using( 'mobile.loggingSchemas.edit' ).done( function () {
+					mw.track( 'mf.schemaEdit', {
+						action: 'init',
+						type: 'section',
+						mechanism: initMechanism,
+						editor: editor,
+						editingSessionId: editorOptions.sessionId
+					} );
 				} );
 			}
+
 			/**
 			 * Load source editor
 			 * @private
