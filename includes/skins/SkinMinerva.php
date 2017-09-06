@@ -855,12 +855,17 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$tpl->set( 'postheadinghtml', $postHeadingHtml );
 
 		if ( $this->canUseWikiPage() ) {
+			$isLatestRevision = $this->getRevisionId() === $title->getLatestRevID();
 			// If it's a page that exists, add last edited timestamp
-			if ( $this->getWikiPage()->exists() ) {
+			// The last modified bar is only rendered on the latest revision.
+			// For older revisions the last modified
+			// information appears at the top of the page.
+			if ( $this->getWikiPage()->exists() && $isLatestRevision ) {
 				$tpl->set( 'historyLink', $this->getHistoryLink( $title ) );
 			}
 		}
 		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
+
 		$tpl->set( 'footer-site-heading-html', $this->getSitename() );
 		// set defaults
 		if ( !isset( $tpl->data['postbodytext'] ) ) {
