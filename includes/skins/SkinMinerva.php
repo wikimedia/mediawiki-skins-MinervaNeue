@@ -729,8 +729,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$isMainPage = $title->isMainPage();
 		// Get rev_timestamp of current revision (preloaded by MediaWiki core)
 		$timestamp = $this->getOutput()->getRevisionTimestamp();
-		$mp = new MobilePage( $this->getTitle(), false );
-		$mp->setLatestTimestamp( $timestamp );
 		// Main pages tend to include transclusions (see bug 51924)
 		if ( $isMainPage ) {
 			$lastModified = $this->msg( 'mobile-frontend-history' )->plain();
@@ -748,17 +746,41 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$historyUrl = $title->getLocalURL( [ 'action' => 'history' ] );
 		}
 
-		$edit = $mp->getLatestEdit();
-		$link = [
+		$editor = $this->getRevisionEditor( Revision::newFromTitle( $title ) );
+		return [
 			// Use $edit['timestamp'] (Unix format) instead of $timestamp (MW format)
-			'data-timestamp' => $isMainPage ? '' : $edit['timestamp'],
+			'data-timestamp' => $isMainPage ? '' : wfTimestamp( TS_UNIX, $timestamp ),
 			'href' => $historyUrl,
 			'text' => $lastModified,
-			'data-user-name' => $edit['name'],
-			'data-user-gender' => $edit['gender'],
+			'data-user-name' => $editor ? $editor['name'] : '',
+			'data-user-gender' => $editor ? $editor['gender'] : ''
 		];
-		return $link;
 	}
+
+	/**
+	 * Returns the editor of a current revision.
+	 * There appears to be no shorthand method for this in core.
+	 * @return array|false representing user with name and gender fields. False if the editor no longer
+	 *   exists in the database or is hidden from public view
+	 */
+	private function getRevisionEditor( Revision $rev ) {
+		$editorName = '';
+		$editorGender = '';
+		$revUserId = $rev->getUser();
+		// Note the user will only be returned if that information is public
+		if ( $revUserId ) {
+			$revUser = User::newFromId( $revUserId );
+			$editorName = $revUser->getName();
+			$editorGender = $revUser->getOption( 'gender' );
+		} else {
+			return false;
+		}
+		return [
+			'name' => $editorName,
+			'gender' => $editorGender,
+		];
+	}
+
 	/**
 	 * Returns the HTML representing the tagline
 	 * @return string HTML for tagline
