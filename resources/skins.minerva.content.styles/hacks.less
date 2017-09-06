@@ -105,12 +105,15 @@ FIXME: Review all of these hacks to see if they still apply.
 .hatnote,
 .dablink,
 .rellink {
-	// Use bottom padding instead of bottom margin so that it doesn't affect the
-	// position of floated elements below the hatnotes.
-	padding: 0 0 0.6em 0;
-	color: @grayMedium;
+	padding: 5px 7px;
+	color: @colorGray5;
 	font-size: 0.8em;
-	font-style: italic;
+	background-color: @colorGray15;
+	margin-bottom: 1px;
+
+	a {
+		color: @colorProgressive;
+	}
 }
 
 // Template:Quote_box uses fixed width
