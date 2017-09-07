@@ -252,6 +252,7 @@
 				"desktop"
 			],
 			"dependencies": [
+				"mobile.init",
 				"skins.minerva.scripts.top",
 				"mediawiki.util",
 				"mediawiki.router",
