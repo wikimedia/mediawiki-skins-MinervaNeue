@@ -20,12 +20,31 @@
 			el: 'body',
 			tabletModules: [ 'skins.minerva.tablet.scripts' ],
 			page: getCurrentPage(),
-			referencesGateway: ReferencesMobileViewGateway.getSingleton(),
-			mainMenu: mainMenu
+			referencesGateway: ReferencesMobileViewGateway.getSingleton()
 		};
 
 	skin = new Skin( skinData );
 	M.define( 'skins.minerva.scripts/skin', skin );
+
+	/**
+	 * Close navigation if skin is tapped
+	 * @param {jQuery.Event} ev
+	 * @private
+	 */
+	function onSkinClick( ev ) {
+		var $target = this.$( ev.target );
+
+		// Make sure the menu is open and we are not clicking on the menu button
+		if (
+			mainMenu &&
+			mainMenu.isOpen() &&
+			!$target.hasClass( 'main-menu-button' )
+		) {
+			mainMenu.closeNavigationDrawers();
+			ev.preventDefault();
+		}
+	}
+	skin.on( 'click', onSkinClick.bind( skin ) );
 
 	( function ( wgRedirectedFrom ) {
 		// If the user has been redirected, then show them a toast message (see
