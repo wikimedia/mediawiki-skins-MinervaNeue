@@ -12,6 +12,7 @@ editable page whilst logged in, although you must be in test group A to see the 
 ( function ( M, $ ) {
 	var PageActionOverlay = require( 'mobile.pointerOverlay' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
+		mainMenu = M.require( 'skins.minerva.scripts.top/mainMenu' ),
 		util = M.require( 'mobile.startup/util' ),
 		escapeHash = util.escapeHash,
 		inEditor = window.location.hash.indexOf( '#editor/' ) > -1,
@@ -64,7 +65,7 @@ editable page whilst logged in, although you must be in test group A to see the 
 			confirmMsg: mw.msg( 'mobile-frontend-editor-tutorial-confirm' ),
 			cancelMsg: mw.msg( 'mobile-frontend-editor-tutorial-cancel' )
 		} );
-		skin.mainMenu.on( 'open', function () {
+		mainMenu.on( 'open', function () {
 			editOverlay.hide();
 		} );
 		editOverlay.show();

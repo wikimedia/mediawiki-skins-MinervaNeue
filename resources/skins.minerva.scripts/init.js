@@ -7,7 +7,8 @@
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		router = require( 'mediawiki.router' ),
 		context = M.require( 'mobile.startup/context' ),
-		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
+		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		page = M.getCurrentPage(),
 		thumbs = page.getThumbnails(),
 		experiments = mw.config.get( 'wgMFExperiments' ) || {},
@@ -243,4 +244,6 @@
 		initRegistrationInfo();
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 	} );
+
+	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
 }( mw.mobileFrontend, jQuery ) );

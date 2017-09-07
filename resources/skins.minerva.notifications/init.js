@@ -3,7 +3,7 @@
  * with the Toast notifications defined by common/toast.js.
  */
 ( function ( M, $ ) {
-	var mainMenu = M.require( 'skins.minerva.scripts/skin' ).getMainMenu(),
+	var mainMenu = M.require( 'skins.minerva.scripts.top/mainMenu' ),
 		router = require( 'mediawiki.router' ),
 		NotificationBadge = M.require( 'skins.minerva.notifications/NotificationBadge' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),

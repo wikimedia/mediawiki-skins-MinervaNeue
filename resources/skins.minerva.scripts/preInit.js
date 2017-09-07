@@ -7,8 +7,6 @@
  */
 ( function ( M, $ ) {
 	var currentPage, skin,
-		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
-		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		PageGateway = M.require( 'mobile.startup/PageGateway' ),
 		gateway = new PageGateway( new mw.Api() ),
 		Page = M.require( 'mobile.startup/Page' ),
@@ -20,14 +18,14 @@
 		),
 		skinData = {
 			el: 'body',
-			tabletModules: mw.config.get( 'skin' ) === 'minerva' ? [ 'skins.minerva.tablet.scripts' ] : [],
+			tabletModules: [ 'skins.minerva.tablet.scripts' ],
 			page: getCurrentPage(),
 			referencesGateway: ReferencesMobileViewGateway.getSingleton(),
 			mainMenu: mainMenu
 		};
 
 	skin = new Skin( skinData );
-	M.define( 'skins.minerva.scripts/skin', skin ).deprecate( 'mobile.startup/skin' );
+	M.define( 'skins.minerva.scripts/skin', skin );
 
 	( function ( wgRedirectedFrom ) {
 		// If the user has been redirected, then show them a toast message (see
@@ -145,7 +143,4 @@
 		console.log( mw.msg( 'mobile-frontend-console-recruit' ) );
 	}
 	/* eslint-enable no-console */
-
-	M.define( 'skins.minerva.scripts/overlayManager', overlayManager )
-		.deprecate( 'mobile.startup/overlayManager' );
 }( mw.mobileFrontend, jQuery ) );
