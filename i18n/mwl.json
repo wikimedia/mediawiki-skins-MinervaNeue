@@ -4,5 +4,6 @@
 			"MokaAkashiyaPT"
 		]
 	},
-	"mobile-frontend-main-menu-watchlist": "Páiginas begiadas"
+	"mobile-frontend-main-menu-watchlist": "Páiginas begiadas",
+	"mobile-frontend-placeholder": "Percurar an {{SITENAME}}"
 }
