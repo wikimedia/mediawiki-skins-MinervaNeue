@@ -5,8 +5,10 @@
 			"Benel"
 		]
 	},
+	"minerva-talk-add-topic": "micunus matatengil",
 	"mobile-frontend-editor-edit": "mikawaway-kalumyiti",
 	"mobile-frontend-editor-redlink-create": "patizeng tu kasabelih",
+	"mobile-frontend-editor-redlink-leave": "hatizatu, kukay",
 	"mobile-frontend-editor-tutorial-confirm": "miteka mikawaway-kalumyiti",
 	"mobile-frontend-home-button": "saayaway a belih",
 	"mobile-frontend-language-change": "misaimed tu kamu",
@@ -25,6 +27,7 @@
 	"mobile-frontend-notifications-filter": "kilim",
 	"mobile-frontend-placeholder": "kilim {{SITENAME}}",
 	"mobile-frontend-random-button": "kakibalucu’",
+	"mobile-frontend-user-button-tooltip": "paazih takus nu maku",
 	"mobile-frontend-user-page-contributions": "paanin",
 	"mobile-frontend-user-page-talk": "sasukamu",
 	"mobile-frontend-user-page-uploads": "patapabaw"
