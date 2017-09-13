@@ -1,7 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"A1",
+			"Andriykopanytsia",
+			"Base",
+			"Microcell",
+			"Piramidion",
+			"Ата",
+			"Максим Підліснюк"
+		]
 	},
+	"minerva-last-modified-date": "Останнє редагування: $1, $2",
+	"minerva-talk-add-topic": "Додати обговорення",
 	"mobile-frontend-console-recruit": "\\o/ Привіт! Це програмне забезпечення з відкритим кодом і нам потрібні волонтери, які б допомогли будувати цю річ, робити її кращою і виправляти будь-які баґи, які можна побачити у цій консолі JavaScript!\n\nВи можете глянути, в чому затримка, @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Куки потрібні для перемикання режимів перегляду. Будь ласка, увімкніть їх і спробуйте знову.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Для Вашого облікового запису заблоковане редагування. Блокування {{GENDER:$2|встановив|встановила}} $2 з такої причини: $1",
@@ -14,10 +24,9 @@
 	"mobile-frontend-editor-tutorial-cancel": "Ні, дякую.",
 	"mobile-frontend-editor-tutorial-confirm": "Почати редагування",
 	"mobile-frontend-editor-tutorial-summary": "Спробуйте поліпшити сторінку $1.<br />Не лякайтеся розмітки.",
-	"mobile-frontend-editor-unavailable": "Мобільне редагування наразі недоступне у вашому веб-переглядачі. Будь ласка, спробуйте інший веб-переглядач.",
-	"mobile-frontend-editor-undo-unsupported": "Відміна дії наразі не підтримується на мобільних пристроях.",
+	"mobile-frontend-editor-unavailable": "Мобільне редагування наразі недоступне у Вашому веб-переглядачі. Будь ласка, спробуйте інший веб-переглядач.",
+	"mobile-frontend-editor-undo-unsupported": "Скасування дії наразі не підтримується на мобільних пристроях.",
 	"mobile-frontend-editor-uploadenable": "Будь ласка, завантажте спершу фото, щоб могти редагувати.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Переглянути історію редагувань цієї сторінки.",
 	"mobile-frontend-home-button": "Домашня",
 	"mobile-frontend-language-article-heading": "Читати іншою мовою",
@@ -33,21 +42,23 @@
 	"mobile-frontend-main-menu-watchlist": "Список спостереження",
 	"mobile-frontend-meta-data-issues": "Проблеми сторінки",
 	"mobile-frontend-meta-data-issues-categories": "Про цю категорію",
-	"mobile-frontend-meta-data-issues-header": "Запитання",
+	"mobile-frontend-meta-data-issues-header": "Проблеми",
 	"mobile-frontend-meta-data-issues-header-talk": "Про цю сторінку",
 	"mobile-frontend-meta-data-issues-talk": "Про цю сторінку обговорення",
-	"mobile-frontend-pageaction-edit-tooltip": "Редагувати основну ділянку цієї сторінки.",
+	"mobile-frontend-notifications-filter": "Фільтр",
+	"mobile-frontend-pageaction-edit-tooltip": "Редагувати вступний розділ цієї сторінки.",
 	"mobile-frontend-placeholder": "Шукати у {{GRAMMAR:genitive|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Випадкова",
 	"mobile-frontend-redirected-from": "Перенаправлено з «$1»",
 	"mobile-frontend-talk-back-to-filepage": "Повернутися до файлу «$1».",
 	"mobile-frontend-talk-back-to-page": "Повернутися до сторінки \"$1\"",
 	"mobile-frontend-talk-back-to-projectpage": "Повернутися на сторінку проекту «$1».",
-	"mobile-frontend-talk-back-to-userpage": "Повернутися до сторінка користувача «{{GENDER:$1|$1}}».",
-	"mobile-frontend-user-button-tooltip": "Відображати мої сповіщення",
-	"mobile-frontend-user-newmessages": "У вас є нові повідомлення на особистій сторінці обговорення",
+	"mobile-frontend-talk-back-to-userpage": "Повернутися на сторінку {{GENDER:$1|користувача|користувачки}} «$1».",
+	"mobile-frontend-user-button-tooltip": "Показати мої сповіщення",
+	"mobile-frontend-user-newmessages": "У Вас є нові повідомлення на Вашій сторінці обговорення",
 	"mobile-frontend-user-page-contributions": "Внесок",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Приєднався|Приєдналася}} $1",
 	"mobile-frontend-user-page-talk": "Обговорення",
-	"mobile-frontend-user-page-uploads": "Завантаження"
+	"mobile-frontend-user-page-uploads": "Завантаження",
+	"minerva-skin-desc": "Перша адаптивна мобільна тема оформлення"
 }
