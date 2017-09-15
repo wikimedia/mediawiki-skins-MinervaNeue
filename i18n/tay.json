@@ -10,9 +10,16 @@
 	"mobile-frontend-editor-edit": "Smr’zyut miru’",
 	"mobile-frontend-editor-redlink-leave": "Nway kya, mhway su’!",
 	"mobile-frontend-home-button": "T’ringan na zzngayan",
+	"mobile-frontend-main-menu-contributions": "Wal miq sa pincyuwagan",
 	"mobile-frontend-main-menu-login": "mzyup",
+	"mobile-frontend-main-menu-logout": "Mshriq",
+	"mobile-frontend-main-menu-nearby": "Lnglingay",
 	"mobile-frontend-main-menu-settings": "ssi’",
 	"mobile-frontend-main-menu-watchlist": "Cyes’ cingtan",
+	"mobile-frontend-meta-data-issues-header": "Muray",
 	"mobile-frontend-placeholder": "Hhkangi’ {{SITENAME}}",
-	"mobile-frontend-random-button": "Gmluw sa gn-nyahan pkita’"
+	"mobile-frontend-random-button": "Gmluw sa gn-nyahan pkita’",
+	"mobile-frontend-user-page-contributions": "Wal miq sa pincyuwagan",
+	"mobile-frontend-user-page-talk": "Mpkal",
+	"mobile-frontend-user-page-uploads": "Pawsa’ sa kktan"
 }
