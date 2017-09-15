@@ -57,7 +57,7 @@ class MinervaHooks {
 				'skins.minerva.notifications.badge'
 			],
 			'localBasePath' => dirname( __DIR__ ),
-			'remoteExtPath' => 'MinervaNeue',
+			'remoteSkinPath' => 'MinervaNeue',
 			'targets' => [ 'mobile', 'desktop' ],
 			'scripts' => [
 				'tests/qunit/skins.minerva.notifications.badge/test_NotificationBadge.js'
