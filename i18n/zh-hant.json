@@ -11,6 +11,7 @@
 			"一個正常人"
 		]
 	},
+	"minerva-last-modified-date": "最後編輯於 $1 $2",
 	"mobile-frontend-cookies-required": "切換檢視模式需要開啟 Cookies，請先開啟後再重試。",
 	"mobile-frontend-editor-blocked-info-loggedin": "您的帳號已被封鎖禁止編輯，封鎖您的人為 {{GENDER:$1|$1}}，由於下列原因：$2",
 	"mobile-frontend-editor-cta": "協助改善此頁面！",
