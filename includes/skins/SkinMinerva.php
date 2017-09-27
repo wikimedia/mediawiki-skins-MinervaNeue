@@ -746,7 +746,12 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$historyUrl = $title->getLocalURL( [ 'action' => 'history' ] );
 		}
 
-		$editor = $this->getRevisionEditor( Revision::newFromTitle( $title ) );
+		$rev = Revision::newFromTitle( $title );
+		if ( $rev ) {
+			$editor = $this->getRevisionEditor( $rev );
+		} else {
+			$editor = false;
+		}
 		return [
 			// Use $edit['timestamp'] (Unix format) instead of $timestamp (MW format)
 			'data-timestamp' => $isMainPage ? '' : wfTimestamp( TS_UNIX, $timestamp ),
