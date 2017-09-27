@@ -36,6 +36,8 @@
 		 * attributes on elements.
 		 */
 		enableLogging: function () {
+			// Load the EventLogging module inside MobileFrontend if available
+			mw.loader.using( 'mobile.loggingSchemas.mobileWebMainMenuClickTracking' );
 			this.$( 'a' ).on( 'click', function () {
 				var $link = $( this ),
 					eventName = $link.data( 'event-name' );

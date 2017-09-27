@@ -233,8 +233,7 @@
 			"dependencies": [
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
-				"mobile.startup",
-				"mobile.loggingSchemas.mobileWebMainMenuClickTracking"
+				"mobile.startup"
 			],
 			"position": "bottom",
 			"templates": {
@@ -360,8 +359,7 @@
 				"mediawiki.ui.input",
 				"mobile.startup",
 				"skins.minerva.toggling",
-				"mediawiki.jqueryMsg",
-				"mobile.loggingSchemas.edit"
+				"mediawiki.jqueryMsg"
 			],
 			"messages": {
 				"0": "mobile-frontend-editor-disabled",
