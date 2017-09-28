@@ -265,6 +265,7 @@
 				"mobile.betaoptin"
 			],
 			"messages": [
+				"edithelp",
 				"mobile-frontend-language-change",
 				"mobile-frontend-meta-data-issues",
 				"mobile-frontend-meta-data-issues-talk",
