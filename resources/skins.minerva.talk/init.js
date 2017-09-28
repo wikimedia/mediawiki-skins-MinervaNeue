@@ -1,15 +1,13 @@
 ( function ( M, $ ) {
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		LoadingOverlay = M.require( 'mobile.startup/LoadingOverlay' ),
-		user = M.require( 'mobile.startup/user' ),
-		Button = M.require( 'mobile.startup/Button' ),
 		$talk = $( '.talk' ),
 		// use the plain return value here - T128273
 		title = $talk.attr( 'data-title' ),
-		page = M.getCurrentPage(),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
-		pageTitle, talkTitle;
+		inTalkNamespace = false,
+		pageTitle, talkTitle, talkNs, pageNs;
 
 	// if there's no title for any reason, don't do anything
 	if ( !title ) {
@@ -25,12 +23,15 @@
 	// The method to get associated namespaces will change later (maybe), see T487
 	pageTitle = mw.Title.newFromText( mw.config.get( 'wgPageName' ) );
 	talkTitle = mw.Title.newFromText( title );
-	if (
-		!pageTitle ||
-		!talkTitle ||
-		( pageTitle.getMainText() !== talkTitle.getMainText() ) ||
-		( pageTitle.getNamespaceId() + 1 !== talkTitle.getNamespaceId() )
-	) {
+
+	if ( !pageTitle || !talkTitle || pageTitle.getMainText() !== talkTitle.getMainText() ) {
+		return;
+	}
+	talkNs = talkTitle.getNamespaceId();
+	pageNs = pageTitle.getNamespaceId();
+	inTalkNamespace = talkNs === pageNs;
+
+	if ( pageNs + 1 !== talkNs && !inTalkNamespace ) {
 		return;
 	}
 
@@ -63,24 +64,18 @@
 	 */
 	function init() {
 		$talk.on( 'click', function () {
-			window.location.hash = '#/talk';
+			if ( $talk.hasClass( 'add' ) ) {
+				window.location.hash = '#/talk/new';
+			} else {
+				window.location.hash = '#/talk';
+			}
 			return false;
 		} );
 	}
 
 	init();
 
-	// add an "add discussion" button to talk pages (only for logged in users)
-	if (
-		!user.isAnon() &&
-		( page.inNamespace( 'talk' ) || page.inNamespace( 'user_talk' ) )
-	) {
-		new Button( {
-			label: mw.msg( 'minerva-talk-add-topic' ),
-			href: '#/talk/new',
-			progressive: true
-		} ).prependTo( '#content #bodyContent' );
-
+	if ( inTalkNamespace ) {
 		// reload the page after the new discussion was added
 		M.on( 'talk-added-wo-overlay', function () {
 			var loadingOverlay = new LoadingOverlay();

@@ -424,9 +424,6 @@
 			],
 			"scripts": [
 				"resources/skins.minerva.talk/init.js"
-			],
-			"messages": [
-				"minerva-talk-add-topic"
 			]
 		},
 		"skins.minerva.toggling": {

@@ -991,14 +991,24 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * Returns an array with details for a talk button.
 	 * @param Title $talkTitle Title object of the talk page
 	 * @param array $talkButton Array with data of desktop talk button
+	 * @param bool $addSection (optional) when added the talk button will render
+	 *  as an add topic button. Defaults to false.
 	 * @return array
 	 */
-	protected function getTalkButton( $talkTitle, $talkButton ) {
+	protected function getTalkButton( $talkTitle, $talkButton, $addSection = false ) {
+		if ( $addSection ) {
+			$params = [ 'action' => 'edit', 'section' => 'new' ];
+			$className = 'talk continue add';
+		} else {
+			$params = [];
+			$className = 'talk';
+		}
+
 		return [
 			'attributes' => [
-				'href' => $talkTitle->getLinkURL(),
+				'href' => $talkTitle->getLinkURL( $params ),
 				'data-title' => $talkTitle->getFullText(),
-				'class' => 'talk',
+				'class' => $className,
 			],
 			'label' => $talkButton['text'],
 		];
@@ -1037,10 +1047,16 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
 			$talkId = $subjectId === 'main' ? 'talk' : "{$subjectId}_talk";
-			if ( isset( $namespaces[$talkId] ) && !$title->isTalkPage() ) {
+
+			if ( isset( $namespaces[$talkId] ) ) {
 				$talkButton = $namespaces[$talkId];
 				$talkTitle = $title->getTalkPage();
-				$buttons['talk'] = $this->getTalkButton( $talkTitle, $talkButton );
+				if ( $title->isTalkPage() ) {
+					$talkButton['text'] = wfMessage( 'minerva-talk-add-topic' );
+					$buttons['talk'] = $this->getTalkButton( $title, $talkButton, true );
+				} else {
+					$buttons['talk'] = $this->getTalkButton( $talkTitle, $talkButton );
+				}
 			}
 		}
 
@@ -1265,8 +1281,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	protected function isTalkAllowed() {
 		$title = $this->getTitle();
 		return $this->isAllowedPageAction( 'talk' ) &&
-			!$title->isTalkPage() &&
-			$title->canHaveTalkPage() &&
+			( $title->isTalkPage() || $title->canHaveTalkPage() ) &&
 			$this->getUser()->isLoggedIn();
 	}
 
