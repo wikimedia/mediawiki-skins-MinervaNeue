@@ -1101,11 +1101,12 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			// Full wikitext editing is not possible via the api and hard on mobile devices.
 			$editArgs['section'] = self::LEAD_SECTION_NUMBER;
 		}
+		$userCanEdit = $title->quickUserCan( 'edit', $this->getUser() );
 		return [
 			'id' => 'ca-edit',
 			'text' => '',
 			'itemtitle' => $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ),
-			'class' => MinervaUI::iconClass( 'edit-enabled', 'element' ),
+			'class' => MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
 			'links' => [
 				'edit' => [
 					'href' => $title->getLocalURL( $editArgs )
