@@ -15,8 +15,10 @@
 @grayLight: @colorGray12;
 @grayLightest: @colorGray14;
 
-@wgMFDeviceWidthMobileSmall: 320px;
-@wgMFDeviceWidthDesktop: 1000px;
+@width-breakpoint-mobile: 320px;
+@width-breakpoint-desktop: 1000px;
+// For backwards compatibility with MobileFrontend skinStyles
+@wgMFDeviceWidthDesktop: @width-breakpoint-desktop;
 
 @skinContentBgColor: #fff;
 
@@ -85,7 +87,7 @@
 @contentPaddingTablet: 3.35em;
 
 // note since content does not use view border box we have to include padding.
-@contentMaxWidthTablet: @wgMFDeviceWidthDesktop - ( 2 * @contentPaddingTablet );
+@contentMaxWidthTablet: @width-breakpoint-desktop - ( 2 * @contentPaddingTablet );
 @contentTopPadding: 1.6em;
 
 // Wiki specific variables
