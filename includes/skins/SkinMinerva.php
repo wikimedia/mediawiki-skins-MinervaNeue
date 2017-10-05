@@ -1270,7 +1270,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$this->getUser()->isLoggedIn();
 	}
 
-	/*
+	/**
 	 * Returns true, if the talk page of this page is wikitext-based.
 	 * @return bool
 	 */
@@ -1379,7 +1379,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * property.
 	 *
 	 * @param OutputPage $out
-	 * @param array $bodyAttrs
+	 * @param array &$bodyAttrs
 	 */
 	public function addToBodyAttributes( $out, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
