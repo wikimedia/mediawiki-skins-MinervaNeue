@@ -45,8 +45,8 @@ class MinervaHooks {
 	 * ResourceLoaderTestModules hook handler
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
 	 *
-	 * @param array $testModules
-	 * @param ResourceLoader $resourceLoader
+	 * @param array &$testModules
+	 * @param ResourceLoader &$resourceLoader
 	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules( array &$testModules,
@@ -124,7 +124,7 @@ class MinervaHooks {
 	/**
 	 * BeforePageDisplayMobile hook handler.
 	 *
-	 * @param OutputPage $out
+	 * @param MobileContext $mobileContext
 	 * @param Skin $skin
 	 */
 	public static function onRequestContextCreateSkinMobile(

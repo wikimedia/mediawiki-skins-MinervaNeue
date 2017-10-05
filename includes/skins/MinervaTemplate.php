@@ -126,12 +126,17 @@ class MinervaTemplate extends BaseTemplate {
 		}
 	}
 
+	/**
+	 * @return bool
+	 */
 	protected function isFallbackEditor() {
 		$action = $this->getSkin()->getRequest()->getVal( 'action' );
 		return $action === 'edit';
 	}
+
 	/**
 	 * Get page secondary actions
+	 * @return string[]
 	 */
 	protected function getSecondaryActions() {
 		if ( $this->isFallbackEditor() ) {
@@ -242,7 +247,7 @@ class MinervaTemplate extends BaseTemplate {
 	/**
 	 * Gets the main menu only on Special:MobileMenu.
 	 * On other pages the menu is rendered via JS.
-	 * @param array [ $data] Data used to build the page
+	 * @param array $data Data used to build the page
 	 * @return string
 	 */
 	protected function getMainMenuHtml( $data ) {
