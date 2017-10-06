@@ -28,13 +28,14 @@ ul.hlist {
 
 .hlist-separated {
 	li:after {
-		content: '•';
+		// Make sure we override any site styles
+		content: '•' !important;
 		padding-left: 8px;
 		color: @linkColor;
 		font-size: 16px;
 		line-height: 1;
 	}
 	:last-child:after {
-		content: '';
+		content: none !important;
 	}
 }
