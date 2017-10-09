@@ -6,6 +6,13 @@ footer {
 	overflow: auto;
 	padding-bottom: 6px;
 
+	// links should be separated by same color
+	.hlist {
+		li:after {
+			color: @linkColor;
+		}
+	}
+
 	.last-modified-bar {
 		border-bottom: solid 1px @footerBorderColor;
 		background-color: @lastModifiedBarBgColor;
