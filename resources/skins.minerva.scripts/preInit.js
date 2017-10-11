@@ -18,7 +18,6 @@
 		),
 		skinData = {
 			el: 'body',
-			tabletModules: [ 'skins.minerva.tablet.scripts' ],
 			page: getCurrentPage(),
 			referencesGateway: ReferencesMobileViewGateway.getSingleton()
 		};
