@@ -2,6 +2,7 @@
 	var inSample, inStable, experiment,
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
+		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
 		token = mw.storage.get( 'mobile-betaoptin-token' ),
 		BetaOptinPanel = M.require( 'mobile.betaoptin/BetaOptinPanel' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
@@ -71,6 +72,18 @@
 				navigator.browserLanguage || navigator.systemLanguage;
 
 		return lang ? lang.toLowerCase() : undefined;
+	}
+
+	/**
+	 * Loads tablet modules when the skin is in tablet mode and the
+	 * current page is in the main namespace.
+	 * @method
+	 * @ignore
+	 */
+	function loadTabletModules() {
+		if ( browser.isWideScreen() && page.inNamespace( '' ) ) {
+			mw.loader.using( 'skins.minerva.tablet.scripts' );
+		}
 	}
 
 	/**
@@ -243,6 +256,8 @@
 		initModifiedInfo();
 		initRegistrationInfo();
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
+		M.on( 'resize', loadTabletModules );
+		loadTabletModules();
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
