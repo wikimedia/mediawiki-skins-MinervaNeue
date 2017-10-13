@@ -11,7 +11,6 @@
 			"Umherirrender"
 		]
 	},
-	"skinname-minerva": "The skin name for MinervaNeue.",
 	"minerva-last-modified-date": "Text that displays the date the page was last modified. Parameters:\n* $1 - date\n* $2 - time\n{{Related|Mobile-frontend-last-modified}}",
 	"minerva-talk-add-topic": "Label for button which shows at bottom of talk pages in mobile view prompting addition of topic",
 	"mobile-frontend-console-recruit": "Message that is displayed in the JavaScript console aimed at developers in an attempt to recruit volunteers. The \\o/ emoticon is a man with his arms in the air with the purpose of drawing attention to the message. If this doesn't translate into the destination language feel free to omit it or use something more applicable.",
@@ -63,5 +62,6 @@
 	"mobile-frontend-user-page-member-since": "Message below the heading. $1 is the user registration date. $2 is the gender associated with the user account.",
 	"mobile-frontend-user-page-talk": "Text of the link to the user's talk page\n{{Identical|Talk}}",
 	"mobile-frontend-user-page-uploads": "Text of the link to the user's uploads page\n{{Identical|Upload}}",
+	"skinname-minerva": "The skin name for MinervaNeue.",
 	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}"
 }
