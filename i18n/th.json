@@ -1,9 +1,12 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Aefgh39622",
+			"Horus"
+		]
 	},
 	"mobile-frontend-editor-edit": "แก้ไข",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
+	"mobile-frontend-history": "ดูประวัติการแก้ไขของหน้านี้",
 	"mobile-frontend-home-button": "หน้าหลัก",
 	"mobile-frontend-language-article-heading": "อ่านในภาษาอื่น",
 	"mobile-frontend-logged-in-homepage-notification": "ยินดีต้อนรับ $1!",
