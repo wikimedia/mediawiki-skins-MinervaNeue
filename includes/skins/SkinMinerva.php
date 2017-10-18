@@ -1250,6 +1250,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$out = $this->getOutput();
 
 		$vars = [
+			'wgMinervaDownloadIcon' => $this->getConfig()->get( 'MinervaDownloadIcon' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
 			// Expose for skins.minerva.tablet.scripts
 			'wgMinervaTocEnabled' => $out->getProperty( 'MFTOC' ),

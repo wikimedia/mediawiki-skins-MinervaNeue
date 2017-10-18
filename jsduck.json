@@ -16,6 +16,7 @@
 		"Page",
 		"File",
 		"Router",
+		"Icon",
 		"MainMenu",
 		"mw.user",
 		"mw.Api",

@@ -170,6 +170,7 @@
 			"selector": ".mw-ui-icon-{name}:before",
 			"position": "bottom",
 			"images": {
+				"download": "resources/skins.minerva.icons.images.scripts/download.svg",
 				"watch": "resources/skins.minerva.icons.images.scripts/watch.svg",
 				"watched": "resources/skins.minerva.icons.images.scripts/watched.svg",
 				"user": "resources/skins.minerva.icons.images.scripts/userNormal.svg",
@@ -253,6 +254,7 @@
 			],
 			"dependencies": [
 				"mobile.init",
+				"skins.minerva.icons.images.scripts",
 				"skins.minerva.scripts.top",
 				"mediawiki.util",
 				"mediawiki.router",
@@ -276,10 +278,12 @@
 				"mobile-frontend-languages-not-available",
 				"mobile-frontend-cookies-required",
 				"mobile-frontend-console-recruit",
+				"minerva-download",
 				"mobile-frontend-redirected-from"
 			],
 			"scripts": [
 				"resources/skins.minerva.scripts/preInit.js",
+				"resources/skins.minerva.scripts/DownloadIcon.js",
 				"resources/skins.minerva.scripts/init.js",
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
@@ -481,6 +485,7 @@
 	},
 	"author": [],
 	"config": {
+		"MinervaDownloadIcon": false,
 		"MinervaEnableSiteNotice": false,
 		"MinervaCustomLogos": [],
 		"MinervaApplyKnownTemplateHacks": false,
