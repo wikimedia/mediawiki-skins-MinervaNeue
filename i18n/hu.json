@@ -7,8 +7,10 @@
 			"Tacsipacsi"
 		]
 	},
+	"minerva-last-modified-date": "Utoljára szerkesztve $1, $2-kor",
+	"minerva-talk-add-topic": "Megbeszélés hozzáadása",
 	"mobile-frontend-console-recruit": "\\o/ Szia! Ez egy nyílt forráskódú szoftver, és szükségünk van önkéntesekre ennek az építéséhez, jobbá tételéhez és az ezen a JavaScript-konzolon látható hibák javításához!\n\nA lemaradásunkat a https://phabricator.wikimedia.org/project/profile/67/ oldalon láthatod.",
-	"mobile-frontend-cookies-required": "A sütik kötelezőek a módok közötti váltáshoz. Engedélyezd őket, majd próbáld újra.",
+	"mobile-frontend-cookies-required": "A sütik szükségesek a módok közötti váltáshoz. Engedélyezd őket, majd próbáld újra.",
 	"mobile-frontend-editor-blocked-info-loggedin": "A fiókod blokkolva van a szerkesztéstől. A blokkot $2 állította be a következő okból: $1",
 	"mobile-frontend-editor-cta": "Segíts az oldal fejlesztésében!",
 	"mobile-frontend-editor-disabled": "Ez a lap védett vandalizmus-megelőzés végett.",
@@ -40,6 +42,7 @@
 	"mobile-frontend-meta-data-issues-header": "Problémák",
 	"mobile-frontend-meta-data-issues-header-talk": "Erről a lapról",
 	"mobile-frontend-meta-data-issues-talk": "Erről a vitalapról",
+	"mobile-frontend-notifications-filter": "Szűrés",
 	"mobile-frontend-pageaction-edit-tooltip": "A lap első szakaszának szerkesztése.",
 	"mobile-frontend-placeholder": "Keresés: {{SITENAME}}",
 	"mobile-frontend-random-button": "Véletlen lap",
@@ -53,5 +56,6 @@
 	"mobile-frontend-user-page-contributions": "Közreműködések",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Csatlakozott}} ekkor: $1",
 	"mobile-frontend-user-page-talk": "Vitalap",
-	"mobile-frontend-user-page-uploads": "Feltöltések"
+	"mobile-frontend-user-page-uploads": "Feltöltések",
+	"minerva-skin-desc": "Egy alkalmazkodó, mobilra fókuszáló felület"
 }
