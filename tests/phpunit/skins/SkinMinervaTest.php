@@ -284,6 +284,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$title,
 		$notificationsMsg,
 		$notificationsTitle,
+		$count,
 		$countLabel,
 		$isZero,
 		$hasUnseen
@@ -294,7 +295,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			'url' => SpecialPage::getTitleFor( $notificationsTitle )
 				->getLocalURL(
 					[ 'returnto' => $title->getPrefixedText() ] ),
-			'notificationCount' => $countLabel,
+			'notificationCountRaw' => $count,
+			'notificationCountString' => $countLabel,
 			'isNotificationCountZero' => $isZero,
 			'hasNotifications' => $hasUnseen,
 			'hasUnseenNotifications' => $hasUnseen
@@ -319,6 +321,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				$title,
 				'Show my notifications',
 				'Notifications',
+				110,
 				'99+',
 				false,
 				true
@@ -331,6 +334,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				$title,
 				'Show my notifications',
 				'Notifications',
+				3,
 				'3',
 				false,
 				false
@@ -343,6 +347,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				$title,
 				'Show my notifications',
 				'Notifications',
+				5,
 				'5',
 				false,
 				false
@@ -353,6 +358,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				$title,
 				'Show my notifications',
 				'Notifications',
+				0,
 				'0',
 				true,
 				false
@@ -379,6 +385,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				$title,
 				'You have new messages on your talk page',
 				'Mytalk',
+				0,
 				'',
 				true,
 				false

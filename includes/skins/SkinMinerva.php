@@ -365,6 +365,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		// Set user button to empty string by default
 		$tpl->set( 'secondaryButtonData', '' );
 		$notificationsTitle = '';
+		$count = 0;
 		$countLabel = '';
 		$isZero = true;
 		$hasUnseen = false;
@@ -411,7 +412,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				'notificationIconClass' => MinervaUI::iconClass( 'notifications' ),
 				'title' => $notificationsMsg,
 				'url' => $url,
-				'notificationCount' => $countLabel,
+				'notificationCountRaw' => $count,
+				'notificationCountString' => $countLabel,
 				'isNotificationCountZero' => $isZero,
 				'hasNotifications' => $hasUnseen,
 				'hasUnseenNotifications' => $hasUnseen

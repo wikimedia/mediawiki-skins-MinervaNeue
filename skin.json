@@ -325,6 +325,9 @@
 			]
 		},
 		"skins.minerva.notifications.badge": {
+			"messages": [
+				"echo-badge-count"
+			],
 			"dependencies": [
 				"mediawiki.router",
 				"mobile.startup"

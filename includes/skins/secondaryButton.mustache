@@ -10,8 +10,8 @@
   class="notification-count user-button {{#hasUnseenNotifications}}notification-unseen{{/hasUnseenNotifications}}
     {{#isNotificationCountZero}}zero{{/isNotificationCountZero}}">
 	<div class="circle">
-		 <span>
-			{{notificationCount}}
+		 <span data-notification-count="{{notificationCountRaw}}">
+			{{notificationCountString}}
 		</span>
 	</div>
 </a>
