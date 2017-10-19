@@ -1,7 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Cybernenea11"
+		]
 	},
-	"mobile-frontend-editor-edit": "Модификаре",
-	"mobile-frontend-random-button": "Аляториу"
+	"mobile-frontend-editor-edit": "Редактаре",
+	"mobile-frontend-random-button": "Ынтымплэтор"
 }
