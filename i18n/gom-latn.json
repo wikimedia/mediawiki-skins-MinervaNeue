@@ -1,16 +1,18 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"The Discoverer"
+		]
 	},
 	"mobile-frontend-editor-edit": "Bodol",
-	"mobile-frontend-home-button": "Ghor",
-	"mobile-frontend-language-article-heading": "Her bhashen vach",
+	"mobile-frontend-home-button": "Ghora",
+	"mobile-frontend-language-article-heading": "Dusrea bhasen vach",
 	"mobile-frontend-main-menu-button-tooltip": "Mukhel suchi ugod",
 	"mobile-frontend-main-menu-login": "Sotrorombh kor",
 	"mobile-frontend-main-menu-nearby": "Lagshilim",
 	"mobile-frontend-main-menu-settings": "Mandavoll",
 	"mobile-frontend-main-menu-watchlist": "Sadurvolleri",
-	"mobile-frontend-pageaction-edit-tooltip": "Hea panachea mukhel bhag bodol",
+	"mobile-frontend-pageaction-edit-tooltip": "Hea panacho mukhel bhag bodol",
 	"mobile-frontend-placeholder": "{{SITENAME}}-ant sod",
 	"mobile-frontend-random-button": "Khoimchem-i adlem modlem"
 }

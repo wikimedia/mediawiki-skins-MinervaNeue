@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"Baloch Khan"
+		]
 	},
 	"mobile-frontend-editor-edit": "سمول",
 	"mobile-frontend-editor-redlink-create": "مخ جوړول",
@@ -24,6 +27,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "د دې مخ د پيل برخه سمول.",
 	"mobile-frontend-placeholder": "{{SITENAME}} پلټل",
 	"mobile-frontend-random-button": "بېلابېل",
+	"mobile-frontend-talk-back-to-userpage": "بيرته د «{{GENDER:$1|$1}}» مخ ته وروګرځي.",
 	"mobile-frontend-user-page-contributions": "ونډې",
 	"mobile-frontend-user-page-talk": "خبرې اترې",
 	"mobile-frontend-user-page-uploads": "پورته کېدنې"
