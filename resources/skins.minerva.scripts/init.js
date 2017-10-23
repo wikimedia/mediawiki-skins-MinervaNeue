@@ -261,8 +261,13 @@
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 		M.on( 'resize', loadTabletModules );
 		loadTabletModules();
-		if ( config.get( 'wgMinervaDownloadIcon' ) && !page.isMainPage() ) {
 
+		if (
+			config.get( 'wgMinervaDownloadIcon' ) &&
+			!page.isMainPage() &&
+			// The iOS print dialog does not provide pdf functionality (see T177215)
+			!browser.isIos()
+		) {
 			// Because the page actions are floated to the right, their order in the
 			// DOM is reversed in the display. The watchstar is last in the DOM and
 			// left-most in the display. Since we want the download button to be to
