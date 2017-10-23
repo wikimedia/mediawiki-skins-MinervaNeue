@@ -385,16 +385,24 @@
 				"resources/skins.minerva.editor/init.js"
 			]
 		},
+
 		"skins.minerva.backtotop": {
 			"targets": [
 				"mobile",
 				"desktop"
 			],
 			"dependencies": [
-				"mobile.backtotop",
+				"mobile.toggle",
 				"mobile.startup"
 			],
+			"templates": {
+				"BackToTopOverlay.hogan": "resources/skins.minerva.backtotop/BackToTopOverlay.hogan"
+			},
+			"styles": [
+				"resources/skins.minerva.backtotop/backtotop.less"
+			],
 			"scripts": [
+				"resources/skins.minerva.backtotop/BackToTopOverlay.js",
 				"resources/skins.minerva.backtotop/init.js"
 			]
 		},

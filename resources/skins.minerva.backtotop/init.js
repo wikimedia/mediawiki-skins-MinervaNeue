@@ -1,5 +1,5 @@
 ( function ( M, $ ) {
-	var BackToTopOverlay = M.require( 'mobile.backtotop/BackToTopOverlay' ),
+	var BackToTopOverlay = M.require( 'skins.minerva.backtotop/BackToTopOverlay' ),
 		backtotop = new BackToTopOverlay(),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
 
