@@ -6,7 +6,6 @@
 			"YaronSh"
 		]
 	},
-	"skinname-minervaneue": "מינרווה נויה",
 	"minerva-last-modified-date": "נערך לאחרונה ב־$1, בשעה $2",
 	"minerva-talk-add-topic": "הוספת דיון",
 	"mobile-frontend-console-recruit": "אהלן! /ס\\ זוהי תוכנה בקוד פתוח ואנחנו מחפשים מתנדבים שיעזרו לבנות את הדבר הזה, ישפרו אותו, וימצאו באגים שאולי מוצגים במסוף ג'אווה־סקריפט!\n\nאפשר למצוא את הבאגים שלנו בדף https://phabricator.wikimedia.org/project/profile/67/",
@@ -15,6 +14,7 @@
 	"mobile-frontend-editor-cta": "עזרו לשפר את הדף הזה!",
 	"mobile-frontend-editor-disabled": "הדף הזה מוגן כדי למנוע השחתה.",
 	"mobile-frontend-editor-edit": "עריכה",
+	"minerva-download": "הורדה",
 	"mobile-frontend-editor-redlink-create": "יצירת דף",
 	"mobile-frontend-editor-redlink-explain": "הדף הזה עוד לא נוצר.",
 	"mobile-frontend-editor-redlink-leave": "לא, תודה.",
