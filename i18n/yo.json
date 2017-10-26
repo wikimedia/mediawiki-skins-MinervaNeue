@@ -1,16 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Demmy"
+		]
 	},
 	"mobile-frontend-editor-edit": "Àtúnṣe",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Ibùdó",
 	"mobile-frontend-language-article-heading": "Ìkàwé ní èdè míràn",
 	"mobile-frontend-main-menu-button-tooltip": "Ìṣí ojúewé ètò àkọ́kọ́",
 	"mobile-frontend-main-menu-login": "Ìjáwọlé",
 	"mobile-frontend-main-menu-nearby": "Ìtòsí",
 	"mobile-frontend-main-menu-settings": "Àwọn ìtòjọ",
-	"mobile-frontend-main-menu-watchlist": "Ìmójútó",
+	"mobile-frontend-main-menu-watchlist": "Ìtòjọ àmójútó",
 	"mobile-frontend-pageaction-edit-tooltip": "Àtúnṣe abala asíwájú ojúewé yìí.",
 	"mobile-frontend-placeholder": "Ṣ'àwáàrí nínú {{SITENAME}}",
 	"mobile-frontend-random-button": "Ojúewé àrìnnàkò"
