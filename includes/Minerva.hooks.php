@@ -137,8 +137,6 @@ class MinervaHooks {
 					=> $mobileContext->isBetaGroupMember(),
 				SkinMinerva::OPTION_CATEGORIES
 					=> $mobileContext->getConfigVariable( 'MinervaShowCategoriesButton' ),
-				SkinMinerva::OPTION_FONT_CHANGER
-					=> $mobileContext->getConfigVariable( 'MinervaEnableFontChanger' ),
 				SkinMinerva::OPTION_BACK_TO_TOP
 					=> $mobileContext->getConfigVariable( 'MinervaEnableBackToTop' ),
 				SkinMinerva::OPTION_TOGGLING => true,

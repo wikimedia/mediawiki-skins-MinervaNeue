@@ -471,18 +471,6 @@
 				"resources/skins.minerva.watchstar/init.js"
 			]
 		},
-		"skins.minerva.fontchanger": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"mobile.startup"
-			],
-			"scripts": [
-				"resources/skins.minerva.fontchanger/init.js"
-			]
-		},
 		"skins.minerva.tablet.scripts": {
 			"targets": [
 				"mobile",
@@ -513,10 +501,6 @@
 		],
 		"MinervaAlwaysShowLanguageButton": true,
 		"MinervaShowCategoriesButton": {
-			"base": false,
-			"beta": true
-		},
-		"MinervaEnableFontChanger": {
 			"base": false,
 			"beta": true
 		},

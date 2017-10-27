@@ -15,7 +15,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	/** Set of keys for available skin options. See $skinOptions. */
 	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
 	const OPTION_CATEGORIES = 'categories';
-	const OPTION_FONT_CHANGER = 'fontChanger';
 	const OPTION_BACK_TO_TOP = 'backToTop';
 	const OPTION_TOGGLING = 'toggling';
 	const OPTIONS_MOBILE_BETA = 'beta';
@@ -76,8 +75,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		self::OPTION_MOBILE_OPTIONS => false,
 		/** Whether a categories button should appear at the bottom of the skin. */
 		self::OPTION_CATEGORIES => false,
-		/** Whether an option to change font size appears in Special:MobileOptions */
-		self::OPTION_FONT_CHANGER => false,
 		/** Whether a back to top button appears at the bottom of the view page */
 		self::OPTION_BACK_TO_TOP => false,
 		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
@@ -1345,10 +1342,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 		if ( $this->hasCategoryLinks() ) {
 			$modules[] = 'skins.minerva.categories';
-		}
-
-		if ( $this->getSkinOption( self::OPTION_FONT_CHANGER ) ) {
-			$modules[] = 'skins.minerva.fontchanger';
 		}
 
 		if ( $this->getSkinOption( self::OPTION_BACK_TO_TOP ) ) {

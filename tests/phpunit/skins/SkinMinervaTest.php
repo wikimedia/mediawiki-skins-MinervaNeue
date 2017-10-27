@@ -162,12 +162,11 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 *
 	 * @covers       ::getContextSpecificModules
 	 * @dataProvider provideGetContextSpecificModules
-	 * @param string $fontchangerValue whether font changer feature is enabled
 	 * @param mixed  $backToTopValue whether back to top feature is enabled
 	 * @param string $moduleName Module name that is being tested
 	 * @param bool $expected Whether the module is expected to be returned by the function being tested
 	 */
-	public function testGetContextSpecificModules( $fontchangerValue, $backToTopValue,
+	public function testGetContextSpecificModules( $backToTopValue,
 		$moduleName, $expected
 	) {
 		$skin = new SkinMinerva();
@@ -177,7 +176,6 @@ class SkinMinervaTest extends MediaWikiTestCase {
 
 		$skin->setContext( $testContext );
 		$skin->setSkinOptions( [
-			'fontChanger' => $fontchangerValue,
 			'backToTop' => $backToTopValue,
 		] );
 
@@ -190,10 +188,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 
 	public function provideGetContextSpecificModules() {
 		return [
-			[ true, false, 'skins.minerva.fontchanger', true ],
-			[ false, true, 'skins.minerva.fontchanger', false ],
-			[ false, true, 'skins.minerva.backtotop', true ],
-			[ false, false, 'skins.minerva.backtotop', false ],
+			[ true, 'skins.minerva.backtotop', true ],
+			[ false, 'skins.minerva.backtotop', false ],
 		];
 	}
 
