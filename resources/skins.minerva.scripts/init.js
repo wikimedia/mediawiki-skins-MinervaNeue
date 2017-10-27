@@ -1,22 +1,17 @@
 ( function ( M, $ ) {
-	var inSample, inStable, experiment,
+	var
 		config = mw.config,
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
 		skin = M.require( 'mobile.init/skin' ),
 		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
-		token = mw.storage.get( 'mobile-betaoptin-token' ),
-		BetaOptinPanel = M.require( 'mobile.betaoptin/BetaOptinPanel' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		router = require( 'mediawiki.router' ),
-		context = M.require( 'mobile.startup/context' ),
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		page = M.getCurrentPage(),
-		thumbs = page.getThumbnails(),
-		experiments = mw.config.get( 'wgMFExperiments' ) || {},
-		betaOptinPanel;
+		thumbs = page.getThumbnails();
 
 	/**
 	 * Event handler for clicking on an image thumbnail
@@ -142,35 +137,6 @@
 	$( function () {
 		initButton();
 		initMediaViewer();
-	} );
-
-	// Access the beta optin experiment if available.
-	experiment = experiments.betaoptin || false;
-	// local storage is supported in this case, when ~ means it was dismissed
-	if ( experiment && token !== false && token !== '~' && !page.isMainPage() && !page.inNamespace( 'special' ) ) {
-		if ( !token ) {
-			token = mw.user.generateRandomSessionId();
-			mw.storage.set( 'mobile-betaoptin-token', token );
-		}
-
-		inStable = context.getMode() === 'stable';
-		inSample = mw.experiments.getBucket( experiment, token ) === 'A';
-		if ( inStable && ( inSample || mw.util.getParamValue( 'debug' ) ) ) {
-			betaOptinPanel = new BetaOptinPanel( {
-				postUrl: mw.util.getUrl( 'Special:MobileOptions', {
-					returnto: page.title
-				} )
-			} )
-				.on( 'hide', function () {
-					mw.storage.set( 'mobile-betaoptin-token', '~' );
-				} )
-				.appendTo( M.getCurrentPage().getLeadSectionElement() );
-		}
-	}
-
-	// let the interested parties know whether the panel is shown
-	mw.track( 'minerva.betaoptin', {
-		isPanelShown: betaOptinPanel !== undefined
 	} );
 
 	/**

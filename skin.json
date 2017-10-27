@@ -261,8 +261,7 @@
 				"mobile.issues",
 				"mobile.search.api",
 				"mobile.search",
-				"mobile.references",
-				"mobile.betaoptin"
+				"mobile.references"
 			],
 			"messages": [
 				"edithelp",
