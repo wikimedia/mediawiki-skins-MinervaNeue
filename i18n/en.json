@@ -8,6 +8,7 @@
 	"mobile-frontend-cookies-required": "Cookies are required to switch view modes. Please enable them and try again.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Your account is blocked from editing. The block was made by {{GENDER:$2|$2}} for the following reason: $1",
 	"mobile-frontend-editor-cta": "Help improve this page!",
+	"minerva-pointer-dismiss": "Dismiss",
 	"mobile-frontend-editor-disabled": "This page is protected to prevent vandalism.",
 	"mobile-frontend-editor-edit": "Edit",
 	"minerva-download": "Download",

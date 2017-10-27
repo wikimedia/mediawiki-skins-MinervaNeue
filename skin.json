@@ -76,9 +76,6 @@
 			"mediawiki.special.preferences.styles": [
 				"skinStyles/mediawiki.special.preferences.styles/styles.less"
 			],
-			"mobile.pointerOverlay": [
-				"skinStyles/mobile.pointerOverlay/minerva.less"
-			],
 			"mobile.search": [
 				"skinStyles/mobile.search/SearchOverlay.less"
 			],
@@ -310,15 +307,23 @@
 				"mobile",
 				"desktop"
 			],
+			"styles": [
+				"resources/skins.minerva.newusers/PointerOverlay.less"
+			],
+			"templates": {
+				"PointerOverlay.hogan": "resources/skins.minerva.newusers/PointerOverlay.hogan"
+			},
 			"dependencies": [
 				"skins.minerva.editor",
 				"mediawiki.util",
-				"mobile.pointerOverlay"
+				"mobile.startup"
 			],
 			"scripts": [
+				"resources/skins.minerva.newusers/PointerOverlay.js",
 				"resources/skins.minerva.newusers/init.js"
 			],
 			"messages": [
+				"minerva-pointer-dismiss",
 				"mobile-frontend-editor-tutorial-summary",
 				"mobile-frontend-editor-tutorial-confirm",
 				"mobile-frontend-editor-tutorial-cancel"

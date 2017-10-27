@@ -10,7 +10,7 @@ editing. You can replicate this by appending campaign=leftNavSignup to the URL o
 editable page whilst logged in, although you must be in test group A to see the CTA.
 */
 ( function ( M, $ ) {
-	var PageActionOverlay = require( 'mobile.pointerOverlay' ),
+	var PointerOverlay = M.require( 'skins.minerva.newusers/PointerOverlay' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		mainMenu = M.require( 'skins.minerva.scripts.top/mainMenu' ),
 		util = M.require( 'mobile.startup/util' ),
@@ -55,7 +55,7 @@ editable page whilst logged in, although you must be in test group A to see the 
 			$target.attr( 'href', href + '/leftNavSignup' );
 		}
 
-		editOverlay = new PageActionOverlay( {
+		editOverlay = new PointerOverlay( {
 			target: target,
 			skin: skin,
 			isTutorial: true,
