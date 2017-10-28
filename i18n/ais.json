@@ -43,6 +43,7 @@
 	"mobile-frontend-talk-back-to-filepage": "tatiku tu tangan \"$1\".",
 	"mobile-frontend-talk-back-to-page": "tatiku \"$1\" kasabelih.",
 	"mobile-frontend-talk-back-to-projectpage": "tatiku tayza pabalucu’ kasabelih \"$1\".",
+	"mobile-frontend-talk-back-to-userpage": "tatiku tu \"{{GENDER:$1|$1}}\" a misaungayay kasabelih.",
 	"mobile-frontend-user-button-tooltip": "paazih takus nu maku",
 	"mobile-frontend-user-newmessages": "sasukamu kasabelih izaw baluhay palatuh kisu",
 	"mobile-frontend-user-page-contributions": "paanin",

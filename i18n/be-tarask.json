@@ -30,6 +30,7 @@
 	"mobile-frontend-languages-not-available": "Гэтая старонка не даступная на іншых мовах.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Вітаем}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Адкрыць галоўнае мэню",
+	"mobile-frontend-main-menu-contributions": "Унёсак",
 	"mobile-frontend-main-menu-login": "Увайсьці",
 	"mobile-frontend-main-menu-logout": "Выйсьці",
 	"mobile-frontend-main-menu-nearby": "Побач",

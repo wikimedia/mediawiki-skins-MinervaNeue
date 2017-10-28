@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Minisarm",
-			"Strainu"
+			"Strainu",
+			"Adrianbblk"
 		]
 	},
 	"minerva-last-modified-date": "Ultima modificare pe $1, la $2",
@@ -31,7 +32,7 @@
 	"mobile-frontend-main-menu-button-tooltip": "Deschide meniul principal",
 	"mobile-frontend-main-menu-contributions": "Contribuții",
 	"mobile-frontend-main-menu-login": "Autentificare",
-	"mobile-frontend-main-menu-logout": "Închidere sesiune",
+	"mobile-frontend-main-menu-logout": "Deconectare",
 	"mobile-frontend-main-menu-nearby": "În apropiere",
 	"mobile-frontend-main-menu-settings": "Setări",
 	"mobile-frontend-main-menu-watchlist": "Pagini urmărite",
