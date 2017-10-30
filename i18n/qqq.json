@@ -11,13 +11,13 @@
 			"Umherirrender"
 		]
 	},
-	"minerva-pointer-dismiss": "Label of button that dismisses overlay pointing at a particular new feature.",
 	"minerva-last-modified-date": "Text that displays the date the page was last modified. Parameters:\n* $1 - date\n* $2 - time\n{{Related|Mobile-frontend-last-modified}}",
 	"minerva-talk-add-topic": "Label for button which shows at bottom of talk pages in mobile view prompting addition of topic",
 	"mobile-frontend-console-recruit": "Message that is displayed in the JavaScript console aimed at developers in an attempt to recruit volunteers. The \\o/ emoticon is a man with his arms in the air with the purpose of drawing attention to the message. If this doesn't translate into the destination language feel free to omit it or use something more applicable.",
 	"mobile-frontend-cookies-required": "Error message shown when user attempts to switch site modes and cookies are not enabled.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Toast message for logged in users that appears (before the user see the editor) when a user tries to edit a page, but is blocked from editing with reason and blocked by information.\n\nParameters:\n* $1 - blocked by information (Username of the user who crated this block)\n* $2 - Reason for this block, if any",
 	"mobile-frontend-editor-cta": "Caption for call to action when an anonymous user clicks on edit icon. (Note the mobile site currently doesn't allow anonymous editing.)\n{{Identical|Help improve this page}}",
+	"minerva-pointer-dismiss": "Label of button that dismisses overlay pointing at a particular new feature.",
 	"mobile-frontend-editor-disabled": "Toast message that appears when a user is unable to edit a page and clicks edit icon.",
 	"mobile-frontend-editor-edit": "Caption for the link showing edit form. (In the imperative mood)\n{{Identical|Edit}}",
 	"minerva-download": "Caption for the download button (in the imperative mood).\n{{Identical|Download}}",

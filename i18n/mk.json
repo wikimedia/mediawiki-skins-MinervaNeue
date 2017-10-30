@@ -10,6 +10,7 @@
 	"mobile-frontend-cookies-required": "За да ги префрлате режимите на преглед, ќе ви требаат колачиња. Овозможете ги, па обидете се повторно.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Вашата сметка има забрана за уредување. Забраната ја даде {{GENDER:$2|$2}} од следнава причина: $1",
 	"mobile-frontend-editor-cta": "Помогнете ни да ја подобриме страницава!",
+	"minerva-pointer-dismiss": "Тргни",
 	"mobile-frontend-editor-disabled": "Страницава е заштитена за да се спречи вандализам.",
 	"mobile-frontend-editor-edit": "Уреди",
 	"minerva-download": "Преземи",

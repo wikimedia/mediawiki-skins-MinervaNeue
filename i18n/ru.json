@@ -16,6 +16,7 @@
 	"mobile-frontend-cookies-required": "Для переключения режимов просмотра требуются файлы cookie. Пожалуйста, включите их и повторите попытку.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Возможность редактирования с вашей учётной записи заблокирована. Блокировка была сделана {{GENDER:$2|участником|участницей}} $2 по следующей причине: $1",
 	"mobile-frontend-editor-cta": "Помогите улучшить эту страницу!",
+	"minerva-pointer-dismiss": "Закрыть",
 	"mobile-frontend-editor-disabled": "Эта страница защищена ради предотвращения вандализма.",
 	"mobile-frontend-editor-edit": "Править",
 	"minerva-download": "Скачать",

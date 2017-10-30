@@ -12,6 +12,7 @@
 	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktiviere sie und versuche es erneut.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Dein Benutzerkonto ist für das Bearbeiten gesperrt. Die Sperre wurde von {{GENDER:$2|$2}} aus dem folgenden Grund durchgeführt: $1",
 	"mobile-frontend-editor-cta": "Hilf, diese Seite zu verbessern!",
+	"minerva-pointer-dismiss": "Ausblenden",
 	"mobile-frontend-editor-disabled": "Diese Seite ist geschützt, um Vandalismus vorzubeugen.",
 	"mobile-frontend-editor-edit": "Bearbeiten",
 	"minerva-download": "Herunterladen",

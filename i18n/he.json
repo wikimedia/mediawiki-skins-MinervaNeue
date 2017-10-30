@@ -12,6 +12,7 @@
 	"mobile-frontend-cookies-required": "נדרשות עוגיות כדי לעבור בין מצבים. נא להפעיל אותן ולנסות שוב.",
 	"mobile-frontend-editor-blocked-info-loggedin": "החשבון שלך נחסם לעריכה. החסימה נעשתה על־ידי {{GENDER:$2|$2}} מהסיבה הבאה: $1",
 	"mobile-frontend-editor-cta": "עזרו לשפר את הדף הזה!",
+	"minerva-pointer-dismiss": "סגירה",
 	"mobile-frontend-editor-disabled": "הדף הזה מוגן כדי למנוע השחתה.",
 	"mobile-frontend-editor-edit": "עריכה",
 	"minerva-download": "הורדה",
@@ -57,6 +58,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|הצטרף|הצטרפה}} ב־$1",
 	"mobile-frontend-user-page-talk": "שיחה",
 	"mobile-frontend-user-page-uploads": "העלאות",
-	"skinname-minerva": "מינרווה",
-	"minerva-skin-desc": "ערכת עיצוב שמתאימה את עצמה לסוג המכשיר ומפותחת ראשית למכשירים מיידים."
+	"skinname-minerva": "מינרווה נויה",
+	"minerva-skin-desc": "ערכת עיצוב שמתאימה את עצמה לסוג המכשיר ומפותחת ראשית למכשירים מיידים"
 }

@@ -16,6 +16,7 @@
 	"mobile-frontend-cookies-required": "需要Cookie以切换视图模式。请启用它们后重试。",
 	"mobile-frontend-editor-blocked-info-loggedin": "您的账户被封禁，不能编辑。封禁是由{{GENDER:$2|$2}}做出的，原因是：$1",
 	"mobile-frontend-editor-cta": "帮助改善此页面！",
+	"minerva-pointer-dismiss": "解除",
 	"mobile-frontend-editor-disabled": "本页面受到保护以防止被破坏。",
 	"mobile-frontend-editor-edit": "编辑",
 	"minerva-download": "下载",
