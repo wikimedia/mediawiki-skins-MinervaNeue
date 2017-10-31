@@ -11,6 +11,7 @@
 	"mobile-frontend-cookies-required": "Файлы-кукі неабходныя для пераключэньня рэжымаў прагляду. Калі ласка, уключыце іх і паспрабуйце яшчэ раз.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Вашаму рахунку забаронена рабіць праўкі. Блякаваньне зробленае {{GENDER:$2|ўдзельнікам|ўдзельніцай}} $2 з наступнай прычыны: $1",
 	"mobile-frontend-editor-cta": "Дапамажыце палепшыць гэтую старонку!",
+	"minerva-pointer-dismiss": "Закрыць",
 	"mobile-frontend-editor-disabled": "Гэтая старонка абароненая, каб пазьбегнуць вандалізму.",
 	"mobile-frontend-editor-edit": "Рэдагаваць",
 	"minerva-download": "Спампаваць",

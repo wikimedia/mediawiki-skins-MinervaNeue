@@ -64,6 +64,6 @@
 	"mobile-frontend-user-page-member-since": "Message below the heading. $1 is the user registration date. $2 is the gender associated with the user account.",
 	"mobile-frontend-user-page-talk": "Text of the link to the user's talk page\n{{Identical|Talk}}",
 	"mobile-frontend-user-page-uploads": "Text of the link to the user's uploads page\n{{Identical|Upload}}",
-	"skinname-minerva": "The skin name for MinervaNeue.",
+	"skinname-minerva": "{{name}}",
 	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}"
 }
