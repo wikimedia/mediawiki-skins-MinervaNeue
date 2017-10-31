@@ -13,10 +13,10 @@ module.exports = function ( grunt ) {
 		eslint: {
 			all: [
 				'**/*.js',
-				'!libs/**',
-				'!vendor/**',
 				'!docs/**',
-				'!node_modules/**'
+				'!libs/**',
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		stylelint: {
@@ -24,17 +24,30 @@ module.exports = function ( grunt ) {
 				syntax: 'less'
 			},
 			all: [
-				'minerva.less/**/*.less',
-				'resources/**/*.less'
+				'**/*.less',
+				'!docs/**',
+				'!libs/**',
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
+		jsonlint: {
+			all: [
+				'**/*.json',
+				'!docs/**',
+				'!libs/**',
+				'!node_modules/**',
+				'!vendor/**'
+			]
+		},
+		banana: conf.MessagesDirs,
 		watch: {
 			lint: {
-				files: [ 'resources/**/*.js', 'tests/qunit/**/*.js' ],
+				files: [ '{resources,tests/qunit}/**/*.{js,less}' ],
 				tasks: [ 'lint' ]
 			},
 			scripts: {
-				files: [ 'resources/**/*.js', 'tests/qunit/**/*.js' ],
+				files: [ '{resources,tests/qunit}/**/*.js' ],
 				tasks: [ 'test' ]
 			},
 			configFiles: {
@@ -43,19 +56,10 @@ module.exports = function ( grunt ) {
 					reload: true
 				}
 			}
-		},
-		banana: conf.MessagesDirs,
-		jsonlint: {
-			all: [
-				'*.json',
-				'**/*.json',
-				'!node_modules/**',
-				'!vendor/**'
-			]
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'eslint', 'jsonlint', 'banana', 'stylelint' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint' ] );
 
 	grunt.registerTask( 'default', [ 'test' ] );
