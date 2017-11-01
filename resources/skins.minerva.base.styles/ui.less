@@ -222,16 +222,20 @@ input.search {
 
 	.edit-page {
 		display: inline-block;
+	}
+
+	.collapsible-heading .edit-page {
 		visibility: hidden;
 	}
 
-	.open-block {
+	.collapsible-heading.open-block {
 		// Restrict to child so that child section edit links do not get revealed.
 		.edit-page {
 			visibility: visible;
 		}
 	}
 
+	.mw-parser-output > h2,
 	.section-heading {
 		width: 100%;
 		border-bottom: 1px solid @colorGray14;
@@ -243,6 +247,11 @@ input.search {
 		}
 	}
 
+	.mw-parser-output > h1,
+	.mw-parser-output > h2,
+	.mw-parser-output > h3,
+	.mw-parser-output > h4,
+	.mw-parser-output > h5,
 	.section-heading,
 	.in-block {
 		// Safari needs this. @see T106347
