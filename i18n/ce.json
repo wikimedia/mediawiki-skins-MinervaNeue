@@ -1,17 +1,24 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Исмаил Садуев",
+			"Умар"
+		]
 	},
+	"minerva-last-modified-date": "ТӀаьххьара хийцам бина $1 $2",
+	"minerva-talk-add-topic": "ТӀетоха дийцар",
 	"mobile-frontend-editor-cta": "ГӀодеша хӀара агӀо дика ян!",
+	"minerva-pointer-dismiss": "ДӀачӀагӀа",
 	"mobile-frontend-editor-edit": "Нисъе",
+	"minerva-download": "Схьаэца",
 	"mobile-frontend-editor-redlink-create": "АгӀо кхолла",
 	"mobile-frontend-editor-redlink-leave": "ХӀахӀа, баркалла",
 	"mobile-frontend-editor-tutorial-cancel": "ХӀахӀа, баркалла",
 	"mobile-frontend-editor-tutorial-confirm": "Доладе тадар",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "ХӀокху агӀона исторега хьажар.",
 	"mobile-frontend-home-button": "ЦӀехьа",
 	"mobile-frontend-language-article-heading": "Еша кхечу маттахь",
+	"mobile-frontend-language-change": "Хийца мотт",
 	"mobile-frontend-logged-in-homepage-notification": "Марша догӀийла, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Коьрта меню схьаелла",
 	"mobile-frontend-main-menu-login": "Системин довзийтар",
@@ -23,6 +30,7 @@
 	"mobile-frontend-meta-data-issues-header": "Хаттарш",
 	"mobile-frontend-meta-data-issues-header-talk": "ХӀокху агӀонах лаьцна",
 	"mobile-frontend-meta-data-issues-talk": "ХӀокху дийцаре агӀонах лаьцна",
+	"mobile-frontend-notifications-filter": "Луьттург",
 	"mobile-frontend-placeholder": "{{grammar:prepositional|{{SITENAME}}}} чухула леха",
 	"mobile-frontend-random-button": "Нисделларг",
 	"mobile-frontend-talk-back-to-page": "Юха гӀо «$1» агӀонг.",
