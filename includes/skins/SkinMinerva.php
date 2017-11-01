@@ -313,9 +313,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 */
 	public function initPage( OutputPage $out ) {
 		parent::initPage( $out );
-		$styles = [];
-
-		$out->addModuleStyles( $styles );
 		$out->addJsConfigVars( $this->getSkinConfigVariables() );
 	}
 
