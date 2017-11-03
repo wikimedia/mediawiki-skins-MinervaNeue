@@ -65,5 +65,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|اشترك|اشتركت}} منذ $1",
 	"mobile-frontend-user-page-talk": "نقاش",
 	"mobile-frontend-user-page-uploads": "المرفوعات",
+	"skinname-minerva": "منيرفانيو",
 	"minerva-skin-desc": "برنامج مساعد أول مستجيب متحرك"
 }
