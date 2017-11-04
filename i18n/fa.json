@@ -9,7 +9,8 @@
 			"Ebraminio",
 			"Mahdy Saffar",
 			"Mjbmr",
-			"Reza1615"
+			"Reza1615",
+			"Ladsgroup"
 		]
 	},
 	"minerva-talk-add-topic": "اضافه کردن بحث",
@@ -17,8 +18,10 @@
 	"mobile-frontend-cookies-required": "کوکی‌ها برای تعویض روش‌های نمایش مورد نیاز هستند. لطفاً آنها را فعال کنید و دوباره امتحان کنید.",
 	"mobile-frontend-editor-blocked-info-loggedin": "حساب کاربری شما مسدود شده است. این عمل توسط {{GENDER:$2|$2}} و به دلیل $1 انجام گرفته‌است.",
 	"mobile-frontend-editor-cta": "کمک به بهبود این صفحه!",
+	"minerva-pointer-dismiss": "نپذیرفتن",
 	"mobile-frontend-editor-disabled": "این صفحه برای جلوگیری از خرابکاری محافظت شده‌است.",
 	"mobile-frontend-editor-edit": "ویرایش",
+	"minerva-download": "بارگذاری",
 	"mobile-frontend-editor-redlink-create": "ایجاد صفحه",
 	"mobile-frontend-editor-redlink-explain": "این صفحه هنوز ساخته نشده‌است.",
 	"mobile-frontend-editor-redlink-leave": "نه، متشکرم.",
