@@ -47,5 +47,6 @@
 	"mobile-frontend-placeholder": "Шукайце ў {{GRAMMAR:месны|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Выпадковая",
 	"mobile-frontend-redirected-from": "Перанакіравана з «$1»",
+	"mobile-frontend-talk-back-to-filepage": "Вярнуцца да файлу «$1».",
 	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленьні"
 }
