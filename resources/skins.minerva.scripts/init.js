@@ -232,7 +232,10 @@
 			config.get( 'wgMinervaDownloadIcon' ) &&
 			!page.isMainPage() &&
 			// The iOS print dialog does not provide pdf functionality (see T177215)
-			!browser.isIos()
+			!browser.isIos() &&
+			// Currently restricted to Chrome (T179529) until we have good fallbacks for browsers
+			// which do not provide print functionality
+			window.chrome !== undefined
 		) {
 			// Because the page actions are floated to the right, their order in the
 			// DOM is reversed in the display. The watchstar is last in the DOM and
