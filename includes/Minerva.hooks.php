@@ -34,11 +34,6 @@ class MinervaHooks {
 		// Set LESS importpath
 		global $wgResourceLoaderLESSImportPaths;
 		$wgResourceLoaderLESSImportPaths[] = dirname( __DIR__ ) . "/minerva.less/";
-
-		// Setup alias for compatibility with SkinMinervaNeue.
-		if ( !class_exists( 'SkinMinervaNeue' ) ) {
-			class_alias( 'SkinMinerva', 'SkinMinervaNeue', true );
-		}
 	}
 
 	/**
