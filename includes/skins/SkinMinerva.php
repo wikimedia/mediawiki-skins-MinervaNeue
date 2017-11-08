@@ -1430,3 +1430,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$out->addModuleStyles( $this->getSkinStyles() );
 	}
 }
+
+// Setup alias for compatibility with SkinMinervaNeue.
+class_alias( 'SkinMinerva', 'SkinMinervaNeue' );
