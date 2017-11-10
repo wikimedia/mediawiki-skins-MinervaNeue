@@ -194,6 +194,10 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	protected function isAllowedPageAction( $action ) {
 		$title = $this->getTitle();
 		$config = $this->getConfig();
+		// Title may be undefined in certain contexts (T179833)
+		if ( !$title ) {
+			return false;
+		}
 
 		if (
 			! in_array( $action, $config->get( 'MinervaPageActions' ) )
