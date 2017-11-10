@@ -51,3 +51,15 @@ a {
 	background: none !important;
 	padding: 0 !important;
 }
+
+// Numbered external links, copied from content.parsoid.less
+// TODO: Separate theme-agnostic rules from that module
+// so we can load it here.
+.mw-parser-output {
+	counter-reset: mw-numbered-ext-link;
+
+	a[rel~='mw:ExtLink']:empty:after {
+		content: '[' counter( mw-numbered-ext-link ) ']';
+		counter-increment: mw-numbered-ext-link;
+	}
+}
