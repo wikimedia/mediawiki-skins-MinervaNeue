@@ -1,12 +1,23 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Adriabages",
+			"Alvaro Vidal-Abarca",
+			"Arnaugir",
+			"Fitoschido",
+			"Joan manel",
+			"Macofe",
+			"QuimGil",
+			"Vriullop"
+		]
 	},
 	"mobile-frontend-cookies-required": "Les galetes són necessàries per canviar de mode de visualització. Si us plau, activa-les i intenta-ho un altre cop.",
 	"mobile-frontend-editor-blocked-info-loggedin": "El vostre compte està blocat per a modificacions. El blocatge va ser fet per {{GENDER:$2|$2}} per la raó següent: $1",
 	"mobile-frontend-editor-cta": "Ajudeu a millorar aquesta pàgina!",
+	"minerva-pointer-dismiss": "Descarta",
 	"mobile-frontend-editor-disabled": "Aquesta pàgina està protegida per a evitar el vandalisme.",
 	"mobile-frontend-editor-edit": "Modifica",
+	"minerva-download": "Baixa",
 	"mobile-frontend-editor-redlink-create": "Crea una pàgina",
 	"mobile-frontend-editor-redlink-explain": "Aquesta pàgina encara no ha estat creada.",
 	"mobile-frontend-editor-redlink-leave": "No, gràcies.",
@@ -15,7 +26,6 @@
 	"mobile-frontend-editor-tutorial-summary": "Ajudeu a millorar la pàgina $1.<br />No tingueu por de la sintaxi wiki.",
 	"mobile-frontend-editor-unavailable": "L'edició mòbil no està disponible actualment en el teu navegador. Si us plau prova amb un navegador diferent.",
 	"mobile-frontend-editor-undo-unsupported": "L'acció per a desfer no està disponible actualment en dispositius mòbils.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Vegeu l'historial d'edició d'aquesta pàgina.",
 	"mobile-frontend-home-button": "Inici",
 	"mobile-frontend-language-article-heading": "En una altra llengua",
