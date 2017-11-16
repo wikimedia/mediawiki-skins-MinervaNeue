@@ -722,11 +722,12 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * 2013, at 23:31'. This message is different for the main page since main page
 	 * content is typically transcuded rather than edited directly.
 	 * @param Title $title The Title object of the page being viewed
+	 * @param Boolean $doNotShowRelativeTime (optional) when passed will use a generic
+	 *  label which makes no reference to the time the page was edited.
 	 * @return array
 	 */
-	protected function getHistoryLink( Title $title ) {
+	protected function getHistoryLink( Title $title, $doNotShowRelativeTime ) {
 		$user = $this->getUser();
-		$isMainPage = $title->isMainPage();
 		// Get rev_timestamp of current revision (preloaded by MediaWiki core)
 		$timestamp = $this->getOutput()->getRevisionTimestamp();
 		# No cached timestamp, load it from the database
@@ -735,7 +736,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		}
 
 		// Main pages tend to include transclusions (see bug 51924)
-		if ( $isMainPage ) {
+		if ( $doNotShowRelativeTime ) {
 			$lastModified = $this->msg( 'mobile-frontend-history' )->plain();
 		} else {
 			$lastModified = $this->msg(
@@ -759,7 +760,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		}
 		return [
 			// Use $edit['timestamp'] (Unix format) instead of $timestamp (MW format)
-			'data-timestamp' => $isMainPage ? '' : wfTimestamp( TS_UNIX, $timestamp ),
+			'data-timestamp' => $doNotShowRelativeTime ? '' : wfTimestamp( TS_UNIX, $timestamp ),
 			'href' => $historyUrl,
 			'text' => $lastModified,
 			'data-user-name' => $editor ? $editor['name'] : '',
@@ -889,11 +890,13 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		if ( $this->canUseWikiPage() ) {
 			$isLatestRevision = $this->getRevisionId() === $title->getLatestRevID();
 			// If it's a page that exists, add last edited timestamp
-			// The last modified bar is only rendered on the latest revision.
+			// The relative time is only rendered on the latest revision.
 			// For older revisions the last modified
-			// information appears at the top of the page.
-			if ( $this->getWikiPage()->exists() && $isLatestRevision ) {
-				$tpl->set( 'historyLink', $this->getHistoryLink( $title ) );
+			// information will not render with a relative time
+			// nor will it show the name of the editor.
+			if ( $this->getWikiPage()->exists() ) {
+				$tpl->set( 'historyLink', $this->getHistoryLink( $title,
+					!$isLatestRevision || $title->isMainPage() ) );
 			}
 		}
 		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
