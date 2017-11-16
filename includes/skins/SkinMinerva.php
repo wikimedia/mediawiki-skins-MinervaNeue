@@ -729,6 +729,11 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$isMainPage = $title->isMainPage();
 		// Get rev_timestamp of current revision (preloaded by MediaWiki core)
 		$timestamp = $this->getOutput()->getRevisionTimestamp();
+		# No cached timestamp, load it from the database
+		if ( $timestamp === null ) {
+			$timestamp = Revision::getTimestampFromId( $this->getTitle(), $this->getRevisionId() );
+		}
+
 		// Main pages tend to include transclusions (see bug 51924)
 		if ( $isMainPage ) {
 			$lastModified = $this->msg( 'mobile-frontend-history' )->plain();
