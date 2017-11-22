@@ -62,5 +62,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Ble}} med $1",
 	"mobile-frontend-user-page-talk": "Diskusjon",
 	"mobile-frontend-user-page-uploads": "Opplastinger",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Ei responsiv drakt for mobil-først."
 }
