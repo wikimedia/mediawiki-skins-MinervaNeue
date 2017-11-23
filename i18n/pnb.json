@@ -1,6 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Abbas dhothar",
+			"BukhariSaeed",
+			"Khalid Mahmood",
+			"Saanvel"
+		]
 	},
 	"mobile-frontend-editor-edit": "لکھو",
 	"mobile-frontend-home-button": "گھر",
@@ -12,5 +17,6 @@
 	"mobile-frontend-main-menu-watchlist": "اکھ تھلے رکھی لسٹ",
 	"mobile-frontend-pageaction-edit-tooltip": "ایس صفے دے موہری حصے تے لکھو",
 	"mobile-frontend-placeholder": "کھوج",
-	"mobile-frontend-random-button": "الٹے پلٹے"
+	"mobile-frontend-random-button": "الٹے پلٹے",
+	"mobile-frontend-user-page-talk": "گل بات"
 }
