@@ -1,16 +1,19 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Albinus",
+			"Manik Soren"
+		]
 	},
 	"mobile-frontend-editor-edit": "Tońge",
-	"mobile-frontend-home-button": "Mukhiạ Sakam",
+	"mobile-frontend-home-button": "ᱚᱲᱟᱜ",
 	"mobile-frontend-language-article-heading": "Eṭaḱ pạrsite paṛhaome",
-	"mobile-frontend-main-menu-button-tooltip": "Mukhiạ sakam jhijme",
+	"mobile-frontend-main-menu-button-tooltip": "ᱢᱩᱬᱩᱛ menu ᱡᱷᱤᱡᱽ ᱢᱮ",
 	"mobile-frontend-main-menu-login": "Bolon",
 	"mobile-frontend-main-menu-nearby": "Sursurte",
 	"mobile-frontend-main-menu-settings": "seṭiṅ",
 	"mobile-frontend-main-menu-watchlist": "Ńeloḱ tạlika",
 	"mobile-frontend-pageaction-edit-tooltip": "Noa sakam reaḱ cetan seć reaḱ perako toṅgeyme",
 	"mobile-frontend-placeholder": "Sendra {{Saiṭńitum}}",
-	"mobile-frontend-random-button": "Baṅ oporom sakam"
+	"mobile-frontend-random-button": "Random"
 }
