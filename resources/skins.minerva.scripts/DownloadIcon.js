@@ -46,8 +46,8 @@
 
 			function doPrint() {
 				self.timeout = clearTimeout( self.timeout );
-				hideSpinner();
 				window.print();
+				hideSpinner();
 			}
 
 			// The click handler may be invoked multiple times so if a pending print is occurring
