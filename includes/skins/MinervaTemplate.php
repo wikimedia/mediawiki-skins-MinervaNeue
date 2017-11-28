@@ -107,18 +107,11 @@ class MinervaTemplate extends BaseTemplate {
 	protected function getHistoryLinkHtml( $data ) {
 		$action = Action::getActionName( RequestContext::getMain() );
 		if ( isset( $data['historyLink'] ) && $action === 'view' ) {
-			$historyLink = $data['historyLink'];
 			$args = [
 				'clockIconClass' => MinervaUI::iconClass( 'clock-gray', 'before' ),
 				'arrowIconClass' => MinervaUI::iconClass(
 					'arrow-gray', 'element', 'mw-ui-icon-small mf-mw-ui-icon-rotate-anti-clockwise indicator' ),
-				'isMainPage' => $this->getSkin()->getTitle()->isMainPage(),
-				'link' => $historyLink['href'],
-				'text' => $historyLink['text'],
-				'username' => $historyLink['data-user-name'],
-				'userGender' => $historyLink['data-user-gender'],
-				'timestamp' => $historyLink['data-timestamp']
-			];
+			] + $data['historyLink'];
 			$templateParser = new TemplateParser( __DIR__ );
 			return $templateParser->processTemplate( 'history', $args );
 		} else {

@@ -718,16 +718,60 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	}
 
 	/**
+	 * Get a history link which describes author and relative time of last edit
+	 * @param Title $title The Title object of the page being viewed
+	 * @param int $timestamp
+	 * @return array
+	 */
+	protected function getRelativeHistoryLink( Title $title, $timestamp ) {
+		$user = $this->getUser();
+		$text = $this->msg(
+			'minerva-last-modified-date',
+			$this->getLanguage()->userDate( $timestamp, $user ),
+			$this->getLanguage()->userTime( $timestamp, $user )
+		)->parse();
+		return [
+			// Use $edit['timestamp'] (Unix format) instead of $timestamp (MW format)
+			'data-timestamp' => wfTimestamp( TS_UNIX, $timestamp ),
+			'href' => $this->getHistoryUrl( $title ),
+			'text' => $text,
+		] + $this->getRevisionEditorData( $title );
+	}
+
+	/**
+	 * Get a history link which makes no reference to user or last edited time
+	 * @param Title $title The Title object of the page being viewed
+	 * @return array
+	 */
+	protected function getGenericHistoryLink( Title $title ) {
+		$text = $this->msg( 'mobile-frontend-history' )->plain();
+		return [
+			'href' => $this->getHistoryUrl( $title ),
+			'text' => $text,
+		];
+	}
+
+	/**
+	 * Get the URL for the history page for the given title using Special:History
+	 * when available.
+	 * @param Title $title The Title object of the page being viewed
+	 * @return string
+	 */
+	protected function getHistoryUrl( Title $title ) {
+		return SpecialPageFactory::exists( 'History' ) ?
+			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
+			$title->getLocalURL( [ 'action' => 'history' ] );
+	}
+
+	/**
 	 * Prepare the content for the 'last edited' message, e.g. 'Last edited on 30 August
 	 * 2013, at 23:31'. This message is different for the main page since main page
 	 * content is typically transcuded rather than edited directly.
 	 * @param Title $title The Title object of the page being viewed
-	 * @param Boolean $doNotShowRelativeTime (optional) when passed will use a generic
-	 *  label which makes no reference to the time the page was edited.
 	 * @return array
 	 */
-	protected function getHistoryLink( Title $title, $doNotShowRelativeTime ) {
-		$user = $this->getUser();
+	protected function getHistoryLink( Title $title ) {
+		$isLatestRevision = $this->getRevisionId() === $title->getLatestRevID();
 		// Get rev_timestamp of current revision (preloaded by MediaWiki core)
 		$timestamp = $this->getOutput()->getRevisionTimestamp();
 		# No cached timestamp, load it from the database
@@ -735,61 +779,34 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$timestamp = Revision::getTimestampFromId( $this->getTitle(), $this->getRevisionId() );
 		}
 
-		// Main pages tend to include transclusions (see bug 51924)
-		if ( $doNotShowRelativeTime ) {
-			$lastModified = $this->msg( 'mobile-frontend-history' )->plain();
-		} else {
-			$lastModified = $this->msg(
-				'minerva-last-modified-date',
-				$this->getLanguage()->userDate( $timestamp, $user ),
-				$this->getLanguage()->userTime( $timestamp, $user )
-			)->parse();
-		}
-
-		if ( SpecialPageFactory::exists( 'History' ) ) {
-			$historyUrl = SpecialPage::getTitleFor( 'History', $title )->getLocalURL();
-		} else {
-			$historyUrl = $title->getLocalURL( [ 'action' => 'history' ] );
-		}
-
-		$rev = Revision::newFromTitle( $title );
-		if ( $rev ) {
-			$editor = $this->getRevisionEditor( $rev );
-		} else {
-			$editor = false;
-		}
-		return [
-			// Use $edit['timestamp'] (Unix format) instead of $timestamp (MW format)
-			'data-timestamp' => $doNotShowRelativeTime ? '' : wfTimestamp( TS_UNIX, $timestamp ),
-			'href' => $historyUrl,
-			'text' => $lastModified,
-			'data-user-name' => $editor ? $editor['name'] : '',
-			'data-user-gender' => $editor ? $editor['gender'] : ''
-		];
+		return !$isLatestRevision || $title->isMainPage() ?
+			$this->getGenericHistoryLink( $title ) :
+			$this->getRelativeHistoryLink( $title, $timestamp );
 	}
 
 	/**
-	 * Returns the editor of a current revision.
-	 * There appears to be no shorthand method for this in core.
-	 * @return array|false representing user with name and gender fields. False if the editor no longer
-	 *   exists in the database or is hidden from public view
+	 * Returns data attributes representing the editor for the current revision.
+	 * @param Title $title The Title object of the page being viewed
+	 * @return array representing user with name and gender fields. Empty if the editor no longer
+	 *   exists in the database or is hidden from public view.
 	 */
-	private function getRevisionEditor( Revision $rev ) {
-		$editorName = '';
-		$editorGender = '';
-		$revUserId = $rev->getUser();
-		// Note the user will only be returned if that information is public
-		if ( $revUserId ) {
-			$revUser = User::newFromId( $revUserId );
-			$editorName = $revUser->getName();
-			$editorGender = $revUser->getOption( 'gender' );
-		} else {
-			return false;
+	private function getRevisionEditorData( Title $title ) {
+		$rev = Revision::newFromTitle( $title );
+		$result = [];
+		if ( $rev ) {
+			$revUserId = $rev->getUser();
+			// Note the user will only be returned if that information is public
+			if ( $revUserId ) {
+				$revUser = User::newFromId( $revUserId );
+				$editorName = $revUser->getName();
+				$editorGender = $revUser->getOption( 'gender' );
+				$result += [
+					'data-user-name' => $editorName,
+					'data-user-gender' => $editorGender,
+				];
+			}
 		}
-		return [
-			'name' => $editorName,
-			'gender' => $editorGender,
-		];
+		return $result;
 	}
 
 	/**
@@ -888,15 +905,13 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$tpl->set( 'postheadinghtml', $postHeadingHtml );
 
 		if ( $this->canUseWikiPage() ) {
-			$isLatestRevision = $this->getRevisionId() === $title->getLatestRevID();
 			// If it's a page that exists, add last edited timestamp
 			// The relative time is only rendered on the latest revision.
 			// For older revisions the last modified
 			// information will not render with a relative time
 			// nor will it show the name of the editor.
 			if ( $this->getWikiPage()->exists() ) {
-				$tpl->set( 'historyLink', $this->getHistoryLink( $title,
-					!$isLatestRevision || $title->isMainPage() ) );
+				$tpl->set( 'historyLink', $this->getHistoryLink( $title ) );
 			}
 		}
 		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
