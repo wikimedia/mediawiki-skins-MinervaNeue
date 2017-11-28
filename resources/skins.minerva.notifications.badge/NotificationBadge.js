@@ -14,7 +14,7 @@
 	 */
 	function NotificationBadge( options ) {
 		var $el,
-			count = 0,
+			count = options.notificationCountRaw || 0,
 			el = options.el;
 
 		if ( el ) {
@@ -26,7 +26,7 @@
 			count = Number( $el.find( 'span' ).data( 'notification-count' ) );
 		}
 		View.call( this, options );
-		this.url = this.$el.find( 'a' ).attr( 'href' );
+		this.url = options.url;
 		this._bindOverlayManager();
 		this.setCount( count );
 	}
