@@ -489,7 +489,7 @@
 	},
 	"author": [],
 	"config": {
-		"MinervaDownloadIcon": false,
+		"MinervaDownloadNamespaces": [ 0 ],
 		"MinervaEnableSiteNotice": false,
 		"MinervaCustomLogos": [],
 		"MinervaApplyKnownTemplateHacks": false,

@@ -229,7 +229,10 @@
 		loadTabletModules();
 
 		if (
-			config.get( 'wgMinervaDownloadIcon' ) &&
+			// Download button is restricted to certain namespaces T181152.
+			// Defaults to 0, in case cached JS has been served.
+			config.get( 'wgMinervaDownloadNamespaces', [ 0 ] )
+				.indexOf( config.get( 'wgNamespaceNumber' ) ) > -1 &&
 			!page.isMainPage() &&
 			// The iOS print dialog does not provide pdf functionality (see T177215)
 			!browser.isIos() &&
