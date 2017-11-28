@@ -15,7 +15,7 @@
 				overlayManager: this.OverlayManager,
 				hasNotifications: true,
 				hasUnseenNotifications: true,
-				notificationCountRawRaw: 5
+				notificationCountRaw: 5
 			} );
 		initialClassExpectationsMet = badge.$el.find( '.mw-ui-icon' ).length === 0 &&
 			badge.$el.find( '.zero' ).length === 0;
@@ -24,27 +24,27 @@
 		assert.ok( initialClassExpectationsMet, 'No icon and no zero class' );
 		assert.ok( badge.$el.find( '.zero' ).length === 1, 'A zero class is present on the badge' );
 		badge.setCount( 105 );
-		assert.ok( badge.options.notificationCountRawRaw, 100,
+		assert.ok( badge.options.notificationCountRaw, 100,
 			'Number is capped to 100.' );
 	} );
 
 	QUnit.test( '#setCount (Eastern Arabic numerals)', function ( assert ) {
 		var badge = new NotificationBadge( {
 			overlayManager: this.OverlayManager,
-			el: $( '<div><a title="n" href="/" class="notification-unseen"><div class="circle"><span>۲</span></div></a></div>' )
+			el: $( '<div><a title="n" href="/" class="notification-unseen"><div class="circle" ><span data-notification-count="2">۲</span></div></a></div>' )
 		} );
-		assert.ok( badge.options.notificationCountRawRaw, 2,
+		assert.ok( badge.options.notificationCountRaw, 2,
 			'Number is parsed from Eastern Arabic numerals' );
-		assert.ok( badge.options.notificationCountRawRawString, '۲',
+		assert.ok( badge.options.notificationCountString, '۲',
 			'Number will be rendered in Eastern Arabic numerals' );
 		badge.setCount( 5 );
-		assert.ok( badge.options.notificationCountRawRawString, '۵',
+		assert.ok( badge.options.notificationCountString, '۵',
 			'Number will be rendered in Eastern Arabic numerals' );
 	} );
 
 	QUnit.test( '#render [hasUnseenNotifications]', function ( assert ) {
 		var badge = new NotificationBadge( {
-			notificationCountRawRaw: 0,
+			notificationCountRaw: 0,
 			overlayManager: this.OverlayManager,
 			hasNotifications: false,
 			hasUnseenNotifications: false
@@ -54,7 +54,7 @@
 
 	QUnit.test( '#markAsSeen', function ( assert ) {
 		var badge = new NotificationBadge( {
-			notificationCountRawRaw: 2,
+			notificationCountRaw: 2,
 			overlayManager: this.OverlayManager,
 			hasNotifications: true,
 			hasUnseenNotifications: true
