@@ -39,6 +39,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mobile.special.mobileoptions.styles": [
+				"skinStyles/mobile.special.mobileoptions.styles/minerva.less"
+			],
 			"mediawiki.special.userlogin.common.styles": [
 				"skinStyles/mediawiki.special.userlogin.common.styles/minerva.less"
 			],
