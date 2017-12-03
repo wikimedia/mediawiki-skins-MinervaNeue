@@ -51,6 +51,14 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				'src' => $customLogos['copyright'],
 				'alt' => $footerSitename,
 			];
+			if ( pathinfo( $customLogos['copyright'], PATHINFO_EXTENSION ) === 'svg' ) {
+				$attributes['srcset'] = $customLogos['copyright'] . ' 1x';
+				if ( isset( $customLogos['copyright-fallback'] ) ) {
+					$attributes['src'] = $customLogos['copyright-fallback'];
+				} else {
+					$attributes['src'] = str_replace( '.svg', '.png', $customLogos['copyright'] );
+				}
+			}
 			if ( isset( $customLogos['copyright-height'] ) ) {
 				$attributes['height'] = $customLogos['copyright-height'];
 			}
