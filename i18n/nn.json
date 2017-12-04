@@ -10,6 +10,7 @@
 	"mobile-frontend-cookies-required": "Informasjonskapslar vert krevd for å bytte visingsmodus. Slå dei på og prøv igjen.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Kontoen din er blokkert frå å endra. Blokkeringa vart gjort av {{GENDER:$2|$2}} med fylgjande årsak: $1",
 	"mobile-frontend-editor-cta": "Hjelp til å betra denne sida!",
+	"minerva-pointer-dismiss": "Lat att",
 	"mobile-frontend-editor-disabled": "Denne sida er verna for å motvirka hærverk.",
 	"mobile-frontend-editor-edit": "Endra",
 	"mobile-frontend-history": "Sjå endringshistorikken til sida.",

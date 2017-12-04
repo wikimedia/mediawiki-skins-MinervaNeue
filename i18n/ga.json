@@ -1,9 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Tem",
+			"පසිඳු කාවින්ද"
+		]
 	},
 	"mobile-frontend-editor-edit": "Cuir in Eagar",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Baile",
 	"mobile-frontend-language-article-heading": "Léigh i dteanga eile",
 	"mobile-frontend-main-menu-button-tooltip": "Osclóidh seo an príomhroghchlár",

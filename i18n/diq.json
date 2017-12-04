@@ -1,6 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Asmen",
+			"Erdemaslancan",
+			"Gorizon",
+			"Gırd",
+			"Kumkumuk",
+			"Mirzali"
+		]
 	},
 	"mobile-frontend-editor-edit": "Bıvurne",
 	"mobile-frontend-editor-redlink-create": "Pele vıraze",
@@ -8,7 +15,6 @@
 	"mobile-frontend-editor-redlink-leave": "Nê, teşekur.",
 	"mobile-frontend-editor-tutorial-cancel": "Nê, teşekur kenan",
 	"mobile-frontend-editor-tutorial-confirm": "Dest bıke vırnayış",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Keye",
 	"mobile-frontend-language-article-heading": "Yewbina zıwan de bıwane",
 	"mobile-frontend-language-change": "Zıwani bıvurne",

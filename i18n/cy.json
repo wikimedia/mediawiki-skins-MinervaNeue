@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ham II",
+			"Lloffiwr",
+			"Robin Owain"
+		]
 	},
 	"mobile-frontend-editor-cta": "Helpwch wella'r dudalen hon!",
 	"mobile-frontend-editor-disabled": "Mae'r dudalen hon wedi ei gwarchod rhag cael ei fandaleiddio.",
@@ -10,7 +14,6 @@
 	"mobile-frontend-editor-tutorial-summary": "Ceisiwch wella'r dudalen $1. Peidiwch â bod ofn cystrawen wici.",
 	"mobile-frontend-editor-unavailable": "Ar hyn o bryd, nid oes modd golygu â'ch porwr presennol o'r teclyn symudol. Ceisiwch ddefnyddio porwr gwahanol.",
 	"mobile-frontend-editor-undo-unsupported": "Ni ellir ddadwneud ar declynnau symudol, ar hyn o bryd.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Gweld hanes golygu'r dudalen hon.",
 	"mobile-frontend-home-button": "Hafan",
 	"mobile-frontend-language-article-heading": "Darllen mewn iaith arall",

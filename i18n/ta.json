@@ -1,9 +1,16 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"ElangoRamanujam",
+			"Karthi.dr",
+			"Logicwiki",
+			"Maathavan",
+			"Sank",
+			"Shanmugamp7",
+			"Surya Prakash.S.A."
+		]
 	},
 	"mobile-frontend-editor-edit": "தொகு",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "முகப்பு",
 	"mobile-frontend-language-article-heading": "வேறொரு மொழியில் படிக்கவும்",
 	"mobile-frontend-logged-in-homepage-notification": "வருக $1",

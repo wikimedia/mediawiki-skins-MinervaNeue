@@ -1,6 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Asoxor",
+			"Calak",
+			"Sarchia",
+			"Épine"
+		]
 	},
 	"mobile-frontend-editor-blocked-info-loggedin": "ھەژمارەکەت بەربەستکراوە لە دەستکاریکردن. بەربەستەکە ئەنجام دراوە لەلایەن {{GENDER:$2|$2}} لەبەر ئەم ھۆکارانە: $1",
 	"mobile-frontend-editor-cta": "یارمەتی باشترکردنی ئەم پەڕەیە بدە!",

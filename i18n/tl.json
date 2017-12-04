@@ -1,9 +1,12 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"AnakngAraw",
+			"Jojit fb",
+			"Sky Harbor"
+		]
 	},
 	"mobile-frontend-editor-edit": "Baguhin",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Tahanan",
 	"mobile-frontend-language-article-heading": "Basahin sa ibang wika",
 	"mobile-frontend-logged-in-homepage-notification": "Mabuhay, $1!",

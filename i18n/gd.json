@@ -1,10 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"GunChleoc"
+		]
 	},
 	"mobile-frontend-cookies-required": "Tha briosgaidean riatanach gus leum a ghearradh eadar modhan an t-seallaidh. Cuir an comas iad 's feuch ris a-rithist.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Chan fhaod an cunntas agad deasachadh. Chaidh a bhacadh le {{GENDER:$2|$2}} air an adhbhar seo: $1",
 	"mobile-frontend-editor-cta": "Cuidich dhuinn gus piseach a thoirt air an duilleag seo!",
+	"minerva-pointer-dismiss": "Leig seachad",
 	"mobile-frontend-editor-disabled": "Chaidh an duilleag seo a dhìon gus bhandalachd a bhacadh.",
 	"mobile-frontend-editor-edit": "Deasaich",
 	"mobile-frontend-editor-redlink-create": "Cruthaich duilleag",
@@ -15,7 +18,6 @@
 	"mobile-frontend-editor-unavailable": "Chan eil deasachadh inneil-làimhe ri fhaighinn airson a' bhrabhsair agad. Feuch brabhsair eile.",
 	"mobile-frontend-editor-undo-unsupported": "Chan eil taic ri neo-dhèanamh ri fhaighinn air innealan-làimhe fhathast.",
 	"mobile-frontend-editor-uploadenable": "Luchdaich suas dealbh an toiseach gus deasachadh a chur an comas.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Seall eachdraidh deasachadh na duilleige seo",
 	"mobile-frontend-home-button": "Dhachaigh",
 	"mobile-frontend-language-article-heading": "Leugh seo ann an cànan eile",

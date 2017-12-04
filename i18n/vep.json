@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Sebranik",
+			"Игорь Бродский"
+		]
 	},
 	"mobile-frontend-editor-edit": "Redaktiruida",
 	"mobile-frontend-home-button": "Pälehtpolele",

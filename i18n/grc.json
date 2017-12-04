@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Gts-tg",
+			"JoostBotman"
+		]
 	},
 	"mobile-frontend-editor-edit": "Ἐκδὀς",
 	"mobile-frontend-home-button": "Κυρία",

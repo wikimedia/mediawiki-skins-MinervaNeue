@@ -1,9 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ernác"
+		]
 	},
 	"mobile-frontend-editor-edit": "Тюрлендир",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Юйге",
 	"mobile-frontend-language-article-heading": "Башха тилде окъу",
 	"mobile-frontend-main-menu-button-tooltip": "Баш менюну ач",

@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"AmaryllisGardener",
+			"Caliburn"
+		]
 	},
 	"mobile-frontend-editor-edit": "Eedit",
 	"mobile-frontend-home-button": "Home",

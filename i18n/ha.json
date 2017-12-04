@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"DonCamillo"
+		]
 	},
 	"mobile-frontend-editor-edit": "Gyara",
 	"mobile-frontend-home-button": "Marhabin",

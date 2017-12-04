@@ -1,7 +1,12 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Denö",
+			"Ilja.mos",
+			"Mashoi7"
+		]
 	},
+	"minerva-pointer-dismiss": "Hylgiä",
 	"mobile-frontend-editor-edit": "Kohendele",
 	"mobile-frontend-editor-redlink-create": "Luaji sivu",
 	"mobile-frontend-editor-redlink-explain": "Tädä sivuu ei ole vie luajittu.",

@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Derslek",
+			"Ilnur efende",
+			"Ильнар"
+		]
 	},
 	"mobile-frontend-editor-edit": "Үзгәртү",
 	"mobile-frontend-history": "Әлеге битнең үзгәртүләр тарихын карау.",

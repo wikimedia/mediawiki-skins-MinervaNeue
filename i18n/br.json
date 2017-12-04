@@ -1,11 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Fohanno",
+			"Fulup",
+			"Pymouss",
+			"Y-M D"
+		]
 	},
 	"mobile-frontend-editor-cta": "Sikourit gwellaat ar bajenn-mañ !",
 	"mobile-frontend-editor-edit": "Aozañ",
 	"mobile-frontend-editor-tutorial-confirm": "Kregiñ da aozañ",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Degemer",
 	"mobile-frontend-language-article-heading": "Lenn en ur yezh all",
 	"mobile-frontend-logged-in-homepage-notification": "Degemer mat, $1 !",

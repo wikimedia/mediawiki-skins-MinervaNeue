@@ -1,9 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Gaddi00",
+			"Maxí",
+			"Snævar"
+		]
 	},
 	"mobile-frontend-cookies-required": "Fótspor krefjast til að skipta á sýnisástandi. Virkjaðu þau og reyndu aftur.",
 	"mobile-frontend-editor-cta": "Hjálpaðu okkur bæta þessa síðu!",
+	"minerva-pointer-dismiss": "Hunsa",
 	"mobile-frontend-editor-disabled": "Þessa síða hefur verið varin til að koma í veg fyrir skemmdarverk.",
 	"mobile-frontend-editor-edit": "Breyta",
 	"mobile-frontend-editor-redlink-create": "Búa til síðu",
@@ -15,7 +20,6 @@
 	"mobile-frontend-editor-unavailable": "Það er ekki stuðningur fyrir að gera breytingar í farsímanum með vafranum þínum. Prófaðu annan vafra.",
 	"mobile-frontend-editor-undo-unsupported": "Afturköllun er ekki aðgengileg í farsímaútgáfunni.",
 	"mobile-frontend-editor-uploadenable": "Hladdu upp mynd til að geta gert breytingar.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Skoða breytingarskrá síðunnar",
 	"mobile-frontend-home-button": "Forsíða",
 	"mobile-frontend-language-article-heading": "Lesa á öðru tungumáli",

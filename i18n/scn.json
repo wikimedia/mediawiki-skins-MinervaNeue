@@ -1,9 +1,12 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Gmelfi",
+			"Pippinu",
+			"Sarvaturi"
+		]
 	},
 	"mobile-frontend-editor-edit": "Cancia",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Pàggina principali",
 	"mobile-frontend-language-article-heading": "Leggi nti n'àutra lingua",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bimminutu|Bimminuta|Bimminutu/a}}, $1!",

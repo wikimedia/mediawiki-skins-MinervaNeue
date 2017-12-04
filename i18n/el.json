@@ -1,16 +1,23 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Geraki",
+			"Glavkos",
+			"Nikosguard",
+			"SucreRouge",
+			"ZaDiak",
+			"Ανώνυμος Βικιπαιδιστής"
+		]
 	},
 	"mobile-frontend-cookies-required": "Τα cookies είναι απαραίτητα για να αλλάξετε τρόπο προβολής. Παρακαλούμε ενεργοποιήστε τα και προσπαθήστε ξανά.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Ο λογαριασμός σας έχει αποκλειστεί από την επεξεργασία. Η φραγή έγινε από {{GENDER:$2|τον $2|την $2}} για τον εξής λόγο: $1",
 	"mobile-frontend-editor-cta": "Βοηθήστε να βελτιωθεί αυτή η σελίδα!",
+	"minerva-pointer-dismiss": "Απόρριψη",
 	"mobile-frontend-editor-edit": "Επεξεργασία",
 	"mobile-frontend-editor-tutorial-cancel": "Όχι, ευχαριστώ",
 	"mobile-frontend-editor-tutorial-confirm": "Ξεκινήστε την επεξεργασία",
 	"mobile-frontend-editor-tutorial-summary": "Προσπαθήστε να βελτιώσετε την σελίδα $1. <br />Μη φοβάστε τη σήμανση.",
 	"mobile-frontend-editor-uploadenable": "Παρακαλούμε να ανεβάσετε μια φωτογραφία πρώτα, για να ενεργοποιήσετε την επεξεργασία.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Προβολή ιστορικού επεξεργασιών αυτή της σελίδας",
 	"mobile-frontend-home-button": "Αρχική",
 	"mobile-frontend-language-article-heading": "Διαβάστε σε άλλη γλώσσα",

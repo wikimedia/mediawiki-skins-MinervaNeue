@@ -1,8 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"BRUTE",
+			"David1010",
+			"MIKHEIL",
+			"SHOTHA",
+			"Tokoko"
+		]
 	},
 	"mobile-frontend-editor-cta": "დაგვეხმარეთ ამ გვერდის გაუმჯობესებაში",
+	"minerva-pointer-dismiss": "უარყოფა",
 	"mobile-frontend-editor-disabled": "ეს გვერდი დაცულია რედაქტირებისგან ვანდალიზმთან გამკლავების მიზნით.",
 	"mobile-frontend-editor-edit": "რედაქტირება",
 	"mobile-frontend-editor-redlink-create": "გვერდის შექმნა",
@@ -11,7 +18,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "არა, გმადლობთ",
 	"mobile-frontend-editor-tutorial-confirm": "დაიწყე რედაქტირება",
 	"mobile-frontend-editor-uploadenable": "გთხოვთ ჯერ ატვირთოთ ფოტო დასარედაქტირებლად.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "ნახეთ გვერდის რედაქტირებათა ისტორია.",
 	"mobile-frontend-home-button": "მთავარი",
 	"mobile-frontend-language-article-heading": "სხვა ენაზე წაკითხვა",

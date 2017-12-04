@@ -14,6 +14,7 @@
 	"mobile-frontend-cookies-required": "表示モードを切り替えるには Cookie が必要です。有効にしてからもう一度お試しください。",
 	"mobile-frontend-editor-blocked-info-loggedin": "あなたのアカウントでは編集がブロックされています。{{GENDER:$2|$2}}のためブロック処理が行われました。以下はその理由です: $1",
 	"mobile-frontend-editor-cta": "このページの改善に協力",
+	"minerva-pointer-dismiss": "非表示",
 	"mobile-frontend-editor-disabled": "このページは荒らし防止のため保護されています。",
 	"mobile-frontend-editor-edit": "編集",
 	"mobile-frontend-editor-redlink-create": "ページを作成",

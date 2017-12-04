@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Kengšepā"
+		]
 	},
 	"mobile-frontend-home-button": "Kuod",
 	"mobile-frontend-placeholder": "Vȯtš {{SITENAME}}"

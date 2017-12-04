@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Agilight",
+			"Көпек",
+			"Монгуш Салим"
+		]
 	},
 	"mobile-frontend-editor-edit": "Эдер",
 	"mobile-frontend-home-button": "Кол арынче",

@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Anomie",
+			"Chase me ladies, I'm the Cavalry",
+			"Jagwar"
+		]
 	},
 	"mobile-frontend-console-recruit": "Maybe you can help! This is open source software and we need volunteers to help us build it, make it better and fix any bugs that you might be seeing in this JavaScript console!\n\nYou can find our backlog @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-editor-edit": "Edit",

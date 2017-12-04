@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Avjoska",
+			"Pikne"
+		]
 	},
 	"mobile-frontend-cookies-required": "Et vaaterežiimi vahetada, on vaja küpsiseid. Palun luba need ja proovi uuesti.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Sinu kontol on redigeerimine blokeeritud. Blokeerinud $2 järgmise põhjendusega: $1",

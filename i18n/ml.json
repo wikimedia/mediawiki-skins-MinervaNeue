@@ -5,11 +5,11 @@
 			"Santhosh.thottingal"
 		]
 	},
-	"skinname-minervaneue": "മിനെർവനോയി",
 	"mobile-frontend-console-recruit": "\\o/ ടും ടും ടും! ഇതൊരു ഓപ്പൺ സോഴ്സ് സോഫ്റ്റ്‌വേറാണ്, ഇത് നിർമ്മിക്കാൻ സന്നദ്ധസേവകരെ ആവശ്യമുണ്ട്, ഈ ജാവാസ്ക്രിപ്റ്റ് കൺസോളിൽ താങ്കൾ കാണാനിട വന്നേക്കാവുന്ന ബഗുകൾ ശരിയാക്കി ഇത് മെച്ചപ്പെടുത്തുക!\n\nബാക്ക്‌ലോഗ് ഇവിടെ കാണുക: https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "ദൃശ്യ രീതികൾ മാറ്റുവാൻ കുക്കികൾ ആവശ്യമാണ്. അവ സജ്ജമാക്കിയ ശേഷം വീണ്ടും ശ്രമിക്കുക.",
 	"mobile-frontend-editor-blocked-info-loggedin": "തിരുത്തുകളിൽ നിന്നും താങ്കളുടെ അംഗത്വത്തെ തടഞ്ഞിരിക്കുകയാണ്. താഴെക്കൊടുത്തിരിക്കുന്ന കാരണത്താൽ {{GENDER:$2|$2}} ആണ് താങ്കളെ തടഞ്ഞത്: $1",
 	"mobile-frontend-editor-cta": "ഈ താൾ മെച്ചപ്പെടുത്താൻ സഹായിക്കുക!",
+	"minerva-pointer-dismiss": "ഒഴിവാക്കുക",
 	"mobile-frontend-editor-disabled": "ഈ താൾ നശീകരണപ്രവർത്തനങ്ങളെ നേരിടാൻ സംരക്ഷിച്ചിരിക്കുന്നതാണ്.",
 	"mobile-frontend-editor-edit": "തിരുത്തുക",
 	"mobile-frontend-editor-redlink-create": "താൾ സൃഷ്ടിക്കുക",

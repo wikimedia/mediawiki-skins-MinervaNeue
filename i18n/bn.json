@@ -12,6 +12,7 @@
 	"mobile-frontend-cookies-required": "দর্শন মোডে যেতে কুকিজের প্রয়োজন। দয়া করে তাদের সক্রিয় করে আবার চেষ্টা করুন।",
 	"mobile-frontend-editor-blocked-info-loggedin": "আপনার অ্যাকাউন্ট সম্পাদনা থেকে অবরুদ্ধ করা হয়েছে। নিম্নলিখিত কারণে {{GENDER:$2|$2}} কর্তৃক আপনি অবরুদ্ধ হয়েছেন: $1",
 	"mobile-frontend-editor-cta": "এই পাতা উন্নয়নে সাহায্য করুন!",
+	"minerva-pointer-dismiss": "খারিজ",
 	"mobile-frontend-editor-disabled": "ধ্বংসপ্রবণতা রোধে এই পাতাটি সুরক্ষিত করা হয়েছে।",
 	"mobile-frontend-editor-edit": "সম্পাদনা",
 	"mobile-frontend-editor-redlink-create": "পাতা তৈরি করুন",

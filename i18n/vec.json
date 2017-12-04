@@ -1,9 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Candalua",
+			"GatoSelvadego"
+		]
 	},
 	"mobile-frontend-editor-edit": "Modìfega",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Inissio",
 	"mobile-frontend-language-article-heading": "Lexe inte n'altra léngua",
 	"mobile-frontend-logged-in-homepage-notification": "Benvegnù, $1!",

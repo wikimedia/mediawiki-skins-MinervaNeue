@@ -1,11 +1,20 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Albertas",
+			"Eitvys200",
+			"Homo",
+			"Hugo.arg",
+			"Robotukas11",
+			"Vogone",
+			"Zygimantus"
+		]
 	},
 	"mobile-frontend-console-recruit": "\\o/ Ei! Tai atviro kodo programinė įranga ir mums reikia savanorių, kad padėtų mums kurti šį projektą, pagerinkite ir pataisykite klaidas, kurių aptiksite šioje JavaScript konsolėje!\n\nNeatliktų darbų sąrašą galite rasti @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Slapukai yra reikalingi norint pakeisti peržiūros režimus. Įjunkite juos ir bandykite dar kartą.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Jūsų paskyrai yra uždrausta redaguoti. Draudimą sukūrė {{GENDER:$2|$2}} dėl priežasties: $1",
 	"mobile-frontend-editor-cta": "Padėkite pagerinti šį puslapį!",
+	"minerva-pointer-dismiss": "Atmesti",
 	"mobile-frontend-editor-disabled": "Šis puslapis yra apsaugotas, kad būtų išvengta vandalizmo.",
 	"mobile-frontend-editor-edit": "Keisti",
 	"mobile-frontend-editor-redlink-create": "Kurti puslapį",
@@ -17,7 +26,6 @@
 	"mobile-frontend-editor-unavailable": "Mobilusis redagavimas kol kas nėra palaikomas jūsų naršyklėje. Prašome pabandyti su kita naršykle.",
 	"mobile-frontend-editor-undo-unsupported": "Anuliavimo funkcija kol kas nėra palaikoma mobiliuosiuose įrenginiuose.",
 	"mobile-frontend-editor-uploadenable": "Prašome pirma įkelti nuotrauką, kad būtų galima redaguoti.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Peržiūrėti šio puslapio pakeitimų istoriją.",
 	"mobile-frontend-home-button": "Pradžia",
 	"mobile-frontend-language-article-heading": "Skaityti kita kalba",

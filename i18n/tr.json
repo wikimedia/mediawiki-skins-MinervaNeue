@@ -18,6 +18,7 @@
 	"mobile-frontend-cookies-required": "Görünüm modları arasında geçiş yapabilmeniz için çerezlerin açık olması gereklidir. Bunları etkinleştirdikten sonra tekrar deneyin.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Hesabınızı düzenleme engellenir. Sokak. tarafından yapılan {{CİNSİYET:$2|$2}} için aşağıdaki sebep: $1",
 	"mobile-frontend-editor-cta": "Bu sayfayı geliştirmeye yardımcı olun!",
+	"minerva-pointer-dismiss": "Kapat",
 	"mobile-frontend-editor-disabled": "Bu sayfa vandalizmi önlemek için korunmaktadır.",
 	"mobile-frontend-editor-edit": "Düzenle",
 	"mobile-frontend-editor-redlink-create": "Sayfayı oluştur",

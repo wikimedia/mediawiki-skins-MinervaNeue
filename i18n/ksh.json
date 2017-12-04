@@ -1,10 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Purodha"
+		]
 	},
 	"mobile-frontend-console-recruit": "Heh dat sen Projramme med offe Quältäx, un mer bruche Lück, di hällfe, dat bäßer ze mahche un de Fähler ze reparehre, di mer heh em JahvaSkrepp süht.\n\nDo kanns onser onjedonn Saache fenge @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-editor-blocked-info-loggedin": "Dinge Zohjang zom Wikki es vum Ändere ußjeschloße. Di Schpär wood {{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} $2 ennjereesch weil: $1.",
 	"mobile-frontend-editor-cta": "Hellef met, heh di Sigg bäßer ze maache!",
+	"minerva-pointer-dismiss": "Fott domet, dat well esch nit lässe.",
 	"mobile-frontend-editor-disabled": "heh di Sigg es jeschöz, dermet se keiner kappot määt.",
 	"mobile-frontend-editor-edit": "Ändere",
 	"mobile-frontend-editor-redlink-create": "Sigg aanlääje",
@@ -13,7 +16,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nää, danke.",
 	"mobile-frontend-editor-tutorial-confirm": "Mem Ändere aanfange",
 	"mobile-frontend-editor-tutorial-summary": "Versöhk, de Sigg „$1“ bäßer ze maache.<br />Kein Sorrsch wähje de ennjeschtreuhte Befähle!",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Belohr de fröhjere Änderonge aan heh dä Sigg.",
 	"mobile-frontend-home-button": "Houpsigg",
 	"mobile-frontend-language-article-heading": "En ener andere Schprohch beloore",

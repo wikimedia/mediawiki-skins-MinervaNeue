@@ -15,6 +15,7 @@
 	"mobile-frontend-cookies-required": "Bạn cần cho phép các cookie để đổi chế độ xem. Xin vui lòng kích hoạt cookie và thử lần nữa.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Tài khoản của bạn bị khóa sửa đổi. Người đã khóa là {{GENDER:$2}}$2 với lý do: $1",
 	"mobile-frontend-editor-cta": "Hãy giúp cải thiện trang này!",
+	"minerva-pointer-dismiss": "Bỏ qua",
 	"mobile-frontend-editor-disabled": "Trang này bị khóa để chống phá hoại.",
 	"mobile-frontend-editor-edit": "Sửa đổi",
 	"mobile-frontend-editor-redlink-create": "Tạo trang",

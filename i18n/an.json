@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Carlos Cristia"
+		]
 	},
 	"mobile-frontend-editor-edit": "Editar",
 	"mobile-frontend-home-button": "Portalada",

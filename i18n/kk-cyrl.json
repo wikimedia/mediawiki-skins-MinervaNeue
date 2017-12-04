@@ -1,8 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Arystanbek",
+			"Kaztrans",
+			"Wikibilim"
+		]
 	},
 	"mobile-frontend-editor-cta": "Бұл бетті жетілдіруге көмектесіңіз!",
+	"minerva-pointer-dismiss": "Тоқтату",
 	"mobile-frontend-editor-disabled": "Бұл бет бұзақылыққа кедергі жасау үшін қорғалған.",
 	"mobile-frontend-editor-edit": "Өңдеу",
 	"mobile-frontend-editor-redlink-create": "Бетті бастау",
@@ -14,7 +19,6 @@
 	"mobile-frontend-editor-unavailable": "Шолғышыңызда мобайлмен өңдеу мүмкіндігі жоқ. Басқа шолғышпен қайта байқап көріңіз.",
 	"mobile-frontend-editor-undo-unsupported": "Қазіргі уақытта жоққа шығару мобиль құрылғыларда қолдамайды",
 	"mobile-frontend-editor-uploadenable": "Бірінші өңдеуді іске қосып барып сурет жүктеңіз.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Бұл беттің өңдеу тарихын қарау",
 	"mobile-frontend-home-button": "Басты бет",
 	"mobile-frontend-language-article-heading": "Басқа тілде оқу",

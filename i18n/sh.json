@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Conquistador",
+			"OC Ripper"
+		]
 	},
 	"mobile-frontend-editor-edit": "Uredi / Уреди",
 	"mobile-frontend-home-button": "Početna",
