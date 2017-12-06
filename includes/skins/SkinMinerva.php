@@ -56,7 +56,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				if ( isset( $customLogos['copyright-fallback'] ) ) {
 					$attributes['src'] = $customLogos['copyright-fallback'];
 				} else {
-					$attributes['src'] = str_replace( '.svg', '.png', $customLogos['copyright'] );
+					$attributes['src'] = preg_replace( '/\.svg$/i', '.png', $customLogos['copyright'] );
 				}
 			}
 			if ( isset( $customLogos['copyright-height'] ) ) {
