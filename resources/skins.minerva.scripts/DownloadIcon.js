@@ -2,6 +2,7 @@
 
 	var msg = mw.msg,
 		MAX_PRINT_TIMEOUT = 3000,
+		GLYPH = 'mf-download',
 		Icon = M.require( 'mobile.startup/Icon' );
 
 	/**
@@ -17,7 +18,7 @@
 		this.skin = skin;
 		options.tagName = 'li';
 		options.title = msg( 'minerva-download' );
-		options.name = 'download';
+		options.name = GLYPH;
 		Icon.call( this, options );
 	}
 
@@ -33,7 +34,7 @@
 		 * Restore download icon from spinner state
 		 */
 		hideSpinner: function () {
-			this.options.name = 'download';
+			this.options.name = GLYPH;
 			this.render();
 		},
 		isTemplateMode: false,
