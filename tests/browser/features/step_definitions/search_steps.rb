@@ -29,7 +29,7 @@ When(/^I click the search in pages button$/) do
 end
 
 When(/^I click a search watch star$/) do
-  on(ArticlePage).search_watchstars_element.when_present.click
+  on(ArticlePage).search_watchstars_element.when_present(15).click
 end
 
 When(/^I press the enter key$/) do
