@@ -1,4 +1,7 @@
-node_modules/
+# JSDuck output
+/docs/
+
+/node_modules/
 /vendor
 /composer.lock
 /composer.phar
