@@ -42,6 +42,7 @@ Feature: Talk
       And I am logged into the mobile website
       And the page "Selenium talk test" exists
     When I click the talk button
+    And I see the talk overlay
 	  And no topic is present
 	  And I add a topic called "New topic"
     Then I should see the topic called "New topic" in the list of topics
