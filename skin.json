@@ -43,6 +43,9 @@
 			"mobile.special.mobileoptions.styles": [
 				"skinStyles/mobile.special.mobileoptions.styles/minerva.less"
 			],
+			"mediawiki.page.gallery.styles": [
+				"skinStyles/mediawiki.page.gallery.styles/tablet.less"
+			],
 			"mediawiki.special.userlogin.common.styles": [
 				"skinStyles/mediawiki.special.userlogin.common.styles/minerva.less"
 			],
