@@ -288,7 +288,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return bool
 	 */
 	protected function isAuthenticatedUser() {
-		return !$this->getUser()->isAnon();
+		return $this->getUser()->isLoggedIn();
 	}
 
 	/**
@@ -1451,6 +1451,10 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
 			$styles[] = 'skins.minerva.userpage.icons';
+		}
+		if ( $this->isAuthenticatedUser() ) {
+			$styles[] = 'skins.minerva.loggedin.styles';
+			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
 		return $styles;
