@@ -290,19 +290,6 @@ input.search {
 	overflow: hidden;
 	-webkit-text-overflow: ellipsis;
 	text-overflow: ellipsis;
-
-	// FIXME: this works only in WebKit
-	&.multi-line {
-		white-space: normal;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-	}
-
-	&.two-line {
-		-webkit-line-clamp: 2;
-		// fallback for non-WebKit
-		max-height: 2.6em;
-	}
 }
 
 // FIXME: Create generic class to represent both of these headers
@@ -382,20 +369,6 @@ input.search {
 
 	&:hover {
 		text-decoration: none;
-	}
-}
-
-// FIXME [mediawiki ui] These rules should not be needed in the mobile context
-.mw-ui-button-group {
-	text-align: center;
-
-	* {
-		float: none !important;
-	}
-
-	// For talk and CTA drawer
-	.mw-ui-block {
-		width: auto;
 	}
 }
 

@@ -1,5 +1,19 @@
 @import 'minerva.variables';
 
+// FIXME [mediawiki ui] These rules should not be needed in the mobile context
+.mw-ui-button-group {
+	text-align: center;
+
+	* {
+		float: none !important;
+	}
+
+	// For talk and CTA drawer
+	.mw-ui-block {
+		width: auto;
+	}
+}
+
 .ns-special {
 	#content {
 		#section_0 {
@@ -29,5 +43,22 @@
 		h2 {
 			text-align: center;
 		}
+	}
+}
+
+// Used by MobileSpecialPageFeed.php in MobileFrontend
+.truncated-text {
+
+	// FIXME: this works only in WebKit
+	&.multi-line {
+		white-space: normal;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+	}
+
+	&.two-line {
+		-webkit-line-clamp: 2;
+		// fallback for non-WebKit
+		max-height: 2.6em;
 	}
 }
