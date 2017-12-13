@@ -41,35 +41,12 @@ body {
 }
 
 .last-modified-bar {
-	background-color: transparent;
-	display: block;
-	color: @colorGray5;
-	transition: background-color 0.2s ease, color 0.2s ease;
-
 	a,
 	a:visited {
 		color: @colorGray5;
 		// If browser supports
 		&:nth-child( 2 ) {
 			font-weight: bold;
-		}
-	}
-
-	#mw-mf-last-modified {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		background-color: @colorGray14;
-	}
-
-	&.active {
-
-		#mw-mf-last-modified {
-			background-color: @lastModifiedBarActiveBackgroundColor;
-		}
-
-		color: #fff;
-		a {
-			color: #fff;
 		}
 	}
 }
@@ -280,9 +257,6 @@ input.search {
 	a {
 		margin: 10px 2px 2px 0;
 	}
-	.language-selector {
-		margin-top: 1em;
-	}
 }
 
 .truncated-text {
@@ -382,16 +356,9 @@ input.search {
 	visibility: hidden;
 }
 
-.content .nojs-edit {
-	display: inline-block !important;
-	visibility: visible;
-	float: right;
-}
-
 // It may be better to express these in a single class
 // or think about using extend or a mixin to stay with semantic selectors
 // https://css-tricks.com/the-extend-concept/
-.last-modified-bar #mw-mf-last-modified,
 #bodyContent .panel .content,
 .overlay .content-header,
 .overlay .panel,

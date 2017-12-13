@@ -33,15 +33,6 @@
 	.box-sizing( border-box );
 }
 
-.mw-mf-image-replacement {
-	font-style: italic;
-	color: @colorGray7;
-	text-decoration: underline;
-	border: dotted 1px @colorGray12;
-	padding: 10px;
-	display: inline-block;
-}
-
 textarea {
 	padding: 5px 0 5px 5px;
 	width: 100%;
@@ -57,7 +48,6 @@ textarea {
 .toc,
 // We also need a more specific rule for tablet non-JS users who will load skins.minerva.tablet.styles
 .client-nojs .toc-mobile,
-.client-js .no-js-only,
 .client-js .mw-redirectedfrom,
 // FIXME: Use generic rule for print stylesheets
 .printfooter,
@@ -67,7 +57,6 @@ textarea {
 
 /* TODO: Fix specificity */
 /* stylelint-disable no-descending-specificity */
-.no-js-only,
 .client-js .jsonly {
 	display: inherit;
 }
