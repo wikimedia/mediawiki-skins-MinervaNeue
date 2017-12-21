@@ -7,7 +7,8 @@
 			"Hugo.arg",
 			"Robotukas11",
 			"Vogone",
-			"Zygimantus"
+			"Zygimantus",
+			"Manvydasz"
 		]
 	},
 	"mobile-frontend-console-recruit": "\\o/ Ei! Tai atviro kodo programinė įranga ir mums reikia savanorių, kad padėtų mums kurti šį projektą, pagerinkite ir pataisykite klaidas, kurių aptiksite šioje JavaScript konsolėje!\n\nNeatliktų darbų sąrašą galite rasti @ https://phabricator.wikimedia.org/project/profile/67/",
@@ -30,13 +31,13 @@
 	"mobile-frontend-home-button": "Pradžia",
 	"mobile-frontend-language-article-heading": "Skaityti kita kalba",
 	"mobile-frontend-language-change": "Keisti kalbą",
-	"mobile-frontend-languages-not-available": "Šis puslapis nėra prieinamas kita kalba.",
+	"mobile-frontend-languages-not-available": "Šis puslapis nėra išverstas į kitas kalbas.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Sveiki}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Atverti pagrindinį meniu",
 	"mobile-frontend-main-menu-contributions": "Įnašai",
 	"mobile-frontend-main-menu-login": "Prisijungti",
 	"mobile-frontend-main-menu-logout": "Atsijungti",
-	"mobile-frontend-main-menu-nearby": "Netoli",
+	"mobile-frontend-main-menu-nearby": "Netoliese",
 	"mobile-frontend-main-menu-settings": "Nustatymai",
 	"mobile-frontend-main-menu-watchlist": "Stebimųjų sąrašas",
 	"mobile-frontend-meta-data-issues": "Puslapio klausimai",
