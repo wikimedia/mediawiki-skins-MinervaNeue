@@ -13,6 +13,7 @@
 		]
 	},
 	"minerva-last-modified-date": "Última edición el $1 a las $2",
+	"minerva-talk-add-topic": "Añadir discusión",
 	"mobile-frontend-console-recruit": "\\o/ ¡Ey! Esto es software de código abierto y necesitamos voluntarios que nos ayuden a construirlo, mejorarlo y corregir los posibles errores que puedas encontrar en esta consola de JavaScript.\n\nPuedes ver el trabajo pendiente en https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Las «cookies» permiten cambiar entre los modos de visualización. Actívalas e inténtalo de nuevo.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Tu cuenta tiene impedido editar. El bloqueo lo realizó {{GENDER:$2|$2}} por el siguiente motivo: $1.",
