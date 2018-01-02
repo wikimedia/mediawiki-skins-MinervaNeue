@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"R-Joe"
+		]
 	},
 	"mobile-frontend-main-menu-button-tooltip": "Főmenü megnyitása",
 	"mobile-frontend-main-menu-settings": "Beállítások"

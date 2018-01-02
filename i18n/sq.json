@@ -1,9 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ammartivari",
+			"FatosMorina",
+			"Liridon",
+			"Olsi"
+		]
 	},
 	"mobile-frontend-editor-edit": "Redakto",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Kryefaqja",
 	"mobile-frontend-language-article-heading": "Lexo në një gjuhë tjetër",
 	"mobile-frontend-main-menu-button-tooltip": "Hape menynë kryesore",

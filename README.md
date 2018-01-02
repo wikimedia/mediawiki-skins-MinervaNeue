@@ -56,10 +56,12 @@ Controls which page actions, if any, are displayed. Allowed: `edit`, `watch`, `t
 
 Make the logos configurable.
 
-Currently, `copyright`, `copyright-width`, and `copyright-height` elements are
+Currently, `copyright`, `copyright-fallback`, `copyright-width`, and `copyright-height` elements are
 supported.
 
 * `copyright` is the URL of the logo displayed in the header and footer
+* `copyright-fallback` is the URL of the fallback logo displayed on
+  non-supported browsers like IE8 or Opera Mini
 * `copyright-width` (optional) is the width in pixels of the copyright image
   you want to display
 * `copyright-height` (optional) is the height in pixels of the copyright image
@@ -74,6 +76,16 @@ Example:
 ```php
 [
   'copyright' => '/images/mysite_copyright_logo.png',
+  'copyright-width' => 100,
+  'copyright-height' => 15,
+]
+```
+
+Example with fallback URL:
+```php
+[
+  'copyright' => '/images/mysite_copyright_logo.svg',
+  'copyright-fallback' => '/images/mysite_copyright_logo.svg.png',
   'copyright-width' => 100,
   'copyright-height' => 15,
 ]

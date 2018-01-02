@@ -42,29 +42,31 @@ FIXME: Review all of these hacks to see if they still apply.
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 
+		&.infobox > tbody > tr > td,
+		&.infobox > tbody > tr > th {
+			flex: 1 0;
+		}
+
 		&.infobox {
-			font-size: 90%;
-			position: relative;
-			border: 1px solid @colorGray14;
-			margin-bottom: 2em;
-			text-align: left;
-			background-color: @colorGray15;
+			display: flex;
+			flex: 1 1 100%;
+			flex-flow: column nowrap;
 
-			th, td {
-				vertical-align: top;
-				border: 0;
-				border-bottom: 1px solid @colorGray14;
-				padding: 7px 10px;
-			}
-
-			td {
+			td:only-child,
+			th:only-child {
 				width: 100%;
 			}
+		}
 
-			tr:last-child th,
-			tr:last-child td {
-				border: 0;
-			}
+		&.infobox > tbody {
+			display: flex;
+			flex-flow: column nowrap;
+		}
+
+		&.infobox > tbody > tr {
+			min-width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
 		}
 	}
 }

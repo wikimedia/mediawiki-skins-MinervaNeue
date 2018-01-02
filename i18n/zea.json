@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Robin van der Vliet"
+		]
 	},
 	"mobile-frontend-editor-edit": "Bewerk",
 	"mobile-frontend-main-menu-login": "Anmelden",

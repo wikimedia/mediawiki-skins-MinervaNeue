@@ -19,12 +19,17 @@ When(/^I add a topic called "(.+)"$/) do |topic|
   end
 end
 
+When(/^I see the talk overlay$/) do
+  on(ArticlePage).overlay_element.when_visible
+end
+
 When(/^I click the add discussion button$/) do
   on(ArticlePage).talkadd_element.when_present.click
 end
 
 Then(/^I should see the topic called "(.+)" in the list of topics$/) do |topic|
-  expect(on(ArticlePage).talk_overlay_first_topic_title_element.when_present.text).to match topic
+  # Timeout is high as the previous action hits the API which may take some time
+  expect(on(ArticlePage).talk_overlay_first_topic_title_element.when_present(20).text).to match topic
 end
 
 Then(/^I should see the talk overlay$/) do

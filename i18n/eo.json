@@ -1,10 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"KuboF",
+			"Lucas",
+			"Robin van der Vliet",
+			"Yekrats"
+		]
 	},
 	"mobile-frontend-editor-edit": "Redakti",
 	"mobile-frontend-editor-tutorial-cancel": "Ne, dankon",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Ĉefpaĝo",
 	"mobile-frontend-language-article-heading": "Legi en alia lingvo",
 	"mobile-frontend-language-change": "Ŝanĝi lingvon",

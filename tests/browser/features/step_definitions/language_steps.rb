@@ -7,7 +7,8 @@ When(/^I see the language overlay$/) do
 end
 
 When /^I click on a language from the list of all languages$/ do
-  on(ArticlePage).non_suggested_language_link_element.when_present.click
+  # API requests can sometimes take a long time so give additional time to verify this
+  on(ArticlePage).non_suggested_language_link_element.when_present(15).click
 end
 
 Then(/^I should not see the languages overlay$/) do

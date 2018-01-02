@@ -1,9 +1,13 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bishnu Saikia",
+			"Gitartha.bordoloi",
+			"IKHazarika",
+			"Nilamdyuti"
+		]
 	},
 	"mobile-frontend-editor-edit": "সম্পাদনা কৰক",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "বেটুপাত",
 	"mobile-frontend-language-article-heading": "অন্য ভাষাত পঢ়ক",
 	"mobile-frontend-logged-in-homepage-notification": "আদৰিছোঁ, $1!",

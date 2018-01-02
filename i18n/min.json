@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Iwan Novirion",
+			"Naval Scene"
+		]
 	},
 	"mobile-frontend-editor-edit": "Suntiang",
 	"mobile-frontend-main-menu-logout": "Kalua log",

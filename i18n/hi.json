@@ -15,6 +15,7 @@
 	"mobile-frontend-cookies-required": "दृश्य मोड को स्विच करने के लिए कुकीज की आवश्यकता है कृपया उन्हें सक्षम करें और पुनः प्रयास करें।",
 	"mobile-frontend-editor-blocked-info-loggedin": "आपका खाता संपादन से अवरुद्ध है। निम्न कारण से {{GENDER:$2|$2}} द्वारा ब्लॉक किया गया था: $1",
 	"mobile-frontend-editor-cta": "इस पृष्ठ को बेहतर बनाने में मदद करें!",
+	"minerva-pointer-dismiss": "हटायें",
 	"mobile-frontend-editor-disabled": "यह पृष्ठ बर्बरता को रोकने के लिए सुरक्षित है",
 	"mobile-frontend-editor-edit": "संपादित करें",
 	"mobile-frontend-editor-redlink-create": "पृष्ठ बनाएँ",

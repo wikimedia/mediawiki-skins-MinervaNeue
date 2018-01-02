@@ -103,7 +103,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 * @param bool $expected
 	 * @covers ::setContext
 	 * @covers ::setSkinOptions
-	 * @covers::hasCategoryLinks
+	 * @covers ::hasCategoryLinks
 	 */
 	public function testHasCategoryLinks( array $categoryLinks, $expected ) {
 		$outputPage = $this->getMockBuilder( OutputPage::class )

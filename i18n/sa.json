@@ -1,9 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"NehalDaveND",
+			"Shubha"
+		]
 	},
 	"mobile-frontend-editor-edit": "सम्पाद्यताम्",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "मुखपृष्ठम्‌",
 	"mobile-frontend-language-article-heading": "अन्यभाषया पठ्यताम्",
 	"mobile-frontend-logged-in-homepage-notification": "स्वागतम्, $1 !",

@@ -15,6 +15,7 @@
 	"mobile-frontend-cookies-required": "Ҡарап сығыу режимын үҙгәртергә cookie файлы кәрәк. Уны тоҡандырып, яңынан эшләп ҡарағыҙ.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Һеҙҙең иҫәп яҙмағыҙҙан мөхәррирләү ябылған. Ябылыуҙы {{GENDER:$2|ҡатнашыусы}} $2 ҡуйған, сәбәбе - $1",
 	"mobile-frontend-editor-cta": "Был битте яҡшыртырға ярҙам итегеҙ!",
+	"minerva-pointer-dismiss": "ябырға",
 	"mobile-frontend-editor-disabled": "Вандализм булдырмау өсөн был бит һаҡланған.",
 	"mobile-frontend-editor-edit": "Үҙгәртергә",
 	"mobile-frontend-editor-redlink-create": "Яңы бит яһарға",

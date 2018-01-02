@@ -51,6 +51,14 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				'src' => $customLogos['copyright'],
 				'alt' => $footerSitename,
 			];
+			if ( pathinfo( $customLogos['copyright'], PATHINFO_EXTENSION ) === 'svg' ) {
+				$attributes['srcset'] = $customLogos['copyright'] . ' 1x';
+				if ( isset( $customLogos['copyright-fallback'] ) ) {
+					$attributes['src'] = $customLogos['copyright-fallback'];
+				} else {
+					$attributes['src'] = preg_replace( '/\.svg$/i', '.png', $customLogos['copyright'] );
+				}
+			}
 			if ( isset( $customLogos['copyright-height'] ) ) {
 				$attributes['height'] = $customLogos['copyright-height'];
 			}
@@ -1270,7 +1278,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$out = $this->getOutput();
 
 		$vars = [
-			'wgMinervaDownloadIcon' => $this->getConfig()->get( 'MinervaDownloadIcon' ),
+			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
 			// Expose for skins.minerva.tablet.scripts
 			'wgMinervaTocEnabled' => $out->getProperty( 'MFTOC' ),

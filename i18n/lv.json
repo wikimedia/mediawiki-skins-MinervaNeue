@@ -20,6 +20,7 @@
 	"mobile-frontend-language-change": "Mainīt valodu",
 	"mobile-frontend-logged-in-homepage-notification": "Esi {{GENDER:$1|sveicināts|sveicināta}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Atvērt galveno izvēlni",
+	"mobile-frontend-main-menu-contributions": "Devums",
 	"mobile-frontend-main-menu-login": "Pieslēgties",
 	"mobile-frontend-main-menu-logout": "Iziet",
 	"mobile-frontend-main-menu-nearby": "Tuvumā",

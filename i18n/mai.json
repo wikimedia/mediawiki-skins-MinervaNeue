@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bijay chaurasia",
+			"Tulsi Bhagat",
+			"बिप्लब आनन्द"
+		]
 	},
 	"mobile-frontend-editor-blocked-info-loggedin": "आहाँ के खाता सम्पादन से अवरुद्ध अछि. ई अबरुद्ध {{GENDER:$2|$2}} करल ग्याल अछि सो कारण स: $1",
 	"mobile-frontend-editor-edit": "सम्पादन",

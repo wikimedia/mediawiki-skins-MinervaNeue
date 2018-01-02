@@ -1,10 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"EileenSanda"
+		]
 	},
 	"mobile-frontend-editor-edit": "Rætta",
 	"mobile-frontend-editor-tutorial-confirm": "Byrja við at skriva",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Heim",
 	"mobile-frontend-language-article-heading": "Les á øðrum máli",
 	"mobile-frontend-logged-in-homepage-notification": "Vælkomin, $1!",

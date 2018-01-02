@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Joao Xavier"
+		]
 	},
 	"mobile-frontend-editor-edit": "Redaktar",
 	"mobile-frontend-home-button": "Frontispico",

@@ -1,6 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Ashok modhvadia",
+			"Bhatakati aatma",
+			"KartikMistry",
+			"Mitulverma13",
+			"NehalDaveND",
+			"Sushant savla",
+			"Vyom"
+		]
 	},
 	"mobile-frontend-editor-blocked-info-loggedin": "તમારા ખાતા પર {{GENDER:$2|$2}} એ $1 ને કારણે પ્રતિબંધ મુક્યો છે.",
 	"mobile-frontend-editor-cta": "આ પાનું સુધારવા મદદ!",
@@ -11,7 +19,6 @@
 	"mobile-frontend-editor-unavailable": "મોબાઇલ સંપાદન તમારા બ્રાઉઝર પર હાલમાં ઉપલબ્ધ નથી. અલગ બ્રાઉઝર પ્રયાસ કરો.",
 	"mobile-frontend-editor-undo-unsupported": "પૂર્વવત હાલમાં મોબાઇલ ઉપકરણો પર આધારભૂત નથી.",
 	"mobile-frontend-editor-uploadenable": "સંપાદન સક્રિય કરવા માટે પ્રથમ એક ફોટો અપલોડ કરો.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "ઘર",
 	"mobile-frontend-language-article-heading": "અન્ય ભાષામાં વાંચો",
 	"mobile-frontend-main-menu-button-tooltip": "મુખ્ય મેનુ ખોલો",

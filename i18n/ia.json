@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"McDutchie",
+			"Remux"
+		]
 	},
 	"mobile-frontend-cookies-required": "Cookies es necessari pro cambiar de modo de vista. Per favor activa los e reproba.",
 	"mobile-frontend-editor-cta": "Adjuta a meliorar iste pagina!",
@@ -11,7 +14,6 @@
 	"mobile-frontend-editor-tutorial-summary": "Tenta meliorar le pagina $1.<br />Non sia intimidate per le codice.",
 	"mobile-frontend-editor-unavailable": "Modificar in modo mobile non es actualmente possibile in tu navigator. Per favor proba un altere navigator.",
 	"mobile-frontend-editor-undo-unsupported": "Disfacer non es actualmente possibile con dispositivos mobile.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Vider le historia de modificationes de iste pagina.",
 	"mobile-frontend-home-button": "Initio",
 	"mobile-frontend-language-article-heading": "Leger in un altere lingua",

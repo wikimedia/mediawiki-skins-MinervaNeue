@@ -1,6 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Anakmalaysia",
+			"Aviator",
+			"SNN95"
+		]
 	},
 	"mobile-frontend-cookies-required": "Kuki adalah diperlukan untuk menukar mod paparan. Sila hidupkan ciri kuki dan cuba lagi.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Akaun anda disekat dari menyunting. Sekatan dilakukan oleh {{GENDER:$2|$2}} atas sebab yang berikut: $1",
@@ -13,7 +17,6 @@
 	"mobile-frontend-editor-unavailable": "Ciri penyuntingan mudah alih tiada untuk pelayar anda. Sila cuba pelayar lain.",
 	"mobile-frontend-editor-undo-unsupported": "Ciri buat asal untuk peranti mudah alih tidak disokong pada masa ini.",
 	"mobile-frontend-editor-uploadenable": "Sila muat naik gambar terlebih dahulu untuk membenarkan penyuntingan.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Lihat sejarah penyuntingan laman ini",
 	"mobile-frontend-home-button": "Laman Utama",
 	"mobile-frontend-language-article-heading": "Baca dalam bahasa lain",

@@ -1,9 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Helix84",
+			"LacoR",
+			"Teslaton",
+			"TomášPolonec",
+			"Wizzard"
+		]
 	},
 	"mobile-frontend-editor-edit": "Upraviť",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-history": "Zobraziť históriu úprav tejto stránky.",
 	"mobile-frontend-home-button": "Hlavná stránka",
 	"mobile-frontend-language-article-heading": "Čítať v inom jazyku",

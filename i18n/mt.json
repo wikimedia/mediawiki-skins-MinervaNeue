@@ -1,12 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Chrisportelli",
+			"Leli Forte",
+			"MTSap"
+		]
 	},
 	"mobile-frontend-editor-cta": "Trid tkun dħalt fil-kont tiegħek qabel ma tkun tista' timmodifika paġni fuq il-mowbajl.",
 	"mobile-frontend-editor-disabled": "M'intix permess li timmodifika din il-paġna.",
 	"mobile-frontend-editor-edit": "Immodifika",
 	"mobile-frontend-editor-tutorial-summary": "Ipprova tejjeb il-paġna $1. Tibżax mill-markup.",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Daħla",
 	"mobile-frontend-language-article-heading": "Aqra b'lingwa oħra",
 	"mobile-frontend-logged-in-homepage-notification": "Merħba, $1!",

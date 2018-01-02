@@ -1,9 +1,12 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Abdulla",
+			"CoderSI",
+			"Sociologist"
+		]
 	},
 	"mobile-frontend-editor-edit": "Tahrirlash",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Boshiga",
 	"mobile-frontend-language-article-heading": "Boshqa tilda oʻqish",
 	"mobile-frontend-logged-in-homepage-notification": "Xush kelibsiz, $1!",

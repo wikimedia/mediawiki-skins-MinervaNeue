@@ -1,12 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Evannak",
+			"គីមស៊្រុន"
+		]
 	},
 	"mobile-frontend-editor-edit": "កែប្រែ",
 	"mobile-frontend-editor-redlink-create": "បង្កើតទំព័រ",
 	"mobile-frontend-editor-redlink-leave": "ទេ, អរគុណហើយ",
 	"mobile-frontend-editor-tutorial-cancel": "ទេ, អរគុណហើយ",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "ទំព័រដើម",
 	"mobile-frontend-language-article-heading": "អាន​ជា​ភាសា​ផ្សេង​ទៀត",
 	"mobile-frontend-logged-in-homepage-notification": "សូមស្វាគមន៍ $1!",

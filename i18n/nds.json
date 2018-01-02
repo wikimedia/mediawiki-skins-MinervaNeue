@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Joachim Mos",
+			"Servien"
+		]
 	},
 	"mobile-frontend-editor-edit": "Ännern",
 	"mobile-frontend-home-button": "Startsied",

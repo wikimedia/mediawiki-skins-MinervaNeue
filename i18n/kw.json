@@ -1,9 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Kw-Moon",
+			"Nrowe"
+		]
 	},
 	"mobile-frontend-editor-edit": "Chanjya",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "Folen dre",
 	"mobile-frontend-language-article-heading": "Redya yn yeth aral",
 	"mobile-frontend-logged-in-homepage-notification": "Dynnargh, $1!",

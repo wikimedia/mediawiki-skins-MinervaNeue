@@ -9,6 +9,7 @@
 	},
 	"mobile-frontend-editor-blocked-info-loggedin": "Вашем налог је онемогућено уређивање. {{GENDER:$2|Блокирао|Блокирала}} вас је $2 из следећег разлога: $1",
 	"mobile-frontend-editor-cta": "Помозите нам да побољшамо страницу!",
+	"minerva-pointer-dismiss": "Одбаци",
 	"mobile-frontend-editor-disabled": "Ова страница је заштићена да би се спречио вандализам.",
 	"mobile-frontend-editor-edit": "Уреди",
 	"mobile-frontend-editor-redlink-create": "Направи страницу",

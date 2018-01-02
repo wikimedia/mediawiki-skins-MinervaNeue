@@ -1,9 +1,10 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"ОйЛ"
+		]
 	},
 	"mobile-frontend-editor-edit": "исправлѥниѥ",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "главьна страница",
 	"mobile-frontend-language-article-heading": "дроугꙑ ѩꙁꙑкꙑ",
 	"mobile-frontend-logged-in-homepage-notification": "добрѣ прити · $1!",

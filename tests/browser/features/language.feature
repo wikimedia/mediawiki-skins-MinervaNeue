@@ -60,6 +60,7 @@ Feature: Language selection
   Scenario: Checking that the suggested language link has been created
     Given I go to a page that has languages
     And I click the switch-language page action
+    And I see the language overlay
     And I click on a language from the list of all languages
     And I click the browser back button
     And I see the language overlay

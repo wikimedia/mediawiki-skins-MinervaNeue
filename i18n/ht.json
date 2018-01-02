@@ -1,7 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Bfpage",
+			"Tisave"
+		]
 	},
+	"minerva-pointer-dismiss": "Rejte",
 	"mobile-frontend-editor-edit": "Chanje",
 	"mobile-frontend-home-button": "Paj prensipal",
 	"mobile-frontend-language-article-heading": "Li nan yon lòt lang",

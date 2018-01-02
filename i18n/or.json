@@ -1,12 +1,15 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Jnanaranjan Sahu",
+			"Odisha1",
+			"Psubhashish"
+		]
 	},
 	"mobile-frontend-cookies-required": "ଦେଖିବା ଅବସ୍ଥାଟିଏରୁ ଆଉ ଏକ ଦେଖିବା ଅବସ୍ଥା ପାଇଁ କୁକି ଦରକାର । ଦୟାକରି ତାହା ସକ୍ରିୟ କରନ୍ତୁ ।",
 	"mobile-frontend-editor-cta": "ଏହି ପୃଷ୍ଠାଟିକୁ ଉନ୍ନତ କରିବାରେ ସହଯୋଗ କରନ୍ତୁ ।",
 	"mobile-frontend-editor-disabled": "ଅନୀତିକର ସମ୍ପାଦନାରୁ ରକ୍ଷାକରିବା ପାଇଁ ଏହି ପୃଷ୍ଠାଟିକୁ କିଳାଯାଇଛି ।",
 	"mobile-frontend-editor-edit": "ସମ୍ପାଦନ କରନ୍ତୁ",
-	"mobile-frontend-footer-sitename": "{{SITENAME}}",
 	"mobile-frontend-home-button": "ପ୍ରଧାନ ପୃଷ୍ଠା",
 	"mobile-frontend-language-article-heading": "ଅନ୍ୟ ଭାଷାରେ ପଢିବେ",
 	"mobile-frontend-logged-in-homepage-notification": "ସ୍ଵାଗତ, $1!",

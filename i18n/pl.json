@@ -9,9 +9,10 @@
 			"Woytecr"
 		]
 	},
+	"minerva-last-modified-date": "Ostatnio edytowano $1 o $2",
 	"mobile-frontend-editor-cta": "Pomóż ulepszyć tę stronę!",
 	"minerva-pointer-dismiss": "Odrzuć",
-	"mobile-frontend-editor-disabled": "Ta strona została zabezpieczona.",
+	"mobile-frontend-editor-disabled": "Ta strona jest zabezpieczona, aby zapobiec wandalizmom.",
 	"mobile-frontend-editor-edit": "Edytuj",
 	"minerva-download": "Pobierz",
 	"mobile-frontend-editor-redlink-create": "Utwórz stronę",

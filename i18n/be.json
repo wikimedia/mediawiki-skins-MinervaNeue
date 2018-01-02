@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Mikalai Udodau",
+			"Чаховіч Уладзіслаў"
+		]
 	},
 	"mobile-frontend-editor-edit": "Правіць",
 	"mobile-frontend-editor-tutorial-cancel": "Не, дзякуй",

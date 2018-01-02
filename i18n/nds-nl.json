@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Servien"
+		]
 	},
 	"mobile-frontend-editor-edit": "Bewarken",
 	"mobile-frontend-home-button": "Veurblad",

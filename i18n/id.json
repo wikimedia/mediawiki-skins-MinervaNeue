@@ -17,6 +17,7 @@
 	"mobile-frontend-cookies-required": "Kuki dibutuhkan untuk mengganti tampilan. Silakan aktifkan kuki dan coba lagi.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Akun Anda sedang diblokir dari penyuntingan. Pemblokiran dilakukan oleh {{GENDER:$2|$2}} karena alasan berikut ini: $1",
 	"mobile-frontend-editor-cta": "Bantu kembangkan halaman ini!",
+	"minerva-pointer-dismiss": "Tutup",
 	"mobile-frontend-editor-disabled": "Halaman ini dilindungi untuk mencegah vandalisme.",
 	"mobile-frontend-editor-edit": "Sunting",
 	"mobile-frontend-editor-redlink-create": "Buat halaman",
