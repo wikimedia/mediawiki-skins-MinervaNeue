@@ -351,7 +351,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return string|bool Timestamp in TS_ISO_8601 format, or false if no stored time
 	 */
 	protected function getEchoSeenTime( User $user ) {
-		return EchoSeenTime::newFromUser( $user )->getTime( 'all', /*flags*/ 0, TS_ISO_8601 );
+		return EchoSeenTime::newFromUser( $user )->getTime( 'all', TS_ISO_8601 );
 	}
 
 	/**
