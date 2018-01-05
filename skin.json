@@ -134,7 +134,7 @@
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-{name}:before",
+			"selector": ".mw-ui-icon-minerva-{name}:before, .mw-ui-icon-{name}:before",
 			"images": {
 				"notifications": "resources/skins.minerva.icons.images/bell.svg",
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
@@ -145,8 +145,8 @@
 			}
 		},
 		"skins.minerva.icons.images.variants": {
-			"selectorWithoutVariant": ".mw-ui-icon-{name}:before",
-			"selectorWithVariant": ".mw-ui-icon-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
+			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}:before",
 			"class": "ResourceLoaderImageModule",
 			"variants": {
 				"gray": {
@@ -159,20 +159,15 @@
 				}
 			},
 			"images": {
-				"clock": "resources/skins.minerva.icons.images.variants/clock.svg",
-				"arrow": "resources/skins.minerva.icons.images.variants/arrow.svg"
+				"clock": "resources/skins.minerva.icons.images.variants/clock.svg"
 			}
 		},
 		"skins.minerva.icons.images.scripts": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-{name}:before",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"position": "bottom",
 			"images": {
-				"mf-download": "resources/skins.minerva.icons.images.scripts/download.svg",
-				"watch": "resources/skins.minerva.icons.images.scripts/watch.svg",
-				"watched": "resources/skins.minerva.icons.images.scripts/watched.svg",
-				"user": "resources/skins.minerva.icons.images.scripts/userNormal.svg",
-				"anonymous": "resources/skins.minerva.icons.images.scripts/userAnonymous.svg"
+				"download": "resources/skins.minerva.icons.images.scripts/download.svg"
 			}
 		},
 		"skins.minerva.mainPage.styles": {
@@ -187,7 +182,7 @@
 		},
 		"skins.minerva.userpage.icons": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-{name}:before",
+			"selector": ".mw-ui-icon-mf-{name}:before, .mw-ui-icon-{name}:before",
 			"images": {
 				"talk": "resources/skins.minerva.userpage.icons/talk.svg",
 				"userpage": "resources/skins.minerva.userpage.icons/userpage.svg"
@@ -204,9 +199,9 @@
 		},
 		"skins.minerva.mainMenu.icons": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-mf-{name}:before",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"images": {
-				"anonymous": "resources/skins.minerva.mainMenu.icons/anonymous.svg",
+				"login": "resources/skins.minerva.mainMenu.icons/login.svg",
 				"home": "resources/skins.minerva.mainMenu.icons/home.svg",
 				"logout": "resources/skins.minerva.mainMenu.icons/logout.svg",
 				"nearby": "resources/skins.minerva.mainMenu.icons/nearby.svg",

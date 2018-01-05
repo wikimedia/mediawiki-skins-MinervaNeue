@@ -1,7 +1,7 @@
 ( function ( M, track ) {
 	var msg = mw.msg,
 		MAX_PRINT_TIMEOUT = 3000,
-		GLYPH = 'mf-download',
+		GLYPH = 'download',
 		Icon = M.require( 'mobile.startup/Icon' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
 
@@ -41,6 +41,7 @@
 		this.skin = skin;
 		this.supportedNamespaces = supportedNamespaces || [ 0 ];
 		options.tagName = 'li';
+		options.glyphPrefix = 'minerva';
 		options.title = msg( 'minerva-download' );
 		options.name = GLYPH;
 		Icon.call( this, options );

@@ -12,10 +12,12 @@
 		Anchor = M.require( 'mobile.startup/Anchor' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		disabledEditIcon = new Icon( {
-			name: 'edit'
+			name: 'edit',
+			glyphPrefix: 'minerva'
 		} ),
 		enabledEditIcon = new Icon( {
-			name: 'edit-enabled'
+			name: 'edit-enabled',
+			glyphPrefix: 'minerva'
 		} ),
 		currentPage = M.getCurrentPage(),
 		enabledClass = enabledEditIcon.getGlyphClassName(),
