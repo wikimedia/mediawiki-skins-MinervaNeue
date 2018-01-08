@@ -65,5 +65,9 @@
 	"mobile-frontend-user-page-talk": "Text of the link to the user's talk page\n{{Identical|Talk}}",
 	"mobile-frontend-user-page-uploads": "Text of the link to the user's uploads page\n{{Identical|Upload}}",
 	"skinname-minerva": "{{name}}",
-	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}"
+	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Label for categories mobile web beta feature.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Description label for categories mobile web beta feature.",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Label for jump to top mobile web beta feature",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature"
 }

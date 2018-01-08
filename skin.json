@@ -15,6 +15,9 @@
 		"minerva": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
+		"MobileFrontendFeaturesRegistration": [
+			"MinervaHooks::onMobileFrontendFeaturesRegistration"
+		],
 		"RequestContextCreateSkinMobile": [
 			"MinervaHooks::onRequestContextCreateSkinMobile"
 		],
@@ -504,10 +507,12 @@
 		],
 		"MinervaAlwaysShowLanguageButton": true,
 		"MinervaShowCategoriesButton": {
+			"prefix": "skin-minerva-",
 			"base": false,
 			"beta": true
 		},
 		"MinervaEnableBackToTop": {
+			"prefix": "skin-minerva-",
 			"base": false,
 			"beta": true
 		}

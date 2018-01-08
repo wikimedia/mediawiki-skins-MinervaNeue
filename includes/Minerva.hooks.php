@@ -28,6 +28,40 @@ class MinervaHooks {
 	}
 
 	/**
+	 * Register mobile web beta features
+	 * @see https://www.mediawiki.org/wiki/
+	 *  Extension:MobileFrontend/MobileFrontendFeaturesRegistration
+	 *
+	 * @param MobileFrontend\Features\FeaturesManager $featureManager
+	 * @return bool
+	 */
+	public static function onMobileFrontendFeaturesRegistration( $featureManager ) {
+		$config = MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'minerva' );
+
+		try {
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaShowCategoriesButton',
+					'skin-minerva',
+					$config->get( 'MinervaShowCategoriesButton' )
+				)
+			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaEnableBackToTop',
+					'skin-minerva',
+					$config->get( 'MinervaEnableBackToTop' )
+				)
+			);
+		} catch ( RuntimeException $e ) {
+			// features already registered...
+			// due to a bug it's possible for this to run twice
+			// https://phabricator.wikimedia.org/T165068
+		}
+	}
+
+	/**
 	 * Skin registration callback.
 	 */
 	public static function onRegistration() {
@@ -132,13 +166,19 @@ class MinervaHooks {
 	) {
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
+			$featureManager = \MediaWiki\MediaWikiServices::getInstance()
+				->getService( 'MobileFrontend.FeaturesManager' );
+
+			$isBeta = $mobileContext->isBetaGroupMember();
 			$skin->setSkinOptions( [
 				SkinMinerva::OPTIONS_MOBILE_BETA
-					=> $mobileContext->isBetaGroupMember(),
+					=> $isBeta,
+
 				SkinMinerva::OPTION_CATEGORIES
-					=> $mobileContext->getConfigVariable( 'MinervaShowCategoriesButton' ),
+					=> $featureManager->isFeatureAvailableInContext( 'MinervaShowCategoriesButton',
+							$mobileContext ),
 				SkinMinerva::OPTION_BACK_TO_TOP
-					=> $mobileContext->getConfigVariable( 'MinervaEnableBackToTop' ),
+					=> $featureManager->isFeatureAvailableInContext( 'MinervaEnableBackToTop', $mobileContext ),
 				SkinMinerva::OPTION_TOGGLING => true,
 				SkinMinerva::OPTION_MOBILE_OPTIONS => true,
 			] );

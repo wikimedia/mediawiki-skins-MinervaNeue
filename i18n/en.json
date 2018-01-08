@@ -56,5 +56,9 @@
 	"mobile-frontend-user-page-talk": "Talk",
 	"mobile-frontend-user-page-uploads": "Uploads",
 	"skinname-minerva": "MinervaNeue",
-	"minerva-skin-desc": "A responsive mobile first skin"
+	"minerva-skin-desc": "A responsive mobile first skin",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categories",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "View categories of pages",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Jump to top",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Jump to top of the current page using a floating button"
 }
