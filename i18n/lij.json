@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Giromin Cangiaxo"
+			"Giromin Cangiaxo",
+			"S4b1nuz E.656"
 		]
 	},
-	"mobile-frontend-editor-edit": "cangia",
+	"mobile-frontend-editor-edit": "Modìfica",
 	"mobile-frontend-home-button": "Paggina prinçipâ",
 	"mobile-frontend-language-article-heading": "Lezi inte n'atra lengua",
 	"mobile-frontend-main-menu-button-tooltip": "Arvi o menù prinçipâ",
@@ -14,5 +15,6 @@
 	"mobile-frontend-main-menu-watchlist": "Sotta oservaçion",
 	"mobile-frontend-pageaction-edit-tooltip": "Modiffica a primma seçion de sta paggina.",
 	"mobile-frontend-placeholder": "Çerca {{SITENAME}}",
-	"mobile-frontend-random-button": "Una paggina a brettio"
+	"mobile-frontend-random-button": "Una paggina a brettio",
+	"mobile-frontend-user-page-talk": "Discusción"
 }
