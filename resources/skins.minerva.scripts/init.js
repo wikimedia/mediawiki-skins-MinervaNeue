@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M, track, $ ) {
 	var
 		config = mw.config,
 		toast = M.require( 'mobile.startup/toast' ),
@@ -245,8 +245,11 @@
 			// left-most in the display. Since we want the download button to be to
 			// the left of the watchstar, we put it after it in the DOM.
 			new DownloadIcon( skin ).$el.insertAfter( '#ca-watch' );
+			track( 'minerva.downloadAsPDF', {
+				action: 'buttonVisible'
+			} );
 		}
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend, mw.track, jQuery ) );

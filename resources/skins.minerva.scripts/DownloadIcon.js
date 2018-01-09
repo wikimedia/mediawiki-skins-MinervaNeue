@@ -1,4 +1,4 @@
-( function ( M ) {
+( function ( M, track ) {
 
 	var msg = mw.msg,
 		MAX_PRINT_TIMEOUT = 3000,
@@ -47,13 +47,18 @@
 
 			function doPrint() {
 				self.timeout = clearTimeout( self.timeout );
+				track( 'minerva.downloadAsPDF', {
+					action: 'callPrint'
+				} );
 				window.print();
 				hideSpinner();
 			}
-
 			// The click handler may be invoked multiple times so if a pending print is occurring
 			// do nothing.
 			if ( !this.timeout ) {
+				track( 'minerva.downloadAsPDF', {
+					action: 'fetchImages'
+				} );
 				this.showSpinner();
 				// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 				// abort the spinner and print regardless.
@@ -71,4 +76,4 @@
 	} );
 
 	M.define( 'skins.minerva.scripts/DownloadIcon', DownloadIcon );
-}( mw.mobileFrontend ) );
+}( mw.mobileFrontend, mw.track ) );
