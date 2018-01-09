@@ -25,7 +25,7 @@
 	"mobile-frontend-editor-blocked-info-loggedin": "Votre compte est bloqué et ne peut faire de modifications. Le blocage a été mis en place par {{GENDER:$2|$2}} pour la raison suivante : $1",
 	"mobile-frontend-editor-cta": "Aidez à améliorer cette page !",
 	"minerva-pointer-dismiss": "Fermer",
-	"mobile-frontend-editor-disabled": "Cette page est protégée pour éviter le vandalisme.",
+	"mobile-frontend-editor-disabled": "Cette page est protégée pour empêcher le vandalisme.",
 	"mobile-frontend-editor-edit": "Modifier",
 	"minerva-download": "Télécharger",
 	"mobile-frontend-editor-redlink-create": "Créer une page",

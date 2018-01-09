@@ -171,7 +171,7 @@
 			"selector": ".mw-ui-icon-{name}:before",
 			"position": "bottom",
 			"images": {
-				"download": "resources/skins.minerva.icons.images.scripts/download.svg",
+				"mf-download": "resources/skins.minerva.icons.images.scripts/download.svg",
 				"watch": "resources/skins.minerva.icons.images.scripts/watch.svg",
 				"watched": "resources/skins.minerva.icons.images.scripts/watched.svg",
 				"user": "resources/skins.minerva.icons.images.scripts/userNormal.svg",
