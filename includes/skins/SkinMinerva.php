@@ -346,12 +346,13 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	}
 
 	/**
-	 * Get the last time user has seen Echo notifications
+	 * Get the last time user has seen particular type of notifications.
 	 * @param User $user
+	 * @param string $type Type of seen time to get
 	 * @return string|bool Timestamp in TS_ISO_8601 format, or false if no stored time
 	 */
-	protected function getEchoSeenTime( User $user ) {
-		return EchoSeenTime::newFromUser( $user )->getTime( 'all', TS_ISO_8601 );
+	protected function getEchoSeenTime( User $user, $type = 'all' ) {
+		return EchoSeenTime::newFromUser( $user )->getTime( $type, TS_ISO_8601 );
 	}
 
 	/**
@@ -388,20 +389,27 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				// Don't show the secondary button at all
 				$notificationsTitle = null;
 			} else {
-				$notifUser = $this->getEchoNotifUser( $user );
-				$echoSeenTime = $this->getEchoSeenTime( $user );
-
 				$notificationsMsg = $this->msg( 'mobile-frontend-user-button-tooltip' )->text();
-				$notifLastUnreadTime = $notifUser->getLastUnreadNotificationTime();
+
+				$notifUser = $this->getEchoNotifUser( $user );
 				$count = $notifUser->getNotificationCount();
 
+				$seenAlertTime = $this->getEchoSeenTime( $user, 'alert' );
+				$seenMsgTime = $this->getEchoSeenTime( $user, 'message' );
+
+				$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
+				$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
+
 				$isZero = $count === 0;
-				$hasUnseen = (
-					$count > 0 &&
-					$echoSeenTime !== false &&
-					$notifLastUnreadTime !== false &&
-					$echoSeenTime < $notifLastUnreadTime->getTimestamp( TS_ISO_8601 )
-				);
+				$hasUnseen = $count > 0 &&
+					(
+						$seenMsgTime !== false && $msgNotificationTimestamp !== false &&
+						$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 )
+					) ||
+					(
+						$seenAlertTime !== false && $alertNotificationTimestamp !== false &&
+						$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 )
+					);
 
 				$countLabel = $this->getFormattedEchoNotificationCount( $count );
 			}
