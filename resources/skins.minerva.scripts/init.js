@@ -1,6 +1,5 @@
-( function ( M, track, $ ) {
+( function ( M, track, config, $ ) {
 	var
-		config = mw.config,
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
 		skin = M.require( 'mobile.init/skin' ),
@@ -220,6 +219,29 @@
 		} );
 	}
 
+	/**
+	 * Initialize and inject the download button
+	 *
+	 * There are many restrictions when we can show the download button, this function should handle
+	 * all device/os/operating system related checks and if device supports printing it will inject
+	 * the Download icon
+	 * @ignore
+	 */
+	function appendDownloadButton() {
+		var downloadIcon = new DownloadIcon( skin, config.get( 'wgMinervaDownloadNamespaces' ) );
+
+		if ( downloadIcon.isAvailable( navigator.userAgent ) ) {
+			// Because the page actions are floated to the right, their order in the
+			// DOM is reversed in the display. The watchstar is last in the DOM and
+			// left-most in the display. Since we want the download button to be to
+			// the left of the watchstar, we put it after it in the DOM.
+			downloadIcon.$el.insertAfter( '#ca-watch' );
+			track( 'minerva.downloadAsPDF', {
+				action: 'buttonVisible'
+			} );
+		}
+	}
+
 	$( function () {
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
@@ -227,29 +249,8 @@
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 		M.on( 'resize', loadTabletModules );
 		loadTabletModules();
-
-		if (
-			// Download button is restricted to certain namespaces T181152.
-			// Defaults to 0, in case cached JS has been served.
-			config.get( 'wgMinervaDownloadNamespaces', [ 0 ] )
-				.indexOf( config.get( 'wgNamespaceNumber' ) ) > -1 &&
-			!page.isMainPage() &&
-			// The iOS print dialog does not provide pdf functionality (see T177215)
-			!browser.isIos() &&
-			// Currently restricted to Chrome (T179529) until we have good fallbacks for browsers
-			// which do not provide print functionality
-			window.chrome !== undefined
-		) {
-			// Because the page actions are floated to the right, their order in the
-			// DOM is reversed in the display. The watchstar is last in the DOM and
-			// left-most in the display. Since we want the download button to be to
-			// the left of the watchstar, we put it after it in the DOM.
-			new DownloadIcon( skin ).$el.insertAfter( '#ca-watch' );
-			track( 'minerva.downloadAsPDF', {
-				action: 'buttonVisible'
-			} );
-		}
+		appendDownloadButton();
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
-}( mw.mobileFrontend, mw.track, jQuery ) );
+}( mw.mobileFrontend, mw.track, mw.config, jQuery ) );
