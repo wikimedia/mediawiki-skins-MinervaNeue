@@ -50,6 +50,10 @@ FIXME: Review all of these hacks to see if they still apply.
 			text-align: left;
 			background-color: @colorGray15;
 
+			display: flex;
+			flex: 1 1 100%;
+			flex-flow: column nowrap;
+
 			th, td {
 				vertical-align: top;
 				border: 0;
@@ -57,7 +61,13 @@ FIXME: Review all of these hacks to see if they still apply.
 				padding: 7px 10px;
 			}
 
-			td {
+			tbody > tr > td,
+			tbody > tr > th {
+				flex: 1 0;
+			}
+
+			td:only-child,
+			th:only-child {
 				width: 100%;
 			}
 
@@ -65,6 +75,17 @@ FIXME: Review all of these hacks to see if they still apply.
 			tr:last-child td {
 				border: 0;
 			}
+		}
+
+		&.infobox > tbody {
+			display: flex;
+			flex-flow: column nowrap;
+		}
+
+		&.infobox > tbody > tr {
+			min-width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
 		}
 	}
 }
