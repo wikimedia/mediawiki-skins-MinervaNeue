@@ -49,5 +49,6 @@
 	"mobile-frontend-redirected-from": "Перанакіравана з «$1»",
 	"mobile-frontend-talk-back-to-filepage": "Вярнуцца да файлу «$1».",
 	"mobile-frontend-talk-back-to-page": "Вярнуцца да старонкі «$1».",
+	"mobile-frontend-talk-back-to-projectpage": "Вярнуцца да старонкі праекту «$1».",
 	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленьні"
 }
