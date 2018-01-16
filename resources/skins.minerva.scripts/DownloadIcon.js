@@ -1,9 +1,31 @@
 ( function ( M, track ) {
-
 	var msg = mw.msg,
 		MAX_PRINT_TIMEOUT = 3000,
 		GLYPH = 'mf-download',
-		Icon = M.require( 'mobile.startup/Icon' );
+		Icon = M.require( 'mobile.startup/Icon' ),
+		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
+
+	/**
+	 * Helper function to retreive the Android version
+	 * @ignore
+	 * @param {String} userAgent User Agent
+	 * @return {Integer}
+	 */
+	function getAndroidVersion( userAgent ) {
+		var match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
+		return match ? parseInt( match[1] ) : false;
+	}
+
+	/**
+	 * Helper function to retrieve the Chrome/Chromium version
+	 * @ignore
+	 * @param {String} userAgent User Agent
+	 * @return {Integer}
+	 */
+	function getChromeVersion( userAgent ) {
+		var match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
+		return match ? parseInt( match[2] ) : false;
+	}
 
 	/**
 	 * A download icon for triggering print functionality
@@ -11,11 +33,13 @@
 	 * @extends Icon
 	 *
 	 * @param {Skin} skin
+	 * @param {Number[]} [supportedNamespaces]
 	 * @constructor
 	 */
-	function DownloadIcon( skin ) {
+	function DownloadIcon( skin, supportedNamespaces ) {
 		var options = {};
 		this.skin = skin;
+		this.supportedNamespaces = supportedNamespaces || [ 0 ];
 		options.tagName = 'li';
 		options.title = msg( 'minerva-download' );
 		options.name = GLYPH;
@@ -23,6 +47,34 @@
 	}
 
 	OO.mfExtend( DownloadIcon, Icon, {
+		/**
+		 * Checks whether DownloadIcon is available for given user agent
+		 * @param {string} userAgent User agent
+		 * @return {Boolean}
+		*/
+		isAvailable: function ( userAgent ) {
+			var androidVersion = getAndroidVersion( userAgent ),
+				chromeVersion = getChromeVersion( userAgent ),
+				page = this.skin.page;
+
+			// Download button is restricted to certain namespaces T181152.
+			// Defaults to 0, in case cached JS has been served.
+			if ( this.supportedNamespaces.indexOf( page.getNamespaceId() ) === -1 ||
+				page.isMainPage() ) {
+				// namespace is not supported or it's a main page
+				return false;
+			}
+
+			if ( browser.isIos() || chromeVersion === false ) {
+				// we support only chrome/chromium on desktop/android
+				return false;
+			}
+			if ( ( androidVersion && androidVersion < 5 ) || chromeVersion < 41 ) {
+				return false;
+			}
+			return true;
+		},
+
 		/**
 		 * Replace download icon with a spinner
 		 */
