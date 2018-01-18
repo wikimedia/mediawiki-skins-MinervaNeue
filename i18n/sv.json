@@ -60,5 +60,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Registrerade sig}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"mobile-frontend-user-page-uploads": "Uppladdningar",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Ett responsivt mobilutseende."
 }

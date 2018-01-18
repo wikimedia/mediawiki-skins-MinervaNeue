@@ -53,5 +53,6 @@
 	"mobile-frontend-talk-back-to-userpage": "Вярнуцца на старонку {{GENDER:$1|ўдзельніка|ўдзельніцы}} «$1»",
 	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленьні",
 	"mobile-frontend-user-newmessages": "Вы маеце новыя паведамленьні на вашай старонцы гутарак",
-	"mobile-frontend-user-page-contributions": "Унёсак"
+	"mobile-frontend-user-page-contributions": "Унёсак",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Далучыўся|Далучылася}} $1"
 }
