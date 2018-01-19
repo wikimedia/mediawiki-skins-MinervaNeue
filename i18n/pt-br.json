@@ -8,7 +8,8 @@
 			"Luckas",
 			"Macofe",
 			"Opraco",
-			"Peter Fernando"
+			"Peter Fernando",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"minerva-last-modified-date": "Modificado pela última vez em $1 às $2",
@@ -20,6 +21,7 @@
 	"minerva-pointer-dismiss": "Dispensar",
 	"mobile-frontend-editor-disabled": "Esta página está protegida para prevenir vandalismos.",
 	"mobile-frontend-editor-edit": "Editar",
+	"minerva-download": "Baixar",
 	"mobile-frontend-editor-redlink-create": "Criar página",
 	"mobile-frontend-editor-redlink-explain": "Esta página ainda não foi criada.",
 	"mobile-frontend-editor-redlink-leave": "Não, obrigado.",
