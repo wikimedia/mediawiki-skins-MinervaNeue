@@ -51,6 +51,7 @@
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" fitxategira bueltatu.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" orrira bueltatu.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" proiektu orrira bueltatu.",
+	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" erabiltzailearen orrira bueltatu.",
 	"mobile-frontend-user-button-tooltip": "Erakutsi nire jakinarazpenak",
 	"mobile-frontend-user-newmessages": "Zure eztaibaida orrian mezu berriak dituzu",
 	"mobile-frontend-user-page-contributions": "Ekarpenak",
