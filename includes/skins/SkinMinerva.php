@@ -593,12 +593,9 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$lang = $this->getTitle()->getPageViewLanguage();
 		$tpl->set( 'pageLang', $lang->getHtmlCode() );
 		$tpl->set( 'pageDir', $lang->getDir() );
-		$language_urls = $this->getLanguages();
-		if ( count( $language_urls ) ) {
-			$tpl->setRef( 'language_urls', $language_urls );
-		} else {
-			$tpl->set( 'language_urls', false );
-		}
+		// If the array is empty, then instead give the skin boolean false
+		$language_urls = $this->getLanguages() ?: false;
+		$tpl->set( 'language_urls', $language_urls );
 	}
 
 	/**
