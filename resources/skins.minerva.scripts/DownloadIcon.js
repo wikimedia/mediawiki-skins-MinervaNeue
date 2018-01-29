@@ -80,6 +80,10 @@
 		 * Replace download icon with a spinner
 		 */
 		showSpinner: function () {
+			// FIXME: There is no spinner icon in Minerva, only in MobileFrontend
+			// Hopefully when T177432 is resolved this and corresponding change in hideSpinner
+			// should be unnecessary.
+			this.options.glyphPrefix = 'mf';
 			this.options.name = 'spinner';
 			this.render();
 		},
@@ -87,6 +91,7 @@
 		 * Restore download icon from spinner state
 		 */
 		hideSpinner: function () {
+			this.options.glyphPrefix = 'minerva';
 			this.options.name = GLYPH;
 			this.render();
 		},
