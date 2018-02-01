@@ -8,7 +8,6 @@
 	},
 	"minerva-last-modified-date": "Zuletzt bearbeitet am $1 um $2",
 	"minerva-talk-add-topic": "Diskussion hinzufügen",
-	"mobile-frontend-console-recruit": "\\o/ Hey! Dies ist Open-Source-Software und wir brauchen Freiwillige, um uns beim Erstellen dieser Sache zu unterstützen, sie besser zu machen und Fehler zu beheben, die du vielleicht in dieser JavaScript-Konsole gesehen hast!\n\nDu findest unser Backlog unter https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktiviere sie und versuche es erneut.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Dein Benutzerkonto ist für das Bearbeiten gesperrt. Die Sperre wurde von {{GENDER:$2|$2}} aus dem folgenden Grund durchgeführt: $1",
 	"mobile-frontend-editor-cta": "Hilf, diese Seite zu verbessern!",

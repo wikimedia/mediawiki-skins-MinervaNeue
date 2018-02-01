@@ -20,7 +20,6 @@
 	},
 	"minerva-last-modified-date": "Dernière modification le $1, à $2",
 	"minerva-talk-add-topic": "Ajouter une discussion",
-	"mobile-frontend-console-recruit": "\\o/ Hé ! Ceci est un logiciel open source et nous avons besoin de volontaires pour nous aider à le construire, l’améliorer et résoudre les anomalies que vous pourriez trouver dans cette console JavaScript !\n\nVous pouvez consulter notre journal de tâches à faire sur https://phabricator.wikimedia.org/project/view/67/",
 	"mobile-frontend-cookies-required": "Les témoins (cookies) sont nécessaires pour basculer entre les modes d’affichage. Veuillez les autoriser et réessayer.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Votre compte est bloqué et ne peut faire de modifications. Le blocage a été mis en place par {{GENDER:$2|$2}} pour la raison suivante : $1",
 	"mobile-frontend-editor-cta": "Aidez à améliorer cette page !",

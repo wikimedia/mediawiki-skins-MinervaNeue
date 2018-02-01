@@ -14,7 +14,6 @@
 	},
 	"minerva-last-modified-date": "最後編輯於 $1 $2",
 	"minerva-talk-add-topic": "新增討論",
-	"mobile-frontend-console-recruit": "\\o/ 嘿！這是套開放原始碼軟體，我們需要志工們來協助打造、改善，以及修正在 JavaScript 主控台裡所發現的程式錯誤！\n\n您可以在： https://phabricator.wikimedia.org/project/profile/67/ 查看我們的積壓事項",
 	"mobile-frontend-cookies-required": "切換檢視模式需要開啟 Cookies，請先開啟後再重試。",
 	"mobile-frontend-editor-blocked-info-loggedin": "您的帳號已被封鎖禁止編輯，封鎖您的人為 {{GENDER:$2|$2}}，由於下列原因：$1",
 	"mobile-frontend-editor-cta": "協助改善此頁面！",

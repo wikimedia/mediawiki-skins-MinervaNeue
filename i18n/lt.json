@@ -11,7 +11,6 @@
 			"Manvydasz"
 		]
 	},
-	"mobile-frontend-console-recruit": "\\o/ Ei! Tai atviro kodo programinė įranga ir mums reikia savanorių, kad padėtų mums kurti šį projektą, pagerinkite ir pataisykite klaidas, kurių aptiksite šioje JavaScript konsolėje!\n\nNeatliktų darbų sąrašą galite rasti @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Slapukai yra reikalingi norint pakeisti peržiūros režimus. Įjunkite juos ir bandykite dar kartą.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Jūsų paskyrai yra uždrausta redaguoti. Draudimą sukūrė {{GENDER:$2|$2}} dėl priežasties: $1",
 	"mobile-frontend-editor-cta": "Padėkite pagerinti šį puslapį!",

@@ -11,7 +11,6 @@
 	},
 	"minerva-last-modified-date": "Naposledy editováno $1 v $2",
 	"minerva-talk-add-topic": "Přidat diskusi",
-	"mobile-frontend-console-recruit": "\\o/ Ahój! Tohle je open source software a potřebujeme dobrovolníky, aby nám pomohli s jeho tvorbou, vylepšováním a opravováním všech chyb, které v téhle JavaScriptové konzoli můžete zahlédnout!\n\nNaše resty najdete na https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Pro přepnutí verzí jsou vyžadovány cookies. Povolte je a zkuste to znovu.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Vašemu uživatelskému účtu byla zablokována možnost editace. Zablokování {{GENDER:$2|provedl|provedla}} $2 s následujícím zdůvodněním: $1",
 	"mobile-frontend-editor-cta": "Pomozte vylepšit tuto stránku!",

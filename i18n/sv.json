@@ -10,7 +10,6 @@
 	},
 	"minerva-last-modified-date": "Senast redigerad den $1, kl $2",
 	"minerva-talk-add-topic": "Lägg till diskussion",
-	"mobile-frontend-console-recruit": "\\o/ Hej! Det här är en programvara med öppen källkod och vi behöver frivilliga som hjälper oss att bygga, förbättra och vara med och fixa fel som du hittar i denna JavaScript-konsol!\n\nDu hittar vår backlog på https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Kakor krävs för att växla mellan visningslägen. Aktivera dem och försök igen.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Ditt konto är blockerat från att redigera. Blockeringen gjordes av {{GENDER:$2|$2}} av följande anledning: $1",
 	"mobile-frontend-editor-cta": "Hjälp till att förbättra denna sida!",

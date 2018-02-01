@@ -15,7 +15,6 @@
 	},
 	"minerva-last-modified-date": "آخرین بار در $1، $2 ویرایش شده‌است",
 	"minerva-talk-add-topic": "اضافه کردن بحث",
-	"mobile-frontend-console-recruit": "\\o/ سلام! این یک نرم‌افزار متن‌باز است و ما به افراد داوطلب برای بهبود، ساخت و رفع باگ‌هایش نیاز داریم.\n\nبرای دیدن سیاههٔ باگ به @ https://phabricator.wikimedia.org/project/profile/67/ مراجعه کنید.",
 	"mobile-frontend-cookies-required": "کوکی‌ها برای تعویض روش‌های نمایش مورد نیاز هستند. لطفاً آنها را فعال کنید و دوباره امتحان کنید.",
 	"mobile-frontend-editor-blocked-info-loggedin": "حساب کاربری شما مسدود شده است. این عمل توسط {{GENDER:$2|$2}} و به دلیل $1 انجام گرفته‌است.",
 	"mobile-frontend-editor-cta": "کمک به بهبود این صفحه!",

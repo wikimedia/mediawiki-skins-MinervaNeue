@@ -14,7 +14,6 @@
 			"Vito Genovese"
 		]
 	},
-	"mobile-frontend-console-recruit": "\\o/ Hey! Bu açık kaynak kodlu bir yazılım ve bizim oluşturmak, daha iyi yapmak, JavaScript konsolunda görünebilecek olası hataları düzeltmek amacıyla yardımcı olacak gönüllülere ihtiyacımız var! \n\nBekleme listemizi şurada bulabilirsiniz @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Görünüm modları arasında geçiş yapabilmeniz için çerezlerin açık olması gereklidir. Bunları etkinleştirdikten sonra tekrar deneyin.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Hesabınızı düzenleme engellenir. Sokak. tarafından yapılan {{CİNSİYET:$2|$2}} için aşağıdaki sebep: $1",
 	"mobile-frontend-editor-cta": "Bu sayfayı geliştirmeye yardımcı olun!",

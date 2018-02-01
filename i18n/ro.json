@@ -8,7 +8,6 @@
 	},
 	"minerva-last-modified-date": "Ultima modificare pe $1, la $2",
 	"minerva-talk-add-topic": "Adăugare discuție",
-	"mobile-frontend-console-recruit": "\\o/ Salutare! Acesta este un software cu sursă deschisă și avem nevoie de voluntari pentru a-l construi, a-l face mai bun și pentru a repara orice eroare pe care ați putea-o descoperi în această consolă JavaScript!\n\nPuteți găsi lista cu semnalări @ https://phabricator.wikimedia.org/project/profile/67/",
 	"mobile-frontend-cookies-required": "Sunt necesare module cookie pentru a comuta între modurile de vizualizare. Activați-le și încercați din nou.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Contul dumnevoastră este blocat de la modificări. Blocarea a fost efectuată de către {{GENDER:$2|$2}} pentru următorul motiv: $1",
 	"mobile-frontend-editor-cta": "Ajutați la îmbunătățirea acestei pagini!",
