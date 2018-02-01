@@ -34,11 +34,13 @@
 	 *
 	 * @param {Skin} skin
 	 * @param {Number[]} [supportedNamespaces]
+	 * @param {Window} [windowObj] window object
 	 * @constructor
 	 */
-	function DownloadIcon( skin, supportedNamespaces ) {
+	function DownloadIcon( skin, supportedNamespaces, windowObj ) {
 		var options = {};
 		this.skin = skin;
+		this.window = windowObj || {};
 		this.supportedNamespaces = supportedNamespaces || [ 0 ];
 		options.tagName = 'li';
 		options.glyphPrefix = 'minerva';
@@ -66,7 +68,9 @@
 				return false;
 			}
 
-			if ( browser.isIos() || chromeVersion === false ) {
+			if ( browser.isIos() || chromeVersion === false ||
+				this.window.chrome === undefined
+			) {
 				// we support only chrome/chromium on desktop/android
 				return false;
 			}
