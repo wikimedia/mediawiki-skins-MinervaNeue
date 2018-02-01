@@ -12,10 +12,12 @@
 		Anchor = M.require( 'mobile.startup/Anchor' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		disabledEditIcon = new Icon( {
-			name: 'edit'
+			name: 'edit',
+			glyphPrefix: 'minerva'
 		} ),
 		enabledEditIcon = new Icon( {
-			name: 'edit-enabled'
+			name: 'edit-enabled',
+			glyphPrefix: 'minerva'
 		} ),
 		currentPage = M.getCurrentPage(),
 		enabledClass = enabledEditIcon.getGlyphClassName(),
@@ -44,6 +46,7 @@
 	}
 	/**
 	 * Prepend an edit page button to the container
+	 * Remove any existing links in the container
 	 * @method
 	 * @ignore
 	 * @param {number} section number
@@ -51,6 +54,7 @@
 	 * @return {jQuery.Object} newly created edit page button
 	 */
 	function addEditButton( section, container ) {
+		$( container ).find( 'a' ).remove();
 		return $( '<a class="edit-page">' )
 			.attr( {
 				href: '#/editor/' + section,
@@ -254,15 +258,17 @@
 		// FIXME: split the selector and cache it
 		if ( $caEdit.find( '.edit-page' ).length === 0 ) {
 			$( '.nojs-edit' ).removeClass( 'nojs-edit' );
-			$( '#ca-edit a' ).remove();
+
 			if ( isNewPage ||
 					( leadSection && leadSection.text() ) || page.getSections().length === 0 ) {
 				// if lead section is not empty, open editor with lead section
 				// In some namespaces (controlled by MFNamespacesWithoutCollapsibleSections)
 				// sections are not marked. Use the lead section for such cases.
 				addEditButton( 0, '#ca-edit' );
-			} else {
-				// if lead section is empty or does not exist, open editor with first section
+			} else if ( leadSection !== null ) {
+				// if lead section is empty open editor with first section
+				// be careful not to do this when leadSection is null as this means MobileFormatter has not
+				// been run and thus we could not identify the lead
 				addEditButton( 1, '#ca-edit' );
 			}
 		}

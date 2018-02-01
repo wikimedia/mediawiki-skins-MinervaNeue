@@ -120,8 +120,6 @@ class MinervaHooks {
 		$skin = $out->getSkin();
 		$request = $special->getRequest();
 
-		// Ensure desktop version of Special:Preferences page gets mobile targeted modules
-		// FIXME: Upstream to core (?)
 		if ( $skin instanceof SkinMinerva ) {
 			switch ( $name ) {
 				case 'MobileMenu':
@@ -132,9 +130,6 @@ class MinervaHooks {
 					$out->addModules( [
 						'skins.minerva.mainMenu'
 					] );
-					break;
-				case 'Preferences':
-					$out->addModules( 'skins.minerva.special.preferences.scripts' );
 					break;
 				case 'Userlogin':
 				case 'CreateAccount':

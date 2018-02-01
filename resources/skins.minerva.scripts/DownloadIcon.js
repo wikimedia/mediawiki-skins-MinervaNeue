@@ -1,7 +1,7 @@
 ( function ( M, track ) {
 	var msg = mw.msg,
 		MAX_PRINT_TIMEOUT = 3000,
-		GLYPH = 'mf-download',
+		GLYPH = 'download',
 		Icon = M.require( 'mobile.startup/Icon' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
 
@@ -34,13 +34,16 @@
 	 *
 	 * @param {Skin} skin
 	 * @param {Number[]} [supportedNamespaces]
+	 * @param {Window} [windowObj] window object
 	 * @constructor
 	 */
-	function DownloadIcon( skin, supportedNamespaces ) {
+	function DownloadIcon( skin, supportedNamespaces, windowObj ) {
 		var options = {};
 		this.skin = skin;
+		this.window = windowObj || {};
 		this.supportedNamespaces = supportedNamespaces || [ 0 ];
 		options.tagName = 'li';
+		options.glyphPrefix = 'minerva';
 		options.title = msg( 'minerva-download' );
 		options.name = GLYPH;
 		Icon.call( this, options );
@@ -65,7 +68,9 @@
 				return false;
 			}
 
-			if ( browser.isIos() || chromeVersion === false ) {
+			if ( browser.isIos() || chromeVersion === false ||
+				this.window.chrome === undefined
+			) {
 				// we support only chrome/chromium on desktop/android
 				return false;
 			}
@@ -79,6 +84,10 @@
 		 * Replace download icon with a spinner
 		 */
 		showSpinner: function () {
+			// FIXME: There is no spinner icon in Minerva, only in MobileFrontend
+			// Hopefully when T177432 is resolved this and corresponding change in hideSpinner
+			// should be unnecessary.
+			this.options.glyphPrefix = 'mf';
 			this.options.name = 'spinner';
 			this.render();
 		},
@@ -86,6 +95,7 @@
 		 * Restore download icon from spinner state
 		 */
 		hideSpinner: function () {
+			this.options.glyphPrefix = 'minerva';
 			this.options.name = GLYPH;
 			this.render();
 		},

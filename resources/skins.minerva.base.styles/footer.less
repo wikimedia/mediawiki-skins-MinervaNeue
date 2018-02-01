@@ -1,11 +1,15 @@
 @import 'minerva.variables';
 @import 'minerva.mixins';
 
-footer {
+// style that applies only to minerva footer
+.minerva-footer {
 	border-top: solid 1px @footerBorderColor;
 	overflow: auto;
 	padding-bottom: 6px;
+}
 
+// styles that apply to nested footer components
+footer {
 	// links should be separated by same color
 	.hlist {
 		li:after {

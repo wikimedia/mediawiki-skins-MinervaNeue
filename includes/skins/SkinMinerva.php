@@ -468,7 +468,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			->addComponent(
 				$this->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
 				SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalUrl(),
-				MinervaUI::iconClass( 'mf-contributions', 'before' ),
+				MinervaUI::iconClass( 'contributions', 'before' ),
 				[ 'data-event-name' => 'contributions' ]
 			);
 	}
@@ -506,7 +506,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 					'mobile-frontend-watchlist-purpose',
 					$watchlistQuery
 				),
-				MinervaUI::iconClass( 'mf-watchlist', 'before' ),
+				MinervaUI::iconClass( 'watchlist', 'before' ),
 				[ 'data-event-name' => 'watchlist' ]
 			);
 	}
@@ -528,7 +528,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 					$this->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
 					SpecialPage::getTitleFor( 'MobileOptions' )->
 						getLocalUrl( [ 'returnto' => $returnToTitle ] ),
-					MinervaUI::iconClass( 'mf-settings', 'before' ),
+					MinervaUI::iconClass( 'settings', 'before' ),
 					[ 'data-event-name' => 'settings' ]
 				);
 
@@ -543,7 +543,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 						SpecialPage::getTitleFor( 'Preferences' ),
 						'prefsnologintext2'
 					),
-					MinervaUI::iconClass( 'mf-settings', 'before' ),
+					MinervaUI::iconClass( 'settings', 'before' ),
 					[ 'data-event-name' => 'preferences' ]
 				);
 		}
@@ -593,12 +593,9 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$lang = $this->getTitle()->getPageViewLanguage();
 		$tpl->set( 'pageLang', $lang->getHtmlCode() );
 		$tpl->set( 'pageDir', $lang->getDir() );
-		$language_urls = $this->getLanguages();
-		if ( count( $language_urls ) ) {
-			$tpl->setRef( 'language_urls', $language_urls );
-		} else {
-			$tpl->set( 'language_urls', false );
-		}
+		// If the array is empty, then instead give the skin boolean false
+		$language_urls = $this->getLanguages() ?: false;
+		$tpl->set( 'language_urls', $language_urls );
 	}
 
 	/**
@@ -629,7 +626,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			->addComponent(
 				$this->msg( 'mobile-frontend-home-button' )->escaped(),
 				Title::newMainPage()->getLocalUrl(),
-				MinervaUI::iconClass( 'mf-home', 'before' ),
+				MinervaUI::iconClass( 'home', 'before' ),
 				[ 'data-event-name' => 'home' ]
 			);
 
@@ -638,7 +635,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			->addComponent(
 				$this->msg( 'mobile-frontend-random-button' )->escaped(),
 				SpecialPage::getTitleFor( 'Randompage' )->getLocalUrl() . '#/random',
-				MinervaUI::iconClass( 'mf-random', 'before' ),
+				MinervaUI::iconClass( 'random', 'before' ),
 				[
 					'id' => 'randomButton',
 					'data-event-name' => 'random',
@@ -655,7 +652,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
-					MinervaUI::iconClass( 'mf-nearby', 'before', 'nearby' ),
+					MinervaUI::iconClass( 'nearby', 'before', 'nearby' ),
 					[ 'data-event-name' => 'nearby' ]
 				);
 		}
@@ -705,14 +702,14 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$username,
 					Title::newFromText( $username, NS_USER )->getLocalUrl(),
-					MinervaUI::iconClass( 'mf-profile', 'before', 'truncated-text primary-action' ),
+					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
 					[ 'data-event-name' => 'profile' ]
 				)
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-logout' )->escaped(),
 					$url,
 					MinervaUI::iconClass(
-						'mf-logout', 'element', 'secondary-action truncated-text' ),
+						'logout', 'element', 'secondary-action truncated-text' ),
 					[ 'data-event-name' => 'logout' ]
 				);
 		} else {
@@ -727,7 +724,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-login' )->escaped(),
 					$url,
-					MinervaUI::iconClass( 'mf-anonymous', 'before' ),
+					MinervaUI::iconClass( 'login', 'before' ),
 					[ 'data-event-name' => 'login' ]
 				);
 		}
@@ -890,6 +887,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$pageUser = $this->getUserPageHelper()->getPageUser();
 			$talkPage = $pageUser->getTalkPage();
 			$data = [
+				// Talk page icon is provided by mobile.userpage.icons for time being
+				'userPageIconClass' => MinervaUI::iconClass( 'talk', 'before', 'talk', 'mf' ),
 				'talkPageTitle' => $talkPage->getPrefixedURL(),
 				'talkPageLink' => $talkPage->getLocalUrl(),
 				'talkPageLinkTitle' => $this->msg(
@@ -1453,9 +1452,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		];
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
-		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
-			$styles[] = 'skins.minerva.userpage.styles';
-			$styles[] = 'skins.minerva.userpage.icons';
 		}
 
 		return $styles;

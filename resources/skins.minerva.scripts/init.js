@@ -228,7 +228,7 @@
 	 * @ignore
 	 */
 	function appendDownloadButton() {
-		var downloadIcon = new DownloadIcon( skin, config.get( 'wgMinervaDownloadNamespaces' ) );
+		var downloadIcon = new DownloadIcon( skin, config.get( 'wgMinervaDownloadNamespaces' ), window );
 
 		if ( downloadIcon.isAvailable( navigator.userAgent ) ) {
 			// Because the page actions are floated to the right, their order in the

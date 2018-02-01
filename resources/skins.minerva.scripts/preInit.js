@@ -54,12 +54,5 @@
 			) );
 		}
 	}( mw.config.get( 'wgRedirectedFrom' ) ) );
-
-	// Recruit volunteers through the console (note console.log may not be a function so check via apply)
-	/* eslint-disable no-console */
-	if ( window.console && window.console.log && window.console.log.apply &&
-			mw.config.get( 'wgMFEnableJSConsoleRecruitment' ) ) {
-		console.log( mw.msg( 'mobile-frontend-console-recruit' ) );
-	}
 	/* eslint-enable no-console */
 }( mw.mobileFrontend ) );

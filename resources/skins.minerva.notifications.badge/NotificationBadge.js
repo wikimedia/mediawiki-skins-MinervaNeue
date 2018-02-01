@@ -1,7 +1,10 @@
 ( function ( M ) {
 	var View = M.require( 'mobile.startup/View' ),
 		Icon = M.require( 'mobile.startup/Icon' ),
-		notificationIcon = new Icon( { name: 'notifications' } ),
+		notificationIcon = new Icon( {
+			name: 'notifications',
+			glyphPrefix: 'minerva'
+		} ),
 		icons = M.require( 'mobile.startup/icons' );
 
 	/**
