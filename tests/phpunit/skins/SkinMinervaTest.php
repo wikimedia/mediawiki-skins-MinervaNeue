@@ -14,11 +14,6 @@ use Title;
 use User;
 use Wikimedia\TestingAccessWrapper;
 
-class Template extends QuickTemplate {
-	public function execute() {
-	}
-}
-
 class EchoNotifUser {
 	public function __construct(
 		$lastUnreadAlertTime, $lastUnreadMessageTime, $echoNotificationCount
@@ -268,7 +263,9 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			->method( 'getFormattedEchoNotificationCount' )
 			->will( $this->returnValue( $formattedEchoNotificationCount ) );
 
-		$tpl = new Template();
+		$tpl = $this->getMockBuilder( QuickTemplate::class )
+			->setMethods( [ 'execute' ] )
+			->getMock();
 		$skin->prepareUserButton( $tpl );
 		$this->assertEquals(
 			$expectedSecondaryButtonData,
