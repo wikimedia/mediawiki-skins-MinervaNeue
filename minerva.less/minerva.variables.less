@@ -15,8 +15,6 @@
 @grayLight: @colorGray12;
 @grayLightest: @colorGray14;
 
-@width-breakpoint-mobile: 320px;
-@width-breakpoint-desktop: 1000px;
 // For backwards compatibility with MobileFrontend skinStyles
 @wgMFDeviceWidthDesktop: @width-breakpoint-desktop;
 
@@ -44,7 +42,7 @@
 @headerMarginTop: -1px;  // used to hide the header border top when a banner is not present
 @searchBoxWidth: 375/16em;
 @iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
-@deviceWidthTabletEms: unit( @deviceWidthTablet/16, em );
+@deviceWidthTabletEms: unit( @width-breakpoint-tablet/16, em );
 @brandingBoxWidth: @deviceWidthTabletEms - ( @iconSizeTotal * 3 ) - @searchBoxWidth;
 
 @titleSectionSpacingTop: 20px;

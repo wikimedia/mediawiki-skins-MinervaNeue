@@ -1,3 +1,5 @@
+@import 'minerva.variables';
+
 @media print {
 	.noprint,
 	.banner-container,
@@ -28,7 +30,7 @@
 	}
 }
 
-@media print and ( max-device-width: @deviceWidthTablet ) {
+@media print and ( max-device-width: @width-breakpoint-tablet ) {
 	// Chrome: override the default margins and reveal the footer
 	// Experimental technology (see https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size)
 	@page {

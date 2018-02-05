@@ -143,7 +143,7 @@ FIXME: Review all of these hacks to see if they still apply.
 	width: auto !important;
 }
 
-@media all and ( min-width: @deviceWidthTablet ) {
+@media all and ( min-width: @width-breakpoint-tablet ) {
 	// When in the HTML these should be revealed at tablet resolution (T172078)
 	.content {
 		.vertical-navbox,
@@ -154,7 +154,7 @@ FIXME: Review all of these hacks to see if they still apply.
 }
 
 // Hacks to render galleries and multicol tables better on mobile
-@media all and ( max-width: @deviceWidthTablet ) {
+@media all and ( max-width: @width-breakpoint-tablet ) {
 
 	// Center images that might be less than the screen width.
 	// Image will appear centered and caption will take up full screen.
