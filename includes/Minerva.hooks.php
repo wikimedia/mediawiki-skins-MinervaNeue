@@ -125,15 +125,20 @@ class MinervaHooks {
 	public static function onRequestContextCreateSkinMobile(
 		MobileContext $mobileContext, Skin $skin
 	) {
+		// MobileContext::getConfigVariable will soon be removed.
+		$hasGetConfigVariable = method_exists( $mobileContext, 'getConfigVariable' );
+
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
 			$skin->setSkinOptions( [
 				SkinMinerva::OPTIONS_MOBILE_BETA
 					=> $mobileContext->isBetaGroupMember(),
 				SkinMinerva::OPTION_CATEGORIES
-					=> $mobileContext->getConfigVariable( 'MinervaShowCategoriesButton' ),
+					=> $hasGetConfigVariable ?
+						$mobileContext->getConfigVariable( 'MinervaShowCategoriesButton' ) : false,
 				SkinMinerva::OPTION_BACK_TO_TOP
-					=> $mobileContext->getConfigVariable( 'MinervaEnableBackToTop' ),
+					=> $hasGetConfigVariable ?
+						$mobileContext->getConfigVariable( 'MinervaEnableBackToTop' ) : false,
 				SkinMinerva::OPTION_TOGGLING => true,
 				SkinMinerva::OPTION_MOBILE_OPTIONS => true,
 			] );
