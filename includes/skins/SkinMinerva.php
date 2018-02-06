@@ -827,7 +827,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return string HTML for tagline
 	 */
 	protected function getTaglineHtml() {
-		$tagline = false;
+		$tagline = '';
 
 		if ( $this->getUserPageHelper()->isUserPage() ) {
 			$pageUser = $this->getUserPageHelper()->getPageUser();
@@ -848,16 +848,13 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		} else {
 			$title = $this->getTitle();
 			if ( $title ) {
-				if ( !$title->isMainPage() && $title->inNamespace( NS_MAIN ) ) {
-					$vars = $this->getSkinConfigVariables();
-					$tagline = $vars['wgMFDescription'];
-				}
+				$vars = $this->getSkinConfigVariables();
+				$tagline = $vars['wgMFDescription'];
 			}
 		}
 
 		$attrs[ 'class' ] = 'tagline';
-		return $tagline ?
-			Html::element( 'div', $attrs, $tagline ) : '';
+		return Html::element( 'div', $attrs, $tagline );
 	}
 	/**
 	 * Returns the HTML representing the heading.
