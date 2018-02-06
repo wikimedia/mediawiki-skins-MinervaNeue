@@ -519,7 +519,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.25.0",
 		"extensions": {
-			"MobileFrontend": ">= 2.0.0"
+			"MobileFrontend": ">= 2.1.0"
 		}
 	},
 	"type": "skin",
