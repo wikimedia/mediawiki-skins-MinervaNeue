@@ -36,5 +36,7 @@
 	"mobile-frontend-random-button": "Nejaušs raksts",
 	"mobile-frontend-user-button-tooltip": "Rādīt manus paziņojumus",
 	"mobile-frontend-user-page-talk": "Diskusija",
-	"mobile-frontend-user-page-uploads": "Augšupielādes"
+	"mobile-frontend-user-page-uploads": "Augšupielādes",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorijas",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Skatīt lapu kategorijas"
 }

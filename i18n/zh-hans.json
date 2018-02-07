@@ -61,5 +61,9 @@
 	"mobile-frontend-user-page-member-since": "于$1{{GENDER:$2|加入}}",
 	"mobile-frontend-user-page-talk": "讨论",
 	"mobile-frontend-user-page-uploads": "上传",
-	"minerva-skin-desc": "有响应特性的移动优先皮肤。"
+	"minerva-skin-desc": "有响应特性的移动优先皮肤。",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分类",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "查看页面分类",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "跳转至顶部",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮动按钮跳转至当前页面的顶部"
 }

@@ -4,7 +4,8 @@
 			"Fúlvio",
 			"Hamilton Abreu",
 			"Macofe",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Athena in Wonderland"
 		]
 	},
 	"minerva-last-modified-date": "Última edição a $1, às $2",
@@ -58,5 +59,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Juntou-se a}} $1",
 	"mobile-frontend-user-page-talk": "Discussão",
 	"mobile-frontend-user-page-uploads": "Carregamentos",
-	"minerva-skin-desc": "Um tema inicial de resposta rápida para telemóveis."
+	"minerva-skin-desc": "Um tema inicial de resposta rápida para telemóveis.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorias",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Mostra as categorias das páginas",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Saltar para o topo",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Salta para o topo da página atual, utilizando um botão flutuante"
 }

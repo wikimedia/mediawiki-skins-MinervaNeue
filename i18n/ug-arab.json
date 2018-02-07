@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sahran",
-			"Uzdil"
+			"Uzdil",
+			"HushBeg"
 		]
 	},
 	"mobile-frontend-editor-edit": "تەھرىر",
@@ -14,5 +15,6 @@
 	"mobile-frontend-main-menu-settings": "تەڭشەكلەر",
 	"mobile-frontend-main-menu-watchlist": "كۆزەت تىزىملىكى",
 	"mobile-frontend-placeholder": "{{SITENAME}} ئىزدە",
-	"mobile-frontend-random-button": "خالىغان"
+	"mobile-frontend-random-button": "خالىغان",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "تۈرلەر"
 }

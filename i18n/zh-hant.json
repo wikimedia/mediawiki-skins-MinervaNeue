@@ -64,5 +64,9 @@
 	"mobile-frontend-user-page-talk": "討論",
 	"mobile-frontend-user-page-uploads": "上傳",
 	"skinname-minerva": "Minerva",
-	"minerva-skin-desc": "輕快的移動端優先外觀"
+	"minerva-skin-desc": "輕快的移動端優先外觀",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分類",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "檢視頁面分類",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "跳至頂端",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮動按鍵來跳至目前頁面的頂端"
 }

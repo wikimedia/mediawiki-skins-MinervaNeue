@@ -56,5 +56,6 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Далучыўся|Далучылася}} $1",
 	"mobile-frontend-user-page-talk": "Гутаркі",
 	"mobile-frontend-user-page-uploads": "Загрузкі",
-	"minerva-skin-desc": "Першая адаптыўная мабільная тэма афармленьня"
+	"minerva-skin-desc": "Першая адаптыўная мабільная тэма афармленьня",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Катэгорыі"
 }

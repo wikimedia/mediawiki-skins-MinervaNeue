@@ -6,7 +6,8 @@
 			"Matěj Suchánek",
 			"Michaelbrabec",
 			"Mormegil",
-			"Vks"
+			"Vks",
+			"Ilimanaq29"
 		]
 	},
 	"minerva-last-modified-date": "Naposledy editováno $1 v $2",
@@ -59,5 +60,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Připojil|Připojila|Připojil(a)}} se dne $1",
 	"mobile-frontend-user-page-talk": "Diskuse",
 	"mobile-frontend-user-page-uploads": "Načtené soubory",
-	"minerva-skin-desc": "Responzivní vzhled navržený pro mobily"
+	"minerva-skin-desc": "Responzivní vzhled navržený pro mobily",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobrazit kategorie stránek",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Přeskočit na začátek",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Přeskočit na začátek této stránky pomocí pohyblivého tlačítka"
 }

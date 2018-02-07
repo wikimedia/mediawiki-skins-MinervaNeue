@@ -69,5 +69,9 @@
 	"mobile-frontend-user-page-member-since": "Inscrit{{GENDER:$2||e}} depuis le $1",
 	"mobile-frontend-user-page-talk": "Discussion",
 	"mobile-frontend-user-page-uploads": "Imports",
-	"minerva-skin-desc": "Un habillage réactif conçu pour les mobiles"
+	"minerva-skin-desc": "Un habillage réactif conçu pour les mobiles",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Catégories",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Afficher les catégories des pages",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Aller au début",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Aller en haut de la page actuelle en utilisant un bouton flottant"
 }

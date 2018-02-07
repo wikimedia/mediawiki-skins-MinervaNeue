@@ -57,5 +57,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Beigetreten}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"mobile-frontend-user-page-uploads": "Hochgeladene Dateien",
-	"minerva-skin-desc": "Stellt eine responsive und für mobile Endgeräte geeignete Benutzeroberfläche bereit"
+	"minerva-skin-desc": "Stellt eine responsive und für mobile Endgeräte geeignete Benutzeroberfläche bereit",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorien von Seiten ansehen",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Nach oben springen",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Zum Anfang der aktuellen Seite mithilfe einer schwebenden Schaltfläche springen"
 }

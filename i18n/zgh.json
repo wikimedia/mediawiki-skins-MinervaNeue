@@ -15,5 +15,8 @@
 	"mobile-frontend-main-menu-settings": "ⵜⵉⵙⵖⴰⵍ",
 	"mobile-frontend-main-menu-watchlist": "ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵔ",
 	"mobile-frontend-placeholder": "ⵔⵣⵓ ⴳ {{SITENAME}}",
-	"mobile-frontend-random-button": "Adehmas"
+	"mobile-frontend-random-button": "Adehmas",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "ⵉⵙⵎⵉⵍⵏ",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ⵥⵕ ⵉⵙⵎⵉⵍⵏ ⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "ⴷⴷⵓ ⵙ ⴰⴼⵍⵍⴰ"
 }
