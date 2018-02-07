@@ -37,7 +37,6 @@
 	// avoid this running on Watchlist
 	if (
 		!page.inNamespace( 'special' ) &&
-		!mw.config.get( 'wgIsMainPage' ) &&
 		mw.config.get( 'wgAction' ) === 'view'
 	) {
 		init( $contentContainer, 'content-', page );
