@@ -2,6 +2,7 @@
 
 	( function () {
 		var action = mw.config.get( 'wgAction' ),
+			page = M.getCurrentPage(),
 			overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 			CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' );
 
@@ -99,7 +100,7 @@
 			var ns = mw.config.get( 'wgNamespaceNumber' ),
 				// Categories have no lead section
 				$container = ns === 14 ? $( '#bodyContent' ) :
-					M.getCurrentPage().getLeadSectionElement();
+					page.getLeadSectionElement();
 
 			if ( action === 'edit' ) {
 				$container = $( '#mw-content-text' );
@@ -124,7 +125,10 @@
 		}
 
 		// Setup the issues banner on the page
-		initPageIssues();
+		// Pages which dont exist (id 0) cannot have issues
+		if ( !page.isMissing ) {
+			initPageIssues();
+		}
 	}() );
 
 }( mw.mobileFrontend, jQuery ) );
