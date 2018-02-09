@@ -56,5 +56,9 @@
 	"mobile-frontend-user-page-talk": "Разговор",
 	"mobile-frontend-user-page-uploads": "Подигања",
 	"skinname-minerva": "Минерва Ново",
-	"minerva-skin-desc": "Одѕивно руво за првенствено мобилна употреба."
+	"minerva-skin-desc": "Одѕивно руво за првенствено мобилна употреба.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Погл. категории на страници",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Прејди најгоре",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Прејди најгоре на тековната страница користејќи лебдечко копче"
 }

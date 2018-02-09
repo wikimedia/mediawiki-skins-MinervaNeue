@@ -56,5 +56,6 @@
 	"mobile-frontend-user-page-contributions": "Contributi",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Iscritto|Iscritta}} il $1",
 	"mobile-frontend-user-page-talk": "Discussione",
-	"mobile-frontend-user-page-uploads": "Caricamenti"
+	"mobile-frontend-user-page-uploads": "Caricamenti",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorie"
 }

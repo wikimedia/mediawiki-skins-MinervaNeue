@@ -55,5 +55,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Xunióse'l}} $1",
 	"mobile-frontend-user-page-talk": "Alderique",
 	"mobile-frontend-user-page-uploads": "Xubíes",
-	"minerva-skin-desc": "Una piel reactiva principalmente pa móviles."
+	"minerva-skin-desc": "Una piel reactiva principalmente pa móviles.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categoríes",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver les categoríes de páxines",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Saltar al principiu",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al principiu de la páxina actual usando un botón flotante"
 }

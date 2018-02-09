@@ -56,5 +56,6 @@
 	"mobile-frontend-user-page-member-since": "$1 তারিখে {{GENDER:$2|যোগ দিয়েছেন}}",
 	"mobile-frontend-user-page-talk": "আলাপ",
 	"mobile-frontend-user-page-uploads": "আপলোড",
-	"skinname-minerva": "মিনের্ভা"
+	"skinname-minerva": "মিনের্ভা",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী"
 }

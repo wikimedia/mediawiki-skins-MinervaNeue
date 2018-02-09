@@ -64,5 +64,9 @@
 	"mobile-frontend-user-page-talk": "Discussão",
 	"mobile-frontend-user-page-uploads": "Envios",
 	"skinname-minerva": "Minerva",
-	"minerva-skin-desc": "Um primeiro tema mobile responsivo"
+	"minerva-skin-desc": "Um primeiro tema mobile responsivo",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorias",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Mostra as categorias das páginas",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ir para o topo",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Ir para o topo da página atual usando um botão flutuante"
 }

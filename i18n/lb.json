@@ -51,5 +51,7 @@
 	"mobile-frontend-user-page-contributions": "Kontributiounen",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Bäigetrueden}} $1",
 	"mobile-frontend-user-page-talk": "Diskussioun",
-	"mobile-frontend-user-page-uploads": "Eropgeluede Fichieren"
+	"mobile-frontend-user-page-uploads": "Eropgeluede Fichieren",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen"
 }

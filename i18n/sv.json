@@ -60,5 +60,9 @@
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"mobile-frontend-user-page-uploads": "Uppladdningar",
 	"skinname-minerva": "MinervaNeue",
-	"minerva-skin-desc": "Ett responsivt mobilutseende."
+	"minerva-skin-desc": "Ett responsivt mobilutseende.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Visa kategorier över sidor",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå längst upp",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå längst upp på aktuell sida med en flytande knapp"
 }
