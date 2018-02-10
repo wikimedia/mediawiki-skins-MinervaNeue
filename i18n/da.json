@@ -5,7 +5,8 @@
 			"Hylle",
 			"Joedalton",
 			"Mads Haupt",
-			"Tjernobyl"
+			"Tjernobyl",
+			"Jorn Ari"
 		]
 	},
 	"minerva-last-modified-date": "Sidst redigeret den $1, klokken $2",
@@ -59,5 +60,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Medlem siden}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"mobile-frontend-user-page-uploads": "Overførsler",
-	"minerva-skin-desc": "Et hurtigt mobilt tema"
+	"minerva-skin-desc": "Et hurtigt mobilt tema",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vis sidens kategorier",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå til top",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå til top på aktuel side ved brug af en flydende knap"
 }

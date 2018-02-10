@@ -62,5 +62,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Член}} от $1",
 	"mobile-frontend-user-page-talk": "Беседа",
 	"mobile-frontend-user-page-uploads": "Качвания",
-	"minerva-skin-desc": "Адаптивен облик преди всичко за мобилна употреба"
+	"minerva-skin-desc": "Адаптивен облик преди всичко за мобилна употреба",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Преглед на категории на страници",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Най-горе",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Отиване най-горе на страницата, използвайки плаващ бутон"
 }

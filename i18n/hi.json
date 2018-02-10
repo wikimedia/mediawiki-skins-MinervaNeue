@@ -9,7 +9,8 @@
 			"Siddhartha Ghai",
 			"Smtchahal",
 			"Sachinkatiyar",
-			"Innocentbunny"
+			"Innocentbunny",
+			"Nitin1485"
 		]
 	},
 	"minerva-last-modified-date": "अंतिम बार $1 को $2 बजे संपादित किया गया",
@@ -63,5 +64,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|$2}} $1 से सदस्य हैं",
 	"mobile-frontend-user-page-talk": "वार्ता",
 	"mobile-frontend-user-page-uploads": "उपलोड्स",
-	"minerva-skin-desc": "मोबाइल के लिए एक तैयारशूदा विशेष आवरण"
+	"minerva-skin-desc": "मोबाइल के लिए एक तैयारशूदा विशेष आवरण",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "श्रेणियाँ",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "पृष्ठों की श्रेणियां देखें",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "शीर्ष पर जाएं",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "फ़्लोटिंग बटन का उपयोग करके वर्तमान पृष्ठ के शीर्ष पर जाएं"
 }

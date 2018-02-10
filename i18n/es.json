@@ -62,5 +62,7 @@
 	"mobile-frontend-user-page-contributions": "Contribuciones",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Se unió}} el $1",
 	"mobile-frontend-user-page-talk": "Discusión",
-	"mobile-frontend-user-page-uploads": "Cargas"
+	"mobile-frontend-user-page-uploads": "Cargas",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas"
 }
