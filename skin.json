@@ -97,7 +97,6 @@
 				"mobile",
 				"desktop"
 			],
-			"position": "top",
 			"styles": [
 				"resources/skins.minerva.base.reset/reset.less"
 			]
@@ -107,7 +106,6 @@
 				"mobile",
 				"desktop"
 			],
-			"position": "top",
 			"styles": [
 				"resources/skins.minerva.base.styles/ui.less",
 				"resources/skins.minerva.base.styles/pageactions.less",
@@ -123,7 +121,6 @@
 				"mobile",
 				"desktop"
 			],
-			"position": "top",
 			"styles": [
 				"resources/skins.minerva.content.styles/styles.less"
 			]
@@ -133,7 +130,6 @@
 				"mobile",
 				"desktop"
 			],
-			"position": "top",
 			"styles": [
 				"resources/skins.minerva.tablet.styles/styles.less"
 			]
@@ -171,7 +167,6 @@
 		"skins.minerva.icons.images.scripts": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
-			"position": "bottom",
 			"images": {
 				"download": "resources/skins.minerva.icons.images.scripts/download.svg"
 			}
@@ -181,7 +176,6 @@
 				"mobile",
 				"desktop"
 			],
-			"position": "top",
 			"styles": [
 				"resources/skins.minerva.mainPage.styles/common.less"
 			]
@@ -237,7 +231,6 @@
 				"skins.minerva.mainMenu.styles",
 				"mobile.startup"
 			],
-			"position": "bottom",
 			"templates": {
 				"menu.hogan": "resources/skins.minerva.mainMenu/menu.mustache",
 				"menuGroup.hogan": "resources/skins.minerva.mainMenu/menuGroup.mustache"
@@ -294,7 +287,6 @@
 				"mobile",
 				"desktop"
 			],
-			"position": "top",
 			"dependencies": [
 				"skins.minerva.mainMenu"
 			],
