@@ -14,6 +14,7 @@
 	"minerva-pointer-dismiss": "খারিজ",
 	"mobile-frontend-editor-disabled": "ধ্বংসপ্রবণতা রোধে এই পাতাটি সুরক্ষিত করা হয়েছে।",
 	"mobile-frontend-editor-edit": "সম্পাদনা",
+	"minerva-download": "ডাউনলোড করুন",
 	"mobile-frontend-editor-redlink-create": "পাতা তৈরি করুন",
 	"mobile-frontend-editor-redlink-explain": "এই পাতাটি এখনো তৈরি করা করা হয় নি।",
 	"mobile-frontend-editor-redlink-leave": "না, ধন্যবাদ।",
@@ -57,5 +58,9 @@
 	"mobile-frontend-user-page-talk": "আলাপ",
 	"mobile-frontend-user-page-uploads": "আপলোড",
 	"skinname-minerva": "মিনের্ভা",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী"
+	"minerva-skin-desc": "একটি প্রতিক্রিয়াশীল মোবাইল আবরণ",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "পাতাগুলির বিষয়শ্রেণী দেখুন",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "শীর্ষে ঝাঁপ দিন",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়"
 }

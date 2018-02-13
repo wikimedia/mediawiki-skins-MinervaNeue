@@ -19,5 +19,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "แก้ไขส่วนนำของหน้านี้",
 	"mobile-frontend-placeholder": "ค้นหา{{SITENAME}}",
 	"mobile-frontend-random-button": "สุ่ม",
-	"mobile-frontend-user-button-tooltip": "แสดงประกาศของฉัน"
+	"mobile-frontend-user-button-tooltip": "แสดงประกาศของฉัน",
+	"mobile-frontend-user-page-talk": "คุย"
 }
