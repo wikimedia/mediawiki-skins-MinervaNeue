@@ -184,8 +184,7 @@
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-mf-{name}:before, .mw-ui-icon-{name}:before",
 			"images": {
-				"talk": "resources/skins.minerva.userpage.icons/talk.svg",
-				"userpage": "resources/skins.minerva.userpage.icons/userpage.svg"
+				"talk": "resources/skins.minerva.userpage.icons/talk.svg"
 			}
 		},
 		"skins.minerva.userpage.styles": {

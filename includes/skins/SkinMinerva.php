@@ -1452,6 +1452,9 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		];
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
+		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
+			$styles[] = 'skins.minerva.userpage.styles';
+			$styles[] = 'skins.minerva.userpage.icons';
 		}
 
 		return $styles;

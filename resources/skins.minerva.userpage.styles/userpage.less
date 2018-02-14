@@ -1,16 +1,5 @@
-/*
-FIXME: Remove file and module (and skins.minerva.userpage.icons)
-when mobile.userpage.icons everywhere (T182162)
-*/
-
 @import 'minerva.variables';
 @import 'minerva.mixins';
-
-.tagline {
-	color: @colorGray5;
-	font-size: 0.8em;
-	margin: 10px 0;
-}
 
 .user-links {
 	margin: 15px 0 0 0;
@@ -30,34 +19,5 @@ when mobile.userpage.icons everywhere (T182162)
 			// FIXME: this shouldn't be necessary
 			margin-right: 0.5em;
 		}
-	}
-}
-
-.cta-holder {
-	background-color: @colorGray14;
-	.box-sizing( border-box );
-	padding: 30px 20px;
-	text-align: center;
-	border-radius: @borderRadius;
-
-	.icon {
-		margin: 0 auto 20px;
-		opacity: 0.2;
-	}
-
-	// be specific in order to override default padding
-	.content & h3 {
-		font-size: 1em;
-		font-family: sans-serif;
-		padding: 0 0 10px;
-	}
-
-	.desc {
-		color: @colorGray7;
-		margin-bottom: 20px;
-	}
-
-	.disabled {
-		visibility: hidden;
 	}
 }
