@@ -61,5 +61,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Присоединился|Присоединилась}} $1",
 	"mobile-frontend-user-page-talk": "Обсуждение",
 	"mobile-frontend-user-page-uploads": "Загрузки",
-	"minerva-skin-desc": "Первая адаптивная мобильная тема оформления."
+	"minerva-skin-desc": "Первая адаптивная мобильная тема оформления.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Посмотреть категории страниц",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти наверх",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки"
 }
