@@ -8,7 +8,7 @@ use MediaWiki\Minerva\MenuEntry;
 /**
  * @group MinervaNeue
  */
-class MenuTest extends \PHPUnit_Framework_TestCase {
+class MenuTest extends \PHPUnit\Framework\TestCase {
 	private $homeComponent = [
 		'text' => 'Home',
 		'href' => '/Main_page',
