@@ -503,7 +503,7 @@
 		}
 	},
 	"descriptionmsg": "minerva-skin-desc",
-	"license-name": "GPL-2.0+",
+	"license-name": "GPL-2.0-or-later",
 	"manifest_version": 1,
 	"name": "MinervaNeue",
 	"namemsg": "skinname-minerva",
