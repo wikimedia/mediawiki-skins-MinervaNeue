@@ -57,5 +57,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pridružio|Pridružila|Pridružili ste}} se $1",
 	"mobile-frontend-user-page-talk": "Razgovor",
 	"mobile-frontend-user-page-uploads": "Datoteke",
-	"minerva-skin-desc": "Učinkovit izgled stvoren prvenstveno za mobilnu uporabu"
+	"minerva-skin-desc": "Učinkovit izgled stvoren prvenstveno za mobilnu uporabu",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vidi kategorije na stranicama",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Skoči na vrh",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Skok na vrh trenutačne stranice uz pomoć plutajućeg dugmeta"
 }
