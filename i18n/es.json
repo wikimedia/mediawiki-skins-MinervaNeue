@@ -64,5 +64,7 @@
 	"mobile-frontend-user-page-talk": "Discusión",
 	"mobile-frontend-user-page-uploads": "Cargas",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ir al principio",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al inicio de la página actual mediante un botón flotante"
 }

@@ -62,5 +62,9 @@
 	"mobile-frontend-user-page-talk": "Diskusjon",
 	"mobile-frontend-user-page-uploads": "Opplastinger",
 	"skinname-minerva": "MinervaNeue",
-	"minerva-skin-desc": "Ei responsiv drakt for mobil-først."
+	"minerva-skin-desc": "Ei responsiv drakt for mobil-først.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vis kategoriene til sider",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå til toppen",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå til toppen av siden med en flytende knapp"
 }
