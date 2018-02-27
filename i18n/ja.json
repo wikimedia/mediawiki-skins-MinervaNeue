@@ -62,6 +62,7 @@
 	"mobile-frontend-user-page-member-since": "$1に{{GENDER:$2|参加}}",
 	"mobile-frontend-user-page-talk": "トーク",
 	"mobile-frontend-user-page-uploads": "アップロード",
+	"minerva-skin-desc": "最初のモバイル機器用外装",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "トップへ移動",
