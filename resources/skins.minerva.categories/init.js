@@ -10,6 +10,9 @@
 
 		loader.loadModule( 'mobile.categories.overlays', true ).done( function ( loadingOverlay ) {
 			var CategoryOverlay = M.require( 'mobile.categories.overlays/CategoryOverlay' );
+			M.on( 'category-added', function () {
+				window.location.hash = '#/categories';
+			} );
 
 			loadingOverlay.hide();
 			result.resolve( new CategoryOverlay( {
