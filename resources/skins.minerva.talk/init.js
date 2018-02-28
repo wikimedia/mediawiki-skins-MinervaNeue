@@ -40,6 +40,8 @@
 			talkOptions = {
 				api: new mw.Api(),
 				title: title,
+				// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of spaces.
+				currentPageTitle: M.getCurrentPage().title,
 				licenseMsg: skin.getLicenseMsg()
 			};
 
