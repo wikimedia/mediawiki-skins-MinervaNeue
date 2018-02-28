@@ -22,8 +22,7 @@ The following configuration options will apply only to the default mobile skin -
 
 #### $wgMinervaAlwaysShowLanguageButton
 
-Whether to show the language switcher button even if no languages are available
-for the page.
+Whether to show the language switcher button even if no languages are available for the page.
 
 * Type: `Boolean`
 * Default: `true`
@@ -93,12 +92,3 @@ Example with fallback URL:
 
 * Type: `Array`
 * Default: `[]`
-
-#### $wgMinervaAlwaysShowLanguageButton
-
-Whether to show the language switcher button even if no languages are available for the page.
-
-* Type: `Boolean`
-* Default: `true`
-
-
