@@ -5,6 +5,8 @@
 			"Pikne"
 		]
 	},
+	"minerva-last-modified-date": "Lehekülje viimane muutmine: $1, $2",
+	"minerva-talk-add-topic": "Lisa arutelu",
 	"mobile-frontend-cookies-required": "Et vaaterežiimi vahetada, on vaja küpsiseid. Palun luba need ja proovi uuesti.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Sinu kontol on redigeerimine blokeeritud. Blokeerinud $2 järgmise põhjendusega: $1",
 	"mobile-frontend-editor-cta": "Aita seda lehekülge täiustada!",
@@ -49,5 +51,9 @@
 	"mobile-frontend-user-page-contributions": "Kaastöö",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Registreerunud}}: $1",
 	"mobile-frontend-user-page-talk": "Arutelu",
-	"mobile-frontend-user-page-uploads": "Üleslaadimised"
+	"mobile-frontend-user-page-uploads": "Üleslaadimised",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategooriad",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näita lehekülgede kategooriaid.",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Siirdu üles",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Kasuta ujuvnuppu, et siirduda praeguse lehekülje algusesse."
 }
