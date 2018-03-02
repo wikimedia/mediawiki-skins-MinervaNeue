@@ -244,6 +244,7 @@
 				"desktop"
 			],
 			"dependencies": [
+				"jquery.cookie",
 				"mobile.init",
 				"skins.minerva.icons.images.scripts",
 				"skins.minerva.scripts.top",
