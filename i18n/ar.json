@@ -10,7 +10,8 @@
 			"Shbib Al-Subaie",
 			"ديفيد",
 			"زكريا",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"علاء"
 		]
 	},
 	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، في $2",
@@ -43,7 +44,7 @@
 	"mobile-frontend-main-menu-logout": "اخرج",
 	"mobile-frontend-main-menu-nearby": "بالقرب من هنا",
 	"mobile-frontend-main-menu-settings": "الإعدادات",
-	"mobile-frontend-main-menu-watchlist": "قائمة مراقبتي",
+	"mobile-frontend-main-menu-watchlist": "قائمة المراقبة",
 	"mobile-frontend-meta-data-issues": "مشاكل الصفحة",
 	"mobile-frontend-meta-data-issues-categories": "عن هذا التصنيف",
 	"mobile-frontend-meta-data-issues-header": "مشاكل",

@@ -63,5 +63,6 @@
 	"mobile-frontend-user-page-contributions": "مشارکت‌ها",
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|عضو شد}}",
 	"mobile-frontend-user-page-talk": "بحث",
-	"mobile-frontend-user-page-uploads": "بارگذاری"
+	"mobile-frontend-user-page-uploads": "بارگذاری",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها"
 }
