@@ -19,7 +19,15 @@
 	 */
 	function onClickImage( ev ) {
 		ev.preventDefault();
-		router.navigate( '#/media/' + encodeURIComponent( $( this ).data( 'thumb' ).getFileName() ) );
+		routeThumbnail( $( this ).data( 'thumb' ) );
+	}
+
+	/**
+	 * @param {jQuery.Element} thumbnail
+	 * @ignore
+	 */
+	function routeThumbnail( thumbnail ) {
+		router.navigate( '#/media/' + encodeURIComponent( thumbnail.getFileName() ) );
 	}
 
 	/**
@@ -98,12 +106,27 @@
 			return $.Deferred().reject();
 		} else {
 			return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
-				var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' );
-				return new ImageOverlay( {
-					api: new mw.Api(),
-					thumbnails: thumbs,
-					title: decodeURIComponent( title )
+				var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' ),
+					imageOverlay = new ImageOverlay( {
+						api: new mw.Api(),
+						thumbnails: thumbs,
+						title: decodeURIComponent( title )
+					} );
+				imageOverlay.on( ImageOverlay.EVENT_EXIT, function ( ev ) {
+					// Prevent going back in browser's history.
+					// See T94188 & T94363.
+					ev.preventDefault();
+					ev.stopPropagation();
+					// Manually close the overlay (OverlayManager does not expose a method
+					// to hide the active overlay).
+					imageOverlay.hide();
+					// Update the URL by clearing fragment.
+					router.navigate( '' );
 				} );
+				imageOverlay.on( ImageOverlay.EVENT_SLIDE, function ( nextThumbnail ) {
+					routeThumbnail( nextThumbnail );
+				} );
+				return imageOverlay;
 			} );
 		}
 	}
