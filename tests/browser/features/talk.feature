@@ -12,7 +12,7 @@ Feature: Talk
     When I click the talk button
     Then I should see the talk overlay
 
-  @login
+  @login @integration
   Scenario: Talk on a page that doesn't exist (bug 64268)
     Given I am logged into the mobile website
       And I am on a page that does not exist
