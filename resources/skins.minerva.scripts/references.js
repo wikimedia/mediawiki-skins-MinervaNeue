@@ -2,6 +2,9 @@
 	var drawer,
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		page = M.getCurrentPage(),
+		router = require( 'mediawiki.router' ),
+		util = M.require( 'mobile.startup/util' ),
+		ReferencesGateway = M.require( 'mobile.references.gateway/ReferencesGateway' ),
 		ReferencesMobileViewGateway = M.require(
 			'mobile.references.gateway/ReferencesMobileViewGateway'
 		),
@@ -40,7 +43,7 @@
 	 * @param {Page} page
 	 */
 	function showReference( ev, drawer, page ) {
-		var urlComponents,
+		var urlComponents, result,
 			$dest = $( ev.currentTarget ),
 			href = $dest.attr( 'href' );
 
@@ -52,7 +55,16 @@
 		if ( urlComponents.length > 1 ) {
 			href = '#' + urlComponents[1];
 		}
-		drawer.showReference( href, page, $dest.text() );
+		result = drawer.showReference( href, page, $dest.text() );
+		// Previously showReference method returns nothing so we check its truthy
+		// Can be removed when I5a7b23f60722eb5017a85c68f38844dd460f8b63 is merged.
+		if ( result ) {
+			result.then( util.noop, function ( err ) {
+				if ( err === ReferencesGateway.ERROR_NOT_EXIST ) {
+					router.navigate( href );
+				}
+			} );
+		}
 
 		// don't hide drawer (stop propagation of click) if it is already shown
 		// (e.g. click another reference)

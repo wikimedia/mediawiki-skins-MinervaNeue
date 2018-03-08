@@ -27,6 +27,10 @@
 			options.title = $el.find( 'a' ).attr( 'title' );
 			options.url = $el.find( 'a' ).attr( 'href' );
 			count = Number( $el.find( 'span' ).data( 'notification-count' ) );
+			options.onError = function () {
+				// FIXME: Blocked on T189173. Ideally we'd use the router here.
+				window.location.href = this.getNotificationURL();
+			}.bind( this );
 		}
 		View.call( this, options );
 		this.url = options.url;
