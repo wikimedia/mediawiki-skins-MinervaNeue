@@ -287,7 +287,7 @@ class MinervaTemplate extends BaseTemplate {
 			// which is problematic in Opera Mini (see T140490)
 			'searchButton' => Html::rawElement( 'button', [
 				'id' => 'searchIcon',
-				'class' => MinervaUI::iconClass( 'magnifying-glass', 'element' ),
+				'class' => MinervaUI::iconClass( 'magnifying-glass', 'element', 'skin-minerva-search-trigger' ),
 			], wfMessage( 'searchbutton' ) ),
 			'secondaryButtonData' => $data['secondaryButtonData'],
 			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
