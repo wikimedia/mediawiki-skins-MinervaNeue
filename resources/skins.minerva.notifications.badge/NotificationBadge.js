@@ -14,6 +14,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} options Configuration options
+	 * @module skins.minerva.notifications/NotificationBadge
 	 */
 	function NotificationBadge( options ) {
 		var $el,

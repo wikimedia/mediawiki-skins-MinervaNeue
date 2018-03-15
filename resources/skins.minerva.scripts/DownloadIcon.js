@@ -36,6 +36,7 @@
 	 * @param {Number[]} [supportedNamespaces]
 	 * @param {Window} [windowObj] window object
 	 * @constructor
+	 * @module skins.minerva.scripts/DownloadIcon
 	 */
 	function DownloadIcon( skin, supportedNamespaces, windowObj ) {
 		var options = {};

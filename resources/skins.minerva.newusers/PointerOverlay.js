@@ -6,6 +6,7 @@
 	/**
 	 * Page overlay prompting a user for given action
 	 * @class PointerOverlay
+	 * @module skins.minerva.newusers/PointerOverlay
 	 */
 	function PointerOverlay() {
 		Overlay.apply( this, arguments );

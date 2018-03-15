@@ -6,6 +6,7 @@
 	 * Displays a little arrow at the bottom right of the viewport.
 	 * @class BackToTopOverlay
 	 * @extends View
+	 * @module skins.minerva.backtotop/BackToTopOverlay
 	 */
 	function BackToTopOverlay() {
 		View.apply( this, arguments );

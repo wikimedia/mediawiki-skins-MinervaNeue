@@ -2,7 +2,7 @@
 	"private": true,
 	"scripts": {
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
-		"doc": "jsduck"
+		"doc": "jsdoc -c jsdoc.json"
 	},
 	"dependencies": {
 		"jsdoc": "3.5.5",
