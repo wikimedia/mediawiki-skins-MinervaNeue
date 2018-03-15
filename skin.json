@@ -168,6 +168,14 @@
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"images": {
+				"issue-speedy": "resources/skins.minerva.icons.images.scripts/issue-speedy.svg",
+				"issue-delete": "resources/skins.minerva.icons.images.scripts/issue-delete.svg",
+				"issue-protection": "resources/skins.minerva.icons.images.scripts/issue-protection.svg",
+				"issue-default": "resources/skins.minerva.icons.images.scripts/issue-default.svg",
+				"issue-pov": "resources/skins.minerva.icons.images.scripts/issue-pov.svg",
+				"issue-style": "resources/skins.minerva.icons.images.scripts/issue-style.svg",
+				"issue-content": "resources/skins.minerva.icons.images.scripts/issue-content.svg",
+				"issue-move": "resources/skins.minerva.icons.images.scripts/issue-move.svg",
 				"download": "resources/skins.minerva.icons.images.scripts/download.svg"
 			}
 		},
@@ -279,6 +287,7 @@
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
 				"resources/skins.minerva.scripts/references.js",
+				"resources/skins.minerva.scripts/utils.js",
 				"resources/skins.minerva.scripts/cleanuptemplates.js"
 			]
 		},

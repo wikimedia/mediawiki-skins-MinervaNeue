@@ -91,9 +91,11 @@ class MinervaHooks {
 			'targets' => [ 'mobile', 'desktop' ],
 			'scripts' => [
 				// additional scaffolding (minus initialisation scripts)
+				'resources/skins.minerva.scripts/utils.js',
 				'resources/skins.minerva.scripts/DownloadIcon.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/test_DownloadIcon.js',
+				'tests/qunit/skins.minerva.scripts/test_utils.js',
 				'tests/qunit/skins.minerva.notifications.badge/test_NotificationBadge.js'
 			],
 		];

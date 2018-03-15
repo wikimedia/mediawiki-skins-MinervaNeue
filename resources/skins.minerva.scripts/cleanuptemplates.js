@@ -3,6 +3,8 @@
 	( function () {
 		var action = mw.config.get( 'wgAction' ),
 			page = M.getCurrentPage(),
+			getIconFromAmbox = M.require( 'skins.minerva.scripts/utils' )
+				.getIconFromAmbox,
 			overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 			CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' );
 
@@ -11,7 +13,10 @@
 		 * friendly for mobile display.
 		 * @param {Object} $box element to extract the message from
 		 * @ignore
-		 * @return {string} html of message.
+		 * @typedef {object} IssueSummary
+		 * @prop {string} icon HTML string.
+		 * @prop {string} text HTML string.
+		 * @return {IssueSummary}
 		 */
 		function extractMessage( $box ) {
 			var selector = '.mbox-text, .ambox-text',
@@ -28,7 +33,10 @@
 					$( '<p>' ).html( contents ).appendTo( $container );
 				}
 			} );
-			return $container.html();
+			return {
+				icon: getIconFromAmbox( $box ).toHtmlString(),
+				text: $container.html()
+			};
 		}
 
 		/**
@@ -61,16 +69,12 @@
 			$metadata.find( '.NavFrame' ).remove();
 
 			$metadata.each( function () {
-				var content,
+				var issue,
 					$this = $( this );
 
 				if ( $this.find( selector ).length === 0 ) {
-					content = extractMessage( $this );
-					if ( content ) {
-						issues.push( {
-							text: content
-						} );
-					}
+					issue = extractMessage( $this );
+					issues.push( issue );
 				}
 			} );
 
