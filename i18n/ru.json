@@ -7,7 +7,8 @@
 			"Okras",
 			"Ole Yves",
 			"Redredsonia",
-			"Kareyac"
+			"Kareyac",
+			"Patrick Star"
 		]
 	},
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
@@ -43,7 +44,7 @@
 	"mobile-frontend-main-menu-watchlist": "Список наблюдения",
 	"mobile-frontend-meta-data-issues": "Вопросы по странице",
 	"mobile-frontend-meta-data-issues-categories": "Об этой категории",
-	"mobile-frontend-meta-data-issues-header": "Вопросы",
+	"mobile-frontend-meta-data-issues-header": "Вопросы по странице",
 	"mobile-frontend-meta-data-issues-header-talk": "Об этой странице",
 	"mobile-frontend-meta-data-issues-talk": "Об этой странице обсуждения",
 	"mobile-frontend-notifications-filter": "Фильтр",
