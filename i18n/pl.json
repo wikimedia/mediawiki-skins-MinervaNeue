@@ -6,10 +6,14 @@
 			"Mateuszek045",
 			"Matma Rex",
 			"WTM",
-			"Woytecr"
+			"Woytecr",
+			"Railfail536"
 		]
 	},
 	"minerva-last-modified-date": "Ostatnio edytowano $1 o $2",
+	"minerva-talk-add-topic": "Dodaj nowy wątek w dyskusji",
+	"mobile-frontend-cookies-required": "Pliki cookies są niezbędne do przełączania trybu wyświetlania. Włącz je i spróbuj ponownie.",
+	"mobile-frontend-editor-blocked-info-loggedin": "Twoje konto zostało zablokowane i nie możesz wykonywać edycji. Blokada została nałożona przez {{GENDER:$2|$2}} z podanego powodu: $1",
 	"mobile-frontend-editor-cta": "Pomóż ulepszyć tę stronę!",
 	"minerva-pointer-dismiss": "Odrzuć",
 	"mobile-frontend-editor-disabled": "Ta strona jest zabezpieczona, aby zapobiec wandalizmom.",
@@ -39,7 +43,7 @@
 	"mobile-frontend-main-menu-watchlist": "Obserwowane",
 	"mobile-frontend-meta-data-issues": "Problemy ze stroną",
 	"mobile-frontend-meta-data-issues-categories": "O tej kategorii",
-	"mobile-frontend-meta-data-issues-header": "Problemy",
+	"mobile-frontend-meta-data-issues-header": "Problemy ze stroną",
 	"mobile-frontend-meta-data-issues-header-talk": "O tej stronie",
 	"mobile-frontend-meta-data-issues-talk": "O tej stronie dyskusji",
 	"mobile-frontend-notifications-filter": "Filtruj",
@@ -57,5 +61,10 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Dołączył|Dołączyła}} $1",
 	"mobile-frontend-user-page-talk": "Dyskusja",
 	"mobile-frontend-user-page-uploads": "Przesłane pliki",
-	"skinname-minerva": "Minerwa"
+	"skinname-minerva": "Minerwa",
+	"minerva-skin-desc": "Pierwsza responsywna skórka mobilna",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobacz kategorie stron",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Przejdź na górę strony",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Przejdź na górę bieżącej strony używając ruchomego przycisku"
 }
