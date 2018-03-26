@@ -33,3 +33,5 @@ $wgMFDisplayWikibaseDescriptions = [
 	'watchlist' => true,
 	'tagline' => true,
 ];
+
+$wgMinervaShowCategoriesButton['base'] = true;
