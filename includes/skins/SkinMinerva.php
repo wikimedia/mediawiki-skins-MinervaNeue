@@ -26,8 +26,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	public $skinname = 'minerva';
 	/** @var string $template Name of this used template */
 	public $template = 'MinervaTemplate';
-	/** @var bool $useHeadElement Specify whether show head elements */
-	public $useHeadElement = true;
 	/** @var ContentHandler Content handler of page; only access through getContentHandler */
 	protected $contentHandler = null;
 	/** @var bool Whether the page is also available in other languages or variants */
