@@ -2,9 +2,18 @@
 @import 'minerva.variables.less';
 @import 'minerva.mixins.less';
 
+/**
+ * Note that certain links may not have an href selector if they point to the page
+ * you are on. It is particularly important on wikis for example inside navbox's that these
+ * links can be differentiated from other links. Thus we only apply the linkColor to links with href
+ * attributes.
+*/
+a[href] {
+	color: @linkColor;
+}
+
 a {
 	text-decoration: none;
-	color: @linkColor;
 
 	&:visited {
 		color: #5a3696;
