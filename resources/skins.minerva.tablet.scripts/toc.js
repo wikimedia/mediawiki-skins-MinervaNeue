@@ -12,24 +12,21 @@
 	function init( page ) {
 		var toc,
 			sections = page.getSections(),
-			$toc = $( '#toc' ),
-			enableToc = mw.config.get( 'wgMinervaTocEnabled' );
+			$toc = $( '#toc' );
 
-		if ( enableToc ) {
-			toc = new TableOfContents( {
-				sections: sections
-			} );
+		toc = new TableOfContents( {
+			sections: sections
+		} );
 
-			// eslint-disable-next-line no-new
-			new Toggler( toc.$el, 'toc-', null, true );
-			// if there is a toc already, replace it
-			if ( $toc.length > 0 ) {
-				// don't show toc at end of page, when no sections there
-				$toc.replaceWith( toc.$el );
-			} else {
-				// otherwise append it to the lead section
-				toc.appendTo( page.getLeadSectionElement() );
-			}
+		// eslint-disable-next-line no-new
+		new Toggler( toc.$el, 'toc-', null, true );
+		// if there is a toc already, replace it
+		if ( $toc.length > 0 ) {
+			// don't show toc at end of page, when no sections there
+			$toc.replaceWith( toc.$el );
+		} else {
+			// otherwise append it to the lead section
+			toc.appendTo( page.getLeadSectionElement() );
 		}
 	}
 
