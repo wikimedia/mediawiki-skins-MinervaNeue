@@ -298,7 +298,8 @@
 					popup.show(
 						mw.msg(
 							'mobile-frontend-editor-blocked-info-loggedin',
-							blockInfo.blockReason,
+							// Strip any html in the blockReason.
+							$( '<div />' ).html( blockInfo.blockReason ).text(),
 							blockInfo.blockedBy
 						),
 						{
