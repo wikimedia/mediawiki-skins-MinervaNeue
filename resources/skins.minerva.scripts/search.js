@@ -1,5 +1,6 @@
 ( function ( M, $ ) {
-	var SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
+	var placeholder = $( '#searchInput' ).attr( 'placeholder' ),
+		SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
 		SearchGateway = M.require( 'mobile.search.api/SearchGateway' ),
 		router = require( 'mediawiki.router' ),
 		searchLogger = M.require( 'mobile.search/MobileWebSearchLogger' );
@@ -13,8 +14,7 @@
 	function openSearchOverlay( ev ) {
 		var overlay,
 			$this = $( this ),
-			searchTerm = $this.val(),
-			placeholder = $this.attr( 'placeholder' );
+			searchTerm = $this.val();
 
 		ev.preventDefault();
 		// The loading of SearchOverlay should never be done inside a callback
