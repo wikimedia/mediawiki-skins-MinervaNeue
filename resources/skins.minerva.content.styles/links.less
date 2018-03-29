@@ -8,12 +8,14 @@
  * links can be differentiated from other links. Thus we only apply the linkColor to links with href
  * attributes.
 */
-a[href] {
-	color: @linkColor;
+/* stylelint-disable no-descending-specificity */
+a:not( [href] ) {
+	color: @colorGray2;
 }
 
 a {
 	text-decoration: none;
+	color: @linkColor;
 
 	&:visited {
 		color: #5a3696;
