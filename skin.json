@@ -9,6 +9,7 @@
 		"ICustomizableSkin": "includes/skins/ICustomizableSkin.php",
 		"MediaWiki\\Minerva\\MenuBuilder": "includes/skins/MenuBuilder.php",
 		"MediaWiki\\Minerva\\MenuEntry": "includes/skins/MenuBuilder.php",
+		"MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule": "includes/ResourceLoaderLessVarFileModule.php",
 		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
 	},
 	"ConfigRegistry": {
@@ -26,9 +27,6 @@
 		],
 		"SpecialPageBeforeExecute": [
 			"MinervaHooks::onSpecialPageBeforeExecute"
-		],
-		"ResourceLoaderGetLessVars": [
-			"MinervaHooks::onResourceLoaderGetLessVars"
 		]
 	},
 	"MessagesDirs": {
@@ -117,6 +115,7 @@
 			]
 		},
 		"skins.minerva.content.styles": {
+			"class": "MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule",
 			"targets": [
 				"mobile",
 				"desktop"
@@ -126,6 +125,7 @@
 			]
 		},
 		"skins.minerva.tablet.styles": {
+			"class": "MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule",
 			"targets": [
 				"mobile",
 				"desktop"
