@@ -1,20 +1,15 @@
 // Additional Styles for no-js editing mode
 @import 'minerva.mixins';
 
-#wpTextbox1 {
-	border: 1px solid @colorGray12;
-}
+.mw-editform {
+	.editHelp, .cancelLink {
+		display: none;
+	}
 
-.editHelp, .cancelLink {
-	display: none;
-}
-
-.editButtons input, .editButtons a {
-	margin-top: 10px;
-}
-
-textarea.mw-ui-input {
-	max-height: 14em;
+	> #wpTextbox1 {
+		border: 1px solid @colorGray12;
+		max-height: 70vh;
+	}
 }
 
 .action-submit,
@@ -30,12 +25,11 @@ textarea.mw-ui-input {
 		font-weight: bold;
 	}
 
-	.editCheckboxes {
-		margin-top: 8px;
-	}
-
 	#mw-anon-edit-warning {
 		padding: 8px;
+		> p {
+			margin: 0;
+		}
 	}
 
 	// Parsing information doesn't need to be so big
