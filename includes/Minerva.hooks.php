@@ -13,21 +13,6 @@ use MediaWiki\MediaWikiServices;
 
 class MinervaHooks {
 	/**
-	 * ResourceLoaderGetLessVars hook handler
-	 *
-	 * Add the context-based less variables.
-	 *
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderGetLessVars
-	 * @param array &$lessVars Variables already added
-	 */
-	public static function onResourceLoaderGetLessVars( &$lessVars ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'minerva' );
-
-		$lessVars['wgMinervaApplyKnownTemplateHacks'] = $config->get( 'MinervaApplyKnownTemplateHacks' );
-	}
-
-	/**
 	 * Register mobile web beta features
 	 * @see https://www.mediawiki.org/wiki/
 	 *  Extension:MobileFrontend/MobileFrontendFeaturesRegistration
