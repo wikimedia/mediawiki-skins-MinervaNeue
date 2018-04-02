@@ -138,6 +138,9 @@
 			"ext.echo.styles.special": [
 				"skinStyles/ext.echo.styles.special/SpecialNotificationsOverlay.less"
 			],
+			"mediawiki.editfont.styles": [
+				"skinStyles/mediawiki.editfont.styles/minerva.css"
+			],
 			"mediawiki.notification": [
 				"skinStyles/mobile.startup/toast.less"
 			],
