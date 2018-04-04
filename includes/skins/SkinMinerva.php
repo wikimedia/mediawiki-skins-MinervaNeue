@@ -214,7 +214,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		}
 
 		if ( $action === 'edit' ) {
-			return $this->isCurrentPageContentModelEditable();
+			return $this->isCurrentPageContentModelEditable() &&
+				!$this->getUser()->isBlockedFrom( $title, true );
 		}
 
 		if ( $action === 'switch-language' ) {
@@ -1238,7 +1239,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$title = $this->getTitle();
 		$user = $this->getUser();
 		return $title->quickUserCan( 'edit', $user )
-			&& ( $title->exists() || $title->quickUserCan( 'create', $user ) );
+			&& ( $title->exists() || $title->quickUserCan( 'create', $user ) )
+			&& !$user->isBlockedFrom( $title, true );
 	}
 
 	/**
