@@ -1,36 +1,12 @@
 ( function ( M, $ ) {
-	var placeholder = $( '#searchInput' ).attr( 'placeholder' ),
-		SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
+	var SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
 		SearchGateway = M.require( 'mobile.search.api/SearchGateway' ),
-		router = require( 'mediawiki.router' ),
-		searchLogger = M.require( 'mobile.search/MobileWebSearchLogger' );
-
-	/**
-	 * Reveal the search overlay
-	 * @param {jQuery.Event} ev
-	 * @event mobilefrontend.searchModule
-	 * @ignore
-	 */
-	function openSearchOverlay( ev ) {
-		var overlay,
-			$this = $( this ),
-			searchTerm = $this.val();
-
-		ev.preventDefault();
-		// The loading of SearchOverlay should never be done inside a callback
-		// as this will result in issues with input focus
-		// see https://phabricator.wikimedia.org/T156508#2977463
-		overlay = new SearchOverlay( {
-			router: router,
-			gatewayClass: SearchGateway,
-			api: new mw.Api(),
-			searchTerm: searchTerm,
-			placeholderMsg: placeholder
-		} );
-		searchLogger.register( overlay );
-		overlay.show();
-		router.navigate( '/search' );
-	}
+		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		searchLogger = M.require( 'mobile.search/MobileWebSearchLogger' ),
+		searchInput = $( '#searchInput' ),
+		placeholder = searchInput.attr( 'placeholder' ),
+		searchRoute = new RegExp( /\/search/ ),
+		searchOverlayInstance;
 
 	// Only continue on mobile devices as it breaks desktop search
 	// See https://phabricator.wikimedia.org/T108432
@@ -38,13 +14,60 @@
 		return;
 	}
 
-	// don't use focus event (https://bugzilla.wikimedia.org/show_bug.cgi?id=47499)
-	//
-	// focus() (see SearchOverlay#show) opens virtual keyboard only if triggered
-	// from user context event, so using it in route callback won't work
-	// http://stackoverflow.com/questions/6837543/show-virtual-keyboard-on-mobile-phones-in-javascript
-	$( '#searchInput, #searchIcon, .skin-minerva-search-trigger' ).on( 'click', openSearchOverlay )
-		// Apparently needed for main menu to work correctly.
-		.prop( 'readonly', true );
+	/**
+	 * Hide the search overlay on pageload before the search route
+	 * is registered with the overlayManager.
+	 * Allows the usage of history.back() to close searchOverlay by
+	 * preventing the situation described in https://phabricator.wikimedia.org/T102946
+	 */
+	function removeSearchOnPageLoad() {
+		if ( searchRoute.test( overlayManager.router.getPath() ) ) {
+			// TODO: replace when router supports replaceState https://phabricator.wikimedia.org/T189173
+			history.replaceState( '', document.title, window.location.pathname );
+		}
+	}
+
+	function getSearchOverlay() {
+		if ( !searchOverlayInstance ) {
+			searchOverlayInstance = new SearchOverlay( {
+				router: overlayManager.router,
+				gatewayClass: SearchGateway,
+				api: new mw.Api(),
+				searchTerm: searchInput.val(),
+				placeholderMsg: placeholder
+			} );
+			searchLogger.register( searchOverlayInstance );
+		}
+		return searchOverlayInstance;
+	}
+
+	removeSearchOnPageLoad();
+	overlayManager.add( searchRoute, getSearchOverlay );
+
+	// Apparently needed for main menu to work correctly.
+	$( '#searchInput, #searchIcon, .skin-minerva-search-trigger' ).prop( 'readonly', true );
+
+	/**
+	 * Trigger overlay on touchstart so that the on-screen keyboard on iOS
+	 * can be triggered immidiately after on touchend. The keyboard can't be
+	 * triggered unless the element is already visible.
+	 * Touchstart makes the overlay visible, touchend brings up the keyboard afterwards.
+	 */
+	$( '#searchInput, #searchIcon, .skin-minerva-search-trigger' ).on( 'touchstart click', function ( ev ) {
+		ev.preventDefault();
+		overlayManager.router.navigate( '/search' );
+	} );
+
+	$( '#searchInput, #searchIcon, .skin-minerva-search-trigger' ).on( 'touchend', function ( ev ) {
+		ev.preventDefault();
+		/**
+		 * Manually triggering focus event because on-screen keyboard only
+		 * opens when `focus()` is called from a "user context event",
+		 * Calling it from the route callback above (which calls SearchOverlay#show)
+		 * doesn't work.
+		 * http://stackoverflow.com/questions/6837543/show-virtual-keyboard-on-mobile-phones-in-javascript
+		 */
+		getSearchOverlay().showKeyboard();
+	} );
 
 }( mw.mobileFrontend, jQuery ) );
