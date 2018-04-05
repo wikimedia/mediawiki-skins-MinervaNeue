@@ -3,7 +3,8 @@
 		"authors": [
 			"Albinus",
 			"Manik Soren",
-			"Ramjit Tudu"
+			"Ramjit Tudu",
+			"Fagunkoyel Hansdah"
 		]
 	},
 	"minerva-last-modified-date": "ᱢᱩᱪᱟᱹᱫ ᱥᱟᱯᱲᱟᱣ ᱟᱠᱟᱱ $1, $2 ᱨᱮ",
@@ -35,7 +36,7 @@
 	"mobile-frontend-meta-data-issues-header": "ᱥᱟᱛᱚᱢᱠᱩ",
 	"mobile-frontend-meta-data-issues-header-talk": "ᱱᱚᱣᱟ ᱥᱟᱦᱴᱟ ᱵᱟᱵᱚᱫᱽ ᱛᱮ",
 	"mobile-frontend-meta-data-issues-talk": "ᱱᱚᱣᱟ ᱨᱚᱲ ᱥᱟᱦᱴᱟ ᱵᱟᱵᱚᱫᱽ ᱛᱮ",
-	"mobile-frontend-notifications-filter": "ᱪᱟᱹᱱᱤ",
+	"mobile-frontend-notifications-filter": "ᱪᱷᱟᱹᱱᱤ",
 	"mobile-frontend-pageaction-edit-tooltip": "ᱱᱚᱣᱟ ᱥᱟᱦᱴᱟ ᱨᱮᱱᱟᱜ ᱪᱮᱛᱟᱱ ᱦᱟᱹᱴᱤᱧ ᱥᱟᱯᱲᱟᱣ ᱢᱮ",
 	"mobile-frontend-placeholder": "ᱥᱮᱸᱫᱽᱨᱟ {{SITENAME}}",
 	"mobile-frontend-random-button": "ᱟᱹᱛᱷᱟᱹᱣᱲᱤ",
