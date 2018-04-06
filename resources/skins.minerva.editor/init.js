@@ -11,6 +11,11 @@
 		Button = M.require( 'mobile.startup/Button' ),
 		Anchor = M.require( 'mobile.startup/Anchor' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
+		currentPage = M.getCurrentPage(),
+		// TODO: create a utility method to generate class names instead of
+		//       constructing temporary objects. This affects disabledEditIcon,
+		//       enabledEditIcon, enabledEditIcon, and disabledClass and
+		//       a number of other places in the code base.
 		disabledEditIcon = new Icon( {
 			name: 'edit',
 			glyphPrefix: 'minerva'
@@ -19,9 +24,12 @@
 			name: 'edit-enabled',
 			glyphPrefix: 'minerva'
 		} ),
-		currentPage = M.getCurrentPage(),
+		// TODO: move enabledClass, $caEdit, and disabledClass to locals within
+		//       updateEditPageButton().
 		enabledClass = enabledEditIcon.getGlyphClassName(),
 		disabledClass = disabledEditIcon.getGlyphClassName(),
+		// TODO: rename to editPageButton.
+		$caEdit = $( '#ca-edit' ),
 		user = M.require( 'mobile.startup/user' ),
 		popup = M.require( 'mobile.startup/toast' ),
 		// FIXME: Disable on IE < 10 for time being
@@ -35,8 +43,7 @@
 		// FIXME: Should we consider default site options and user prefs?
 		isVisualEditorEnabled = veConfig,
 		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
-		drawer,
-		$caEdit = $( '#ca-edit' );
+		drawer;
 
 	if ( user.isAnon() ) {
 		blockInfo = false;
@@ -44,6 +51,9 @@
 		// for logged in users check if they are blocked from editing this page
 		isEditable = !blockInfo;
 	}
+	// TODO: rename addEditSectionButton and evaluate whether the page edit button
+	//       can leverage the same code. Also: change the CSS class name to use
+	//       the word "section" instead of "page".
 	/**
 	 * Prepend an edit page button to the container
 	 * Remove any existing links in the container
@@ -62,6 +72,18 @@
 			} )
 			.text( mw.msg( 'mobile-frontend-editor-edit' ) )
 			.prependTo( container );
+	}
+
+	/**
+	 * @param {boolean} enabled
+	 * @return {void}
+	 */
+	function updateEditPageButton( enabled ) {
+		$caEdit
+			.addClass( enabled ? enabledClass : disabledClass )
+			.removeClass( enabled ? disabledClass : enabledClass )
+			// TODO: can hidden be removed from the default state?
+			.removeClass( 'hidden' );
 	}
 
 	/**
@@ -229,7 +251,7 @@
 
 			return result;
 		} );
-		$caEdit.addClass( enabledClass ).removeClass( disabledClass ).removeClass( 'hidden' );
+		updateEditPageButton( true );
 		// reveal edit links on user pages
 		page.$( '.edit-link' ).removeClass( 'hidden' );
 		currentPage.getRedLinks().on( 'click', function ( ev ) {
@@ -290,10 +312,11 @@
 	 */
 	function init() {
 		if ( isEditable ) {
+			// Edit button updated in setupEditor.
 			setupEditor( currentPage );
 		} else {
+			updateEditPageButton( false );
 			if ( blockInfo ) {
-				$caEdit.removeClass( 'hidden' );
 				$( '#ca-edit' ).on( 'click', function ( ev ) {
 					popup.show(
 						mw.msg(
@@ -310,7 +333,6 @@
 				} );
 				$( '.edit-page' ).detach();
 			} else {
-				$caEdit.removeClass( 'hidden' );
 				showSorryToast( mw.msg( 'mobile-frontend-editor-disabled' ) );
 			}
 		}
@@ -325,7 +347,7 @@
 		// Initialize edit button links (to show Cta) only, if page is editable,
 		// otherwise show an error toast
 		if ( isEditable ) {
-			$caEdit.addClass( enabledClass ).removeClass( disabledClass ).removeClass( 'hidden' );
+			updateEditPageButton( true );
 			// Init lead section edit button
 			makeCta( $caEdit, 0 );
 
@@ -340,7 +362,7 @@
 				makeCta( $a, section );
 			} );
 		} else {
-			$caEdit.removeClass( 'hidden' );
+			updateEditPageButton( false );
 			showSorryToast( mw.msg( 'mobile-frontend-editor-disabled' ) );
 		}
 	}
@@ -364,13 +386,15 @@
 		return;
 	} else if ( !isEditingSupported ) {
 		// Editing is disabled (or browser is blacklisted)
-		$caEdit.removeClass( 'hidden' );
+		updateEditPageButton( false );
 		showSorryToast( mw.msg( 'mobile-frontend-editor-unavailable' ) );
 	} else if ( isNewFile ) {
-		$caEdit.removeClass( 'hidden' );
+		updateEditPageButton( true );
 		// Is a new file page (enable upload image only) Bug 58311
 		showSorryToast( mw.msg( 'mobile-frontend-editor-uploadenable' ) );
 	} else {
+		// Edit button is currently hidden. A call to init() / initCta() will update
+		// it as needed.
 		if ( user.isAnon() ) {
 			// Cta's will be rendered in EditorOverlay, if anonymous editing is enabled.
 			if ( mw.config.get( 'wgMFEditorOptions' ).anonymousEditing ) {
@@ -382,5 +406,4 @@
 			init();
 		}
 	}
-
 }( mw.mobileFrontend, jQuery ) );
