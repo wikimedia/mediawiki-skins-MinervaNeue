@@ -6,7 +6,8 @@
 			"Sator",
 			"Subi",
 			"Theklan",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Fitoschido"
 		]
 	},
 	"minerva-last-modified-date": "Azken aldaketa $1(e)an, $2(e)tan",
@@ -45,7 +46,7 @@
 	"mobile-frontend-meta-data-issues-talk": "Eztabaida orrialde honi buruz",
 	"mobile-frontend-notifications-filter": "Iragazkia",
 	"mobile-frontend-pageaction-edit-tooltip": "Orrialde honetako sarrera atala editatu",
-	"mobile-frontend-placeholder": "{{SITENAME}}bilatu",
+	"mobile-frontend-placeholder": "{{SITENAME}} wikian bilatu",
 	"mobile-frontend-random-button": "Ausazkoa",
 	"mobile-frontend-redirected-from": "$1(e)tik birzuzenduta",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" fitxategira bueltatu.",
