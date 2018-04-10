@@ -3,5 +3,8 @@
  * To simplify imports in world.js.
  */
 module.exports = {
-	ArticlePage: require( './article_page' )
+	ArticlePage: require( './article_page' ),
+	SpecialHistoryPage: require( './special_history_page' ),
+	SpecialMobileDiffPage: require( './special_mobilediff_page' ),
+	DiffPage: require( './diff_page' )
 };
