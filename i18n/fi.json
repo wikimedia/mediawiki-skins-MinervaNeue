@@ -48,7 +48,7 @@
 	"mobile-frontend-main-menu-watchlist": "Tarkkailulista",
 	"mobile-frontend-meta-data-issues": "Sivun ongelmat",
 	"mobile-frontend-meta-data-issues-categories": "Tietoa tästä luokasta",
-	"mobile-frontend-meta-data-issues-header": "Ongelmat",
+	"mobile-frontend-meta-data-issues-header": "Sivun ongelmat",
 	"mobile-frontend-meta-data-issues-header-talk": "Tietoja tästä sivusta",
 	"mobile-frontend-meta-data-issues-talk": "Tietoja tästä keskustelusivusta",
 	"mobile-frontend-notifications-filter": "Suodata",
@@ -65,5 +65,6 @@
 	"mobile-frontend-user-page-contributions": "Muokkaukset",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Liittyi}} $1",
 	"mobile-frontend-user-page-talk": "Keskustelu",
-	"mobile-frontend-user-page-uploads": "Tallennukset"
+	"mobile-frontend-user-page-uploads": "Tallennukset",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat"
 }
