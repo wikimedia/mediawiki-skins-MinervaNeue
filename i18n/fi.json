@@ -17,6 +17,7 @@
 		]
 	},
 	"minerva-last-modified-date": "Viimeksi muokattu $1 kello $2",
+	"minerva-talk-add-topic": "Lisää keskustelu",
 	"mobile-frontend-cookies-required": "Näkymien vaihtaminen vaatii evästeitä. Ota evästeet selaimessa käyttöön ja yritä uudestaan.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Tunnuksesi on estetty muokkaamasta. Eston teki {{GENDER:$2|$2}} ja sen syy on: $1",
 	"mobile-frontend-editor-cta": "Auta parantamaan tätä sivua!",
@@ -66,5 +67,8 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Liittyi}} $1",
 	"mobile-frontend-user-page-talk": "Keskustelu",
 	"mobile-frontend-user-page-uploads": "Tallennukset",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näytä sivun luokat",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Hyppää alkuun",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Hyppää nykyisen sivun alkuun käyttämällä liukupainiketta"
 }

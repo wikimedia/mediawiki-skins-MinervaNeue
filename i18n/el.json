@@ -10,18 +10,23 @@
 			"Nikosgranturismogt"
 		]
 	},
+	"minerva-last-modified-date": "Τελευταία επεξεργασία στις $1, στις $2",
+	"minerva-talk-add-topic": "Προσθήκη συζήτησης",
 	"mobile-frontend-cookies-required": "Τα cookies είναι απαραίτητα για να αλλάξετε τρόπο προβολής. Παρακαλούμε ενεργοποιήστε τα και προσπαθήστε ξανά.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Ο λογαριασμός σας έχει αποκλειστεί από την επεξεργασία. Η φραγή έγινε από {{GENDER:$2|τον $2|την $2}} για τον εξής λόγο: $1",
 	"mobile-frontend-editor-cta": "Βοηθήστε στην βελτίωση αυτής της σελίδας!",
 	"minerva-pointer-dismiss": "Απόρριψη",
 	"mobile-frontend-editor-edit": "Επεξεργασία",
+	"minerva-download": "Λήψη",
+	"mobile-frontend-editor-redlink-create": "Δημιουργία σελίδας",
+	"mobile-frontend-editor-redlink-explain": "Αυτή η σελίδα δεν έχει δημιουργηθεί ακόμα.",
 	"mobile-frontend-editor-redlink-leave": "Όχι, ευχαριστώ",
 	"mobile-frontend-editor-tutorial-cancel": "Όχι, ευχαριστώ",
 	"mobile-frontend-editor-tutorial-confirm": "Ξεκινήστε την επεξεργασία",
 	"mobile-frontend-editor-tutorial-summary": "Προσπαθήστε να βελτιώσετε την σελίδα $1. <br />Μη φοβάστε τη σήμανση.",
-	"mobile-frontend-editor-uploadenable": "Παρακαλούμε να ανεβάσετε μια φωτογραφία πρώτα, για να ενεργοποιήσετε την επεξεργασία.",
-	"mobile-frontend-history": "Προβολή ιστορικού επεξεργασιών αυτή της σελίδας",
-	"mobile-frontend-home-button": "Αρχική",
+	"mobile-frontend-editor-uploadenable": "Παρακαλούμε να ανεβάσετε μια φωτογραφία πρώτα για να ενεργοποιήσετε την επεξεργασία.",
+	"mobile-frontend-history": "Προβολή ιστορικού επεξεργασιών αυτή της σελίδας.",
+	"mobile-frontend-home-button": "Αρχική σελίδα",
 	"mobile-frontend-language-article-heading": "Διαβάστε σε άλλη γλώσσα",
 	"mobile-frontend-language-change": "Αλλαγή γλώσσας",
 	"mobile-frontend-languages-not-available": "Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες.",
@@ -47,5 +52,8 @@
 	"mobile-frontend-user-newmessages": "Έχετε νέα μηνύματα στη σελίδα συζήτησής σας",
 	"mobile-frontend-user-page-contributions": "Συνεισφορές",
 	"mobile-frontend-user-page-talk": "Συζήτηση",
-	"mobile-frontend-user-page-uploads": "Επιφορτώσεις"
+	"mobile-frontend-user-page-uploads": "Επιφορτώσεις",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Κατηγορίες",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Προβολή κατηγοριών των σελίδων",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Πήδηση στη κορυφή"
 }
