@@ -142,7 +142,7 @@
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before, .mw-ui-icon-{name}:before",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"images": {
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
@@ -195,7 +195,7 @@
 		},
 		"skins.minerva.userpage.icons": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-mf-{name}:before, .mw-ui-icon-{name}:before",
+			"selector": ".mw-ui-icon-mf-{name}:before",
 			"images": {
 				"talk": "resources/skins.minerva.userpage.icons/talk.svg"
 			}
