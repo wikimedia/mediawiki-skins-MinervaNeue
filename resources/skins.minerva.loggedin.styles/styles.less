@@ -1,0 +1,73 @@
+@import 'minerva.variables';
+
+.user-button {
+	// Make sure count is positioned correctly in relation to bell icon
+	position: relative;
+
+	// can't use display:none class as icons must have a label to retain height
+	.label {
+		visibility: hidden;
+	}
+
+	&.loading span {
+		display: none;
+	}
+}
+
+.notification-count {
+	@circleSize: 24px;
+	@borderSize: 2px;
+	margin: auto;
+	height: @circleSize;
+	background: @notificationBackgroundRead;
+	color: @notificationColorRead;
+	cursor: pointer;
+
+	.circle {
+		border-radius: 50%;
+		border: @borderSize solid @notificationColorRead;
+		margin: auto;
+		height: @circleSize - @borderSize;
+		width: @circleSize - @borderSize;
+
+		/* stylelint-disable declaration-block-no-duplicate-properties */
+		// Center the text number inside the circle
+		display: block; // Fallback for old iOS
+		text-align: center; // Fallback for old iOS
+		display: -webkit-box;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+
+		span {
+			font-weight: bold;
+			font-size: 13px;
+			line-height: 1;
+			letter-spacing: -0.5px;
+		}
+	}
+
+	&.notification-unseen {
+		color: @notificationColorUnread;
+
+		.circle {
+			background: @notificationBackgroundUnread;
+			border-color: @notificationBackgroundUnread;
+		}
+	}
+
+	// FIXME: There must be a better way of doing this
+	&.max {
+		right: 0.2em;
+		width: 2em;
+		height: 2em;
+		line-height: 2em;
+		font-size: 0.7em;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+}
