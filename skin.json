@@ -293,6 +293,9 @@
 				"minerva-download",
 				"mobile-frontend-redirected-from"
 			],
+			"styles": [
+				"resources/skins.minerva.scripts/styles.less"
+			],
 			"scripts": [
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/DownloadIcon.js",
