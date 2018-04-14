@@ -224,7 +224,9 @@
 				"issue-style": "resources/skins.minerva.icons.images.scripts/issue-style.svg",
 				"issue-content": "resources/skins.minerva.icons.images.scripts/issue-content.svg",
 				"issue-move": "resources/skins.minerva.icons.images.scripts/issue-move.svg",
-				"download": "resources/skins.minerva.icons.images.scripts/download.svg"
+				"download": "resources/skins.minerva.icons.images.scripts/download.svg",
+				"stop-hand": "resources/skins.minerva.icons.images.scripts/stop-hand.svg",
+				"user-avatar": "resources/skins.minerva.icons.images.scripts/user-avatar.svg"
 			}
 		},
 		"skins.minerva.mainPage.styles": {
@@ -426,6 +428,31 @@
 				"desktop"
 			]
 		},
+		"skins.minerva.editor.blockMessage": {
+			"dependencies": [
+				"skins.minerva.scripts"
+			],
+			"messages": [
+				"ok",
+				"skin-minerva-blocked-drawer-title",
+				"skin-minerva-blocked-drawer-reason-header",
+				"skin-minerva-blocked-drawer-creator-header",
+				"skin-minerva-blocked-drawer-expiry-header"
+			],
+			"templates": {
+				"BlockMessage.hogan": "resources/skins.minerva.editor/BlockMessage.hogan"
+			},
+			"scripts": [
+				"resources/skins.minerva.editor/BlockMessage.js"
+			],
+			"styles": [
+				"resources/skins.minerva.editor/BlockMessage.less"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
 		"skins.minerva.editor": {
 			"class": "MinervaResourceLoaderParsedMessageModule",
 			"dependencies": [
@@ -436,7 +463,8 @@
 				"mediawiki.ui.input",
 				"mobile.startup",
 				"skins.minerva.toggling",
-				"mediawiki.jqueryMsg"
+				"mediawiki.jqueryMsg",
+				"skins.minerva.editor.blockMessage"
 			],
 			"messages": {
 				"0": "mobile-frontend-editor-disabled",

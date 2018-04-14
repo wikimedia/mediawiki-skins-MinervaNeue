@@ -10,6 +10,7 @@
 		Icon = M.require( 'mobile.startup/Icon' ),
 		Button = M.require( 'mobile.startup/Button' ),
 		Anchor = M.require( 'mobile.startup/Anchor' ),
+		BlockMessage = M.require( 'skins.minerva.editor/BlockMessage' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		currentPage = M.getCurrentPage(),
 		// TODO: create a utility method to generate class names instead of
@@ -309,24 +310,17 @@
 	 * @ignore
 	 */
 	function init() {
+		var message;
+
 		if ( isEditable ) {
 			// Edit button updated in setupEditor.
 			setupEditor( currentPage );
 		} else {
 			updateEditPageButton( false );
 			if ( blockInfo ) {
+				message = new BlockMessage( blockInfo );
 				$( '#ca-edit' ).on( 'click', function ( ev ) {
-					popup.show(
-						mw.msg(
-							'mobile-frontend-editor-blocked-info-loggedin',
-							// Strip any html in the blockReason.
-							$( '<div />' ).html( blockInfo.blockReason ).text(),
-							blockInfo.blockedBy
-						),
-						{
-							autoHide: false
-						}
-					);
+					message.toggle();
 					ev.preventDefault();
 				} );
 				$( '.edit-page' ).detach();
