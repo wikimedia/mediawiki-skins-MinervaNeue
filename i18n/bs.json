@@ -8,6 +8,7 @@
 			"Srdjan m"
 		]
 	},
+	"minerva-last-modified-date": "Posljednja izmjena dana $1 u $2",
 	"mobile-frontend-cookies-required": "Kolačići moraju biti uključeni za mijenjanje načina pregleda. Uključite ih i pokušate ponovo.",
 	"mobile-frontend-editor-blocked-info-loggedin": "Vaš račun je blokiran za uređivanje. Blokadu je napravio {{GENDER:$2|$2}} iz sljedećih razloga: $1",
 	"mobile-frontend-editor-cta": "Pomozite poboljšati ovu stranicu!",
