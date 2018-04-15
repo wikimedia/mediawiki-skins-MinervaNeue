@@ -6,7 +6,6 @@
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/skins/SkinMinerva.php",
 		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",
-		"ICustomizableSkin": "includes/skins/ICustomizableSkin.php",
 		"MediaWiki\\Minerva\\MenuBuilder": "includes/skins/MenuBuilder.php",
 		"MediaWiki\\Minerva\\MenuEntry": "includes/skins/MenuEntry.php",
 		"MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule": "includes/ResourceLoaderLessVarFileModule.php",
