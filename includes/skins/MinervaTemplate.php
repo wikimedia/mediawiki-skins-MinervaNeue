@@ -38,7 +38,7 @@ class MinervaTemplate extends BaseTemplate {
 		$title = $this->getSkin()->getTitle();
 		$this->isSpecialPage = $title->isSpecialPage();
 		$this->isSpecialMobileMenuPage = $this->isSpecialPage &&
-			$title->equals( SpecialPage::getTitleFor( 'MobileMenu' ) );
+			$title->isSpecial( 'MobileMenu' );
 		$this->isMainPage = $title->isMainPage();
 		Hooks::run( 'MinervaPreRender', [ $this ] );
 		$this->render( $this->data );
