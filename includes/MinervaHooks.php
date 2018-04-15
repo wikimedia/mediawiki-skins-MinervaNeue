@@ -33,7 +33,6 @@ class MinervaHooks {
 	 *  Extension:MobileFrontend/MobileFrontendFeaturesRegistration
 	 *
 	 * @param MobileFrontend\Features\FeaturesManager $featureManager
-	 * @return bool
 	 */
 	public static function onMobileFrontendFeaturesRegistration( $featureManager ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()
@@ -76,7 +75,6 @@ class MinervaHooks {
 	 *
 	 * @param array &$testModules
 	 * @param ResourceLoader &$resourceLoader
-	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules( array &$testModules,
 		ResourceLoader &$resourceLoader
@@ -114,7 +112,6 @@ class MinervaHooks {
 	 *
 	 * @param SpecialPage $special
 	 * @param string $subpage
-	 * @return bool
 	 */
 	public static function onSpecialPageBeforeExecute( SpecialPage $special, $subpage ) {
 		$name = $special->getName();
