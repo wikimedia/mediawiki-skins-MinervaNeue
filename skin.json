@@ -2,7 +2,7 @@
 	"AutoloadClasses": {
 		"MinervaResourceLoaderParsedMessageModule": "includes/MinervaResourceLoaderParsedMessageModule.php",
 		"MinervaUI": "includes/MinervaUI.php",
-		"MinervaHooks": "includes/Minerva.hooks.php",
+		"MinervaHooks": "includes/MinervaHooks.php",
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/skins/SkinMinerva.php",
 		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",

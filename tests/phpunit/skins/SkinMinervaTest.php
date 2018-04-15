@@ -14,6 +14,7 @@ use Title;
 use User;
 use Wikimedia\TestingAccessWrapper;
 
+// phpcs:ignore MediaWiki.Files.ClassMatchesFilename.NotMatch
 class EchoNotifUser {
 	public function __construct(
 		$lastUnreadAlertTime, $lastUnreadMessageTime, $echoNotificationCount

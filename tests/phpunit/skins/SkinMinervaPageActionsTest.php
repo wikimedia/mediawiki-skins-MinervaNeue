@@ -10,6 +10,7 @@ use ContentHandler;
 
 // FIXME: That this class exists is an indicator that at least SkinMinerva#isAllowedPageAction
 // should be extracted from SkinMinerva.
+// phpcs:ignore MediaWiki.Files.ClassMatchesFilename.NotMatch
 class TestSkinMinerva extends SkinMinerva {
 	public function isAllowedPageAction( $action ) {
 		return parent::isAllowedPageAction( $action );
