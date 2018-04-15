@@ -8,7 +8,7 @@
 		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",
 		"ICustomizableSkin": "includes/skins/ICustomizableSkin.php",
 		"MediaWiki\\Minerva\\MenuBuilder": "includes/skins/MenuBuilder.php",
-		"MediaWiki\\Minerva\\MenuEntry": "includes/skins/MenuBuilder.php",
+		"MediaWiki\\Minerva\\MenuEntry": "includes/skins/MenuEntry.php",
 		"MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule": "includes/ResourceLoaderLessVarFileModule.php",
 		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
 	},
