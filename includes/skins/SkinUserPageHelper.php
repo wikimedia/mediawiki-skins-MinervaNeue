@@ -20,7 +20,6 @@
 
 namespace MediaWiki\Minerva;
 
-use IContextSource;
 use Title;
 use User;
 
@@ -40,11 +39,10 @@ class SkinUserPageHelper {
 	private $pageUser;
 
 	/**
-	 * SkinMinervaUserPageHelper constructor.
-	 * @param IContextSource $context
+	 * @param Title $title
 	 */
-	public function __construct( IContextSource $context ) {
-		$this->title = $context->getTitle();
+	public function __construct( Title $title ) {
+		$this->title = $title;
 	}
 
 	/**

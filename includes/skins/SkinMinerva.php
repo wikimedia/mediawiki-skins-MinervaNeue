@@ -328,7 +328,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 */
 	public function getUserPageHelper() {
 		if ( $this->userPageHelper === null ) {
-			$this->userPageHelper = new SkinUserPageHelper( $this->getContext() );
+			$this->userPageHelper = new SkinUserPageHelper( $this->getContext()->getTitle() );
 		}
 		return $this->userPageHelper;
 	}

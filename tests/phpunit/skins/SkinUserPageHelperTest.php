@@ -5,7 +5,6 @@ namespace Tests\MediaWiki\Minerva;
 use MediaWiki\Minerva\SkinUserPageHelper;
 use MediaWikiTestCase;
 use Title;
-use IContextSource;
 
 /**
  * @group MinervaNeue
@@ -13,25 +12,15 @@ use IContextSource;
  */
 class SkinUserPageHelperTest extends MediaWikiTestCase {
 
-	private function getContextMock( Title $title ) {
-		$context = $this->getMock( IContextSource::class );
-
-		$context->expects( $this->once() )
-			->method( 'getTitle' )
-			->willReturn( $title );
-
-		return $context;
-	}
-
 	/**
 	 * @covers ::isUserPage
 	 * @covers ::fetchData
 	 * @covers ::__construct
 	 */
 	public function testTitleNotInUserNamespace() {
-		$title = Title::newFromText( 'Test Page', NS_MAIN );
+		$title = Title::newFromText( 'Test Page' );
 
-		$helper = new SkinUserPageHelper( $this->getContextMock( $title ) );
+		$helper = new SkinUserPageHelper( $title );
 		$this->assertEquals( false, $helper->isUserPage() );
 	}
 
@@ -40,9 +29,9 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 	 * @covers ::fetchData
 	 */
 	public function testTitleisASubpage() {
-		$title = Title::newFromText( 'User:TestUser/subpage', NS_USER );
+		$title = Title::newFromText( 'User:TestUser/subpage' );
 
-		$helper = new SkinUserPageHelper( $this->getContextMock( $title ) );
+		$helper = new SkinUserPageHelper( $title );
 		$this->assertEquals( false, $helper->isUserPage() );
 	}
 
@@ -65,7 +54,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 			->method( 'getText' )
 			->willReturn( 'Test' );
 
-		$helper = new SkinUserPageHelper( $this->getContextMock( $titleMock ) );
+		$helper = new SkinUserPageHelper( $titleMock );
 		$helper->isUserPage();
 		$helper->isUserPage();
 		$helper->getPageUser();
@@ -81,7 +70,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$testUser = $this->getTestUser()->getUser();
 		$title = $testUser->getUserPage();
 
-		$helper = new SkinUserPageHelper( $this->getContextMock( $title ) );
+		$helper = new SkinUserPageHelper( $title );
 		$this->assertEquals( true, $helper->isUserPage() );
 		$this->assertEquals( $testUser->getId(), $helper->getPageUser()->getId() );
 	}
@@ -98,7 +87,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$secondTestUser = $this->getTestSysop()->getUser();
 		$secondTestUserTitle = $secondTestUser->getUserPage();
 
-		$helper = new SkinUserPageHelper( $this->getContextMock( $secondTestUserTitle ) );
+		$helper = new SkinUserPageHelper( $secondTestUserTitle );
 		$this->assertEquals( true, $helper->isUserPage() );
 		$this->assertNotEquals( $testUser->getId(), $helper->getPageUser()->getId() );
 		$this->assertNotEquals( $helper->getPageUser()->getUserPage(), $testUserTitle );
