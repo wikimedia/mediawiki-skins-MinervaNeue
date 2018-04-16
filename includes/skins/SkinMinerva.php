@@ -450,28 +450,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	}
 
 	/**
-	 * Return a url to a resource or to a login screen that redirects to that resource.
-	 * @param Title $title
-	 * @param string $warning Key of message to display on login page (optional)
-	 * @param array $query representation of query string parameters (optional)
-	 * @return string url
-	 */
-	protected function getPersonalUrl( Title $title, $warning, array $query = [] ) {
-		if ( $this->getUser()->isLoggedIn() ) {
-			return $title->getLocalUrl( $query );
-		} else {
-			$loginQueryParams['returnto'] = $title;
-			if ( $query ) {
-				$loginQueryParams['returntoquery'] = wfArrayToCgi( $query );
-			}
-			if ( $warning ) {
-				$loginQueryParams['warning'] = $warning;
-			}
-			return $this->getLoginUrl( $loginQueryParams );
-		}
-	}
-
-	/**
 	 * Inserts the Contributions menu item into the menu.
 	 *
 	 * @param MenuBuilder $menu
@@ -513,11 +491,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$menu->insert( 'watchlist', $isJSOnly = true )
 			->addComponent(
 				$this->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
-				$this->getPersonalUrl(
-					$watchTitle,
-					'mobile-frontend-watchlist-purpose',
-					$watchlistQuery
-				),
+				$watchTitle->getLocalURL( $watchlistQuery ),
 				MinervaUI::iconClass( 'watchlist', 'before' ),
 				[ 'data-event-name' => 'watchlist' ]
 			);
@@ -551,10 +525,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$menu->insert( 'preferences' )
 				->addComponent(
 					$this->msg( 'preferences' )->escaped(),
-					$this->getPersonalUrl(
-						SpecialPage::getTitleFor( 'Preferences' ),
-						'prefsnologintext2'
-					),
+					SpecialPage::getTitleFor( 'Preferences' )->getLocalURL(),
 					MinervaUI::iconClass( 'settings', 'before' ),
 					[ 'data-event-name' => 'preferences' ]
 				);
