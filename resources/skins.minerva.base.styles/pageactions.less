@@ -1,22 +1,6 @@
 @import 'minerva.variables';
 @import 'minerva.mixins';
 
-// hide menu items when not possible to use
-.client-nojs #ca-watch,
-#ca-talk.selected {
-	// Important as this is not negotiable.
-	display: none !important;
-}
-
-.client-nojs #ca-edit {
-	// This is negotiable as non-JS editing might be enabled.
-	display: none;
-}
-
-#page-actions .nojs-edit {
-	display: inline-block;
-}
-
 .heading-holder {
 	@pageActionsHeight: @pageActionFontSize + (2 * @iconGutterWidth);
 	padding: @titleSectionSpacingTop 0 (@pageActionsHeight + 0.5em);
