@@ -347,7 +347,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @return bool
 	 */
 	protected function useEcho() {
-		return class_exists( 'MWEchoNotifUser' );
+		return ExtensionRegistry::getInstance()->isLoaded( 'Echo' );
 	}
 
 	/**
