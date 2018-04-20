@@ -466,16 +466,16 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	}
 
 	/**
-	 * Inserts the Watchlist menu item into the menu.
+	 * Inserts the Watchlist menu item into the menu for a logged in user
 	 *
 	 * @param MenuBuilder $menu
+	 * @param User $user that must be logged in
 	 */
-	protected function insertWatchlistMenuItem( MenuBuilder $menu ) {
+	protected function insertWatchlistMenuItem( MenuBuilder $menu, User $user ) {
 		$watchTitle = SpecialPage::getTitleFor( 'Watchlist' );
 
 		// Watchlist link
 		$watchlistQuery = [];
-		$user = $this->getUser();
 		// Avoid fatal when MobileFrontend not available (T171241)
 		if ( class_exists( 'SpecialMobileWatchlist' ) ) {
 			$view = $user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
@@ -545,7 +545,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$user = $this->getUser();
 
 		if ( $user->isLoggedIn() ) {
-			$this->insertWatchlistMenuItem( $menu );
+			$this->insertWatchlistMenuItem( $menu, $user );
 			$this->insertContributionsMenuItem( $menu, $user );
 		}
 	}
