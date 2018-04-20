@@ -158,9 +158,6 @@ class MinervaHooks {
 	public static function onRequestContextCreateSkinMobile(
 		MobileContext $mobileContext, Skin $skin
 	) {
-		// MobileContext::getConfigVariable will soon be removed.
-		$hasGetConfigVariable = method_exists( $mobileContext, 'getConfigVariable' );
-
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
 			$featureManager = \MediaWiki\MediaWikiServices::getInstance()
