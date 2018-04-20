@@ -4,7 +4,8 @@
 			"Banjo",
 			"Elisardojm",
 			"Fisterraeomar",
-			"Toliño"
+			"Toliño",
+			"Navhy"
 		]
 	},
 	"minerva-last-modified-date": "Última edición o $1 ás $2",
@@ -40,7 +41,7 @@
 	"mobile-frontend-main-menu-watchlist": "Lista de vixilancia",
 	"mobile-frontend-meta-data-issues": "Problemas da páxina",
 	"mobile-frontend-meta-data-issues-categories": "Sobre esta categoría",
-	"mobile-frontend-meta-data-issues-header": "Problemas",
+	"mobile-frontend-meta-data-issues-header": "Problemas da páxina",
 	"mobile-frontend-meta-data-issues-header-talk": "Sobre esta páxina",
 	"mobile-frontend-meta-data-issues-talk": "Acerca desta páxina de conversa",
 	"mobile-frontend-notifications-filter": "Filtro",
@@ -58,5 +59,9 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Uniuse}} $1",
 	"mobile-frontend-user-page-talk": "Conversa",
 	"mobile-frontend-user-page-uploads": "Subas",
-	"minerva-skin-desc": "Un tema inicial de resposta rápida para móbiles."
+	"minerva-skin-desc": "Un tema inicial de resposta rápida para móbiles.",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Amosa as categorías das páxinas",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Chimpar cara enriba",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Brinca cara enriba da páxina actual, empregando un botón frotante"
 }
