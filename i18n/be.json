@@ -2,23 +2,28 @@
 	"@metadata": {
 		"authors": [
 			"Mikalai Udodau",
-			"Чаховіч Уладзіслаў"
+			"Чаховіч Уладзіслаў",
+			"Artsiom91"
 		]
 	},
 	"mobile-frontend-editor-edit": "Правіць",
+	"mobile-frontend-editor-redlink-leave": "Не, дзякуй",
 	"mobile-frontend-editor-tutorial-cancel": "Не, дзякуй",
 	"mobile-frontend-history": "Глядзець гісторыю правак гэтай старонкі.",
 	"mobile-frontend-home-button": "Дадому",
 	"mobile-frontend-language-article-heading": "Чытаць на іншай мове",
 	"mobile-frontend-logged-in-homepage-notification": "Вітаем, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Адкрыць галоўнае меню",
+	"mobile-frontend-main-menu-contributions": "Уклад",
 	"mobile-frontend-main-menu-login": "Увайсці",
 	"mobile-frontend-main-menu-logout": "Выйсці",
 	"mobile-frontend-main-menu-nearby": "Паблізу",
 	"mobile-frontend-main-menu-settings": "Настройкі",
 	"mobile-frontend-main-menu-watchlist": "Спіс назірання",
+	"mobile-frontend-meta-data-issues-header": "Праблемы старонкі",
 	"mobile-frontend-pageaction-edit-tooltip": "Правіць вядучы раздзел старонкі.",
 	"mobile-frontend-placeholder": "Шукаць у {{GRAMMAR:месны|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Выпадкова",
-	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленні"
+	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленні",
+	"mobile-frontend-user-page-contributions": "Уклад"
 }
