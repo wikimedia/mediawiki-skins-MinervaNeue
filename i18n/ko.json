@@ -10,7 +10,8 @@
 			"관인생략",
 			"아라",
 			"Nuevo Paso",
-			"Garam"
+			"Garam",
+			"Jmnote"
 		]
 	},
 	"minerva-last-modified-date": "$1 $2에 마지막으로 편집됨",
@@ -65,7 +66,7 @@
 	"mobile-frontend-user-page-talk": "토론",
 	"mobile-frontend-user-page-uploads": "업로드",
 	"skinname-minerva": "미네르바 노이에",
-	"minerva-skin-desc": "즉각 반응하는 모바일 최초 스킨.",
+	"minerva-skin-desc": "반응형 모바일 우선 스킨",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "분류",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "문서 분류 보기",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "맨 위로 이동",
