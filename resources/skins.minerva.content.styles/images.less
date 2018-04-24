@@ -50,6 +50,7 @@
 	// Note we restrict to img's to avoid conflicts with VisualEditor shields
 	// See bug T64460
 	a > img,
+	a > .lazy-image-placeholder,
 	// due to lazy loading images we also must consider imgs inside noscript tags (T191893)
 	noscript > img,
 	 {
