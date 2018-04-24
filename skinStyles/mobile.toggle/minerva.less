@@ -3,7 +3,7 @@
 .client-js {
 	.collapsible-heading,
 	.collapsible-block {
-		clear: both;
+		clear: left;
 	}
 
 	.collapsible-heading {
@@ -19,6 +19,7 @@
 
 	.collapsible-block {
 		// bug 41401 - without this content doesn't always take up whole width
-		width: 100%;
+		max-width: 100%;
+		overflow: hidden;
 	}
 }
