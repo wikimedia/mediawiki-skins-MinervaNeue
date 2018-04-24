@@ -24,7 +24,7 @@
 
 		icon.onClick();
 		d.then( function () {
-			assert.ok( spy.calledOnce, 'Print occurred.' );
+			assert.strictEqual( spy.callCount, 1, 'Print occurred.' );
 		} );
 
 		return d;
@@ -43,7 +43,7 @@
 
 		icon.onClick();
 		d.then( function () {
-			assert.ok( spy.calledOnce,
+			assert.strictEqual( spy.callCount, 1,
 				'Print was called once despite loadImagesList resolving after MAX_PRINT_TIMEOUT' );
 		} );
 
@@ -64,7 +64,7 @@
 		icon.onClick();
 		icon.onClick();
 		d.then( function () {
-			assert.ok( spy.calledOnce,
+			assert.strictEqual( spy.callCount, 1,
 				'Print was called once despite multiple clicks' );
 		} );
 
