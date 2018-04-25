@@ -279,8 +279,6 @@
 		// Make sure we never create two edit links by accident
 		// FIXME: split the selector and cache it
 		if ( $caEdit.find( '.edit-page' ).length === 0 ) {
-			$( '.nojs-edit' ).removeClass( 'nojs-edit' );
-
 			if ( isNewPage ||
 					( leadSection && leadSection.text() ) || page.getSections().length === 0 ) {
 				// if lead section is not empty, open editor with lead section
