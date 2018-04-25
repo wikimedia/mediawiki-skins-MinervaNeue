@@ -3,6 +3,24 @@
 @import 'minerva.variables.less';
 @import 'minerva.mixins.less';
 
+// These are only intended for smaller screens.
+// This avoids having to undo them from another media query,
+// by putting the original in a media query instead.
+// This also avoids having a reset with too-high specificity, which
+// would break unrelated styles from core and extensions.
+@media all and ( max-width: @width-breakpoint-tablet ) {
+	.content {
+		table {
+			display: block;
+			width: 100% !important;
+		}
+
+		caption {
+			display: block;
+		}
+	}
+}
+
 .content {
 	table {
 		margin: 1em 0;
@@ -11,11 +29,8 @@
 		overflow: auto; /* for browsers that don't support overflow-y */
 		overflow-y: hidden;
 		overflow-x: auto;
-		display: block;
-		width: 100% !important;
 
 		caption {
-			display: block;
 			text-align: left;
 		}
 
