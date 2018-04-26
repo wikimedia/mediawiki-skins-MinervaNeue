@@ -15,7 +15,8 @@
 			"Weft",
 			"Wladek92",
 			"Thibaut120094",
-			"Verdy p"
+			"Verdy p",
+			"Niridya"
 		]
 	},
 	"minerva-last-modified-date": "Dernière modification le $1, à $2",
@@ -41,7 +42,7 @@
 	"mobile-frontend-language-article-heading": "Lire dans une autre langue",
 	"mobile-frontend-language-change": "Changer de langue",
 	"mobile-frontend-languages-not-available": "Cette page n’est pas disponible dans les autres langues.",
-	"mobile-frontend-logged-in-homepage-notification": "Bienvenue, {{GENDER:$1|}}$1!",
+	"mobile-frontend-logged-in-homepage-notification": "Bienvenue, {{GENDER:$1|}}$1 !",
 	"mobile-frontend-main-menu-button-tooltip": "Ouvrir le menu principal",
 	"mobile-frontend-main-menu-contributions": "Contributions",
 	"mobile-frontend-main-menu-login": "Connexion",
