@@ -1377,6 +1377,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$modules = parent::getDefaultModules();
 		// dequeue default content modules (toc, sortable, collapsible, etc.)
 		$modules['content'] = [];
+		// dequeue styles associated with `content` key.
+		$modules['styles']['content'] = [];
 		// dequeue default watch module (not needed, no watchstar in this skin)
 		$modules['watch'] = [];
 		// disable default skin search modules
