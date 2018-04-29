@@ -46,7 +46,7 @@
 	"mobile-frontend-main-menu-watchlist": "فهرست پی‌گیری‌ها",
 	"mobile-frontend-meta-data-issues": "موضوعات صفحه",
 	"mobile-frontend-meta-data-issues-categories": "درباره این رده",
-	"mobile-frontend-meta-data-issues-header": "مشکلات",
+	"mobile-frontend-meta-data-issues-header": "مشکلات صفحه",
 	"mobile-frontend-meta-data-issues-header-talk": "درباره این صفحه",
 	"mobile-frontend-meta-data-issues-talk": "درباره این صفحه بحث",
 	"mobile-frontend-notifications-filter": "پالایه",
@@ -64,6 +64,8 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|عضو شد}}",
 	"mobile-frontend-user-page-talk": "بحث",
 	"mobile-frontend-user-page-uploads": "بارگذاری",
+	"minerva-skin-desc": "پوسته واکنش‌گرای موبایل",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "نمایش رده‌های صفحات",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "رفتن به بالا"
 }
