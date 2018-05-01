@@ -64,7 +64,7 @@ A file for css that optimises the Minerva skin on larger devices.
 		// .tright to be on the right in RTL languages.
 		figure,
 		.thumb {
-			width: 320px;
+			max-width: @width-breakpoint-tablet - @contentMargin;
 
 			&.mw-halign-left,
 			&.tleft {
