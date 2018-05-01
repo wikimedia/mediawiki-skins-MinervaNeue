@@ -78,8 +78,16 @@ textarea {
 	display: none !important;
 }
 
+#mw-mf-viewport {
+	position: relative;
+	height: 100%;
+}
+
 // We need to ensure the content has the chrome background - otherwise it will
 // overlap the menu during the main menu reveal/hide animation
 #mw-mf-page-center {
+	width: 100%;
+	position: relative;
 	background-color: @chromeColor;
+	z-index: @z-indexBase;
 }
