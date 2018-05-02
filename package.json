@@ -17,6 +17,7 @@
 		"grunt-jsonlint": "1.1.0",
 		"grunt-notify": "0.4.5",
 		"grunt-stylelint": "0.8.0",
+		"pre-commit": "1.2.2",
 		"stylelint": "7.8.0",
 		"stylelint-config-wikimedia": "0.4.1"
 	}
