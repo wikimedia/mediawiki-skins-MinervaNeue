@@ -1379,6 +1379,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		$modules['content'] = [];
 		// dequeue styles associated with `content` key.
 		$modules['styles']['content'] = [];
+		$modules['styles']['core'] = $this->getSkinStyles();
 		// dequeue default watch module (not needed, no watchstar in this skin)
 		$modules['watch'] = [];
 		// disable default skin search modules
@@ -1445,15 +1446,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		}
 
 		return $styles;
-	}
-
-	/**
-	 * Add skin-specific stylesheets
-	 * @param OutputPage $out
-	 */
-	public function setupSkinUserCss( OutputPage $out ) {
-		// Add Minerva-specific ResourceLoader modules to the page output
-		$out->addModuleStyles( $this->getSkinStyles() );
 	}
 }
 
