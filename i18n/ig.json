@@ -1,5 +1,11 @@
 {
 	"@metadata": {
-		"authors": []
-	}
+		"authors": [
+			"Ukabia"
+		]
+	},
+	"mobile-frontend-editor-edit": "Mèzi",
+	"mobile-frontend-main-menu-watchlist": "Ùlìle",
+	"mobile-frontend-user-page-talk": "Nkàta",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Ụdàkọ"
 }
