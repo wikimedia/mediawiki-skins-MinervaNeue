@@ -68,5 +68,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Label for categories mobile web beta feature.\n{{Identical|Category}}",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Description label for categories mobile web beta feature.",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Label for jump to top mobile web beta feature",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature",
+	"skin-minerva-blocked-drawer-title": "Title for the drawer that appears when a blocked user attempts to edit.",
+	"skin-minerva-blocked-drawer-reason-header": "Header for the block reason message that appears when a blocked user attempts to edit.",
+	"skin-minerva-blocked-drawer-creator-header": "Header for the block creator that appears when a blocked user attempts to edit.",
+	"skin-minerva-blocked-drawer-expiry-header": "Header for the block expiry that appears when a blocked user attempts to edit."
 }
