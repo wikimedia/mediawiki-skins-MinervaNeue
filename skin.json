@@ -1,4 +1,44 @@
 {
+	"name": "MinervaNeue",
+	"namemsg": "skinname-minerva",
+	"descriptionmsg": "minerva-skin-desc",
+	"author": [],
+	"type": "skin",
+	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
+	"license-name": "GPL-2.0-or-later",
+	"requires": {
+		"MediaWiki": ">= 1.25.0",
+		"extensions": {
+			"MobileFrontend": ">= 2.1.0"
+		}
+	},
+	"callback": "MinervaHooks::onRegistration",
+	"config": {
+		"MinervaDownloadNamespaces": [ 0 ],
+		"MinervaEnableSiteNotice": false,
+		"MinervaCustomLogos": [],
+		"MinervaApplyKnownTemplateHacks": false,
+		"MinervaPageActions": [
+			"edit",
+			"talk",
+			"watch",
+			"switch-language"
+		],
+		"MinervaAlwaysShowLanguageButton": true,
+		"MinervaShowCategoriesButton": {
+			"prefix": "skin-minerva-",
+			"base": false,
+			"beta": true
+		},
+		"MinervaEnableBackToTop": {
+			"prefix": "skin-minerva-",
+			"base": false,
+			"beta": true
+		}
+	},
+	"ValidSkinNames": {
+		"minerva": "MinervaNeue"
+	},
 	"AutoloadClasses": {
 		"MinervaResourceLoaderParsedMessageModule": "includes/MinervaResourceLoaderParsedMessageModule.php",
 		"MinervaUI": "includes/MinervaUI.php",
@@ -505,45 +545,5 @@
 			]
 		}
 	},
-	"ValidSkinNames": {
-		"minerva": "MinervaNeue"
-	},
-	"author": [],
-	"config": {
-		"MinervaDownloadNamespaces": [ 0 ],
-		"MinervaEnableSiteNotice": false,
-		"MinervaCustomLogos": [],
-		"MinervaApplyKnownTemplateHacks": false,
-		"MinervaPageActions": [
-			"edit",
-			"talk",
-			"watch",
-			"switch-language"
-		],
-		"MinervaAlwaysShowLanguageButton": true,
-		"MinervaShowCategoriesButton": {
-			"prefix": "skin-minerva-",
-			"base": false,
-			"beta": true
-		},
-		"MinervaEnableBackToTop": {
-			"prefix": "skin-minerva-",
-			"base": false,
-			"beta": true
-		}
-	},
-	"descriptionmsg": "minerva-skin-desc",
-	"license-name": "GPL-2.0-or-later",
-	"manifest_version": 1,
-	"name": "MinervaNeue",
-	"namemsg": "skinname-minerva",
-	"requires": {
-		"MediaWiki": ">= 1.25.0",
-		"extensions": {
-			"MobileFrontend": ">= 2.1.0"
-		}
-	},
-	"type": "skin",
-	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
-	"callback": "MinervaHooks::onRegistration"
+	"manifest_version": 1
 }
