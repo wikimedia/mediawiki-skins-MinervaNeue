@@ -209,6 +209,7 @@
 				}
 			},
 			"images": {
+				"profile": "resources/skins.minerva.icons.images.variants/profile.svg",
 				"clock": "resources/skins.minerva.icons.images.variants/clock.svg"
 			}
 		},
@@ -225,8 +226,7 @@
 				"issue-content": "resources/skins.minerva.icons.images.scripts/issue-content.svg",
 				"issue-move": "resources/skins.minerva.icons.images.scripts/issue-move.svg",
 				"download": "resources/skins.minerva.icons.images.scripts/download.svg",
-				"stop-hand": "resources/skins.minerva.icons.images.scripts/stop-hand.svg",
-				"user-avatar": "resources/skins.minerva.icons.images.scripts/user-avatar.svg"
+				"stop-hand": "resources/skins.minerva.icons.images.scripts/stop-hand.svg"
 			}
 		},
 		"skins.minerva.mainPage.styles": {
@@ -262,7 +262,6 @@
 				"home": "resources/skins.minerva.mainMenu.icons/home.svg",
 				"logout": "resources/skins.minerva.mainMenu.icons/logout.svg",
 				"nearby": "resources/skins.minerva.mainMenu.icons/nearby.svg",
-				"profile": "resources/skins.minerva.mainMenu.icons/profile.svg",
 				"random": "resources/skins.minerva.mainMenu.icons/random.svg",
 				"settings": "resources/skins.minerva.mainMenu.icons/settings.svg",
 				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
@@ -284,6 +283,7 @@
 				"desktop"
 			],
 			"dependencies": [
+				"skins.minerva.icons.images.variants",
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"mobile.startup"

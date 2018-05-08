@@ -685,7 +685,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				->addComponent(
 					$username,
 					Title::newFromText( $username, NS_USER )->getLocalUrl(),
-					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
+					MinervaUI::iconClass( 'profile-gray', 'before', 'truncated-text primary-action' ),
 					[ 'data-event-name' => 'profile' ]
 				)
 				->addComponent(

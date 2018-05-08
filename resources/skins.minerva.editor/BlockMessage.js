@@ -25,7 +25,7 @@
 			userIcon: new Icon( {
 				tagName: 'span',
 				glyphPrefix: 'minerva',
-				name: 'user-avatar'
+				name: 'profile'
 			} ).options,
 			okButton: new Button( {
 				label: mw.msg( 'ok' ),
