@@ -33,7 +33,8 @@
 			"prefix": "skin-minerva-",
 			"base": false,
 			"beta": true
-		}
+		},
+		"MinervaABSamplingRate": 0
 	},
 	"ValidSkinNames": {
 		"minerva": "MinervaNeue"
@@ -192,6 +193,7 @@
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"images": {
+				"warning": "resources/skins.minerva.icons.images/warning.svg",
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
 				"edit-enabled": "resources/skins.minerva.icons.images/edit.svg",
@@ -334,6 +336,7 @@
 				"mediawiki.experiments"
 			],
 			"messages": [
+				"skin-minerva-issue-learn-more",
 				"edithelp",
 				"mobile-frontend-language-change",
 				"mobile-frontend-meta-data-issues",

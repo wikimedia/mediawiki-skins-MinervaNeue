@@ -11,6 +11,7 @@ FIXME: Review all of these hacks to see if they still apply.
 */
 @import '../../minerva.less/minerva.variables';
 @import '../../minerva.less/minerva.mixins';
+@import 'templates/ambox.less';
 
 .collapsible td {
 	width: auto !important;
@@ -27,11 +28,9 @@ FIXME: Review all of these hacks to see if they still apply.
 	.action-edit .fmbox,
 	// Talk page informational boxes
 	.tmbox,
-	// Note not in issues.less as that is only loaded via JavaScript
-	.ambox,
 	#coordinates,
 	// Hide article badges, clean-up notices, stub notices, and navigation boxes
-	.topicon, .metadata {
+	.topicon {
 		// It's important as some of these are tables which become display: table on larger screens
 		display: none !important;
 	}

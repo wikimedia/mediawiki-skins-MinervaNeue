@@ -1,4 +1,11 @@
 ( function ( M, $ ) {
+	var AB = M.require( 'skins.minerva.scripts/AB' ),
+		isInGroupB = new AB(
+			'WME.PageIssuesAB',
+			mw.config.get( 'wgMinervaABSamplingRate', 0 ),
+			mw.user.sessionId()
+		).getBucket() === 'B',
+		Icon = M.require( 'mobile.startup/Icon' );
 
 	( function () {
 		var action = mw.config.get( 'wgAction' ),
@@ -60,14 +67,14 @@
 		 * @ignore
 		 */
 		function createBanner( $container, labelText, headingText ) {
-			var selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
+			var $learnMore,
+				selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 				$metadata = $container.find( selector ),
 				issues = [],
 				$link;
 
 			// clean it up a little
 			$metadata.find( '.NavFrame' ).remove();
-
 			$metadata.each( function () {
 				var issue,
 					$this = $( this );
@@ -78,8 +85,33 @@
 				}
 			} );
 
-			$link = createLinkElement( labelText );
-			$link.attr( 'href', '#/issues' );
+			if ( isInGroupB ) {
+				new Icon( {
+					glyphPrefix: 'minerva',
+					name: 'warning',
+					isSmall: true
+				} ).prependTo( '.mbox-text' );
+				$learnMore = $( '<span>' )
+					.addClass( 'ambox-learn-more' )
+					.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
+				if ( $( '.mw-collapsible-content' ).length ) {
+					// e.g. Template:Multiple issues
+					$learnMore.insertBefore( '.mw-collapsible-content' );
+				} else {
+					// e.g. Template:merge from
+					$learnMore.appendTo( '.mbox-text-span' );
+				}
+				$( '.mbox-text' ).click( function () {
+					overlayManager.router.navigate( '#/issues' );
+				} );
+			} else {
+				$link = createLinkElement( labelText );
+				$link.attr( 'href', '#/issues' );
+				if ( $metadata.length ) {
+					$link.insertAfter( $( 'h1#section_0' ) );
+					$metadata.remove();
+				}
+			}
 
 			overlayManager.add( /^\/issues$/, function () {
 				return new CleanupOverlay( {
@@ -87,12 +119,6 @@
 					headingText: headingText
 				} );
 			} );
-
-			if ( $metadata.length ) {
-				$link.insertAfter( $( 'h1#section_0' ) );
-
-				$metadata.remove();
-			}
 		}
 
 		/**
@@ -103,9 +129,11 @@
 		function initPageIssues() {
 			var ns = mw.config.get( 'wgNamespaceNumber' ),
 				// Categories have no lead section
-				$container = ns === 14 ? $( '#bodyContent' ) :
+				$container = ns === 14 || isInGroupB ? $( '#bodyContent' ) :
 					page.getLeadSectionElement();
 
+			// set A-B test class.
+			$( 'html' ).addClass( isInGroupB ? 'issues-group-B' : 'issues-group-A' );
 			if ( action === 'edit' ) {
 				$container = $( '#mw-content-text' );
 			} else if ( $container === null ) {

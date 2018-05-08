@@ -101,4 +101,18 @@ Whether to show the language switcher button even if no languages are available 
 * Type: `Boolean`
 * Default: `true`
 
+#### $wgMinervaABSamplingRate
+
+On a scale of 0 to 1, determines the chance a user has of entering an AB test.
+A test is divided into 3 buckets, "control" "A" and "B". Users that are selected for the
+test have an equal chance of entering bucket "A" or "B", the remaining users fall into the
+"control" bucket and are excluded from the test.
+
+1    - would run test on 100% of users (50% in A and 50% in B, 0 in control).
+0.5  - would run test on 50% of users (25% in A, 25% in B, 50% in control).
+0.05 - would run test on 5% of users (2.5% in A, 2.5% in B, 95% in control).
+0 would disable the test and place all users in "control".
+
+* Type: `Number`
+* Default: `0`
 
