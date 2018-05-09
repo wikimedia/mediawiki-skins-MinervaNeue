@@ -328,7 +328,10 @@
 				"mobile.issues",
 				"mobile.search.api",
 				"mobile.search",
-				"mobile.references"
+				"mobile.references",
+				"mediawiki.user",
+				"mediawiki.storage",
+				"mediawiki.experiments"
 			],
 			"messages": [
 				"edithelp",
@@ -355,6 +358,7 @@
 				"resources/skins.minerva.scripts/search.js",
 				"resources/skins.minerva.scripts/references.js",
 				"resources/skins.minerva.scripts/utils.js",
+				"resources/skins.minerva.scripts/AB.js",
 				"resources/skins.minerva.scripts/cleanuptemplates.js"
 			]
 		},
