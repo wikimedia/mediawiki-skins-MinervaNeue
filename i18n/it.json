@@ -57,5 +57,8 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Iscritto|Iscritta}} il $1",
 	"mobile-frontend-user-page-talk": "Discussione",
 	"mobile-frontend-user-page-uploads": "Caricamenti",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorie"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorie",
+	"skin-minerva-blocked-drawer-reason-header": "Motivo del blocco",
+	"skin-minerva-blocked-drawer-creator-header": "Bloccato da",
+	"skin-minerva-blocked-drawer-expiry-header": "Il blocco scadrà tra"
 }

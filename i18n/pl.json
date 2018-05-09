@@ -66,5 +66,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobacz kategorie stron",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Przejdź na górę strony",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Przejdź na górę bieżącej strony używając ruchomego przycisku"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Przejdź na górę bieżącej strony używając ruchomego przycisku",
+	"skin-minerva-blocked-drawer-title": "Twoje konto zostało zablokowane i nie możesz wykonywać edycji na {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Powód blokady",
+	"skin-minerva-blocked-drawer-creator-header": "Blokada została nałożona przez",
+	"skin-minerva-blocked-drawer-expiry-header": "Blokada zakończy się"
 }

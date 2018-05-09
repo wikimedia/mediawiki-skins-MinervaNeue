@@ -61,5 +61,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorien von Seiten ansehen",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Nach oben springen",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Zum Anfang der aktuellen Seite mithilfe einer schwebenden Schaltfläche springen"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Zum Anfang der aktuellen Seite mithilfe einer schwebenden Schaltfläche springen",
+	"skin-minerva-blocked-drawer-title": "Dein Benutzerkonto wurde für das Bearbeiten von {{SITENAME}} gesperrt",
+	"skin-minerva-blocked-drawer-reason-header": "Grund für die Sperre",
+	"skin-minerva-blocked-drawer-creator-header": "Gesperrt von",
+	"skin-minerva-blocked-drawer-expiry-header": "Die Sperre wird ablaufen in"
 }
