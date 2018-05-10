@@ -63,5 +63,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorias",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Mostra as categorias das páginas",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Saltar para o topo",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Salta para o topo da página atual, utilizando um botão flutuante"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Salta para o topo da página atual, utilizando um botão flutuante",
+	"skin-minerva-blocked-drawer-title": "A sua conta foi bloqueada para edição em {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Motivo do bloqueio",
+	"skin-minerva-blocked-drawer-creator-header": "Bloqueado por",
+	"skin-minerva-blocked-drawer-expiry-header": "O bloqueio expira em"
 }

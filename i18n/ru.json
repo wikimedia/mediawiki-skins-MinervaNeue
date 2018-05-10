@@ -8,7 +8,8 @@
 			"Ole Yves",
 			"Redredsonia",
 			"Kareyac",
-			"Patrick Star"
+			"Patrick Star",
+			"Facenapalm"
 		]
 	},
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
@@ -66,5 +67,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Посмотреть категории страниц",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти наверх",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки",
+	"skin-minerva-blocked-drawer-title": "Возможность редактировать {{SITENAME}} была заблокирована для вашей учётной записи",
+	"skin-minerva-blocked-drawer-reason-header": "Причина блокировки",
+	"skin-minerva-blocked-drawer-creator-header": "Заблокирован",
+	"skin-minerva-blocked-drawer-expiry-header": "Блокировка истечёт"
 }

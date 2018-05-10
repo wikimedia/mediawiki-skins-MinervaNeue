@@ -53,5 +53,8 @@
 	"mobile-frontend-user-page-talk": "Diskussioun",
 	"mobile-frontend-user-page-uploads": "Eropgeluede Fichieren",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen",
+	"skin-minerva-blocked-drawer-title": "Äre Benotzerkont gouf fir d'Änneren op {{SITENAME}} gespaart",
+	"skin-minerva-blocked-drawer-reason-header": "Grond fir d'Spär",
+	"skin-minerva-blocked-drawer-creator-header": "Gespaart vum"
 }

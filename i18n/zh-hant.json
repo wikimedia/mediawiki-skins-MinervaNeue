@@ -45,7 +45,7 @@
 	"mobile-frontend-main-menu-watchlist": "監視清單",
 	"mobile-frontend-meta-data-issues": "頁面問題",
 	"mobile-frontend-meta-data-issues-categories": "關於此分類",
-	"mobile-frontend-meta-data-issues-header": "問題",
+	"mobile-frontend-meta-data-issues-header": "頁面問題",
 	"mobile-frontend-meta-data-issues-header-talk": "關於此頁面",
 	"mobile-frontend-meta-data-issues-talk": "關於此對話頁面",
 	"mobile-frontend-notifications-filter": "篩選器",
@@ -68,5 +68,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分類",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "檢視頁面分類",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "跳至頂端",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮動按鍵來跳至目前頁面的頂端"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮動按鍵來跳至目前頁面的頂端",
+	"skin-minerva-blocked-drawer-title": "您的帳號已被封鎖，因此不能編輯 {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "封鎖的理由",
+	"skin-minerva-blocked-drawer-creator-header": "封鎖由",
+	"skin-minerva-blocked-drawer-expiry-header": "封鎖結束於"
 }

@@ -60,5 +60,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Погл. категории на страници",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Прејди најгоре",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Прејди најгоре на тековната страница користејќи лебдечко копче"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Прејди најгоре на тековната страница користејќи лебдечко копче",
+	"skin-minerva-blocked-drawer-title": "Нашата сметка има забрана за уредување на {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Причина за забраната",
+	"skin-minerva-blocked-drawer-creator-header": "Забранил",
+	"skin-minerva-blocked-drawer-expiry-header": "Истекува"
 }
