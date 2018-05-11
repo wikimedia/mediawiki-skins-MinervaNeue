@@ -11,7 +11,8 @@
 			"Stultiwikia",
 			"Uğurkent",
 			"Violetanka",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Hedda"
 		]
 	},
 	"mobile-frontend-cookies-required": "Görünüm modları arasında geçiş yapabilmeniz için çerezlerin açık olması gereklidir. Bunları etkinleştirdikten sonra tekrar deneyin.",
@@ -55,5 +56,9 @@
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" kullanıcı sayfasına dön.",
 	"mobile-frontend-user-button-tooltip": "Bildirimlerimi göster",
 	"mobile-frontend-user-newmessages": "Mesaj sayfanızda yeni mesajlar var",
-	"mobile-frontend-user-page-contributions": "Katkılar"
+	"mobile-frontend-user-page-contributions": "Katkılar",
+	"skin-minerva-blocked-drawer-title": "{{SITENAME}} değişikliğinizden ötürü hesabınız engellenmiştir",
+	"skin-minerva-blocked-drawer-reason-header": "Engelleme sebebi",
+	"skin-minerva-blocked-drawer-creator-header": "Engelleyen",
+	"skin-minerva-blocked-drawer-expiry-header": "Engelin süresi"
 }

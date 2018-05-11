@@ -9,7 +9,8 @@
 			"Whym",
 			"組曲師",
 			"Yusuke1109",
-			"Aefgh39622"
+			"Aefgh39622",
+			"S2KTS"
 		]
 	},
 	"minerva-last-modified-date": "最終更新: $1 $2",
@@ -67,5 +68,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "トップへ移動",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "フローティングボタンを使用して現在のページの先頭にジャンプする"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "フローティングボタンを使用して現在のページの先頭にジャンプする",
+	"skin-minerva-blocked-drawer-title": "あなたのアカウントで {{SITENAME}} を編集することはブロックされています",
+	"skin-minerva-blocked-drawer-reason-header": "ブロックの理由",
+	"skin-minerva-blocked-drawer-creator-header": "次の利用者によってブロックされました:",
+	"skin-minerva-blocked-drawer-expiry-header": "ブロックは次の期間まで継続されます:"
 }
