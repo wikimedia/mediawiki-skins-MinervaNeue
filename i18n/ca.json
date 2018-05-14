@@ -55,5 +55,9 @@
 	"mobile-frontend-user-newmessages": "Teniu missatges nous a la vostra pàgina de discussió.",
 	"mobile-frontend-user-page-contributions": "Contribucions",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Membre}} des de $1",
-	"mobile-frontend-user-page-talk": "Discussió"
+	"mobile-frontend-user-page-talk": "Discussió",
+	"skin-minerva-blocked-drawer-title": "Us han blocat el compte perquè no modifiqueu {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Motiu del blocatge",
+	"skin-minerva-blocked-drawer-creator-header": "Blocatge per",
+	"skin-minerva-blocked-drawer-expiry-header": "El blocatge venç el"
 }
