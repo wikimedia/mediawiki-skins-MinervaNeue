@@ -59,5 +59,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categoríes",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver les categoríes de páxines",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Saltar al principiu",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al principiu de la páxina actual usando un botón flotante"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al principiu de la páxina actual usando un botón flotante",
+	"skin-minerva-blocked-drawer-title": "Bloquióse la to cuenta pa editar {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Motivu del bloquéu",
+	"skin-minerva-blocked-drawer-creator-header": "Bloquéu por",
+	"skin-minerva-blocked-drawer-expiry-header": "El bloquéu va caducar el"
 }

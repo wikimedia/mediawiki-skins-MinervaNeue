@@ -61,5 +61,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Prikaži kategorije na stranicama",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Skoči na vrh",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Skoči na vrh trenutne stranice pomoću lebdećeg dugmeta"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Skoči na vrh trenutne stranice pomoću lebdećeg dugmeta",
+	"skin-minerva-blocked-drawer-title": "Vaš račun je blokiran na {{GRAMMAR:dativ|{{SITENAME}}}}",
+	"skin-minerva-blocked-drawer-reason-header": "Razlog blokade",
+	"skin-minerva-blocked-drawer-creator-header": "Blokirao/-la Vas je",
+	"skin-minerva-blocked-drawer-expiry-header": "Blokada će isteći za"
 }
