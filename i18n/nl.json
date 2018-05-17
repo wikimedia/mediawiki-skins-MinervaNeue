@@ -46,7 +46,7 @@
 	"mobile-frontend-main-menu-watchlist": "Volglijst",
 	"mobile-frontend-meta-data-issues": "Paginaproblemen",
 	"mobile-frontend-meta-data-issues-categories": "Over deze categorie",
-	"mobile-frontend-meta-data-issues-header": "Verbeterpunten",
+	"mobile-frontend-meta-data-issues-header": "Paginaproblemen",
 	"mobile-frontend-meta-data-issues-header-talk": "Over deze pagina",
 	"mobile-frontend-meta-data-issues-talk": "Over deze overlegpagina",
 	"mobile-frontend-notifications-filter": "Filter",
@@ -63,5 +63,10 @@
 	"mobile-frontend-user-page-contributions": "Bijdragen",
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|lid geworden}}",
 	"mobile-frontend-user-page-talk": "Overleg",
-	"mobile-frontend-user-page-uploads": "Uploads"
+	"mobile-frontend-user-page-uploads": "Uploads",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorieën",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Terug naar boven",
+	"skin-minerva-blocked-drawer-reason-header": "Reden voor blokkade",
+	"skin-minerva-blocked-drawer-creator-header": "Geblokkeerd door",
+	"skin-minerva-blocked-drawer-expiry-header": "Blokkade verloopt over"
 }
