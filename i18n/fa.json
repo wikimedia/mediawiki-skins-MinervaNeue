@@ -64,6 +64,7 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|عضو شد}}",
 	"mobile-frontend-user-page-talk": "بحث",
 	"mobile-frontend-user-page-uploads": "بارگذاری",
+	"skinname-minerva": "مینروانوئه",
 	"minerva-skin-desc": "پوسته واکنش‌گرای موبایل",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "نمایش رده‌های صفحات",
