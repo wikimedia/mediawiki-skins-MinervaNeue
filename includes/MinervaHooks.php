@@ -61,15 +61,6 @@ class MinervaHooks {
 	}
 
 	/**
-	 * Skin registration callback.
-	 */
-	public static function onRegistration() {
-		// Set LESS importpath
-		global $wgResourceLoaderLESSImportPaths;
-		$wgResourceLoaderLESSImportPaths[] = dirname( __DIR__ ) . "/minerva.less/";
-	}
-
-	/**
 	 * ResourceLoaderTestModules hook handler
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
 	 *

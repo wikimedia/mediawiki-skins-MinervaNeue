@@ -12,7 +12,6 @@
 			"MobileFrontend": ">= 2.1.0"
 		}
 	},
-	"callback": "MinervaHooks::onRegistration",
 	"config": {
 		"MinervaDownloadNamespaces": [ 0 ],
 		"MinervaEnableSiteNotice": false,
