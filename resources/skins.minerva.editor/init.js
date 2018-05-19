@@ -151,7 +151,8 @@
 	 * @param {Page} page The page to edit.
 	 */
 	function setupEditor( page ) {
-		var isNewPage = page.options.id === 0,
+		var uri, fragment, editorOverride,
+			isNewPage = page.options.id === 0,
 			leadSection = page.getLeadSectionElement();
 
 		if ( mw.util.getParamValue( 'undo' ) ) {
@@ -237,9 +238,15 @@
 				// Not on pages which are outputs of the Page Translation feature
 				mw.config.get( 'wgTranslatePageTranslation' ) !== 'translation' &&
 
-				// If the user prefers the VisualEditor or the user has no preference and
-				// the VisualEditor is the default editor for this wiki
-				preferredEditor === 'VisualEditor'
+				(
+					// If the user prefers the VisualEditor or the user has no preference and
+					// the VisualEditor is the default editor for this wiki
+					preferredEditor === 'VisualEditor' ||
+					// We've loaded it via the URL for this request
+					editorOverride === 'VisualEditor'
+				) &&
+
+				editorOverride !== 'SourceEditor'
 			) {
 				logInit( 'visualeditor' );
 				loader.loadModule( 'mobile.editor.ve' ).done( function () {
@@ -302,6 +309,27 @@
 			// prevent folding section when clicking Edit
 			ev.stopPropagation();
 		} );
+
+		if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.util.getParamValue( 'action' ) ) ) {
+			if ( mw.util.getParamValue( 'veaction' ) === 'edit' ) {
+				editorOverride = 'VisualEditor';
+			} else if ( mw.util.getParamValue( 'veaction' ) === 'editsource' ) {
+				editorOverride = 'SourceEditor';
+			}
+			// else: action=edit, for which we allow the default to take effect
+			fragment = '#/editor/' + ( mw.util.getParamValue( 'section' ) || '0' );
+			if ( window.history && history.pushState ) {
+				uri = mw.Uri();
+				delete uri.query.action;
+				delete uri.query.veaction;
+				// Note: replaceState rather than pushState, because we're
+				// just reformatting the URL to the equivalent-meaning for the
+				// mobile site.
+				history.replaceState( null, document.title, uri.toString() + fragment );
+			} else {
+				router.navigate( fragment );
+			}
+		}
 	}
 
 	/**
