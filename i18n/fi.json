@@ -70,5 +70,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näytä sivun luokat",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Hyppää alkuun",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Hyppää nykyisen sivun alkuun käyttämällä liukupainiketta"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Hyppää nykyisen sivun alkuun käyttämällä liukupainiketta",
+	"skin-minerva-blocked-drawer-creator-header": "Estänyt"
 }
