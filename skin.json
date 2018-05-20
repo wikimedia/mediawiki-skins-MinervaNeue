@@ -129,6 +129,12 @@
 			],
 			"mobile.special.mobilemenu.styles": [
 				"skinStyles/mobile.special.mobilemenu.styles/minerva.less"
+			],
+			"mobile.editor.ve": [
+				"skinStyles/mobile.editor.ve/minerva.less"
+			],
+			"mobile.notifications.overlay": [
+				"skinStyles/mobile.notifications.overlay/minerva.less"
 			]
 		}
 	},
