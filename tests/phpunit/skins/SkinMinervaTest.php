@@ -331,8 +331,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				'99+',
 				false,
 				true
-			), 'Echo, logged in, no talk page alerts, 110 notifications, ' +
-				'last un-read alert time after last alert seen time, ' +
+			), 'Echo, logged in, no talk page alerts, 110 notifications, ' .
+				'last un-read alert time after last alert seen time, ' .
 				'last un-read message time after last message seen time',
 			$title, true, true, '',
 			MWTimestamp::getInstance( strtotime( '2017-05-11T21:23:20Z' ) ),
@@ -347,8 +347,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				'3',
 				false,
 				true
-			), 'Echo, logged in, no talk page alerts, 3 notifications, ' +
-				'last un-read alert time after last alert seen time, ' +
+			), 'Echo, logged in, no talk page alerts, 3 notifications, ' .
+				'last un-read alert time after last alert seen time, ' .
 				'last un-read message time before last message seen time',
 			$title, true, true, '',
 			MWTimestamp::getInstance( strtotime( '2017-03-26T14:11:48Z' ) ),
@@ -363,8 +363,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				'3',
 				false,
 				false
-			), 'Echo, logged in, no talk page alerts, 3 notifications, ' +
-				'last un-read alert time before last alert seen time, ' +
+			), 'Echo, logged in, no talk page alerts, 3 notifications, ' .
+				'last un-read alert time before last alert seen time, ' .
 				'last un-read message time before last message seen time',
 			$title, true, true, '',
 			MWTimestamp::getInstance( strtotime( '2017-04-11T13:21:15Z' ) ),
@@ -379,8 +379,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				'5',
 				false,
 				false
-			), 'Echo, logged in, no talk page alerts, 5 notifications, ' +
-				'no last un-read alert time, ' +
+			), 'Echo, logged in, no talk page alerts, 5 notifications, ' .
+				'no last un-read alert time, ' .
 				'last un-read message time before last message seen time',
 			$title, true, true, '',
 			false,
@@ -395,7 +395,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				'0',
 				true,
 				false
-			), 'Echo, logged in, no talk page alerts, 0 notifications, ' +
+			), 'Echo, logged in, no talk page alerts, 0 notifications, ' .
 				'no last alert and message seen time',
 			$title, true, true, '',
 			MWTimestamp::getInstance( strtotime( '2017-08-09T10:54:07Z' ) ),
