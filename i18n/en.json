@@ -62,6 +62,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Jump to top of the current page using a floating button",
 	"skin-minerva-blocked-drawer-title": "Your account has been blocked from editing {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "Reason for the block",
-	"skin-minerva-blocked-drawer-creator-header": "Blocked by",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Blocked}} by",
 	"skin-minerva-blocked-drawer-expiry-header": "Block will expire in"
 }
