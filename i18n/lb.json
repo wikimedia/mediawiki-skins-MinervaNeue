@@ -56,5 +56,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen",
 	"skin-minerva-blocked-drawer-title": "Äre Benotzerkont gouf fir d'Änneren op {{SITENAME}} gespaart",
 	"skin-minerva-blocked-drawer-reason-header": "Grond fir d'Spär",
-	"skin-minerva-blocked-drawer-creator-header": "Gespaart vum"
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1Gespaart}} vum"
 }

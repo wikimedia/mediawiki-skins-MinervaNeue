@@ -64,6 +64,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Zum Anfang der aktuellen Seite mithilfe einer schwebenden Schaltfläche springen",
 	"skin-minerva-blocked-drawer-title": "Dein Benutzerkonto wurde für das Bearbeiten von {{SITENAME}} gesperrt",
 	"skin-minerva-blocked-drawer-reason-header": "Grund für die Sperre",
-	"skin-minerva-blocked-drawer-creator-header": "Gesperrt von",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Gesperrt}} von",
 	"skin-minerva-blocked-drawer-expiry-header": "Die Sperre wird ablaufen in"
 }

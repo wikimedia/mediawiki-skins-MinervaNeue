@@ -59,6 +59,6 @@
 	"mobile-frontend-user-page-uploads": "Caricamenti",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorie",
 	"skin-minerva-blocked-drawer-reason-header": "Motivo del blocco",
-	"skin-minerva-blocked-drawer-creator-header": "Bloccato da",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Bloccato|Bloccata|Bloccato/a}} da",
 	"skin-minerva-blocked-drawer-expiry-header": "Il blocco scadrà tra"
 }

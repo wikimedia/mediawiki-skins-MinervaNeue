@@ -64,6 +64,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Προβολή κατηγοριών των σελίδων",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Πήδηση στη κορυφή",
 	"skin-minerva-blocked-drawer-reason-header": "Αιτία φραγής",
-	"skin-minerva-blocked-drawer-creator-header": "Φράχθηκε από",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Φράχθηκε}} από",
 	"skin-minerva-blocked-drawer-expiry-header": "Η φραγή θα λήξει στις"
 }

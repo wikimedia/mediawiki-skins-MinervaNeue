@@ -65,6 +65,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "מעבר לראש הדף הנוכחי באמצעות כפתור צף",
 	"skin-minerva-blocked-drawer-title": "החשבון שלך נחסם מעריכת {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "הסיבה לחסימה",
-	"skin-minerva-blocked-drawer-creator-header": "החסימה בוצעה על־ידי",
+	"skin-minerva-blocked-drawer-creator-header": "החסימה {{GENDER:$1|בוצעה}} על־ידי",
 	"skin-minerva-blocked-drawer-expiry-header": "זמן הפקיעה של החסימה"
 }
