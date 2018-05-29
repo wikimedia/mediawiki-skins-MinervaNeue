@@ -21,6 +21,10 @@ $wgInterwikiCache = false;
 
 $wgMFEnableBeta = true;
 
+// Set the desktop skin to MinervaNeue. Otherwise, it will try to guess the skin name using the
+// class name MinervaNeue which resolves to `minervaneue`.
+$wgDefaultSkin = 'minerva';
+
 // needed for testing whether the language button is displayed and disabled
 $wgMinervaAlwaysShowLanguageButton = true;
 
