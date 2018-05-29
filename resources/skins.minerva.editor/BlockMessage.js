@@ -35,7 +35,10 @@
 			} ).options,
 			title: mw.msg( 'skin-minerva-blocked-drawer-title' ),
 			reasonHeader: mw.msg( 'skin-minerva-blocked-drawer-reason-header' ),
-			creatorHeader: mw.msg( 'skin-minerva-blocked-drawer-creator-header' ),
+			creatorHeader: function () {
+				return mw.msg( 'skin-minerva-blocked-drawer-creator-header',
+					this.creator.gender || 'unknown' );
+			},
 			expiryHeader: mw.msg( 'skin-minerva-blocked-drawer-expiry-header' )
 		} ),
 		templatePartials: util.extend( {}, Drawer.prototype.templatePartials, {

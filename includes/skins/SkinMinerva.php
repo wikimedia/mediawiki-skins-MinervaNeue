@@ -1303,7 +1303,8 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				$blockInfo = [
 					'creator' => [
 						'name' => $blockCreator->getName(),
-						'url' => $blockCreator->getUserPage()->getLinkURL()
+						'url' => $blockCreator->getUserPage()->getLinkURL(),
+						'gender' => $blockCreator->getOption( 'gender' ),
 					],
 					'expiry' => $blockExpiry,
 					'duration' => $blockDuration,
