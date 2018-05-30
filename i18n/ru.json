@@ -70,6 +70,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки",
 	"skin-minerva-blocked-drawer-title": "Возможность редактировать {{SITENAME}} была заблокирована для вашей учётной записи",
 	"skin-minerva-blocked-drawer-reason-header": "Причина блокировки",
-	"skin-minerva-blocked-drawer-creator-header": "Заблокирован",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Заблокирован|Заблокирована}}",
 	"skin-minerva-blocked-drawer-expiry-header": "Блокировка истечёт"
 }

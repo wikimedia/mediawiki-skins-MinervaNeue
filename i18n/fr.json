@@ -77,6 +77,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Aller en haut de la page actuelle en utilisant un bouton flottant",
 	"skin-minerva-blocked-drawer-title": "Votre compte a été bloqué pour la modification de {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "Motif de blocage",
-	"skin-minerva-blocked-drawer-creator-header": "Bloqué par",
+	"skin-minerva-blocked-drawer-creator-header": "Bloqué{{GENDER:$1||e}} by",
 	"skin-minerva-blocked-drawer-expiry-header": "Déblocage dans"
 }

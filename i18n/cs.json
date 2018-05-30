@@ -18,6 +18,7 @@
 	"minerva-pointer-dismiss": "Zavřít",
 	"mobile-frontend-editor-disabled": "Tato stránka je zamčena, aby se předešlo vandalismu.",
 	"mobile-frontend-editor-edit": "Editovat",
+	"minerva-download": "Stáhnout",
 	"mobile-frontend-editor-redlink-create": "Vytvořit stránku",
 	"mobile-frontend-editor-redlink-explain": "Tato stránka dosud nebyla vytvořena.",
 	"mobile-frontend-editor-redlink-leave": "Ne, děkuji.",
@@ -64,5 +65,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobrazit kategorie stránek",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Přeskočit na začátek",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Přeskočit na začátek této stránky pomocí pohyblivého tlačítka"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Přeskočit na začátek této stránky pomocí pohyblivého tlačítka",
+	"skin-minerva-blocked-drawer-title": "Vašemu účtu byla zablokována možnost editace {{GRAMMAR:2sg|{{SITENAME}}}}",
+	"skin-minerva-blocked-drawer-reason-header": "Důvod zablokování"
 }

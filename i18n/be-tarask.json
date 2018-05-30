@@ -63,6 +63,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перайсьці ўверх старонкі з дапамогай плывучай кнопкі",
 	"skin-minerva-blocked-drawer-title": "Вашаму рахунку была заблякаваная магчымасьць рэдагаваць {{GRAMMAR:вінавальны|{{SITENAME}}}}",
 	"skin-minerva-blocked-drawer-reason-header": "Прычына блякаваньня",
-	"skin-minerva-blocked-drawer-creator-header": "Кім заблякаваны",
+	"skin-minerva-blocked-drawer-creator-header": "Кім {{GENDER:$1|заблякаваны|заблякаваная}}",
 	"skin-minerva-blocked-drawer-expiry-header": "Тэрмін сканчэньня блякаваньня"
 }
