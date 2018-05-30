@@ -245,7 +245,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @param Title $nt
 	 * @param string $section
 	 * @param string|null $tooltip
-	 * @param string|bool $lang
+	 * @param Language|string|bool $lang
 	 * @return string
 	 */
 	public function doEditSectionLink( Title $nt, $section, $tooltip = null, $lang = false ) {
