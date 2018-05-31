@@ -67,6 +67,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå längst upp på aktuell sida med en flytande knapp",
 	"skin-minerva-blocked-drawer-title": "Ditt konto har blockerats från att redigera {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "Orsak till blockering",
-	"skin-minerva-blocked-drawer-creator-header": "Blockerades av",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Blockerades}} av",
 	"skin-minerva-blocked-drawer-expiry-header": "Blockeringen löper ut om"
 }

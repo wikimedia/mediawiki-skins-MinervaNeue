@@ -65,8 +65,9 @@
 	"mobile-frontend-user-page-talk": "Overleg",
 	"mobile-frontend-user-page-uploads": "Uploads",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorieën",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Toon paginacategorieën",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Terug naar boven",
 	"skin-minerva-blocked-drawer-reason-header": "Reden voor blokkade",
-	"skin-minerva-blocked-drawer-creator-header": "Geblokkeerd door",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Geblokkeerd}} door",
 	"skin-minerva-blocked-drawer-expiry-header": "Blokkade verloopt over"
 }

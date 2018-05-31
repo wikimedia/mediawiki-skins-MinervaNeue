@@ -68,6 +68,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮动按钮跳转至当前页面的顶部",
 	"skin-minerva-blocked-drawer-title": "您的账户已封禁，不能编辑{{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "封禁的原因",
-	"skin-minerva-blocked-drawer-creator-header": "封禁者：",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|封禁}}者：",
 	"skin-minerva-blocked-drawer-expiry-header": "封禁结束时间："
 }
