@@ -102,12 +102,10 @@
 
 		if ( $refs.length ) {
 			$refs
-				.off( 'click' )
-				.on( 'click', {
+				.off( 'click.references' )
+				.on( 'click.references', {
 					page: page
 				}, onClickReference );
-			page.$( '.mw-cite-backlink a' )
-				.off( 'click' );
 		}
 	}
 
