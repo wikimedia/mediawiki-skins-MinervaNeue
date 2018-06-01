@@ -62,5 +62,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "পাতাগুলির বিষয়শ্রেণী দেখুন",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "শীর্ষে ঝাঁপ দিন",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|অবরুদ্ধ}} করেছেন"
 }

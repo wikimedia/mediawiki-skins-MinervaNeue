@@ -6,7 +6,8 @@
 			"Macofe",
 			"Nemo bis",
 			"The Polish",
-			"Ximo17"
+			"Ximo17",
+			"Sakretsu"
 		]
 	},
 	"minerva-talk-add-topic": "Aggiungi discussione",
@@ -58,6 +59,9 @@
 	"mobile-frontend-user-page-talk": "Discussione",
 	"mobile-frontend-user-page-uploads": "Caricamenti",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorie",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Visualizza le categorie delle pagine",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Torna su",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Torna in cima alla pagina usando un pulsante fluttuante",
 	"skin-minerva-blocked-drawer-reason-header": "Motivo del blocco",
 	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Bloccato|Bloccata|Bloccato/a}} da",
 	"skin-minerva-blocked-drawer-expiry-header": "Il blocco scadrà tra"
