@@ -54,6 +54,17 @@ body {
 	display: none !important;
 }
 
+/* Emulate Center - from mediawiki.skinning/elements.css */
+.center {
+	width: 100%;
+	text-align: center;
+
+	> * {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
 @media all and ( min-width: @width-breakpoint-tablet ) {
 	.client-js {
 		// Avoid flash of unstyled content for tablet users while JavaScript is loading
