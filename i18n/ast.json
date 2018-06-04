@@ -62,6 +62,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al principiu de la páxina actual usando un botón flotante",
 	"skin-minerva-blocked-drawer-title": "Bloquióse la to cuenta pa editar {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "Motivu del bloquéu",
-	"skin-minerva-blocked-drawer-creator-header": "Bloquéu por",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Bloquiáu|Bloquiada}} por",
 	"skin-minerva-blocked-drawer-expiry-header": "El bloquéu va caducar el"
 }
