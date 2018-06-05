@@ -73,6 +73,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "اقفز لأعلى الصفحة الحالية باستخدام زر عائم",
 	"skin-minerva-blocked-drawer-title": "تم منع حسابك من تحرير {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "سبب المنع",
-	"skin-minerva-blocked-drawer-creator-header": "تم المنع بواسطة",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|تم المنع}} بواسطة",
 	"skin-minerva-blocked-drawer-expiry-header": "ستنتهي صلاحية المنع في"
 }
