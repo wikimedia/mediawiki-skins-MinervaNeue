@@ -71,6 +71,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮動按鍵來跳至目前頁面的頂端",
 	"skin-minerva-blocked-drawer-title": "您的帳號已被封鎖，因此不能編輯 {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "封鎖的理由",
-	"skin-minerva-blocked-drawer-creator-header": "封鎖由",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|封鎖}}由",
 	"skin-minerva-blocked-drawer-expiry-header": "封鎖結束於"
 }

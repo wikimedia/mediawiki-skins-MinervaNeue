@@ -64,6 +64,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Skoči na vrh trenutne stranice pomoću lebdećeg dugmeta",
 	"skin-minerva-blocked-drawer-title": "Vaš račun je blokiran na {{GRAMMAR:dativ|{{SITENAME}}}}",
 	"skin-minerva-blocked-drawer-reason-header": "Razlog blokade",
-	"skin-minerva-blocked-drawer-creator-header": "Blokirao/-la Vas je",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Blokirao|Blokirala}} Vas je",
 	"skin-minerva-blocked-drawer-expiry-header": "Blokada će isteći za"
 }

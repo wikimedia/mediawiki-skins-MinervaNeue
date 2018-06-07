@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"DonCamillo"
+			"DonCamillo",
+			"Ammarpad"
 		]
 	},
+	"minerva-pointer-dismiss": "Boye",
+	"mobile-frontend-editor-disabled": "An kare wannan shafin daga gyara.",
 	"mobile-frontend-editor-edit": "Gyara",
 	"mobile-frontend-home-button": "Marhabin",
 	"mobile-frontend-main-menu-settings": "Sigogi",

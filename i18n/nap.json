@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"C.R."
+			"C.R.",
+			"Beta16"
 		]
 	},
+	"minerva-last-modified-date": "Urtemo cagnamiento 'o $1, a 'e $2",
+	"minerva-talk-add-topic": "Azzecca discussione",
 	"mobile-frontend-cookies-required": "'E cookie ce vonno pe' putè cagnà 'a modalità 'e visualizzaziona. Si prega 'e ll'abbià e pruvà n'ata vota.",
 	"mobile-frontend-editor-blocked-info-loggedin": "'O cunto vuosto è bluccato 'a 'o cagnamiento. 'O blocco è stato affettuato 'a {{GENDER:$2|$2}} p' 'o mutivo ccà abbascio: $1",
 	"mobile-frontend-editor-cta": "Aiutate a migliurà sta paggena!",
