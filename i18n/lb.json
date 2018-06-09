@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Matěj Suchánek"
 		]
 	},
 	"minerva-last-modified-date": "Fir d'lescht geännert den $1 ëm $2",
@@ -56,5 +57,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen",
 	"skin-minerva-blocked-drawer-title": "Äre Benotzerkont gouf fir d'Änneren op {{SITENAME}} gespaart",
 	"skin-minerva-blocked-drawer-reason-header": "Grond fir d'Spär",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1Gespaart}} vum"
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Gespaart}} vum"
 }
