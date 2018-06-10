@@ -69,6 +69,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "نمایش رده‌های صفحات",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "رفتن به بالا",
+	"skin-minerva-blocked-drawer-title": "حساب شما برای ویرایش در {{SITENAME}} بسته شده‌است",
 	"skin-minerva-blocked-drawer-reason-header": "علت بستن",
 	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|بسته شده}} توسط",
 	"skin-minerva-blocked-drawer-expiry-header": "بستن در ... پایان می‌یابد"

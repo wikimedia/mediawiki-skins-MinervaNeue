@@ -71,5 +71,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näytä sivun luokat",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Hyppää alkuun",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Hyppää nykyisen sivun alkuun käyttämällä liukupainiketta",
-	"skin-minerva-blocked-drawer-creator-header": "Estänyt"
+	"skin-minerva-blocked-drawer-reason-header": "Eston syy",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Estänyt}}",
+	"skin-minerva-blocked-drawer-expiry-header": "Esto päättyy"
 }
