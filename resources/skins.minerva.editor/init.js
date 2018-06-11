@@ -165,7 +165,7 @@
 			router.navigate( '#/editor/' + $( this ).data( 'section' ) );
 			return false;
 		} );
-		overlayManager.add( /^\/editor\/(\d+)$/, function ( sectionId ) {
+		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
 			var
 				$content = $( '#mw-content-text' ),
 				result = $.Deferred(),
@@ -224,7 +224,9 @@
 				} );
 			}
 
-			editorOptions.sectionId = page.isWikiText() ? parseInt( sectionId, 10 ) : null;
+			if ( sectionId !== 'all' ) {
+				editorOptions.sectionId = page.isWikiText() ? +sectionId : null;
+			}
 
 			// Check whether VisualEditor should be loaded
 			if ( isVisualEditorEnabled &&
@@ -317,11 +319,12 @@
 				editorOverride = 'SourceEditor';
 			}
 			// else: action=edit, for which we allow the default to take effect
-			fragment = '#/editor/' + ( mw.util.getParamValue( 'section' ) || '0' );
+			fragment = '#/editor/' + ( mw.util.getParamValue( 'section' ) || ( mw.util.getParamValue( 'action' ) === 'edit' && 'all' ) || '0' );
 			if ( window.history && history.pushState ) {
 				uri = mw.Uri();
 				delete uri.query.action;
 				delete uri.query.veaction;
+				delete uri.query.section;
 				// Note: replaceState rather than pushState, because we're
 				// just reformatting the URL to the equivalent-meaning for the
 				// mobile site.
