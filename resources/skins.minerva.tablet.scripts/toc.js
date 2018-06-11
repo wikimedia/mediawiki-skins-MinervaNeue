@@ -31,7 +31,8 @@
 	}
 
 	// add a ToC only for "view" action (user is reading a page)
-	if ( mw.config.get( 'wgAction' ) === 'view' ) {
+	// provided a table of contents placeholder has been rendered
+	if ( mw.config.get( 'wgAction' ) === 'view' && $( '#toc' ).length > 0 ) {
 		init( M.getCurrentPage() );
 	}
 
