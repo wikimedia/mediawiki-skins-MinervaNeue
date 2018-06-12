@@ -168,4 +168,52 @@ class MinervaHooks {
 			] );
 		}
 	}
+
+	/**
+	 * Suppress showing the wikitext editor on action=edit URLs
+	 *
+	 * @param Article $article The article being viewed.
+	 * @param User $user The user-specific settings.
+	 * @return bool Whether to show the wikitext editor or not.
+	 */
+	public static function onCustomEditor( Article $article, User $user ) {
+		$out = $article->getContext()->getOutput();
+
+		if ( !( $out->getSkin() instanceof SkinMinerva ) ) {
+			return true;
+		}
+
+		$req = $article->getContext()->getRequest();
+
+		if ( $req->getVal( 'mobileeditorsuppress' ) ) {
+			return true;
+		}
+
+		$params = $req->getValues();
+		$params['mobileeditorsuppress'] = '1';
+		$url = wfScript() . '?' . wfArrayToCgi( $params );
+		$escapedUrl = htmlspecialchars( $url );
+
+		$title = $article->getTitle();
+		$titleMsg = $title->exists() ? 'editing' : 'creating';
+		$out->setPageTitle( wfMessage( $titleMsg, $title->getPrefixedText() ) );
+		$out->addWikiMsg( 'mobile-frontend-editor-toload', wfExpandUrl( $url ) );
+		$out->setRevisionId( $req->getInt( 'oldid', $article->getRevIdFetched() ) );
+
+		// Redirect if the user has no JS (<noscript>)
+		$out->addHeadItem(
+			'mobileeditor-noscript-fallback',
+			"<noscript><meta http-equiv=\"refresh\" content=\"0; url=$escapedUrl\"></noscript>"
+		);
+		// Redirect if the user has no ResourceLoader
+		$out->addScript( Html::inlineScript(
+			"(window.NORLQ=window.NORLQ||[]).push(" .
+				"function(){" .
+					"location.href=\"$url\";" .
+				"}" .
+			");"
+		) );
+
+		return false;
+	}
 }
