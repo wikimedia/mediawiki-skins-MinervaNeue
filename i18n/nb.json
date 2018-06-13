@@ -66,5 +66,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vis kategoriene til sider",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå til toppen",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå til toppen av siden med en flytende knapp"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå til toppen av siden med en flytende knapp",
+	"skin-minerva-blocked-drawer-title": "Din konto har blitt blokkert fra å redigere {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Begrunnelse for blokkeringen",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Blokkeres}} av",
+	"skin-minerva-blocked-drawer-expiry-header": "Blokkeringen vil opphøre om"
 }
