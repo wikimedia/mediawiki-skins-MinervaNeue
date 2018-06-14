@@ -40,6 +40,7 @@
 	"mobile-frontend-talk-back-to-page": "«$1» битенә кире кайту.",
 	"mobile-frontend-talk-back-to-projectpage": "«$1» проекты битенә кире кайту.",
 	"mobile-frontend-talk-back-to-userpage": "$1 {{GENDER:$1|кулланучысының}} битенә кайтырга.",
+	"mobile-frontend-user-button-tooltip": "Минем хəбəрнамəләрне күрсәтү",
 	"mobile-frontend-user-newmessages": "Сезнең бәхәс битегездә яңа хатлар бар",
 	"mobile-frontend-user-page-contributions": "Кертем",
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|кушылды}}",
