@@ -1455,6 +1455,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			'skins.minerva.base.reset',
 			'skins.minerva.base.styles',
 			'skins.minerva.content.styles',
+			'skins.minerva.content.styles.images',
 			'mediawiki.hlist',
 			'skins.minerva.tablet.styles',
 			'mediawiki.ui.icon',
