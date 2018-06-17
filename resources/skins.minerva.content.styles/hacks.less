@@ -47,7 +47,6 @@ FIXME: Review all of these hacks to see if they still apply.
 			position: relative;
 			border: 1px solid @colorGray14;
 			margin-bottom: 2em;
-			text-align: left;
 			background-color: @colorGray15;
 
 			display: flex;
@@ -88,6 +87,18 @@ FIXME: Review all of these hacks to see if they still apply.
 			display: flex;
 			flex-flow: row nowrap;
 		}
+	}
+
+	// Hack to assign info boxes properly when using RTL languages on LTR wiki
+	.mw-content-ltr table.infobox {
+		/* @noflip */
+		text-align: left;
+	}
+
+	// Hack to assign info boxes properly when using LTR languages on RTL wiki
+	.mw-content-rtl table.infobox {
+		/* @noflip */
+		text-align: right;
 	}
 }
 
@@ -181,10 +192,4 @@ FIXME: Review all of these hacks to see if they still apply.
 			}
 		}
 	}
-}
-
-// Hack to assign info boxes properly when using RTL languages on LTR wiki
-[dir='rtl'] .content .infobox {
-	/* @noflip */
-	text-align: left;
 }
