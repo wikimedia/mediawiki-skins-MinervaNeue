@@ -263,6 +263,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			$html .= Html::closeElement( 'span' );
 			return $html;
 		}
+		return '';
 	}
 
 	/**
