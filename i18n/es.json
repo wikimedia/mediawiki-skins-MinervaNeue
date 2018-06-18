@@ -69,6 +69,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al inicio de la página actual mediante un botón flotante",
 	"skin-minerva-blocked-drawer-title": "Han bloqueado tu cuenta para que no edites {{SITENAME}}",
 	"skin-minerva-blocked-drawer-reason-header": "Motivo del bloqueo",
-	"skin-minerva-blocked-drawer-creator-header": "Bloqueo por",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Bloqueado|Bloqueada}} por",
 	"skin-minerva-blocked-drawer-expiry-header": "El bloqueo caducará el"
 }
