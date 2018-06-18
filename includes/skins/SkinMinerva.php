@@ -245,12 +245,11 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	 * @param Title $nt
 	 * @param string $section
 	 * @param string|null $tooltip
-	 * @param Language|string|bool $lang
+	 * @param Language $lang
 	 * @return string
 	 */
-	public function doEditSectionLink( Title $nt, $section, $tooltip = null, $lang = false ) {
+	public function doEditSectionLink( Title $nt, $section, $tooltip = null, Language $lang ) {
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$lang = wfGetLangObj( $lang );
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span' );
 			$html .= Html::element( 'a', [
