@@ -90,18 +90,18 @@
 					glyphPrefix: 'minerva',
 					name: 'warning',
 					isSmall: true
-				} ).prependTo( '.mbox-text' );
+				} ).prependTo( $metadata.find( '.mbox-text' ) );
 				$learnMore = $( '<span>' )
 					.addClass( 'ambox-learn-more' )
 					.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
 				if ( $( '.mw-collapsible-content' ).length ) {
 					// e.g. Template:Multiple issues
-					$learnMore.insertBefore( '.mw-collapsible-content' );
+					$learnMore.insertBefore( $metadata.find( '.mw-collapsible-content' ) );
 				} else {
 					// e.g. Template:merge from
-					$learnMore.appendTo( '.mbox-text-span' );
+					$learnMore.appendTo( $metadata.find( '.mbox-text-span' ) );
 				}
-				$( '.mbox-text' ).click( function () {
+				$metadata.find( '.mbox-text' ).click( function () {
 					overlayManager.router.navigate( '#/issues' );
 				} );
 			} else {
