@@ -66,6 +66,7 @@
 	"skinname-minerva": "{{name}}",
 	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Label for categories mobile web beta feature.\n{{Identical|Category}}",
+	"skin-minerva-issue-learn-more": "Label for link that allows expanding of ambox issue templates.",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Description label for categories mobile web beta feature.",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Label for jump to top mobile web beta feature",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature",

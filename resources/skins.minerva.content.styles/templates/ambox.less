@@ -1,0 +1,92 @@
+/**
+ * Ambox classes are nested in a top-level class
+ * for the page issues A/B test.
+ * This class is appended to the DOM via JS
+ **/
+
+// Since group-b is display none, this will not impact group-b but will avoid FOUC for group a
+@min-height-ambox: 40px;
+
+.ambox,
+// Be more specific than .content table styles in Minerva
+table.ambox {
+	display: none;
+}
+
+// Will show FOUC on mobile
+.issues-group-B {
+	.ambox {
+		display: block;
+	}
+}
+
+.client-js .ambox {
+	cursor: pointer;
+	// Avoid the height changing when the learn more link is inserted.
+	min-height: @min-height-ambox;
+	margin: 0 !important;
+	font-size: 0.8em;
+	width: 100%;
+	background: @colorGray15;
+	color: @colorGray5;
+
+	// Certain templates e.g. Template:Expand Russian wrap content in this element
+	// We'll want to apply min-height here too.
+	.mbox-text-span {
+		min-height: @min-height-ambox;
+	}
+
+	// Wrestle with inline styles that editors may place on elements inside the ambox
+	div {
+		// e.g. on mw-collapsible inside Multiple issues template
+		margin: 0 !important;
+		// e.g. on Template:Expand Russian
+		padding: 0 !important;
+	}
+
+	td {
+		position: relative;
+		padding: 8px 8px 8px 32px;
+	}
+
+	// All text should be treated the same
+	b {
+		font-weight: inherit;
+	}
+
+	// Hide links in new treatment
+	a {
+		color: inherit !important;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	small,
+	.hide-when-compact,
+	// Template:Expand Russian
+	.mw-collapsible-content,
+	// Remove empty leftmost column when present (.mbox-empty-cell)
+	// and .verbose and any hr tags that might be present in the ambox
+	// See https://en.wikipedia.org/w/index.php?
+	//   title=Special:WhatLinksHere/Template:Proposed_deletion_notify
+	// (https://phabricator.wikimedia.org/T197265)
+	.mbox-empty-cell,
+	hr,
+	.verbose,
+	// nested amboxes (multiple issues)
+	table,
+	.mbox-image {
+		display: none;
+	}
+
+	.mw-ui-icon {
+		position: absolute;
+		left: -8px;
+	}
+
+	.ambox-learn-more {
+		color: @linkColor;
+		display: inline-block;
+	}
+}
