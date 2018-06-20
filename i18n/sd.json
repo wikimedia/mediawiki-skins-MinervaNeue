@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mehtab ahmed",
-			"Sindhu"
+			"Sindhu",
+			"Tweety"
 		]
 	},
 	"mobile-frontend-editor-edit": "سنواريو",
@@ -16,5 +17,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "ھن صفحي جي نمائنده سيڪشن کي سنواريو",
 	"mobile-frontend-placeholder": "{{SITENAME}} ڳوليو",
 	"mobile-frontend-random-button": "بلاترتيب",
-	"mobile-frontend-user-page-contributions": "ڀاڱيداريون"
+	"mobile-frontend-user-page-contributions": "ڀاڱيداريون",
+	"skin-minerva-issue-learn-more": "وڌيڪ سکو"
 }
