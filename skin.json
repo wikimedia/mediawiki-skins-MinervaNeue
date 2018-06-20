@@ -67,6 +67,9 @@
 		],
 		"SpecialPageBeforeExecute": [
 			"MinervaHooks::onSpecialPageBeforeExecute"
+		],
+		"CustomEditor": [
+			"MinervaHooks::onCustomEditor"
 		]
 	},
 	"MessagesDirs": {
