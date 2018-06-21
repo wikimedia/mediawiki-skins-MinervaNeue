@@ -22,6 +22,7 @@
 	"mobile-frontend-editor-redlink-create": "创建页面",
 	"mobile-frontend-editor-redlink-explain": "此页面尚未创建。",
 	"mobile-frontend-editor-redlink-leave": "不用了，谢谢。",
+	"mobile-frontend-editor-toload": "现在将加载编辑器。如果您在几秒钟后仍然看见这条消息，请[$1 重新加载]页面。",
 	"mobile-frontend-editor-tutorial-cancel": "不用了，谢谢",
 	"mobile-frontend-editor-tutorial-confirm": "开始编辑",
 	"mobile-frontend-editor-tutorial-summary": "尝试改进$1页面。<br />不要害怕标记。",

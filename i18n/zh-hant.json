@@ -24,6 +24,7 @@
 	"mobile-frontend-editor-redlink-create": "建立頁面",
 	"mobile-frontend-editor-redlink-explain": "此頁面尚未被建立。",
 	"mobile-frontend-editor-redlink-leave": "不用了，謝謝。",
+	"mobile-frontend-editor-toload": "現在將載入編輯器，若您再幾秒過後仍看到此訊息，請 [$1 重新載入此頁面]。",
 	"mobile-frontend-editor-tutorial-cancel": "不用了，謝謝",
 	"mobile-frontend-editor-tutorial-confirm": "開始編輯",
 	"mobile-frontend-editor-tutorial-summary": "試著改進 $1 頁面。<br />別害怕標籤語言。",
