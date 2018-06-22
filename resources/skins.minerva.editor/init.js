@@ -312,13 +312,7 @@
 			ev.stopPropagation();
 		} );
 
-		if ( !router.getPath() &&
-			(
-				mw.util.getParamValue( 'veaction' ) ||
-				mw.util.getParamValue( 'action' ) === 'edit'
-			) &&
-			!mw.util.getParamValue( 'mobileeditorsuppress' )
-		) {
+		if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.util.getParamValue( 'action' ) === 'edit' ) ) {
 			if ( mw.util.getParamValue( 'veaction' ) === 'edit' ) {
 				editorOverride = 'VisualEditor';
 			} else if ( mw.util.getParamValue( 'veaction' ) === 'editsource' ) {
