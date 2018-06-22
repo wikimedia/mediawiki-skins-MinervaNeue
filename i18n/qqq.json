@@ -23,7 +23,6 @@
 	"mobile-frontend-editor-redlink-create": "Label for a create page button.\n{{Identical|Create page}}",
 	"mobile-frontend-editor-redlink-explain": "Question for the user, if he want to edit a page, which link he clicked and that does not exist yet, or not.",
 	"mobile-frontend-editor-redlink-leave": "Used as a label for a button which the user can click to avoid editing a page which does not exist yet (red link): the question/alternative button is {{msg-mw|mobile-frontend-editor-redlink-create}}\n----\n{{Identical|No thanks}}",
-	"mobile-frontend-editor-toload": "Text shown to the user in place of the wikitext editor on action=edit when the editing overlay is expected to load.\n\nParameters\n* $1 is the URL which points to a page with a fallback to the wikitext editor if necessary.",
 	"mobile-frontend-editor-tutorial-cancel": "Label for button that user can click if they do not want to edit.\n{{Identical|No thanks}}",
 	"mobile-frontend-editor-tutorial-confirm": "Text for the button a user clicks after they have read the editing tutorial and are ready to edit the page.\n\nSee also:\n* {{msg-mw|Mobile-frontend-editor-tutorial-summary}}",
 	"mobile-frontend-editor-tutorial-summary": "Text for tutorial overlay presented to a user the first time they try to edit a page.\n\nParameters:\n* $1 - page title\nSee also:\n* {{msg-mw|Mobile-frontend-editor-tutorial-alt-summary}}",
