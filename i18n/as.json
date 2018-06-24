@@ -4,7 +4,8 @@
 			"Bishnu Saikia",
 			"Gitartha.bordoloi",
 			"IKHazarika",
-			"Nilamdyuti"
+			"Nilamdyuti",
+			"Sagsag"
 		]
 	},
 	"mobile-frontend-editor-edit": "সম্পাদনা কৰক",
@@ -21,5 +22,6 @@
 	"mobile-frontend-meta-data-issues-header": "বিষয়সমূহ",
 	"mobile-frontend-pageaction-edit-tooltip": "এই পৃষ্ঠাৰ শীৰ্ষ অনুচ্ছেদ সম্পাদনা কৰক।",
 	"mobile-frontend-placeholder": "সন্ধান কৰক {{SITENAME}}",
-	"mobile-frontend-random-button": "যিকোনো"
+	"mobile-frontend-random-button": "যিকোনো",
+	"skin-minerva-issue-learn-more": "আৰু শিকক"
 }

@@ -18,7 +18,6 @@
 	"mobile-frontend-editor-redlink-create": "Seite erstellen",
 	"mobile-frontend-editor-redlink-explain": "Diese Seite wurde noch nicht erstellt.",
 	"mobile-frontend-editor-redlink-leave": "Nein danke.",
-	"mobile-frontend-editor-toload": "Der Editor wird jetzt geladen. Falls du diese Nachricht in einigen Sekunden immer noch siehst, [$1 aktualisiere bitte die Seite].",
 	"mobile-frontend-editor-tutorial-cancel": "Nein danke",
 	"mobile-frontend-editor-tutorial-confirm": "Mit dem Bearbeiten anfangen",
 	"mobile-frontend-editor-tutorial-summary": "Versuche, die Seite „$1“ zu verbessern.<br />Habe keine Angst vor Markup.",
