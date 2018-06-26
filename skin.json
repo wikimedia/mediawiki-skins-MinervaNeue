@@ -174,14 +174,8 @@
 		},
 		"skins.minerva.content.styles.images": {
 			"class": "ResourceLoaderImageModule",
-			"selectorWithoutVariant": "/* T197909",
-			"selectorWithVariant": "*/ a.{name}",
-			"variants": {
-				"standard": {
-					"color": "#36c",
-					"global": true
-				}
-			},
+			"selector": "a.{name}",
+			"defaultColor": "#36c",
 			"images": {
 				"external": {
 					"file": {
