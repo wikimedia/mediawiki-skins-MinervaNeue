@@ -113,6 +113,22 @@ test have an equal chance of entering bucket "A" or "B", the remaining users fal
 0.05 - would run test on 5% of users (2.5% in A, 2.5% in B, 95% in control).
 0 would disable the test and place all users in "control".
 
+Group assignment is universal no matter how many tests are running since both
+`wgMinervaABSamplingRate` and `mw.user.sessionId()` are globals.
+
+Group membership can be debugged from the console via:
+
+```js
+  const AB = mw.mobileFrontend.require('skins.minerva.scripts/AB')
+  new AB(
+    'WME.PageIssuesAB',
+    mw.config.get( 'wgMinervaABSamplingRate', 0 ),
+    mw.user.sessionId()
+  ).getBucket()
+```
+
+And since session ID is an input in calculating the group, reassignment occurs
+when clearing it: `mw.storage.session.remove('mwuser-sessionId')`.
+
 * Type: `Number`
 * Default: `0`
-
