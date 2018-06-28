@@ -22,37 +22,39 @@ The following configuration options will apply only to the default mobile skin -
 
 #### $wgMinervaAlwaysShowLanguageButton
 
-Whether to show the language switcher button even if no languages are available
-for the page.
-
 * Type: `Boolean`
 * Default: `true`
 
+Whether to show the language switcher button even if no languages are available
+for the page.
+
 #### $wgMinervaEnableSiteNotice
+
+* Type: `Boolean`
+* Default: `false`
 
 Controls whether site notices should be shown.
 See <https://www.mediawiki.org/wiki/Manual:$wgSiteNotice>.
 
+#### $wgMinervaApplyKnownTemplateHacks
+
 * Type: `Boolean`
 * Default: `false`
-
-
-#### $wgMinervaApplyKnownTemplateHacks
 
 When enabled and hacks.less exists, hacks.less workarounds are included in stylesheet. These should only be needed for Wikimedia based wikis or wikis using common templates such as Template:Infobox on those wikis.
 
-* Type: `Boolean`
-* Default: `false`
-
 #### $wgMinervaPageActions
-
-Controls which page actions, if any, are displayed. Allowed: `edit`, `watch`, `talk`, and
-`switch-language`.
 
 * Type: `Array`
 * Default: `['edit', 'talk', 'watch', 'switch-language']`
 
+Controls which page actions, if any, are displayed. Allowed: `edit`, `watch`, `talk`, and
+`switch-language`.
+
 #### $wgMinervaCustomLogos
+
+* Type: `Array`
+* Default: `[]`
 
 Make the logos configurable.
 
@@ -91,17 +93,17 @@ Example with fallback URL:
 ]
 ```
 
-* Type: `Array`
-* Default: `[]`
-
 #### $wgMinervaAlwaysShowLanguageButton
-
-Whether to show the language switcher button even if no languages are available for the page.
 
 * Type: `Boolean`
 * Default: `true`
 
+Whether to show the language switcher button even if no languages are available for the page.
+
 #### $wgMinervaABSamplingRate
+
+* Type: `Number`
+* Default: `0`
 
 On a scale of 0 to 1, determines the chance a user has of entering an AB test.
 A test is divided into 3 buckets, "control" "A" and "B". Users that are selected for the
@@ -129,6 +131,3 @@ Group membership can be debugged from the console via:
 
 And since session ID is an input in calculating the group, reassignment occurs
 when clearing it: `mw.storage.session.remove('mwuser-sessionId')`.
-
-* Type: `Number`
-* Default: `0`
