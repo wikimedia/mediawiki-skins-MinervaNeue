@@ -101,8 +101,9 @@
 					// e.g. Template:merge from
 					$learnMore.appendTo( $metadata.find( '.mbox-text-span' ) );
 				}
-				$metadata.find( '.mbox-text' ).click( function () {
+				$metadata.click( function () {
 					overlayManager.router.navigate( '#/issues' );
+					return false;
 				} );
 			} else {
 				$link = createLinkElement( labelText );
