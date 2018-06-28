@@ -27,6 +27,18 @@ body {
 	line-height: @contentLineHeight;
 	// Deal with long links (bug 60387)
 	word-wrap: break-word;
+
+	/* Emulate Center - from mediawiki.skinning/elements.css */
+	.center {
+		width: 100%;
+		text-align: center;
+
+		> *,
+		.thumb {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
 
 @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
@@ -52,17 +64,6 @@ body {
 .nomobile {
 	// No mobile should trump any other class. e.g. .content table { display: table; }
 	display: none !important;
-}
-
-/* Emulate Center - from mediawiki.skinning/elements.css */
-.center {
-	width: 100%;
-	text-align: center;
-
-	> * {
-		margin-left: auto;
-		margin-right: auto;
-	}
 }
 
 @media all and ( min-width: @width-breakpoint-tablet ) {
