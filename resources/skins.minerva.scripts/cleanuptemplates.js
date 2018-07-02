@@ -1,5 +1,11 @@
 ( function ( M, $ ) {
 	var AB = M.require( 'skins.minerva.scripts/AB' ),
+		allIssues = {},
+		KEYWORD_ALL_SECTIONS = 'all',
+		ACTION_EDIT = mw.config.get( 'wgAction' ) === 'edit',
+		NS_MAIN = 0,
+		NS_TALK = 1,
+		NS_CATEGORY = 14,
 		isInGroupB = new AB(
 			'WME.PageIssuesAB',
 			mw.config.get( 'wgMinervaABSamplingRate', 0 ),
@@ -8,8 +14,7 @@
 		Icon = M.require( 'mobile.startup/Icon' );
 
 	( function () {
-		var action = mw.config.get( 'wgAction' ),
-			page = M.getCurrentPage(),
+		var page = M.getCurrentPage(),
 			getIconFromAmbox = M.require( 'skins.minerva.scripts/utils' )
 				.getIconFromAmbox,
 			overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
@@ -61,15 +66,22 @@
 
 		/**
 		 * Render a banner in a containing element.
+		 * if in group B, a learn more link will be append to any amboxes inside $container
+		 * if in group A or control, any amboxes in container will be removed and a link "page issues"
+		 * will be rendered above the heading.
+		 * This function comes with side effects. It will populate a global "allIssues" object which
+		 * will link section numbers to issues.
 		 * @param {JQuery.Object} $container to render the page issues banner inside.
 		 * @param {string} labelText what the label of the page issues banner should say
-		 * @param {string} headingText the heading of the overlay that is created when the page issues banner is clicked
+		 * @param {number|string} section that the banner and its issues belong to.
+		 *  If string KEYWORD_ALL_SECTIONS banner should apply to entire page.
 		 * @param {boolean} inline - if true the first ambox in the section will become the entry point for the issues overlay
 		 *  and if false, a link will be rendered under the heading.
 		 * @ignore
 		 */
-		function createBanner( $container, labelText, headingText, inline ) {
+		function createBanner( $container, labelText, section, inline ) {
 			var $learnMore,
+				issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
 				selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 				$metadata = $container.find( selector ),
 				issues = [],
@@ -91,6 +103,8 @@
 					}
 				}
 			} );
+			// store it for late
+			allIssues[section] = issues;
 
 			if ( inline ) {
 				new Icon( {
@@ -109,24 +123,58 @@
 					$learnMore.appendTo( $metadata.find( '.mbox-text-span' ) );
 				}
 				$metadata.click( function () {
-					overlayManager.router.navigate( '#/issues' );
+					overlayManager.router.navigate( issueUrl );
 					return false;
 				} );
 			} else {
 				$link = createLinkElement( labelText );
-				$link.attr( 'href', '#/issues' );
+				// In group B, we link to all issues no matter where the banner is.
+				$link.attr( 'href', '#/issues/' + KEYWORD_ALL_SECTIONS );
 				if ( $metadata.length ) {
 					$link.insertAfter( $( 'h1#section_0' ) );
 					$metadata.remove();
 				}
 			}
+		}
 
-			overlayManager.add( /^\/issues$/, function () {
-				return new CleanupOverlay( {
-					issues: issues,
-					headingText: headingText
-				} );
-			} );
+		/**
+		 * Obtains the list of issues for the current page and provided section
+		 * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the section
+		 *  the issues belong to
+		 * @return {jQuery.Object[]} array of all issues.
+		 */
+		function getIssues( section ) {
+			if ( section === KEYWORD_ALL_SECTIONS ) {
+				// Note section.all may not exist, depending on the structure of the HTML page.
+				// It will only exist when Minerva has been run in desktop mode.
+				// If it's absent, we'll reduce all the other lists into one.
+				return section.all || Object.keys( allIssues ).reduce(
+					function ( all, key ) {
+						return all.concat( allIssues[key] );
+					},
+					[]
+				);
+			} else {
+				return allIssues[section] || [];
+			}
+		}
+
+		/**
+		 * Obtain a suitable heading for the issues overlay based on the namespace
+		 * @param {number} ns is the namespace to generate heading for
+		 * @return {string} heading for overlay
+		 */
+		function getNamespaceHeadingText( ns ) {
+			switch ( ns ) {
+				case NS_CATEGORY:
+					return mw.msg( 'mobile-frontend-meta-data-issues-categories' );
+				case NS_TALK:
+					return mw.msg( 'mobile-frontend-meta-data-issues-talk' );
+				case NS_MAIN:
+					return mw.msg( 'mobile-frontend-meta-data-issues' );
+				default:
+					return '';
+			}
 		}
 
 		/**
@@ -136,33 +184,46 @@
 		 */
 		function initPageIssues() {
 			var ns = mw.config.get( 'wgNamespaceNumber' ),
+				label,
+				headingText = ACTION_EDIT ? mw.msg( 'edithelp' ) : getNamespaceHeadingText( ns ),
+				$lead = page.getLeadSectionElement(),
+				issueOverlayShowAll = ns === NS_CATEGORY || ns === NS_TALK || ACTION_EDIT || !$lead,
 				inline = isInGroupB && ns === 0,
-				// Categories have no lead section
-				$container = ns === 14 || isInGroupB ? $( '#bodyContent' ) :
-					page.getLeadSectionElement();
+				$container = $( '#bodyContent' );
 
 			// set A-B test class.
 			$( 'html' ).addClass( isInGroupB ? 'issues-group-B' : 'issues-group-A' );
-			if ( action === 'edit' ) {
+
+			if ( ACTION_EDIT ) {
+				// Editor uses different parent element
 				$container = $( '#mw-content-text' );
-			} else if ( $container === null ) {
-				return;
+				createBanner( $container, mw.msg( 'edithelp' ), KEYWORD_ALL_SECTIONS, inline );
+			} else if ( ns === NS_TALK || ns === NS_CATEGORY ) {
+				// e.g. Template:English variant category; Template:WikiProject
+				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ), KEYWORD_ALL_SECTIONS, inline );
+			} else if ( ns === NS_MAIN ) {
+				label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
+				if ( issueOverlayShowAll ) {
+					createBanner( $container, label, KEYWORD_ALL_SECTIONS, inline );
+				} else {
+					// parse lead
+					createBanner( $lead, label, 0, inline );
+					if ( isInGroupB ) {
+						// parse other sections but only in group B. In treatment A no issues are shown for sections.
+						$lead.nextAll( '[class^="mf-section"]' ).each( function ( i, sectionEl ) {
+							createBanner( $( sectionEl ), label, i + 1, inline );
+						} );
+					}
+				}
 			}
 
-			if ( action === 'edit' ) {
-				createBanner( $container, mw.msg( 'edithelp' ),
-					mw.msg( 'edithelp' ), inline );
-			} else if ( ns === 0 ) {
-				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues' ),
-					mw.msg( 'mobile-frontend-meta-data-issues-header' ), inline );
-			// Create a banner for talk pages (namespace 1) in beta mode to make them more readable.
-			} else if ( ns === 1 ) {
-				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-talk' ),
-					mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ), inline );
-			} else if ( ns === 14 ) {
-				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-categories' ),
-					mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ), inline );
-			}
+			// Setup the overlay route.
+			overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
+				return new CleanupOverlay( {
+					issues: getIssues( section ),
+					headingText: headingText
+				} );
+			} );
 		}
 
 		// Setup the issues banner on the page
