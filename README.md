@@ -122,11 +122,11 @@ Group membership can be debugged from the console via:
 
 ```js
   const AB = mw.mobileFrontend.require('skins.minerva.scripts/AB')
-  new AB(
-    'WME.PageIssuesAB',
-    mw.config.get( 'wgMinervaABSamplingRate', 0 ),
-    mw.user.sessionId()
-  ).getBucket()
+  new AB({
+    testName: 'WME.PageIssuesAB',
+    samplingRate: mw.config.get( 'wgMinervaABSamplingRate', 0 ),
+    sessionId: mw.user.sessionId()
+  }).getBucket()
 ```
 
 And since session ID is an input in calculating the group, reassignment occurs

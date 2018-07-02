@@ -6,11 +6,20 @@
 		NS_MAIN = 0,
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
-		isInGroupB = new AB(
-			'WME.PageIssuesAB',
-			mw.config.get( 'wgMinervaABSamplingRate', 0 ),
-			mw.user.sessionId()
-		).getBucket() === 'B',
+		isInGroupB = new AB( {
+			testName: 'WME.PageIssuesAB',
+			samplingRate: mw.config.get( 'wgMinervaABSamplingRate', 0 ),
+			sessionId: mw.user.sessionId(),
+			onABStart: function ( bucket ) {
+				// See: https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
+				var READING_DEPTH_BUCKET_KEYS = {
+						A: 'page-issues-a_sample',
+						B: 'page-issues-b_sample'
+					},
+					readingDepthBucket = READING_DEPTH_BUCKET_KEYS[ bucket ];
+				mw.track( 'wikimedia.event.ReadingDepthSchema.enable', readingDepthBucket );
+			}
+		} ).getBucket() === 'B',
 		Icon = M.require( 'mobile.startup/Icon' );
 
 	( function () {

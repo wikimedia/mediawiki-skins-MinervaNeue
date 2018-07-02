@@ -1,8 +1,12 @@
 ( function ( M ) {
 
 	var AB = M.require( 'skins.minerva.scripts/AB' ),
-		aBName = 'WME.MinervaABTest',
-		samplingRate = 0.5;
+		util = M.require( 'mobile.startup/util' ),
+		defaultConfig = {
+			testName: 'WME.MinervaABTest',
+			samplingRate: 0.5,
+			sessionId: mw.user.generateRandomSessionId()
+		};
 
 	QUnit.module( 'Minerva AB-test' );
 
@@ -14,10 +18,12 @@
 			},
 			maxUsers = 1000,
 			bucketingTest,
+			config,
 			i;
 
 		for ( i = 0; i < maxUsers; i++ ) {
-			bucketingTest = new AB( aBName, samplingRate, mw.user.generateRandomSessionId() );
+			config = util.extend( {}, defaultConfig, { sessionId: mw.user.generateRandomSessionId() } );
+			bucketingTest = new AB( config );
 			userBuckets[ bucketingTest.getBucket() ] += 1;
 		}
 

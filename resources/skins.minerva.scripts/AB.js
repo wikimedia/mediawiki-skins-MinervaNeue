@@ -11,14 +11,21 @@
 	/**
 	 * Buckets users based on params and exposes an `isEnabled` and `getBucket` method.
 	 *
-	 * @param {string} testName name of the AB-test.
-	 * @param {number} samplingRate sampling rate for the AB-test.
-	 * @param {number} sessionId session ID for user bucketing.
+	 * @param {Object}   config configuration object for AB test.
+	 * @param {string}   config.testName
+	 * @param {number}   config.samplingRate sampling rate for the AB-test.
+	 * @param {number}   config.sessionId session ID for user bucketing
+	 * @param {function} [config.onABStart] function that triggers event-logging when user is either
+	 *                                      in bucket A or B.
 	 * @constructor
 	 */
-	function AB( testName, samplingRate, sessionId ) {
+	function AB( config ) {
 
 		var CONTROL_BUCKET = 'control',
+			testName = config.testName,
+			samplingRate = config.samplingRate,
+			sessionId = config.sessionId,
+			onABStart = config.onABStart || function () {},
 			test = {
 				name: testName,
 				enabled: !!samplingRate,
@@ -28,13 +35,6 @@
 					B: samplingRate / 2
 				}
 			};
-		/**
-		 * Starts the AB-test and enters the user into the Reading Depth test.
- 		 */
-		function startABTest() {
-			// See: https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
-			mw.track( 'wikimedia.event.ReadingDepthSchema.enable' );
-		}
 
 		/**
 		 * Gets the users AB-test bucket
@@ -61,7 +61,7 @@
 		 */
 		function init() {
 			if ( isEnabled() ) {
-				startABTest();
+				onABStart( getBucket() );
 			}
 		}
 
