@@ -16,7 +16,7 @@
 	 * Initialises toggling code.
 	 *
 	 * @method
-	 * @param {jQuery.Object} $container to enable toggling on
+	 * @param {JQuery.Object} $container to enable toggling on
 	 * @param {string} prefix a prefix to use for the id.
 	 * @param {Page} page The current page
 	 * @ignore

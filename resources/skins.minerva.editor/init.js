@@ -62,7 +62,7 @@
 	 * @ignore
 	 * @param {number} section number
 	 * @param {string} container CSS selector of the container
-	 * @return {jQuery.Object} newly created edit page button
+	 * @return {JQuery.Object} newly created edit page button
 	 */
 	function addEditButton( section, container ) {
 		$( container ).find( 'a' ).remove();
@@ -91,7 +91,7 @@
 	 * Make an element render a CTA when clicked
 	 * @method
 	 * @ignore
-	 * @param {jQuery.Object} $el Element which will render a drawer on click
+	 * @param {JQuery.Object} $el Element which will render a drawer on click
 	 * @param {number} section number representing the section
 	 */
 	function makeCta( $el, section ) {

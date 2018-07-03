@@ -19,7 +19,7 @@
 		closeOnContentTap: true,
 		template: template.get( 'skins.minerva.newusers', 'PointerOverlay.hogan' ),
 		/**
-		 * @cfg {Object} defaults Default options hash.
+		 * @cfg {object} defaults Default options hash.
 		 * @cfg {string} defaults.isCompact whether the pointer overlay should be compact
 		 * @cfg {number} defaults.timeout in milliseconds. If not zero the pointer overlay will
 		 *  hide after this duration of time.
@@ -82,7 +82,7 @@
 		/**
 		 * Position the overlay under a specified element
 		 * @private
-		 * @param {jQuery.Object} $pa An element that should be pointed at by the overlay
+		 * @param {JQuery.Object} $pa An element that should be pointed at by the overlay
 		 */
 		_position: function ( $pa ) {
 			var left,
@@ -99,7 +99,7 @@
 		/**
 		 * Position overlay and add pointer arrow that points at specified element
 		 * @method
-		 * @param {jQuery.Object} $pa An element that should be pointed at by the overlay
+		 * @param {JQuery.Object} $pa An element that should be pointed at by the overlay
 		 */
 		addPointerArrow: function ( $pa ) {
 			var left,

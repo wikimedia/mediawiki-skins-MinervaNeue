@@ -13,7 +13,7 @@
 	 * @extends View
 	 *
 	 * @constructor
-	 * @param {Object} options Configuration options
+	 * @param {object} options Configuration options
 	 * @module skins.minerva.notifications/NotificationBadge
 	 */
 	function NotificationBadge( options ) {
@@ -41,11 +41,11 @@
 
 	OO.mfExtend( NotificationBadge, View, {
 		/**
-		 * @cfg {Object} defaults Default options hash.
-		 * @cfg {String} defaults.notificationIconClass e.g. mw-ui-icon for icon
-		 * @cfg {String} defaults.loadingIconHtml for spinner
-		 * @cfg {Boolean} defaults.hasUnseenNotifications whether the user has unseen notifications
-		 * @cfg {Number} defaults.notificationCountRaw number of unread notifications
+		 * @cfg {object} defaults Default options hash.
+		 * @cfg {string} defaults.notificationIconClass e.g. mw-ui-icon for icon
+		 * @cfg {string} defaults.loadingIconHtml for spinner
+		 * @cfg {boolean} defaults.hasUnseenNotifications whether the user has unseen notifications
+		 * @cfg {number} defaults.notificationCountRaw number of unread notifications
 	 */
 		defaults: {
 			notificationIconClass: notificationIcon.getClassName(),
@@ -60,7 +60,7 @@
 		 * @method
 		 * @private
 		 * @param {string} moduleName Name of a module to fetch
-		 * @return {jQuery.Deferred}
+		 * @return {JQuery.Deferred}
 		 */
 		_loadModuleScript: function ( moduleName ) {
 			var self = this;
@@ -76,7 +76,7 @@
 		 * @method
 		 * @private
 		 * @uses NotificationsOverlay
-		 * @return {jQuery.Deferred} with an instance of NotificationsOverlay
+		 * @return {JQuery.Deferred} with an instance of NotificationsOverlay
 		 */
 		_loadNotificationOverlay: function () {
 			var self = this;
@@ -116,7 +116,7 @@
 		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.hogan' ),
 		/**
 		 * Click handler for clicking on the badge
-		 * @return {Boolean}
+		 * @return {boolean}
 		 */
 		onClickBadge: function () {
 			this.options.router.navigate( '#/notifications' );
@@ -126,14 +126,14 @@
 		},
 		/**
 		 * Return the URL for the full non-overlay notification view
-		 * @return {String} url
+		 * @return {string} url
 		 */
 		getNotificationURL: function () {
 			return this.options.url;
 		},
 		/**
 		 * Update the notification count
-		 * @param {Number} count
+		 * @param {number} count
 		 */
 		setCount: function ( count ) {
 			if ( count > 100 ) {

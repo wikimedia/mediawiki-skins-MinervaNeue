@@ -38,7 +38,7 @@
 	/**
 	 * Event handler to show reference when a reference link is clicked
 	 * @ignore
-	 * @param {jQuery.Event} ev Click event of the reference element
+	 * @param {JQuery.Event} ev Click event of the reference element
 	 * @param {ReferencesDrawer} drawer to show the reference in
 	 * @param {Page} page
 	 */
@@ -83,7 +83,7 @@
 	 * Delegates to `showReference` once the references drawer is ready.
 	 *
 	 * @ignore
-	 * @param {jQuery.Event} ev Click event of the reference element
+	 * @param {JQuery.Event} ev Click event of the reference element
 	 */
 	function onClickReference( ev ) {
 		if ( !drawer ) {

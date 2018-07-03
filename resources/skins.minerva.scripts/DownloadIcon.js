@@ -8,8 +8,8 @@
 	/**
 	 * Helper function to retreive the Android version
 	 * @ignore
-	 * @param {String} userAgent User Agent
-	 * @return {Integer}
+	 * @param {string} userAgent User Agent
+	 * @return {number} An integer.
 	 */
 	function getAndroidVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
@@ -19,8 +19,8 @@
 	/**
 	 * Helper function to retrieve the Chrome/Chromium version
 	 * @ignore
-	 * @param {String} userAgent User Agent
-	 * @return {Integer}
+	 * @param {string} userAgent User Agent
+	 * @return {number} An integer.
 	 */
 	function getChromeVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
@@ -33,7 +33,7 @@
 	 * @extends Icon
 	 *
 	 * @param {Skin} skin
-	 * @param {Number[]} [supportedNamespaces]
+	 * @param {number[]} [supportedNamespaces]
 	 * @param {Window} [windowObj] window object
 	 * @constructor
 	 * @module skins.minerva.scripts/DownloadIcon
@@ -54,7 +54,7 @@
 		/**
 		 * Checks whether DownloadIcon is available for given user agent
 		 * @param {string} userAgent User agent
-		 * @return {Boolean}
+		 * @return {boolean}
 		*/
 		isAvailable: function ( userAgent ) {
 			var androidVersion = getAndroidVersion( userAgent ),
