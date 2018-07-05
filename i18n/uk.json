@@ -61,5 +61,14 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Приєднався|Приєдналася}} $1",
 	"mobile-frontend-user-page-talk": "Обговорення",
 	"mobile-frontend-user-page-uploads": "Завантаження",
-	"minerva-skin-desc": "Перша адаптивна мобільна тема оформлення"
+	"minerva-skin-desc": "Перша адаптивна мобільна тема оформлення",
+	"skin-minerva-issue-learn-more": "Дізнатися більше",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорії",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Переглянути категорії сторінок",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти вгору",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти вгору поточної сторінки, скориставшись рухомою кнопкою",
+	"skin-minerva-blocked-drawer-title": "Вашому обліковому запису заблоковано доступ до редагування сайту {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Причина блокування",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Заблоковано}}",
+	"skin-minerva-blocked-drawer-expiry-header": "Блокування завершиться"
 }
