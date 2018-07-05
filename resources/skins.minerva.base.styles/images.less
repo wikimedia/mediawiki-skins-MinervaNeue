@@ -1,8 +1,6 @@
 @import '../../minerva.less/minerva.variables';
 @import '../../minerva.less/minerva.mixins';
-@import 'mediawiki.mixins.animation';
 
-@animationDuration: 0.3s;
 @placeholderBackgroundColor: @grayLightest;
 
 .lazy-image-placeholder {
@@ -26,28 +24,4 @@
 	// instead of allowing text before and after
 	// see T146298
 	display: inline-block;
-}
-
-// When the image has loaded transition background color and image opacity
-// for a fade-in effect
-img.image-lazy-loaded {
-	.animation( fadeInImage @animationDuration ease-in );
-}
-
-@-webkit-keyframes fadeInImage {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeInImage {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
