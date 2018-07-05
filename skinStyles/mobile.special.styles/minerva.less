@@ -1,4 +1,5 @@
 @import '../../minerva.less/minerva.variables';
+@import '../../minerva.less/minerva.mixins';
 
 // FIXME [mediawiki ui] These rules should not be needed in the mobile context
 .mw-ui-button-group {
@@ -48,6 +49,7 @@
 
 // Used by MobileSpecialPageFeed.php in MobileFrontend
 .truncated-text {
+	.truncated-text();
 
 	// FIXME: this works only in WebKit
 	&.multi-line {

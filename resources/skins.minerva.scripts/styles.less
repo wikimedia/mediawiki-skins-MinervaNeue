@@ -1,4 +1,5 @@
 @import '../../minerva.less/minerva.variables';
+@import '../../minerva.less/minerva.mixins';
 @import 'mediawiki.mixins.animation';
 
 @animationDuration: 0.3s;
@@ -13,6 +14,11 @@
 			color: #fff;
 		}
 	}
+}
+
+// Used by last modified and Main Menu items
+.truncated-text {
+	.truncated-text();
 }
 
 @-webkit-keyframes fadeInImage {

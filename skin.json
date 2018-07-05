@@ -108,6 +108,7 @@
 				"skinStyles/mobile.languages.structured/LanguageOverlay.less"
 			],
 			"mobile.startup": [
+				"skinStyles/mobile.startup/skin.less",
 				"skinStyles/mobile.startup/toast.less",
 				"skinStyles/mobile.startup/Overlay.less"
 			],
