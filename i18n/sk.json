@@ -8,6 +8,8 @@
 			"Wizzard"
 		]
 	},
+	"minerva-last-modified-date": "Naposledy upravené $1 o $2",
+	"minerva-talk-add-topic": "Pridať diskusiu",
 	"mobile-frontend-editor-edit": "Upraviť",
 	"mobile-frontend-history": "Zobraziť históriu úprav tejto stránky.",
 	"mobile-frontend-home-button": "Hlavná stránka",
@@ -15,6 +17,7 @@
 	"mobile-frontend-language-change": "Zmeniť jazyk",
 	"mobile-frontend-logged-in-homepage-notification": "Vitaj, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Otvoriť hlavné menu",
+	"mobile-frontend-main-menu-contributions": "Príspevky",
 	"mobile-frontend-main-menu-login": "Prihlásiť sa",
 	"mobile-frontend-main-menu-logout": "Odhlásiť sa",
 	"mobile-frontend-main-menu-nearby": "V blízkosti",
@@ -23,6 +26,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Upraviť úvodnú sekciu",
 	"mobile-frontend-placeholder": "Sem napíšte hľadaný výraz...",
 	"mobile-frontend-random-button": "Náhodná",
+	"mobile-frontend-talk-back-to-page": "Späť na stránku „$1“.",
 	"mobile-frontend-user-button-tooltip": "Zobraziť moje upozornenia",
 	"mobile-frontend-user-newmessages": "Vo svojej diskusii máte nové správy",
 	"mobile-frontend-user-page-uploads": "Nahrané súbory"
