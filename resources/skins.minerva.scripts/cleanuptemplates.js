@@ -81,7 +81,12 @@
 
 				if ( $this.find( selector ).length === 0 ) {
 					issue = extractMessage( $this );
-					issues.push( issue );
+					// Some issues after "extractMessage" has been run will have no text.
+					// For example in Template:Talk header the table will be removed and no issue found.
+					// These should not be rendered.
+					if ( issue.text ) {
+						issues.push( issue );
+					}
 				}
 			} );
 
