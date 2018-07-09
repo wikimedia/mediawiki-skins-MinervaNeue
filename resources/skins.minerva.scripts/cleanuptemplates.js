@@ -64,9 +64,11 @@
 		 * @param {jQuery.Object} $container to render the page issues banner inside.
 		 * @param {string} labelText what the label of the page issues banner should say
 		 * @param {string} headingText the heading of the overlay that is created when the page issues banner is clicked
+		 * @param {boolean} inline - if true the first ambox in the section will become the entry point for the issues overlay
+		 *  and if false, a link will be rendered under the heading.
 		 * @ignore
 		 */
-		function createBanner( $container, labelText, headingText ) {
+		function createBanner( $container, labelText, headingText, inline ) {
 			var $learnMore,
 				selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 				$metadata = $container.find( selector ),
@@ -85,7 +87,7 @@
 				}
 			} );
 
-			if ( isInGroupB ) {
+			if ( inline ) {
 				new Icon( {
 					glyphPrefix: 'minerva',
 					name: 'warning',
@@ -129,6 +131,7 @@
 		 */
 		function initPageIssues() {
 			var ns = mw.config.get( 'wgNamespaceNumber' ),
+				inline = isInGroupB && ns === 0,
 				// Categories have no lead section
 				$container = ns === 14 || isInGroupB ? $( '#bodyContent' ) :
 					page.getLeadSectionElement();
@@ -143,17 +146,17 @@
 
 			if ( action === 'edit' ) {
 				createBanner( $container, mw.msg( 'edithelp' ),
-					mw.msg( 'edithelp' ) );
+					mw.msg( 'edithelp' ), inline );
 			} else if ( ns === 0 ) {
 				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues' ),
-					mw.msg( 'mobile-frontend-meta-data-issues-header' ) );
+					mw.msg( 'mobile-frontend-meta-data-issues-header' ), inline );
 			// Create a banner for talk pages (namespace 1) in beta mode to make them more readable.
 			} else if ( ns === 1 ) {
 				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-talk' ),
-					mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ) );
+					mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ), inline );
 			} else if ( ns === 14 ) {
 				createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-categories' ),
-					mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ) );
+					mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ), inline );
 			}
 		}
 
