@@ -1229,9 +1229,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	/**
 	 * Checks whether the editor can handle the existing content handler type.
 	 *
-	 * This is mostly the same check that sets wgIsProbablyEditable later in the page output
-	 * process.
-	 *
 	 * @return bool
 	 */
 	protected function isCurrentPageContentModelEditable() {
