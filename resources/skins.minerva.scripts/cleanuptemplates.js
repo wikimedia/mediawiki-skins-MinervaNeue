@@ -15,8 +15,7 @@
 
 	( function () {
 		var page = M.getCurrentPage(),
-			getIconFromAmbox = M.require( 'skins.minerva.scripts/utils' )
-				.getIconFromAmbox,
+			pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' ),
 			overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 			CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' );
 
@@ -26,13 +25,15 @@
 		 * @param {Object} $box element to extract the message from
 		 * @ignore
 		 * @typedef {Object} IssueSummary
+		 * @prop {PageIssue} pageIssue
 		 * @prop {string} icon HTML string.
 		 * @prop {string} text HTML string.
 		 * @return {IssueSummary}
 		 */
 		function extractMessage( $box ) {
 			var selector = '.mbox-text, .ambox-text',
-				$container = $( '<div>' );
+				$container = $( '<div>' ),
+				pageIssue;
 
 			$box.find( selector ).each( function () {
 				var contents,
@@ -45,8 +46,11 @@
 					$( '<p>' ).html( contents ).appendTo( $container );
 				}
 			} );
+
+			pageIssue = pageIssueParser.parse( $box.get( 0 ) );
 			return {
-				icon: getIconFromAmbox( $box ).toHtmlString(),
+				pageIssue: pageIssue,
+				icon: pageIssue.icon.toHtmlString(),
 				text: $container.html()
 			};
 		}
@@ -85,7 +89,8 @@
 				selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 				$metadata = $container.find( selector ),
 				issues = [],
-				$link;
+				$link,
+				severity;
 
 			// clean it up a little
 			$metadata.find( '.NavFrame' ).remove();
@@ -107,10 +112,12 @@
 			allIssues[section] = issues;
 
 			if ( inline ) {
+				severity = pageIssueParser.maxSeverity(
+					issues.map( function ( issue ) { return issue.pageIssue; } )
+				);
 				new Icon( {
 					glyphPrefix: 'minerva',
-					name: 'warning',
-					isSmall: true
+					name: pageIssueParser.iconName( $metadata, severity )
 				} ).prependTo( $metadata.find( '.mbox-text' ) );
 				$learnMore = $( '<span>' )
 					.addClass( 'ambox-learn-more' )
@@ -148,7 +155,7 @@
 				// Note section.all may not exist, depending on the structure of the HTML page.
 				// It will only exist when Minerva has been run in desktop mode.
 				// If it's absent, we'll reduce all the other lists into one.
-				return section.all || Object.keys( allIssues ).reduce(
+				return allIssues.all || Object.keys( allIssues ).reduce(
 					function ( all, key ) {
 						return all.concat( allIssues[key] );
 					},
