@@ -40,7 +40,6 @@
 		"minerva": "MinervaNeue"
 	},
 	"AutoloadClasses": {
-		"MinervaResourceLoaderParsedMessageModule": "includes/MinervaResourceLoaderParsedMessageModule.php",
 		"MinervaUI": "includes/MinervaUI.php",
 		"MinervaHooks": "includes/MinervaHooks.php",
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
@@ -485,7 +484,10 @@
 			]
 		},
 		"skins.minerva.editor": {
-			"class": "MinervaResourceLoaderParsedMessageModule",
+			"targets": [
+				"mobile",
+				"desktop"
+			],
 			"dependencies": [
 				"mediawiki.util",
 				"mediawiki.router",
@@ -497,22 +499,18 @@
 				"mediawiki.jqueryMsg",
 				"skins.minerva.editor.blockMessage"
 			],
-			"messages": {
-				"0": "mobile-frontend-editor-disabled",
-				"1": "mobile-frontend-editor-unavailable",
-				"2": "mobile-frontend-editor-uploadenable",
-				"mobile-frontend-editor-blocked-info-loggedin": [
-					"parse"
-				],
-				"3": "mobile-frontend-editor-cta",
-				"4": "mobile-frontend-editor-undo-unsupported",
-				"5": "mobile-frontend-editor-edit",
-				"6": "mobile-frontend-editor-redlink-create",
-				"7": "mobile-frontend-editor-redlink-leave",
-				"mobile-frontend-editor-redlink-explain": [
-					"parse"
-				]
-			},
+			"messages": [
+				"mobile-frontend-editor-disabled",
+				"mobile-frontend-editor-unavailable",
+				"mobile-frontend-editor-uploadenable",
+				"mobile-frontend-editor-blocked-info-loggedin",
+				"mobile-frontend-editor-cta",
+				"mobile-frontend-editor-undo-unsupported",
+				"mobile-frontend-editor-edit",
+				"mobile-frontend-editor-redlink-create",
+				"mobile-frontend-editor-redlink-leave",
+				"mobile-frontend-editor-redlink-explain"
+			],
 			"scripts": [
 				"resources/skins.minerva.editor/init.js"
 			]
@@ -567,7 +565,10 @@
 			]
 		},
 		"skins.minerva.toggling": {
-			"class": "MinervaResourceLoaderParsedMessageModule",
+			"targets": [
+				"mobile",
+				"desktop"
+			],
 			"dependencies": [
 				"mobile.toggle",
 				"skins.minerva.icons.images.variants",
