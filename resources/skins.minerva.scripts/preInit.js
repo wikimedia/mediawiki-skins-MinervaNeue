@@ -15,7 +15,7 @@
 
 	/**
 	 * Close navigation if skin is tapped
-	 * @param {jQuery.Event} ev
+	 * @param {JQuery.Event} ev
 	 * @private
 	 */
 	function onSkinClick( ev ) {

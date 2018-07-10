@@ -8,7 +8,7 @@
 	 * @class MainMenu
 	 * @extends View
 	 * @constructor
-	 * @param {Object} options Configuration options
+	 * @param {object} options Configuration options
 	 * @module skins.minerva.mainMenu/MainMenu
 	 */
 	function MainMenu( options ) {
@@ -24,7 +24,7 @@
 		},
 
 		/**
-		 * @cfg {Object} defaults Default options hash.
+		 * @cfg {object} defaults Default options hash.
 		 * @cfg {string} defaults.activator selector for element that when clicked can open or close the menu
 		 */
 		defaults: {

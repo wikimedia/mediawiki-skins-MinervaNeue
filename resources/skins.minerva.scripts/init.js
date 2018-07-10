@@ -14,7 +14,7 @@
 
 	/**
 	 * Event handler for clicking on an image thumbnail
-	 * @param {jQuery.Event} ev
+	 * @param {JQuery.Event} ev
 	 * @ignore
 	 */
 	function onClickImage( ev ) {
@@ -23,7 +23,7 @@
 	}
 
 	/**
-	 * @param {jQuery.Element} thumbnail
+	 * @param {JQuery.Element} thumbnail
 	 * @ignore
 	 */
 	function routeThumbnail( thumbnail ) {
@@ -97,7 +97,7 @@
 	 * @ignore
 	 * @uses ImageOverlay
 	 * @param {string} title Url of image
-	 * @return {jQuery.Deferred}
+	 * @return {JQuery.Deferred}
 	 */
 	function loadImageOverlay( title ) {
 		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {

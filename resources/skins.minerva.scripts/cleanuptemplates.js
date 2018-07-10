@@ -18,7 +18,7 @@
 		/**
 		 * Extract a summary message from a cleanup template generated element that is
 		 * friendly for mobile display.
-		 * @param {Object} $box element to extract the message from
+		 * @param {object} $box element to extract the message from
 		 * @ignore
 		 * @typedef {object} IssueSummary
 		 * @prop {string} icon HTML string.
@@ -52,7 +52,7 @@
 		 * @ignore
 		 *
 		 * @param {string} labelText The text value of the element
-		 * @return {jQuery}
+		 * @return {JQuery}
 		 */
 		function createLinkElement( labelText ) {
 			return $( '<a class="cleanup mw-mf-cleanup"></a>' )
@@ -61,7 +61,7 @@
 
 		/**
 		 * Render a banner in a containing element.
-		 * @param {jQuery.Object} $container to render the page issues banner inside.
+		 * @param {JQuery.Object} $container to render the page issues banner inside.
 		 * @param {string} labelText what the label of the page issues banner should say
 		 * @param {string} headingText the heading of the overlay that is created when the page issues banner is clicked
 		 * @param {boolean} inline - if true the first ambox in the section will become the entry point for the issues overlay

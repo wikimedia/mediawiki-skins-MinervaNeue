@@ -35,7 +35,7 @@
 	M.define( 'skins.minerva.scripts/utils', {
 		/**
 		 * Extract an icon for use with the issue.
-		 * @param {jQuery.Object} $box element to extract the icon from
+		 * @param {JQuery.Object} $box element to extract the icon from
 		 * @return {Icon} representing the icon
 		 */
 		getIconFromAmbox: getIconFromAmbox
