@@ -12,6 +12,17 @@
 		"require": false
 	},
 	"rules": {
+		"valid-jsdoc": ["error", {
+				"requireParamDescription": false,
+				"requireReturnDescription": false,
+				"requireReturn": false,
+				"preferType": {
+						"Boolean": "boolean",
+						"Number": "number",
+						"object": "Object",
+						"String": "string"
+				}
+		}],
 		"dot-notation": [ "error", { "allowKeywords": true } ],
 		"object-property-newline": "error",
 		"computed-property-spacing": 0,

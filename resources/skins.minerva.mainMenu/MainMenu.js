@@ -8,7 +8,7 @@
 	 * @class MainMenu
 	 * @extends View
 	 * @constructor
-	 * @param {object} options Configuration options
+	 * @param {Object} options Configuration options
 	 * @module skins.minerva.mainMenu/MainMenu
 	 */
 	function MainMenu( options ) {

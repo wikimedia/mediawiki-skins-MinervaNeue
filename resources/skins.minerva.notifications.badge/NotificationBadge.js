@@ -13,7 +13,7 @@
 	 * @extends View
 	 *
 	 * @constructor
-	 * @param {object} options Configuration options
+	 * @param {Object} options Configuration options
 	 * @module skins.minerva.notifications/NotificationBadge
 	 */
 	function NotificationBadge( options ) {

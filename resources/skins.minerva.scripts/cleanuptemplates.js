@@ -23,9 +23,9 @@
 		/**
 		 * Extract a summary message from a cleanup template generated element that is
 		 * friendly for mobile display.
-		 * @param {object} $box element to extract the message from
+		 * @param {Object} $box element to extract the message from
 		 * @ignore
-		 * @typedef {object} IssueSummary
+		 * @typedef {Object} IssueSummary
 		 * @prop {string} icon HTML string.
 		 * @prop {string} text HTML string.
 		 * @return {IssueSummary}
