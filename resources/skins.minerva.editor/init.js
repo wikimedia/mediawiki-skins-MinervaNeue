@@ -10,7 +10,6 @@
 		Icon = M.require( 'mobile.startup/Icon' ),
 		Button = M.require( 'mobile.startup/Button' ),
 		Anchor = M.require( 'mobile.startup/Anchor' ),
-		BlockMessage = M.require( 'skins.minerva.editor/BlockMessage' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		currentPage = M.getCurrentPage(),
 		// TODO: create a utility method to generate class names instead of
@@ -48,10 +47,8 @@
 
 	if ( user.isAnon() ) {
 		blockInfo = false;
-	} else if ( isEditable ) {
-		// for logged in users check if they are blocked from editing this page
-		isEditable = !blockInfo;
 	}
+
 	// TODO: rename addEditSectionButton and evaluate whether the page edit button
 	//       can leverage the same code. Also: change the CSS class name to use
 	//       the word "section" instead of "page".
@@ -333,6 +330,10 @@
 				router.navigate( fragment );
 			}
 		}
+
+		if ( blockInfo ) {
+			updateEditPageButton( false );
+		}
 	}
 
 	/**
@@ -341,23 +342,12 @@
 	 * @ignore
 	 */
 	function init() {
-		var message;
-
 		if ( isEditable ) {
 			// Edit button updated in setupEditor.
 			setupEditor( currentPage );
 		} else {
 			updateEditPageButton( false );
-			if ( blockInfo ) {
-				message = new BlockMessage( blockInfo );
-				$( '#ca-edit' ).on( 'click', function ( ev ) {
-					message.toggle();
-					ev.preventDefault();
-				} );
-				$( '.edit-page' ).detach();
-			} else {
-				showSorryToast( mw.msg( 'mobile-frontend-editor-disabled' ) );
-			}
+			showSorryToast( mw.msg( 'mobile-frontend-editor-disabled' ) );
 		}
 	}
 
