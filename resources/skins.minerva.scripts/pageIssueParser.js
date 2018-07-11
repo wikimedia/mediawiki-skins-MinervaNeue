@@ -129,12 +129,12 @@
 	}
 
 	/**
-	 * @param {PageIssue[]} issues
+	 * @param {string[]} severityLevels an array of SEVERITY_KEY values.
 	 * @return {string} The greatest SEVERITY_LEVEL key.
 	 */
-	function maxSeverity( issues ) {
-		return issues.reduce( function ( max, issue ) {
-			return SEVERITY_LEVEL[max] > SEVERITY_LEVEL[issue.severity] ? max : issue.severity;
+	function maxSeverity( severityLevels ) {
+		return severityLevels.reduce( function ( max, severity ) {
+			return SEVERITY_LEVEL[max] > SEVERITY_LEVEL[severity] ? max : severity;
 		}, 'DEFAULT' );
 	}
 

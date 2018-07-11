@@ -5,6 +5,7 @@
 		isEditable = mw.config.get( 'wgIsProbablyEditable' ),
 		blockInfo = mw.config.get( 'wgMinervaUserBlockInfo', false ),
 		router = require( 'mediawiki.router' ),
+		issues = M.require( 'skins.minerva.scripts/cleanuptemplates' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		Icon = M.require( 'mobile.startup/Icon' ),
@@ -159,7 +160,10 @@
 		}
 
 		page.$( '.edit-page, .edit-link' ).removeClass( disabledClass ).on( 'click', function () {
+			issues.log( { action: 'editClicked' } );
+
 			router.navigate( '#/editor/' + $( this ).data( 'section' ) );
+			// prevent folding section when clicking Edit by stopping propagation
 			return false;
 		} );
 		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
@@ -304,10 +308,6 @@
 		if ( currentPage.getNamespaceId() === 0 ) {
 			$( '.in-block>.edit-page' ).show();
 		}
-		$( '.edit-page' ).on( 'click', function ( ev ) {
-			// prevent folding section when clicking Edit
-			ev.stopPropagation();
-		} );
 
 		if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.util.getParamValue( 'action' ) === 'edit' ) ) {
 			if ( mw.util.getParamValue( 'veaction' ) === 'edit' ) {

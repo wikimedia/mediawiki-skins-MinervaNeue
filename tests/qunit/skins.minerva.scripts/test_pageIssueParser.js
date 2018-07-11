@@ -1,7 +1,7 @@
 ( function ( M ) {
 	var pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' );
 
-	QUnit.module( 'pageIssueParser' );
+	QUnit.module( 'Minerva pageIssueParser' );
 
 	/**
 	 * @param {string} className
@@ -36,7 +36,7 @@
 			assert.strictEqual(
 				pageIssueParser.test.parseSeverity( box ),
 				expect,
-				'Result should be the correct severity; case ' + i + ' failed: ' + test + '.'
+				'Result should be the correct severity; case ' + i + ': ' + test + '.'
 			);
 		} );
 	} );
@@ -65,7 +65,7 @@
 			assert.propEqual(
 				pageIssueParser.test.parseType( box, severity ),
 				expect,
-				'Result should be the correct icon type; case ' + i + ' failed: ' + test + '.'
+				'Result should be the correct icon type; case ' + i + ': ' + test + '.'
 			);
 		} );
 	} );
@@ -92,7 +92,7 @@
 			assert.strictEqual(
 				pageIssueParser.iconName( box, severity ),
 				expect,
-				'Result should be the correct ResourceLoader icon name; case ' + i + ' failed: ' + severity + '.'
+				'Result should be the correct ResourceLoader icon name; case ' + i + ': ' + severity + '.'
 			);
 		} );
 	} );
@@ -108,15 +108,13 @@
 			[ [ 'DEFAULT', 'HIGH', 'LOW', 'MEDIUM' ], 'HIGH' ]
 		];
 		tests.forEach( function ( params, i ) {
-			var
-				severities = params[0],
+			var severities = params[0],
 				expect = params[1];
+
 			assert.strictEqual(
-				pageIssueParser.maxSeverity( severities.map( function ( severity ) {
-					return { severity: severity };
-				} ) ),
+				pageIssueParser.maxSeverity( severities ),
 				expect,
-				'Result should be the highest severity in the array; case ' + i + ' failed.'
+				'Result should be the highest severity in the array; case ' + i + '.'
 			);
 		} );
 	} );

@@ -147,6 +147,9 @@
 			]
 		}
 	},
+	"EventLoggingSchemas": {
+		"PageIssues": 18255016
+	},
 	"ResourceModules": {
 		"skins.minerva.base.reset": {
 			"targets": [

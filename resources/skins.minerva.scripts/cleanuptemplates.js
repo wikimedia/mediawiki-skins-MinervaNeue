@@ -1,36 +1,117 @@
 ( function ( M, $ ) {
 	var AB = M.require( 'skins.minerva.scripts/AB' ),
+		util = M.require( 'mobile.startup/util' ),
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
-		ACTION_EDIT = mw.config.get( 'wgAction' ) === 'edit',
+		config = mw.config,
+		user = mw.user,
+		track = mw.track,
+		trackSubscribe = mw.trackSubscribe,
+		ACTION_EDIT = config.get( 'wgAction' ) === 'edit',
 		NS_MAIN = 0,
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
-		isInGroupB = new AB( {
-			testName: 'WME.PageIssuesAB',
-			samplingRate: mw.config.get( 'wgMinervaABSamplingRate', 0 ),
-			sessionId: mw.user.sessionId(),
-			onABStart: function ( bucket ) {
-				// See: https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
-				var READING_DEPTH_BUCKET_KEYS = {
-						A: 'page-issues-a_sample',
-						B: 'page-issues-b_sample'
-					},
-					readingDepthBucket = READING_DEPTH_BUCKET_KEYS[ bucket ];
-				mw.track( 'wikimedia.event.ReadingDepthSchema.enable', readingDepthBucket );
-			}
-		} ).getBucket() === 'B',
+		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
+		allPageIssuesSeverity,
 		Icon = M.require( 'mobile.startup/Icon' ),
 		pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' ),
-		CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' );
+		CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' ),
+		// setup ab test
+		abTest = new AB( {
+			testName: 'WME.PageIssuesAB',
+			// Run AB only on article namespace, otherwise set samplingRate to 0,
+			// forcing user into control (i.e. ignored/not logged) group.
+			samplingRate: ( CURRENT_NS === NS_MAIN ) ? config.get( 'wgMinervaABSamplingRate', 0 ) : 0,
+			sessionId: user.sessionId()
+		} ),
+		// Set bucket
+		isInGroupB = abTest.getBucket() === 'B',
+		READING_DEPTH_BUCKET_KEYS = {
+			A: 'page-issues-a_sample',
+			B: 'page-issues-b_sample'
+		},
+		READING_DEPTH_BUCKET = READING_DEPTH_BUCKET_KEYS[ abTest.getBucket() ],
+		PAGE_ISSUES_EVENT_DATA = {
+			pageTitle: config.get( 'wgTitle' ),
+			namespaceId: CURRENT_NS,
+			pageIdSource: config.get( 'wgArticleId' ),
+			issuesVersion: isInGroupB ? 'new2018' : 'old',
+			isAnon: user.isAnon(),
+			editCountBucket: getUserEditBuckets(),
+			pageToken: user.generateRandomSessionId() +
+				Math.floor( mw.now() ).toString(),
+			sessionToken: user.sessionId()
+		};
 
+	// start logging if user is in group A or B.
+	if ( abTest.isEnabled() ) {
+		// intermediary event bus that extends the event data before being passed to event-logging.
+		trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
+
+			// enable logging for pages that have issues.
+			if ( !getIssues( KEYWORD_ALL_SECTIONS ).length ) {
+				return;
+			}
+
+			// define all issues severity once for all subsequent events
+			if ( !allPageIssuesSeverity ) {
+				allPageIssuesSeverity = getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity );
+			}
+			// if event data does not set issuesSeverity, send `allPageIssuesSeverity`.
+			if ( !data.issuesSeverity ) {
+				data.issuesSeverity = allPageIssuesSeverity;
+			}
+
+			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
+			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
+			track( 'wikimedia.event.ReadingDepthSchema.enable', READING_DEPTH_BUCKET );
+			// Log PageIssues schema.
+			track( 'wikimedia.event.PageIssues', util.extend( {}, PAGE_ISSUES_EVENT_DATA, data ) );
+		} );
+	}
+
+	/**
+	 * converts user edit count into a predefined string
+	 * @return {string}
+	 */
+	function getUserEditBuckets() {
+		var editCount = config.get( 'wgUserEditCount', 0 );
+
+		if ( editCount === 0 ) { return '0 edits'; }
+		if ( editCount < 5 ) { return '1-4 edits'; }
+		if ( editCount < 100 ) { return '5-99 edits'; }
+		if ( editCount < 1000 ) { return '100-999 edits'; }
+		if ( editCount >= 1000 ) { return '1000+ edits'; }
+
+		// This is unlikely to ever happen. If so, we'll want to cast to a string
+		// that is not accepted and allow EventLogging to complain
+		// about invalid events so we can investigate.
+		return 'error (' + editCount + ')';
+	}
+
+	/**
+	 * Log data to the PageIssuesAB test schema
+	 * @param {Object} data to log
+	 * @ignore
+	 */
+	function log( data ) {
+		track( 'minerva.PageIssuesAB', data );
+	}
+
+	/**
+	 * @param {PageIssue} issue
+	 * @return {string}
+	 */
+	function formatPageIssuesSeverity( issue ) {
+		return issue.severity;
+	}
 	/**
 	 * Extract a summary message from a cleanup template generated element that is
 	 * friendly for mobile display.
 	 * @param {Object} $box element to extract the message from
 	 * @ignore
 	 * @typedef {Object} IssueSummary
-	 * @prop {PageIssue} pageIssue
+	 * @prop {string} severity
 	 * @prop {string} icon HTML string.
 	 * @prop {string} text HTML string.
 	 * @return {IssueSummary}
@@ -53,8 +134,9 @@
 		} );
 
 		pageIssue = pageIssueParser.parse( $box.get( 0 ) );
+
 		return {
-			pageIssue: pageIssue,
+			severity: pageIssue.severity,
 			icon: pageIssue.icon.toHtmlString(),
 			text: $container.html()
 		};
@@ -116,12 +198,12 @@
 				}
 			}
 		} );
-		// store it for late
+		// store it for later
 		allIssues[section] = issues;
 
 		if ( $metadata.length && inline ) {
 			severity = pageIssueParser.maxSeverity(
-				issues.map( function ( issue ) { return issue.pageIssue; } )
+				issues.map( function ( issue ) { return issue.severity; } )
 			);
 			new Icon( {
 				glyphPrefix: 'minerva',
@@ -138,6 +220,11 @@
 				$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
 			}
 			$metadata.click( function () {
+				var pageIssue = pageIssueParser.parse( this );
+				log( {
+					action: 'issueClicked',
+					issuesSeverity: [ pageIssue.severity ]
+				} );
 				overlayManager.router.navigate( issueUrl );
 				return false;
 			} );
@@ -145,6 +232,13 @@
 			$link = createLinkElement( labelText );
 			// In group B, we link to all issues no matter where the banner is.
 			$link.attr( 'href', '#/issues/' + KEYWORD_ALL_SECTIONS );
+			$link.click( function () {
+				log( {
+					action: 'issueClicked',
+					// empty array is passed for 'old' treatment.
+					issuesSeverity: []
+				} );
+			} );
 			if ( $metadata.length ) {
 				$link.insertAfter( $( 'h1#section_0' ) );
 				$metadata.remove();
@@ -202,12 +296,11 @@
 	 * @param {Page} page
 	 */
 	function initPageIssues( overlayManager, page ) {
-		var ns = mw.config.get( 'wgNamespaceNumber' ),
-			label,
-			headingText = ACTION_EDIT ? mw.msg( 'edithelp' ) : getNamespaceHeadingText( ns ),
+		var label,
+			headingText = ACTION_EDIT ? mw.msg( 'edithelp' ) : getNamespaceHeadingText( CURRENT_NS ),
 			$lead = page.getLeadSectionElement(),
-			issueOverlayShowAll = ns === NS_CATEGORY || ns === NS_TALK || ACTION_EDIT || !$lead,
-			inline = isInGroupB && ns === 0,
+			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || ACTION_EDIT || !$lead,
+			inline = isInGroupB && CURRENT_NS === 0,
 			$container = $( '#bodyContent' );
 
 		// set A-B test class.
@@ -217,11 +310,11 @@
 			// Editor uses different parent element
 			$container = $( '#mw-content-text' );
 			createBanner( $container, mw.msg( 'edithelp' ), KEYWORD_ALL_SECTIONS, inline, overlayManager );
-		} else if ( ns === NS_TALK || ns === NS_CATEGORY ) {
+		} else if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
 			// e.g. Template:English variant category; Template:WikiProject
 			createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
 				KEYWORD_ALL_SECTIONS, inline, overlayManager );
-		} else if ( ns === NS_MAIN ) {
+		} else if ( CURRENT_NS === NS_MAIN ) {
 			label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
 			if ( issueOverlayShowAll ) {
 				createBanner( $container, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
@@ -243,18 +336,45 @@
 
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
-			return new CleanupOverlay( {
+			var overlay = new CleanupOverlay( {
 				issues: getIssues( section ),
 				// Note only the main namespace is expected to make use of section issues, so the heading will always be
 				// minerva-meta-data-issues-section-header regardless of namespace
 				headingText: section === '0' || section === KEYWORD_ALL_SECTIONS ? headingText :
 					mw.msg( 'minerva-meta-data-issues-section-header' )
 			} );
+			// Tracking overlay close event.
+			overlay.on( 'Overlay-exit', function () {
+				log( {
+					action: 'modalClose',
+					issuesSeverity: getIssues( section ).map( formatPageIssuesSeverity )
+				} );
+			} );
+			overlay.on( 'link-edit-click', function ( severity ) {
+				log( {
+					action: 'modalEditClicked',
+					issuesSeverity: [ severity ]
+				} );
+			} );
+			overlay.on( 'link-internal-click', function ( severity ) {
+				log( {
+					action: 'modalInternalClicked',
+					issuesSeverity: [ severity ]
+				} );
+			} );
+			return overlay;
+		} );
+
+		// Tracking pageLoaded event (technically, "issues" loaded).
+		log( {
+			action: 'pageLoaded',
+			issuesSeverity: allPageIssuesSeverity
 		} );
 	}
 
 	M.define( 'skins.minerva.scripts/cleanuptemplates', {
 		init: initPageIssues,
+		log: log,
 		test: {
 			createBanner: createBanner
 		}
