@@ -46,6 +46,7 @@
 	"mobile-frontend-meta-data-issues": "Header of a collapsed section which, when tapped, displays some hidden content. The message is expected to generically state that the page could be better in some or several ways of unspecified nature, as reported by some or several cleanup/warning templates which this header hides. \n\nThe button, when clicked, opens an overlay with heading {{msg-mw|mobile-frontend-meta-data-issues-header}}",
 	"mobile-frontend-meta-data-issues-categories": "Label to appear in button that opens issue overlay on categories.",
 	"mobile-frontend-meta-data-issues-header": "Heading for overlay listing all cleanup templates\n{{Identical|Issue}}",
+	"minerva-meta-data-issues-section-header": "Heading for overlay listing all cleanup templates in a section \n{{Identical|Issue}}",
 	"mobile-frontend-meta-data-issues-header-talk": "Heading for overlay listing all information boxes on talk pages.",
 	"mobile-frontend-meta-data-issues-talk": "Label for a clickable button that when clicked reveals the content of metadata described in elements which carry the mbox class.",
 	"mobile-frontend-notifications-filter": "Caption of the button on the notifications page that opens the filter panel",
