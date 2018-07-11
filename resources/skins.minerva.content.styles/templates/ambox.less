@@ -1,16 +1,20 @@
+@import '../../../minerva.less/minerva.variables';
+
 /**
  * Ambox classes are nested in a top-level class
  * for the page issues A/B test.
  * This class is appended to the DOM via JS
  **/
 
-// Since group-b is display none, this will not impact group-b but will avoid FOUC for group a
-@min-height-ambox: 40px;
+@amboxPadding: 8px;
+@amboxIconPadding: @amboxPadding * 4;
+@amboxBackground: @colorGray15;
 
 .ambox,
 // Be more specific than .content table styles in Minerva
 table.ambox {
 	display: none;
+	margin: 0;
 }
 
 // Will show FOUC on mobile
@@ -22,17 +26,21 @@ table.ambox {
 
 .client-js .ambox {
 	cursor: pointer;
-	// Avoid the height changing when the learn more link is inserted.
-	min-height: @min-height-ambox;
-	margin: 0 !important;
 	font-size: 0.8em;
-	background: @colorGray15;
+	width: 100%;
+	background: @amboxBackground;
 	color: @colorGray5;
 
-	// Certain templates e.g. Template:Expand Russian wrap content in this element
-	// We'll want to apply min-height here too.
+	tbody {
+		display: table;
+		width: 100%;
+	}
+
+	// Assuming that most ambox templates wrap content in this element.
+	// See https://en.wikipedia.org/w/index.php?title=Module:Message_box&action=raw (search for 'mbox-text-span').
 	.mbox-text-span {
-		min-height: @min-height-ambox;
+		max-height: @contentLineHeight * 2em;
+		overflow: hidden;
 	}
 
 	// Wrestle with inline styles that editors may place on elements inside the ambox
@@ -45,7 +53,7 @@ table.ambox {
 
 	td {
 		position: relative;
-		padding: 8px 8px 8px 32px;
+		padding: @amboxPadding @amboxPadding @amboxPadding @amboxIconPadding;
 	}
 
 	// All text should be treated the same
@@ -81,7 +89,7 @@ table.ambox {
 
 	.mw-ui-icon {
 		position: absolute;
-		left: -8px;
+		left: -@amboxPadding;
 	}
 
 	.mw-ui-icon:before {
@@ -90,6 +98,37 @@ table.ambox {
 
 	.ambox-learn-more {
 		color: @linkColor;
-		display: inline-block;
+		position: absolute;
+		right: @amboxPadding;
+		bottom: @amboxPadding;
+		z-index: 1;
+		line-height: @contentLineHeight; // sets height for fade & aligns "learn more" to ambox text.
+		/* creates a fade under the "learn more" button to avoid overlapping text. */
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			bottom: 0;
+			right: 0;
+			width: 100%; // width & height defined by length of "learn more".
+			height: 100%;
+			box-sizing: content-box; // explicitly setting box-sizing so padding extends beyond 100%.
+			padding-left: 4em;
+			background: -webkit-linear-gradient( left, fade( @amboxBackground, 0 ) 0, @amboxBackground 3em );
+			background: -moz-gradient( left, fade( @amboxBackground, 0 ) 0, @amboxBackground 3em );
+			background: linear-gradient( to right, fade( @amboxBackground, 0 ) 0, @amboxBackground 3em );
+		}
 	}
+
+	@media screen and ( min-width: @width-breakpoint-tablet ) {
+		.mbox-text-span {
+			margin-bottom: @amboxPadding * 3 !important; // important offsets `.ambox div { margin:0!important}` which offsets inline styles.
+		}
+		.ambox-learn-more {
+			left: @amboxIconPadding;
+			right: auto;
+			background: none;
+		}
+	}
+
 }

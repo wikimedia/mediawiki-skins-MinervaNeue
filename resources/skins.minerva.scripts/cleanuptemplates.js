@@ -124,10 +124,10 @@
 					.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
 				if ( $( '.mw-collapsible-content' ).length ) {
 					// e.g. Template:Multiple issues
-					$learnMore.insertBefore( $metadata.find( '.mw-collapsible-content' ) );
+					$learnMore.insertAfter( $metadata.find( '.mbox-text-span' ) );
 				} else {
 					// e.g. Template:merge from
-					$learnMore.appendTo( $metadata.find( '.mbox-text-span' ) );
+					$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
 				}
 				$metadata.click( function () {
 					overlayManager.router.navigate( issueUrl );
