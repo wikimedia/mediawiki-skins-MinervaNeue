@@ -175,6 +175,7 @@
 			"class": "ResourceLoaderImageModule",
 			"selector": "a.{name}",
 			"defaultColor": "#36c",
+			"useDataURI": false,
 			"images": {
 				"external": {
 					"file": {
@@ -203,6 +204,7 @@
 		"skins.minerva.icons.loggedin": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"useDataURI": false,
 			"images": {
 				"notifications": "resources/skins.minerva.icons.loggedin/bell.svg"
 			}
@@ -210,6 +212,7 @@
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"useDataURI": false,
 			"images": {
 				"warning": "resources/skins.minerva.icons.images/warning.svg",
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
