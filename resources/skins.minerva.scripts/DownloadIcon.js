@@ -9,7 +9,7 @@
 	 * Helper function to retreive the Android version
 	 * @ignore
 	 * @param {string} userAgent User Agent
-	 * @return {number} An integer.
+	 * @return {number|false} An integer.
 	 */
 	function getAndroidVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
@@ -20,7 +20,7 @@
 	 * Helper function to retrieve the Chrome/Chromium version
 	 * @ignore
 	 * @param {string} userAgent User Agent
-	 * @return {number} An integer.
+	 * @return {number|false} An integer.
 	 */
 	function getChromeVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
