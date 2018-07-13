@@ -217,8 +217,12 @@
 					createBanner( $lead, label, 0, inline );
 					if ( isInGroupB ) {
 						// parse other sections but only in group B. In treatment A no issues are shown for sections.
-						$lead.nextAll( '[class^="mf-section"]' ).each( function ( i, sectionEl ) {
-							createBanner( $( sectionEl ), label, i + 1, inline );
+						$lead.nextAll( 'h1,h2,h3,h4,h5,h6' ).each( function ( i, headingEl ) {
+							var $headingEl = $( headingEl ),
+								$section = $headingEl.next(),
+								sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
+
+							createBanner( $section, label, sectionNum, inline );
 						} );
 					}
 				}
