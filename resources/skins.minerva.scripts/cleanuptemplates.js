@@ -221,7 +221,10 @@
 			overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
 				return new CleanupOverlay( {
 					issues: getIssues( section ),
-					headingText: headingText
+					// Note only the main namespace is expected to make use of section issues, so the heading will always be
+					// minerva-meta-data-issues-section-header regardless of namespace
+					headingText: section === '0' || section === KEYWORD_ALL_SECTIONS ? headingText :
+						mw.msg( 'minerva-meta-data-issues-section-header' )
 				} );
 			} );
 		}
