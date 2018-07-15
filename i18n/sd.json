@@ -3,7 +3,8 @@
 		"authors": [
 			"Mehtab ahmed",
 			"Sindhu",
-			"Tweety"
+			"Tweety",
+			"BukhariSaeed"
 		]
 	},
 	"minerva-talk-add-topic": "پيغام لکو",
@@ -22,5 +23,7 @@
 	"mobile-frontend-random-button": "بلاترتيب",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" جا واپرائيندڙ صفحي تي واپس وڃن.",
 	"mobile-frontend-user-page-contributions": "ڀاڱيداريون",
+	"mobile-frontend-user-page-talk": "بحث",
+	"mobile-frontend-user-page-uploads": "چاڙهيل",
 	"skin-minerva-issue-learn-more": "وڌيڪ سکو"
 }

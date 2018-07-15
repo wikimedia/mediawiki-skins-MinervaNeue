@@ -4,7 +4,8 @@
 			"Muhammad Shuaib",
 			"Obaid Raza",
 			"عثمان خان شاہ",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"BukhariSaeed"
 		]
 	},
 	"minerva-last-modified-date": "آخری ترمیم مورخہ $1 بوقت $2",
@@ -56,7 +57,7 @@
 	"mobile-frontend-user-newmessages": "تبادلۂ خیال صفحہ پر آپ کے لیے نئے پیغام",
 	"mobile-frontend-user-page-contributions": "شراکتیں",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|رکن}} از $1",
-	"mobile-frontend-user-page-talk": "تبادلہ خیال",
+	"mobile-frontend-user-page-talk": "تبادلۂ خیال",
 	"mobile-frontend-user-page-uploads": "اپلوڈ کردہ",
 	"skinname-minerva": "مائینروا",
 	"minerva-skin-desc": "موبائل کے لیے تیار شدہ خصوصی پوشاک",
