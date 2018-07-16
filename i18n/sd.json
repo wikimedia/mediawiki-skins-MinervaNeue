@@ -25,5 +25,7 @@
 	"mobile-frontend-user-page-contributions": "ڀاڱيداريون",
 	"mobile-frontend-user-page-talk": "بحث",
 	"mobile-frontend-user-page-uploads": "چاڙهيل",
-	"skin-minerva-issue-learn-more": "وڌيڪ سکو"
+	"skin-minerva-issue-learn-more": "وڌيڪ سکو",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "مٿي وڃو",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "موجوده صفحي جي مٿي وڃو، گردش ڪندڙ بٽڻ ذريعي"
 }
