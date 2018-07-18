@@ -89,7 +89,7 @@ Given(/^I go to a page that does not have languages$/) do
 end
 
 Given(/^the wiki has a terms of use$/) do
-  api.create_page 'MediaWiki:mobile-frontend-terms-url', 'http://m.wikimediafoundation.org/wiki/Terms_of_Use'
+  api.create_page 'MediaWiki:mobile-frontend-terms-url', 'https://mobile.test/wiki/Terms_of_Use'
   api.create_page 'MediaWiki:mobile-frontend-terms-text', 'Terms of use'
   # force a visit to check its existence
   visit(ArticlePage, using_params: { article_name: 'MediaWiki:Mobile-frontend-terms-url?action=info' })
