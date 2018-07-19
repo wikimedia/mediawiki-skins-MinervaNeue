@@ -1,22 +1,18 @@
 {
-    "opts": {
-        "encoding": "utf8",
-        "destination": "docs",
-        "packageX": "package.json",
-        "readme": "README.md",
-        "recurse": true
-    },
-    "plugins": [],
-    "recurseDepth": 10,
-    "source": {
-        "include": [ "resources" ],
-        "includePattern": ".+\\.js$"
-    },
-    "tags": {},
-    "templates": {
-        "cleverLinks": true,
-        "default": {
-            "useLongnameInNav": true
-        }
-    }
+	"opts": {
+		"destination": "docs/js",
+		"package": "package.json",
+		"pedantic": true,
+		"readme": "README.md",
+		"recurse": true
+	},
+	"source": {
+		"include": [ "resources" ]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"default": {
+			"useLongnameInNav": true
+		}
+	}
 }
