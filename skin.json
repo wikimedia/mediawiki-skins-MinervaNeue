@@ -242,19 +242,54 @@
 			}
 		},
 		"skins.minerva.icons.images.scripts": {
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"dependencies": [
+				"skins.minerva.icons.images.scripts.misc",
+				"skins.minerva.icons.page.issues.uncolored",
+				"skins.minerva.icons.page.issues.default.color",
+				"skins.minerva.icons.page.issues.medium.color"
+			]
+		},
+		"skins.minerva.icons.images.scripts.misc": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"images": {
-				"issue-speedy": "resources/skins.minerva.icons.images.scripts/issue-speedy.svg",
-				"issue-delete": "resources/skins.minerva.icons.images.scripts/issue-delete.svg",
-				"issue-protection": "resources/skins.minerva.icons.images.scripts/issue-protection.svg",
-				"issue-default": "resources/skins.minerva.icons.images.scripts/issue-default.svg",
-				"issue-pov": "resources/skins.minerva.icons.images.scripts/issue-pov.svg",
-				"issue-style": "resources/skins.minerva.icons.images.scripts/issue-style.svg",
-				"issue-content": "resources/skins.minerva.icons.images.scripts/issue-content.svg",
-				"issue-move": "resources/skins.minerva.icons.images.scripts/issue-move.svg",
-				"download": "resources/skins.minerva.icons.images.scripts/download.svg",
-				"stop-hand": "resources/skins.minerva.icons.images.scripts/stop-hand.svg"
+				"download": "resources/skins.minerva.icons.images.scripts.misc/download.svg",
+				"stop-hand": "resources/skins.minerva.icons.images.scripts.misc/stop-hand.svg"
+			}
+		},
+		"skins.minerva.icons.page.issues.uncolored": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"images": {
+				"issue-severity-low-lowColor": "resources/skins.minerva.icons.page.issues.uncolored/issue-severity-low.svg",
+				"issue-type-move-defaultColor": "resources/skins.minerva.icons.page.issues.uncolored/issue-type-move.svg"
+			}
+		},
+		"skins.minerva.icons.page.issues.default.color": {
+			"class": "ResourceLoaderImageModule",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}-defaultColor:before",
+			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}:before",
+			"defaultColor": "#54595d",
+			"variants": {
+				"lowColor": { "color": "#fc3", "global": true },
+				"mediumColor": { "color": "#ff5d01", "global": true },
+				"highColor": { "color": "#d33", "global": true }
+			},
+			"images": {
+				"issue-generic": "resources/skins.minerva.icons.page.issues.default.color/issue-generic.svg"
+			}
+		},
+		"skins.minerva.icons.page.issues.medium.color": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".mw-ui-icon-minerva-{name}-mediumColor:before",
+			"defaultColor": "#ff5d01",
+			"images": {
+				"issue-severity-medium": "resources/skins.minerva.icons.page.issues.medium.color/issue-severity-medium.svg",
+				"issue-type-point-of-view": "resources/skins.minerva.icons.page.issues.medium.color/issue-type-point-of-view.svg"
 			}
 		},
 		"skins.minerva.mainPage.styles": {
@@ -382,7 +417,7 @@
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
 				"resources/skins.minerva.scripts/references.js",
-				"resources/skins.minerva.scripts/utils.js",
+				"resources/skins.minerva.scripts/pageIssueParser.js",
 				"resources/skins.minerva.scripts/AB.js",
 				"resources/skins.minerva.scripts/cleanuptemplates.js"
 			]
@@ -519,7 +554,6 @@
 				"resources/skins.minerva.editor/init.js"
 			]
 		},
-
 		"skins.minerva.backtotop": {
 			"targets": [
 				"mobile",
