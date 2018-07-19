@@ -192,12 +192,6 @@
 						"ltr": "resources/skins.minerva.content.styles.images/link-external-ltr.svg",
 						"rtl": "resources/skins.minerva.content.styles.images/link-external-rtl.svg"
 					}
-				},
-				"a.extiw": {
-					"file": {
-						"ltr": "resources/skins.minerva.content.styles.images/link-internal-ltr.svg",
-						"rtl": "resources/skins.minerva.content.styles.images/link-internal-rtl.svg"
-					}
 				}
 			}
 		},
