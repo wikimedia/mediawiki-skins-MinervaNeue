@@ -11,7 +11,8 @@
 			"Patrick Star",
 			"Facenapalm",
 			"OlegCinema",
-			"Stjn"
+			"Stjn",
+			"Vlad5250"
 		]
 	},
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
@@ -48,6 +49,7 @@
 	"mobile-frontend-meta-data-issues": "Вопросы по странице",
 	"mobile-frontend-meta-data-issues-categories": "Об этой категории",
 	"mobile-frontend-meta-data-issues-header": "Проблемы страницы",
+	"minerva-meta-data-issues-section-header": "Проблемы с подразделом",
 	"mobile-frontend-meta-data-issues-header-talk": "Сведения о странице",
 	"mobile-frontend-meta-data-issues-talk": "Сведения о странице обсуждения",
 	"mobile-frontend-notifications-filter": "Фильтр",
