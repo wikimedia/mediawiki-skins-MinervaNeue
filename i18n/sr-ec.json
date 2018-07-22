@@ -61,9 +61,14 @@
 	"mobile-frontend-user-page-talk": "Разговор",
 	"mobile-frontend-user-page-uploads": "Отпремања",
 	"skinname-minerva": "Минерва",
-	"minerva-skin-desc": "Одговарајућа тема првенствено за мобилну употребу",
+	"minerva-skin-desc": "Респонзивна тема првенствено за мобилну употребу",
+	"skin-minerva-issue-learn-more": "Сазнајте више",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорије",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Види категорије на страницама",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Иди на врх",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Иди на врх тренутне странице уз помоћ падајућег дугмета"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Иди на врх тренутне странице уз помоћ падајућег дугмета",
+	"skin-minerva-blocked-drawer-title": "Ваш налог је блокиран на пројекту {{SITENAME}}",
+	"skin-minerva-blocked-drawer-reason-header": "Разлог блокаде",
+	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Блокирао|Блокирала}} Вас је",
+	"skin-minerva-blocked-drawer-expiry-header": "Блокада ће истећи за"
 }

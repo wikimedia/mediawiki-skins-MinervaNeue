@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Ninjastrikers",
-			"Parabaik"
+			"Parabaik",
+			"BukhariSaeed"
 		]
 	},
 	"mobile-frontend-editor-edit": "ပြင်ဆင်",
 	"mobile-frontend-editor-tutorial-cancel": "မလိုပါ၊ ကျေးဇူးတင်ပါသည်။",
 	"mobile-frontend-home-button": "ပင်မ",
 	"mobile-frontend-language-article-heading": "အခြား ဘာသာစကားဖြင့်ဖတ်ပါ။",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ကြိုဆိုပါသည်}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "ပင်မမီနူးကို ဖွင့်ရန်",
 	"mobile-frontend-main-menu-contributions": "ဆောင်ရွက်ချက်များ",
 	"mobile-frontend-main-menu-login": "အကောင့်ဝင်ရန်",
