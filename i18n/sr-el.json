@@ -58,7 +58,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Registrovan|Registrovana}} na datum $1",
 	"mobile-frontend-user-page-talk": "Razgovor",
 	"mobile-frontend-user-page-uploads": "Otpremanja",
-	"skinname-minerva": "Minerva",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Odgovarajuća tema prvenstveno za mobilnu upotrebu",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vidi kategorije na stranicama",
