@@ -266,10 +266,10 @@ class SkinMinerva extends SkinTemplate {
 	 * @param Title $nt
 	 * @param string $section
 	 * @param string|null $tooltip
-	 * @param string|bool $lang
+	 * @param Language $lang
 	 * @return string
 	 */
-	public function doEditSectionLink( Title $nt, $section, $tooltip = null, $lang = false ) {
+	public function doEditSectionLink( Title $nt, $section, $tooltip, Language $lang ) {
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
