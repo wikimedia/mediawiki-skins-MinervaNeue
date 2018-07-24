@@ -173,17 +173,18 @@
 		},
 		"skins.minerva.content.styles.images": {
 			"class": "ResourceLoaderImageModule",
-			"selector": "a.{name}",
+			"selector": "{name}",
 			"defaultColor": "#36c",
 			"useDataURI": false,
 			"images": {
-				"external": {
+				"input.search,.mw-ui-icon-minerva-magnifying-glass:before": "resources/skins.minerva.content.styles.images/magnifying-glass.svg",
+				"a.external": {
 					"file": {
 						"ltr": "resources/skins.minerva.content.styles.images/link-external-ltr.svg",
 						"rtl": "resources/skins.minerva.content.styles.images/link-external-rtl.svg"
 					}
 				},
-				"extiw": {
+				"a.extiw": {
 					"file": {
 						"ltr": "resources/skins.minerva.content.styles.images/link-internal-ltr.svg",
 						"rtl": "resources/skins.minerva.content.styles.images/link-internal-rtl.svg"
@@ -218,7 +219,6 @@
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
 				"edit-enabled": "resources/skins.minerva.icons.images/edit.svg",
-				"magnifying-glass": "resources/skins.minerva.icons.images/magnifying-glass.svg",
 				"language-switcher": "resources/skins.minerva.icons.images/languageSwitcher.svg"
 			}
 		},
