@@ -2,7 +2,16 @@
 	"name": "MinervaNeue",
 	"namemsg": "skinname-minerva",
 	"descriptionmsg": "minerva-skin-desc",
-	"author": [],
+	"author": [
+		"[https://www.mediawiki.org/wiki/Reading/Web/Team Readers Web Team]",
+		"Bahodir Mansurov",
+		"Joaquin Hernandez",
+		"Jon Robson",
+		"Juliusz Gonera",
+		"Ryan Kaldari",
+		"Florian Schmidt",
+		"Sam Smith"
+	],
 	"type": "skin",
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
 	"license-name": "GPL-2.0-or-later",
