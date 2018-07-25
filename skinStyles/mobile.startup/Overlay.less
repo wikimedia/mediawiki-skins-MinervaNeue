@@ -24,6 +24,18 @@
 	}
 }
 
+.overlay-header .overlay-title {
+	padding: 0.15em 0;
+
+	&:last-child {
+		// Reserve space to the right in case the search form in the header or
+		// overlay title in the overlay header is the last element. Use @iconGutterWidth
+		// because there is a hamburger or close/back icon next to this element and
+		// the space between them is exactly that.
+		padding-right: @iconGutterWidth;
+	}
+}
+
 @media all and ( min-width: @width-breakpoint-desktop ) {
 	.overlay-header {
 		// Make sure the close button and secondary button icon images are aligned
