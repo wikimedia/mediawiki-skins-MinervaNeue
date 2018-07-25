@@ -1,6 +1,5 @@
-# JSDuck output
-/docs/
-
+/docs/js/
+/docs/php/
 /node_modules/
 /vendor
 /composer.lock
