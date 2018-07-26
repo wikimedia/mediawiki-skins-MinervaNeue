@@ -11,6 +11,7 @@
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		page = M.getCurrentPage(),
+		api = new mw.Api(),
 		thumbs = page.getThumbnails();
 
 	/**
@@ -93,36 +94,52 @@
 	}
 
 	/**
+	 * Make an instance of an ImageOverlay. This function assumes that the module
+	 * providing the ImageOverlay has been asynchronously loaded.
+	 * @method
+	 * @ignore
+	 * @param {string} title Url of image
+	 * @return {ImageOverlay}
+	 */
+	function makeImageOverlay( title ) {
+		var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' ),
+			imageOverlay = new ImageOverlay( {
+				api: api,
+				thumbnails: thumbs,
+				title: decodeURIComponent( title )
+			} );
+		imageOverlay.on( ImageOverlay.EVENT_EXIT, function () {
+			// Actually dismiss the overlay whenever the cross is closed.
+			window.location.hash = '';
+			// Clear the hash.
+			router.navigate( '' );
+		} );
+		imageOverlay.on( ImageOverlay.EVENT_SLIDE, function ( nextThumbnail ) {
+			routeThumbnail( nextThumbnail );
+		} );
+		return imageOverlay;
+	}
+
+	/**
 	 * Load image overlay
 	 * @method
 	 * @ignore
 	 * @uses ImageOverlay
 	 * @param {string} title Url of image
-	 * @return {JQuery.Deferred}
+	 * @return {JQuery.Deferred|ImageOverlay}
 	 */
 	function loadImageOverlay( title ) {
 		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {
 			// This means MultimediaViewer has been installed and is loaded.
 			// Avoid loading it (T169622)
 			return $.Deferred().reject();
+		} else if ( mw.loader.getState( 'mobile.mediaViewer' ) === 'ready' ) {
+			// If module already loaded, do this synchronously to avoid the event loop causing
+			// a visible flash (see T197110)
+			return makeImageOverlay( title );
 		} else {
 			return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
-				var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' ),
-					imageOverlay = new ImageOverlay( {
-						api: new mw.Api(),
-						thumbnails: thumbs,
-						title: decodeURIComponent( title )
-					} );
-				imageOverlay.on( ImageOverlay.EVENT_EXIT, function () {
-					// Actually dismiss the overlay whenever the cross is closed.
-					window.location.hash = '';
-					// Clear the hash.
-					router.navigate( '' );
-				} );
-				imageOverlay.on( ImageOverlay.EVENT_SLIDE, function ( nextThumbnail ) {
-					routeThumbnail( nextThumbnail );
-				} );
-				return imageOverlay;
+				return makeImageOverlay( title );
 			} );
 		}
 	}
@@ -134,7 +151,7 @@
 
 		return loader.loadModule( 'mobile.languages.structured', true ).then( function ( loadingOverlay ) {
 			var PageGateway = M.require( 'mobile.startup/PageGateway' ),
-				gateway = new PageGateway( new mw.Api() ),
+				gateway = new PageGateway( api ),
 				LanguageOverlay = M.require( 'mobile.languages.structured/LanguageOverlay' );
 
 			return gateway.getPageLanguages( mw.config.get( 'wgPageName' ), lang ).then( function ( data ) {
