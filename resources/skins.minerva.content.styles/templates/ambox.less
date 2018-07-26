@@ -40,6 +40,9 @@ table.ambox {
 	// See https://en.wikipedia.org/w/index.php?title=Module:Message_box&action=raw (search for 'mbox-text-span').
 	.mbox-text-span {
 		max-height: @contentLineHeight * 2em;
+		// All will have this height (approx 2 lines) even if a single line e.g. {{dictdef}} when on mobile.
+		// Overriden later in tablet styles.
+		height: @contentLineHeight * 2em;
 		overflow: hidden;
 	}
 
@@ -122,6 +125,7 @@ table.ambox {
 
 	@media screen and ( min-width: @width-breakpoint-tablet ) {
 		.mbox-text-span {
+			height: auto;
 			margin-bottom: @amboxPadding * 3 !important; // important offsets `.ambox div { margin:0!important}` which offsets inline styles.
 		}
 		.ambox-learn-more {
