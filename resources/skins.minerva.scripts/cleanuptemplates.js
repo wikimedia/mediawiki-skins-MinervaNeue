@@ -93,7 +93,7 @@
 	 * will be rendered above the heading.
 	 * This function comes with side effects. It will populate a global "allIssues" object which
 	 * will link section numbers to issues.
-	 * @param {JQuery.Object} $container to render the page issues banner inside.
+	 * @param {Page} page to search for page issues inside
 	 * @param {string} labelText what the label of the page issues banner should say
 	 * @param {number|string} section that the banner and its issues belong to.
 	 *  If string KEYWORD_ALL_SECTIONS banner should apply to entire page.
@@ -104,15 +104,20 @@
 	 *
 	 * @return {JQuery.Object}
 	 */
-	function createBanner( $container, labelText, section, inline, overlayManager ) {
-		var $learnMore,
+	function createBanner( page, labelText, section, inline, overlayManager ) {
+		var $learnMore, $metadata,
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
 			selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
-			$metadata = $container.find( selector ),
 			issues = [],
 			$link,
 			severity;
 
+		if ( section === KEYWORD_ALL_SECTIONS ) {
+			$metadata = page.$( selector );
+		} else {
+			// find heading associated with the section
+			$metadata = page.findChildInSectionLead( parseInt( section, 10 ), selector );
+		}
 		// clean it up a little
 		$metadata.find( '.NavFrame' ).remove();
 		$metadata.each( function () {
@@ -231,31 +236,30 @@
 			headingText = getNamespaceHeadingText( CURRENT_NS ),
 			$lead = page.getLeadSectionElement(),
 			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || !$lead,
-			inline = newTreatmentEnabled && CURRENT_NS === 0,
-			$container = $( '#bodyContent' );
+			inline = newTreatmentEnabled && CURRENT_NS === 0;
 
 		// set A-B test class.
 		$( 'html' ).addClass( newTreatmentEnabled ? 'issues-group-B' : 'issues-group-A' );
 
 		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
 			// e.g. Template:English variant category; Template:WikiProject
-			createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
+			createBanner( page, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
 				KEYWORD_ALL_SECTIONS, inline, overlayManager );
 		} else if ( CURRENT_NS === NS_MAIN ) {
 			label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
 			if ( issueOverlayShowAll ) {
-				createBanner( $container, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
+				createBanner( page, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
 			} else {
 				// parse lead
-				createBanner( $lead, label, 0, inline, overlayManager );
+				createBanner( page, label, 0, inline, overlayManager );
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown for sections.
-					$lead.nextAll( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
+					page.$( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
-							$section = $headingEl.next(),
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
 
-						createBanner( $section, label, sectionNum, inline, overlayManager );
+						// Render banner for sectionNum associated with headingEl inside Page
+						createBanner( page, label, sectionNum, inline, overlayManager );
 					} );
 				}
 			}

@@ -1,6 +1,7 @@
 ( function ( M ) {
 	var createBanner = M.require( 'skins.minerva.scripts/cleanuptemplates' ).test.createBanner,
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
+		Page = M.require( 'mobile.startup/Page' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		$mockContainer = $(
 			'<div id=\'bodyContent\'>' +
@@ -14,7 +15,10 @@
 		labelText = 'label text',
 		section = 0,
 		inline = true,
-		processedAmbox = createBanner( $mockContainer, labelText, section, inline, overlayManager );
+		processedAmbox = createBanner(
+			new Page( { el: $mockContainer } ),
+			labelText, section, inline, overlayManager
+		);
 
 	QUnit.module( 'Minerva cleanuptemplates' );
 
