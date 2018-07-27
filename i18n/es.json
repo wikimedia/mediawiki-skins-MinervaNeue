@@ -15,7 +15,6 @@
 	"minerva-last-modified-date": "Última edición el $1 a las $2",
 	"minerva-talk-add-topic": "Añadir discusión",
 	"mobile-frontend-cookies-required": "Las «cookies» permiten cambiar entre los modos de visualización. Actívalas e inténtalo de nuevo.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Tu cuenta tiene impedido editar. El bloqueo lo realizó {{GENDER:$2|$2}} por el siguiente motivo: $1.",
 	"mobile-frontend-editor-cta": "¡Ayúdanos a mejorar esta página!",
 	"minerva-pointer-dismiss": "Descartar",
 	"mobile-frontend-editor-disabled": "Esta página está protegida para evitar el vandalismo.",
@@ -68,9 +67,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ir al principio",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al inicio de la página actual mediante un botón flotante",
-	"skin-minerva-blocked-drawer-title": "Han bloqueado tu cuenta para que no edites {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Motivo del bloqueo",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Bloqueado|Bloqueada}} por",
-	"skin-minerva-blocked-drawer-expiry-header": "El bloqueo caducará el"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al inicio de la página actual mediante un botón flotante"
 }

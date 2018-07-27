@@ -11,7 +11,6 @@
 	"minerva-last-modified-date": "Última edição a $1, às $2",
 	"minerva-talk-add-topic": "Adicionar discussão",
 	"mobile-frontend-cookies-required": "Os cookies são necessários para alterar os modos de apresentação. Ative-os e tente novamente, por favor.",
-	"mobile-frontend-editor-blocked-info-loggedin": "A sua conta está impedida de realizar edições. O bloqueio foi feito {{GENDER:$2|pelo utilizador|pela utilizadora}} $2 pelo seguinte motivo: $1",
 	"mobile-frontend-editor-cta": "Ajude a melhorar esta página!",
 	"minerva-pointer-dismiss": "Ignorar",
 	"mobile-frontend-editor-disabled": "Esta página está protegida para evitar vandalismo.",
@@ -65,9 +64,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorias",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Mostra as categorias das páginas",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Saltar para o topo",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Salta para o topo da página atual, utilizando um botão flutuante",
-	"skin-minerva-blocked-drawer-title": "A sua conta foi bloqueada para edição em {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Motivo do bloqueio",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Bloqueado|Bloqueada}} por",
-	"skin-minerva-blocked-drawer-expiry-header": "O bloqueio expira em"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Salta para o topo da página atual, utilizando um botão flutuante"
 }

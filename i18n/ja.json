@@ -17,7 +17,6 @@
 	"minerva-last-modified-date": "最終更新: $1 $2",
 	"minerva-talk-add-topic": "議論を追加",
 	"mobile-frontend-cookies-required": "表示モードを切り替えるには Cookie が必要です。有効にしてからもう一度お試しください。",
-	"mobile-frontend-editor-blocked-info-loggedin": "あなたのアカウントでは編集がブロックされています。{{GENDER:$2|$2}} によりブロック処理が行われました。以下はその理由です: $1",
 	"mobile-frontend-editor-cta": "このページの改善にご協力ください",
 	"minerva-pointer-dismiss": "非表示",
 	"mobile-frontend-editor-disabled": "このページは荒らし防止のため保護されています。",
@@ -69,9 +68,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "トップへ移動",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "フローティングボタンを使用して現在のページの先頭にジャンプする",
-	"skin-minerva-blocked-drawer-title": "あなたのアカウントで {{SITENAME}} を編集することはブロックされています",
-	"skin-minerva-blocked-drawer-reason-header": "ブロックの理由",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|によってブロック}}されました:",
-	"skin-minerva-blocked-drawer-expiry-header": "ブロックは次の期間まで継続されます:"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "フローティングボタンを使用して現在のページの先頭にジャンプする"
 }

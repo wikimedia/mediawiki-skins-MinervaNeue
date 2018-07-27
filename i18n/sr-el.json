@@ -10,7 +10,6 @@
 	"minerva-last-modified-date": "Poslednji put uređivano dana $1, u $2.",
 	"minerva-talk-add-topic": "Dodaj temu za raspravu",
 	"mobile-frontend-cookies-required": "Kolačići su potrebni za menjanje načina pogleda. Omogućite ih i pokušajte ponovo.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Vašem nalog je onemogućeno uređivanje. {{GENDER:$2|Blokirao|Blokirala}} vas je $2 iz sledećeg razloga: $1",
 	"mobile-frontend-editor-cta": "Pomozite nam da poboljšamo ovu stranicu!",
 	"minerva-pointer-dismiss": "Odbaci",
 	"mobile-frontend-editor-disabled": "Ova stranica je zaštićena da bi se sprečio vandalizam.",

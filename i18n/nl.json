@@ -16,7 +16,6 @@
 	"minerva-last-modified-date": "Laatst bewerkt op $1, om $2",
 	"minerva-talk-add-topic": "Onderwerp toevoegen",
 	"mobile-frontend-cookies-required": "Cookies zijn verplicht om van modus te wisselen. Schakel deze in en probeer het opnieuw.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Uw account is geblokkeerd voor bewerken. De blokkade is ingesteld door {{GENDER:$2|$2}} met de volgende reden: $1",
 	"mobile-frontend-editor-cta": "Help deze pagina te verbeteren!",
 	"minerva-pointer-dismiss": "Sluiten",
 	"mobile-frontend-editor-disabled": "Deze pagina is beveiligd om vandalisme te voorkomen.",
@@ -67,8 +66,5 @@
 	"skin-minerva-issue-learn-more": "Meer leren",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorieën",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Toon paginacategorieën",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Terug naar boven",
-	"skin-minerva-blocked-drawer-reason-header": "Reden voor blokkade",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Geblokkeerd}} door",
-	"skin-minerva-blocked-drawer-expiry-header": "Blokkade verloopt over"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Terug naar boven"
 }

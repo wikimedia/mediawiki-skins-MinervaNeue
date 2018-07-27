@@ -47,7 +47,5 @@
 	"mobile-frontend-user-page-talk": "Бәхәс",
 	"mobile-frontend-user-page-uploads": "Йөкләүләр",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Төркемнәр",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Өскә күчү",
-	"skin-minerva-blocked-drawer-reason-header": "Тыю сәбәбе",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Тыюлы}}"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Өскә күчү"
 }

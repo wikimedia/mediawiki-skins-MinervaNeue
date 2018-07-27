@@ -18,7 +18,6 @@
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
 	"minerva-talk-add-topic": "Добавить обсуждение",
 	"mobile-frontend-cookies-required": "Для переключения режимов просмотра требуются файлы cookie. Пожалуйста, включите их и повторите попытку.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Возможность редактирования с вашей учётной записи заблокирована. Блокировка была сделана {{GENDER:$2|участником|участницей}} $2 по следующей причине: $1",
 	"mobile-frontend-editor-cta": "Помогите улучшить эту страницу!",
 	"minerva-pointer-dismiss": "Закрыть",
 	"mobile-frontend-editor-disabled": "Эта страница защищена ради предотвращения вандализма.",
@@ -72,9 +71,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Посмотреть категории страниц",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти наверх",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки",
-	"skin-minerva-blocked-drawer-title": "Возможность редактировать {{SITENAME}} была заблокирована для вашей учётной записи",
-	"skin-minerva-blocked-drawer-reason-header": "Причина блокировки",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Заблокирован|Заблокирована}}",
-	"skin-minerva-blocked-drawer-expiry-header": "Блокировка истечёт"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки"
 }

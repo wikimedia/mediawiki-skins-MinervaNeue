@@ -7,7 +7,6 @@
 	},
 	"minerva-last-modified-date": "កែប្រែចុងក្រោយនៅ $1 $2",
 	"minerva-talk-add-topic": "បន្ថែមការពិភាក្សា",
-	"mobile-frontend-editor-blocked-info-loggedin": "គណនីរបស់អ្នកត្រូវបានហាមឃាត់មិនអោយធ្វើកំណែប្រែទេ។ ការហាមឃាត់ត្រូវធ្វើដោយ {{GENDER:$2|$2}} ដោយមូលហេតុ៖ $1។",
 	"mobile-frontend-editor-cta": "ជួយកែលម្អទំព័រនេះ!",
 	"minerva-pointer-dismiss": "លាក់",
 	"mobile-frontend-editor-disabled": "ទំព័រត្រូវបានការពារពីការបំផ្លិចបំផ្លាញ។",

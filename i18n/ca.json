@@ -12,7 +12,6 @@
 		]
 	},
 	"mobile-frontend-cookies-required": "Les galetes són necessàries per canviar de mode de visualització. Si us plau, activa-les i intenta-ho un altre cop.",
-	"mobile-frontend-editor-blocked-info-loggedin": "El vostre compte està blocat per a modificacions. El blocatge va ser fet per {{GENDER:$2|$2}} per la raó següent: $1",
 	"mobile-frontend-editor-cta": "Ajudeu a millorar aquesta pàgina!",
 	"minerva-pointer-dismiss": "Descarta",
 	"mobile-frontend-editor-disabled": "Aquesta pàgina està protegida per a evitar el vandalisme.",
@@ -55,9 +54,5 @@
 	"mobile-frontend-user-newmessages": "Teniu missatges nous a la vostra pàgina de discussió.",
 	"mobile-frontend-user-page-contributions": "Contribucions",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Membre}} des de $1",
-	"mobile-frontend-user-page-talk": "Discussió",
-	"skin-minerva-blocked-drawer-title": "Us han blocat el compte perquè no modifiqueu {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Motiu del blocatge",
-	"skin-minerva-blocked-drawer-creator-header": "Blocatge per",
-	"skin-minerva-blocked-drawer-expiry-header": "El blocatge venç el"
+	"mobile-frontend-user-page-talk": "Discussió"
 }

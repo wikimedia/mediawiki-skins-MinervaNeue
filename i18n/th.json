@@ -10,7 +10,6 @@
 	"minerva-last-modified-date": "แก้ไขล่าสุดเมื่อ $1 เวลา $2",
 	"minerva-talk-add-topic": "เพิ่มการอภิปราย",
 	"mobile-frontend-cookies-required": "ต้องใช้คุกกี้ในการสลับโหมดมุมมอง โปรดเปิดใช้งานคุกกี้แล้วลองอีกครั้ง",
-	"mobile-frontend-editor-blocked-info-loggedin": "บัญชีของคุณถูกบล็อกไม่ให้แก้ไข ถูกบล็อกโดย {{GENDER:$2|$2}} เนื่องด้วยเหตุผลดังต่อไปนี้: $1",
 	"mobile-frontend-editor-cta": "ช่วยปรับปรุงหน้านี้!",
 	"minerva-pointer-dismiss": "รับทราบ",
 	"mobile-frontend-editor-disabled": "หน้านี้ถูกล็อกเพื่อป้องกันการก่อกวน",
@@ -63,9 +62,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "หมวดหมู่",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ดูหมวดหมู่ของหน้า",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "กลับไปด้านบน",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "กลับไปด้านบนของหน้านี้โดยใช้ปุ่มลอย",
-	"skin-minerva-blocked-drawer-title": "บัญชีของคุณถูกบล็อกจากการแก้ไข {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "เหตุผลสำหรับการบล็อก",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|บล็อก}}โดย",
-	"skin-minerva-blocked-drawer-expiry-header": "การบล็อกจะหมดอายุใน"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "กลับไปด้านบนของหน้านี้โดยใช้ปุ่มลอย"
 }

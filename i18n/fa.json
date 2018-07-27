@@ -16,7 +16,6 @@
 	"minerva-last-modified-date": "آخرین بار در $1، $2 ویرایش شده‌است",
 	"minerva-talk-add-topic": "اضافه کردن بحث",
 	"mobile-frontend-cookies-required": "کوکی‌ها برای تعویض روش‌های نمایش مورد نیاز هستند. لطفاً آنها را فعال کنید و دوباره امتحان کنید.",
-	"mobile-frontend-editor-blocked-info-loggedin": "حساب کاربری شما مسدود شده است. این عمل توسط {{GENDER:$2|$2}} و به دلیل $1 انجام گرفته‌است.",
 	"mobile-frontend-editor-cta": "کمک به بهبود این صفحه!",
 	"minerva-pointer-dismiss": "نپذیرفتن",
 	"mobile-frontend-editor-disabled": "این صفحه برای جلوگیری از خرابکاری محافظت شده‌است.",
@@ -68,9 +67,5 @@
 	"minerva-skin-desc": "پوسته واکنش‌گرای موبایل",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "نمایش رده‌های صفحات",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "رفتن به بالا",
-	"skin-minerva-blocked-drawer-title": "حساب شما برای ویرایش در {{SITENAME}} بسته شده‌است",
-	"skin-minerva-blocked-drawer-reason-header": "علت بستن",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|بسته شده}} توسط",
-	"skin-minerva-blocked-drawer-expiry-header": "بستن در ... پایان می‌یابد"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "رفتن به بالا"
 }

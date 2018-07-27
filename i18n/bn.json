@@ -10,7 +10,6 @@
 	"minerva-last-modified-date": "$2, $1 তারিখে সর্বশেষ সম্পাদিত",
 	"minerva-talk-add-topic": "আলোচনা যোগ করুন",
 	"mobile-frontend-cookies-required": "দর্শন মোডে যেতে কুকিজের প্রয়োজন। দয়া করে তাদের সক্রিয় করে আবার চেষ্টা করুন।",
-	"mobile-frontend-editor-blocked-info-loggedin": "আপনার অ্যাকাউন্ট সম্পাদনা থেকে অবরুদ্ধ করা হয়েছে। নিম্নলিখিত কারণে {{GENDER:$2|$2}} কর্তৃক আপনি অবরুদ্ধ হয়েছেন: $1",
 	"mobile-frontend-editor-cta": "এই পাতা উন্নয়নে সাহায্য করুন!",
 	"minerva-pointer-dismiss": "খারিজ",
 	"mobile-frontend-editor-disabled": "ধ্বংসপ্রবণতা রোধে এই পাতাটি সুরক্ষিত করা হয়েছে।",
@@ -64,6 +63,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "পাতাগুলির বিষয়শ্রেণী দেখুন",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "শীর্ষে ঝাঁপ দিন",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|অবরুদ্ধ}} করেছেন"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়"
 }

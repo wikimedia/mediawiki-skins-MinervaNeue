@@ -12,7 +12,6 @@
 	"minerva-last-modified-date": "Последњи пут уређивано дана $1, у $2.",
 	"minerva-talk-add-topic": "Додај тему за расправу",
 	"mobile-frontend-cookies-required": "Колачићи су потребни за мењање начина погледа. Омогућите их и покушајте поново.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Вашем налог је онемогућено уређивање. {{GENDER:$2|Блокирао|Блокирала}} вас је $2 из следећег разлога: $1",
 	"mobile-frontend-editor-cta": "Помозите нам да побољшамо ову страницу!",
 	"minerva-pointer-dismiss": "Одбаци",
 	"mobile-frontend-editor-disabled": "Ова страница је заштићена да би се спречио вандализам.",
@@ -66,9 +65,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорије",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Види категорије на страницама",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Иди на врх",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Иди на врх тренутне странице уз помоћ падајућег дугмета",
-	"skin-minerva-blocked-drawer-title": "Ваш налог је блокиран на пројекту {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Разлог блокаде",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Блокирао|Блокирала}} Вас је",
-	"skin-minerva-blocked-drawer-expiry-header": "Блокада ће истећи за"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Иди на врх тренутне странице уз помоћ падајућег дугмета"
 }

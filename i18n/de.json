@@ -9,7 +9,6 @@
 	"minerva-last-modified-date": "Zuletzt bearbeitet am $1 um $2",
 	"minerva-talk-add-topic": "Diskussion hinzufügen",
 	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktiviere sie und versuche es erneut.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Dein Benutzerkonto ist für das Bearbeiten gesperrt. Die Sperre wurde von {{GENDER:$2|$2}} aus dem folgenden Grund durchgeführt: $1",
 	"mobile-frontend-editor-cta": "Hilf, diese Seite zu verbessern!",
 	"minerva-pointer-dismiss": "Ausblenden",
 	"mobile-frontend-editor-disabled": "Diese Seite ist geschützt, um Vandalismus vorzubeugen.",
@@ -63,9 +62,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorien von Seiten ansehen",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Nach oben springen",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Zum Anfang der aktuellen Seite mithilfe einer schwebenden Schaltfläche springen",
-	"skin-minerva-blocked-drawer-title": "Dein Benutzerkonto wurde für das Bearbeiten von {{SITENAME}} gesperrt",
-	"skin-minerva-blocked-drawer-reason-header": "Grund für die Sperre",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Gesperrt}} von",
-	"skin-minerva-blocked-drawer-expiry-header": "Die Sperre wird ablaufen in"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Zum Anfang der aktuellen Seite mithilfe einer schwebenden Schaltfläche springen"
 }

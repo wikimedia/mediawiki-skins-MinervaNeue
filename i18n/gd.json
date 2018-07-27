@@ -5,7 +5,6 @@
 		]
 	},
 	"mobile-frontend-cookies-required": "Tha briosgaidean riatanach gus leum a ghearradh eadar modhan an t-seallaidh. Cuir an comas iad 's feuch ris a-rithist.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Chan fhaod an cunntas agad deasachadh. Chaidh a bhacadh le {{GENDER:$2|$2}} air an adhbhar seo: $1",
 	"mobile-frontend-editor-cta": "Cuidich dhuinn gus piseach a thoirt air an duilleag seo!",
 	"minerva-pointer-dismiss": "Leig seachad",
 	"mobile-frontend-editor-disabled": "Chaidh an duilleag seo a dhìon gus bhandalachd a bhacadh.",

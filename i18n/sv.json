@@ -11,7 +11,6 @@
 	"minerva-last-modified-date": "Senast redigerad den $1, kl $2",
 	"minerva-talk-add-topic": "Lägg till diskussion",
 	"mobile-frontend-cookies-required": "Kakor krävs för att växla mellan visningslägen. Aktivera dem och försök igen.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Ditt konto är blockerat från att redigera. Blockeringen gjordes av {{GENDER:$2|$2}} av följande anledning: $1",
 	"mobile-frontend-editor-cta": "Hjälp till att förbättra denna sida!",
 	"minerva-pointer-dismiss": "Stäng",
 	"mobile-frontend-editor-disabled": "Denna sida är skyddad för att förhindra vandalism.",
@@ -66,9 +65,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Visa kategorier över sidor",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå längst upp",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå längst upp på aktuell sida med en flytande knapp",
-	"skin-minerva-blocked-drawer-title": "Ditt konto har blockerats från att redigera {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Orsak till blockering",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Blockerades}} av",
-	"skin-minerva-blocked-drawer-expiry-header": "Blockeringen löper ut om"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå längst upp på aktuell sida med en flytande knapp"
 }

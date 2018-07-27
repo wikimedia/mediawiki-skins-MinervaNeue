@@ -13,7 +13,6 @@
 	"minerva-last-modified-date": "最后编辑于$1 $2",
 	"minerva-talk-add-topic": "添加讨论",
 	"mobile-frontend-cookies-required": "需要Cookie以切换视图模式。请启用它们后重试。",
-	"mobile-frontend-editor-blocked-info-loggedin": "您的账户被封禁，不能编辑。封禁是由{{GENDER:$2|$2}}做出的，原因是：$1",
 	"mobile-frontend-editor-cta": "帮助改善此页面！",
 	"minerva-pointer-dismiss": "解除",
 	"mobile-frontend-editor-disabled": "本页面受到保护以防止被破坏。",
@@ -67,9 +66,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分类",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "查看页面分类",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "跳转至顶部",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮动按钮跳转至当前页面的顶部",
-	"skin-minerva-blocked-drawer-title": "您的账户已封禁，不能编辑{{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "封禁的原因",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|封禁}}者：",
-	"skin-minerva-blocked-drawer-expiry-header": "封禁结束时间："
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮动按钮跳转至当前页面的顶部"
 }

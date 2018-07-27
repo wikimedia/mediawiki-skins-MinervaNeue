@@ -7,7 +7,6 @@
 	},
 	"minerva-last-modified-date": "Fir d'lescht geännert den $1 ëm $2",
 	"minerva-talk-add-topic": "Diskussioun dobäisetzen",
-	"mobile-frontend-editor-blocked-info-loggedin": "Äre Benotzerkont ass gespaart fir z'änneren. D'Spär gouf vum {{GENDER:$2|$2}} aus dësem Grond gemaach: $1",
 	"mobile-frontend-editor-cta": "Hëlleft dës Säit ze verbesseren!",
 	"mobile-frontend-editor-disabled": "Dës Säit ass geschützt fir Vandalismus ze verhënneren.",
 	"mobile-frontend-editor-edit": "Änneren",
@@ -55,8 +54,5 @@
 	"mobile-frontend-user-page-uploads": "Eropgeluede Fichieren",
 	"skin-minerva-issue-learn-more": "Fir méi ze wëssen",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen",
-	"skin-minerva-blocked-drawer-title": "Äre Benotzerkont gouf fir d'Änneren op {{SITENAME}} gespaart",
-	"skin-minerva-blocked-drawer-reason-header": "Grond fir d'Spär",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Gespaart}} vum"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen"
 }

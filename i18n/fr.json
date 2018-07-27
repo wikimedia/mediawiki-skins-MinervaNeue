@@ -22,7 +22,6 @@
 	"minerva-last-modified-date": "Dernière modification le $1, à $2",
 	"minerva-talk-add-topic": "Ajouter une discussion",
 	"mobile-frontend-cookies-required": "Les témoins (cookies) sont nécessaires pour basculer entre les modes d’affichage. Veuillez les autoriser et réessayer.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Votre compte est bloqué et ne peut faire de modifications. Le blocage a été mis en place par {{GENDER:$2|$2}} pour la raison suivante : $1",
 	"mobile-frontend-editor-cta": "Aidez à améliorer cette page !",
 	"minerva-pointer-dismiss": "Fermer",
 	"mobile-frontend-editor-disabled": "Cette page est protégée pour empêcher le vandalisme.",
@@ -76,9 +75,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Catégories",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Afficher les catégories des pages",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Aller au début",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Aller en haut de la page actuelle en utilisant un bouton flottant",
-	"skin-minerva-blocked-drawer-title": "Votre compte a été bloqué pour la modification de {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Motif de blocage",
-	"skin-minerva-blocked-drawer-creator-header": "Bloqué{{GENDER:$1||e}} by",
-	"skin-minerva-blocked-drawer-expiry-header": "Déblocage dans"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Aller en haut de la page actuelle en utilisant un bouton flottant"
 }

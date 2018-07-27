@@ -17,7 +17,6 @@
 	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، في $2",
 	"minerva-talk-add-topic": "أضف نقاشًا",
 	"mobile-frontend-cookies-required": "إن ملفات تعريف الإرتباط (كوكيز) ضرورية لتغيير واجهة العرض; الرجاء تفعيل خاصية الاحتفاظ بهذه الملفات والمحاولة مرة أخرى.",
-	"mobile-frontend-editor-blocked-info-loggedin": "حسابك ممنوع من التعديل. {{GENDER:$2|منعك|منعتك}} $2 للسبب التالي: $1",
 	"mobile-frontend-editor-cta": "ساعد في تحسين هذه الصفحة!",
 	"minerva-pointer-dismiss": "تجاهل",
 	"mobile-frontend-editor-disabled": "هذه الصفحة محمية لمنع التخريب.",
@@ -72,9 +71,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "التصنيفات",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "عرض تصنيفات الصفحات",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "اقفز للأعلى",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "اقفز لأعلى الصفحة الحالية باستخدام زر عائم",
-	"skin-minerva-blocked-drawer-title": "تم منع حسابك من تحرير {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "سبب المنع",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|تم المنع}} بواسطة",
-	"skin-minerva-blocked-drawer-expiry-header": "ستنتهي صلاحية المنع في"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "اقفز لأعلى الصفحة الحالية باستخدام زر عائم"
 }

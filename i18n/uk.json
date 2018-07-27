@@ -13,7 +13,6 @@
 	"minerva-last-modified-date": "Останнє редагування: $1, $2",
 	"minerva-talk-add-topic": "Додати обговорення",
 	"mobile-frontend-cookies-required": "Куки потрібні для перемикання режимів перегляду. Будь ласка, увімкніть їх і спробуйте знову.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Для Вашого облікового запису заблоковане редагування. Блокування {{GENDER:$2|встановив|встановила}} $2 з такої причини: $1",
 	"mobile-frontend-editor-cta": "Допоможіть поліпшити цю сторінку!",
 	"minerva-pointer-dismiss": "Відхилити",
 	"mobile-frontend-editor-disabled": "Ця сторінка захищена, щоб запобігти вандалізму.",
@@ -66,9 +65,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорії",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Переглянути категорії сторінок",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти вгору",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти вгору поточної сторінки, скориставшись рухомою кнопкою",
-	"skin-minerva-blocked-drawer-title": "Вашому обліковому запису заблоковано доступ до редагування сайту {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Причина блокування",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Заблоковано}}",
-	"skin-minerva-blocked-drawer-expiry-header": "Блокування завершиться"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти вгору поточної сторінки, скориставшись рухомою кнопкою"
 }

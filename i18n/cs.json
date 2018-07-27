@@ -13,7 +13,6 @@
 	"minerva-last-modified-date": "Naposledy editováno $1 v $2",
 	"minerva-talk-add-topic": "Přidat diskusi",
 	"mobile-frontend-cookies-required": "Pro přepnutí verzí jsou vyžadovány cookies. Povolte je a zkuste to znovu.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Vašemu uživatelskému účtu byla zablokována možnost editace. Zablokování {{GENDER:$2|provedl|provedla}} $2 s následujícím zdůvodněním: $1",
 	"mobile-frontend-editor-cta": "Pomozte vylepšit tuto stránku!",
 	"minerva-pointer-dismiss": "Zavřít",
 	"mobile-frontend-editor-disabled": "Tato stránka je zamčena, aby se předešlo vandalismu.",
@@ -66,7 +65,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobrazit kategorie stránek",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Přeskočit na začátek",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Přeskočit na začátek této stránky pomocí pohyblivého tlačítka",
-	"skin-minerva-blocked-drawer-title": "Vašemu účtu byla zablokována možnost editace {{GRAMMAR:2sg|{{SITENAME}}}}",
-	"skin-minerva-blocked-drawer-reason-header": "Důvod zablokování"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Přeskočit na začátek této stránky pomocí pohyblivého tlačítka"
 }

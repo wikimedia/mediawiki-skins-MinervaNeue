@@ -8,7 +8,6 @@
 	"minerva-last-modified-date": "Lehekülje viimane muutmine: $1, $2",
 	"minerva-talk-add-topic": "Lisa arutelu",
 	"mobile-frontend-cookies-required": "Et vaaterežiimi vahetada, on vaja küpsiseid. Palun luba need ja proovi uuesti.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Sinu kontol on redigeerimine blokeeritud. Blokeerinud $2 järgmise põhjendusega: $1",
 	"mobile-frontend-editor-cta": "Aita seda lehekülge täiustada!",
 	"mobile-frontend-editor-disabled": "See lehekülg on kaitstud, et ennetada vandalismi.",
 	"mobile-frontend-editor-edit": "Redigeeri",

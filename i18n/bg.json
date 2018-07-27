@@ -14,7 +14,6 @@
 	"minerva-last-modified-date": "Последна промяна: в $2, на $1",
 	"minerva-talk-add-topic": "Добавяне на дискусия",
 	"mobile-frontend-cookies-required": "Необходимо е бисквитките да са включени за смяна на режима на преглед. Моля, включете ги и опитайте отново.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Вашият акаунт има забрана за редактиране. Забраната е наложена от {{GENDER:$2|$2}} по следната причина: $1",
 	"mobile-frontend-editor-cta": "Помогнете за подобряването на тази страница!",
 	"minerva-pointer-dismiss": "Затваряне",
 	"mobile-frontend-editor-disabled": "Тази страница е защитена с цел предотвратяване на вандализъм.",

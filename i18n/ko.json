@@ -17,7 +17,6 @@
 	"minerva-last-modified-date": "$1 $2에 마지막으로 편집됨",
 	"minerva-talk-add-topic": "토론 추가",
 	"mobile-frontend-cookies-required": "보기 모드를 전환하려면 쿠키가 필요합니다. 쿠키를 활성화하고 나서 다시 시도하세요.",
-	"mobile-frontend-editor-blocked-info-loggedin": "당신의 계정이 편집에서 차단되어 있습니다. 다음 이유로 {{GENDER:$2|$2}}님이 차단했습니다: $1",
 	"mobile-frontend-editor-cta": "이 문서를 개선하는 데 도움을 주세요!",
 	"minerva-pointer-dismiss": "숨기기",
 	"mobile-frontend-editor-disabled": "이 문서는 훼손을 막기 위해 보호되어 있습니다.",
@@ -71,9 +70,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "분류",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "문서 분류 보기",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "맨 위로 이동",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "떠있는 버튼을 사용하여 현재 문서의 최상위로 이동합니다",
-	"skin-minerva-blocked-drawer-title": "계정은 {{SITENAMTE}}에서의 편집이 차단되었습니다",
-	"skin-minerva-blocked-drawer-reason-header": "차단 이유:",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|차단자}}:",
-	"skin-minerva-blocked-drawer-expiry-header": "차단 기한:"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "떠있는 버튼을 사용하여 현재 문서의 최상위로 이동합니다"
 }

@@ -9,7 +9,6 @@
 	"minerva-last-modified-date": "נערך לאחרונה ב־$1, בשעה $2",
 	"minerva-talk-add-topic": "הוספת דיון",
 	"mobile-frontend-cookies-required": "נדרשות עוגיות כדי לעבור בין מצבים. נא להפעיל אותן ולנסות שוב.",
-	"mobile-frontend-editor-blocked-info-loggedin": "החשבון שלך נחסם לעריכה. החסימה נעשתה על־ידי {{GENDER:$2|$2}} מהסיבה הבאה: $1",
 	"mobile-frontend-editor-cta": "עזרו לשפר את הדף הזה!",
 	"minerva-pointer-dismiss": "סגירה",
 	"mobile-frontend-editor-disabled": "הדף הזה מוגן כדי למנוע השחתה.",
@@ -64,9 +63,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "קטגוריות",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "הצגת קטגוריות של דפים",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "מעבר למעלה",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "מעבר לראש הדף הנוכחי באמצעות כפתור צף",
-	"skin-minerva-blocked-drawer-title": "החשבון שלך נחסם מעריכת {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "הסיבה לחסימה",
-	"skin-minerva-blocked-drawer-creator-header": "החסימה {{GENDER:$1|בוצעה}} על־ידי",
-	"skin-minerva-blocked-drawer-expiry-header": "זמן הפקיעה של החסימה"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "מעבר לראש הדף הנוכחי באמצעות כפתור צף"
 }
