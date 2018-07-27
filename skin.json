@@ -513,7 +513,8 @@
 				"mediawiki.ui.input",
 				"mobile.startup",
 				"skins.minerva.toggling",
-				"mediawiki.jqueryMsg"
+				"mediawiki.jqueryMsg",
+				"mediawiki.Uri"
 			],
 			"messages": [
 				"mobile-frontend-editor-disabled",
