@@ -5,7 +5,6 @@
 	"minerva-last-modified-date": "Last edited on $1, at $2",
 	"minerva-talk-add-topic": "Add discussion",
 	"mobile-frontend-cookies-required": "Cookies are required to switch view modes. Please enable them and try again.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Your account is blocked from editing. The block was made by {{GENDER:$2|$2}} for the following reason: $1",
 	"mobile-frontend-editor-cta": "Help improve this page!",
 	"minerva-pointer-dismiss": "Dismiss",
 	"mobile-frontend-editor-disabled": "This page is protected to prevent vandalism.",
@@ -61,9 +60,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categories",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "View categories of pages",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Jump to top",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Jump to top of the current page using a floating button",
-	"skin-minerva-blocked-drawer-title": "Your account has been blocked from editing {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Reason for the block",
-	"skin-minerva-blocked-drawer-creator-header": "{{GENDER:$1|Blocked}} by",
-	"skin-minerva-blocked-drawer-expiry-header": "Block will expire in"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Jump to top of the current page using a floating button"
 }

@@ -14,7 +14,6 @@
 	"minerva-last-modified-date": "Text that displays the date the page was last modified. Parameters:\n* $1 - date\n* $2 - time\n{{Related|Mobile-frontend-last-modified}}",
 	"minerva-talk-add-topic": "Label for button which shows at bottom of talk pages in mobile view prompting addition of topic",
 	"mobile-frontend-cookies-required": "Error message shown when user attempts to switch site modes and cookies are not enabled.",
-	"mobile-frontend-editor-blocked-info-loggedin": "Toast message for logged in users that appears (before the user see the editor) when a user tries to edit a page, but is blocked from editing with reason and blocked by information.\n\nParameters:\n* $1 - blocked by information (Username of the user who crated this block)\n* $2 - Reason for this block, if any",
 	"mobile-frontend-editor-cta": "Caption for call to action when an anonymous user clicks on edit icon. (Note the mobile site currently doesn't allow anonymous editing.)\n{{Identical|Help improve this page}}",
 	"minerva-pointer-dismiss": "Label of button that dismisses overlay pointing at a particular new feature.",
 	"mobile-frontend-editor-disabled": "Toast message that appears when a user is unable to edit a page and clicks edit icon.",
@@ -70,9 +69,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Label for categories mobile web beta feature.\n{{Identical|Category}}",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Description label for categories mobile web beta feature.",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Label for jump to top mobile web beta feature",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature",
-	"skin-minerva-blocked-drawer-title": "Title for the drawer that appears when a blocked user attempts to edit.",
-	"skin-minerva-blocked-drawer-reason-header": "Header for the block reason message that appears when a blocked user attempts to edit.",
-	"skin-minerva-blocked-drawer-creator-header": "Header for the block creator that appears when a blocked user attempts to edit. \nParameters:\n* $1 - user's gender",
-	"skin-minerva-blocked-drawer-expiry-header": "Header for the block expiry that appears when a blocked user attempts to edit."
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature"
 }

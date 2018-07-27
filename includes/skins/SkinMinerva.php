@@ -1272,45 +1272,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 		];
 
 		if ( $this->isAuthenticatedUser() ) {
-			$blockInfo = false;
-			if ( $user->isBlockedFrom( $title, true ) ) {
-				$block = $user->getBlock();
-
-				$blockReason = $block->mReason ?
-					Linker::formatComment( $block->mReason ) :
-					false;
-
-				$blockCreator = User::newFromName( $block->getByName() );
-
-				$blockExpiry = null;
-				$blockDuration = null;
-				if ( !wfIsInfinity( $block->getExpiry() ) ) {
-					$blockExpiry = $this->getLanguage()->translateBlockExpiry(
-						$block->getExpiry(),
-						$this->getUser(),
-						time()
-					);
-					// Use the largest unit returned from Language::formatDuraiton() since
-					// we do not need to display the level of percision that the method
-					// returns.
-					list( $blockDuration ) = explode(
-						', ',
-						$this->getLanguage()->formatDuration( wfTimestamp( TS_UNIX, $block->getExpiry() ) - time() )
-					);
-				}
-				$blockInfo = [
-					'creator' => [
-						'name' => $blockCreator->getName(),
-						'url' => $blockCreator->getUserPage()->getLinkURL(),
-						'gender' => $blockCreator->getOption( 'gender' ),
-					],
-					'expiry' => $blockExpiry,
-					'duration' => $blockDuration,
-					// check, if a reason for this block is saved, otherwise use "no reason given" msg
-					'reason' => $blockReason,
-				];
-			}
-			$vars['wgMinervaUserBlockInfo'] = $blockInfo;
+			$vars['wgMinervaUserBlockInfo'] = $user->isBlockedFrom( $title, true );
 		}
 
 		return $vars;
