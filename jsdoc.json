@@ -6,6 +6,9 @@
 		"readme": "README.md",
 		"recurse": true
 	},
+	"plugins": [
+		"plugins/markdown"
+	],
 	"source": {
 		"include": [ "resources" ]
 	},
