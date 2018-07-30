@@ -75,7 +75,8 @@ class MinervaHooks {
 				'mobile.startup',
 				'skins.minerva.notifications.badge',
 				'mediawiki.user',
-				'mediawiki.experiments'
+				'mediawiki.experiments',
+				'mobile.issues'
 			],
 			'localBasePath' => dirname( __DIR__ ),
 			'remoteSkinPath' => 'MinervaNeue',
@@ -85,10 +86,12 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/pageIssueParser.js',
 				'resources/skins.minerva.scripts/DownloadIcon.js',
 				'resources/skins.minerva.scripts/AB.js',
+				'resources/skins.minerva.scripts/cleanuptemplates.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/test_DownloadIcon.js',
 				'tests/qunit/skins.minerva.scripts/test_pageIssueParser.js',
 				'tests/qunit/skins.minerva.scripts/test_AB.js',
+				'tests/qunit/skins.minerva.scripts/test_cleanuptemplates.js',
 				'tests/qunit/skins.minerva.notifications.badge/test_NotificationBadge.js'
 			],
 		];

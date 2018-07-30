@@ -88,6 +88,8 @@
 	 *  and if false, a link will be rendered under the heading.
 	 * @param {OverlayManager} overlayManager
 	 * @ignore
+	 *
+	 * @return {JQuery.Object}
 	 */
 	function createBanner( $container, labelText, section, inline, overlayManager ) {
 		var $learnMore,
@@ -148,6 +150,8 @@
 				$metadata.remove();
 			}
 		}
+
+		return $metadata;
 	}
 
 	/**
@@ -250,7 +254,10 @@
 	}
 
 	M.define( 'skins.minerva.scripts/cleanuptemplates', {
-		init: initPageIssues
+		init: initPageIssues,
+		test: {
+			createBanner: createBanner
+		}
 	} );
 
 }( mw.mobileFrontend, jQuery ) );
