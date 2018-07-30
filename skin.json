@@ -415,14 +415,14 @@
 			"scripts": [
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/DownloadIcon.js",
+				"resources/skins.minerva.scripts/pageIssueParser.js",
+				"resources/skins.minerva.scripts/AB.js",
+				"resources/skins.minerva.scripts/cleanuptemplates.js",
 				"resources/skins.minerva.scripts/init.js",
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
-				"resources/skins.minerva.scripts/references.js",
-				"resources/skins.minerva.scripts/pageIssueParser.js",
-				"resources/skins.minerva.scripts/AB.js",
-				"resources/skins.minerva.scripts/cleanuptemplates.js"
+				"resources/skins.minerva.scripts/references.js"
 			]
 		},
 		"skins.minerva.scripts.top": {

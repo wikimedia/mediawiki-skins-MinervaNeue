@@ -3,6 +3,7 @@
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
 		skin = M.require( 'mobile.init/skin' ),
+		issues = M.require( 'skins.minerva.scripts/cleanuptemplates' ),
 		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
@@ -268,6 +269,11 @@
 		M.on( 'resize', loadTabletModules );
 		loadTabletModules();
 		appendDownloadButton();
+		// Setup the issues banner on the page
+		// Pages which dont exist (id 0) cannot have issues
+		if ( !page.isMissing ) {
+			issues.init( overlayManager );
+		}
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );

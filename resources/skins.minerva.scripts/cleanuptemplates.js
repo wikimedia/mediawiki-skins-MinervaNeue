@@ -21,9 +21,7 @@
 			}
 		} ).getBucket() === 'B',
 		Icon = M.require( 'mobile.startup/Icon' ),
-		page = M.getCurrentPage(),
 		pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' ),
-		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' );
 
 	/**
@@ -88,9 +86,10 @@
 	 *  If string KEYWORD_ALL_SECTIONS banner should apply to entire page.
 	 * @param {boolean} inline - if true the first ambox in the section will become the entry point for the issues overlay
 	 *  and if false, a link will be rendered under the heading.
+	 * @param {OverlayManager} overlayManager
 	 * @ignore
 	 */
-	function createBanner( $container, labelText, section, inline ) {
+	function createBanner( $container, labelText, section, inline, overlayManager ) {
 		var $learnMore,
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
 			selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
@@ -195,8 +194,10 @@
 	 * Scan an element for any known cleanup templates and replace them with a button
 	 * that opens them in a mobile friendly overlay.
 	 * @ignore
+	 * @param {OverlayManager} overlayManager
+	 * @param {Page} page
 	 */
-	function initPageIssues() {
+	function initPageIssues( overlayManager, page ) {
 		var ns = mw.config.get( 'wgNamespaceNumber' ),
 			label,
 			headingText = ACTION_EDIT ? mw.msg( 'edithelp' ) : getNamespaceHeadingText( ns ),
@@ -211,17 +212,18 @@
 		if ( ACTION_EDIT ) {
 			// Editor uses different parent element
 			$container = $( '#mw-content-text' );
-			createBanner( $container, mw.msg( 'edithelp' ), KEYWORD_ALL_SECTIONS, inline );
+			createBanner( $container, mw.msg( 'edithelp' ), KEYWORD_ALL_SECTIONS, inline, overlayManager );
 		} else if ( ns === NS_TALK || ns === NS_CATEGORY ) {
 			// e.g. Template:English variant category; Template:WikiProject
-			createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ), KEYWORD_ALL_SECTIONS, inline );
+			createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
+				KEYWORD_ALL_SECTIONS, inline, overlayManager );
 		} else if ( ns === NS_MAIN ) {
 			label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
 			if ( issueOverlayShowAll ) {
-				createBanner( $container, label, KEYWORD_ALL_SECTIONS, inline );
+				createBanner( $container, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
 			} else {
 				// parse lead
-				createBanner( $lead, label, 0, inline );
+				createBanner( $lead, label, 0, inline, overlayManager );
 				if ( isInGroupB ) {
 					// parse other sections but only in group B. In treatment A no issues are shown for sections.
 					$lead.nextAll( 'h1,h2,h3,h4,h5,h6' ).each( function ( i, headingEl ) {
@@ -229,7 +231,7 @@
 							$section = $headingEl.next(),
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
 
-						createBanner( $section, label, sectionNum, inline );
+						createBanner( $section, label, sectionNum, inline, overlayManager );
 					} );
 				}
 			}
@@ -247,10 +249,8 @@
 		} );
 	}
 
-	// Setup the issues banner on the page
-	// Pages which dont exist (id 0) cannot have issues
-	if ( !page.isMissing ) {
-		$( initPageIssues );
-	}
+	M.define( 'skins.minerva.scripts/cleanuptemplates', {
+		init: initPageIssues
+	} );
 
 }( mw.mobileFrontend, jQuery ) );
