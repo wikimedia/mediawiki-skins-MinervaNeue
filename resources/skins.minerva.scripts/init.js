@@ -272,7 +272,7 @@
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
 		if ( !page.isMissing ) {
-			issues.init( overlayManager );
+			issues.init( overlayManager, page );
 		}
 	} );
 
