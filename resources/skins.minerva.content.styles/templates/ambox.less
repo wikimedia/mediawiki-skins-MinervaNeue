@@ -67,8 +67,11 @@ table.ambox {
 	// Hide links in new treatment
 	a {
 		color: inherit !important;
-		&:hover {
+		-webkit-tap-highlight-color: rgba( 0, 0, 0, 0 ) !important;
+		&:hover,
+		&:focus {
 			text-decoration: none;
+			outline: inherit;
 		}
 	}
 
