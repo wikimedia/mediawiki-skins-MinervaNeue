@@ -119,13 +119,13 @@
 		// store it for late
 		allIssues[section] = issues;
 
-		if ( inline ) {
+		if ( $metadata.length && inline ) {
 			severity = pageIssueParser.maxSeverity(
 				issues.map( function ( issue ) { return issue.pageIssue; } )
 			);
 			new Icon( {
 				glyphPrefix: 'minerva',
-				name: pageIssueParser.iconName( $metadata, severity )
+				name: pageIssueParser.iconName( $metadata.get( 0 ), severity )
 			} ).prependTo( $metadata.find( '.mbox-text' ) );
 			$learnMore = $( '<span>' )
 				.addClass( 'ambox-learn-more' )
