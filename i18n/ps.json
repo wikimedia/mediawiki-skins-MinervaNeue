@@ -32,6 +32,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "د دې مخ د پيل برخه سمول.",
 	"mobile-frontend-placeholder": "{{SITENAME}} پلټل",
 	"mobile-frontend-random-button": "بېلابېل",
+	"mobile-frontend-redirected-from": "د \"$1\" څخه راوګرځول شو",
 	"mobile-frontend-talk-back-to-page": "و \"$1\" مخ ته وروګرځي.",
 	"mobile-frontend-talk-back-to-userpage": "بيرته د «{{GENDER:$1|$1}}» مخ ته وروګرځي.",
 	"mobile-frontend-user-page-contributions": "ونډې",
