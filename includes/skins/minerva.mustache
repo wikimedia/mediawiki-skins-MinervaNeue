@@ -7,14 +7,14 @@
 		<div class="banner-container">
 			{{>banners}}
 		</div>
-		<div class="header-container header-chrome">
+		<header class="header-container header-chrome">
 			<form class="header" action="{{wgScript}}" method="get">
 				<div>{{{menuButton}}}</div>
 				<div class="branding-box">
-					<h1>
+					<a href="{{mainPageURL}}">
 						<span>{{{headinghtml}}}</span>
 						<sup>&beta;</sup>
-					</h1>
+					</a>
 				</div>
 				<div class="search-box">
 					<input class="search skin-minerva-search-trigger" type="search" name="search" id="searchInput"
@@ -24,10 +24,10 @@
 				<div>{{{searchButton}}}</div>
 				{{^isAnon}}<div>{{#secondaryButtonData}}{{>secondaryButton}}{{/secondaryButtonData}}</div>{{/isAnon}}
 			</form>
-		</div>
-		<div id="content" class="mw-body">
+		</header>
+		<main id="content" class="mw-body">
 			{{{contenthtml}}}
-		</div>
+		</main>
 		{{>footer}}
 	</div>
 </div>

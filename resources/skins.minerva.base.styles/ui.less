@@ -77,9 +77,12 @@ body {
 	.branding-box {
 		width: auto;
 
-		h1 {
+		h1, // TODO: remove after T198947 HTML changes expire from cache.
+		a {
 			margin-left: 5px;
 			font-size: 1em;
+			text-decoration: none;
+			color: @colorGray2;
 
 			span {
 				line-height: 1;

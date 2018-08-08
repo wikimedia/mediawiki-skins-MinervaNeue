@@ -295,6 +295,7 @@ class MinervaTemplate extends BaseTemplate {
 			'headelement' => $data[ 'headelement' ],
 			'menuButton' => $data['menuButton'],
 			'headinghtml' => $data['footer-site-heading-html'],
+			'mainPageURL' => Title::newMainPage()->getLocalUrl(),
 			// A button when clicked will submit the form
 			// This is used so that on tablet devices with JS disabled the search button
 			// passes the value of input to the search
