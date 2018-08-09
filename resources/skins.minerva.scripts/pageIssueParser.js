@@ -57,18 +57,24 @@
 		},
 		// As above but used to identify specific templates requiring icon customization.
 		TYPE_REGEX = {
-			MOVE: /ambox-move|ambox-merge|avviso-struttura/, // en, es / ru, it
+			MOVE: /ambox-converted|ambox-move|ambox-merge|avviso-struttura/, // en, es / ru, it
 			POINT_OF_VIEW: new RegExp( [ // en
-				'ambox-POV',
 				'ambox-Advert',
 				'ambox-autobiography',
 				'ambox-believerpov',
 				'ambox-COI',
+				'ambox-coverage',
+				'ambox-criticism',
 				'ambox-fanpov',
+				'ambox-fringe-theories',
+				'ambox-geographical-imbalance',
 				'ambox-globalize',
 				'ambox-npov-language',
-				'ambox-fringe-theories',
-				'ambox-systemic-bias'
+				'ambox-POV',
+				'ambox-pseudo',
+				'ambox-systemic-bias',
+				'ambox-unbalanced',
+				'ambox-usgovtpov'
 			].join( '|' ) )
 			// ..And everything else that doesn't match is mapped to a "SEVERITY" type.
 		},
