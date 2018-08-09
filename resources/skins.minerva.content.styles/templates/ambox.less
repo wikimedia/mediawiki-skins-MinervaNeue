@@ -133,8 +133,14 @@ table.ambox {
 		}
 		.ambox-learn-more {
 			left: @amboxIconPadding;
-			right: auto;
+			right: 0;
 			background: none;
+			// Move blur to far right last line
+			// https://phabricator.wikimedia.org/T197931#4475197
+			&:before {
+				top: unit( -@contentLineHeight, em );
+				width: 10px;
+			}
 		}
 	}
 
