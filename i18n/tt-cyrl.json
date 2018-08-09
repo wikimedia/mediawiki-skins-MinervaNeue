@@ -46,6 +46,7 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|кушылды}}",
 	"mobile-frontend-user-page-talk": "Бәхәс",
 	"mobile-frontend-user-page-uploads": "Йөкләүләр",
+	"skin-minerva-issue-learn-more": "Күбрәк белү",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Төркемнәр",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Өскә күчү"
 }
