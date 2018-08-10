@@ -6,7 +6,8 @@
 			"Joedalton",
 			"Mads Haupt",
 			"Tjernobyl",
-			"Jorn Ari"
+			"Jorn Ari",
+			"Saederup92"
 		]
 	},
 	"minerva-last-modified-date": "Sidst redigeret den $1, klokken $2",
@@ -41,7 +42,8 @@
 	"mobile-frontend-main-menu-watchlist": "Overvågningsliste",
 	"mobile-frontend-meta-data-issues": "Denne side har problemer",
 	"mobile-frontend-meta-data-issues-categories": "Om denne kategori",
-	"mobile-frontend-meta-data-issues-header": "Problemer",
+	"mobile-frontend-meta-data-issues-header": "Problemer med siden",
+	"minerva-meta-data-issues-section-header": "Problemer med sektion",
 	"mobile-frontend-meta-data-issues-header-talk": "Om denne side",
 	"mobile-frontend-meta-data-issues-talk": "Om denne diskussionsside",
 	"mobile-frontend-notifications-filter": "Filtrer",
@@ -60,6 +62,7 @@
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"mobile-frontend-user-page-uploads": "Overførsler",
 	"minerva-skin-desc": "Et hurtigt mobilt tema",
+	"skin-minerva-issue-learn-more": "Lær mere",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vis sidens kategorier",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå til top",
