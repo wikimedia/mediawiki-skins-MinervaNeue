@@ -2,7 +2,8 @@
 
 	var
 		// see: https://www.mediawiki.org/wiki/Manual:Interface/JavaScript#Page-specific
-		isEditable = mw.config.get( 'wgIsProbablyEditable' ),
+		isReadOnly = mw.config.get( 'wgMinervaReadOnly' ),
+		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' ),
 		blockInfo = mw.config.get( 'wgMinervaUserBlockInfo', false ),
 		router = require( 'mediawiki.router' ),
 		issues = M.require( 'skins.minerva.scripts/cleanuptemplates' ),
@@ -25,6 +26,7 @@
 			name: 'edit-enabled',
 			glyphPrefix: 'minerva'
 		} ),
+		editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' ),
 		// TODO: move enabledClass, $caEdit, and disabledClass to locals within
 		//       updateEditPageButton().
 		enabledClass = enabledEditIcon.getGlyphClassName(),
@@ -347,7 +349,7 @@
 			setupEditor( currentPage );
 		} else {
 			updateEditPageButton( false );
-			showSorryToast( mw.msg( 'mobile-frontend-editor-disabled' ) );
+			showSorryToast( editErrorMessage );
 		}
 	}
 
@@ -376,7 +378,7 @@
 			} );
 		} else {
 			updateEditPageButton( false );
-			showSorryToast( mw.msg( 'mobile-frontend-editor-disabled' ) );
+			showSorryToast( editErrorMessage );
 		}
 	}
 
