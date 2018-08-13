@@ -24,7 +24,15 @@
 		for ( i = 0; i < maxUsers; i++ ) {
 			config = util.extend( {}, defaultConfig, { sessionId: mw.user.generateRandomSessionId() } );
 			bucketingTest = new AB( config );
-			userBuckets[ bucketingTest.getBucket() ] += 1;
+			if ( bucketingTest.isA() ) {
+				++userBuckets.A;
+			} else if ( bucketingTest.isB() ) {
+				++userBuckets.B;
+			} else if ( !bucketingTest.isEnabled() ) {
+				++userBuckets.control;
+			} else {
+				throw new Error( 'Unknown bucket!' );
+			}
 		}
 
 		assert.strictEqual(

@@ -1,12 +1,9 @@
 ( function ( M, $ ) {
 	var AB = M.require( 'skins.minerva.scripts/AB' ),
-		util = M.require( 'mobile.startup/util' ),
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
 		user = mw.user,
-		track = mw.track,
-		trackSubscribe = mw.trackSubscribe,
 		ACTION_EDIT = config.get( 'wgAction' ) === 'edit',
 		NS_MAIN = 0,
 		NS_TALK = 1,
@@ -14,6 +11,7 @@
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
 		allPageIssuesSeverity,
 		Icon = M.require( 'mobile.startup/Icon' ),
+		pageIssueLogger = M.require( 'skins.minerva.scripts/pageIssueLogger' ),
 		pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' ),
 		CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' ),
 		// setup ab test
@@ -24,78 +22,11 @@
 			samplingRate: ( CURRENT_NS === NS_MAIN ) ? config.get( 'wgMinervaABSamplingRate', 0 ) : 0,
 			sessionId: user.sessionId()
 		} ),
-		// Set bucket
-		isInGroupB = abTest.getBucket() === 'B',
-		READING_DEPTH_BUCKET_KEYS = {
-			A: 'page-issues-a_sample',
-			B: 'page-issues-b_sample'
-		},
-		READING_DEPTH_BUCKET = READING_DEPTH_BUCKET_KEYS[ abTest.getBucket() ],
-		PAGE_ISSUES_EVENT_DATA = {
-			pageTitle: config.get( 'wgTitle' ),
-			namespaceId: CURRENT_NS,
-			pageIdSource: config.get( 'wgArticleId' ),
-			issuesVersion: isInGroupB ? 'new2018' : 'old',
-			isAnon: user.isAnon(),
-			editCountBucket: getUserEditBuckets(),
-			pageToken: user.generateRandomSessionId() +
-				Math.floor( mw.now() ).toString(),
-			sessionToken: user.sessionId()
-		};
+		newTreatmentEnabled = abTest.isB();
 
-	// start logging if user is in group A or B.
-	if ( abTest.isEnabled() ) {
-		// intermediary event bus that extends the event data before being passed to event-logging.
-		trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
-
-			// enable logging for pages that have issues.
-			if ( !getIssues( KEYWORD_ALL_SECTIONS ).length ) {
-				return;
-			}
-
-			// define all issues severity once for all subsequent events
-			if ( !allPageIssuesSeverity ) {
-				allPageIssuesSeverity = getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity );
-			}
-			// if event data does not set issuesSeverity, send `allPageIssuesSeverity`.
-			if ( !data.issuesSeverity ) {
-				data.issuesSeverity = allPageIssuesSeverity;
-			}
-
-			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
-			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
-			track( 'wikimedia.event.ReadingDepthSchema.enable', READING_DEPTH_BUCKET );
-			// Log PageIssues schema.
-			track( 'wikimedia.event.PageIssues', util.extend( {}, PAGE_ISSUES_EVENT_DATA, data ) );
-		} );
-	}
-
-	/**
-	 * converts user edit count into a predefined string
-	 * @return {string}
-	 */
-	function getUserEditBuckets() {
-		var editCount = config.get( 'wgUserEditCount', 0 );
-
-		if ( editCount === 0 ) { return '0 edits'; }
-		if ( editCount < 5 ) { return '1-4 edits'; }
-		if ( editCount < 100 ) { return '5-99 edits'; }
-		if ( editCount < 1000 ) { return '100-999 edits'; }
-		if ( editCount >= 1000 ) { return '1000+ edits'; }
-
-		// This is unlikely to ever happen. If so, we'll want to cast to a string
-		// that is not accepted and allow EventLogging to complain
-		// about invalid events so we can investigate.
-		return 'error (' + editCount + ')';
-	}
-
-	/**
-	 * Log data to the PageIssuesAB test schema
-	 * @param {Object} data to log
-	 * @ignore
-	 */
-	function log( data ) {
-		track( 'minerva.PageIssuesAB', data );
+	function isLoggingRequired( pageIssues ) {
+		// No logging necessary when the A/B test is disabled (control group).
+		return abTest.isEnabled() && pageIssues.length;
 	}
 
 	/**
@@ -221,7 +152,7 @@
 			}
 			$metadata.click( function () {
 				var pageIssue = pageIssueParser.parse( this );
-				log( {
+				pageIssueLogger.log( {
 					action: 'issueClicked',
 					issuesSeverity: [ pageIssue.severity ]
 				} );
@@ -233,7 +164,7 @@
 			// In group B, we link to all issues no matter where the banner is.
 			$link.attr( 'href', '#/issues/' + KEYWORD_ALL_SECTIONS );
 			$link.click( function () {
-				log( {
+				pageIssueLogger.log( {
 					action: 'issueClicked',
 					// empty array is passed for 'old' treatment.
 					issuesSeverity: []
@@ -300,11 +231,11 @@
 			headingText = ACTION_EDIT ? mw.msg( 'edithelp' ) : getNamespaceHeadingText( CURRENT_NS ),
 			$lead = page.getLeadSectionElement(),
 			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || ACTION_EDIT || !$lead,
-			inline = isInGroupB && CURRENT_NS === 0,
+			inline = newTreatmentEnabled && CURRENT_NS === 0,
 			$container = $( '#bodyContent' );
 
 		// set A-B test class.
-		$( 'html' ).addClass( isInGroupB ? 'issues-group-B' : 'issues-group-A' );
+		$( 'html' ).addClass( newTreatmentEnabled ? 'issues-group-B' : 'issues-group-A' );
 
 		if ( ACTION_EDIT ) {
 			// Editor uses different parent element
@@ -321,7 +252,7 @@
 			} else {
 				// parse lead
 				createBanner( $lead, label, 0, inline, overlayManager );
-				if ( isInGroupB ) {
+				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown for sections.
 					$lead.nextAll( 'h1,h2,h3,h4,h5,h6' ).each( function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
@@ -332,6 +263,18 @@
 					} );
 				}
 			}
+		}
+
+		if ( isLoggingRequired( getIssues( KEYWORD_ALL_SECTIONS ) ) ) {
+			// Enable logging.
+			pageIssueLogger.subscribe(
+				newTreatmentEnabled,
+				pageIssueLogger.newPageIssueSchemaData(
+					newTreatmentEnabled,
+					CURRENT_NS,
+					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity )
+				)
+			);
 		}
 
 		// Setup the overlay route.
@@ -345,19 +288,19 @@
 			} );
 			// Tracking overlay close event.
 			overlay.on( 'Overlay-exit', function () {
-				log( {
+				pageIssueLogger.log( {
 					action: 'modalClose',
 					issuesSeverity: getIssues( section ).map( formatPageIssuesSeverity )
 				} );
 			} );
 			overlay.on( 'link-edit-click', function ( severity ) {
-				log( {
+				pageIssueLogger.log( {
 					action: 'modalEditClicked',
 					issuesSeverity: [ severity ]
 				} );
 			} );
 			overlay.on( 'link-internal-click', function ( severity ) {
-				log( {
+				pageIssueLogger.log( {
 					action: 'modalInternalClicked',
 					issuesSeverity: [ severity ]
 				} );
@@ -366,7 +309,7 @@
 		} );
 
 		// Tracking pageLoaded event (technically, "issues" loaded).
-		log( {
+		pageIssueLogger.log( {
 			action: 'pageLoaded',
 			issuesSeverity: allPageIssuesSeverity
 		} );
@@ -374,7 +317,10 @@
 
 	M.define( 'skins.minerva.scripts/cleanuptemplates', {
 		init: initPageIssues,
-		log: log,
+		// The logger requires initialization (subscription). Ideally, the logger would be initialized
+		// and passed to initPageIssues() by the client. Since it's not, expose a log method and hide
+		// the subscription call in cleanuptemplates.
+		log: pageIssueLogger.log,
 		test: {
 			createBanner: createBanner
 		}

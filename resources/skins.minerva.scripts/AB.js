@@ -5,6 +5,12 @@
  * predefined bucket ("control", "A", "B") and starts an AB-test.
  */
 ( function ( M, mwExperiments ) {
+	var bucket = {
+		CONTROL: 'control',
+		A: 'A',
+		B: 'B'
+	};
+
 	/**
 	 * Buckets users based on params and exposes an `isEnabled` and `getBucket` method.
 	 * @param {Object}   config Configuration object for AB test.
@@ -14,7 +20,7 @@
 	 * @constructor
 	 */
 	function AB( config ) {
-		var CONTROL_BUCKET = 'control',
+		var
 			testName = config.testName,
 			samplingRate = config.samplingRate,
 			sessionId = config.sessionId,
@@ -29,11 +35,27 @@
 			};
 
 		/**
-		 * Gets the users AB-test bucket
-		 * @return {string} AB-test bucket, CONTROL_BUCKET by default, "A" or "B" buckets otherwise.
+		 * Gets the users AB-test bucket.
+		 *
+		 * A boolean instead of an enum is usually a code smell. However, the nature of A/B testing is
+		 * to compare an A group's performance to a B group's so a boolean seems natural, even in the
+		 * long term, and preferable to showing bucketing encoding ("A", "B", "control") to callers
+		 * which is necessary if getBucket(). The downside is that now two functions exist where one
+		 * would suffice.
+		 *
+		 * @return {string} AB-test bucket, bucket.CONTROL_BUCKET by default, bucket.A or bucket.B
+		 *                  buckets otherwise.
 		 */
 		function getBucket() {
 			return mwExperiments.getBucket( test, sessionId );
+		}
+
+		function isA() {
+			return getBucket() === bucket.A;
+		}
+
+		function isB() {
+			return getBucket() === bucket.B;
 		}
 
 		/**
@@ -41,11 +63,12 @@
 		 * @return {boolean}
 		 */
 		function isEnabled() {
-			return getBucket() !== CONTROL_BUCKET;
+			return getBucket() !== bucket.CONTROL; // I.e., `isA() || isB()`;
 		}
 
 		return {
-			getBucket: getBucket,
+			isA: isA,
+			isB: isB,
 			isEnabled: isEnabled
 		};
 	}
