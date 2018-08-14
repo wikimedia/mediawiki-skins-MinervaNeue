@@ -1,5 +1,6 @@
 ( function ( M, $ ) {
 	var AB = M.require( 'skins.minerva.scripts/AB' ),
+		Page = M.require( 'mobile.startup/Page' ),
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
@@ -254,7 +255,7 @@
 				createBanner( $lead, label, 0, inline, overlayManager );
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown for sections.
-					$lead.nextAll( 'h1,h2,h3,h4,h5,h6' ).each( function ( i, headingEl ) {
+					$lead.nextAll( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
 							$section = $headingEl.next(),
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
