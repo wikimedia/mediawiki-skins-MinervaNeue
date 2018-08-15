@@ -418,6 +418,7 @@
 			"scripts": [
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/DownloadIcon.js",
+				"resources/skins.minerva.scripts/pageIssueLogger.js",
 				"resources/skins.minerva.scripts/pageIssueParser.js",
 				"resources/skins.minerva.scripts/AB.js",
 				"resources/skins.minerva.scripts/cleanuptemplates.js",

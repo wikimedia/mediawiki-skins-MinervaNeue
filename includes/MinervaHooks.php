@@ -83,6 +83,7 @@ class MinervaHooks {
 			'targets' => [ 'mobile', 'desktop' ],
 			'scripts' => [
 				// additional scaffolding (minus initialisation scripts)
+				'resources/skins.minerva.scripts/pageIssueLogger.js',
 				'resources/skins.minerva.scripts/pageIssueParser.js',
 				'resources/skins.minerva.scripts/DownloadIcon.js',
 				'resources/skins.minerva.scripts/AB.js',
