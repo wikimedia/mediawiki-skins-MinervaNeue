@@ -148,7 +148,7 @@ class ArticlePage
   div(:toast, css: '.mw-notification')
 
   # loader
-  div(:content_wrapper, id: 'content')
+  element(:content_wrapper, 'main')
   div(:content, id: 'bodyContent')
 
   # secondary menu
