@@ -75,7 +75,11 @@
 		],
 		"SpecialPageBeforeExecute": [
 			"MinervaHooks::onSpecialPageBeforeExecute"
+		],
+		"ResourceLoaderGetConfigVars": [
+			"MinervaHooks::onResourceLoaderGetConfigVars"
 		]
+
 	},
 	"MessagesDirs": {
 		"MinervaNeue": [
@@ -529,7 +533,8 @@
 				"mobile-frontend-editor-edit",
 				"mobile-frontend-editor-redlink-create",
 				"mobile-frontend-editor-redlink-leave",
-				"mobile-frontend-editor-redlink-explain"
+				"mobile-frontend-editor-redlink-explain",
+				"apierror-readonly"
 			],
 			"scripts": [
 				"resources/skins.minerva.editor/init.js"
