@@ -266,7 +266,7 @@
 		}
 
 		if ( isLoggingRequired( getIssues( KEYWORD_ALL_SECTIONS ) ) ) {
-			// Enable logging.
+			// Enable logging of the PageIssues schema, setting up defaults.
 			pageIssuesLogger.subscribe(
 				newTreatmentEnabled,
 				pageIssuesLogger.newPageIssueSchemaData(
