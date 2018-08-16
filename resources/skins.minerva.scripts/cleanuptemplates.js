@@ -5,7 +5,6 @@
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
 		user = mw.user,
-		ACTION_EDIT = config.get( 'wgAction' ) === 'edit',
 		NS_MAIN = 0,
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
@@ -229,20 +228,16 @@
 	 */
 	function initPageIssues( overlayManager, page ) {
 		var label,
-			headingText = ACTION_EDIT ? mw.msg( 'edithelp' ) : getNamespaceHeadingText( CURRENT_NS ),
+			headingText = getNamespaceHeadingText( CURRENT_NS ),
 			$lead = page.getLeadSectionElement(),
-			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || ACTION_EDIT || !$lead,
+			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || !$lead,
 			inline = newTreatmentEnabled && CURRENT_NS === 0,
 			$container = $( '#bodyContent' );
 
 		// set A-B test class.
 		$( 'html' ).addClass( newTreatmentEnabled ? 'issues-group-B' : 'issues-group-A' );
 
-		if ( ACTION_EDIT ) {
-			// Editor uses different parent element
-			$container = $( '#mw-content-text' );
-			createBanner( $container, mw.msg( 'edithelp' ), KEYWORD_ALL_SECTIONS, inline, overlayManager );
-		} else if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
+		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
 			// e.g. Template:English variant category; Template:WikiProject
 			createBanner( $container, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
 				KEYWORD_ALL_SECTIONS, inline, overlayManager );
