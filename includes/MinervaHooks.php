@@ -75,24 +75,26 @@ class MinervaHooks {
 				'mobile.startup',
 				'skins.minerva.notifications.badge',
 				'mediawiki.user',
-				'mediawiki.experiments',
-				'mobile.issues'
+				'mediawiki.experiments'
 			],
 			'localBasePath' => dirname( __DIR__ ),
 			'remoteSkinPath' => 'MinervaNeue',
 			'targets' => [ 'mobile', 'desktop' ],
 			'scripts' => [
 				// additional scaffolding (minus initialisation scripts)
-				'resources/skins.minerva.scripts/pageIssueLogger.js',
-				'resources/skins.minerva.scripts/pageIssueParser.js',
+				'tests/qunit/skins.minerva.scripts/stubs.js',
+
+				'resources/skins.minerva.scripts/pageIssuesLogger.js',
+				'resources/skins.minerva.scripts/pageIssuesParser.js',
 				'resources/skins.minerva.scripts/DownloadIcon.js',
 				'resources/skins.minerva.scripts/AB.js',
-				'resources/skins.minerva.scripts/cleanuptemplates.js',
+				'resources/skins.minerva.scripts/PageIssuesOverlay.js',
+				'resources/skins.minerva.scripts/pageIssues.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/test_DownloadIcon.js',
-				'tests/qunit/skins.minerva.scripts/test_pageIssueParser.js',
+				'tests/qunit/skins.minerva.scripts/test_pageIssuesParser.js',
 				'tests/qunit/skins.minerva.scripts/test_AB.js',
-				'tests/qunit/skins.minerva.scripts/test_cleanuptemplates.js',
+				'tests/qunit/skins.minerva.scripts/test_pageIssues.js',
 				'tests/qunit/skins.minerva.notifications.badge/test_NotificationBadge.js'
 			],
 		];

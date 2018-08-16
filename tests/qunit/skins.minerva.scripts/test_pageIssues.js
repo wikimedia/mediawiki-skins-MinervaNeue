@@ -1,5 +1,5 @@
 ( function ( M ) {
-	var createBanner = M.require( 'skins.minerva.scripts/cleanuptemplates' ).test.createBanner,
+	var createBanner = M.require( 'skins.minerva.scripts/pageIssues' ).test.createBanner,
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
 		Page = M.require( 'mobile.startup/Page' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),

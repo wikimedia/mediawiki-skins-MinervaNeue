@@ -156,7 +156,7 @@
 	/**
 	 * @module skins.minerva.scripts/utils
 	 */
-	M.define( 'skins.minerva.scripts/pageIssueParser', {
+	M.define( 'skins.minerva.scripts/pageIssuesParser', {
 		/**
 		 * Extract an icon for use with the issue.
 		 * @param {JQuery.Object} $box element to extract the icon from

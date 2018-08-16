@@ -6,7 +6,7 @@
 		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' ),
 		blockInfo = mw.config.get( 'wgMinervaUserBlockInfo', false ),
 		router = require( 'mediawiki.router' ),
-		issues = M.require( 'skins.minerva.scripts/cleanuptemplates' ),
+		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		Icon = M.require( 'mobile.startup/Icon' ),

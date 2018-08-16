@@ -89,7 +89,7 @@
 		mwTrack( EVENT_PAGE_ISSUE_LOG, data );
 	}
 
-	M.define( 'skins.minerva.scripts/pageIssueLogger', {
+	M.define( 'skins.minerva.scripts/pageIssuesLogger', {
 		newPageIssueSchemaData: newPageIssueSchemaData,
 		subscribe: subscribe,
 		log: log

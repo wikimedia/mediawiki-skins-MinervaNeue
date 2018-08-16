@@ -393,7 +393,6 @@
 				"mediawiki.Title",
 				"mobile.startup",
 				"skins.minerva.mainMenu",
-				"mobile.issues",
 				"mobile.search.api",
 				"mobile.search",
 				"mobile.references",
@@ -416,15 +415,20 @@
 				"mobile-frontend-redirected-from"
 			],
 			"styles": [
-				"resources/skins.minerva.scripts/styles.less"
+				"resources/skins.minerva.scripts/styles.less",
+				"resources/skins.minerva.scripts/PageIssuesOverlay.less"
 			],
+			"templates": {
+				"PageIssuesOverlayContent.hogan": "resources/skins.minerva.scripts/PageIssuesOverlayContent.hogan"
+			},
 			"scripts": [
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/DownloadIcon.js",
-				"resources/skins.minerva.scripts/pageIssueLogger.js",
-				"resources/skins.minerva.scripts/pageIssueParser.js",
+				"resources/skins.minerva.scripts/pageIssuesLogger.js",
+				"resources/skins.minerva.scripts/pageIssuesParser.js",
 				"resources/skins.minerva.scripts/AB.js",
-				"resources/skins.minerva.scripts/cleanuptemplates.js",
+				"resources/skins.minerva.scripts/PageIssuesOverlay.js",
+				"resources/skins.minerva.scripts/pageIssues.js",
 				"resources/skins.minerva.scripts/init.js",
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
