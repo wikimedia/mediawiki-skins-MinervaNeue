@@ -3,7 +3,7 @@
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
 		skin = M.require( 'mobile.init/skin' ),
-		issues = M.require( 'skins.minerva.scripts/cleanuptemplates' ),
+		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),

@@ -11,9 +11,9 @@
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
 		allPageIssuesSeverity,
 		Icon = M.require( 'mobile.startup/Icon' ),
-		pageIssueLogger = M.require( 'skins.minerva.scripts/pageIssueLogger' ),
-		pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' ),
-		CleanupOverlay = M.require( 'mobile.issues/CleanupOverlay' ),
+		pageIssuesLogger = M.require( 'skins.minerva.scripts/pageIssuesLogger' ),
+		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
+		PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' ),
 		// setup ab test
 		abTest = new AB( {
 			testName: 'WME.PageIssuesAB',
@@ -64,7 +64,7 @@
 			}
 		} );
 
-		pageIssue = pageIssueParser.parse( $box.get( 0 ) );
+		pageIssue = pageIssuesParser.parse( $box.get( 0 ) );
 
 		return {
 			severity: pageIssue.severity,
@@ -138,12 +138,12 @@
 		allIssues[section] = issues;
 
 		if ( $metadata.length && inline ) {
-			severity = pageIssueParser.maxSeverity(
+			severity = pageIssuesParser.maxSeverity(
 				issues.map( function ( issue ) { return issue.severity; } )
 			);
 			new Icon( {
 				glyphPrefix: 'minerva',
-				name: pageIssueParser.iconName( $metadata.get( 0 ), severity )
+				name: pageIssuesParser.iconName( $metadata.get( 0 ), severity )
 			} ).prependTo( $metadata.find( '.mbox-text' ) );
 			$learnMore = $( '<span>' )
 				.addClass( 'ambox-learn-more' )
@@ -156,8 +156,8 @@
 				$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
 			}
 			$metadata.click( function () {
-				var pageIssue = pageIssueParser.parse( this );
-				pageIssueLogger.log( {
+				var pageIssue = pageIssuesParser.parse( this );
+				pageIssuesLogger.log( {
 					action: 'issueClicked',
 					issuesSeverity: [ pageIssue.severity ]
 				} );
@@ -169,7 +169,7 @@
 			// In group B, we link to all issues no matter where the banner is.
 			$link.attr( 'href', '#/issues/' + KEYWORD_ALL_SECTIONS );
 			$link.click( function () {
-				pageIssueLogger.log( {
+				pageIssuesLogger.log( {
 					action: 'issueClicked',
 					// empty array is passed for 'old' treatment.
 					issuesSeverity: []
@@ -267,9 +267,9 @@
 
 		if ( isLoggingRequired( getIssues( KEYWORD_ALL_SECTIONS ) ) ) {
 			// Enable logging.
-			pageIssueLogger.subscribe(
+			pageIssuesLogger.subscribe(
 				newTreatmentEnabled,
-				pageIssueLogger.newPageIssueSchemaData(
+				pageIssuesLogger.newPageIssueSchemaData(
 					newTreatmentEnabled,
 					CURRENT_NS,
 					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity )
@@ -279,7 +279,7 @@
 
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
-			var overlay = new CleanupOverlay( {
+			var overlay = new PageIssuesOverlay( {
 				issues: getIssues( section ),
 				// Note only the main namespace is expected to make use of section issues, so the heading will always be
 				// minerva-meta-data-issues-section-header regardless of namespace
@@ -288,19 +288,19 @@
 			} );
 			// Tracking overlay close event.
 			overlay.on( 'Overlay-exit', function () {
-				pageIssueLogger.log( {
+				pageIssuesLogger.log( {
 					action: 'modalClose',
 					issuesSeverity: getIssues( section ).map( formatPageIssuesSeverity )
 				} );
 			} );
 			overlay.on( 'link-edit-click', function ( severity ) {
-				pageIssueLogger.log( {
+				pageIssuesLogger.log( {
 					action: 'modalEditClicked',
 					issuesSeverity: [ severity ]
 				} );
 			} );
 			overlay.on( 'link-internal-click', function ( severity ) {
-				pageIssueLogger.log( {
+				pageIssuesLogger.log( {
 					action: 'modalInternalClicked',
 					issuesSeverity: [ severity ]
 				} );
@@ -309,18 +309,18 @@
 		} );
 
 		// Tracking pageLoaded event (technically, "issues" loaded).
-		pageIssueLogger.log( {
+		pageIssuesLogger.log( {
 			action: 'pageLoaded',
 			issuesSeverity: allPageIssuesSeverity
 		} );
 	}
 
-	M.define( 'skins.minerva.scripts/cleanuptemplates', {
+	M.define( 'skins.minerva.scripts/pageIssues', {
 		init: initPageIssues,
 		// The logger requires initialization (subscription). Ideally, the logger would be initialized
 		// and passed to initPageIssues() by the client. Since it's not, expose a log method and hide
 		// the subscription call in cleanuptemplates.
-		log: pageIssueLogger.log,
+		log: pageIssuesLogger.log,
 		test: {
 			createBanner: createBanner
 		}

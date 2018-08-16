@@ -1,7 +1,7 @@
 ( function ( M ) {
-	var pageIssueParser = M.require( 'skins.minerva.scripts/pageIssueParser' );
+	var pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' );
 
-	QUnit.module( 'Minerva pageIssueParser' );
+	QUnit.module( 'Minerva pageIssuesParser' );
 
 	/**
 	 * @param {string} className
@@ -34,7 +34,7 @@
 				test = params[2],
 				box = newBox( className );
 			assert.strictEqual(
-				pageIssueParser.test.parseSeverity( box ),
+				pageIssuesParser.test.parseSeverity( box ),
 				expect,
 				'Result should be the correct severity; case ' + i + ': ' + test + '.'
 			);
@@ -63,7 +63,7 @@
 				test = params[3],
 				box = newBox( className );
 			assert.propEqual(
-				pageIssueParser.test.parseType( box, severity ),
+				pageIssuesParser.test.parseType( box, severity ),
 				expect,
 				'Result should be the correct icon type; case ' + i + ': ' + test + '.'
 			);
@@ -90,7 +90,7 @@
 				expect = params[2],
 				box = newBox( className );
 			assert.strictEqual(
-				pageIssueParser.iconName( box, severity ),
+				pageIssuesParser.iconName( box, severity ),
 				expect,
 				'Result should be the correct ResourceLoader icon name; case ' + i + ': ' + severity + '.'
 			);
@@ -112,7 +112,7 @@
 				expect = params[1];
 
 			assert.strictEqual(
-				pageIssueParser.maxSeverity( severities ),
+				pageIssuesParser.maxSeverity( severities ),
 				expect,
 				'Result should be the highest severity in the array; case ' + i + '.'
 			);
