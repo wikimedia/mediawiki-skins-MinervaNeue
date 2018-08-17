@@ -1,9 +1,10 @@
-( function ( M, mwConfig, mwNow, mwTrack, mwTrackSubscribe, mwUser ) {
+( function ( M, mwConfig, mwTrack, mwTrackSubscribe, mwUser, mwLoader ) {
 	var
 		util = M.require( 'mobile.startup/util' ),
 		EVENT_PAGE_ISSUE_LOG = 'minerva.PageIssuesAB';
 
 	/**
+	 * Defines default data for Schema:PageIssues that will be recorded with every event.
 	 * @param {boolean} newTreatmentEnabled
 	 * @param {number} namespaceId The namespace for the page that has issues.
 	 * @param {string[]} pageIssueSeverities An array of PageIssue severities.
@@ -18,28 +19,33 @@
 			issuesSeverity: pageIssueSeverities,
 			isAnon: mwUser.isAnon(),
 			editCountBucket: getUserEditBuckets(),
-			pageToken: mwUser.generateRandomSessionId() + Math.floor( mwNow() ).toString(),
 			sessionToken: mwUser.sessionId()
 		};
 	}
 
 	/**
-   * Enable tracking.
+	 * Enable tracking and add page token to every logged event.
 	 * @param {boolean} newTreatmentEnabled
 	 * @param {Object} pageIssueSchemaData A Partial<Schema:PageIssues> Object that will be mixed with
 	 *                                     with track data.
 	 * @return {void}
 	 */
 	function subscribe( newTreatmentEnabled, pageIssueSchemaData ) {
-		// intermediary event bus that extends the event data before being passed to event-logging.
-		mwTrackSubscribe( EVENT_PAGE_ISSUE_LOG, function ( topic, data ) {
-			var mixedData = util.extend( {}, pageIssueSchemaData, data );
+		// this is wrapped inside a mw.loader call given the need to access mw.eventLog.getPageviewToken
+		// which may or may not be defined. If EventLogging is not installed, so logging will occur.
+		mwLoader.using( 'ext.eventLogging.subscriber' ).then( function () {
+			// set the page token on the request.
+			pageIssueSchemaData.pageToken = mw.eventLog.getPageviewToken();
 
-			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
-			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
-			mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
-			// Log PageIssues schema.
-			mwTrack( 'wikimedia.event.PageIssues', mixedData );
+			// intermediary event bus that extends the event data before being passed to event-logging.
+			mwTrackSubscribe( EVENT_PAGE_ISSUE_LOG, function ( topic, data ) {
+				var mixedData = util.extend( {}, pageIssueSchemaData, data );
+				// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
+				// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
+				mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
+				// Log PageIssues schema.
+				mwTrack( 'wikimedia.event.PageIssues', mixedData );
+			} );
 		} );
 	}
 
@@ -94,4 +100,4 @@
 		subscribe: subscribe,
 		log: log
 	} );
-}( mw.mobileFrontend, mw.config, mw.now, mw.track, mw.trackSubscribe, mw.user ) );
+}( mw.mobileFrontend, mw.config, mw.track, mw.trackSubscribe, mw.user, mw.loader ) );
