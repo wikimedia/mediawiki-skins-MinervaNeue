@@ -9,7 +9,6 @@
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
-		allPageIssuesSeverity,
 		Icon = M.require( 'mobile.startup/Icon' ),
 		pageIssuesLogger = M.require( 'skins.minerva.scripts/pageIssuesLogger' ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
@@ -24,27 +23,30 @@
 		} ),
 		newTreatmentEnabled = abTest.isB();
 
+	/**
+	 * @typedef {Object} IssueSummary
+	 * @prop {string} severity A PageIssue.severity.
+	 * @prop {string} icon HTML string.
+	 * @prop {string} text HTML string.
+	*/
+
 	function isLoggingRequired( pageIssues ) {
 		// No logging necessary when the A/B test is disabled (control group).
 		return abTest.isEnabled() && pageIssues.length;
 	}
 
 	/**
-	 * @param {PageIssue} issue
+	 * @param {IssueSummary} summary
 	 * @return {string}
 	 */
-	function formatPageIssuesSeverity( issue ) {
-		return issue.severity;
+	function formatPageIssuesSeverity( summary ) {
+		return summary.severity;
 	}
+
 	/**
 	 * Extract a summary message from a cleanup template generated element that is
 	 * friendly for mobile display.
 	 * @param {Object} $box element to extract the message from
-	 * @ignore
-	 * @typedef {Object} IssueSummary
-	 * @prop {string} severity
-	 * @prop {string} icon HTML string.
-	 * @prop {string} text HTML string.
 	 * @return {IssueSummary}
 	 */
 	function extractMessage( $box ) {
@@ -207,24 +209,6 @@
 	}
 
 	/**
-	 * Obtain a suitable heading for the issues overlay based on the namespace
-	 * @param {number} ns is the namespace to generate heading for
-	 * @return {string} heading for overlay
-	 */
-	function getNamespaceHeadingText( ns ) {
-		switch ( ns ) {
-			case NS_CATEGORY:
-				return mw.msg( 'mobile-frontend-meta-data-issues-categories' );
-			case NS_TALK:
-				return mw.msg( 'mobile-frontend-meta-data-issues-talk' );
-			case NS_MAIN:
-				return mw.msg( 'mobile-frontend-meta-data-issues' );
-			default:
-				return '';
-		}
-	}
-
-	/**
 	 * Scan an element for any known cleanup templates and replace them with a button
 	 * that opens them in a mobile friendly overlay.
 	 * @ignore
@@ -233,7 +217,6 @@
 	 */
 	function initPageIssues( overlayManager, page ) {
 		var label,
-			headingText = getNamespaceHeadingText( CURRENT_NS ),
 			$lead = page.getLeadSectionElement(),
 			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || !$lead,
 			inline = newTreatmentEnabled && CURRENT_NS === 0;
@@ -275,43 +258,17 @@
 					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity )
 				)
 			);
+
+			// Report that the page has been loaded.
+			pageIssuesLogger.log( {
+				action: 'pageLoaded',
+				issuesSeverity: getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity )
+			} );
 		}
 
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
-			var overlay = new PageIssuesOverlay( {
-				issues: getIssues( section ),
-				// Note only the main namespace is expected to make use of section issues, so the heading will always be
-				// minerva-meta-data-issues-section-header regardless of namespace
-				headingText: section === '0' || section === KEYWORD_ALL_SECTIONS ? headingText :
-					mw.msg( 'minerva-meta-data-issues-section-header' )
-			} );
-			// Tracking overlay close event.
-			overlay.on( 'Overlay-exit', function () {
-				pageIssuesLogger.log( {
-					action: 'modalClose',
-					issuesSeverity: getIssues( section ).map( formatPageIssuesSeverity )
-				} );
-			} );
-			overlay.on( 'link-edit-click', function ( severity ) {
-				pageIssuesLogger.log( {
-					action: 'modalEditClicked',
-					issuesSeverity: [ severity ]
-				} );
-			} );
-			overlay.on( 'link-internal-click', function ( severity ) {
-				pageIssuesLogger.log( {
-					action: 'modalInternalClicked',
-					issuesSeverity: [ severity ]
-				} );
-			} );
-			return overlay;
-		} );
-
-		// Tracking pageLoaded event (technically, "issues" loaded).
-		pageIssuesLogger.log( {
-			action: 'pageLoaded',
-			issuesSeverity: allPageIssuesSeverity
+			return new PageIssuesOverlay( getIssues( section ), pageIssuesLogger, section, CURRENT_NS );
 		} );
 	}
 
