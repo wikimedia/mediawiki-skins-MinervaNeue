@@ -6,7 +6,6 @@
 	 * Displays a little arrow at the bottom right of the viewport.
 	 * @class BackToTopOverlay
 	 * @extends View
-	 * @module skins.minerva.backtotop/BackToTopOverlay
 	 */
 	function BackToTopOverlay() {
 		View.apply( this, arguments );
@@ -21,6 +20,8 @@
 
 		/**
 		 * Show the back to top element, if it's not visible already.
+		 * @memberof BackToTopOverlay
+		 * @instance
 		 */
 		show: function () {
 			this.$el.css( 'visibility', 'visible' ).addClass( 'visible' );
@@ -28,6 +29,8 @@
 
 		/**
 		 * Hide the back to top element, if it's visible.
+		 * @memberof BackToTopOverlay
+		 * @instance
 		 */
 		hide: function () {
 			this.$el.removeClass( 'visible' );
@@ -36,6 +39,8 @@
 		/**
 		 * Handles the click on the "Back to top" element and scrolls back
 		 * to the top smoothly.
+		 * @memberof BackToTopOverlay
+		 * @instance
 		 */
 		onBackToTopClick: function () {
 			$( 'html, body' ).animate( { scrollTop: 0 }, 400 );

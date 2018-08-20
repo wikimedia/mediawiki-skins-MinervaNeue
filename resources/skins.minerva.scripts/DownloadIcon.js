@@ -36,7 +36,6 @@
 	 * @param {number[]} [supportedNamespaces]
 	 * @param {Window} [windowObj] window object
 	 * @constructor
-	 * @module skins.minerva.scripts/DownloadIcon
 	 */
 	function DownloadIcon( skin, supportedNamespaces, windowObj ) {
 		var options = {};
@@ -53,6 +52,9 @@
 	OO.mfExtend( DownloadIcon, Icon, {
 		/**
 		 * Checks whether DownloadIcon is available for given user agent
+		 *
+		 * @memberof DownloadIcon
+		 * @instance
 		 * @param {string} userAgent User agent
 		 * @return {boolean}
 		*/
@@ -83,6 +85,8 @@
 
 		/**
 		 * Replace download icon with a spinner
+		 * @memberof DownloadIcon
+		 * @instance
 		 */
 		showSpinner: function () {
 			// FIXME: There is no spinner icon in Minerva, only in MobileFrontend
@@ -94,6 +98,8 @@
 		},
 		/**
 		 * Restore download icon from spinner state
+		 * @memberof DownloadIcon
+		 * @instance
 		 */
 		hideSpinner: function () {
 			this.options.glyphPrefix = 'minerva';
@@ -103,6 +109,8 @@
 		isTemplateMode: false,
 		/**
 		 * onClick handler for button that invokes print function
+		 * @memberof DownloadIcon
+		 * @instance
 		 */
 		onClick: function () {
 			var self = this,

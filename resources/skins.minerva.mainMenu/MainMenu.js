@@ -7,9 +7,7 @@
 	 *
 	 * @class MainMenu
 	 * @extends View
-	 * @constructor
 	 * @param {Object} options Configuration options
-	 * @module skins.minerva.mainMenu/MainMenu
 	 */
 	function MainMenu( options ) {
 		this.activator = options.activator;
@@ -34,6 +32,8 @@
 		/**
 		 * Turn on event logging on the existing main menu by reading `event-name` data
 		 * attributes on elements.
+		 * @memberof MainMenu
+		 * @instance
 		 */
 		enableLogging: function () {
 			// Load the EventLogging module inside MobileFrontend if available
@@ -51,6 +51,8 @@
 		},
 		/**
 		 * Remove the nearby menu entry if the browser doesn't support geo location
+		 * @memberof MainMenu
+		 * @instance
 		 */
 		postRender: function () {
 			if ( !browser.supportsGeoLocation() ) {
@@ -62,6 +64,8 @@
 
 		/**
 		 * Registers events for opening and closing the main menu
+		 * @memberof MainMenu
+		 * @instance
 		 */
 		registerClickEvents: function () {
 			var self = this;
@@ -83,6 +87,8 @@
 
 		/**
 		 * Check whether the navigation drawer is open
+		 * @memberof MainMenu
+		 * @instance
 		 * @return {boolean}
 		 */
 		isOpen: function () {
@@ -92,6 +98,8 @@
 
 		/**
 		 * Close all open navigation drawers
+		 * @memberof MainMenu
+		 * @instance
 		 */
 		closeNavigationDrawers: function () {
 			// FIXME: We should be moving away from applying classes to the body
@@ -105,6 +113,8 @@
 		 * @param {string} [drawerType] A name that identifies the navigation drawer that
 		 *     should be toggled open. Defaults to 'primary'.
 		 * @fires MainMenu#open
+		 * @memberof MainMenu
+		 * @instance
 		 */
 		openNavigationDrawer: function ( drawerType ) {
 			// close any existing ones first.

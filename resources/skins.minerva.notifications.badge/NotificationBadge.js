@@ -11,10 +11,7 @@
 	 * A notification button for communicating with an NotificationOverlay
 	 * @class NotificationButton
 	 * @extends View
-	 *
-	 * @constructor
 	 * @param {Object} options Configuration options
-	 * @module skins.minerva.notifications/NotificationBadge
 	 */
 	function NotificationBadge( options ) {
 		var $el,
@@ -46,7 +43,9 @@
 		 * @cfg {string} defaults.loadingIconHtml for spinner
 		 * @cfg {boolean} defaults.hasUnseenNotifications whether the user has unseen notifications
 		 * @cfg {number} defaults.notificationCountRaw number of unread notifications
-	 */
+		 * @memberof NotificationBadge
+		 * @instance
+		 */
 		defaults: {
 			notificationIconClass: notificationIcon.getClassName(),
 			loadingIconHtml: icons.spinner().toHtmlString(),
@@ -59,6 +58,8 @@
 		 * Loads a ResourceLoader module script. Shows ajax loader whilst loading.
 		 * @method
 		 * @private
+		 * @memberof NotificationBadge
+		 * @instance
 		 * @param {string} moduleName Name of a module to fetch
 		 * @return {JQuery.Deferred}
 		 */
@@ -75,6 +76,8 @@
 		 * Load the notification overlay.
 		 * @method
 		 * @private
+		 * @memberof NotificationBadge
+		 * @instance
 		 * @uses NotificationsOverlay
 		 * @return {JQuery.Deferred} with an instance of NotificationsOverlay
 		 */
@@ -92,6 +95,8 @@
 		/**
 		 * Sets up routes in overlay manager and click behaviour for NotificationBadge
 		 * This is not unit tested as it's behaviour is covered by browser tests.
+		 * @memberof NotificationBadge
+		 * @instance
 		 * @private
 		 */
 		_bindOverlayManager: function () {
@@ -116,6 +121,8 @@
 		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.hogan' ),
 		/**
 		 * Click handler for clicking on the badge
+		 * @memberof NotificationBadge
+		 * @instance
 		 * @return {boolean}
 		 */
 		onClickBadge: function () {
@@ -126,6 +133,8 @@
 		},
 		/**
 		 * Return the URL for the full non-overlay notification view
+		 * @memberof NotificationBadge
+		 * @instance
 		 * @return {string} url
 		 */
 		getNotificationURL: function () {
@@ -133,6 +142,8 @@
 		},
 		/**
 		 * Update the notification count
+		 * @memberof NotificationBadge
+		 * @instance
 		 * @param {number} count
 		 */
 		setCount: function ( count ) {
@@ -148,6 +159,9 @@
 		},
 		/**
 		 * Marks all notifications as seen
+		 *
+		 * @memberof NotificationBadge
+		 * @instance
 		 */
 		markAsSeen: function () {
 			this.options.hasUnseenNotifications = false;

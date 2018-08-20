@@ -6,7 +6,6 @@
 	/**
 	 * Page overlay prompting a user for given action
 	 * @class PointerOverlay
-	 * @module skins.minerva.newusers/PointerOverlay
 	 */
 	function PointerOverlay() {
 		Overlay.apply( this, arguments );
@@ -30,6 +29,8 @@
 		 * @cfg {string} defaults.target jQuery selector to point tutorial at
 		 * @cfg {string} [defaults.alignment] Determines where the pointer should point to. Valid values 'left' or 'center'
 		 * @cfg {string} [defaults.confirmMsg] Label for a confirm message.
+		 * @memberof PointerOverlay
+		 * @instance
 		 */
 		defaults: $.extend( {}, Overlay.prototype.defaults, {
 			summary: undefined,
@@ -74,6 +75,8 @@
 		 * Refreshes the pointer arrow.
 		 * @method
 		 * @param {string} target jQuery selector
+		 * @memberof PointerOverlay
+		 * @instance
 		 */
 		refreshPointerArrow: function ( target ) {
 			this.$pointer.remove();
@@ -82,6 +85,8 @@
 		/**
 		 * Position the overlay under a specified element
 		 * @private
+		 * @memberof PointerOverlay
+		 * @instance
 		 * @param {JQuery.Object} $pa An element that should be pointed at by the overlay
 		 */
 		_position: function ( $pa ) {
@@ -98,7 +103,9 @@
 		},
 		/**
 		 * Position overlay and add pointer arrow that points at specified element
-		 * @method
+		 *
+		 * @memberof PointerOverlay
+		 * @instance
 		 * @param {JQuery.Object} $pa An element that should be pointed at by the overlay
 		 */
 		addPointerArrow: function ( $pa ) {
