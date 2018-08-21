@@ -1,4 +1,4 @@
-( function ( M, mwConfig, mwTrack, mwTrackSubscribe, mwUser, mwLoader ) {
+( function ( M, mwConfig, mwTrack, mwTrackSubscribe, mwUser ) {
 	var
 		util = M.require( 'mobile.startup/util' ),
 		EVENT_PAGE_ISSUE_LOG = 'minerva.PageIssuesAB';
@@ -31,21 +31,17 @@
 	 * @return {void}
 	 */
 	function subscribe( newTreatmentEnabled, pageIssueSchemaData ) {
-		// this is wrapped inside a mw.loader call given the need to access mw.eventLog.getPageviewToken
-		// which may or may not be defined. If EventLogging is not installed, so logging will occur.
-		mwLoader.using( 'ext.eventLogging.subscriber' ).then( function () {
-			// set the page token on the request.
-			pageIssueSchemaData.pageToken = mw.eventLog.getPageviewToken();
+		// set the page token on the request.
+		pageIssueSchemaData.pageToken = mw.user.getPageviewToken();
 
-			// intermediary event bus that extends the event data before being passed to event-logging.
-			mwTrackSubscribe( EVENT_PAGE_ISSUE_LOG, function ( topic, data ) {
-				var mixedData = util.extend( {}, pageIssueSchemaData, data );
-				// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
-				// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
-				mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
-				// Log PageIssues schema.
-				mwTrack( 'wikimedia.event.PageIssues', mixedData );
-			} );
+		// intermediary event bus that extends the event data before being passed to event-logging.
+		mwTrackSubscribe( EVENT_PAGE_ISSUE_LOG, function ( topic, data ) {
+			var mixedData = util.extend( {}, pageIssueSchemaData, data );
+			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
+			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
+			mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
+			// Log PageIssues schema.
+			mwTrack( 'wikimedia.event.PageIssues', mixedData );
 		} );
 	}
 
@@ -100,4 +96,4 @@
 		subscribe: subscribe,
 		log: log
 	} );
-}( mw.mobileFrontend, mw.config, mw.track, mw.trackSubscribe, mw.user, mw.loader ) );
+}( mw.mobileFrontend, mw.config, mw.track, mw.trackSubscribe, mw.user ) );
