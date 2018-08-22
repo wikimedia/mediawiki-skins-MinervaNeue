@@ -12,6 +12,20 @@
 		"require": false
 	},
 	"rules": {
+		"no-restricted-properties": [2,
+			{
+				"property": "done",
+				"message": "The method `done` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
+			},
+			{
+				"property": "fail",
+				"message": "The method `fail` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
+			},
+			{
+				"property": "always",
+				"message": "The method `always` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
+			}
+		],
 		"valid-jsdoc": ["error", {
 				"requireParamDescription": false,
 				"requireReturnDescription": false,
