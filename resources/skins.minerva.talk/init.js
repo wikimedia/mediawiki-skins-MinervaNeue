@@ -36,16 +36,15 @@
 	}
 
 	overlayManager.add( /^\/talk\/?(.*)$/, function ( id ) {
-		var result = $.Deferred(),
-			talkOptions = {
-				api: new mw.Api(),
-				title: title,
-				// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of spaces.
-				currentPageTitle: M.getCurrentPage().title,
-				licenseMsg: skin.getLicenseMsg()
-			};
+		var talkOptions = {
+			api: new mw.Api(),
+			title: title,
+			// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of spaces.
+			currentPageTitle: M.getCurrentPage().title,
+			licenseMsg: skin.getLicenseMsg()
+		};
 
-		loader.loadModule( 'mobile.talk.overlays' ).done( function () {
+		return loader.loadModule( 'mobile.talk.overlays' ).then( function () {
 			var Overlay;
 			if ( id === 'new' ) {
 				Overlay = M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' );
@@ -55,9 +54,8 @@
 			} else {
 				Overlay = M.require( 'mobile.talk.overlays/TalkOverlay' );
 			}
-			result.resolve( new Overlay( talkOptions ) );
+			return new Overlay( talkOptions );
 		} );
-		return result;
 	} );
 
 	/**

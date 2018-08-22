@@ -171,7 +171,6 @@
 		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
 			var
 				$content = $( '#mw-content-text' ),
-				result = $.Deferred(),
 				preferredEditor = getPreferredEditor(),
 				editorOptions = {
 					overlayManager: overlayManager,
@@ -201,7 +200,7 @@
 			function logInit( editor ) {
 				// If MobileFrontend is not available this will not be possible so
 				// check first.
-				mw.loader.using( 'mobile.loggingSchemas.edit' ).done( function () {
+				mw.loader.using( 'mobile.loggingSchemas.edit' ).then( function () {
 					mw.track( 'mf.schemaEdit', {
 						action: 'init',
 						type: 'section',
@@ -217,13 +216,14 @@
 			 * @private
 			 * @ignore
 			 * @method
+			 * @returns {JQuery.Promise}
 			 */
 			function loadSourceEditor() {
 				logInit( 'wikitext' );
 
-				loader.loadModule( 'mobile.editor.overlay' ).done( function () {
+				return loader.loadModule( 'mobile.editor.overlay' ).then( function () {
 					var EditorOverlay = M.require( 'mobile.editor.overlay/EditorOverlay' );
-					result.resolve( new EditorOverlay( editorOptions ) );
+					return new EditorOverlay( editorOptions );
 				} );
 			}
 
@@ -254,15 +254,13 @@
 				editorOverride !== 'SourceEditor'
 			) {
 				logInit( 'visualeditor' );
-				loader.loadModule( 'mobile.editor.ve' ).done( function () {
+				return loader.loadModule( 'mobile.editor.ve' ).then( function () {
 					var VisualEditorOverlay = M.require( 'mobile.editor.ve/VisualEditorOverlay' );
-					result.resolve( new VisualEditorOverlay( editorOptions ) );
-				} ).fail( loadSourceEditor );
+					return new VisualEditorOverlay( editorOptions );
+				}, loadSourceEditor );
 			} else {
-				loadSourceEditor();
+				return loadSourceEditor();
 			}
-
-			return result;
 		} );
 		updateEditPageButton( true );
 		// reveal edit links on user pages

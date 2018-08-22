@@ -124,6 +124,12 @@
 				window.print();
 				hideSpinner();
 			}
+
+			function doPrintBeforeTimeout() {
+				if ( self.timeout ) {
+					doPrint();
+				}
+			}
 			// The click handler may be invoked multiple times so if a pending print is occurring
 			// do nothing.
 			if ( !this.timeout ) {
@@ -134,11 +140,7 @@
 				// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 				// abort the spinner and print regardless.
 				this.timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-				this.skin.loadImagesList().always( function () {
-					if ( self.timeout ) {
-						doPrint();
-					}
-				} );
+				this.skin.loadImagesList().then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 			}
 		},
 		events: {
