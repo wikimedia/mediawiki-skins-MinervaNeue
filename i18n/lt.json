@@ -43,7 +43,8 @@
 	"mobile-frontend-main-menu-watchlist": "Stebimųjų sąrašas",
 	"mobile-frontend-meta-data-issues": "Puslapio klaidos",
 	"mobile-frontend-meta-data-issues-categories": "Apie šią kategoriją",
-	"mobile-frontend-meta-data-issues-header": "Klaidos",
+	"mobile-frontend-meta-data-issues-header": "Puslapio klaidos",
+	"minerva-meta-data-issues-section-header": "Skyriaus klaidos",
 	"mobile-frontend-meta-data-issues-header-talk": "Apie šį puslapį",
 	"mobile-frontend-meta-data-issues-talk": "Apie šį aptarimo puslapį",
 	"mobile-frontend-notifications-filter": "Filtras",
@@ -61,6 +62,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Prisijungė}} $1",
 	"mobile-frontend-user-page-talk": "Aptarimas",
 	"mobile-frontend-user-page-uploads": "Įkėlimai",
+	"skin-minerva-issue-learn-more": "Sužinoti daugiau",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorijos",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Rodyti puslapių kategorijas",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Pereiti aukštyn"

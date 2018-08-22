@@ -19,7 +19,7 @@
 	"mobile-frontend-language-article-heading": "အခြား ဘာသာစကားဖြင့်ဖတ်ပါ။",
 	"mobile-frontend-language-change": "ဘာသာစကား ပြောင်းလဲရန်",
 	"mobile-frontend-languages-not-available": "စာမျက်နှာသည် အခြားဘာသာဖြင့် မရှိသေးပါ။",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ကြိုဆိုပါသည်}}, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ကြိုဆိုပါသည်}}၊ $1",
 	"mobile-frontend-main-menu-button-tooltip": "ပင်မမီနူးကို ဖွင့်ရန်",
 	"mobile-frontend-main-menu-contributions": "ဆောင်ရွက်ချက်များ",
 	"mobile-frontend-main-menu-login": "အကောင့်ဝင်ရန်",
