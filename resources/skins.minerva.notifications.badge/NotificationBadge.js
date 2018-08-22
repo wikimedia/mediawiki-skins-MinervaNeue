@@ -61,13 +61,13 @@
 		 * @memberof NotificationBadge
 		 * @instance
 		 * @param {string} moduleName Name of a module to fetch
-		 * @return {JQuery.Deferred}
+		 * @return {JQuery.Promise}
 		 */
 		_loadModuleScript: function ( moduleName ) {
 			var self = this;
 
 			this.$el.html( this.options.loadingIconHtml );
-			return mw.loader.using( moduleName ).done( function () {
+			return mw.loader.using( moduleName ).then( function () {
 				// trigger a re-render once one to remove loading icon
 				self.render();
 			} );
@@ -105,7 +105,7 @@
 
 			this.$el.on( 'click', $.proxy( this.onClickBadge, this ) );
 			this.options.overlayManager.add( /^\/notifications$/, function () {
-				return self._loadNotificationOverlay().done( function ( overlay ) {
+				return self._loadNotificationOverlay().then( function ( overlay ) {
 					mainMenu.openNavigationDrawer( 'secondary' );
 					overlay.on( 'hide', function () {
 						mainMenu.closeNavigationDrawers();
@@ -115,6 +115,7 @@
 					$( '#mw-mf-page-center' ).one( 'click.secondary', function () {
 						self.options.router.back();
 					} );
+					return overlay;
 				} );
 			} );
 		},

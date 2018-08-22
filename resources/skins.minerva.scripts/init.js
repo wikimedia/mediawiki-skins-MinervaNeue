@@ -130,25 +130,23 @@
 	// Routes
 	overlayManager.add( /^\/media\/(.+)$/, loadImageOverlay );
 	overlayManager.add( /^\/languages$/, function () {
-		var result = $.Deferred(),
-			lang = mw.config.get( 'wgUserLanguage' );
+		var lang = mw.config.get( 'wgUserLanguage' );
 
-		loader.loadModule( 'mobile.languages.structured', true ).done( function ( loadingOverlay ) {
+		return loader.loadModule( 'mobile.languages.structured', true ).then( function ( loadingOverlay ) {
 			var PageGateway = M.require( 'mobile.startup/PageGateway' ),
 				gateway = new PageGateway( new mw.Api() ),
 				LanguageOverlay = M.require( 'mobile.languages.structured/LanguageOverlay' );
 
-			gateway.getPageLanguages( mw.config.get( 'wgPageName' ), lang ).done( function ( data ) {
+			return gateway.getPageLanguages( mw.config.get( 'wgPageName' ), lang ).then( function ( data ) {
 				loadingOverlay.hide();
-				result.resolve( new LanguageOverlay( {
+				return new LanguageOverlay( {
 					currentLanguage: mw.config.get( 'wgContentLanguage' ),
 					languages: data.languages,
 					variants: data.variants,
 					deviceLanguage: getDeviceLanguage()
-				} ) );
+				} );
 			} );
 		} );
-		return result;
 	} );
 
 	// Setup

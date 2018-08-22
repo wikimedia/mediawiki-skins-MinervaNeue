@@ -6,40 +6,34 @@
 
 	// categories overlay
 	overlayManager.add( /^\/categories$/, function () {
-		var result = $.Deferred();
-
-		loader.loadModule( 'mobile.categories.overlays', true ).done( function ( loadingOverlay ) {
+		return loader.loadModule( 'mobile.categories.overlays', true ).then( function ( loadingOverlay ) {
 			var CategoryOverlay = M.require( 'mobile.categories.overlays/CategoryOverlay' );
 			M.on( 'category-added', function () {
 				window.location.hash = '#/categories';
 			} );
 
 			loadingOverlay.hide();
-			result.resolve( new CategoryOverlay( {
+			return new CategoryOverlay( {
 				api: new mw.Api(),
 				isAnon: user.isAnon(),
 				title: M.getCurrentPage().title
-			} ) );
+			} );
 		} );
-		return result;
 	} );
 
 	// add categories overlay
 	overlayManager.add( /^\/categories\/add$/, function () {
-		var result = $.Deferred();
-
-		loader.loadModule( 'mobile.categories.overlays' ).done( function ( loadingOverlay ) {
+		return loader.loadModule( 'mobile.categories.overlays' ).then( function ( loadingOverlay ) {
 			var CategoryAddOverlay = M.require( 'mobile.categories.overlays/CategoryAddOverlay' );
 
 			loadingOverlay.hide();
-			result.resolve( new CategoryAddOverlay( {
+			return new CategoryAddOverlay( {
 				api: new mw.Api(),
 				categories: mw.config.get( 'wgCategories' ),
 				isAnon: user.isAnon(),
 				title: M.getCurrentPage().title
-			} ) );
+			} );
 		} );
-		return result;
 	} );
 
 	/**

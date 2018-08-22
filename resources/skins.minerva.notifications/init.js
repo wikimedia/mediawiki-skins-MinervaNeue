@@ -55,7 +55,7 @@
 			}
 
 			// Load the notification filter overlay
-			mw.loader.using( 'mobile.notifications.filter.overlay' ).done( function () {
+			mw.loader.using( 'mobile.notifications.filter.overlay' ).then( function () {
 				var $crossWikiUnreadFilter = $( '.mw-echo-ui-crossWikiUnreadFilterWidget' ),
 					$notifReadState = $( '.mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' ),
 					NotificationsFilterOverlay = M.require( 'mobile.notifications.filter.overlay/NotificationsFilterOverlay' );
