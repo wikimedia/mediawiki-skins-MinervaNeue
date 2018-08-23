@@ -11,6 +11,12 @@
 			overflow: hidden;
 		}
 
+		// We don't need display:table as there are no edit/collapse buttons
+		// Also display:table causes CE issues in Mobile Safari (T202991)
+		h1, h2, h3, h4, h5 {
+			display: block;
+		}
+
 		// Styling for images (as output by Parsiod)
 		// These styles are mostly derived from content.parsoid.less, which the Minerva skin
 		// opts out of (since the styles are largely Vectorish).
