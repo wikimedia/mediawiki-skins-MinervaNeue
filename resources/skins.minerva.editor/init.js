@@ -337,6 +337,16 @@
 	}
 
 	/**
+	 * Hide any section id icons in the page. This will not hide the edit icon in the page action
+	 * menu.
+	 * @method
+	 * @ignore
+	 */
+	function hideSectionEditIcons() {
+		currentPage.$( '.edit-page' ).hide();
+	}
+
+	/**
 	 * Setup the editor if the user can edit the page otherwise show a sorry toast.
 	 * @method
 	 * @ignore
@@ -347,6 +357,7 @@
 			setupEditor( currentPage );
 		} else {
 			updateEditPageButton( false );
+			hideSectionEditIcons();
 			showSorryToast( editErrorMessage );
 		}
 	}
