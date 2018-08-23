@@ -6,7 +6,7 @@
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
 
 	/**
-	 * Helper function to retreive the Android version
+	 * Helper function to retrieve the Android version
 	 * @ignore
 	 * @param {string} userAgent User Agent
 	 * @return {number|false} An integer.

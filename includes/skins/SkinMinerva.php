@@ -1185,7 +1185,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 	}
 
 	/**
-	 * Creates the the "switch-language" action: the icon that, when tapped, opens the language
+	 * Creates the "switch-language" action: the icon that, when tapped, opens the language
 	 * switcher.
 	 *
 	 * @return array A map compatible with BaseTemplate#makeListItem
