@@ -52,6 +52,21 @@
 		blockInfo = false;
 	}
 
+	/**
+	 * Event handler for edit link clicks. Will prevent default link
+	 * behaviour and will not allow propagation
+	 * @method
+	 * @ignore
+	 * @return {boolean}
+	 */
+	function onEditLinkClick() {
+		issues.log( { action: 'editClicked' } );
+
+		router.navigate( '#/editor/' + $( this ).data( 'section' ) );
+		// prevent folding section when clicking Edit by stopping propagation
+		return false;
+	}
+
 	// TODO: rename addEditSectionButton and evaluate whether the page edit button
 	//       can leverage the same code. Also: change the CSS class name to use
 	//       the word "section" instead of "page".
@@ -67,10 +82,8 @@
 	function addEditButton( section, container ) {
 		$( container ).find( 'a' ).remove();
 		return $( '<a class="edit-page">' )
-			.attr( {
-				href: '#/editor/' + section,
-				title: $( container ).attr( 'title' )
-			} )
+			.data( 'section', section )
+			.on( 'click', onEditLinkClick )
 			.text( mw.msg( 'mobile-frontend-editor-edit' ) )
 			.prependTo( container );
 	}
@@ -161,13 +174,8 @@
 			alert( mw.msg( 'mobile-frontend-editor-undo-unsupported' ) );
 		}
 
-		page.$( '.edit-page, .edit-link' ).removeClass( disabledClass ).on( 'click', function () {
-			issues.log( { action: 'editClicked' } );
-
-			router.navigate( '#/editor/' + $( this ).data( 'section' ) );
-			// prevent folding section when clicking Edit by stopping propagation
-			return false;
-		} );
+		page.$( '.edit-page, .edit-link' ).removeClass( disabledClass )
+			.on( 'click', onEditLinkClick );
 		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
 			var
 				$content = $( '#mw-content-text' ),
