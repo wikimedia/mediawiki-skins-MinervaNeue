@@ -28,6 +28,7 @@
 
 		this.issues = issues;
 		this.logger = logger;
+		this.section = section;
 
 		options = {};
 		options.issues = issues;
@@ -68,7 +69,8 @@
 		onExit: function () {
 			this.logger.log( {
 				action: 'modalClose',
-				issuesSeverity: this.issues.map( issueSummaryToSeverity )
+				issuesSeverity: this.issues.map( issueSummaryToSeverity ),
+				sectionNumbers: [ this.section ]
 			} );
 		},
 
@@ -85,7 +87,8 @@
 			var severity = parseSeverity( this.$( ev.target ) );
 			this.logger.log( {
 				action: 'modalInternalClicked',
-				issuesSeverity: [ severity ]
+				issuesSeverity: [ severity ],
+				sectionNumbers: [ this.section ]
 			} );
 		},
 
@@ -100,7 +103,8 @@
 			var severity = parseSeverity( this.$( ev.target ) );
 			this.logger.log( {
 				action: 'modalEditClicked',
-				issuesSeverity: [ severity ]
+				issuesSeverity: [ severity ],
+				sectionNumbers: [ this.section ]
 			} );
 		}
 	} );

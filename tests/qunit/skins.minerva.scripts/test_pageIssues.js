@@ -13,11 +13,10 @@
 			'</div>'
 		),
 		labelText = 'label text',
-		section = 0,
 		inline = true,
 		processedAmbox = createBanner(
 			new Page( { el: $mockContainer } ),
-			labelText, section, inline, overlayManager
+			labelText, '0', inline, overlayManager
 		);
 
 	QUnit.module( 'Minerva cleanuptemplates' );

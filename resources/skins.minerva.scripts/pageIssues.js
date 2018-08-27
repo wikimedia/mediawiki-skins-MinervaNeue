@@ -97,7 +97,7 @@
 	 * will link section numbers to issues.
 	 * @param {Page} page to search for page issues inside
 	 * @param {string} labelText what the label of the page issues banner should say
-	 * @param {number|string} section that the banner and its issues belong to.
+	 * @param {string} section that the banner and its issues belong to.
 	 *  If string KEYWORD_ALL_SECTIONS banner should apply to entire page.
 	 * @param {boolean} inline - if true the first ambox in the section will become the entry point for the issues overlay
 	 *  and if false, a link will be rendered under the heading.
@@ -161,20 +161,26 @@
 				var pageIssue = pageIssuesParser.parse( this );
 				pageIssuesLogger.log( {
 					action: 'issueClicked',
-					issuesSeverity: [ pageIssue.severity ]
+					issuesSeverity: [ pageIssue.severity ],
+					sectionNumbers: [ section ]
 				} );
 				overlayManager.router.navigate( issueUrl );
 				return false;
 			} );
 		} else {
 			$link = createLinkElement( labelText );
-			// In group B, we link to all issues no matter where the banner is.
+			// In group A, we link to all issues no matter where the banner is.
 			$link.attr( 'href', '#/issues/' + KEYWORD_ALL_SECTIONS );
 			$link.click( function () {
 				pageIssuesLogger.log( {
 					action: 'issueClicked',
-					// empty array is passed for 'old' treatment.
-					issuesSeverity: []
+					issuesSeverity: [
+						pageIssuesParser.maxSeverity(
+							getIssues( '0' )
+								.map( function ( issue ) { return issue.severity; } )
+						)
+					],
+					sectionNumbers: getAllIssuesSections()
 				} );
 			} );
 			if ( $metadata.length ) {
@@ -209,6 +215,16 @@
 	}
 
 	/**
+	 * Returns an array of all the page sections that have issues.
+	 * @return {array}
+	 */
+	function getAllIssuesSections() {
+		return Object.keys( allIssues ).filter( function ( section ) {
+			return allIssues[ section ].length;
+		} );
+	}
+
+	/**
 	 * Scan an element for any known cleanup templates and replace them with a button
 	 * that opens them in a mobile friendly overlay.
 	 * @ignore
@@ -234,15 +250,20 @@
 				createBanner( page, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
 			} else {
 				// parse lead
-				createBanner( page, label, 0, inline, overlayManager );
+				createBanner( page, label, '0', inline, overlayManager );
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown for sections.
 					page.$( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
 
-						// Render banner for sectionNum associated with headingEl inside Page
-						createBanner( page, label, sectionNum, inline, overlayManager );
+						// Note certain headings matched using Page.HEADING_SELECTOR may not be headings
+						// and will not have a edit link
+						// e.g. table of contents
+						if ( sectionNum ) {
+							// Render banner for sectionNum associated with headingEl inside Page
+							createBanner( page, label, sectionNum.toString(), inline, overlayManager );
+						}
 					} );
 				}
 			}
@@ -255,7 +276,8 @@
 				pageIssuesLogger.newPageIssueSchemaData(
 					newTreatmentEnabled,
 					CURRENT_NS,
-					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity )
+					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity ),
+					getAllIssuesSections()
 				)
 			);
 

@@ -8,15 +8,18 @@
 	 * @param {boolean} newTreatmentEnabled
 	 * @param {number} namespaceId The namespace for the page that has issues.
 	 * @param {string[]} pageIssueSeverities An array of PageIssue severities.
+	 * @param {array} pageIssuesSections
+	 *
 	 * @return {Object} A Partial<Schema:PageIssues> Object meant to be mixed with track data.
 	 */
-	function newPageIssueSchemaData( newTreatmentEnabled, namespaceId, pageIssueSeverities ) {
+	function newPageIssueSchemaData( newTreatmentEnabled, namespaceId, pageIssueSeverities, pageIssuesSections ) {
 		return {
 			pageTitle: mwConfig.get( 'wgTitle' ),
 			namespaceId: namespaceId,
 			pageIdSource: mwConfig.get( 'wgArticleId' ),
 			issuesVersion: bucketToVersion( newTreatmentEnabled ),
 			issuesSeverity: pageIssueSeverities,
+			sectionNumbers: pageIssuesSections,
 			isAnon: mwUser.isAnon(),
 			editCountBucket: getUserEditBuckets(),
 			sessionToken: mwUser.sessionId()
@@ -37,6 +40,13 @@
 		// intermediary event bus that extends the event data before being passed to event-logging.
 		mwTrackSubscribe( EVENT_PAGE_ISSUE_LOG, function ( topic, data ) {
 			var mixedData = util.extend( {}, pageIssueSchemaData, data );
+
+			// Although we use strings inside the issues code (due to the usage of the key word
+			// `all`) - these need to be numbers to be validated by the schema
+			mixedData.sectionNumbers = ( mixedData.sectionNumbers || [] ).map( function ( sectionStr ) {
+				return parseInt( sectionStr, 10 );
+			} );
+
 			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
 			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
 			mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
@@ -83,9 +93,9 @@
 
 	/**
 	 * Log data to the PageIssuesAB test schema. It's safe to call this function prior to
-   * subscription.
+	 * subscription.
 	 * @param {Object} data to log
-   * @return {void}
+	 * @return {void}
 	 */
 	function log( data ) {
 		mwTrack( EVENT_PAGE_ISSUE_LOG, data );
