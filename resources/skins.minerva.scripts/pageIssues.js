@@ -261,8 +261,7 @@
 
 			// Report that the page has been loaded.
 			pageIssuesLogger.log( {
-				action: 'pageLoaded',
-				issuesSeverity: getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity )
+				action: 'pageLoaded'
 			} );
 		}
 
