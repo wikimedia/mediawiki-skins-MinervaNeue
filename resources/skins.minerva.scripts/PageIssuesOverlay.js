@@ -32,6 +32,14 @@
 
 		options = {};
 		options.issues = issues;
+
+		// Set default logging data
+		this.defaultLoggerData = {};
+		// In the case of KEYWORD_ALL_SECTIONS all issues are in the overlay and the sectionNumbers
+		// field should be no different from the default behaviour.
+		if ( this.section !== KEYWORD_ALL_SECTIONS ) {
+			this.defaultLoggerData.sectionNumbers = [ this.section ];
+		}
 		options.heading = '<strong>' + headingText + '</strong>';
 		Overlay.call( this, options );
 
@@ -63,14 +71,23 @@
 		} ),
 
 		/**
+		 * Log data via the associated logger, adding sectionNumbers to override the event default
+		 * if applicable.
+		 * @param {Object} data
+		 * @instance
+		 */
+		log: function ( data ) {
+			this.logger.log( util.extend( {}, this.defaultLoggerData, data ) );
+		},
+
+		/**
 		 * Note: an "on enter" state is tracked by the issueClicked log event.
 		 * @return {void}
 		 */
 		onExit: function () {
-			this.logger.log( {
+			this.log( {
 				action: 'modalClose',
-				issuesSeverity: this.issues.map( issueSummaryToSeverity ),
-				sectionNumbers: [ this.section ]
+				issuesSeverity: this.issues.map( issueSummaryToSeverity )
 			} );
 		},
 
@@ -85,10 +102,9 @@
 		 */
 		onInternalClick: function ( ev ) {
 			var severity = parseSeverity( this.$( ev.target ) );
-			this.logger.log( {
+			this.log( {
 				action: 'modalInternalClicked',
-				issuesSeverity: [ severity ],
-				sectionNumbers: [ this.section ]
+				issuesSeverity: [ severity ]
 			} );
 		},
 
@@ -101,10 +117,9 @@
 		 */
 		onEditClick: function ( ev ) {
 			var severity = parseSeverity( this.$( ev.target ) );
-			this.logger.log( {
+			this.log( {
 				action: 'modalEditClicked',
-				issuesSeverity: [ severity ],
-				sectionNumbers: [ this.section ]
+				issuesSeverity: [ severity ]
 			} );
 		}
 	} );
