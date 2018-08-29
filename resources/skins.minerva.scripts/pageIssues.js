@@ -180,7 +180,7 @@
 								.map( function ( issue ) { return issue.severity; } )
 						)
 					],
-					sectionNumbers: getAllIssuesSections()
+					sectionNumbers: getAllIssuesSections( allIssues )
 				} );
 			} );
 			if ( $metadata.length ) {
@@ -215,13 +215,19 @@
 	}
 
 	/**
-	 * Returns an array of all the page sections that have issues.
+	 * Returns an array containing the section of each page issue.
+	 * @param {Object} allIssues mapping section {Number} to {IssueSummary}
 	 * @return {array}
 	 */
-	function getAllIssuesSections() {
-		return Object.keys( allIssues ).filter( function ( section ) {
-			return allIssues[ section ].length;
-		} );
+	function getAllIssuesSections( allIssues ) {
+		return Object.keys( allIssues ).reduce( function ( acc, section ) {
+			if ( allIssues[ section ].length ) {
+				allIssues[ section ].forEach( function () {
+					acc.push( section );
+				} );
+			}
+			return acc;
+		}, [] );
 	}
 
 	/**
@@ -277,7 +283,7 @@
 					newTreatmentEnabled,
 					CURRENT_NS,
 					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity ),
-					getAllIssuesSections()
+					getAllIssuesSections( allIssues )
 				)
 			);
 
@@ -300,6 +306,7 @@
 		// the subscription call in cleanuptemplates.
 		log: pageIssuesLogger.log,
 		test: {
+			getAllIssuesSections: getAllIssuesSections,
 			createBanner: createBanner
 		}
 	} );

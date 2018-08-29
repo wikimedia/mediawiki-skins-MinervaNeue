@@ -1,5 +1,22 @@
 ( function ( M ) {
-	var createBanner = M.require( 'skins.minerva.scripts/pageIssues' ).test.createBanner,
+	var pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
+		createBanner = pageIssues.test.createBanner,
+		MEDIUM_ISSUE = {
+			severity: 'MEDIUM',
+			icon: 'i',
+			text: 't'
+		},
+		LOW_ISSUE = {
+			severity: 'LOW',
+			icon: 'i',
+			text: 't'
+		},
+		HIGH_ISSUE = {
+			severity: 'HIGH',
+			icon: 'i',
+			text: 't'
+		},
+		getAllIssuesSections = pageIssues.test.getAllIssuesSections,
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
 		Page = M.require( 'mobile.startup/Page' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
@@ -42,5 +59,36 @@
 		mw.trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
 			assert.equal( JSON.toString( mockAction ), JSON.toString( data ) );
 		} );
+	} );
+
+	QUnit.test( 'getAllIssuesSections', function ( assert ) {
+		var allIssuesOldTreatment, allIssuesNewTreatment;
+		allIssuesOldTreatment = {
+			0: [
+				MEDIUM_ISSUE,
+				LOW_ISSUE,
+				MEDIUM_ISSUE
+			]
+		};
+		allIssuesNewTreatment = {
+			0: [
+				HIGH_ISSUE,
+				LOW_ISSUE,
+				MEDIUM_ISSUE
+			],
+			1: [
+				MEDIUM_ISSUE
+			]
+		};
+		assert.deepEqual(
+			getAllIssuesSections( allIssuesOldTreatment ),
+			[ '0', '0', '0' ],
+			'section numbers correctly extracted from old treatment'
+		);
+		assert.deepEqual(
+			getAllIssuesSections( allIssuesNewTreatment ),
+			[ '0', '0', '0', '1' ],
+			'section numbers correctly extracted from new treatment'
+		);
 	} );
 }( mw.mobileFrontend ) );
