@@ -26,6 +26,7 @@
 	/**
 	 * @typedef {Object} IssueSummary
 	 * @prop {string} severity A PageIssue.severity.
+	 * @prop {Boolean} isMultiple Whether or not the issue is part of a "multiple issues" template.
 	 * @prop {string} icon HTML string.
 	 * @prop {string} text HTML string.
 	*/
@@ -36,11 +37,27 @@
 	}
 
 	/**
-	 * @param {IssueSummary} summary
-	 * @return {string}
+	 * Array.reduce callback that returns the severity of page issues.
+	 * In the case that a page-issue is part of a "multiple issues" template,
+	 * returns the maximum severity for that group of issues.
+	 *
+	 * @param {array} acc - the return array containing severities
+	 * @param {IssueSummary} summary current IssueSummary object
+	 * @param {number} currentIndex current index of pageIssues
+	 * @param {array} pageIssues array of pageIssues
+	 *
+	 * @return {array} acc
 	 */
-	function formatPageIssuesSeverity( summary ) {
-		return summary.severity;
+	function formatPageIssuesSeverity( acc, summary, currentIndex, pageIssues ) {
+		var lastItem = pageIssues[ currentIndex - 1 ];
+		if ( lastItem && lastItem.isMultiple && summary.isMultiple ) {
+			acc[ acc.length - 1 ] = pageIssuesParser.maxSeverity(
+				[ lastItem.severity, summary.severity ]
+			);
+		} else {
+			acc.push( summary.severity );
+		}
+		return acc;
 	}
 
 	/**
@@ -50,11 +67,12 @@
 	 * @return {IssueSummary}
 	 */
 	function extractMessage( $box ) {
-		var selector = '.mbox-text, .ambox-text',
+		var SELECTOR = '.mbox-text, .ambox-text',
+			MULTIPLE_SELECTOR = '.mw-collapsible-content',
 			$container = $( '<div>' ),
 			pageIssue;
 
-		$box.find( selector ).each( function () {
+		$box.find( SELECTOR ).each( function () {
 			var contents,
 				$this = $( this );
 			// Clean up talk page boxes
@@ -70,6 +88,7 @@
 
 		return {
 			severity: pageIssue.severity,
+			isMultiple: $box.parent().is( MULTIPLE_SELECTOR ),
 			icon: pageIssue.icon.toHtmlString(),
 			text: $container.html()
 		};
@@ -216,14 +235,23 @@
 
 	/**
 	 * Returns an array containing the section of each page issue.
+	 * In the case that several page issues are grouped in a 'multiple issues' template,
+	 * returns the section of those issues as one item.
 	 * @param {Object} allIssues mapping section {Number} to {IssueSummary}
 	 * @return {array}
 	 */
 	function getAllIssuesSections( allIssues ) {
 		return Object.keys( allIssues ).reduce( function ( acc, section ) {
 			if ( allIssues[ section ].length ) {
-				allIssues[ section ].forEach( function () {
-					acc.push( section );
+				allIssues[ section ].forEach( function ( issue, i ) {
+					var lastIssue = allIssues[ section ][i - 1];
+					// If the last issue belongs to a "Multiple issues" template,
+					// and so does the current one, don't add the current one.
+					if ( lastIssue && lastIssue.isMultiple && issue.isMultiple ) {
+						acc[ acc.length - 1 ] = section;
+					} else {
+						acc.push( section );
+					}
 				} );
 			}
 			return acc;
@@ -282,7 +310,7 @@
 				pageIssuesLogger.newPageIssueSchemaData(
 					newTreatmentEnabled,
 					CURRENT_NS,
-					getIssues( KEYWORD_ALL_SECTIONS ).map( formatPageIssuesSeverity ),
+					getIssues( KEYWORD_ALL_SECTIONS ).reduce( formatPageIssuesSeverity, [] ),
 					getAllIssuesSections( allIssues )
 				)
 			);
@@ -306,6 +334,7 @@
 		// the subscription call in cleanuptemplates.
 		log: pageIssuesLogger.log,
 		test: {
+			extractMessage: extractMessage,
 			getAllIssuesSections: getAllIssuesSections,
 			createBanner: createBanner
 		}

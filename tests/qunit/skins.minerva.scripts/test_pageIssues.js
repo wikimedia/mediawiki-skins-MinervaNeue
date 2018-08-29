@@ -1,5 +1,8 @@
 ( function ( M ) {
 	var pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
+		util = M.require( 'mobile.startup/util' ),
+		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
+		extractMessage = pageIssues.test.extractMessage,
 		createBanner = pageIssues.test.createBanner,
 		MEDIUM_ISSUE = {
 			severity: 'MEDIUM',
@@ -61,13 +64,74 @@
 		} );
 	} );
 
+	QUnit.test( 'extractMessage', function ( assert ) {
+		this.sandbox.stub( pageIssuesParser, 'parse' ).returns(
+			{
+				severity: 'LOW',
+				icon: {
+					toHtmlString: function () {
+						return '<icon />';
+					}
+				}
+			}
+		);
+		[
+			[
+				$( '<div />' ).html(
+					'<div class="mbox-text">Smelly</div>'
+				).appendTo( '<div class="mw-collapsible-content" />' ),
+				{
+					severity: 'LOW',
+					isMultiple: true,
+					icon: '<icon />',
+					text: '<p>Smelly</p>'
+				},
+				'When the box is a child of mw-collapsible-content it isMultiple'
+			],
+			[
+				$( '<div />' ).html(
+					'<div class="mbox-text">Dirty</div>'
+				),
+				{
+					severity: 'LOW',
+					isMultiple: false,
+					icon: '<icon />',
+					text: '<p>Dirty</p>'
+				},
+				'When the box is not child of mw-collapsible-content it !isMultiple'
+			]
+		].forEach( function ( test ) {
+			assert.deepEqual(
+				extractMessage( test[ 0 ] ),
+				test[ 1 ],
+				test[ 2 ]
+			);
+		} );
+	} );
+
 	QUnit.test( 'getAllIssuesSections', function ( assert ) {
-		var allIssuesOldTreatment, allIssuesNewTreatment;
+		var multipleIssuesWithDeletion,
+			multipleIssues, allIssuesOldTreatment, allIssuesNewTreatment;
 		allIssuesOldTreatment = {
 			0: [
 				MEDIUM_ISSUE,
 				LOW_ISSUE,
 				MEDIUM_ISSUE
+			]
+		};
+		multipleIssues = {
+			0: [
+				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } ),
+				util.extend( {}, LOW_ISSUE, { isMultiple: true } ),
+				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } )
+			]
+		};
+		multipleIssuesWithDeletion = {
+			0: [
+				HIGH_ISSUE,
+				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } ),
+				util.extend( {}, LOW_ISSUE, { isMultiple: true } ),
+				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } )
 			]
 		};
 		allIssuesNewTreatment = {
@@ -89,6 +153,16 @@
 			getAllIssuesSections( allIssuesNewTreatment ),
 			[ '0', '0', '0', '1' ],
 			'section numbers correctly extracted from new treatment'
+		);
+		assert.deepEqual(
+			getAllIssuesSections( multipleIssues ),
+			[ '0' ],
+			'multiple issues are packed into one entry since there is one box'
+		);
+		assert.deepEqual(
+			getAllIssuesSections( multipleIssuesWithDeletion ),
+			[ '0', '0' ],
+			'while multiple issues are grouped, non-multiple issues are still reported'
 		);
 	} );
 }( mw.mobileFrontend ) );
