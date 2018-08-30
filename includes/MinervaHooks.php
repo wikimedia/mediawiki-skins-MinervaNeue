@@ -190,7 +190,11 @@ class MinervaHooks {
 	 * @return bool
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
+		$config = MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'minerva' );
+
 		$vars += [
+			'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
 			'wgMinervaReadOnly' => wfReadOnly()
 		];
 

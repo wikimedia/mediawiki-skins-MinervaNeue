@@ -22,6 +22,7 @@
 		}
 	},
 	"config": {
+		"MinervaErrorLogSamplingRate": 0,
 		"MinervaDownloadNamespaces": [ 0 ],
 		"MinervaEnableSiteNotice": false,
 		"MinervaCustomLogos": [],
@@ -152,7 +153,8 @@
 		}
 	},
 	"EventLoggingSchemas": {
-		"PageIssues": 18326688
+		"PageIssues": 18326688,
+		"WebClientError": 18340282
 	},
 	"ResourceModules": {
 		"skins.minerva.base.reset": {
@@ -430,6 +432,7 @@
 				"resources/skins.minerva.scripts/PageIssuesOverlay.js",
 				"resources/skins.minerva.scripts/pageIssues.js",
 				"resources/skins.minerva.scripts/init.js",
+				"resources/skins.minerva.scripts/errorLogging.js",
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
