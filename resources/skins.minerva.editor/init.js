@@ -152,9 +152,8 @@
 			// visualEditorDefault = veConfig && veConfig.defaultUserOptions && veConfig.defaultUserOptions.enable;
 			// return visualEditorDefault ? 'VisualEditor' : 'SourceEditor';
 			return 'SourceEditor';
-		} else {
-			return preferredEditor;
 		}
+		return preferredEditor;
 	}
 
 	/**
@@ -416,7 +415,9 @@
 		// Only load the wikitext editor on wikitext. Otherwise we'll rely on the fallback behaviour
 		// (You can test this on MediaWiki:Common.css) ?action=edit url (T173800)
 		return;
-	} else if ( !isEditingSupported ) {
+	}
+
+	if ( !isEditingSupported ) {
 		// Editing is disabled (or browser is blacklisted)
 		updateEditPageButton( false );
 		showSorryToast( mw.msg( 'mobile-frontend-editor-unavailable' ) );

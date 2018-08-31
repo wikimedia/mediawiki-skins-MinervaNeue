@@ -133,15 +133,15 @@
 			// This means MultimediaViewer has been installed and is loaded.
 			// Avoid loading it (T169622)
 			return $.Deferred().reject();
-		} else if ( mw.loader.getState( 'mobile.mediaViewer' ) === 'ready' ) {
+		}
+		if ( mw.loader.getState( 'mobile.mediaViewer' ) === 'ready' ) {
 			// If module already loaded, do this synchronously to avoid the event loop causing
 			// a visible flash (see T197110)
 			return makeImageOverlay( title );
-		} else {
-			return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
-				return makeImageOverlay( title );
-			} );
 		}
+		return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
+			return makeImageOverlay( title );
+		} );
 	}
 
 	// Routes

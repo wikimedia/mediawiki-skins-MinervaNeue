@@ -218,19 +218,18 @@
 	 * @return {jQuery.Object[]} array of all issues.
 	 */
 	function getIssues( section ) {
-		if ( section === KEYWORD_ALL_SECTIONS ) {
-			// Note section.all may not exist, depending on the structure of the HTML page.
-			// It will only exist when Minerva has been run in desktop mode.
-			// If it's absent, we'll reduce all the other lists into one.
-			return allIssues.all || Object.keys( allIssues ).reduce(
-				function ( all, key ) {
-					return all.concat( allIssues[key] );
-				},
-				[]
-			);
-		} else {
+		if ( section !== KEYWORD_ALL_SECTIONS ) {
 			return allIssues[section] || [];
 		}
+		// Note section.all may not exist, depending on the structure of the HTML page.
+		// It will only exist when Minerva has been run in desktop mode.
+		// If it's absent, we'll reduce all the other lists into one.
+		return allIssues.all || Object.keys( allIssues ).reduce(
+			function ( all, key ) {
+				return all.concat( allIssues[key] );
+			},
+			[]
+		);
 	}
 
 	/**
