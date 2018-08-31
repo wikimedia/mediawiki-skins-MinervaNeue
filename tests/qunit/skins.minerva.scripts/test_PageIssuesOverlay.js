@@ -22,15 +22,36 @@
 	} );
 
 	QUnit.test( '#log (section=1)', function ( assert ) {
-		var overlay = new PageIssuesOverlay( [], this.logger, '1', 0 );
+		var overlay = new PageIssuesOverlay( [
+			{
+				severity: 'MEDIUM'
+			}
+		], this.logger, '1', 0 );
 		overlay.onExit();
 		assert.strictEqual(
 			this.logger.log.calledWith( {
 				action: 'modalClose',
-				issuesSeverity: [],
+				issuesSeverity: [ 'MEDIUM' ],
 				sectionNumbers: [ '1' ]
 			} ), true, 'sectionNumbers is set'
 		);
 	} );
 
+	QUnit.test( '#log (section=2) multiple issues', function ( assert ) {
+		var overlay = new PageIssuesOverlay(
+			[ {
+				severity: 'MEDIUM'
+			},
+			{
+				severity: 'LOW'
+			} ], this.logger, '2', 0 );
+		overlay.onExit();
+		assert.strictEqual(
+			this.logger.log.calledWith( {
+				action: 'modalClose',
+				issuesSeverity: [ 'MEDIUM', 'LOW' ],
+				sectionNumbers: [ '2', '2' ]
+			} ), true, 'sectionNumbers is set for each issue'
+		);
+	} );
 }( mw.mobileFrontend ) );

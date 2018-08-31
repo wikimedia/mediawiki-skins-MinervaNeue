@@ -85,10 +85,19 @@
 		 * @return {void}
 		 */
 		onExit: function () {
-			this.log( {
-				action: 'modalClose',
-				issuesSeverity: this.issues.map( issueSummaryToSeverity )
-			} );
+			var logData = {
+					action: 'modalClose',
+					issuesSeverity: this.issues.map( issueSummaryToSeverity )
+				},
+				currentSection = this.section;
+			// When users close the modal, `sectionNumbers` should correlate to each visible issue in
+			// the modal, provided that this.section is a valid number and not `KEYWORD_ALL_SECTIONS`.
+			if ( this.section !== KEYWORD_ALL_SECTIONS ) {
+				logData.sectionNumbers = this.issues.map( function () {
+					return currentSection;
+				} );
+			}
+			this.log( logData );
 		},
 
 		/**
