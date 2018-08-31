@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kening Aldgilles",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"PiefPafPier"
 		]
 	},
 	"mobile-frontend-editor-edit": "Bewurkje",
@@ -14,5 +15,5 @@
 	"mobile-frontend-main-menu-settings": "Ynstellingen",
 	"mobile-frontend-main-menu-watchlist": "Folchlist",
 	"mobile-frontend-placeholder": "{{SITENAME}} trochsykje",
-	"mobile-frontend-random-button": "Willekeurich"
+	"mobile-frontend-random-button": "Samar wat"
 }
