@@ -6,6 +6,50 @@
 	p {
 		margin: 0.5em 0 1em 0;
 	}
+
+	// Code
+	//
+	// Use this solely for blocks of computer code.
+	//
+	// Markup:
+	// <code>
+	// body {
+	//   color:red;
+	// }
+	// </code>
+	//
+	// Styleguide 1.6.
+
+	// Preformatted text
+	//
+	// Use on text where whitespace is significant and the content should not be formatted.
+	//
+	// Markup:
+	// <pre>
+	// body {
+	//   color:red;
+	// }
+	// </pre>
+	//
+	// Note .mw-code is not added here as it is assumed that will be used with a suitable tag
+	// tt is a non-standard element so is not included in the selector.
+	// Styleguide 1.7.
+	kbd,
+	samp,
+	code,
+	pre {
+		font-family: @fontFamilyMonospace;
+		border: solid 1px @colorGray12;
+		white-space: pre-wrap;
+	}
+
+	code {
+		padding: 0.2em 0.5em;
+	}
+
+	pre {
+		padding: 1em;
+	}
 }
 
 strong,
@@ -16,50 +60,6 @@ b {
 em,
 i {
 	font-style: italic;
-}
-
-// Code
-//
-// Use this solely for blocks of computer code.
-//
-// Markup:
-// <code>
-// body {
-//   color:red;
-// }
-// </code>
-//
-// Styleguide 1.6.
-
-// Preformatted text
-//
-// Use on text where whitespace is significant and the content should not be formatted.
-//
-// Markup:
-// <pre>
-// body {
-//   color:red;
-// }
-// </pre>
-//
-// Note .mw-code is not added here as it is assumed that will be used with a suitable tag
-// tt is a non-standard element so is not included in the selector.
-// Styleguide 1.7.
-kbd,
-samp,
-code,
-pre {
-	font-family: @fontFamilyMonospace;
-	border: solid 1px @colorGray12;
-	white-space: pre-wrap;
-}
-
-code {
-	padding: 0.2em 0.5em;
-}
-
-pre {
-	padding: 1em;
 }
 
 .mw-ref, // For Parsoid content (e.g. mediawiki.skinning.content.parsoid)
