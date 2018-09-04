@@ -821,7 +821,7 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 				// This is shown when js is disabled. js enhancement made due to caching
 				$tagline = $this->msg( 'mobile-frontend-user-page-member-since',
 						$this->getLanguage()->userDate( new MWTimestamp( $fromDateTs ), $this->getUser() ),
-						$pageUser );
+						$pageUser )->text();
 
 				// Define html attributes for usage with js enhancement (unix timestamp, gender)
 				$attrs = [ 'id' => 'tagline-userpage',
@@ -929,11 +929,11 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 
 		$tpl->set( 'menuButton',
 			Html::element( 'a', [
-				'title' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' ),
+				'title' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->text(),
 				'href' => $url,
 				'class' => MinervaUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
 				'id' => 'mw-mf-main-menu-button',
-			], $this->msg( 'mobile-frontend-main-menu-button-tooltip' ) )
+			], $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->text() )
 		);
 	}
 
