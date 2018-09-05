@@ -188,8 +188,7 @@
 			} );
 		} else {
 			$link = createLinkElement( labelText );
-			// In group A, we link to all issues no matter where the banner is.
-			$link.attr( 'href', '#/issues/' + KEYWORD_ALL_SECTIONS );
+			$link.attr( 'href', '#/issues/' + section );
 			$link.click( function () {
 				pageIssuesLogger.log( {
 					action: 'issueClicked',
