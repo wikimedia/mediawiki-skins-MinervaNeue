@@ -2,6 +2,7 @@
 	/**
 	 * @typedef PageIssue
 	 * @prop {string} severity A SEVERITY_LEVEL key.
+	 * @prop {boolean} grouped True if part of a group of multiple issues, false if singular.
 	 * @prop {Icon} icon
 	 */
 
@@ -78,6 +79,7 @@
 			].join( '|' ) )
 			// ..And everything else that doesn't match is mapped to a "SEVERITY" type.
 		},
+		GROUPED_PARENT_REGEX = /mw-collapsible-content/,
 		// Variants supported by specific types. The "severity icon" supports all severities but the
 		// type icons only support one each by ResourceLoader.
 		TYPE_SEVERITY = {
@@ -119,6 +121,14 @@
 
 	/**
 	 * @param {Element} box
+	 * @return {boolean} True if part of a group of multiple issues, false if singular.
+	 */
+	function parseGroup( box ) {
+		return !!box.parentNode && GROUPED_PARENT_REGEX.test( box.parentNode.className );
+	}
+
+	/**
+	 * @param {Element} box
 	 * @param {string} severity An SEVERITY_LEVEL key.
 	 * @return {string} A severity or type ISSUE_ICON.
 	 */
@@ -147,6 +157,7 @@
 		var severity = parseSeverity( box );
 		return {
 			severity: severity,
+			grouped: parseGroup( box ),
 			icon: new Icon( {
 				glyphPrefix: 'minerva',
 				name: iconName( box, severity )
@@ -168,7 +179,8 @@
 		iconName: iconName,
 		test: {
 			parseSeverity: parseSeverity,
-			parseType: parseType
+			parseType: parseType,
+			parseGroup: parseGroup
 		}
 	} );
 

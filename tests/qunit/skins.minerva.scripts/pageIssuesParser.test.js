@@ -70,6 +70,32 @@
 		} );
 	} );
 
+	QUnit.test( 'parseGroup', function ( assert ) {
+		var tests = [
+			[ undefined, false, 'orphaned' ],
+			[ '', false, 'ungrouped' ],
+			[ 'mw-collapsible-content', true, 'grouped' ]
+		];
+		tests.forEach( function ( params, i ) {
+			var
+				parentClassName = params[0],
+				expect = params[1],
+				test = params[2],
+				parent,
+				box = newBox( '' );
+			if ( parentClassName !== undefined ) {
+				parent = document.createElement( 'div' );
+				parent.className = parentClassName;
+				parent.appendChild( box );
+			}
+			assert.strictEqual(
+				pageIssuesParser.test.parseGroup( box ),
+				expect,
+				'Result should be the correct grouping; case ' + i + ': ' + test + '.'
+			);
+		} );
+	} );
+
 	QUnit.test( 'iconName', function ( assert ) {
 		var tests = [
 			[ '', 'DEFAULT', 'issue-generic-defaultColor' ],

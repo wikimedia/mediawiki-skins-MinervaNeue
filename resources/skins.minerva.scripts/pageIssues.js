@@ -75,7 +75,6 @@
 	 */
 	function extractMessage( $box ) {
 		var SELECTOR = '.mbox-text, .ambox-text',
-			MULTIPLE_SELECTOR = '.mw-collapsible-content',
 			$container = $( '<div>' ),
 			pageIssue;
 
@@ -95,7 +94,7 @@
 
 		return {
 			severity: pageIssue.severity,
-			isMultiple: $box.parent().is( MULTIPLE_SELECTOR ),
+			isMultiple: pageIssue.grouped,
 			icon: pageIssue.icon.toHtmlString(),
 			text: $container.html()
 		};
