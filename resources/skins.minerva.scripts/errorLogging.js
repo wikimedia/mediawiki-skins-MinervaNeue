@@ -48,8 +48,8 @@
 		}
 		// track RL exceptions
 		trackSubscribe( 'resourceloader.exception', function ( topic, data ) {
-			var err = data.exception;
-			handleError( err.message, err.lineNumber, err.columnNumber );
+			var error = data.exception;
+			handleError( error.message, error.lineNumber, error.columnNumber );
 		} );
 		// setup the global error handler
 		trackSubscribe( 'global.error', function ( topic, error ) {
