@@ -4,8 +4,21 @@
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
 		extractMessage = pageIssues.test.extractMessage,
 		createBanner = pageIssues.test.createBanner,
+		formatPageIssuesSeverity = pageIssues.test.formatPageIssuesSeverity,
 		MEDIUM_ISSUE = {
 			severity: 'MEDIUM',
+			icon: 'i',
+			text: 't'
+		},
+		MEDIUM_MULTIPLE_ISSUE = {
+			severity: 'MEDIUM',
+			isMultiple: true,
+			icon: 'i',
+			text: 't'
+		},
+		LOW_MULTIPLE_ISSUE = {
+			severity: 'LOW',
+			isMultiple: true,
 			icon: 'i',
 			text: 't'
 		},
@@ -62,6 +75,35 @@
 		mw.trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
 			assert.equal( JSON.toString( mockAction ), JSON.toString( data ) );
 		} );
+	} );
+
+	QUnit.test( 'formatPageIssuesSeverity', function ( assert ) {
+		var multipleIssues = [
+				MEDIUM_MULTIPLE_ISSUE,
+				LOW_MULTIPLE_ISSUE,
+				LOW_MULTIPLE_ISSUE
+			],
+			multipleSingleIssues = [
+				LOW_ISSUE,
+				HIGH_ISSUE,
+				MEDIUM_ISSUE
+			],
+			mixedMultipleSingle = [
+				HIGH_ISSUE,
+				LOW_MULTIPLE_ISSUE,
+				MEDIUM_MULTIPLE_ISSUE,
+				LOW_ISSUE,
+				MEDIUM_ISSUE,
+				HIGH_ISSUE
+			],
+			testMultiple = multipleIssues.reduce( formatPageIssuesSeverity, [] ),
+			testSingle = multipleSingleIssues.reduce( formatPageIssuesSeverity, [] ),
+			testMixed = mixedMultipleSingle.reduce( formatPageIssuesSeverity, [] );
+
+		assert.deepEqual( testMultiple, [ 'MEDIUM' ], 'Multiple issues return one maxSeverity value' );
+		assert.deepEqual( testSingle, [ 'LOW', 'HIGH', 'MEDIUM' ], 'Single issues return each corresponding severity' );
+		assert.deepEqual( testMixed, [ 'HIGH', 'MEDIUM', 'LOW', 'MEDIUM', 'HIGH' ], 'Mixed single/multiple return one value for multiples' );
+
 	} );
 
 	QUnit.test( 'extractMessage', function ( assert ) {

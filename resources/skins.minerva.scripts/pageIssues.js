@@ -41,23 +41,27 @@
 	 * In the case that a page-issue is part of a "multiple issues" template,
 	 * returns the maximum severity for that group of issues.
 	 *
-	 * @param {array} acc - the return array containing severities
-	 * @param {IssueSummary} summary current IssueSummary object
+	 * @param {array} formattedArr - the return array containing severities
+	 * @param {IssueSummary} currentItem current IssueSummary object
 	 * @param {number} currentIndex current index of pageIssues
 	 * @param {array} pageIssues array of pageIssues
 	 *
 	 * @return {array} acc
 	 */
-	function formatPageIssuesSeverity( acc, summary, currentIndex, pageIssues ) {
-		var lastItem = pageIssues[ currentIndex - 1 ];
-		if ( lastItem && lastItem.isMultiple && summary.isMultiple ) {
-			acc[ acc.length - 1 ] = pageIssuesParser.maxSeverity(
-				[ lastItem.severity, summary.severity ]
+	function formatPageIssuesSeverity( formattedArr, currentItem, currentIndex, pageIssues ) {
+		var lastItem = pageIssues[ currentIndex - 1 ],
+			lastFormattedIndex = formattedArr.length - 1,
+			lastFormattedValue = formattedArr[ lastFormattedIndex ];
+		// If the last and current item `isMultiple`, fold the maxSeverity
+		// of the two items into a single value.
+		if ( lastItem && lastItem.isMultiple && currentItem.isMultiple ) {
+			formattedArr[ lastFormattedIndex ] = pageIssuesParser.maxSeverity(
+				[ lastFormattedValue, currentItem.severity ]
 			);
 		} else {
-			acc.push( summary.severity );
+			formattedArr.push( currentItem.severity );
 		}
-		return acc;
+		return formattedArr;
 	}
 
 	/**
@@ -336,6 +340,7 @@
 		// the subscription call in cleanuptemplates.
 		log: pageIssuesLogger.log,
 		test: {
+			formatPageIssuesSeverity: formatPageIssuesSeverity,
 			extractMessage: extractMessage,
 			getAllIssuesSections: getAllIssuesSections,
 			createBanner: createBanner
