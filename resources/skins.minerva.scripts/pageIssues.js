@@ -198,7 +198,11 @@
 								.map( function ( issue ) { return issue.severity; } )
 						)
 					],
-					sectionNumbers: getAllIssuesSections( allIssues )
+					// In the old treatment, an issuesClicked event will always be '0'
+					// as the old treatment is always associated with the lead section and we
+					// are only sending one maximum severity for all of them.
+					// An issuesClicked event should only ever be associated with one issue box.
+					sectionNumbers: [ '0' ]
 				} );
 			} );
 			if ( $metadata.length ) {
