@@ -9,10 +9,10 @@
 			"BadDog"
 		]
 	},
-	"minerva-last-modified-date": "Последњи измена на дан $1 у $2 ч.",
+	"minerva-last-modified-date": "Последња измена на дан $1 у $2 ч.",
 	"minerva-talk-add-topic": "Додај дискусију",
-	"mobile-frontend-cookies-required": "Колачићи су потребни за мењање начина погледа. Омогућите их и покушајте поново.",
-	"mobile-frontend-editor-cta": "Помозите нам да побољшамо ову страницу!",
+	"mobile-frontend-cookies-required": "Колачићи су нужни за мењање режима приказа. Омогућите их и покушајте поново.",
+	"mobile-frontend-editor-cta": "Помозите нам да побољшамо ову страницу.",
 	"minerva-pointer-dismiss": "Одбаци",
 	"mobile-frontend-editor-disabled": "Ова страница је заштићена ради спречавања вандализма.",
 	"mobile-frontend-editor-edit": "Уреди",
@@ -21,12 +21,12 @@
 	"mobile-frontend-editor-redlink-explain": "Ова страница још увек није направљена.",
 	"mobile-frontend-editor-redlink-leave": "Не, хвала.",
 	"mobile-frontend-editor-tutorial-cancel": "Не, хвала",
-	"mobile-frontend-editor-tutorial-confirm": "Започни уређивање",
-	"mobile-frontend-editor-tutorial-summary": "Пробајте побољшати страницу $1.<br />Не бојте се викикôда.",
-	"mobile-frontend-editor-unavailable": "Мобилно уређивање није доступно у Вашем прегледачу. Молимо покушајте с другим прегледачем.",
+	"mobile-frontend-editor-tutorial-confirm": "Почни са уређивањем",
+	"mobile-frontend-editor-tutorial-summary": "Покушајте да побољшате страницу $1.<br />Не бојте се викикода.",
+	"mobile-frontend-editor-unavailable": "Мобилно уређивање није доступно у вашем прегледачу. Покушајте са другим прегледачем.",
 	"mobile-frontend-editor-undo-unsupported": "Поништавање тренутно није подржано на мобилним уређајима.",
-	"mobile-frontend-editor-uploadenable": "Отпремите слику пре него што омогућите уређивање.",
-	"mobile-frontend-history": "Историја измена ове странице.",
+	"mobile-frontend-editor-uploadenable": "Да бисте омогућили уређивање, најпре отпремите слику.",
+	"mobile-frontend-history": "Погледај историју измена ове странице.",
 	"mobile-frontend-home-button": "Почетна",
 	"mobile-frontend-language-article-heading": "Читајте на другим језицима",
 	"mobile-frontend-language-change": "Промени језик",
@@ -42,6 +42,7 @@
 	"mobile-frontend-meta-data-issues": "Проблеми са страницом",
 	"mobile-frontend-meta-data-issues-categories": "О овој категорији",
 	"mobile-frontend-meta-data-issues-header": "Проблеми са страницом",
+	"minerva-meta-data-issues-section-header": "Проблеми са одељком",
 	"mobile-frontend-meta-data-issues-header-talk": "О овој страници",
 	"mobile-frontend-meta-data-issues-talk": "О овој страници за разговор",
 	"mobile-frontend-notifications-filter": "Филтер",
@@ -65,5 +66,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорије",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Погледај категорије на страницама",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Иди на врх",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Иди на врх тренутне странице уз помоћ падајућег дугмета"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Иди на врх актуелне странице коришћењем плутајућег дугмета"
 }
