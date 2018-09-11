@@ -2,7 +2,7 @@
 	var PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' );
 
 	QUnit.module( 'Minerva PageIssuesOverlay', {
-		setup: function () {
+		beforeEach: function () {
 			this.logger = {
 				log: this.sandbox.spy()
 			};
