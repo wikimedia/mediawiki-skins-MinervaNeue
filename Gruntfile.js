@@ -25,6 +25,8 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.less',
+				// TODO: Nested imports cause stylelint to crash
+				'!resources/skins.minerva.base.styles/print/styles.less',
 				'!docs/**',
 				'!libs/**',
 				'!node_modules/**',

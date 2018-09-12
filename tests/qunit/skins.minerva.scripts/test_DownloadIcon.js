@@ -10,7 +10,7 @@
 		Page = M.require( 'mobile.startup/Page' );
 
 	QUnit.module( 'Minerva DownloadIcon', {
-		setup: function () {
+		beforeEach: function () {
 			this.skin = new Skin( {} );
 		}
 	} );
@@ -72,7 +72,7 @@
 	} );
 
 	QUnit.module( 'Minerva DownloadIcon.isAvailable()', {
-		setup: function () {
+		beforeEach: function () {
 			this.skin = new Skin( {
 				page: new Page( {
 					id: 0,
@@ -121,7 +121,7 @@
 		assert.notOk( icon.isAvailable( 'Mozilla/5.0 (Linux; Android 7.0; SM-G950U1 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/63.0.3239.111 Mobile Safari/537.36 MxBrowser/4.5.10.1300' ) );
 	} );
 
-	QUnit.test( 'isAvailable() handles properly non-chrome browsers', function ( assert ) {
+	QUnit.test( 'isAvailable() handles properly browsers', function ( assert ) {
 		var icon = new DownloadIcon( this.skin, VALID_SUPPORTED_NAMESPACES, windowChrome );
 		// IPhone 6 Safari
 		assert.notOk( icon.isAvailable( 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A405 Safari/601.1' ) );

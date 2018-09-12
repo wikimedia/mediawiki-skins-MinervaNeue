@@ -67,13 +67,13 @@
 	} );
 
 	// NOTE: Only for PageIssues AB
-	QUnit.test( 'clicking on the product of createBanner() should trigger a custom event', function ( assert ) {
+	QUnit.skip( 'clicking on the product of createBanner() should trigger a custom event', function ( assert ) {
 		var mockAction = {
 			action: 'issueClicked',
 			issueSeverity: [ 'MEDIUM' ]
 		};
 		mw.trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
-			assert.equal( JSON.toString( mockAction ), JSON.toString( data ) );
+			assert.deepEqual( mockAction, data );
 		} );
 	} );
 
