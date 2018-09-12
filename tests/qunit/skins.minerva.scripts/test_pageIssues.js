@@ -34,9 +34,10 @@
 		),
 		labelText = 'label text',
 		inline = true,
+		SECTION = '0',
 		processedAmbox = createBanner(
 			new Page( { el: $mockContainer } ),
-			labelText, '0', inline, overlayManager
+			labelText, SECTION, inline, overlayManager
 		);
 
 	QUnit.module( 'Minerva cleanuptemplates' );
@@ -50,18 +51,20 @@
 	} );
 	QUnit.test( 'clicking on the product of createBanner() should trigger a URL change', function ( assert ) {
 		processedAmbox.click();
-		assert.strictEqual( window.location.hash, '#/issues/0' );
+		assert.strictEqual( window.location.hash, '#/issues/' + SECTION );
 	} );
 
 	// NOTE: Only for PageIssues AB
-	QUnit.skip( 'clicking on the product of createBanner() should trigger a custom event', function ( assert ) {
+	QUnit.test( 'clicking on the product of createBanner() should trigger a custom event', function ( assert ) {
 		var mockAction = {
 			action: 'issueClicked',
-			issueSeverity: [ 'MEDIUM' ]
+			issuesSeverity: [ 'MEDIUM' ],
+			sectionNumbers: [ SECTION ]
 		};
 		mw.trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
 			assert.deepEqual( mockAction, data );
 		} );
+		processedAmbox.click();
 	} );
 
 	QUnit.test( 'extractMessage', function ( assert ) {

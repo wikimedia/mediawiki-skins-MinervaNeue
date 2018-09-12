@@ -27,8 +27,14 @@
 		assert.strictEqual( badge.options.notificationCountRaw, 100, 'Number is capped to 100.' );
 	} );
 
-	QUnit.skip( '#setCount (Eastern Arabic numerals)', function ( assert ) {
-		var badge = new NotificationBadge( {
+	QUnit.test( '#setCount (Eastern Arabic numerals)', function ( assert ) {
+		var badge;
+
+		this.sandbox.stub( mw.language, 'convertNumber' )
+			.withArgs( 2 ).returns( '۲' )
+			.withArgs( 5 ).returns( '۵' );
+
+		badge = new NotificationBadge( {
 			overlayManager: this.OverlayManager,
 			el: $( '<div><a title="n" href="/" class="notification-unseen"><div class="circle" ><span data-notification-count="2">۲</span></div></a></div>' )
 		} );
