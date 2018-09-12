@@ -60,7 +60,9 @@
 		 */
 		events: util.extend( {}, Overlay.prototype.events, {
 			'click a:not(.external):not([href*=edit])': 'onInternalClick',
-			'click a[href*="edit"]': 'onEditClick'
+			// Only register attempts to edit an existing page (should be the one we are on),
+			// not internal clicks on redlinks to nonexistent pages:
+			'click a[href*="edit"]:not([href*=redlink])': 'onEditClick'
 		} ),
 
 		/**
@@ -123,6 +125,7 @@
 		 * Event that is triggered when an edit link inside the overlay is clicked. This is
 		 * primarily used for instrumenting page issues (see
 		 * https://meta.wikimedia.org/wiki/Schema:PageIssues).
+		 * The event will not be triggered in the case of red links.
 		 * @param {JQuery.Event} ev
 		 * @memberof PageIssuesOverlay
 		 * @instance
