@@ -12,7 +12,9 @@
 	 *
 	 * @return {Object} A Partial<Schema:PageIssues> Object meant to be mixed with track data.
 	 */
-	function newPageIssueSchemaData( newTreatmentEnabled, namespaceId, pageIssueSeverities, pageIssuesSections ) {
+	function newPageIssueSchemaData(
+		newTreatmentEnabled, namespaceId, pageIssueSeverities, pageIssuesSections
+	) {
 		return {
 			pageTitle: mwConfig.get( 'wgTitle' ),
 			namespaceId: namespaceId,
@@ -29,7 +31,7 @@
 	/**
 	 * Enable tracking and add page token to every logged event.
 	 * @param {boolean} newTreatmentEnabled
-	 * @param {Object} pageIssueSchemaData A Partial<Schema:PageIssues> Object that will be mixed with
+	 * @param {Object} pageIssueSchemaData A Partial<Schema:PageIssues> Object that will be mixed
 	 *                                     with track data.
 	 * @return {void}
 	 */
@@ -43,9 +45,9 @@
 
 			// Although we use strings inside the issues code (due to the usage of the key word
 			// `all`) - these need to be numbers to be validated by the schema
-			mixedData.sectionNumbers = ( mixedData.sectionNumbers || [] ).map( function ( sectionStr ) {
-				return parseInt( sectionStr, 10 );
-			} );
+			mixedData.sectionNumbers = ( mixedData.sectionNumbers || [] ).map(
+				function ( sectionStr ) { return parseInt( sectionStr, 10 ); }
+			);
 
 			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
 			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/

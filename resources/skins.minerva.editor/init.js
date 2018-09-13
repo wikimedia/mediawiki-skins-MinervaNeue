@@ -149,7 +149,8 @@
 			// For now, we are going to ignore which editor is set as the default for the
 			// wiki and always default to the source editor. Once we decide to honor the
 			// default editor setting for the wiki, we'll want to use:
-			// visualEditorDefault = veConfig && veConfig.defaultUserOptions && veConfig.defaultUserOptions.enable;
+			// visualEditorDefault = veConfig && veConfig.defaultUserOptions &&
+			//   veConfig.defaultUserOptions.enable;
 			// return visualEditorDefault ? 'VisualEditor' : 'SourceEditor';
 			return 'SourceEditor';
 		}
@@ -289,7 +290,8 @@
 				},
 				drawer = new CtaDrawer( drawerOptions );
 
-			// use preventDefault() and not return false to close other open drawers or anything else.
+			// use preventDefault() and not return false to close other open
+			// drawers or anything else.
 			ev.preventDefault();
 			drawer.show();
 		} );
@@ -305,8 +307,8 @@
 				addEditButton( 0, '#ca-edit' );
 			} else if ( leadSection !== null ) {
 				// if lead section is empty open editor with first section
-				// be careful not to do this when leadSection is null as this means MobileFormatter has not
-				// been run and thus we could not identify the lead
+				// be careful not to do this when leadSection is null as this means MobileFormatter
+				// has not been run and thus we could not identify the lead
 				addEditButton( 1, '#ca-edit' );
 			}
 		}

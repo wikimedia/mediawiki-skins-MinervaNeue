@@ -20,8 +20,9 @@
 	function PageIssuesOverlay( issues, logger, section, namespaceID ) {
 		var
 			options,
-			// Note only the main namespace is expected to make use of section issues, so the heading will
-			// always be minerva-meta-data-issues-section-header regardless of namespace.
+			// Note only the main namespace is expected to make use of section issues, so the
+			// heading will always be minerva-meta-data-issues-section-header regardless of
+			// namespace.
 			headingText = section === '0' || section === KEYWORD_ALL_SECTIONS ?
 				getNamespaceHeadingText( namespaceID ) :
 				mwMsg( 'minerva-meta-data-issues-section-header' );
@@ -90,8 +91,9 @@
 					issuesSeverity: this.issues.map( issueSummaryToSeverity )
 				},
 				currentSection = this.section;
-			// When users close the modal, `sectionNumbers` should correlate to each visible issue in
-			// the modal, provided that this.section is a valid number and not `KEYWORD_ALL_SECTIONS`.
+			// When users close the modal, `sectionNumbers` should correlate to each visible issue
+			// in the modal, provided that this.section is a valid number and not
+			// `KEYWORD_ALL_SECTIONS`.
 			if ( this.section !== KEYWORD_ALL_SECTIONS ) {
 				logData.sectionNumbers = this.issues.map( function () {
 					return currentSection;
@@ -101,9 +103,9 @@
 		},
 
 		/**
-		 * Event that is triggered when an internal link inside the overlay is clicked. This event will
-		 * not be triggered if the link contains the edit keyword, in which case onEditClick will be
-		 * fired. This is primarily used for instrumenting page issues (see
+		 * Event that is triggered when an internal link inside the overlay is clicked. This event
+		 * will not be triggered if the link contains the edit keyword, in which case onEditClick
+		 * will be fired. This is primarily used for instrumenting page issues (see
 		 * https://meta.wikimedia.org/wiki/Schema:PageIssues).
 		 * @param {JQuery.Event} ev
 		 * @memberof PageIssuesOverlay
@@ -118,8 +120,9 @@
 		},
 
 		/**
-		 * Event that is triggered when an edit link inside the overlay is clicked. This is primarily
-		 * used for instrumenting page issues (see https://meta.wikimedia.org/wiki/Schema:PageIssues).
+		 * Event that is triggered when an edit link inside the overlay is clicked. This is
+		 * primarily used for instrumenting page issues (see
+		 * https://meta.wikimedia.org/wiki/Schema:PageIssues).
 		 * @param {JQuery.Event} ev
 		 * @memberof PageIssuesOverlay
 		 * @instance

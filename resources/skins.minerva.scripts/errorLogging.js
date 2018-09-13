@@ -37,8 +37,8 @@
 						userUrl: window.location.href,
 						errorUrl: errorUrl,
 						errorMessage: errorMessage,
-						// Due to concerns for the length of the stack trace and going over the limit for URI length
-						// this is currently set to empty string.
+						// Due to concerns for the length of the stack trace and going over the
+						// limit for URI length this is currently set to empty string.
 						errorStackTrace: '',
 						errorLineNumber: lineNumber || 0,
 						errorColumnNumber: columnNumber || 0
@@ -56,4 +56,12 @@
 			handleError( error.errorMessage, error.lineNumber, error.columnNumber, error.url );
 		} );
 	} );
-}( mw.mobileFrontend, mw.requestIdleCallback, mw.track, mw.config, mw.trackSubscribe, mw.user, mw.experiments ) );
+}(
+	mw.mobileFrontend,
+	mw.requestIdleCallback,
+	mw.track,
+	mw.config,
+	mw.trackSubscribe,
+	mw.user,
+	mw.experiments
+) );

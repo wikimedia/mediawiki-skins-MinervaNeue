@@ -22,12 +22,14 @@
 		 * @cfg {string} defaults.isCompact whether the pointer overlay should be compact
 		 * @cfg {number} defaults.timeout in milliseconds. If not zero the pointer overlay will
 		 *  hide after this duration of time.
-		 * @cfg {string} defaults.isTutorial whether the pointer overlay contains tutorial like instructions
+		 * @cfg {string} defaults.isTutorial whether the pointer overlay contains tutorial like
+		 *                                   instructions
 		 * @cfg {string} defaults.summary Message describing thing being pointed to.
 		 * @cfg {string} defaults.cancelMsg Cancel message.
 		 * @cfg {string} defaults.appendToElement Where pointer overlay should be appended to.
 		 * @cfg {string} defaults.target jQuery selector to point tutorial at
-		 * @cfg {string} [defaults.alignment] Determines where the pointer should point to. Valid values 'left' or 'center'
+		 * @cfg {string} [defaults.alignment] Determines where the pointer should point to. Valid
+		 *                                    values 'left' or 'center'
 		 * @cfg {string} [defaults.confirmMsg] Label for a confirm message.
 		 * @memberof PointerOverlay
 		 * @instance
@@ -129,8 +131,8 @@
 				left: left
 			} ).appendTo( this.$el );
 
-			// Since the positioning of this overlay is dependent on the current viewport it makes sense to
-			// use a global window event so that on resizes it is correctly positioned.
+			// Since the positioning of this overlay is dependent on the current viewport it makes
+			// sense to use a global window event so that on resizes it is correctly positioned.
 			M.on(
 				'resize',
 				$.proxy( this, 'refreshPointerArrow', this.options.target )

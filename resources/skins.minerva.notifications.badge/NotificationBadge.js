@@ -128,8 +128,8 @@
 		 */
 		onClickBadge: function () {
 			this.options.router.navigate( '#/notifications' );
-			// Important that we also prevent propagation to avoid interference with events that may be
-			// binded on #mw-mf-page-center that close overlay
+			// Important that we also prevent propagation to avoid interference with events that may
+			// be binded on #mw-mf-page-center that close overlay
 			return false;
 		},
 		/**

@@ -23,7 +23,8 @@
 
 		/**
 		 * @cfg {object} defaults Default options hash.
-		 * @cfg {string} defaults.activator selector for element that when clicked can open or close the menu
+		 * @cfg {string} defaults.activator selector for element that when clicked can open or
+		 *                                  close the menu
 		 */
 		defaults: {
 			activator: undefined
@@ -80,7 +81,8 @@
 						self.openNavigationDrawer();
 					}
 					ev.preventDefault();
-					// Stop propagation, otherwise the Skin will close the open menus on page center click
+					// Stop propagation, otherwise the Skin will close the open menus on page center
+					// click
 					ev.stopPropagation();
 				} );
 		},

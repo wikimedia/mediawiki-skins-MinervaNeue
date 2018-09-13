@@ -48,7 +48,8 @@
 		// the possibility of invoking the filter from outside the Special page in future.
 		// Once the 'ext.echo.special.onInitialize' hook has fired, load notification filter.
 		mw.hook( 'ext.echo.special.onInitialize' ).add( function () {
-			// The 'ext.echo.special.onInitialize' hook is fired whenever special page notification changes display on click of a filter.
+			// The 'ext.echo.special.onInitialize' hook is fired whenever special page notification
+			// changes display on click of a filter.
 			// Hence the hook is restricted from firing more than once.
 			if ( initialized ) {
 				return;

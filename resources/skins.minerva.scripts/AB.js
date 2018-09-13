@@ -37,11 +37,11 @@
 		/**
 		 * Gets the users AB-test bucket.
 		 *
-		 * A boolean instead of an enum is usually a code smell. However, the nature of A/B testing is
-		 * to compare an A group's performance to a B group's so a boolean seems natural, even in the
-		 * long term, and preferable to showing bucketing encoding ("A", "B", "control") to callers
-		 * which is necessary if getBucket(). The downside is that now two functions exist where one
-		 * would suffice.
+		 * A boolean instead of an enum is usually a code smell. However, the nature of A/B testing
+		 * is to compare an A group's performance to a B group's so a boolean seems natural, even
+		 * in the long term, and preferable to showing bucketing encoding ("A", "B", "control") to
+		 * callers which is necessary if getBucket(). The downside is that now two functions exist
+		 * where one would suffice.
 		 *
 		 * @return {string} AB-test bucket, bucket.CONTROL_BUCKET by default, bucket.A or bucket.B
 		 *                  buckets otherwise.

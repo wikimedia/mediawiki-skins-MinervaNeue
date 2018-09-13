@@ -29,25 +29,25 @@
 			MEDIUM: 'mediumColor',
 			HIGH: 'highColor'
 		},
-		// How severities order and compare from least to greatest. For the multiple issues template,
-		// severity should be considered the maximum of all its contained issues.
+		// How severities order and compare from least to greatest. For the multiple issues
+		// template, severity should be considered the maximum of all its contained issues.
 		SEVERITY_LEVEL = {
 			DEFAULT: 0,
 			LOW: 1,
 			MEDIUM: 2,
 			HIGH: 3
 		},
-		// Match the template's color CSS selector to a severity level concept. Derived via the Ambox
-		// templates and sub-templates for the top five wikis and tested on page issues inventory:
+		// Match the template's color CSS selector to a severity level concept. Derived via the
+		// Ambox templates and sub-templates for the top five wikis and tested on page issues
+		// inventory:
 		// - https://people.wikimedia.org/~jdrewniak/page_issues_inventory
 		// - https://en.wikipedia.org/wiki/Template:Ambox
 		// - https://es.wikipedia.org/wiki/Plantilla:Metaplantilla_de_avisos
 		// - https://ja.wikipedia.org/wiki/Template:Ambox
 		// - https://ru.wikipedia.org/wiki/Шаблон:Ambox
 		// - https://it.wikipedia.org/wiki/Template:Avviso
-		// Severity is the class associated with the color. The ResourceLoader config mimics the idea by
-		// using severity for color variants.
-		// Severity is determined independently of icons.
+		// Severity is the class associated with the color. The ResourceLoader config mimics the
+		// idea by using severity for color variants. Severity is determined independently of icons.
 		// These selectors should be migrated to their templates.
 		SEVERITY_REGEX = {
 			LOW: /ambox-style|avviso-stile/, // en, it
@@ -124,7 +124,8 @@
 	 */
 	function iconName( box, severity ) {
 		var nameSeverity = parseType( box, severity );
-		// The icon with color variant as expected by ResourceLoader, {iconName}-{severityColorVariant}.
+		// The icon with color variant as expected by ResourceLoader,
+		// {iconName}-{severityColorVariant}.
 		return nameSeverity.name + '-' + ICON_COLOR[nameSeverity.severity];
 	}
 

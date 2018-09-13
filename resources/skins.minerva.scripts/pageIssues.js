@@ -122,7 +122,8 @@
 	 * @param {string} labelText what the label of the page issues banner should say
 	 * @param {string} section that the banner and its issues belong to.
 	 *  If string KEYWORD_ALL_SECTIONS banner should apply to entire page.
-	 * @param {boolean} inline - if true the first ambox in the section will become the entry point for the issues overlay
+	 * @param {boolean} inline - if true the first ambox in the section will become the entry point
+	 *                           for the issues overlay
 	 *  and if false, a link will be rendered under the heading.
 	 * @param {OverlayManager} overlayManager
 	 * @ignore
@@ -220,8 +221,8 @@
 
 	/**
 	 * Obtains the list of issues for the current page and provided section
-	 * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the section
-	 *  the issues belong to
+	 * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the
+	 *                                section the issues belong to
 	 * @return {jQuery.Object[]} array of all issues.
 	 */
 	function getIssues( section ) {
@@ -292,17 +293,20 @@
 				// parse lead
 				createBanner( page, label, '0', inline, overlayManager );
 				if ( newTreatmentEnabled ) {
-					// parse other sections but only in group B. In treatment A no issues are shown for sections.
+					// parse other sections but only in group B. In treatment A no issues are shown
+					// for sections.
 					page.$( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
 
-						// Note certain headings matched using Page.HEADING_SELECTOR may not be headings
-						// and will not have a edit link
-						// e.g. table of contents
+						// Note certain headings matched using Page.HEADING_SELECTOR may not be
+						// headings and will not have a edit link. E.g. table of contents.
 						if ( sectionNum ) {
-							// Render banner for sectionNum associated with headingEl inside Page
-							createBanner( page, label, sectionNum.toString(), inline, overlayManager );
+							// Render banner for sectionNum associated with headingEl inside
+							// Page
+							createBanner(
+								page, label, sectionNum.toString(), inline, overlayManager
+							);
 						}
 					} );
 				}
@@ -329,15 +333,16 @@
 
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
-			return new PageIssuesOverlay( getIssues( section ), pageIssuesLogger, section, CURRENT_NS );
+			return new PageIssuesOverlay(
+				getIssues( section ), pageIssuesLogger, section, CURRENT_NS );
 		} );
 	}
 
 	M.define( 'skins.minerva.scripts/pageIssues', {
 		init: initPageIssues,
-		// The logger requires initialization (subscription). Ideally, the logger would be initialized
-		// and passed to initPageIssues() by the client. Since it's not, expose a log method and hide
-		// the subscription call in cleanuptemplates.
+		// The logger requires initialization (subscription). Ideally, the logger would be
+		// initialized and passed to initPageIssues() by the client. Since it's not, expose a log
+		// method and hide the subscription call in cleanuptemplates.
 		log: pageIssuesLogger.log,
 		test: {
 			formatPageIssuesSeverity: formatPageIssuesSeverity,

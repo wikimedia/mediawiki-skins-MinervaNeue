@@ -22,7 +22,9 @@
 			i;
 
 		for ( i = 0; i < maxUsers; i++ ) {
-			config = util.extend( {}, defaultConfig, { sessionId: mw.user.generateRandomSessionId() } );
+			config = util.extend( {}, defaultConfig, {
+				sessionId: mw.user.generateRandomSessionId()
+			} );
 			bucketingTest = new AB( config );
 			if ( bucketingTest.isA() ) {
 				++userBuckets.A;

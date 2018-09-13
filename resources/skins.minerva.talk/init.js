@@ -39,7 +39,8 @@
 		var talkOptions = {
 			api: new mw.Api(),
 			title: title,
-			// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of spaces.
+			// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of
+			// spaces.
 			currentPageTitle: M.getCurrentPage().title,
 			licenseMsg: skin.getLicenseMsg()
 		};
@@ -81,8 +82,8 @@
 			var loadingOverlay = new LoadingOverlay();
 
 			window.location.hash = '';
-			// setTimeout to make sure, that loadingOverlay's overlayenabled class on html doesnt get removed by
-			// OverlayManager (who closes TalkSectionAddOverlay
+			// setTimeout to make sure, that loadingOverlay's overlayenabled class on html doesnt
+			// get removed by OverlayManager (who closes TalkSectionAddOverlay).
 			window.setTimeout( function () {
 				loadingOverlay.show();
 				window.location.reload();
