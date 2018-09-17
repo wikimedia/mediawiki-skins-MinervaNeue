@@ -105,7 +105,9 @@
 			"mediawiki.special.search.styles": [
 				"skinStyles/mediawiki.special.search.styles/minerva.less"
 			],
-			"mediawiki.skinning.content.parsoid": [],
+			"mediawiki.skinning.content.parsoid": [
+				"skinStyles/mediawiki.skinning.content.parsoid/minerva.less"
+			],
 			"mediawiki.hlist": [
 				"skinStyles/mediawiki.hlist/minerva.less"
 			],
