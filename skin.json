@@ -40,6 +40,11 @@
 			"base": false,
 			"beta": true
 		},
+		"MinervaShowShareButton": {
+			"prefix": "skin-minerva-",
+			"base": false,
+			"beta": true
+		},
 		"MinervaEnableBackToTop": {
 			"prefix": "skin-minerva-",
 			"base": false,
@@ -516,6 +521,13 @@
 				"resources/skins.minerva.editor/init.js"
 			]
 		},
+		"skins.minerva.options.share.icon": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"images": {
+				"share": "resources/skins.minerva.options/share.svg"
+			}
+		},
 		"skins.minerva.options": {
 			"targets": [
 				"mobile",
@@ -523,8 +535,13 @@
 			],
 			"dependencies": [
 				"skins.minerva.scripts",
+				"mediawiki.language",
 				"mobile.toggle",
-				"mobile.startup"
+				"mobile.startup",
+				"skins.minerva.options.share.icon"
+			],
+			"messages": [
+				"skin-minerva-share"
 			],
 			"templates": {
 				"BackToTopOverlay.hogan": "resources/skins.minerva.options/BackToTopOverlay.hogan"
@@ -535,7 +552,9 @@
 			"scripts": [
 				"resources/skins.minerva.options/BackToTopOverlay.js",
 				"resources/skins.minerva.options/backtotop.js",
-				"resources/skins.minerva.options/categories.js"
+				"resources/skins.minerva.options/categories.js",
+				"resources/skins.minerva.options/ShareIcon.js",
+				"resources/skins.minerva.options/share.js"
 			]
 		},
 		"skins.minerva.talk": {

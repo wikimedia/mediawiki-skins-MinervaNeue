@@ -32,6 +32,7 @@ class SkinMinerva extends SkinTemplate {
 	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
 	const OPTION_CATEGORIES = 'categories';
 	const OPTION_BACK_TO_TOP = 'backToTop';
+	const OPTION_SHARE_BUTTON = 'shareButton';
 	const OPTION_TOGGLING = 'toggling';
 	const OPTIONS_MOBILE_BETA = 'beta';
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
@@ -99,6 +100,8 @@ class SkinMinerva extends SkinTemplate {
 		self::OPTION_CATEGORIES => false,
 		/** Whether a back to top button appears at the bottom of the view page */
 		self::OPTION_BACK_TO_TOP => false,
+		/** Whether a share button should appear in icons section */
+		self::OPTION_SHARE_BUTTON => false,
 		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
 		self::OPTION_TOGGLING => false,
 	];
@@ -1344,7 +1347,9 @@ class SkinMinerva extends SkinTemplate {
 		if ( $this->hasSkinOptions() ) {
 			$modules[] = 'skins.minerva.options';
 		}
-
+		if ( $this->getSkinOption( self::OPTION_SHARE_BUTTON ) ) {
+			$modules[] = 'skins.minerva.share';
+		}
 		return $modules;
 	}
 
