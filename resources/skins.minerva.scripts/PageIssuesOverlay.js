@@ -59,6 +59,7 @@
 		 * @instance
 		 */
 		events: util.extend( {}, Overlay.prototype.events, {
+			'click a[href*=redlink]': 'onRedLinkClick',
 			'click a:not(.external):not([href*=edit])': 'onInternalClick',
 			// Only register attempts to edit an existing page (should be the one we are on),
 			// not internal clicks on redlinks to nonexistent pages:
@@ -105,9 +106,10 @@
 		},
 
 		/**
-		 * Event that is triggered when an internal link inside the overlay is clicked. This event
-		 * will not be triggered if the link contains the edit keyword, in which case onEditClick
-		 * will be fired. This is primarily used for instrumenting page issues (see
+		 * Event that is triggered when an internal link inside the overlay is clicked.
+		 * This event will not be triggered if the link contains the edit keyword,
+		 * in which case onEditClick will be
+		 * fired. This is primarily used for instrumenting page issues (see
 		 * https://meta.wikimedia.org/wiki/Schema:PageIssues).
 		 * @param {JQuery.Event} ev
 		 * @memberof PageIssuesOverlay
@@ -122,10 +124,26 @@
 		},
 
 		/**
-		 * Event that is triggered when an edit link inside the overlay is clicked. This is
-		 * primarily used for instrumenting page issues (see
-		 * https://meta.wikimedia.org/wiki/Schema:PageIssues).
+		 * Event that is triggered when a red link (e.g. a link to a page which doesn't exist)
+		 * inside the overlay is clicked.
+		 * @param {JQuery.Event} ev
+		 * @memberof PageIssuesOverlay
+		 * @instance
+		 */
+		onRedLinkClick: function ( ev ) {
+			var severity = parseSeverity( this.$( ev.target ) );
+			this.log( {
+				action: 'modalRedLinkClicked',
+				issuesSeverity: [ severity ]
+			} );
+		},
+
+		/**
+		 * Event that is triggered when an edit link inside the overlay is clicked.
+		 * This is primarily
+		 * used for instrumenting page issues (see https://meta.wikimedia.org/wiki/Schema:PageIssues).
 		 * The event will not be triggered in the case of red links.
+		 * See onRedLinkClick for red links.
 		 * @param {JQuery.Event} ev
 		 * @memberof PageIssuesOverlay
 		 * @instance
