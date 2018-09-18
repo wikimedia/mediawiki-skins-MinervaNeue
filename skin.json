@@ -424,6 +424,7 @@
 			},
 			"scripts": [
 				"resources/skins.minerva.scripts/errorLogging.js",
+				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/DownloadIcon.js",
 				"resources/skins.minerva.scripts/pageIssuesLogger.js",
@@ -432,7 +433,6 @@
 				"resources/skins.minerva.scripts/PageIssuesOverlay.js",
 				"resources/skins.minerva.scripts/pageIssues.js",
 				"resources/skins.minerva.scripts/init.js",
-				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
 				"resources/skins.minerva.scripts/references.js"
