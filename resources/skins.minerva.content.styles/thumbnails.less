@@ -43,11 +43,7 @@
 	}
 
 	// Hide the image magnification icon normally displayed in image captions
-	.magnify,
-	// Parsoid version of magnification icon (T160960)
-	figure[ typeof*='mw:Image/Thumb' ] > a:after,
-	figure[ typeof*='mw:Video/Thumb' ] > a:after,
-	figure[ typeof*='mw:Audio/Thumb' ] > a:after {
+	.magnify {
 		display: none;
 	}
 }
