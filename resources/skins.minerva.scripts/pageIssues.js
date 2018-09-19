@@ -21,7 +21,10 @@
 			samplingRate: ( CURRENT_NS === NS_MAIN ) ? config.get( 'wgMinervaABSamplingRate', 0 ) : 0,
 			sessionId: user.sessionId()
 		} ),
-		newTreatmentEnabled = abTest.isB();
+		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
+		// Per T204746 a user can request the new treatment regardless of test group
+		isUserRequestingNewTreatment = QUERY_STRING_FLAG === 'b',
+		newTreatmentEnabled = abTest.isB() || isUserRequestingNewTreatment;
 
 	/**
 	 * @typedef {Object} IssueSummary
@@ -33,7 +36,7 @@
 
 	function isLoggingRequired( pageIssues ) {
 		// No logging necessary when the A/B test is disabled (control group).
-		return abTest.isEnabled() && pageIssues.length;
+		return !isUserRequestingNewTreatment && abTest.isEnabled() && pageIssues.length;
 	}
 
 	/**
