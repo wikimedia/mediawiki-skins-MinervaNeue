@@ -91,12 +91,12 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/PageIssuesOverlay.js',
 				'resources/skins.minerva.scripts/pageIssues.js',
 				// test files
-				'tests/qunit/skins.minerva.scripts/test_DownloadIcon.js',
-				'tests/qunit/skins.minerva.scripts/test_pageIssuesParser.js',
-				'tests/qunit/skins.minerva.scripts/test_AB.js',
-				'tests/qunit/skins.minerva.scripts/test_PageIssuesOverlay.js',
-				'tests/qunit/skins.minerva.scripts/test_pageIssues.js',
-				'tests/qunit/skins.minerva.notifications.badge/test_NotificationBadge.js'
+				'tests/qunit/skins.minerva.scripts/DownloadIcon.test.js',
+				'tests/qunit/skins.minerva.scripts/pageIssuesParser.test.js',
+				'tests/qunit/skins.minerva.scripts/AB.test.js',
+				'tests/qunit/skins.minerva.scripts/PageIssuesOverlay.test.js',
+				'tests/qunit/skins.minerva.scripts/pageIssues.test.js',
+				'tests/qunit/skins.minerva.notifications.badge/NotificationBadge.test.js'
 			],
 		];
 
