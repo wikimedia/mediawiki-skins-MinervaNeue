@@ -130,6 +130,11 @@ class SkinMinerva extends SkinTemplate {
 		$out->addMeta( 'viewport', 'initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, ' .
 				'maximum-scale=5.0, width=device-width'
 		);
+		// T204691
+		$theme = $out->getConfig()->get( 'MFManifestThemeColor' );
+		if ( $theme ) {
+			$out->addMeta( 'theme-color', $theme );
+		}
 
 		// Generate skin template
 		$tpl = parent::prepareQuickTemplate();
