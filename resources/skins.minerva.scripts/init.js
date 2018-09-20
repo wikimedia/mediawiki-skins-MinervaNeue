@@ -9,6 +9,9 @@
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		router = require( 'mediawiki.router' ),
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
+		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
+		Button = M.require( 'mobile.startup/Button' ),
+		Anchor = M.require( 'mobile.startup/Anchor' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		page = M.getCurrentPage(),
 		api = new mw.Api(),
@@ -276,6 +279,39 @@
 		}
 	}
 
+	/**
+	 * Initialize red links call-to-action
+	 *
+	 * Upon clicking a red link, show an interstitial CTA explaining that the page doesn't exist
+	 * with a button to create it, rather than directly navigate to the edit form.
+	 *
+	 * @ignore
+	 */
+	function initRedlinksCta() {
+		page.getRedLinks().on( 'click', function ( ev ) {
+			var drawerOptions = {
+					progressiveButton: new Button( {
+						progressive: true,
+						label: mw.msg( 'mobile-frontend-editor-redlink-create' ),
+						href: $( this ).attr( 'href' )
+					} ).options,
+					closeAnchor: new Anchor( {
+						progressive: true,
+						label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
+						additionalClassNames: 'hide'
+					} ).options,
+					content: mw.msg( 'mobile-frontend-editor-redlink-explain' ),
+					actionAnchor: false
+				},
+				drawer = new CtaDrawer( drawerOptions );
+
+			// use preventDefault() and not return false to close other open
+			// drawers or anything else.
+			ev.preventDefault();
+			drawer.show();
+		} );
+	}
+
 	$( function () {
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
@@ -284,6 +320,7 @@
 		M.on( 'resize', loadTabletModules );
 		loadTabletModules();
 		appendDownloadButton();
+		initRedlinksCta();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
 		if ( !page.isMissing ) {

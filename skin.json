@@ -411,6 +411,9 @@
 				"mobile-frontend-meta-data-issues-header-talk",
 				"mobile-frontend-languages-not-available",
 				"mobile-frontend-cookies-required",
+				"mobile-frontend-editor-redlink-create",
+				"mobile-frontend-editor-redlink-leave",
+				"mobile-frontend-editor-redlink-explain",
 				"minerva-download",
 				"mobile-frontend-redirected-from"
 			],
@@ -533,9 +536,6 @@
 				"mobile-frontend-editor-uploadenable",
 				"mobile-frontend-editor-cta",
 				"mobile-frontend-editor-edit",
-				"mobile-frontend-editor-redlink-create",
-				"mobile-frontend-editor-redlink-leave",
-				"mobile-frontend-editor-redlink-explain",
 				"apierror-readonly"
 			],
 			"scripts": [

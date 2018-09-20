@@ -10,8 +10,6 @@
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		Icon = M.require( 'mobile.startup/Icon' ),
-		Button = M.require( 'mobile.startup/Button' ),
-		Anchor = M.require( 'mobile.startup/Anchor' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		currentPage = M.getCurrentPage(),
 		// TODO: create a utility method to generate class names instead of
@@ -263,28 +261,6 @@
 			}
 		} );
 		updateEditPageButton( true );
-		currentPage.getRedLinks().on( 'click', function ( ev ) {
-			var drawerOptions = {
-					progressiveButton: new Button( {
-						progressive: true,
-						label: mw.msg( 'mobile-frontend-editor-redlink-create' ),
-						href: $( this ).attr( 'href' )
-					} ).options,
-					closeAnchor: new Anchor( {
-						progressive: true,
-						label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
-						additionalClassNames: 'hide'
-					} ).options,
-					content: mw.msg( 'mobile-frontend-editor-redlink-explain' ),
-					actionAnchor: false
-				},
-				drawer = new CtaDrawer( drawerOptions );
-
-			// use preventDefault() and not return false to close other open
-			// drawers or anything else.
-			ev.preventDefault();
-			drawer.show();
-		} );
 
 		// Make sure we never create two edit links by accident
 		// FIXME: split the selector and cache it
