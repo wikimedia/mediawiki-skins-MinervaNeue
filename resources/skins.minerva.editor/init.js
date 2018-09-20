@@ -166,12 +166,6 @@
 			isNewPage = page.options.id === 0,
 			leadSection = page.getLeadSectionElement();
 
-		if ( mw.util.getParamValue( 'undo' ) ) {
-			// TODO: Replace with an OOUI dialog
-			// eslint-disable-next-line no-alert
-			alert( mw.msg( 'mobile-frontend-editor-undo-unsupported' ) );
-		}
-
 		page.$( '.edit-page, .edit-link' ).removeClass( disabledClass )
 			.on( 'click', onEditLinkClick );
 		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
@@ -407,6 +401,11 @@
 	if ( contentModel !== 'wikitext' ) {
 		// Only load the wikitext editor on wikitext. Otherwise we'll rely on the fallback behaviour
 		// (You can test this on MediaWiki:Common.css) ?action=edit url (T173800)
+		return;
+	}
+
+	if ( mw.util.getParamValue( 'undo' ) ) {
+		// Our fancy editor doesn't support undo, but we can rely on the fallback.
 		return;
 	}
 
