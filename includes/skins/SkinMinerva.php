@@ -696,8 +696,6 @@ class SkinMinerva extends SkinTemplate {
 					[ 'data-event-name' => 'logout' ]
 				);
 		} else {
-			// note welcome=yes in returnto  allows us to detect accounts created from the left nav
-			$returntoquery[ 'welcome' ] = 'yes';
 			// unset campaign on login link so as not to interfere with A/B tests
 			unset( $returntoquery['campaign'] );
 			$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
@@ -1309,7 +1307,6 @@ class SkinMinerva extends SkinTemplate {
 		$user = $this->getUser();
 		$req = $this->getRequest();
 		$action = $req->getVal( 'article_action' );
-		$campaign = $req->getVal( 'campaign' );
 		$title = $this->getTitle();
 
 		if ( !$title->isSpecialPage() ) {
@@ -1328,7 +1325,7 @@ class SkinMinerva extends SkinTemplate {
 			}
 
 			if ( $this->isCurrentPageEditableByUser() ) {
-				if ( $action === 'signup-edit' || $campaign === 'leftNavSignup' ) {
+				if ( $action === 'signup-edit' ) {
 					$modules[] = 'skins.minerva.newusers';
 				}
 			}
