@@ -27,7 +27,7 @@ use MediaWiki\Minerva\SkinUserPageHelper;
  * A skin that works on both desktop and mobile
  * @ingroup Skins
  */
-class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
+class SkinMinerva extends SkinTemplate {
 	/** Set of keys for available skin options. See $skinOptions. */
 	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
 	const OPTION_CATEGORIES = 'categories';
