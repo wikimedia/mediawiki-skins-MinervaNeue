@@ -256,7 +256,7 @@ class SkinMinerva extends SkinTemplate {
 	public function doEditSectionLink( Title $nt, $section, $tooltip = null, $lang = false ) {
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
-			$html = Html::openElement( 'span' );
+			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
 			$html .= Html::element( 'a', [
 				'href' => $this->getTitle()->getLocalUrl( [ 'action' => 'edit', 'section' => $section ] ),
 				'title' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
@@ -1136,7 +1136,7 @@ class SkinMinerva extends SkinTemplate {
 		$editArgs = [ 'action' => 'edit' ];
 		if ( $title->isWikitextPage() ) {
 			// If the content model is wikitext we'll default to editing the lead section.
-			// Full wikitext editing is not possible via the api and hard on mobile devices.
+			// Full wikitext editing is hard on mobile devices.
 			$editArgs['section'] = self::LEAD_SECTION_NUMBER;
 		}
 		$userCanEdit = $title->quickUserCan( 'edit', $this->getUser() );
@@ -1147,10 +1147,12 @@ class SkinMinerva extends SkinTemplate {
 			'class' => MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
 			'links' => [
 				'edit' => [
-					'href' => $title->getLocalURL( $editArgs )
+					'href' => $title->getLocalURL( $editArgs ),
+					'msg' => 'mobile-frontend-editor-edit',
+					'class' => 'edit-page',
 				],
 			],
-			'is_js_only' => false
+			'is_js_only' => false,
 		];
 	}
 
