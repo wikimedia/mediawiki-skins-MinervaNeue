@@ -696,7 +696,6 @@ class SkinMinerva extends SkinTemplate {
 					[ 'data-event-name' => 'logout' ]
 				);
 		} else {
-			// note returnto is not set for mobile (per product spec)
 			// note welcome=yes in returnto  allows us to detect accounts created from the left nav
 			$returntoquery[ 'welcome' ] = 'yes';
 			// unset campaign on login link so as not to interfere with A/B tests
