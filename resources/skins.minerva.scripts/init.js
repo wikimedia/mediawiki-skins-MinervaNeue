@@ -2,6 +2,7 @@
 	var
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
+		user = M.require( 'mobile.startup/user' ),
 		skin = M.require( 'mobile.init/skin' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
@@ -10,6 +11,7 @@
 		router = require( 'mediawiki.router' ),
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
 		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
+		Icon = M.require( 'mobile.startup/Icon' ),
 		Button = M.require( 'mobile.startup/Button' ),
 		Anchor = M.require( 'mobile.startup/Anchor' ),
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
@@ -312,6 +314,45 @@
 		} );
 	}
 
+	/**
+	 * Initialize page edit action link (#ca-edit)
+	 *
+	 * Mark the edit link as disabled if the user is not actually able to edit the page for some
+	 * reason (e.g. page is protected or user is blocked).
+	 *
+	 * Note that the link is still clickable, but clicking it will probably open a view-source
+	 * form or display an error message, rather than open an edit form.
+	 *
+	 * FIXME: Review this code as part of T206262
+	 *
+	 * @ignore
+	 */
+	function initEditLink() {
+		var
+			// FIXME: create a utility method to generate class names instead of
+			//       constructing temporary objects. This affects disabledEditIcon,
+			//       enabledEditIcon, enabledEditIcon, and disabledClass and
+			//       a number of other places in the code base.
+			disabledEditIcon = new Icon( {
+				name: 'edit',
+				glyphPrefix: 'minerva'
+			} ),
+			enabledEditIcon = new Icon( {
+				name: 'edit-enabled',
+				glyphPrefix: 'minerva'
+			} ),
+			enabledClass = enabledEditIcon.getGlyphClassName(),
+			disabledClass = disabledEditIcon.getGlyphClassName(),
+			isReadOnly = mw.config.get( 'wgMinervaReadOnly' ),
+			isEditable = mw.config.get( 'wgIsProbablyEditable' ),
+			blockInfo = user.isAnon() ? false : mw.config.get( 'wgMinervaUserBlockInfo', false ),
+			canEdit = !isReadOnly && isEditable && !blockInfo;
+
+		$( '#ca-edit' )
+			.addClass( canEdit ? enabledClass : disabledClass )
+			.removeClass( canEdit ? disabledClass : enabledClass );
+	}
+
 	$( function () {
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
@@ -321,6 +362,7 @@
 		loadTabletModules();
 		appendDownloadButton();
 		initRedlinksCta();
+		initEditLink();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
 		if ( !page.isMissing ) {
