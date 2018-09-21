@@ -410,10 +410,11 @@
 	}
 
 	if ( !isEditingSupported ) {
-		// Editing is disabled (or browser is blacklisted)
-		updateEditPageButton( false );
-		showSorryToast( mw.msg( 'mobile-frontend-editor-unavailable' ) );
-	} else if ( isNewFile ) {
+		// Browser doesn't support mobile editor (or is blacklisted), use the fallback editor.
+		return;
+	}
+
+	if ( isNewFile ) {
 		updateEditPageButton( true );
 		// Is a new file page (enable upload image only) Bug 58311
 		showSorryToast( mw.msg( 'mobile-frontend-editor-uploadenable' ) );
