@@ -26,7 +26,7 @@
 	"mobile-frontend-editor-unavailable": "Мобилно уређивање није доступно у вашем прегледачу. Покушајте са другим прегледачем.",
 	"mobile-frontend-editor-undo-unsupported": "Поништавање тренутно није подржано на мобилним уређајима.",
 	"mobile-frontend-editor-uploadenable": "Да бисте омогућили уређивање, најпре отпремите слику.",
-	"mobile-frontend-history": "Погледај историју измена ове странице.",
+	"mobile-frontend-history": "Историја измена ове странице",
 	"mobile-frontend-home-button": "Почетна",
 	"mobile-frontend-language-article-heading": "Читајте на другим језицима",
 	"mobile-frontend-language-change": "Промени језик",
