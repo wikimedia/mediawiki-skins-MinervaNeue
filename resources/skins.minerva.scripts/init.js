@@ -3,7 +3,6 @@
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
 		skin = M.require( 'mobile.init/skin' ),
-		subscribeToWikimediaEvents = M.require( 'skins.minerva.scripts/subscribeToWikimediaEvents' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
@@ -290,9 +289,6 @@
 		if ( !page.isMissing ) {
 			issues.init( overlayManager, page );
 		}
-		// it's important this runs after issues.init - at which point the A/B test
-		// has been initialised, and we can turn on ReadingDepth safely.
-		subscribeToWikimediaEvents();
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
