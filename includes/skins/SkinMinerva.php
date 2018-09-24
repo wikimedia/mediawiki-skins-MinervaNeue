@@ -1268,7 +1268,6 @@ class SkinMinerva extends SkinTemplate implements ICustomizableSkin {
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
 			'wgMFDescription' => $out->getProperty( 'wgMFDescription' ),
-			'wgMinervaABSamplingRate' => $this->getConfig()->get( 'MinervaABSamplingRate' )
 		];
 
 		if ( $this->isAuthenticatedUser() ) {
