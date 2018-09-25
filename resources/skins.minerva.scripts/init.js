@@ -89,7 +89,7 @@
 	 * @ignore
 	 */
 	function loadTabletModules() {
-		if ( browser.isWideScreen() && page.inNamespace( '' ) ) {
+		if ( browser.isWideScreen() ) {
 			mw.loader.using( 'skins.minerva.tablet.scripts' );
 		}
 	}
