@@ -516,37 +516,26 @@
 				"resources/skins.minerva.editor/init.js"
 			]
 		},
-		"skins.minerva.backtotop": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"mobile.toggle",
-				"mobile.startup"
-			],
-			"templates": {
-				"BackToTopOverlay.hogan": "resources/skins.minerva.backtotop/BackToTopOverlay.hogan"
-			},
-			"styles": [
-				"resources/skins.minerva.backtotop/backtotop.less"
-			],
-			"scripts": [
-				"resources/skins.minerva.backtotop/BackToTopOverlay.js",
-				"resources/skins.minerva.backtotop/init.js"
-			]
-		},
-		"skins.minerva.categories": {
+		"skins.minerva.options": {
 			"targets": [
 				"mobile",
 				"desktop"
 			],
 			"dependencies": [
 				"skins.minerva.scripts",
+				"mobile.toggle",
 				"mobile.startup"
 			],
+			"templates": {
+				"BackToTopOverlay.hogan": "resources/skins.minerva.options/BackToTopOverlay.hogan"
+			},
+			"styles": [
+				"resources/skins.minerva.options/backtotop.less"
+			],
 			"scripts": [
-				"resources/skins.minerva.categories/init.js"
+				"resources/skins.minerva.options/BackToTopOverlay.js",
+				"resources/skins.minerva.options/backtotop.js",
+				"resources/skins.minerva.options/categories.js"
 			]
 		},
 		"skins.minerva.talk": {

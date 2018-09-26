@@ -1,8 +1,14 @@
 ( function ( M, $ ) {
 
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
+		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		user = M.require( 'mobile.startup/user' );
+
+	// check the categories feature has been turned on
+	if ( !features.categories ) {
+		return;
+	}
 
 	// categories overlay
 	overlayManager.add( /^\/categories$/, function () {

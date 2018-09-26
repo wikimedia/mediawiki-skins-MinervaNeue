@@ -39,6 +39,7 @@ class EchoNotifUser {
  * @group MinervaNeue
  */
 class SkinMinervaTest extends MediaWikiTestCase {
+	const OPTIONS_MODULE = 'skins.minerva.options';
 
 	/**
 	 * @covers ::addToBodyAttributes
@@ -190,8 +191,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 
 	public function provideGetContextSpecificModules() {
 		return [
-			[ true, 'skins.minerva.backtotop', true ],
-			[ false, 'skins.minerva.backtotop', false ],
+			[ true, self::OPTIONS_MODULE, true ],
+			[ false, self::OPTIONS_MODULE, false ],
 		];
 	}
 

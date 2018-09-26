@@ -13,7 +13,7 @@
 
 	OO.mfExtend( BackToTopOverlay, View, {
 		className: 'backtotop',
-		template: mw.template.get( 'skins.minerva.backtotop', 'BackToTopOverlay.hogan' ),
+		template: mw.template.get( 'skins.minerva.options', 'BackToTopOverlay.hogan' ),
 		events: $.extend( {}, View.prototype.events, {
 			click: 'onBackToTopClick'
 		} ),
@@ -47,6 +47,6 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.backtotop/BackToTopOverlay', BackToTopOverlay );
+	M.define( 'skins.minerva.options/BackToTopOverlay', BackToTopOverlay );
 
 }( mw.mobileFrontend, jQuery ) );

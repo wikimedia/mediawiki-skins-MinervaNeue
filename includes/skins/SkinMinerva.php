@@ -121,6 +121,19 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * Return whether any of the skin options have been set
+	 * @return bool
+	 */
+	public function hasSkinOptions() {
+		foreach ( $this->skinOptions as $key => $val ) {
+			if ( $val ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * initialize various variables and generate the template
 	 * @return QuickTemplate
 	 */
@@ -1245,6 +1258,7 @@ class SkinMinerva extends SkinTemplate {
 
 		return $data;
 	}
+
 	/**
 	 * Returns array of config variables that should be added only to this skin
 	 * for use in JavaScript.
@@ -1256,6 +1270,7 @@ class SkinMinerva extends SkinTemplate {
 		$out = $this->getOutput();
 
 		$vars = [
+			'wgMinervaFeatures' => $this->skinOptions,
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
 			'wgMFDescription' => $out->getProperty( 'wgMFDescription' ),
@@ -1326,12 +1341,8 @@ class SkinMinerva extends SkinTemplate {
 			$modules[] = 'skins.minerva.talk';
 		}
 
-		if ( $this->hasCategoryLinks() ) {
-			$modules[] = 'skins.minerva.categories';
-		}
-
-		if ( $this->getSkinOption( self::OPTION_BACK_TO_TOP ) ) {
-			$modules[] = 'skins.minerva.backtotop';
+		if ( $this->hasSkinOptions() ) {
+			$modules[] = 'skins.minerva.options';
 		}
 
 		return $modules;
