@@ -26,7 +26,6 @@
 	"mobile-frontend-editor-tutorial-confirm": "Text for the button a user clicks after they have read the editing tutorial and are ready to edit the page.\n\nSee also:\n* {{msg-mw|Mobile-frontend-editor-tutorial-summary}}",
 	"mobile-frontend-editor-tutorial-summary": "Text for tutorial overlay presented to a user the first time they try to edit a page.\n\nParameters:\n* $1 - page title\nSee also:\n* {{msg-mw|Mobile-frontend-editor-tutorial-alt-summary}}",
 	"mobile-frontend-editor-unavailable": "Message that appears when a user attempts to edit with an unsupported/incapable browser.\n\nPreceded by the header {{msg-mw|Mobile-frontend-editor-unavailable-header}}.",
-	"mobile-frontend-editor-undo-unsupported": "Shown when user attempts to do an undo which is currently not supported.",
 	"mobile-frontend-editor-uploadenable": "Shown when try to edit a new file page.",
 	"mobile-frontend-footer-sitename": "Name of site",
 	"mobile-frontend-history": "Used as label for the link which points to the \"Edit history\" page.\n\nThis is shown on the Main Page in place of a last modified label to avoid confusion caused by transclusions.\n\nIf not the Main Page, the following message is used:\n* {{msg-mw|Mobile-frontend-last-modified-date}}",
