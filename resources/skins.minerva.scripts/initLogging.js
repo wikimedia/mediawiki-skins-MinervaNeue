@@ -3,16 +3,7 @@
 ( function ( M, $ ) {
 	var mainMenu = M.require( 'skins.minerva.scripts.top/mainMenu' );
 
-	/**
-	 * Enable WikimediaEvents including ReadingDepth schema
-	 */
-	function subscribeToWikimediaEvents() {
-		mw.loader.using( 'ext.wikimediaEvents' );
-	}
-
 	$( function () {
 		mainMenu.enableLogging();
 	} );
-
-	M.define( 'skins.minerva.scripts/subscribeToWikimediaEvents', subscribeToWikimediaEvents );
 }( mw.mobileFrontend, jQuery ) );
