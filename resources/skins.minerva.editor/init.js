@@ -95,9 +95,7 @@
 	function updateEditPageButton( enabled ) {
 		$caEdit
 			.addClass( enabled ? enabledClass : disabledClass )
-			.removeClass( enabled ? disabledClass : enabledClass )
-			// TODO: can hidden be removed from the default state?
-			.removeClass( 'hidden' );
+			.removeClass( enabled ? disabledClass : enabledClass );
 	}
 
 	/**
@@ -271,8 +269,6 @@
 			}
 		} );
 		updateEditPageButton( true );
-		// reveal edit links on user pages
-		page.$( '.edit-link' ).removeClass( 'hidden' );
 		currentPage.getRedLinks().on( 'click', function ( ev ) {
 			var drawerOptions = {
 					progressiveButton: new Button( {
@@ -311,11 +307,6 @@
 				// has not been run and thus we could not identify the lead
 				addEditButton( 1, '#ca-edit' );
 			}
-		}
-
-		// enable all edit pencils in sub-sections for the article namespace
-		if ( currentPage.getNamespaceId() === 0 ) {
-			$( '.in-block>.edit-page' ).show();
 		}
 
 		if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.util.getParamValue( 'action' ) === 'edit' ) ) {
