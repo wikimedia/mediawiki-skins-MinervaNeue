@@ -13,6 +13,36 @@
 	"rules": {
 		"no-restricted-properties": [2,
 			{
+				"object": "$",
+				"property": "noop",
+				"message": "Use function() {}"
+			},
+			{
+				"object": "$",
+				"property": "isFunction",
+				"message": "Please use typeof"
+			},
+			{
+				"object": "$",
+				"property": "map",
+				"message": "Please use Array.prototype.map instead"
+			},
+			{
+				"object": "$",
+				"property": "isArray",
+				"message": "Please use Array.isArray instead"
+			},
+			{
+				"object": "$",
+				"property": "grep",
+				"message": "Please use Array.prototype.filter instead"
+			},
+			{
+				"object": "$",
+				"property": "trim",
+				"message": "Please use String.prototype.trim instead"
+			},
+			{
 				"property": "done",
 				"message": "The method `done` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
 			},
