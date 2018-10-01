@@ -3,7 +3,6 @@
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		page = M.getCurrentPage(),
 		router = require( 'mediawiki.router' ),
-		util = M.require( 'mobile.startup/util' ),
 		ReferencesGateway = M.require( 'mobile.references.gateway/ReferencesGateway' ),
 		ReferencesMobileViewGateway = M.require(
 			'mobile.references.gateway/ReferencesMobileViewGateway'
@@ -59,7 +58,7 @@
 		// Previously showReference method returns nothing so we check its truthy
 		// Can be removed when I5a7b23f60722eb5017a85c68f38844dd460f8b63 is merged.
 		if ( result ) {
-			result.then( util.noop, function ( err ) {
+			result.then( function () {}, function ( err ) {
 				if ( err === ReferencesGateway.ERROR_NOT_EXIST ) {
 					router.navigate( href );
 				}
