@@ -37,13 +37,11 @@
 		 * @instance
 		 */
 		enableLogging: function () {
-			// Load the EventLogging module inside MobileFrontend if available
-			mw.loader.using( 'mobile.loggingSchemas.mobileWebMainMenuClickTracking' );
 			this.$( 'a' ).on( 'click', function () {
 				var $link = $( this ),
 					eventName = $link.data( 'event-name' );
 				if ( eventName ) {
-					mw.track( 'mf.schemaMobileWebMainMenuClickTracking', {
+					mw.track( 'minerva.schemaMobileWebMainMenuClickTracking', {
 						name: eventName,
 						destination: $link.attr( 'href' )
 					} );

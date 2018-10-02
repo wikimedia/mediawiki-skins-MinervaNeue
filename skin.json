@@ -44,6 +44,7 @@
 			"base": false,
 			"beta": true
 		},
+		"MinervaSchemaMainMenuClickTrackingSampleRate": 0.5,
 		"MinervaABSamplingRate": 0
 	},
 	"ValidSkinNames": {
@@ -366,6 +367,7 @@
 				"menuGroup.hogan": "resources/skins.minerva.mainMenu/menuGroup.mustache"
 			},
 			"scripts": [
+				"resources/skins.minerva.mainMenu/schema.js",
 				"resources/skins.minerva.mainMenu/MainMenu.js"
 			]
 		},
