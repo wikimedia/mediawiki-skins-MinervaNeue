@@ -27,8 +27,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Hayır, teşekkürler",
 	"mobile-frontend-editor-tutorial-confirm": "Düzenlemeye başla",
 	"mobile-frontend-editor-tutorial-summary": "$1 sayfasını geliştirmeyi deneyin.<br />Biçimlendirmekten korkmayın.",
-	"mobile-frontend-editor-unavailable": "Mobil düzenleme şu anda tarayıcınızda kullanılabilir değil. Lütfen farklı bir tarayıcıda deneyiniz.",
-	"mobile-frontend-editor-undo-unsupported": "Geri alma şu anda mobil cihazlarda desteklenmiyor.",
 	"mobile-frontend-editor-uploadenable": "Düzenlemeyi etkinleştirmek için lütfen önce bir fotoğraf yükleyin.",
 	"mobile-frontend-history": "Bu sayfanın düzenleme geçmişini göster.",
 	"mobile-frontend-home-button": "Anasayfa",

@@ -22,8 +22,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nej tack",
 	"mobile-frontend-editor-tutorial-confirm": "Börja redigera",
 	"mobile-frontend-editor-tutorial-summary": "Försök att förbättra sidan $1.<br />Var inte rädd för wikitext.",
-	"mobile-frontend-editor-unavailable": "Mobilredigering är för närvarande inte tillgänglig i din webbläsare. Vänligen prova en annan webbläsare.",
-	"mobile-frontend-editor-undo-unsupported": "Ångrafunktionen stöds för tillfället inte på mobila enheter.",
 	"mobile-frontend-editor-uploadenable": "Vänligen ladda först upp ett foto för att aktivera redigering.",
 	"mobile-frontend-history": "Visa redigeringshistorik för denna sida.",
 	"mobile-frontend-home-button": "Huvudsida",

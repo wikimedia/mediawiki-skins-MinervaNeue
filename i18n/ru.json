@@ -29,8 +29,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Нет, спасибо",
 	"mobile-frontend-editor-tutorial-confirm": "Начать редактирование",
 	"mobile-frontend-editor-tutorial-summary": "Попробуйте улучшить страницу $1.<br />Не пугайтесь разметки.",
-	"mobile-frontend-editor-unavailable": "Мобильное редактирование в вашем браузере в настоящее время недоступно. Пожалуйста, попробуйте другой браузер.",
-	"mobile-frontend-editor-undo-unsupported": "Отмена в настоящее время не поддерживается на мобильных устройствах.",
 	"mobile-frontend-editor-uploadenable": "Пожалуйста, для возможности редактирования загрузите сначала фото.",
 	"mobile-frontend-history": "Посмотреть историю изменений этой страницы.",
 	"mobile-frontend-home-button": "Главная",

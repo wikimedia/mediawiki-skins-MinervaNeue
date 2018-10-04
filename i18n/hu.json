@@ -21,8 +21,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nem, köszönöm",
 	"mobile-frontend-editor-tutorial-confirm": "Szerkesztés elkezdése",
 	"mobile-frontend-editor-tutorial-summary": "Próbáld meg javítani a(z) $1 lapot.<br />Ne félj a jelölésektől.",
-	"mobile-frontend-editor-unavailable": "A mobilos szerkesztés nem érhető el jelenleg a böngésződhöz. Próbálkozz egy másik böngészővel.",
-	"mobile-frontend-editor-undo-unsupported": "A visszavonás jelenleg nem érhető el mobileszközökön.",
 	"mobile-frontend-editor-uploadenable": "Tölts fel egy képet előbb a szerkesztés engedélyezéséhez.",
 	"mobile-frontend-history": "A lap szerkesztési előzményeinek megtekintése.",
 	"mobile-frontend-home-button": "Kezdőlap",

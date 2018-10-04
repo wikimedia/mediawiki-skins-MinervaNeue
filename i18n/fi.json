@@ -30,8 +30,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Ei kiitos",
 	"mobile-frontend-editor-tutorial-confirm": "Aloita muokkaaminen",
 	"mobile-frontend-editor-tutorial-summary": "Kokeile parantaa sivua $1.<br />Älä arastele tehdä muokkauksia.",
-	"mobile-frontend-editor-unavailable": "Mobiilimuokkaus ei ole mahdollista käyttämälläsi selaimella. Kokeile jotain muuta selainta.",
-	"mobile-frontend-editor-undo-unsupported": "Kumoaminen ei toistaiseksi ole mahdollista mobiililaitteilla.",
 	"mobile-frontend-editor-uploadenable": "Tallenna ensin kuva ottaaksesi muokkaamisen käyttöön.",
 	"mobile-frontend-history": "Näytä tämän sivun muutoshistoria.",
 	"mobile-frontend-home-button": "Etusivu",

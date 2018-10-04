@@ -23,8 +23,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Не, хвала",
 	"mobile-frontend-editor-tutorial-confirm": "Почни са уређивањем",
 	"mobile-frontend-editor-tutorial-summary": "Покушајте да побољшате страницу $1.<br />Не бојте се викикода.",
-	"mobile-frontend-editor-unavailable": "Мобилно уређивање није доступно у вашем прегледачу. Покушајте са другим прегледачем.",
-	"mobile-frontend-editor-undo-unsupported": "Поништавање тренутно није подржано на мобилним уређајима.",
 	"mobile-frontend-editor-uploadenable": "Да бисте омогућили уређивање, најпре отпремите слику.",
 	"mobile-frontend-history": "Историја измена ове странице",
 	"mobile-frontend-home-button": "Почетна",

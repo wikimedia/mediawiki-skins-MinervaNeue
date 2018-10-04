@@ -21,8 +21,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Ne, hvala",
 	"mobile-frontend-editor-tutorial-confirm": "Započni uređivanje",
 	"mobile-frontend-editor-tutorial-summary": "Probajte poboljšati stranicu $1.<br />Ne bojte se vikikôda.",
-	"mobile-frontend-editor-unavailable": "Mobilno uređivanje nije dostupno u Vašem pregledaču. Molimo pokušajte s drugim pregledačem.",
-	"mobile-frontend-editor-undo-unsupported": "Poništavanje trenutno nije podržano na mobilnim uređajima.",
 	"mobile-frontend-editor-uploadenable": "Otpremite sliku pre nego što omogućite uređivanje.",
 	"mobile-frontend-history": "Istorija izmena ove stranice.",
 	"mobile-frontend-home-button": "Početna",

@@ -21,8 +21,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nei, takk",
 	"mobile-frontend-editor-tutorial-confirm": "Byrja að breyta",
 	"mobile-frontend-editor-tutorial-summary": "Reyndu að bæta síðuna $1.<br />Ekki hræðast wikikóða.",
-	"mobile-frontend-editor-unavailable": "Það er ekki stuðningur fyrir að gera breytingar í farsímanum með vafranum þínum. Prófaðu annan vafra.",
-	"mobile-frontend-editor-undo-unsupported": "Afturköllun er ekki aðgengileg í farsímaútgáfunni.",
 	"mobile-frontend-editor-uploadenable": "Sendu fyrst inn mynd til að geta gert breytingar.",
 	"mobile-frontend-history": "Skoða breytingaskrá síðunnar.",
 	"mobile-frontend-home-button": "Forsíða",

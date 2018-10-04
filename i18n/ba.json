@@ -23,8 +23,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Юҡ, рәхмәт",
 	"mobile-frontend-editor-tutorial-confirm": "Үҙгәртеүҙе башлау",
 	"mobile-frontend-editor-tutorial-summary": "$1 битен яҡшыртып ҡарағыҙ.<br />Билдәһенән ҡурҡмағыҙ.",
-	"mobile-frontend-editor-unavailable": "Әлеге мәлдә һеҙҙең браузерҙа мобиль мөхәррирләү эшләмәй. Икенсе браузерҙы ҡулланып ҡарағыҙ.",
-	"mobile-frontend-editor-undo-unsupported": "Әлегә мобиль ҡорамаларҙа баш тартыу мөмкин түгел.",
 	"mobile-frontend-editor-uploadenable": "Мөхәррирләү өсөн тәүҙә фото ҡуйығыҙ.",
 	"mobile-frontend-history": "Был биттең үҙгәртеү тарихын ҡарау.",
 	"mobile-frontend-home-button": "Башына",

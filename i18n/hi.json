@@ -27,8 +27,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "नहीं, धन्यवाद",
 	"mobile-frontend-editor-tutorial-confirm": "संपादन शुरू करें",
 	"mobile-frontend-editor-tutorial-summary": "$1 पृष्ठ को सुधारने का प्रयास करें। <br /> मार्कअप से मत घबराएँ",
-	"mobile-frontend-editor-unavailable": "वर्तमान में मोबाइल एडिटिंग आपके ब्राउज़र पर उपलब्ध नहीं है। कृपया कोई अन्य ब्राउज़र आज़माएँ",
-	"mobile-frontend-editor-undo-unsupported": "पूर्ववत की सुविधा मोबाइल उपकरणों पर वर्तमान में समर्थित नहीं है।",
 	"mobile-frontend-editor-uploadenable": "संपादन को सक्षम करने के लिए पहले एक फोटो अपलोड करें।",
 	"mobile-frontend-history": "इस पृष्ठ के संपादन इतिहास को देखें।",
 	"mobile-frontend-home-button": "घर",

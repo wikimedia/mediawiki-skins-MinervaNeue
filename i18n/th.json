@@ -21,8 +21,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "ไม่ ขอบคุณ",
 	"mobile-frontend-editor-tutorial-confirm": "เริ่มแก้ไข",
 	"mobile-frontend-editor-tutorial-summary": "ลองปรับปรุงหน้า $1<br />อย่ากลัวมาร์กอัป",
-	"mobile-frontend-editor-unavailable": "เบราว์เซอร์ของคุณไม่รองรับการแก้ไขจากอุปกรณ์เคลื่อนที่ในขณะนี้ โปรดลองใช้เบราว์เซอร์อื่น",
-	"mobile-frontend-editor-undo-unsupported": "ไม่รองรับการทำกลับบนอุปกรณ์เคลื่อนที่",
 	"mobile-frontend-editor-uploadenable": "โปรดอัปโหลดรูปภาพก่อนเพื่อเปิดใช้งานการแก้ไข",
 	"mobile-frontend-history": "ดูประวัติการแก้ไขของหน้านี้",
 	"mobile-frontend-home-button": "หน้าหลัก",

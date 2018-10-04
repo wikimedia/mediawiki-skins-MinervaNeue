@@ -20,8 +20,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Ne, hvala",
 	"mobile-frontend-editor-tutorial-confirm": "Počni uređivati",
 	"mobile-frontend-editor-tutorial-summary": "Probajte poboljšati stranicu $1.<br />Ne bojte se wikikôdova.",
-	"mobile-frontend-editor-unavailable": "Mobilno uređivanje nije dostupno u Vašem pregledniku. Molimo Vas, pokušajte s drugim preglednikom.",
-	"mobile-frontend-editor-undo-unsupported": "Poništavanje trenutačno nije podržano na mobilnim uređajima.",
 	"mobile-frontend-editor-uploadenable": "Da biste omogućili uređivanje, najprije postavite sliku.",
 	"mobile-frontend-history": "Vidi povijest izmjena ove stranice.",
 	"mobile-frontend-home-button": "Početna",

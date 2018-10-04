@@ -28,8 +28,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "لا، شكرا",
 	"mobile-frontend-editor-tutorial-confirm": "ابدأ التعديل",
 	"mobile-frontend-editor-tutorial-summary": "لا تخشَ علامات الترميز، حاول تحسين صفحة $1.",
-	"mobile-frontend-editor-unavailable": "حاليًا لا يتوفر التعديل عبر الجوال لمتصفحك; الرجاء المحاولة بمتصفح آخر.",
-	"mobile-frontend-editor-undo-unsupported": "خاصية التراجع (Undo) غير مدعومة حالياً على الأجهزة المحمولة.",
 	"mobile-frontend-editor-uploadenable": "يُرجَى تحميل صورة أولًا مرة لتمكين التحرير.",
 	"mobile-frontend-history": "اعرض تاريخ تعديل هذه الصفحة.",
 	"mobile-frontend-home-button": "الصفحة الرئيسية",

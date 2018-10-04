@@ -26,8 +26,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "不用了，謝謝",
 	"mobile-frontend-editor-tutorial-confirm": "開始編輯",
 	"mobile-frontend-editor-tutorial-summary": "試著改進 $1 頁面。<br />別害怕標籤語言。",
-	"mobile-frontend-editor-unavailable": "手機編輯器尚不支援您的瀏覽器。請嘗試使用其他瀏覽器。",
-	"mobile-frontend-editor-undo-unsupported": "手機裝置目前尚未支援還原。",
 	"mobile-frontend-editor-uploadenable": "請先上傳一張照片然後啟動編輯。",
 	"mobile-frontend-history": "檢視此頁面的編輯歷史。",
 	"mobile-frontend-home-button": "首頁",

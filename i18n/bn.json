@@ -21,8 +21,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "না, ধন্যবাদ",
 	"mobile-frontend-editor-tutorial-confirm": "সম্পাদনা শুরু করুন",
 	"mobile-frontend-editor-tutorial-summary": "$1 পাতার উন্নয়ন করতে চেষ্টা করুন।<br />মার্কআপে ভয় পাবেন না!",
-	"mobile-frontend-editor-unavailable": "মোবাইল সম্পাদনা আপনার ব্রাউজারে বর্তমানে উপলব্ধ নয়। একটি ভিন্ন ব্রাউজার দিয়ে চেষ্টা করুন।",
-	"mobile-frontend-editor-undo-unsupported": "পূর্বাবস্থায় ফিরুন বর্তমানে মোবাইল ডিভাইসে সমর্থিত নয়।",
 	"mobile-frontend-editor-uploadenable": "সম্পাদনা সক্রিয় করতে প্রথমে একটি ছবি আপলোড করুন।",
 	"mobile-frontend-history": "এই পাতার সম্পাদনা ইতিহাস দেখুন।",
 	"mobile-frontend-home-button": "প্রধান পাতা",

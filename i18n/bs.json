@@ -21,8 +21,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Ne, hvala",
 	"mobile-frontend-editor-tutorial-confirm": "Počni uređivati",
 	"mobile-frontend-editor-tutorial-summary": "Pokušajte poboljšati stranicu $1.<br />Nemojte se plašiti kôda.",
-	"mobile-frontend-editor-unavailable": "Vaš preglednik ne podržava mobilnо uređivanjе. Pokušajtе sa drugim preglednikom.",
-	"mobile-frontend-editor-undo-unsupported": "Poništavanje trenutno nije podržano na mobilnim uređajima.",
 	"mobile-frontend-editor-uploadenable": "Da biste omogućili uređivanje, najprije postavite sliku.",
 	"mobile-frontend-history": "Vidi historiju izmjena ove stranice.",
 	"mobile-frontend-home-button": "Početna",

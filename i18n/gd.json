@@ -14,8 +14,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Cha deasaich mi, mòran taing",
 	"mobile-frontend-editor-tutorial-confirm": "Tòisich air deasachadh",
 	"mobile-frontend-editor-tutorial-summary": "Feuch 's thoir piseach air an duilleag \"$1\".<br />Na bi an t-eagal ort ro markup.",
-	"mobile-frontend-editor-unavailable": "Chan eil deasachadh inneil-làimhe ri fhaighinn airson a' bhrabhsair agad. Feuch brabhsair eile.",
-	"mobile-frontend-editor-undo-unsupported": "Chan eil taic ri neo-dhèanamh ri fhaighinn air innealan-làimhe fhathast.",
 	"mobile-frontend-editor-uploadenable": "Luchdaich suas dealbh an toiseach gus deasachadh a chur an comas.",
 	"mobile-frontend-history": "Seall eachdraidh deasachadh na duilleige seo",
 	"mobile-frontend-home-button": "Dhachaigh",

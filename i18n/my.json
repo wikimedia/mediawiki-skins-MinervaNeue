@@ -37,5 +37,6 @@
 	"mobile-frontend-redirected-from": "$1 မှ ပြန်ညွှန်းထားသည်",
 	"mobile-frontend-user-page-contributions": "ဆောင်ရွက်ချက်များ",
 	"mobile-frontend-user-page-talk": "ဆွေးနွေး",
-	"mobile-frontend-user-page-uploads": "တင်ထားသည်များ"
+	"mobile-frontend-user-page-uploads": "တင်ထားသည်များ",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "ကဏ္ဍများ"
 }

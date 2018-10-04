@@ -18,8 +18,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Non, gracies",
 	"mobile-frontend-editor-tutorial-confirm": "Principiar a editar",
 	"mobile-frontend-editor-tutorial-summary": "Intenta ameyorar la páxina $1.<br />Nun t'asustes pol marcáu.",
-	"mobile-frontend-editor-unavailable": "La edición pa móvil nun ta disponible actualmente nel navegador. Por favor pruebe con otru navegador.",
-	"mobile-frontend-editor-undo-unsupported": "Desfacer inda nun tien sofitu nos preseos móviles.",
 	"mobile-frontend-editor-uploadenable": "Por favor, xubi primero una foto p'activar la edición.",
 	"mobile-frontend-history": "Ver l'historial d'ediciones d'esta páxina.",
 	"mobile-frontend-home-button": "Entamu",

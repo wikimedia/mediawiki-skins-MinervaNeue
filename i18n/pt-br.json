@@ -26,8 +26,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Não, obrigado",
 	"mobile-frontend-editor-tutorial-confirm": "Começar a editar",
 	"mobile-frontend-editor-tutorial-summary": "Tente melhorar a página $1.<br />Não fique com medo de editar.",
-	"mobile-frontend-editor-unavailable": "Edições mobile não estão disponíveis para seu navegador. Por favor, tente com outro navegador.",
-	"mobile-frontend-editor-undo-unsupported": "Desfazer não está disponível para dispositivos móveis.",
 	"mobile-frontend-editor-uploadenable": "Carregue uma foto primeiro para habilitar a edição.",
 	"mobile-frontend-history": "Ver o histórico de edição desta página.",
 	"mobile-frontend-home-button": "Início",

@@ -24,8 +24,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nej, tak",
 	"mobile-frontend-editor-tutorial-confirm": "Start redigering",
 	"mobile-frontend-editor-tutorial-summary": "Prøv at forbedre siden $1.<br/> Du skal ikke være bange for opmærkningen.",
-	"mobile-frontend-editor-unavailable": "Mobilredigering er i øjeblikket ikke tilgængelig for din browser. Prøv en anden browser.",
-	"mobile-frontend-editor-undo-unsupported": "Fortryd er i øjeblikket ikke understøttet på mobile enheder.",
 	"mobile-frontend-editor-uploadenable": "Læg først et billede op for at aktivere redigering.",
 	"mobile-frontend-history": "Se redigeringshistorik for denne side.",
 	"mobile-frontend-home-button": "Hjem",

@@ -23,8 +23,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "No, grazie",
 	"mobile-frontend-editor-tutorial-confirm": "Inizia a modificare",
 	"mobile-frontend-editor-tutorial-summary": "Prova a migliorare la pagina $1.<br />Non aver paura del markup.",
-	"mobile-frontend-editor-unavailable": "La modifica attraverso dispositivo mobile non è attualmente disponibile sul tuo browser. Prova un browser diverso.",
-	"mobile-frontend-editor-undo-unsupported": "L'annullamento non è attualmente supportato sui dispositivi mobili.",
 	"mobile-frontend-editor-uploadenable": "Carica prima una foto per poter abilitare alla modifica.",
 	"mobile-frontend-history": "Vedi la cronologia di questa pagina.",
 	"mobile-frontend-home-button": "Pagina principale",

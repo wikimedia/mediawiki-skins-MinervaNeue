@@ -24,8 +24,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Ні, дякую.",
 	"mobile-frontend-editor-tutorial-confirm": "Почати редагування",
 	"mobile-frontend-editor-tutorial-summary": "Спробуйте поліпшити сторінку $1.<br />Не лякайтеся розмітки.",
-	"mobile-frontend-editor-unavailable": "Мобільне редагування наразі недоступне у Вашому веб-переглядачі. Будь ласка, спробуйте інший веб-переглядач.",
-	"mobile-frontend-editor-undo-unsupported": "Скасування дії наразі не підтримується на мобільних пристроях.",
 	"mobile-frontend-editor-uploadenable": "Будь ласка, завантажте спершу фото, щоб могти редагувати.",
 	"mobile-frontend-history": "Переглянути історію редагувань цієї сторінки.",
 	"mobile-frontend-home-button": "Домашня",

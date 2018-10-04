@@ -24,8 +24,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Nei takk",
 	"mobile-frontend-editor-tutorial-confirm": "Begynn å redigere",
 	"mobile-frontend-editor-tutorial-summary": "Prøv å se om du kan forbedre $1.<br />Ikke bli skremt av wikikoden.",
-	"mobile-frontend-editor-unavailable": "Mobilredigering er støttes foreløpig ikke av nettleseren din. Prøv gjerne med en annen nettleser.",
-	"mobile-frontend-editor-undo-unsupported": "Angre er foreløpig ikke søttet på mobile enheter.",
 	"mobile-frontend-editor-uploadenable": "Last opp et foto først for å aktivere redigering.",
 	"mobile-frontend-history": "Vis sidens redigeringshistorikk.",
 	"mobile-frontend-home-button": "Hjem",

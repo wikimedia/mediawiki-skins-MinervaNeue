@@ -33,8 +33,6 @@
 	"mobile-frontend-editor-tutorial-cancel": "Non merci",
 	"mobile-frontend-editor-tutorial-confirm": "Commencer à modifier",
 	"mobile-frontend-editor-tutorial-summary": "Essayez d’améliorer la page $1.<br /> N’ayez pas peur du balisage.",
-	"mobile-frontend-editor-unavailable": "La modification depuis un mobile n’est actuellement pas disponible pour votre navigateur. Veuillez essayer un autre navigateur.",
-	"mobile-frontend-editor-undo-unsupported": "L’annulation n’est pour le moment pas prise en charge sur les terminaux mobiles.",
 	"mobile-frontend-editor-uploadenable": "Veuillez d’abord téléverser une photo pour autoriser la modification.",
 	"mobile-frontend-history": "Afficher l’historique des modifications de cette page.",
 	"mobile-frontend-home-button": "Accueil",
