@@ -45,6 +45,9 @@
 					}, DEFAULT_ERROR_DATA )
 				);
 			}
+			if ( config.get( 'wgMinervaCountErrors' ) ) {
+				mw.track( 'counter.MediaWiki.minerva.WebClientError', 1 );
+			}
 		}
 		// track RL exceptions
 		trackSubscribe( 'resourceloader.exception', function ( topic, data ) {

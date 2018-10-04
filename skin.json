@@ -22,6 +22,7 @@
 		}
 	},
 	"config": {
+		"MinervaCountErrors": false,
 		"MinervaErrorLogSamplingRate": 0,
 		"MinervaDownloadNamespaces": [ 0 ],
 		"MinervaEnableSiteNotice": false,

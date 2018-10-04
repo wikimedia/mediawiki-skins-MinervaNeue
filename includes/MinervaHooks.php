@@ -197,6 +197,7 @@ class MinervaHooks {
 			'wgMinervaSchemaMainMenuClickTrackingSampleRate' =>
 				$config->get( 'MinervaSchemaMainMenuClickTrackingSampleRate' ),
 			'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
+			'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
 			'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
 			'wgMinervaReadOnly' => wfReadOnly()
 		];
