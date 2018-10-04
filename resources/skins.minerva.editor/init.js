@@ -11,8 +11,9 @@
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		currentPage = M.getCurrentPage(),
 		editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' ),
-		// FIXME: rename to editPageButton.
-		$caEdit = $( '#ca-edit' ),
+		// #ca-edit, .mw-editsection are standard MediaWiki elements
+		// .edit-link comes from MobileFrontend user page creation CTA
+		$allEditLinks = $( '#ca-edit a, .mw-editsection a, .edit-link' ),
 		user = M.require( 'mobile.startup/user' ),
 		popup = M.require( 'mobile.startup/toast' ),
 		// FIXME: Disable on IE < 10 for time being
@@ -36,32 +37,11 @@
 	 * @return {boolean}
 	 */
 	function onEditLinkClick() {
+		var section = ( new mw.Uri( this.href ) ).query.section || 'all';
 		issues.log( { action: 'editClicked' } );
-
-		router.navigate( '#/editor/' + $( this ).data( 'section' ) );
+		router.navigate( '#/editor/' + section );
 		// prevent folding section when clicking Edit by stopping propagation
 		return false;
-	}
-
-	// FIXME: rename addEditSectionButton and evaluate whether the page edit button
-	//       can leverage the same code. Also: change the CSS class name to use
-	//       the word "section" instead of "page".
-	/**
-	 * Prepend an edit page button to the container
-	 * Remove any existing links in the container
-	 * @method
-	 * @ignore
-	 * @param {number} section number
-	 * @param {string} container CSS selector of the container
-	 * @return {JQuery.Object} newly created edit page button
-	 */
-	function addEditButton( section, container ) {
-		$( container ).find( 'a' ).remove();
-		return $( '<a class="edit-page">' )
-			.data( 'section', section )
-			.on( 'click', onEditLinkClick )
-			.text( mw.msg( 'mobile-frontend-editor-edit' ) )
-			.prependTo( container );
 	}
 
 	/**
@@ -77,7 +57,7 @@
 				ev.preventDefault();
 				// prevent folding section when clicking Edit
 				ev.stopPropagation();
-				// need to use toggle() because we do ev.stopPropagation() (in addEditButton())
+				// need to use toggle() because we do ev.stopPropagation() (in onEditLinkClick())
 				if ( !drawer ) {
 					drawer = new CtaDrawer( {
 						queryParams: {
@@ -128,12 +108,11 @@
 	 * @param {Page} page The page to edit.
 	 */
 	function setupEditor( page ) {
-		var uri, fragment, editorOverride,
+		var uri, fragment, editorOverride, section,
 			isNewPage = page.options.id === 0,
 			leadSection = page.getLeadSectionElement();
 
-		page.$( '.edit-page, .edit-link' )
-			.on( 'click', onEditLinkClick );
+		$allEditLinks.on( 'click', onEditLinkClick );
 		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
 			var
 				$content = $( '#mw-content-text' ),
@@ -229,22 +208,19 @@
 			}
 		} );
 
-		// Make sure we never create two edit links by accident
-		// FIXME: split the selector and cache it
-		if ( $caEdit.find( '.edit-page' ).length === 0 ) {
-			if ( isNewPage ||
-					( leadSection && leadSection.text() ) || page.getSections().length === 0 ) {
-				// if lead section is not empty, open editor with lead section
-				// In some namespaces (controlled by MFNamespacesWithoutCollapsibleSections)
-				// sections are not marked. Use the lead section for such cases.
-				addEditButton( 0, '#ca-edit' );
-			} else if ( leadSection !== null ) {
-				// if lead section is empty open editor with first section
-				// be careful not to do this when leadSection is null as this means MobileFormatter
-				// has not been run and thus we could not identify the lead
-				addEditButton( 1, '#ca-edit' );
-			}
+		// By default the editor opens section 0 (lead section). If lead section is empty, and
+		// there are sections on the page, open editor with section 1 instead.
+		// (Be careful not to do this when leadSection is null, as this means MobileFormatter
+		// has not been run and thus we could not identify the lead.)
+		section = 0;
+		if ( leadSection && !leadSection.text() && !isNewPage && page.getSections().length !== 0 ) {
+			section = 1;
 		}
+		$( '#ca-edit a' ).prop( 'href', function ( i, href ) {
+			var uri = new mw.Uri( href );
+			uri.query.section = section;
+			return uri.toString();
+		} );
 
 		if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.util.getParamValue( 'action' ) === 'edit' ) ) {
 			if ( mw.util.getParamValue( 'veaction' ) === 'edit' ) {
@@ -276,7 +252,7 @@
 	 * @ignore
 	 */
 	function hideSectionEditIcons() {
-		currentPage.$( '.edit-page' ).hide();
+		currentPage.$( '.mw-editsection' ).hide();
 	}
 
 	/**
@@ -303,18 +279,10 @@
 		// Initialize edit button links (to show Cta) only, if page is editable,
 		// otherwise show an error toast
 		if ( isEditable ) {
-			// Init lead section edit button
-			makeCta( $caEdit, 0 );
-
 			// Init all edit links (including lead section, if anonymous editing is enabled)
-			$( '.edit-page' ).each( function () {
-				var $a = $( this ),
-					section = 0;
-
-				if ( $( this ).data( 'section' ) !== undefined ) {
-					section = $( this ).data( 'section' );
-				}
-				makeCta( $a, section );
+			$allEditLinks.each( function () {
+				var section = ( new mw.Uri( this.href ) ).query.section || '';
+				makeCta( $( this ), section );
 			} );
 		} else {
 			showSorryToast( editErrorMessage );
@@ -328,7 +296,7 @@
 	 * @param {string} msg Message for sorry message
 	 */
 	function showSorryToast( msg ) {
-		$( '#ca-edit, .edit-page' ).on( 'click', function ( ev ) {
+		$allEditLinks.on( 'click', function ( ev ) {
 			popup.show( msg );
 			ev.preventDefault();
 		} );
