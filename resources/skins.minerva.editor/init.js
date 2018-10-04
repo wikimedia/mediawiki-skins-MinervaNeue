@@ -4,32 +4,14 @@
 		// see: https://www.mediawiki.org/wiki/Manual:Interface/JavaScript#Page-specific
 		isReadOnly = mw.config.get( 'wgMinervaReadOnly' ),
 		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' ),
-		blockInfo = mw.config.get( 'wgMinervaUserBlockInfo', false ),
 		router = require( 'mediawiki.router' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
-		Icon = M.require( 'mobile.startup/Icon' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		currentPage = M.getCurrentPage(),
-		// TODO: create a utility method to generate class names instead of
-		//       constructing temporary objects. This affects disabledEditIcon,
-		//       enabledEditIcon, enabledEditIcon, and disabledClass and
-		//       a number of other places in the code base.
-		disabledEditIcon = new Icon( {
-			name: 'edit',
-			glyphPrefix: 'minerva'
-		} ),
-		enabledEditIcon = new Icon( {
-			name: 'edit-enabled',
-			glyphPrefix: 'minerva'
-		} ),
 		editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' ),
-		// TODO: move enabledClass, $caEdit, and disabledClass to locals within
-		//       updateEditPageButton().
-		enabledClass = enabledEditIcon.getGlyphClassName(),
-		disabledClass = disabledEditIcon.getGlyphClassName(),
-		// TODO: rename to editPageButton.
+		// FIXME: rename to editPageButton.
 		$caEdit = $( '#ca-edit' ),
 		user = M.require( 'mobile.startup/user' ),
 		popup = M.require( 'mobile.startup/toast' ),
@@ -46,10 +28,6 @@
 		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
 		drawer;
 
-	if ( user.isAnon() ) {
-		blockInfo = false;
-	}
-
 	/**
 	 * Event handler for edit link clicks. Will prevent default link
 	 * behaviour and will not allow propagation
@@ -65,7 +43,7 @@
 		return false;
 	}
 
-	// TODO: rename addEditSectionButton and evaluate whether the page edit button
+	// FIXME: rename addEditSectionButton and evaluate whether the page edit button
 	//       can leverage the same code. Also: change the CSS class name to use
 	//       the word "section" instead of "page".
 	/**
@@ -84,16 +62,6 @@
 			.on( 'click', onEditLinkClick )
 			.text( mw.msg( 'mobile-frontend-editor-edit' ) )
 			.prependTo( container );
-	}
-
-	/**
-	 * @param {boolean} enabled
-	 * @return {void}
-	 */
-	function updateEditPageButton( enabled ) {
-		$caEdit
-			.addClass( enabled ? enabledClass : disabledClass )
-			.removeClass( enabled ? disabledClass : enabledClass );
 	}
 
 	/**
@@ -164,7 +132,7 @@
 			isNewPage = page.options.id === 0,
 			leadSection = page.getLeadSectionElement();
 
-		page.$( '.edit-page, .edit-link' ).removeClass( disabledClass )
+		page.$( '.edit-page, .edit-link' )
 			.on( 'click', onEditLinkClick );
 		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
 			var
@@ -260,7 +228,6 @@
 				return loadSourceEditor();
 			}
 		} );
-		updateEditPageButton( true );
 
 		// Make sure we never create two edit links by accident
 		// FIXME: split the selector and cache it
@@ -300,10 +267,6 @@
 				router.navigate( fragment );
 			}
 		}
-
-		if ( blockInfo ) {
-			updateEditPageButton( false );
-		}
 	}
 
 	/**
@@ -326,7 +289,6 @@
 			// Edit button updated in setupEditor.
 			setupEditor( currentPage );
 		} else {
-			updateEditPageButton( false );
 			hideSectionEditIcons();
 			showSorryToast( editErrorMessage );
 		}
@@ -341,7 +303,6 @@
 		// Initialize edit button links (to show Cta) only, if page is editable,
 		// otherwise show an error toast
 		if ( isEditable ) {
-			updateEditPageButton( true );
 			// Init lead section edit button
 			makeCta( $caEdit, 0 );
 
@@ -356,7 +317,6 @@
 				makeCta( $a, section );
 			} );
 		} else {
-			updateEditPageButton( false );
 			showSorryToast( editErrorMessage );
 		}
 	}
@@ -391,7 +351,6 @@
 	}
 
 	if ( isNewFile ) {
-		updateEditPageButton( true );
 		// Is a new file page (enable upload image only) Bug 58311
 		showSorryToast( mw.msg( 'mobile-frontend-editor-uploadenable' ) );
 	} else {
