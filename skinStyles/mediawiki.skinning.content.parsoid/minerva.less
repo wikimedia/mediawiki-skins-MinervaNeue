@@ -2,6 +2,8 @@
  * Style Parsoid HTML+RDFa output consistent with wikitext from PHP parser.
  */
 
+@import '../../minerva.less/minerva.variables';
+
 /*
  * Auto-numbered external links
  * (copied from MediaWiki's content.parsoid.less)
@@ -23,30 +25,39 @@ figure[ typeof*='mw:Image' ],
 figure[ typeof*='mw:Video' ],
 figure[ typeof*='mw:Audio' ] {
 	max-width: 100%;
-	// Defaults to right alignment when not explicitly set. Should be flippable.
-	margin: 0.6em 0 0.6em 1.4em;
+	// Centered on non-tablet
+	margin: 0 auto;
+}
 
-	&.mw-halign-left {
-		/* @noflip */
-		margin: 0.6em 1.4em 0.6em 0;
-		/* @noflip */
-		clear: left;
-		/* @noflip */
-		float: left;
-	}
-
-	&.mw-halign-right {
-		/* @noflip */
+@media screen and ( min-width: @width-breakpoint-tablet ) {
+	figure[ typeof*='mw:Image' ],
+	figure[ typeof*='mw:Video' ],
+	figure[ typeof*='mw:Audio' ] {
+		// Defaults to right alignment when not explicitly set. Should be flippable.
 		margin: 0.6em 0 0.6em 1.4em;
-		/* @noflip */
-		clear: right;
-		/* @noflip */
-		float: right;
-	}
 
-	&.mw-halign-center {
-		margin: 0.6em auto 0.6em auto;
-		clear: none;
-		float: none;
+		&.mw-halign-left {
+			/* @noflip */
+			margin: 0.6em 1.4em 0.6em 0;
+			/* @noflip */
+			clear: left;
+			/* @noflip */
+			float: left;
+		}
+
+		&.mw-halign-right {
+			/* @noflip */
+			margin: 0.6em 0 0.6em 1.4em;
+			/* @noflip */
+			clear: right;
+			/* @noflip */
+			float: right;
+		}
+
+		&.mw-halign-center {
+			margin: 0.6em auto 0.6em auto;
+			clear: none;
+			float: none;
+		}
 	}
 }
