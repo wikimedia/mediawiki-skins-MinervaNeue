@@ -10,14 +10,14 @@
 html {
 	// prevent font scaling in landscape in Safari
 	-webkit-text-size-adjust: none;
-	font-size: 100% * @fontScalingFactor;
 }
 
-@bodyLineHeight: 1.4;
+@font-size-body: 100% * @fontScalingFactor;
 
 body {
 	font-family: @fontFamily;
-	line-height: @bodyLineHeight;
+	font-size: @font-size-body;
+	line-height: 1.4;
 	color: @colorGray2;
 	background: #fff;
 	-webkit-tap-highlight-color: rgba( 0, 0, 0, 0.2 );
@@ -41,9 +41,11 @@ body {
 	}
 }
 
+@font-size-body-mobile: 0.8 * @font-size-body;
+
 @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
 	body {
-		font-size: 0.8em;
+		font-size: @font-size-body-mobile;
 	}
 
 	.content {
@@ -72,6 +74,32 @@ body {
 		// onclick attribute is removed by the toggling code.
 		[ onclick ] + .collapsible-block {
 			display: block;
+		}
+	}
+}
+
+// Support iOS 9+ browsers: Enable Dynamic Type resizing, see
+// http://www.interactiveaccessibility.com/blog/text-resizing-web-pages-ios-using-dynamic-type
+// & T204807.
+@supports ( font: -apple-system-body ) {
+	html {
+		font: -apple-system-body;
+	}
+
+	// Most iOS browsers' default font size is 16px but Dynamic Type's default
+	// font size is 17px. We need to scale down @font-size-body and
+	// @font-size-body-mobile by this ratio in order to make them relative to these
+	// browsers' defaults again. By doing this, the default Dynamic Type text size
+	// will appear identical to the browser's default text size.
+	@dynamicTypeScalingFactor: 16 / 17;
+
+	body {
+		font-size: @font-size-body * @dynamicTypeScalingFactor;
+	}
+
+	@media all and ( max-width: @width-breakpoint-mobile - 1 ) {
+		body {
+			font-size: @font-size-body-mobile * @dynamicTypeScalingFactor;
 		}
 	}
 }
