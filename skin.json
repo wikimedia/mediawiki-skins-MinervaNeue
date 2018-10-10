@@ -228,6 +228,8 @@
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"useDataURI": false,
 			"images": {
+				"watch": "resources/skins.minerva.icons.images/watch.svg",
+				"watched": "resources/skins.minerva.icons.images/watched.svg",
 				"warning": "resources/skins.minerva.icons.images/warning.svg",
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
