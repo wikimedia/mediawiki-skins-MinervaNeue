@@ -158,7 +158,6 @@
 		}
 	},
 	"EventLoggingSchemas": {
-		"PageIssues": 18392542,
 		"WebClientError": 18340282
 	},
 	"ResourceModules": {
@@ -436,7 +435,6 @@
 				"resources/skins.minerva.scripts/errorLogging.js",
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/DownloadIcon.js",
-				"resources/skins.minerva.scripts/pageIssuesLogger.js",
 				"resources/skins.minerva.scripts/pageIssuesParser.js",
 				"resources/skins.minerva.scripts/AB.js",
 				"resources/skins.minerva.scripts/PageIssuesOverlay.js",

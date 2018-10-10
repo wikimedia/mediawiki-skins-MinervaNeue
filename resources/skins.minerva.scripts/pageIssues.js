@@ -1,63 +1,17 @@
 ( function ( M, $ ) {
-	var AB = M.require( 'skins.minerva.scripts/AB' ),
-		Page = M.require( 'mobile.startup/Page' ),
+	var Page = M.require( 'mobile.startup/Page' ),
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
-		user = mw.user,
 		NS_MAIN = 0,
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
-		pageIssuesLogger = M.require( 'skins.minerva.scripts/pageIssuesLogger' ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
 		PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' ),
-		// setup ab test
-		abTest = new AB( {
-			testName: 'WME.PageIssuesAB',
-			// Run AB only on article namespace, otherwise set samplingRate to 0,
-			// forcing user into control (i.e. ignored/not logged) group.
-			samplingRate: ( CURRENT_NS === NS_MAIN ) ? config.get( 'wgMinervaABSamplingRate', 0 ) : 0,
-			sessionId: user.sessionId()
-		} ),
 		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
-		// Per T204746 a user can request the new treatment regardless of test group
-		isUserRequestingNewTreatment = QUERY_STRING_FLAG === 'b',
-		newTreatmentEnabled = abTest.isB() || isUserRequestingNewTreatment;
-
-	function isLoggingRequired( pageIssues ) {
-		// No logging necessary when the A/B test is disabled (control group).
-		return !isUserRequestingNewTreatment && abTest.isEnabled() && pageIssues.length;
-	}
-
-	/**
-	 * Array.reduce callback that returns the severity of page issues.
-	 * In the case that a page-issue is part of a "multiple issues" template,
-	 * returns the maximum severity for that group of issues.
-	 *
-	 * @param {array} formattedArr - the return array containing severities
-	 * @param {IssueSummary} currentItem current IssueSummary object
-	 * @param {number} currentIndex current index of pageIssues
-	 * @param {array} pageIssues array of pageIssues
-	 *
-	 * @return {array} acc
-	 */
-	function formatPageIssuesSeverity( formattedArr, currentItem, currentIndex, pageIssues ) {
-		var lastItem = pageIssues[ currentIndex - 1 ],
-			issue = currentItem.issue,
-			lastFormattedIndex = formattedArr.length - 1,
-			lastFormattedValue = formattedArr[ lastFormattedIndex ];
-		// If the last and current item `grouped`, fold the maxSeverity
-		// of the two items into a single value.
-		if ( lastItem && lastItem.issue && lastItem.issue.grouped && issue.grouped ) {
-			formattedArr[ lastFormattedIndex ] = pageIssuesParser.maxSeverity(
-				[ lastFormattedValue, issue.severity ]
-			);
-		} else {
-			formattedArr.push( issue.severity );
-		}
-		return formattedArr;
-	}
+		// T206179 should update this value to enable it
+		newTreatmentEnabled = QUERY_STRING_FLAG === 'b';
 
 	/**
 	 * Create a link element that opens the issues overlay.
@@ -138,34 +92,12 @@
 				$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
 			}
 			$metadata.click( function () {
-				var pageIssue = pageIssuesParser.parse( this );
-				pageIssuesLogger.log( {
-					action: 'issueClicked',
-					issuesSeverity: [ pageIssue.severity ],
-					sectionNumbers: [ section ]
-				} );
 				overlayManager.router.navigate( issueUrl );
 				return false;
 			} );
 		} else {
 			$link = createLinkElement( labelText );
 			$link.attr( 'href', '#/issues/' + section );
-			$link.click( function () {
-				pageIssuesLogger.log( {
-					action: 'issueClicked',
-					issuesSeverity: [
-						pageIssuesParser.maxSeverity(
-							getIssues( '0' )
-								.map( function ( issue ) { return issue.severity; } )
-						)
-					],
-					// In the old treatment, an issuesClicked event will always be '0'
-					// as the old treatment is always associated with the lead section and we
-					// are only sending one maximum severity for all of them.
-					// An issuesClicked event should only ever be associated with one issue box.
-					sectionNumbers: [ '0' ]
-				} );
-			} );
 			if ( $metadata.length ) {
 				$link.insertAfter( $( 'h1#section_0' ) );
 				$metadata.remove();
@@ -269,39 +201,16 @@
 			}
 		}
 
-		if ( isLoggingRequired( getIssues( KEYWORD_ALL_SECTIONS ) ) ) {
-			// Enable logging of the PageIssues schema, setting up defaults.
-			pageIssuesLogger.subscribe(
-				newTreatmentEnabled,
-				pageIssuesLogger.newPageIssueSchemaData(
-					newTreatmentEnabled,
-					CURRENT_NS,
-					getIssues( KEYWORD_ALL_SECTIONS ).reduce( formatPageIssuesSeverity, [] ),
-					getAllIssuesSections( allIssues )
-				)
-			);
-
-			// Report that the page has been loaded.
-			pageIssuesLogger.log( {
-				action: 'pageLoaded'
-			} );
-		}
-
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
 			return new PageIssuesOverlay(
-				getIssues( section ), pageIssuesLogger, section, CURRENT_NS );
+				getIssues( section ), section, CURRENT_NS );
 		} );
 	}
 
 	M.define( 'skins.minerva.scripts/pageIssues', {
 		init: initPageIssues,
-		// The logger requires initialization (subscription). Ideally, the logger would be
-		// initialized and passed to initPageIssues() by the client. Since it's not, expose a log
-		// method and hide the subscription call in cleanuptemplates.
-		log: pageIssuesLogger.log,
 		test: {
-			formatPageIssuesSeverity: formatPageIssuesSeverity,
 			getAllIssuesSections: getAllIssuesSections,
 			createBanner: createBanner
 		}

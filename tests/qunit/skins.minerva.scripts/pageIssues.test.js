@@ -3,28 +3,9 @@
 		util = M.require( 'mobile.startup/util' ),
 		createBanner = pageIssues.test.createBanner,
 		icon = {},
-		formatPageIssuesSeverity = pageIssues.test.formatPageIssuesSeverity,
 		MEDIUM_ISSUE = {
 			issue: {
 				severity: 'MEDIUM',
-				icon: icon
-			},
-			iconString: 'i',
-			text: 't'
-		},
-		MEDIUM_MULTIPLE_ISSUE = {
-			issue: {
-				severity: 'MEDIUM',
-				grouped: true,
-				icon: icon
-			},
-			iconString: 'i',
-			text: 't'
-		},
-		LOW_MULTIPLE_ISSUE = {
-			issue: {
-				severity: 'LOW',
-				grouped: true,
 				icon: icon
 			},
 			iconString: 'i',
@@ -79,48 +60,6 @@
 	QUnit.test( 'clicking on the product of createBanner() should trigger a URL change', function ( assert ) {
 		processedAmbox.click();
 		assert.strictEqual( window.location.hash, '#/issues/' + SECTION );
-	} );
-
-	// NOTE: Only for PageIssues AB
-	QUnit.test( 'clicking on the product of createBanner() should trigger a custom event', function ( assert ) {
-		var mockAction = {
-			action: 'issueClicked',
-			issuesSeverity: [ 'MEDIUM' ],
-			sectionNumbers: [ SECTION ]
-		};
-		mw.trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
-			assert.deepEqual( mockAction, data );
-		} );
-		processedAmbox.click();
-	} );
-
-	QUnit.test( 'formatPageIssuesSeverity', function ( assert ) {
-		var multipleIssues = [
-				MEDIUM_MULTIPLE_ISSUE,
-				LOW_MULTIPLE_ISSUE,
-				LOW_MULTIPLE_ISSUE
-			],
-			multipleSingleIssues = [
-				LOW_ISSUE,
-				HIGH_ISSUE,
-				MEDIUM_ISSUE
-			],
-			mixedMultipleSingle = [
-				HIGH_ISSUE,
-				LOW_MULTIPLE_ISSUE,
-				MEDIUM_MULTIPLE_ISSUE,
-				LOW_ISSUE,
-				MEDIUM_ISSUE,
-				HIGH_ISSUE
-			],
-			testMultiple = multipleIssues.reduce( formatPageIssuesSeverity, [] ),
-			testSingle = multipleSingleIssues.reduce( formatPageIssuesSeverity, [] ),
-			testMixed = mixedMultipleSingle.reduce( formatPageIssuesSeverity, [] );
-
-		assert.deepEqual( testMultiple, [ 'MEDIUM' ], 'Multiple issues return one maxSeverity value' );
-		assert.deepEqual( testSingle, [ 'LOW', 'HIGH', 'MEDIUM' ], 'Single issues return each corresponding severity' );
-		assert.deepEqual( testMixed, [ 'HIGH', 'MEDIUM', 'LOW', 'MEDIUM', 'HIGH' ], 'Mixed single/multiple return one value for multiples' );
-
 	} );
 
 	QUnit.test( 'getAllIssuesSections', function ( assert ) {
