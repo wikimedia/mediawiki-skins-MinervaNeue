@@ -493,7 +493,7 @@ class SkinMinerva extends SkinTemplate {
 			}
 		}
 
-		$menu->insert( 'watchlist', $isJSOnly = true )
+		$menu->insert( 'watchlist' )
 			->addComponent(
 				$this->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
 				$watchTitle->getLocalURL( $watchlistQuery ),
