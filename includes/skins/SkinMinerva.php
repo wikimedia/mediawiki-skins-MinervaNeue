@@ -1218,21 +1218,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Checks to see if the current page is (probably) editable by the current user
-	 *
-	 * This is mostly the same check that sets wgIsProbablyEditable later in the page output
-	 * process.
-	 *
-	 * @return bool
-	 */
-	protected function isCurrentPageEditableByUser() {
-		$title = $this->getTitle();
-		$user = $this->getUser();
-		return $title->quickUserCan( 'edit', $user )
-			&& ( $title->exists() || $title->quickUserCan( 'create', $user ) );
-	}
-
-	/**
 	 * Checks whether the editor can handle the existing content handler type.
 	 *
 	 * @return bool
@@ -1314,7 +1299,6 @@ class SkinMinerva extends SkinTemplate {
 		$modules = [];
 		$user = $this->getUser();
 		$req = $this->getRequest();
-		$action = $req->getVal( 'article_action' );
 		$title = $this->getTitle();
 
 		if ( !$title->isSpecialPage() ) {
@@ -1330,12 +1314,6 @@ class SkinMinerva extends SkinTemplate {
 		if ( $user->isLoggedIn() ) {
 			if ( $this->useEcho() ) {
 				$modules[] = 'skins.minerva.notifications';
-			}
-
-			if ( $this->isCurrentPageEditableByUser() ) {
-				if ( $action === 'signup-edit' ) {
-					$modules[] = 'skins.minerva.newusers';
-				}
 			}
 		}
 

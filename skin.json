@@ -455,33 +455,6 @@
 				"resources/skins.minerva.scripts.top/init.js"
 			]
 		},
-		"skins.minerva.newusers": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"styles": [
-				"resources/skins.minerva.newusers/PointerOverlay.less"
-			],
-			"templates": {
-				"PointerOverlay.hogan": "resources/skins.minerva.newusers/PointerOverlay.hogan"
-			},
-			"dependencies": [
-				"skins.minerva.editor",
-				"mediawiki.util",
-				"mobile.startup"
-			],
-			"scripts": [
-				"resources/skins.minerva.newusers/PointerOverlay.js",
-				"resources/skins.minerva.newusers/init.js"
-			],
-			"messages": [
-				"minerva-pointer-dismiss",
-				"mobile-frontend-editor-tutorial-summary",
-				"mobile-frontend-editor-tutorial-confirm",
-				"mobile-frontend-editor-tutorial-cancel"
-			]
-		},
 		"skins.minerva.notifications.badge": {
 			"messages": [
 				"echo-badge-count"
@@ -537,7 +510,6 @@
 			"messages": [
 				"mobile-frontend-editor-disabled",
 				"mobile-frontend-editor-uploadenable",
-				"mobile-frontend-editor-cta",
 				"apierror-readonly"
 			],
 			"scripts": [

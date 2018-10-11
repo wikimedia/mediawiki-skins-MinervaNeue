@@ -1,16 +1,12 @@
 ( function ( M, $ ) {
 
 	var
-		// see: https://www.mediawiki.org/wiki/Manual:Interface/JavaScript#Page-specific
-		isReadOnly = mw.config.get( 'wgMinervaReadOnly' ),
-		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' ),
 		router = require( 'mediawiki.router' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		currentPage = M.getCurrentPage(),
-		editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' ),
 		// #ca-edit, .mw-editsection are standard MediaWiki elements
 		// .edit-link comes from MobileFrontend user page creation CTA
 		$allEditLinks = $( '#ca-edit a, .mw-editsection a, .edit-link' ),
@@ -25,9 +21,7 @@
 		isNewFile = currentPage.inNamespace( 'file' ) && isNewPage,
 		veConfig = mw.config.get( 'wgVisualEditorConfig' ),
 		// FIXME: Should we consider default site options and user prefs?
-		isVisualEditorEnabled = veConfig,
-		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
-		drawer;
+		isVisualEditorEnabled = veConfig;
 
 	/**
 	 * Event handler for edit link clicks. Will prevent default link
@@ -42,42 +36,6 @@
 		router.navigate( '#/editor/' + section );
 		// prevent folding section when clicking Edit by stopping propagation
 		return false;
-	}
-
-	/**
-	 * Make an element render a CTA when clicked
-	 * @method
-	 * @ignore
-	 * @param {JQuery.Object} $el Element which will render a drawer on click
-	 * @param {number} section number representing the section
-	 */
-	function makeCta( $el, section ) {
-		$el
-			.on( 'click', function ( ev ) {
-				ev.preventDefault();
-				// prevent folding section when clicking Edit
-				ev.stopPropagation();
-				// need to use toggle() because we do ev.stopPropagation() (in onEditLinkClick())
-				if ( !drawer ) {
-					drawer = new CtaDrawer( {
-						queryParams: {
-							returnto: mw.config.get( 'wgPageName' ),
-							returntoquery: 'action=edit&section=' + section,
-							warning: 'mobile-frontend-edit-login-action',
-							campaign: 'mobile_editPageActionCta'
-						},
-						signupQueryParams: {
-							returntoquery: 'article_action=signup-edit',
-							warning: 'mobile-frontend-edit-signup-action'
-						},
-						content: mw.msg( 'mobile-frontend-editor-cta' )
-					} );
-				}
-				drawer
-					.toggle();
-			} )
-			// needed until we use tap everywhere to prevent the link from being followed
-			.on( 'click', false );
 	}
 
 	/**
@@ -261,30 +219,17 @@
 	 * @ignore
 	 */
 	function init() {
+		var isReadOnly, isEditable, editErrorMessage;
+		// see: https://www.mediawiki.org/wiki/Manual:Interface/JavaScript#Page-specific
+		isReadOnly = mw.config.get( 'wgMinervaReadOnly' );
+		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' );
+
 		if ( isEditable ) {
 			// Edit button updated in setupEditor.
 			setupEditor( currentPage );
 		} else {
 			hideSectionEditIcons();
-			showSorryToast( editErrorMessage );
-		}
-	}
-
-	/**
-	 * Initialize the edit button so that it launches a login call-to-action when clicked.
-	 * @method
-	 * @ignore
-	 */
-	function initCta() {
-		// Initialize edit button links (to show Cta) only, if page is editable,
-		// otherwise show an error toast
-		if ( isEditable ) {
-			// Init all edit links (including lead section, if anonymous editing is enabled)
-			$allEditLinks.each( function () {
-				var section = ( new mw.Uri( this.href ) ).query.section || '';
-				makeCta( $( this ), section );
-			} );
-		} else {
+			editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' );
 			showSorryToast( editErrorMessage );
 		}
 	}
@@ -322,17 +267,7 @@
 		// Is a new file page (enable upload image only) Bug 58311
 		showSorryToast( mw.msg( 'mobile-frontend-editor-uploadenable' ) );
 	} else {
-		// Edit button is currently hidden. A call to init() / initCta() will update
-		// it as needed.
-		if ( user.isAnon() ) {
-			// Cta's will be rendered in EditorOverlay, if anonymous editing is enabled.
-			if ( mw.config.get( 'wgMFEditorOptions' ).anonymousEditing ) {
-				init();
-			} else {
-				initCta();
-			}
-		} else {
-			init();
-		}
+		// Edit button is currently hidden. A call to init() will update it as needed.
+		init();
 	}
 }( mw.mobileFrontend, jQuery ) );
