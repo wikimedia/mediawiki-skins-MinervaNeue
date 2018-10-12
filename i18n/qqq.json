@@ -19,7 +19,7 @@
 	"minerva-download": "Caption for the download button (in the imperative mood).\n{{Identical|Download}}",
 	"skin-minerva-share": "Caption for the share button (in the imperative mood).\n{{Identical|Share}}",
 	"skin-minerva-mobile-option-MinervaShareButton": "Label for Share mobile web beta feature",
-	"skin-minerva-mobile-option-MinervaShareButton-description": "Description label for share mobile web beta feature",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Description label for share mobile web beta feature. Description should state that feautre is available on supported browsers only",
 	"mobile-frontend-editor-redlink-create": "Label for a create page button.\n{{Identical|Create page}}",
 	"mobile-frontend-editor-redlink-explain": "Question for the user, if he want to edit a page, which link he clicked and that does not exist yet, or not.",
 	"mobile-frontend-editor-redlink-leave": "Used as a label for a button which the user can click to avoid editing a page which does not exist yet (red link): the question/alternative button is {{msg-mw|mobile-frontend-editor-redlink-create}}\n----\n{{Identical|No thanks}}",

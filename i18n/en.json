@@ -10,7 +10,7 @@
 	"minerva-download": "Download",
 	"skin-minerva-share": "Share",
 	"skin-minerva-mobile-option-MinervaShareButton": "Share",
-	"skin-minerva-mobile-option-MinervaShareButton-description": "Share current article via browser share feature",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Share current article via browser share feature (supported browsers only)",
 	"mobile-frontend-editor-redlink-create": "Create page",
 	"mobile-frontend-editor-redlink-explain": "This page has not yet been created.",
 	"mobile-frontend-editor-redlink-leave": "No, thanks.",
