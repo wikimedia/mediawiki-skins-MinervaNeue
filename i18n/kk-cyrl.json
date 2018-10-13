@@ -6,16 +6,11 @@
 			"Wikibilim"
 		]
 	},
-	"mobile-frontend-editor-cta": "Бұл бетті жетілдіруге көмектесіңіз!",
-	"minerva-pointer-dismiss": "Тоқтату",
 	"mobile-frontend-editor-disabled": "Бұл бет бұзақылыққа кедергі жасау үшін қорғалған.",
 	"mobile-frontend-editor-edit": "Өңдеу",
 	"mobile-frontend-editor-redlink-create": "Бетті бастау",
 	"mobile-frontend-editor-redlink-explain": "Бұл бет басталмайды.",
 	"mobile-frontend-editor-redlink-leave": "Жоқ, рахмет.",
-	"mobile-frontend-editor-tutorial-cancel": "Жоқ, рахмет",
-	"mobile-frontend-editor-tutorial-confirm": "Өңдеуді бастау",
-	"mobile-frontend-editor-tutorial-summary": "$1 бетін жетілдіріп көріңіз. Уикикодтан қорықпаңыз.",
 	"mobile-frontend-editor-uploadenable": "Бірінші өңдеуді іске қосып барып сурет жүктеңіз.",
 	"mobile-frontend-history": "Бұл беттің өңдеу тарихын қарау",
 	"mobile-frontend-home-button": "Басты бет",
