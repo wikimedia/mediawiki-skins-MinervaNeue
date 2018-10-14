@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"GatoSelvadego"
+			"GatoSelvadego",
+			"Saraiki"
 		]
 	},
 	"mobile-frontend-editor-edit": "Modìfega",
+	"skin-minerva-share": "Condividi",
+	"skin-minerva-mobile-option-MinervaShareButton": "Condividi",
 	"mobile-frontend-home-button": "Inissio",
 	"mobile-frontend-language-article-heading": "Lexe inte n'altra léngua",
 	"mobile-frontend-logged-in-homepage-notification": "Benvegnù, $1!",

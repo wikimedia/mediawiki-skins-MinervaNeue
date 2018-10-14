@@ -7,7 +7,8 @@
 			"Liuxinyu970226",
 			"Shizhao",
 			"Xiaomingyan",
-			"Yfdyh000"
+			"Yfdyh000",
+			"A Chinese Wikipedian"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -16,6 +17,9 @@
 	"mobile-frontend-editor-disabled": "本页面受到保护以防止被破坏。",
 	"mobile-frontend-editor-edit": "编辑",
 	"minerva-download": "下载",
+	"skin-minerva-share": "分享",
+	"skin-minerva-mobile-option-MinervaShareButton": "分享",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "通过浏览器共享特性共享当前文章（仅支持浏览器）",
 	"mobile-frontend-editor-redlink-create": "创建页面",
 	"mobile-frontend-editor-redlink-explain": "此页面尚未创建。",
 	"mobile-frontend-editor-redlink-leave": "不用了，谢谢。",

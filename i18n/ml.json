@@ -2,12 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Praveenp",
-			"Santhosh.thottingal"
+			"Santhosh.thottingal",
+			"Jinoytommanjaly"
 		]
 	},
 	"mobile-frontend-cookies-required": "ദൃശ്യ രീതികൾ മാറ്റുവാൻ കുക്കികൾ ആവശ്യമാണ്. അവ സജ്ജമാക്കിയ ശേഷം വീണ്ടും ശ്രമിക്കുക.",
 	"mobile-frontend-editor-disabled": "ഈ താൾ നശീകരണപ്രവർത്തനങ്ങളെ നേരിടാൻ സംരക്ഷിച്ചിരിക്കുന്നതാണ്.",
 	"mobile-frontend-editor-edit": "തിരുത്തുക",
+	"skin-minerva-share": "പങ്കുവയ്ക്കുക",
+	"skin-minerva-mobile-option-MinervaShareButton": "പങ്കുവയ്ക്കുക",
 	"mobile-frontend-editor-redlink-create": "താൾ സൃഷ്ടിക്കുക",
 	"mobile-frontend-editor-redlink-explain": "ഈ താൾ ഇതുവരെ {{SITENAME}} സംരംഭത്തിൽ സൃഷ്ടിച്ചിട്ടില്ല.",
 	"mobile-frontend-editor-redlink-leave": "വേണ്ട, നന്ദി",
