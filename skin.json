@@ -43,7 +43,7 @@
 		"MinervaShowShareButton": {
 			"prefix": "skin-minerva-",
 			"base": false,
-			"beta": true
+			"beta": false
 		},
 		"MinervaEnableBackToTop": {
 			"prefix": "skin-minerva-",
