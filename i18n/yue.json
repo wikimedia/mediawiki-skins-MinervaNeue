@@ -3,7 +3,8 @@
 		"authors": [
 			"Ktchankt",
 			"Obonggi",
-			"Yueman"
+			"Yueman",
+			"Hello903hello"
 		]
 	},
 	"mobile-frontend-editor-edit": "改",
@@ -19,7 +20,7 @@
 	"mobile-frontend-main-menu-settings": "設定",
 	"mobile-frontend-main-menu-watchlist": "監視清單",
 	"mobile-frontend-meta-data-issues-header-talk": "關於呢版",
-	"mobile-frontend-pageaction-edit-tooltip": "改呢頁嘅頭一段。",
+	"mobile-frontend-pageaction-edit-tooltip": "改呢頁嘅頭一段",
 	"mobile-frontend-placeholder": "搵{{SITENAME}}",
 	"mobile-frontend-random-button": "是但"
 }
