@@ -3,32 +3,48 @@
 		util = M.require( 'mobile.startup/util' ),
 		extractMessage = pageIssues.test.extractMessage,
 		createBanner = pageIssues.test.createBanner,
+		icon = {},
 		formatPageIssuesSeverity = pageIssues.test.formatPageIssuesSeverity,
 		MEDIUM_ISSUE = {
-			severity: 'MEDIUM',
-			icon: 'i',
+			issue: {
+				severity: 'MEDIUM',
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		MEDIUM_MULTIPLE_ISSUE = {
-			severity: 'MEDIUM',
-			isMultiple: true,
-			icon: 'i',
+			issue: {
+				severity: 'MEDIUM',
+				grouped: true,
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		LOW_MULTIPLE_ISSUE = {
-			severity: 'LOW',
-			isMultiple: true,
-			icon: 'i',
+			issue: {
+				severity: 'LOW',
+				grouped: true,
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		LOW_ISSUE = {
-			severity: 'LOW',
-			icon: 'i',
+			issue: {
+				severity: 'LOW',
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		HIGH_ISSUE = {
-			severity: 'HIGH',
-			icon: 'i',
+			issue: {
+				severity: 'HIGH',
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		getAllIssuesSections = pageIssues.test.getAllIssuesSections,
@@ -115,24 +131,30 @@
 					'<div class="mbox-text">Smelly</div>'
 				).appendTo( '<div class="mw-collapsible-content" />' ),
 				{
-					severity: 'DEFAULT',
-					isMultiple: true,
-					icon: this.sandbox.match.typeOf( 'string' ),
+					issue: {
+						severity: 'DEFAULT',
+						grouped: true,
+						icon: icon
+					},
+					iconString: this.sandbox.match.typeOf( 'string' ),
 					text: '<p>Smelly</p>'
 				},
-				'When the box is a child of mw-collapsible-content it isMultiple'
+				'When the box is a child of mw-collapsible-content it grouped'
 			],
 			[
 				$( '<div />' ).html(
 					'<div class="mbox-text">Dirty</div>'
 				),
 				{
-					severity: 'DEFAULT',
-					isMultiple: false,
-					icon: this.sandbox.match.typeOf( 'string' ),
+					issue: {
+						severity: 'DEFAULT',
+						grouped: false,
+						icon: icon
+					},
+					iconString: this.sandbox.match.typeOf( 'string' ),
 					text: '<p>Dirty</p>'
 				},
-				'When the box is not child of mw-collapsible-content it !isMultiple'
+				'When the box is not child of mw-collapsible-content it !grouped'
 			]
 		].forEach( function ( test ) {
 			sinon.assert.match( // eslint-disable-line no-undef
@@ -155,17 +177,17 @@
 		};
 		multipleIssues = {
 			0: [
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } ),
-				util.extend( {}, LOW_ISSUE, { isMultiple: true } ),
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } )
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } ),
+				util.extend( {}, LOW_ISSUE, { grouped: true } ),
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } )
 			]
 		};
 		multipleIssuesWithDeletion = {
 			0: [
 				HIGH_ISSUE,
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } ),
-				util.extend( {}, LOW_ISSUE, { isMultiple: true } ),
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } )
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } ),
+				util.extend( {}, LOW_ISSUE, { grouped: true } ),
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } )
 			]
 		};
 		allIssuesNewTreatment = {

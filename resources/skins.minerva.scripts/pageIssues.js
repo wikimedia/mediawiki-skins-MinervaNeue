@@ -9,7 +9,6 @@
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
-		Icon = M.require( 'mobile.startup/Icon' ),
 		pageIssuesLogger = M.require( 'skins.minerva.scripts/pageIssuesLogger' ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
 		PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' ),
@@ -28,9 +27,9 @@
 
 	/**
 	 * @typedef {Object} IssueSummary
-	 * @prop {string} severity A PageIssue.severity.
-	 * @prop {Boolean} isMultiple Whether or not the issue is part of a "multiple issues" template.
-	 * @prop {string} icon HTML string.
+	 * @prop {PageIssue} issue
+	 * @prop {string} iconString a string representation of icon.
+	 *  This is kept for template compatibility (our views do not yet support composition).
 	 * @prop {string} text HTML string.
 	*/
 
@@ -53,16 +52,17 @@
 	 */
 	function formatPageIssuesSeverity( formattedArr, currentItem, currentIndex, pageIssues ) {
 		var lastItem = pageIssues[ currentIndex - 1 ],
+			issue = currentItem.issue,
 			lastFormattedIndex = formattedArr.length - 1,
 			lastFormattedValue = formattedArr[ lastFormattedIndex ];
-		// If the last and current item `isMultiple`, fold the maxSeverity
+		// If the last and current item `grouped`, fold the maxSeverity
 		// of the two items into a single value.
-		if ( lastItem && lastItem.isMultiple && currentItem.isMultiple ) {
+		if ( lastItem && lastItem.issue && lastItem.issue.grouped && issue.grouped ) {
 			formattedArr[ lastFormattedIndex ] = pageIssuesParser.maxSeverity(
-				[ lastFormattedValue, currentItem.severity ]
+				[ lastFormattedValue, issue.severity ]
 			);
 		} else {
-			formattedArr.push( currentItem.severity );
+			formattedArr.push( issue.severity );
 		}
 		return formattedArr;
 	}
@@ -93,9 +93,9 @@
 		pageIssue = pageIssuesParser.parse( $box.get( 0 ) );
 
 		return {
-			severity: pageIssue.severity,
-			isMultiple: pageIssue.grouped,
-			icon: pageIssue.icon.toHtmlString(),
+			issue: pageIssue,
+			// For template compatibility with PageIssuesOverlay
+			iconString: pageIssue.icon.toHtmlString(),
 			text: $container.html()
 		};
 	}
@@ -137,8 +137,7 @@
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
 			selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 			issues = [],
-			$link,
-			severity;
+			$link;
 
 		if ( section === KEYWORD_ALL_SECTIONS ) {
 			$metadata = page.$( selector );
@@ -165,14 +164,10 @@
 		// store it for later
 		allIssues[section] = issues;
 
-		if ( $metadata.length && inline ) {
-			severity = pageIssuesParser.maxSeverity(
-				issues.map( function ( issue ) { return issue.severity; } )
-			);
-			new Icon( {
-				glyphPrefix: 'minerva',
-				name: pageIssuesParser.iconName( $metadata.get( 0 ), severity )
-			} ).prependTo( $metadata.find( '.mbox-text' ) );
+		// If issues were extracted and there are inline amboxes, add learn more
+		// and icon to the UI element.
+		if ( issues.length && $metadata.length && inline ) {
+			issues[0].issue.icon.$el.prependTo( $metadata.eq( 0 ).find( '.mbox-text' ) );
 			$learnMore = $( '<span>' )
 				.addClass( 'ambox-learn-more' )
 				.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
@@ -256,7 +251,7 @@
 					var lastIssue = allIssues[ section ][i - 1];
 					// If the last issue belongs to a "Multiple issues" template,
 					// and so does the current one, don't add the current one.
-					if ( lastIssue && lastIssue.isMultiple && issue.isMultiple ) {
+					if ( lastIssue && lastIssue.grouped && issue.grouped ) {
 						acc[ acc.length - 1 ] = section;
 					} else {
 						acc.push( section );

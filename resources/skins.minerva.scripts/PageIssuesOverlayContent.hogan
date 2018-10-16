@@ -2,7 +2,7 @@
 	{{#issues}}
 	<li>
 		<div class="issue-notice" data-severity="{{severity}}">
-			{{{icon}}}
+			{{{iconString}}}
 			<div class="issue-details">{{{text}}}</div>
 		</div>
 	</li>
