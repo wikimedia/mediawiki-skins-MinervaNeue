@@ -5,6 +5,13 @@
 	 * @prop {boolean} grouped True if part of a group of multiple issues, false if singular.
 	 * @prop {Icon} icon
 	 */
+	/**
+	 * @typedef {Object} IssueSummary
+	 * @prop {PageIssue} issue
+	 * @prop {string} iconString a string representation of icon.
+	 *  This is kept for template compatibility (our views do not yet support composition).
+	 * @prop {string} text HTML string.
+	*/
 
 	var Icon = M.require( 'mobile.startup/Icon' ),
 		// Icons are matching the type selector below use a TYPE_* icon. When unmatched, the icon is
@@ -166,14 +173,43 @@
 	}
 
 	/**
+	 * Extract a summary message from a cleanup template generated element that is
+	 * friendly for mobile display.
+	 * @param {Object} $box element to extract the message from
+	 * @return {IssueSummary}
+	 */
+	function extract( $box ) {
+		var SELECTOR = '.mbox-text, .ambox-text',
+			$container = $( '<div>' ),
+			pageIssue;
+
+		$box.find( SELECTOR ).each( function () {
+			var contents,
+				$this = $( this );
+			// Clean up talk page boxes
+			$this.find( 'table, .noprint' ).remove();
+			contents = $this.html();
+
+			if ( contents ) {
+				$( '<p>' ).html( contents ).appendTo( $container );
+			}
+		} );
+
+		pageIssue = parse( $box.get( 0 ) );
+
+		return {
+			issue: pageIssue,
+			// For template compatibility with PageIssuesOverlay
+			iconString: pageIssue.icon.toHtmlString(),
+			text: $container.html()
+		};
+	}
+
+	/**
 	 * @module skins.minerva.scripts/utils
 	 */
 	M.define( 'skins.minerva.scripts/pageIssuesParser', {
-		/**
-		 * Extract an icon for use with the issue.
-		 * @param {JQuery.Object} $box element to extract the icon from
-		 * @return {Icon} representing the icon
-		 */
+		extract: extract,
 		parse: parse,
 		maxSeverity: maxSeverity,
 		iconName: iconName,

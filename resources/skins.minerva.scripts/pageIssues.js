@@ -25,14 +25,6 @@
 		isUserRequestingNewTreatment = QUERY_STRING_FLAG === 'b',
 		newTreatmentEnabled = abTest.isB() || isUserRequestingNewTreatment;
 
-	/**
-	 * @typedef {Object} IssueSummary
-	 * @prop {PageIssue} issue
-	 * @prop {string} iconString a string representation of icon.
-	 *  This is kept for template compatibility (our views do not yet support composition).
-	 * @prop {string} text HTML string.
-	*/
-
 	function isLoggingRequired( pageIssues ) {
 		// No logging necessary when the A/B test is disabled (control group).
 		return !isUserRequestingNewTreatment && abTest.isEnabled() && pageIssues.length;
@@ -65,39 +57,6 @@
 			formattedArr.push( issue.severity );
 		}
 		return formattedArr;
-	}
-
-	/**
-	 * Extract a summary message from a cleanup template generated element that is
-	 * friendly for mobile display.
-	 * @param {Object} $box element to extract the message from
-	 * @return {IssueSummary}
-	 */
-	function extractMessage( $box ) {
-		var SELECTOR = '.mbox-text, .ambox-text',
-			$container = $( '<div>' ),
-			pageIssue;
-
-		$box.find( SELECTOR ).each( function () {
-			var contents,
-				$this = $( this );
-			// Clean up talk page boxes
-			$this.find( 'table, .noprint' ).remove();
-			contents = $this.html();
-
-			if ( contents ) {
-				$( '<p>' ).html( contents ).appendTo( $container );
-			}
-		} );
-
-		pageIssue = pageIssuesParser.parse( $box.get( 0 ) );
-
-		return {
-			issue: pageIssue,
-			// For template compatibility with PageIssuesOverlay
-			iconString: pageIssue.icon.toHtmlString(),
-			text: $container.html()
-		};
 	}
 
 	/**
@@ -152,8 +111,8 @@
 				$this = $( this );
 
 			if ( $this.find( selector ).length === 0 ) {
-				issue = extractMessage( $this );
-				// Some issues after "extractMessage" has been run will have no text.
+				issue = pageIssuesParser.extract( $this );
+				// Some issues after "extract" has been run will have no text.
 				// For example in Template:Talk header the table will be removed and no issue found.
 				// These should not be rendered.
 				if ( issue.text ) {
@@ -343,7 +302,6 @@
 		log: pageIssuesLogger.log,
 		test: {
 			formatPageIssuesSeverity: formatPageIssuesSeverity,
-			extractMessage: extractMessage,
 			getAllIssuesSections: getAllIssuesSections,
 			createBanner: createBanner
 		}

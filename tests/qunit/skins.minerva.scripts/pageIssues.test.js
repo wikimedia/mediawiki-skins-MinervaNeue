@@ -1,7 +1,6 @@
 ( function ( M ) {
 	var pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		util = M.require( 'mobile.startup/util' ),
-		extractMessage = pageIssues.test.extractMessage,
 		createBanner = pageIssues.test.createBanner,
 		icon = {},
 		formatPageIssuesSeverity = pageIssues.test.formatPageIssuesSeverity,
@@ -122,47 +121,6 @@
 		assert.deepEqual( testSingle, [ 'LOW', 'HIGH', 'MEDIUM' ], 'Single issues return each corresponding severity' );
 		assert.deepEqual( testMixed, [ 'HIGH', 'MEDIUM', 'LOW', 'MEDIUM', 'HIGH' ], 'Mixed single/multiple return one value for multiples' );
 
-	} );
-
-	QUnit.test( 'extractMessage', function () {
-		[
-			[
-				$( '<div />' ).html(
-					'<div class="mbox-text">Smelly</div>'
-				).appendTo( '<div class="mw-collapsible-content" />' ),
-				{
-					issue: {
-						severity: 'DEFAULT',
-						grouped: true,
-						icon: icon
-					},
-					iconString: this.sandbox.match.typeOf( 'string' ),
-					text: '<p>Smelly</p>'
-				},
-				'When the box is a child of mw-collapsible-content it grouped'
-			],
-			[
-				$( '<div />' ).html(
-					'<div class="mbox-text">Dirty</div>'
-				),
-				{
-					issue: {
-						severity: 'DEFAULT',
-						grouped: false,
-						icon: icon
-					},
-					iconString: this.sandbox.match.typeOf( 'string' ),
-					text: '<p>Dirty</p>'
-				},
-				'When the box is not child of mw-collapsible-content it !grouped'
-			]
-		].forEach( function ( test ) {
-			sinon.assert.match( // eslint-disable-line no-undef
-				extractMessage( test[ 0 ] ),
-				test[ 1 ],
-				test[ 2 ]
-			);
-		} );
 	} );
 
 	QUnit.test( 'getAllIssuesSections', function ( assert ) {
