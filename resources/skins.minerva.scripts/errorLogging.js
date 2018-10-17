@@ -1,6 +1,11 @@
 ( function ( M, requestIdleCallback, track, config, trackSubscribe, user, experiments ) {
 	requestIdleCallback( function () {
 		/**
+		 * Errors count in the current pageview
+		 * @type {number}
+		 */
+		var errorsCount = 0;
+		/**
 		 * Handle an error and log it if necessary
 		 * @param {string} errorMessage to be logged
 		 * @param {number} [lineNumber] of error
@@ -30,7 +35,7 @@
 					isAnon: user.isAnon(),
 					revision: page.getRevisionId()
 				};
-
+			errorsCount++;
 			if ( isErrorLoggingEnabled ) {
 				track( EVENT_CLIENT_ERROR_LOG,
 					util.extend( {
@@ -45,8 +50,10 @@
 					}, DEFAULT_ERROR_DATA )
 				);
 			}
-			if ( config.get( 'wgMinervaCountErrors' ) ) {
-				mw.track( 'counter.MediaWiki.minerva.WebClientError', 1 );
+		}
+		function logErrorsCount() {
+			if ( errorsCount > 0 ) {
+				mw.track( 'counter.MediaWiki.minerva.WebClientError', errorsCount );
 			}
 		}
 		// track RL exceptions
@@ -58,6 +65,9 @@
 		trackSubscribe( 'global.error', function ( topic, error ) {
 			handleError( error.errorMessage, error.lineNumber, error.columnNumber, error.url );
 		} );
+		if ( config.get( 'wgMinervaCountErrors' ) ) {
+			$( window ).on( 'beforeunload', logErrorsCount );
+		}
 	} );
 }(
 	mw.mobileFrontend,
