@@ -49,9 +49,12 @@
 				function ( sectionStr ) { return parseInt( sectionStr, 10 ); }
 			);
 
+			// For backwards compatibility with cached WikimediaEvents code
+			// (remove me in a weeks time!! T207423)
+			mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
 			// Log readingDepth schema.(ReadingDepth is guarded against multiple enables).
 			// See https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/WikimediaEvents/+/437686/
-			mwTrack( 'wikimedia.event.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
+			mwTrack( 'wikimedia.ReadingDepthSchema.enable', bucketToGroup( newTreatmentEnabled ) );
 			// Log PageIssues schema.
 			mwTrack( 'wikimedia.event.PageIssues', mixedData );
 		} );
