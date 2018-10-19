@@ -55,8 +55,8 @@ class ArticlePage
   end
 
   ## watch star
-  button(:watch_star, text: 'Watch this page')
-  button(:unwatch_star, text: 'Stop watching')
+  a(:watch_star, text: 'Watch this page')
+  a(:unwatch_star, text: 'Stop watching')
   button(:watch_confirm, class: 'mw-htmlform-submit')
 
   # search
