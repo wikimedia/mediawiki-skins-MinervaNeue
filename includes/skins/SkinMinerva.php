@@ -242,9 +242,15 @@ class SkinMinerva extends SkinTemplate {
 			return false;
 		}
 
+		// T206406: Enable "Talk" or "Discussion" button on Main page, also, not forgetting
+		// the "switch-language" button. But disable "edit" and "watch" actions.
+		if ( $title->isMainPage() ) {
+			return ( in_array( $action, $config->get( 'MinervaPageActions' ) )
+				&& ( $action === 'talk' || $action === 'switch-language' ) );
+		}
+
 		if (
 			! in_array( $action, $config->get( 'MinervaPageActions' ) )
-			|| $title->isMainPage()
 			|| ( $this->getUserPageHelper()->isUserPage() && !$title->exists() )
 		) {
 			return false;
@@ -270,7 +276,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string
 	 */
 	public function doEditSectionLink( Title $nt, $section, $tooltip, Language $lang ) {
-		if ( $this->isAllowedPageAction( 'edit' ) ) {
+		if ( $this->isAllowedPageAction( 'edit' ) && !$nt->isMainPage() ) {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
 			$html .= Html::element( 'a', [
@@ -980,7 +986,7 @@ class SkinMinerva extends SkinTemplate {
 
 	/**
 	 * Returns an array of sitelinks to add into the main menu footer.
-	 * @return Array array of site links
+	 * @return array Array of site links
 	 */
 	protected function getSiteLinks() {
 		$menu = new MenuBuilder();
