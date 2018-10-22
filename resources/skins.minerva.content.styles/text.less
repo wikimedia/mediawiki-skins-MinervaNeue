@@ -52,9 +52,18 @@
 	}
 }
 
-strong,
-b {
+b,
+strong {
 	font-weight: bold;
+}
+
+blockquote {
+	border-left: 3px solid @colorGray12;
+	font-family: @fontFamilyHeading;
+	font-size: 1.1em;
+	padding: 1em @blockquotePaddingRight 1em @blockquotePaddingLeft;
+	position: relative;
+	overflow: hidden;
 }
 
 em,
