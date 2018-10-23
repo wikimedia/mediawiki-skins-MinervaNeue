@@ -66,6 +66,11 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 		$skin = $this->getSkin( Title::newMainPage() );
 
 		$this->assertFalse( $skin->isAllowedPageAction( 'watch' ) );
+		$this->assertFalse( $skin->isAllowedPageAction( 'edit' ) );
+
+		// Check to make sure 'talk' and 'switch-language' are enabled on the Main page.
+		$this->assertTrue( $skin->isAllowedPageAction( 'talk' ) );
+		$this->assertTrue( $skin->isAllowedPageAction( 'switch-language' ) );
 	}
 
 	/**
