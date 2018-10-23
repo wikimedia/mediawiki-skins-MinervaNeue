@@ -46,16 +46,8 @@
 		margin-bottom: 0;
 		float: right;
 
-		// FIXME: use .cloaked class
-		// file inputs are notoriously difficult to style
-		input {
-			opacity: 0;
-		}
-
-		input,
-		a,
-		span,
-		button {
+		// edit, language and watchstar
+		a {
 			// Needed for non-JavaScript users
 			position: absolute;
 			display: block;
@@ -63,14 +55,6 @@
 			height: 100%;
 			// needed for ContentOverlay pointer arrow
 			margin: 0 0 8px;
-		}
-
-		button {
-			text-indent: inherit;
-			outline: 0;
-		}
-		a,
-		button {
 			cursor: pointer;
 		}
 
