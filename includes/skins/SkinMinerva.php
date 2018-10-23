@@ -1181,13 +1181,20 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array A map compatible with BaseTemplate#makeListItem
 	 */
 	protected function createWatchPageAction( $actions ) {
+		$title = $this->getTitle();
+		$user = $this->getUser();
+		$ctaUrl = $this->getLoginUrl( [ 'returnto' => $title ] );
+		if ( $title && $user->isWatched( $title ) ) {
+			$icon = 'watched';
+		} else {
+			$icon = 'watch';
+		}
 		$baseResult = [
 			'id' => 'ca-watch',
 			// Use blank icon to reserve space for watchstar icon once JS loads
-			'class' => MinervaUI::iconClass( '', 'element', 'watch-this-article' ),
+			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' ),
 			'is_js_only' => true
 		];
-		$title = $this->getTitle();
 
 		if ( isset( $actions['watch'] ) ) {
 			$result = array_merge( $actions['watch'], $baseResult );
@@ -1199,7 +1206,7 @@ class SkinMinerva extends SkinTemplate {
 			$result = array_merge( $baseResult, [
 				// FIXME: makeLink (used by makeListItem) when no text is present defaults to use the key
 				'text' => '',
-				'href' => $this->getLoginUrl( [ 'returnto' => $title ] ),
+				'href' => $ctaUrl,
 			] );
 		}
 

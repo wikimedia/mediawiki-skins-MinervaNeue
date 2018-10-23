@@ -94,6 +94,24 @@
 	}
 }
 
+// Watchstar is hidden for anonymous no-js users
+// While we could link the icon to the login/signup form, this is not
+// a perfect experience and could be confusing.
+// In JavaScript this icon will be converted to a watch icon and will point
+// to a Call to action to sign up/login and explain why that's a good idea.
+// Thus, anonymous users without JS will never see this icon.
+// This is a small % of our users, so deemed okay.
+.client-nojs {
+	.watch-this-article {
+		visibility: hidden;
+	}
+	.is-authenticated {
+		.watch-this-article {
+			visibility: visible;
+		}
+	}
+}
+
 // On small devices that don't support Javascript, hide the page actions bar
 @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
 	.client-nojs {
