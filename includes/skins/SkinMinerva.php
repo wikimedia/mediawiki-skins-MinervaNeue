@@ -1332,12 +1332,15 @@ class SkinMinerva extends SkinTemplate {
 		$req = $this->getRequest();
 		$title = $this->getTitle();
 
+		$isMFMobile = class_exists( 'MobileContext' ) &&
+			MobileContext::singleton()->shouldDisplayMobileView();
+
 		if ( !$title->isSpecialPage() ) {
 			if ( $this->isAllowedPageAction( 'watch' ) ) {
 				// Explicitly add the mobile watchstar code.
 				$modules[] = 'skins.minerva.watchstar';
 			}
-			if ( $this->isCurrentPageContentModelEditable() ) {
+			if ( $isMFMobile && $this->isCurrentPageContentModelEditable() ) {
 				$modules[] = 'skins.minerva.editor';
 			}
 		}
