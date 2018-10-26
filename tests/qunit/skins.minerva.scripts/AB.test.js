@@ -12,9 +12,9 @@
 
 	QUnit.test( 'Bucketing test', function ( assert ) {
 		var userBuckets = {
+				unsampled: 0,
 				control: 0,
-				A: 0,
-				B: 0
+				treatment: 0
 			},
 			maxUsers = 1000,
 			bucketingTest,
@@ -26,31 +26,31 @@
 				sessionId: mw.user.generateRandomSessionId()
 			} );
 			bucketingTest = new AB( config );
-			if ( bucketingTest.isA() ) {
-				++userBuckets.A;
-			} else if ( bucketingTest.isB() ) {
-				++userBuckets.B;
-			} else if ( !bucketingTest.isEnabled() ) {
+			if ( bucketingTest.isControl() ) {
 				++userBuckets.control;
+			} else if ( bucketingTest.isTreatment() ) {
+				++userBuckets.treatment;
+			} else if ( !bucketingTest.isSampled() ) {
+				++userBuckets.unsampled;
 			} else {
 				throw new Error( 'Unknown bucket!' );
 			}
 		}
 
 		assert.strictEqual(
-			( userBuckets.control / maxUsers > 0.4 ) &&
-			( userBuckets.control / maxUsers < 0.6 ),
-			true, 'test control group is about 50% (' + userBuckets.control / 10 + '%)' );
+			( userBuckets.unsampled / maxUsers > 0.4 ) &&
+			( userBuckets.unsampled / maxUsers < 0.6 ),
+			true, 'test unsampled group is about 50% (' + userBuckets.unsampled / 10 + '%)' );
 
 		assert.strictEqual(
-			( userBuckets.A / maxUsers > 0.2 ) &&
-			( userBuckets.A / maxUsers < 0.3 ),
-			true, 'test group A is about 25% (' + userBuckets.A / 10 + '%)' );
+			( userBuckets.control / maxUsers > 0.2 ) &&
+			( userBuckets.control / maxUsers < 0.3 ),
+			true, 'test control group is about 25% (' + userBuckets.control / 10 + '%)' );
 
 		assert.strictEqual(
-			( userBuckets.B / maxUsers > 0.2 ) &&
-			( userBuckets.B / maxUsers < 0.3 ),
-			true, 'test group B is about 25% (' + userBuckets.B / 10 + '%)' );
+			( userBuckets.treatment / maxUsers > 0.2 ) &&
+			( userBuckets.treatment / maxUsers < 0.3 ),
+			true, 'test new treatment group is about 25% (' + userBuckets.treatment / 10 + '%)' );
 	} );
 
 }( mw.mobileFrontend ) );

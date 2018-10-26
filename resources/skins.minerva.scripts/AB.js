@@ -1,22 +1,22 @@
 /*
  * Bucketing wrapper for creating AB-tests.
  *
- * Given a test name, sampling rate, and session ID, provides a class that buckets users into
- * predefined bucket ("control", "A", "B") and starts an AB-test.
+ * Given a test name, sampling rate, and session ID, provides a class that buckets a user into
+ * a predefined bucket ("unsampled", "control", or "treatment") and starts an AB-test.
  */
 ( function ( M, mwExperiments ) {
 	var bucket = {
-		CONTROL: 'control',
-		A: 'A',
-		B: 'B'
+		UNSAMPLED: 'unsampled', // Old treatment: not sampled and not instrumented.
+		CONTROL: 'control', // Old treatment: sampled and instrumented.
+		TREATMENT: 'treatment' // New treatment: sampled and instrumented.
 	};
 
 	/**
-	 * Buckets users based on params and exposes an `isEnabled` and `getBucket` method.
-	 * @param {Object}   config Configuration object for AB test.
-	 * @param {string}   config.testName
-	 * @param {number}   config.samplingRate Sampling rate for the AB-test.
-	 * @param {number}   config.sessionId Session ID for user bucketing.
+	 * Buckets users based on params and exposes an `isSampled` and `getBucket` method.
+	 * @param {Object} config Configuration object for AB test.
+	 * @param {string} config.testName
+	 * @param {number} config.samplingRate Sampling rate for the AB-test.
+	 * @param {number} config.sessionId Session ID for user bucketing.
 	 * @constructor
 	 */
 	function AB( config ) {
@@ -28,9 +28,9 @@
 				name: testName,
 				enabled: !!samplingRate,
 				buckets: {
-					control: 1 - samplingRate,
-					A: samplingRate / 2,
-					B: samplingRate / 2
+					unsampled: 1 - samplingRate,
+					control: samplingRate / 2,
+					treatment: samplingRate / 2
 				}
 			};
 
@@ -39,37 +39,37 @@
 		 *
 		 * A boolean instead of an enum is usually a code smell. However, the nature of A/B testing
 		 * is to compare an A group's performance to a B group's so a boolean seems natural, even
-		 * in the long term, and preferable to showing bucketing encoding ("A", "B", "control") to
-		 * callers which is necessary if getBucket(). The downside is that now two functions exist
-		 * where one would suffice.
+		 * in the long term, and preferable to showing bucketing encoding ("unsampled", "control",
+		 * "treatment") to callers which is necessary if getBucket(). The downside is that now two
+		 * functions exist where one would suffice.
 		 *
-		 * @return {string} AB-test bucket, bucket.CONTROL_BUCKET by default, bucket.A or bucket.B
-		 *                  buckets otherwise.
+		 * @return {string} AB-test bucket, `bucket.UNSAMPLED` by default, `bucket.CONTROL` or
+		 *                  `bucket.TREATMENT` buckets otherwise.
 		 */
 		function getBucket() {
 			return mwExperiments.getBucket( test, sessionId );
 		}
 
-		function isA() {
-			return getBucket() === bucket.A;
+		function isControl() {
+			return getBucket() === bucket.CONTROL;
 		}
 
-		function isB() {
-			return getBucket() === bucket.B;
+		function isTreatment() {
+			return getBucket() === bucket.TREATMENT;
 		}
 
 		/**
 		 * Checks whether or not a user is in the AB-test,
 		 * @return {boolean}
 		 */
-		function isEnabled() {
-			return getBucket() !== bucket.CONTROL; // I.e., `isA() || isB()`;
+		function isSampled() {
+			return getBucket() !== bucket.UNSAMPLED; // I.e., `isControl() || isTreatment()`
 		}
 
 		return {
-			isA: isA,
-			isB: isB,
-			isEnabled: isEnabled
+			isControl: isControl,
+			isTreatment: isTreatment,
+			isSampled: isSampled
 		};
 	}
 
