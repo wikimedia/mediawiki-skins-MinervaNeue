@@ -857,8 +857,8 @@ class SkinMinerva extends SkinTemplate {
 		} else {
 			$title = $this->getTitle();
 			if ( $title ) {
-				$vars = $this->getSkinConfigVariables();
-				$tagline = $vars['wgMFDescription'];
+				$out = $this->getOutput();
+				$tagline = $out->getProperty( 'wgMFDescription' );
 			}
 		}
 
@@ -1289,7 +1289,6 @@ class SkinMinerva extends SkinTemplate {
 			'wgMinervaFeatures' => $this->skinOptions,
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
-			'wgMFDescription' => $out->getProperty( 'wgMFDescription' ),
 		];
 
 		if ( $this->isAuthenticatedUser() ) {
