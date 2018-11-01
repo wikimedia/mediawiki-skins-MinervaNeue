@@ -8,7 +8,7 @@ use Title;
 
 /**
  * @group MinervaNeue
- * @coversDefaultClass MediaWiki\Minerva\SkinUserPageHelper
+ * @coversDefaultClass \MediaWiki\Minerva\SkinUserPageHelper
  */
 class SkinUserPageHelperTest extends MediaWikiTestCase {
 
