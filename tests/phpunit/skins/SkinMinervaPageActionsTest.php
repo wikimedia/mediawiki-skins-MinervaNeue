@@ -7,6 +7,7 @@ use MediaWikiTestCase;
 use Title;
 use RequestContext;
 use ContentHandler;
+use MediaWiki\Minerva\SkinUserPageHelper;
 
 // FIXME: That this class exists is an indicator that at least SkinMinerva#isAllowedPageAction
 // should be extracted from SkinMinerva.
@@ -130,7 +131,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
 	public function testPageActionsWhenOnUserPage() {
-		$userPageHelper = $this->getMockBuilder( \MediaWiki\Minerva\SkinUserPageHelper::class )
+		$userPageHelper = $this->getMockBuilder( SkinUserPageHelper::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -148,7 +149,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
 	public function testPageActionsWhenNotOnUserPage() {
-		$userPageHelper = $this->getMockBuilder( \MediaWiki\Minerva\SkinUserPageHelper::class )
+		$userPageHelper = $this->getMockBuilder( SkinUserPageHelper::class )
 			->disableOriginalConstructor()
 			->getMock();
 
