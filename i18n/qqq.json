@@ -15,6 +15,7 @@
 	"minerva-talk-add-topic": "Label for button which shows at bottom of talk pages in mobile view prompting addition of topic",
 	"mobile-frontend-cookies-required": "Error message shown when user attempts to switch site modes and cookies are not enabled.",
 	"mobile-frontend-editor-disabled": "Toast message that appears when a user is unable to edit a page and clicks edit icon.",
+	"mobile-frontend-editor-disabled-anon": "Message that appears in a drawer when a user is not logged in and anonymous edits are disabled.",
 	"mobile-frontend-editor-edit": "Caption for the link showing edit form. (In the imperative mood)\n{{Identical|Edit}}",
 	"minerva-download": "Caption for the download button (in the imperative mood).\n{{Identical|Download}}",
 	"skin-minerva-share": "Caption for the share button (in the imperative mood).\n{{Identical|Share}}",

@@ -12,6 +12,7 @@
 		$allEditLinks = $( '#ca-edit a, .mw-editsection a, .edit-link' ),
 		user = M.require( 'mobile.startup/user' ),
 		popup = M.require( 'mobile.startup/toast' ),
+		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
 		// FIXME: Disable on IE < 10 for time being
 		blacklisted = /MSIE \d\./.test( navigator.userAgent ),
 		contentModel = mw.config.get( 'wgPageContentModel' ),
@@ -219,7 +220,7 @@
 	 * @ignore
 	 */
 	function init() {
-		var isReadOnly, isEditable, editErrorMessage;
+		var isReadOnly, isEditable, editErrorMessage, drawer, editRestrictions;
 		// see: https://www.mediawiki.org/wiki/Manual:Interface/JavaScript#Page-specific
 		isReadOnly = mw.config.get( 'wgMinervaReadOnly' );
 		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' );
@@ -229,8 +230,22 @@
 			setupEditor( currentPage );
 		} else {
 			hideSectionEditIcons();
-			editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' );
-			showSorryToast( editErrorMessage );
+			editRestrictions = mw.config.get( 'wgRestrictionEdit' );
+			if ( mw.user.isAnon() && Array.isArray( editRestrictions ) && editRestrictions.indexOf( '*' ) !== -1 ) {
+				drawer = new CtaDrawer( {
+					content: mw.msg( 'mobile-frontend-editor-disabled-anon' ),
+					signupQueryParams: {
+						warning: 'mobile-frontend-watchlist-signup-action'
+					}
+				} );
+				$allEditLinks.on( 'click', function ( ev ) {
+					drawer.show();
+					ev.preventDefault();
+				} );
+			} else {
+				editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' );
+				showSorryToast( editErrorMessage );
+			}
 		}
 	}
 
