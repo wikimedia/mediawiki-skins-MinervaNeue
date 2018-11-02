@@ -22,7 +22,8 @@
 		isNewFile = currentPage.inNamespace( 'file' ) && isNewPage,
 		veConfig = mw.config.get( 'wgVisualEditorConfig' ),
 		// FIXME: Should we consider default site options and user prefs?
-		isVisualEditorEnabled = veConfig;
+		isVisualEditorEnabled = veConfig,
+		editorPath = /^\/editor\/(\d+|all)$/;
 
 	/**
 	 * Event handler for edit link clicks. Will prevent default link
@@ -72,7 +73,7 @@
 			leadSection = page.getLeadSectionElement();
 
 		$allEditLinks.on( 'click', onEditLinkClick );
-		overlayManager.add( /^\/editor\/(\d+|all)$/, function ( sectionId ) {
+		overlayManager.add( editorPath, function ( sectionId ) {
 			var
 				$content = $( '#mw-content-text' ),
 				preferredEditor = getPreferredEditor(),
@@ -215,12 +216,35 @@
 	}
 
 	/**
+	 * Show a drawer with log in / sign up buttons.
+	 * @method
+	 * @ignore
+	 */
+	function showLoginDrawer() {
+		var drawer = new CtaDrawer( {
+			content: mw.msg( 'mobile-frontend-editor-disabled-anon' ),
+			signupQueryParams: {
+				warning: 'mobile-frontend-watchlist-signup-action'
+			}
+		} );
+		$allEditLinks.on( 'click', function ( ev ) {
+			drawer.show();
+			ev.preventDefault();
+			return drawer;
+		} );
+		router.route( editorPath, function () {
+			drawer.show();
+		} );
+		router.checkRoute();
+	}
+
+	/**
 	 * Setup the editor if the user can edit the page otherwise show a sorry toast.
 	 * @method
 	 * @ignore
 	 */
 	function init() {
-		var isReadOnly, isEditable, editErrorMessage, drawer, editRestrictions;
+		var isReadOnly, isEditable, editErrorMessage, editRestrictions;
 		// see: https://www.mediawiki.org/wiki/Manual:Interface/JavaScript#Page-specific
 		isReadOnly = mw.config.get( 'wgMinervaReadOnly' );
 		isEditable = !isReadOnly && mw.config.get( 'wgIsProbablyEditable' );
@@ -232,16 +256,7 @@
 			hideSectionEditIcons();
 			editRestrictions = mw.config.get( 'wgRestrictionEdit' );
 			if ( mw.user.isAnon() && Array.isArray( editRestrictions ) && editRestrictions.indexOf( '*' ) !== -1 ) {
-				drawer = new CtaDrawer( {
-					content: mw.msg( 'mobile-frontend-editor-disabled-anon' ),
-					signupQueryParams: {
-						warning: 'mobile-frontend-watchlist-signup-action'
-					}
-				} );
-				$allEditLinks.on( 'click', function ( ev ) {
-					drawer.show();
-					ev.preventDefault();
-				} );
+				showLoginDrawer();
 			} else {
 				editErrorMessage = isReadOnly ? mw.msg( 'apierror-readonly' ) : mw.msg( 'mobile-frontend-editor-disabled' );
 				showSorryToast( editErrorMessage );
@@ -260,6 +275,10 @@
 			popup.show( msg );
 			ev.preventDefault();
 		} );
+		router.route( editorPath, function () {
+			popup.show( msg );
+		} );
+		router.checkRoute();
 	}
 
 	if ( contentModel !== 'wikitext' ) {
