@@ -23,6 +23,7 @@
 	"minerva-talk-add-topic": "Ajouter une discussion",
 	"mobile-frontend-cookies-required": "Les témoins (cookies) sont nécessaires pour basculer entre les modes d’affichage. Veuillez les autoriser et réessayer.",
 	"mobile-frontend-editor-disabled": "Cette page est protégée pour empêcher le vandalisme.",
+	"mobile-frontend-editor-disabled-anon": "Vous devez vous connecter pour modifier cette page.",
 	"mobile-frontend-editor-edit": "Modifier",
 	"minerva-download": "Télécharger",
 	"skin-minerva-share": "Partager",
