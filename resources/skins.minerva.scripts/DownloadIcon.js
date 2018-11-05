@@ -106,7 +106,6 @@
 			this.options.name = GLYPH;
 			this.render();
 		},
-		isTemplateMode: false,
 		/**
 		 * onClick handler for button that invokes print function
 		 * @memberof DownloadIcon
