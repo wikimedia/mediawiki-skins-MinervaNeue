@@ -19,6 +19,7 @@
 	"minerva-talk-add-topic": "Добавить обсуждение",
 	"mobile-frontend-cookies-required": "Для переключения режимов просмотра требуются файлы cookie. Пожалуйста, включите их и повторите попытку.",
 	"mobile-frontend-editor-disabled": "Эта страница защищена ради предотвращения вандализма.",
+	"mobile-frontend-editor-disabled-anon": "Вам нужно войти, чтобы править эту страницу.",
 	"mobile-frontend-editor-edit": "Править",
 	"minerva-download": "Скачать",
 	"skin-minerva-share": "Поделиться",
