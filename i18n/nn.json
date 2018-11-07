@@ -13,7 +13,7 @@
 	"mobile-frontend-history": "Sjå endringshistorikken til sida.",
 	"mobile-frontend-home-button": "Heim",
 	"mobile-frontend-language-article-heading": "Les på eit anna språk",
-	"mobile-frontend-logged-in-homepage-notification": "Velkomen, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Velkomen}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Opna hovudmenyen",
 	"mobile-frontend-main-menu-login": "Logg inn",
 	"mobile-frontend-main-menu-logout": "Logg ut",
@@ -29,5 +29,7 @@
 	"mobile-frontend-user-button-tooltip": "Vis meldingane mine",
 	"mobile-frontend-user-newmessages": "Du har nye meldingar på diskusjonssida di",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1",
-	"mobile-frontend-user-page-uploads": "Opplastingar"
+	"mobile-frontend-user-page-uploads": "Opplastingar",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoriar",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Sjå kategoriane til sider"
 }
