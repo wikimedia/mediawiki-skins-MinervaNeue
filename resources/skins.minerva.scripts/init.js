@@ -2,7 +2,6 @@
 	var
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
-		user = M.require( 'mobile.startup/user' ),
 		skin = M.require( 'mobile.init/skin' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
@@ -342,15 +341,13 @@
 				glyphPrefix: 'minerva'
 			} ),
 			enabledClass = enabledEditIcon.getGlyphClassName(),
-			disabledClass = disabledEditIcon.getGlyphClassName(),
-			isReadOnly = mw.config.get( 'wgMinervaReadOnly' ),
-			isEditable = mw.config.get( 'wgIsProbablyEditable' ),
-			blockInfo = user.isAnon() ? false : mw.config.get( 'wgMinervaUserBlockInfo', false ),
-			canEdit = !isReadOnly && isEditable && !blockInfo;
+			disabledClass = disabledEditIcon.getGlyphClassName();
 
-		$( '#ca-edit' )
-			.addClass( canEdit ? enabledClass : disabledClass )
-			.removeClass( canEdit ? disabledClass : enabledClass );
+		if ( mw.config.get( 'wgMinervaReadOnly' ) ) {
+			$( '#ca-edit' )
+				.removeClass( enabledClass )
+				.addClass( disabledClass );
+		}
 	}
 
 	$( function () {
