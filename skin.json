@@ -499,15 +499,15 @@
 				"desktop"
 			],
 			"dependencies": [
-				"mediawiki.util",
-				"mediawiki.router",
-				"skins.minerva.icons.images.scripts",
-				"skins.minerva.scripts",
-				"mediawiki.ui.input",
-				"mobile.startup",
-				"skins.minerva.toggling",
+				"mediawiki.api",
 				"mediawiki.jqueryMsg",
-				"mediawiki.Uri"
+				"mediawiki.router",
+				"mediawiki.storage",
+				"mediawiki.Uri",
+				"mediawiki.user",
+				"mediawiki.util",
+				"mobile.startup",
+				"mobile.init"
 			],
 			"messages": [
 				"mobile-frontend-editor-disabled",
