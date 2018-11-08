@@ -1,35 +1,30 @@
 ( function ( M ) {
 	var pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		util = M.require( 'mobile.startup/util' ),
-		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
-		extractMessage = pageIssues.test.extractMessage,
 		createBanner = pageIssues.test.createBanner,
-		formatPageIssuesSeverity = pageIssues.test.formatPageIssuesSeverity,
+		icon = {},
 		MEDIUM_ISSUE = {
-			severity: 'MEDIUM',
-			icon: 'i',
-			text: 't'
-		},
-		MEDIUM_MULTIPLE_ISSUE = {
-			severity: 'MEDIUM',
-			isMultiple: true,
-			icon: 'i',
-			text: 't'
-		},
-		LOW_MULTIPLE_ISSUE = {
-			severity: 'LOW',
-			isMultiple: true,
-			icon: 'i',
+			issue: {
+				severity: 'MEDIUM',
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		LOW_ISSUE = {
-			severity: 'LOW',
-			icon: 'i',
+			issue: {
+				severity: 'LOW',
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		HIGH_ISSUE = {
-			severity: 'HIGH',
-			icon: 'i',
+			issue: {
+				severity: 'HIGH',
+				icon: icon
+			},
+			iconString: 'i',
 			text: 't'
 		},
 		getAllIssuesSections = pageIssues.test.getAllIssuesSections,
@@ -67,93 +62,6 @@
 		assert.strictEqual( window.location.hash, '#/issues/' + SECTION );
 	} );
 
-	// NOTE: Only for PageIssues AB
-	QUnit.test( 'clicking on the product of createBanner() should trigger a custom event', function ( assert ) {
-		var mockAction = {
-			action: 'issueClicked',
-			issuesSeverity: [ 'MEDIUM' ],
-			sectionNumbers: [ SECTION ]
-		};
-		mw.trackSubscribe( 'minerva.PageIssuesAB', function ( topic, data ) {
-			assert.deepEqual( mockAction, data );
-		} );
-		processedAmbox.click();
-	} );
-
-	QUnit.test( 'formatPageIssuesSeverity', function ( assert ) {
-		var multipleIssues = [
-				MEDIUM_MULTIPLE_ISSUE,
-				LOW_MULTIPLE_ISSUE,
-				LOW_MULTIPLE_ISSUE
-			],
-			multipleSingleIssues = [
-				LOW_ISSUE,
-				HIGH_ISSUE,
-				MEDIUM_ISSUE
-			],
-			mixedMultipleSingle = [
-				HIGH_ISSUE,
-				LOW_MULTIPLE_ISSUE,
-				MEDIUM_MULTIPLE_ISSUE,
-				LOW_ISSUE,
-				MEDIUM_ISSUE,
-				HIGH_ISSUE
-			],
-			testMultiple = multipleIssues.reduce( formatPageIssuesSeverity, [] ),
-			testSingle = multipleSingleIssues.reduce( formatPageIssuesSeverity, [] ),
-			testMixed = mixedMultipleSingle.reduce( formatPageIssuesSeverity, [] );
-
-		assert.deepEqual( testMultiple, [ 'MEDIUM' ], 'Multiple issues return one maxSeverity value' );
-		assert.deepEqual( testSingle, [ 'LOW', 'HIGH', 'MEDIUM' ], 'Single issues return each corresponding severity' );
-		assert.deepEqual( testMixed, [ 'HIGH', 'MEDIUM', 'LOW', 'MEDIUM', 'HIGH' ], 'Mixed single/multiple return one value for multiples' );
-
-	} );
-
-	QUnit.test( 'extractMessage', function ( assert ) {
-		this.sandbox.stub( pageIssuesParser, 'parse' ).returns(
-			{
-				severity: 'LOW',
-				icon: {
-					toHtmlString: function () {
-						return '<icon />';
-					}
-				}
-			}
-		);
-		[
-			[
-				$( '<div />' ).html(
-					'<div class="mbox-text">Smelly</div>'
-				).appendTo( '<div class="mw-collapsible-content" />' ),
-				{
-					severity: 'LOW',
-					isMultiple: true,
-					icon: '<icon />',
-					text: '<p>Smelly</p>'
-				},
-				'When the box is a child of mw-collapsible-content it isMultiple'
-			],
-			[
-				$( '<div />' ).html(
-					'<div class="mbox-text">Dirty</div>'
-				),
-				{
-					severity: 'LOW',
-					isMultiple: false,
-					icon: '<icon />',
-					text: '<p>Dirty</p>'
-				},
-				'When the box is not child of mw-collapsible-content it !isMultiple'
-			]
-		].forEach( function ( test ) {
-			assert.deepEqual(
-				extractMessage( test[ 0 ] ),
-				test[ 1 ],
-				test[ 2 ]
-			);
-		} );
-	} );
-
 	QUnit.test( 'getAllIssuesSections', function ( assert ) {
 		var multipleIssuesWithDeletion,
 			multipleIssues, allIssuesOldTreatment, allIssuesNewTreatment;
@@ -166,17 +74,17 @@
 		};
 		multipleIssues = {
 			0: [
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } ),
-				util.extend( {}, LOW_ISSUE, { isMultiple: true } ),
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } )
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } ),
+				util.extend( {}, LOW_ISSUE, { grouped: true } ),
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } )
 			]
 		};
 		multipleIssuesWithDeletion = {
 			0: [
 				HIGH_ISSUE,
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } ),
-				util.extend( {}, LOW_ISSUE, { isMultiple: true } ),
-				util.extend( {}, MEDIUM_ISSUE, { isMultiple: true } )
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } ),
+				util.extend( {}, LOW_ISSUE, { grouped: true } ),
+				util.extend( {}, MEDIUM_ISSUE, { grouped: true } )
 			]
 		};
 		allIssuesNewTreatment = {

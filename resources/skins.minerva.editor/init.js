@@ -2,7 +2,6 @@
 
 	var
 		router = require( 'mediawiki.router' ),
-		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		skin = M.require( 'skins.minerva.scripts/skin' ),
@@ -34,7 +33,6 @@
 	 */
 	function onEditLinkClick() {
 		var section = ( new mw.Uri( this.href ) ).query.section || 'all';
-		issues.log( { action: 'editClicked' } );
 		router.navigate( '#/editor/' + section );
 		// prevent folding section when clicking Edit by stopping propagation
 		return false;

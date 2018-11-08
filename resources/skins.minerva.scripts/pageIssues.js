@@ -1,105 +1,17 @@
 ( function ( M, $ ) {
-	var AB = M.require( 'skins.minerva.scripts/AB' ),
-		Page = M.require( 'mobile.startup/Page' ),
+	var Page = M.require( 'mobile.startup/Page' ),
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
-		user = mw.user,
 		NS_MAIN = 0,
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
-		Icon = M.require( 'mobile.startup/Icon' ),
-		pageIssuesLogger = M.require( 'skins.minerva.scripts/pageIssuesLogger' ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
 		PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' ),
-		// setup ab test
-		abTest = new AB( {
-			testName: 'WME.PageIssuesAB',
-			// Run AB only on article namespace, otherwise set samplingRate to 0,
-			// forcing user into control (i.e. ignored/not logged) group.
-			samplingRate: ( CURRENT_NS === NS_MAIN ) ? config.get( 'wgMinervaABSamplingRate', 0 ) : 0,
-			sessionId: user.sessionId()
-		} ),
 		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
-		// Per T204746 a user can request the new treatment regardless of test group
-		isUserRequestingNewTreatment = QUERY_STRING_FLAG === 'b',
-		newTreatmentEnabled = abTest.isB() || isUserRequestingNewTreatment;
-
-	/**
-	 * @typedef {Object} IssueSummary
-	 * @prop {string} severity A PageIssue.severity.
-	 * @prop {Boolean} isMultiple Whether or not the issue is part of a "multiple issues" template.
-	 * @prop {string} icon HTML string.
-	 * @prop {string} text HTML string.
-	*/
-
-	function isLoggingRequired( pageIssues ) {
-		// No logging necessary when the A/B test is disabled (control group).
-		return !isUserRequestingNewTreatment && abTest.isEnabled() && pageIssues.length;
-	}
-
-	/**
-	 * Array.reduce callback that returns the severity of page issues.
-	 * In the case that a page-issue is part of a "multiple issues" template,
-	 * returns the maximum severity for that group of issues.
-	 *
-	 * @param {array} formattedArr - the return array containing severities
-	 * @param {IssueSummary} currentItem current IssueSummary object
-	 * @param {number} currentIndex current index of pageIssues
-	 * @param {array} pageIssues array of pageIssues
-	 *
-	 * @return {array} acc
-	 */
-	function formatPageIssuesSeverity( formattedArr, currentItem, currentIndex, pageIssues ) {
-		var lastItem = pageIssues[ currentIndex - 1 ],
-			lastFormattedIndex = formattedArr.length - 1,
-			lastFormattedValue = formattedArr[ lastFormattedIndex ];
-		// If the last and current item `isMultiple`, fold the maxSeverity
-		// of the two items into a single value.
-		if ( lastItem && lastItem.isMultiple && currentItem.isMultiple ) {
-			formattedArr[ lastFormattedIndex ] = pageIssuesParser.maxSeverity(
-				[ lastFormattedValue, currentItem.severity ]
-			);
-		} else {
-			formattedArr.push( currentItem.severity );
-		}
-		return formattedArr;
-	}
-
-	/**
-	 * Extract a summary message from a cleanup template generated element that is
-	 * friendly for mobile display.
-	 * @param {Object} $box element to extract the message from
-	 * @return {IssueSummary}
-	 */
-	function extractMessage( $box ) {
-		var SELECTOR = '.mbox-text, .ambox-text',
-			MULTIPLE_SELECTOR = '.mw-collapsible-content',
-			$container = $( '<div>' ),
-			pageIssue;
-
-		$box.find( SELECTOR ).each( function () {
-			var contents,
-				$this = $( this );
-			// Clean up talk page boxes
-			$this.find( 'table, .noprint' ).remove();
-			contents = $this.html();
-
-			if ( contents ) {
-				$( '<p>' ).html( contents ).appendTo( $container );
-			}
-		} );
-
-		pageIssue = pageIssuesParser.parse( $box.get( 0 ) );
-
-		return {
-			severity: pageIssue.severity,
-			isMultiple: $box.parent().is( MULTIPLE_SELECTOR ),
-			icon: pageIssue.icon.toHtmlString(),
-			text: $container.html()
-		};
-	}
+		// T206179 should update this value to enable it
+		newTreatmentEnabled = QUERY_STRING_FLAG === 'b';
 
 	/**
 	 * Create a link element that opens the issues overlay.
@@ -138,8 +50,7 @@
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
 			selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
 			issues = [],
-			$link,
-			severity;
+			$link;
 
 		if ( section === KEYWORD_ALL_SECTIONS ) {
 			$metadata = page.$( selector );
@@ -154,8 +65,8 @@
 				$this = $( this );
 
 			if ( $this.find( selector ).length === 0 ) {
-				issue = extractMessage( $this );
-				// Some issues after "extractMessage" has been run will have no text.
+				issue = pageIssuesParser.extract( $this );
+				// Some issues after "extract" has been run will have no text.
 				// For example in Template:Talk header the table will be removed and no issue found.
 				// These should not be rendered.
 				if ( issue.text ) {
@@ -166,14 +77,10 @@
 		// store it for later
 		allIssues[section] = issues;
 
-		if ( $metadata.length && inline ) {
-			severity = pageIssuesParser.maxSeverity(
-				issues.map( function ( issue ) { return issue.severity; } )
-			);
-			new Icon( {
-				glyphPrefix: 'minerva',
-				name: pageIssuesParser.iconName( $metadata.get( 0 ), severity )
-			} ).prependTo( $metadata.find( '.mbox-text' ) );
+		// If issues were extracted and there are inline amboxes, add learn more
+		// and icon to the UI element.
+		if ( issues.length && $metadata.length && inline ) {
+			issues[0].issue.icon.$el.prependTo( $metadata.eq( 0 ).find( '.mbox-text' ) );
 			$learnMore = $( '<span>' )
 				.addClass( 'ambox-learn-more' )
 				.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
@@ -185,34 +92,12 @@
 				$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
 			}
 			$metadata.click( function () {
-				var pageIssue = pageIssuesParser.parse( this );
-				pageIssuesLogger.log( {
-					action: 'issueClicked',
-					issuesSeverity: [ pageIssue.severity ],
-					sectionNumbers: [ section ]
-				} );
 				overlayManager.router.navigate( issueUrl );
 				return false;
 			} );
 		} else {
 			$link = createLinkElement( labelText );
 			$link.attr( 'href', '#/issues/' + section );
-			$link.click( function () {
-				pageIssuesLogger.log( {
-					action: 'issueClicked',
-					issuesSeverity: [
-						pageIssuesParser.maxSeverity(
-							getIssues( '0' )
-								.map( function ( issue ) { return issue.severity; } )
-						)
-					],
-					// In the old treatment, an issuesClicked event will always be '0'
-					// as the old treatment is always associated with the lead section and we
-					// are only sending one maximum severity for all of them.
-					// An issuesClicked event should only ever be associated with one issue box.
-					sectionNumbers: [ '0' ]
-				} );
-			} );
 			if ( $metadata.length ) {
 				$link.insertAfter( $( 'h1#section_0' ) );
 				$metadata.remove();
@@ -257,7 +142,7 @@
 					var lastIssue = allIssues[ section ][i - 1];
 					// If the last issue belongs to a "Multiple issues" template,
 					// and so does the current one, don't add the current one.
-					if ( lastIssue && lastIssue.isMultiple && issue.isMultiple ) {
+					if ( lastIssue && lastIssue.grouped && issue.grouped ) {
 						acc[ acc.length - 1 ] = section;
 					} else {
 						acc.push( section );
@@ -316,40 +201,16 @@
 			}
 		}
 
-		if ( isLoggingRequired( getIssues( KEYWORD_ALL_SECTIONS ) ) ) {
-			// Enable logging of the PageIssues schema, setting up defaults.
-			pageIssuesLogger.subscribe(
-				newTreatmentEnabled,
-				pageIssuesLogger.newPageIssueSchemaData(
-					newTreatmentEnabled,
-					CURRENT_NS,
-					getIssues( KEYWORD_ALL_SECTIONS ).reduce( formatPageIssuesSeverity, [] ),
-					getAllIssuesSections( allIssues )
-				)
-			);
-
-			// Report that the page has been loaded.
-			pageIssuesLogger.log( {
-				action: 'pageLoaded'
-			} );
-		}
-
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
 			return new PageIssuesOverlay(
-				getIssues( section ), pageIssuesLogger, section, CURRENT_NS );
+				getIssues( section ), section, CURRENT_NS );
 		} );
 	}
 
 	M.define( 'skins.minerva.scripts/pageIssues', {
 		init: initPageIssues,
-		// The logger requires initialization (subscription). Ideally, the logger would be
-		// initialized and passed to initPageIssues() by the client. Since it's not, expose a log
-		// method and hide the subscription call in cleanuptemplates.
-		log: pageIssuesLogger.log,
 		test: {
-			formatPageIssuesSeverity: formatPageIssuesSeverity,
-			extractMessage: extractMessage,
 			getAllIssuesSections: getAllIssuesSections,
 			createBanner: createBanner
 		}

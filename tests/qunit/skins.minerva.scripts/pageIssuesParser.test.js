@@ -1,5 +1,7 @@
 ( function ( M ) {
-	var pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' );
+	var icon = {},
+		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
+		extractMessage = pageIssuesParser.extract;
 
 	QUnit.module( 'Minerva pageIssuesParser' );
 
@@ -12,6 +14,47 @@
 		box.className = className;
 		return box;
 	}
+
+	QUnit.test( 'extractMessage', function () {
+		[
+			[
+				$( '<div />' ).html(
+					'<div class="mbox-text">Smelly</div>'
+				).appendTo( '<div class="mw-collapsible-content" />' ),
+				{
+					issue: {
+						severity: 'DEFAULT',
+						grouped: true,
+						icon: icon
+					},
+					iconString: this.sandbox.match.typeOf( 'string' ),
+					text: '<p>Smelly</p>'
+				},
+				'When the box is a child of mw-collapsible-content it grouped'
+			],
+			[
+				$( '<div />' ).html(
+					'<div class="mbox-text">Dirty</div>'
+				),
+				{
+					issue: {
+						severity: 'DEFAULT',
+						grouped: false,
+						icon: icon
+					},
+					iconString: this.sandbox.match.typeOf( 'string' ),
+					text: '<p>Dirty</p>'
+				},
+				'When the box is not child of mw-collapsible-content it !grouped'
+			]
+		].forEach( function ( test ) {
+			sinon.assert.match( // eslint-disable-line no-undef
+				extractMessage( test[ 0 ] ),
+				test[ 1 ],
+				test[ 2 ]
+			);
+		} );
+	} );
 
 	QUnit.test( 'parseSeverity', function ( assert ) {
 		var tests = [
@@ -66,6 +109,32 @@
 				pageIssuesParser.test.parseType( box, severity ),
 				expect,
 				'Result should be the correct icon type; case ' + i + ': ' + test + '.'
+			);
+		} );
+	} );
+
+	QUnit.test( 'parseGroup', function ( assert ) {
+		var tests = [
+			[ undefined, false, 'orphaned' ],
+			[ '', false, 'ungrouped' ],
+			[ 'mw-collapsible-content', true, 'grouped' ]
+		];
+		tests.forEach( function ( params, i ) {
+			var
+				parentClassName = params[0],
+				expect = params[1],
+				test = params[2],
+				parent,
+				box = newBox( '' );
+			if ( parentClassName !== undefined ) {
+				parent = document.createElement( 'div' );
+				parent.className = parentClassName;
+				parent.appendChild( box );
+			}
+			assert.strictEqual(
+				pageIssuesParser.test.parseGroup( box ),
+				expect,
+				'Result should be the correct grouping; case ' + i + ': ' + test + '.'
 			);
 		} );
 	} );
