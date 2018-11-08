@@ -196,20 +196,22 @@ class MinervaHooks {
 	 * These vars have a shorter cache-life than those in `getSkinConfigVariables`.
 	 *
 	 * @param array &$vars Array of variables to be added into the output of the RL startup module.
+	 * @param string $skin
 	 * @return bool
 	 */
-	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'minerva' );
-
-		$vars += [
-			'wgMinervaSchemaMainMenuClickTrackingSampleRate' =>
-				$config->get( 'MinervaSchemaMainMenuClickTrackingSampleRate' ),
-			'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
-			'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
-			'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
-			'wgMinervaReadOnly' => wfReadOnly()
-		];
+	public static function onResourceLoaderGetConfigVars( &$vars, $skin ) {
+		if ( $skin === 'minerva' ) {
+			$config = MediaWikiServices::getInstance()->getConfigFactory()
+				->makeConfig( 'minerva' );
+			$vars += [
+				'wgMinervaSchemaMainMenuClickTrackingSampleRate' =>
+					$config->get( 'MinervaSchemaMainMenuClickTrackingSampleRate' ),
+				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
+				'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
+				'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
+				'wgMinervaReadOnly' => wfReadOnly()
+			];
+		}
 
 		return true;
 	}
