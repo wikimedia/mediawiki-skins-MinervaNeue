@@ -2,9 +2,10 @@
 
 	var
 		router = require( 'mediawiki.router' ),
-		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
+		overlayManager = OverlayManager.getSingleton(),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
-		skin = M.require( 'skins.minerva.scripts/skin' ),
+		skin = M.require( 'mobile.init/skin' ),
 		currentPage = M.getCurrentPage(),
 		// #ca-edit, .mw-editsection are standard MediaWiki elements
 		// .edit-link comes from MobileFrontend user page creation CTA
