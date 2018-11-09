@@ -91,7 +91,6 @@ class MinervaHooks {
 				// additional scaffolding (minus initialisation scripts)
 				'tests/qunit/skins.minerva.scripts/stubs.js',
 
-				'resources/skins.minerva.scripts/pageIssuesLogger.js',
 				'resources/skins.minerva.scripts/pageIssuesParser.js',
 				'resources/skins.minerva.scripts/DownloadIcon.js',
 				'resources/skins.minerva.scripts/AB.js',
@@ -101,7 +100,6 @@ class MinervaHooks {
 				'tests/qunit/skins.minerva.scripts/DownloadIcon.test.js',
 				'tests/qunit/skins.minerva.scripts/pageIssuesParser.test.js',
 				'tests/qunit/skins.minerva.scripts/AB.test.js',
-				'tests/qunit/skins.minerva.scripts/PageIssuesOverlay.test.js',
 				'tests/qunit/skins.minerva.scripts/pageIssues.test.js',
 				'tests/qunit/skins.minerva.notifications.badge/NotificationBadge.test.js'
 			],
