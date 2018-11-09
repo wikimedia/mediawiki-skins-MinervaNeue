@@ -1155,13 +1155,18 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function createEditPageAction() {
 		$title = $this->getTitle();
+		$user = $this->getUser();
 		$editArgs = [ 'action' => 'edit' ];
 		if ( $title->isWikitextPage() ) {
 			// If the content model is wikitext we'll default to editing the lead section.
 			// Full wikitext editing is hard on mobile devices.
 			$editArgs['section'] = self::LEAD_SECTION_NUMBER;
 		}
-		$userCanEdit = $title->quickUserCan( 'edit', $this->getUser() );
+		$userQuickEditCheck = $title->quickUserCan( 'edit', $user )
+			&& ( $title->exists() || $title->quickUserCan( 'create', $user ) );
+		$userBlockInfo = $user->getId() == 0 ? false : $user->isBlockedFrom( $title, true );
+		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
+
 		return [
 			'id' => 'ca-edit',
 			'text' => '',
@@ -1290,10 +1295,6 @@ class SkinMinerva extends SkinTemplate {
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
 		];
-
-		if ( $this->isAuthenticatedUser() ) {
-			$vars['wgMinervaUserBlockInfo'] = $user->isBlockedFrom( $title, true );
-		}
 
 		return $vars;
 	}
