@@ -14,7 +14,7 @@
 		Icon = M.require( 'mobile.startup/Icon' ),
 		Button = M.require( 'mobile.startup/Button' ),
 		Anchor = M.require( 'mobile.startup/Anchor' ),
-		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
+		overlayManager = OverlayManager.getSingleton(),
 		page = M.getCurrentPage(),
 		api = new mw.Api(),
 		thumbs = page.getThumbnails();
