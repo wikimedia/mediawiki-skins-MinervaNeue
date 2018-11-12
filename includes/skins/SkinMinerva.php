@@ -32,6 +32,7 @@ class SkinMinerva extends SkinTemplate {
 	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
 	const OPTION_CATEGORIES = 'categories';
 	const OPTION_BACK_TO_TOP = 'backToTop';
+	const OPTION_PAGE_ISSUES = 'pageIssues';
 	const OPTION_SHARE_BUTTON = 'shareButton';
 	const OPTION_TOGGLING = 'toggling';
 	const OPTIONS_MOBILE_BETA = 'beta';
@@ -104,6 +105,7 @@ class SkinMinerva extends SkinTemplate {
 		self::OPTION_SHARE_BUTTON => false,
 		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
 		self::OPTION_TOGGLING => false,
+		self::OPTION_PAGE_ISSUES => false,
 	];
 
 	/**
@@ -321,6 +323,13 @@ class SkinMinerva extends SkinTemplate {
 
 		if ( $this->isAuthenticatedUser() ) {
 			$className .= ' is-authenticated';
+		}
+		// The new treatment should only apply to the main namespace
+		if (
+			$title->getNamespace() === NS_MAIN &&
+			$this->getSkinOption( self::OPTION_PAGE_ISSUES )
+		) {
+			$className .= ' issues-group-B';
 		}
 		return $className;
 	}

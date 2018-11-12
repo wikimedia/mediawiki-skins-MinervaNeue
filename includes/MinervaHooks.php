@@ -60,6 +60,13 @@ class MinervaHooks {
 					$config->get( 'MinervaShowShareButton' )
 				)
 			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaPageIssuesNewTreatment',
+					'skin-minerva',
+					$config->get( 'MinervaPageIssuesNewTreatment' )
+				)
+			);
 		} catch ( RuntimeException $e ) {
 			// features already registered...
 			// due to a bug it's possible for this to run twice
@@ -180,6 +187,10 @@ class MinervaHooks {
 							$mobileContext ),
 				SkinMinerva::OPTION_BACK_TO_TOP
 					=> $featureManager->isFeatureAvailableInContext( 'MinervaEnableBackToTop', $mobileContext ),
+				SkinMinerva::OPTION_PAGE_ISSUES
+					=> $featureManager->isFeatureAvailableInContext(
+							'MinervaPageIssuesNewTreatment', $mobileContext
+						),
 				SkinMinerva::OPTION_SHARE_BUTTON
 					=> $featureManager->isFeatureAvailableInContext( 'MinervaShareButton', $mobileContext ),
 				SkinMinerva::OPTION_TOGGLING => true,

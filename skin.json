@@ -40,6 +40,10 @@
 			"base": false,
 			"beta": true
 		},
+		"MinervaPageIssuesNewTreatment": {
+			"base": false,
+			"beta": true
+		},
 		"MinervaShowShareButton": {
 			"prefix": "skin-minerva-",
 			"base": false,

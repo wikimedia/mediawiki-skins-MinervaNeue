@@ -63,5 +63,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Label for categories mobile web beta feature.\n{{Identical|Category}}",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Description label for categories mobile web beta feature.",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Label for jump to top mobile web beta feature",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Title for page issues feature flag displayed in Special:MobileOptions",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Description shown on Special:MobileOptions for page issues beta feature."
 }
