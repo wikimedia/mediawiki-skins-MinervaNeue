@@ -86,7 +86,7 @@
 				.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
 			if ( $( '.mw-collapsible-content' ).length ) {
 				// e.g. Template:Multiple issues
-				$learnMore.insertAfter( $metadata.find( '.mbox-text-span' ) );
+				$learnMore.insertAfter( $metadata.find( '.mbox-text-span, .mbox-text-div' ) );
 			} else {
 				// e.g. Template:merge from
 				$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
