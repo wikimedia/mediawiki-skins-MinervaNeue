@@ -309,6 +309,7 @@ class MinervaTemplate extends BaseTemplate {
 			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
 			'contenthtml' => $this->getContentWrapperHtml( $data ),
 			'footer' => $this->getFooterTemplateData( $data ),
+			'isBeta' => $this->getSkin()->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
 		];
 		// begin rendering
 		echo $templateParser->processTemplate( 'minerva', $templateData );
