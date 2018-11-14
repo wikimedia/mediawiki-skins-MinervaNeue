@@ -6,16 +6,12 @@ Feature: Wikidata descriptions
       And I am on the "Main Page" page
 
   Scenario: Description does not appear on Main Page
-    Then I should not see a wikidata description
+    Then I should not see a tagline
 
   Scenario: Description appears on main namespace
     When I am on the "Albert Einstein" page
-    Then I should see a wikidata description
+    Then I should see a tagline
 
   Scenario: Description does not appear on non-main namespaces
     Given I am on the "Talk:Contributions" page
-    Then I should not see a wikidata description
-
-  Scenario: Description does not appear on special pages
-    Given I am on the "Special:Contributions" page
-    Then I should not see a wikidata description
+    Then I should not see a tagline
