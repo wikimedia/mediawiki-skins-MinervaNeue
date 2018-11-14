@@ -498,26 +498,7 @@
 				"mobile",
 				"desktop"
 			],
-			"dependencies": [
-				"mediawiki.api",
-				"mediawiki.jqueryMsg",
-				"mediawiki.router",
-				"mediawiki.storage",
-				"mediawiki.Uri",
-				"mediawiki.user",
-				"mediawiki.util",
-				"mobile.startup",
-				"mobile.init"
-			],
-			"messages": [
-				"mobile-frontend-editor-disabled",
-				"mobile-frontend-editor-disabled-anon",
-				"mobile-frontend-editor-uploadenable",
-				"apierror-readonly"
-			],
-			"scripts": [
-				"resources/skins.minerva.editor/init.js"
-			]
+			"dependencies": "mobile.editor"
 		},
 		"skins.minerva.options.share.icon": {
 			"class": "ResourceLoaderImageModule",
