@@ -178,7 +178,10 @@ class ArticlePage
   h2(:third_section, css: '.collapsible-block', index: 2)
 
   # issues
-  a(:issues_stamp, css: '.mw-mf-cleanup')
+  # We use 2 selectors here - the first relates to the old treatment (A) and
+  # the 2nd relates to the new treatment (.ambox)
+  # see https://phabricator.wikimedia.org/T206647
+  a(:issues_stamp, css: '.mw-mf-cleanup, .ambox')
 
   # page info (action=info)
   td(:edit_count, css: '#mw-pageinfo-edits td', index: 1)
