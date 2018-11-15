@@ -16,7 +16,6 @@
 		]
 	},
 	"mobile-frontend-cookies-required": "Görünüm modları arasında geçiş yapabilmeniz için çerezlerin açık olması gereklidir. Bunları etkinleştirdikten sonra tekrar deneyin.",
-	"mobile-frontend-editor-disabled": "Bu sayfa vandalizmi önlemek için korunmaktadır.",
 	"mobile-frontend-editor-edit": "Düzenle",
 	"minerva-download": "İndir",
 	"skin-minerva-share": "Paylaş",
@@ -24,7 +23,6 @@
 	"mobile-frontend-editor-redlink-create": "Sayfayı oluştur",
 	"mobile-frontend-editor-redlink-explain": "Bu sayfa henüz oluşturulmadı.",
 	"mobile-frontend-editor-redlink-leave": "Hayır, teşekkürler.",
-	"mobile-frontend-editor-uploadenable": "Düzenlemeyi etkinleştirmek için lütfen önce bir fotoğraf yükleyin.",
 	"mobile-frontend-history": "Bu sayfanın düzenleme geçmişini göster.",
 	"mobile-frontend-home-button": "Anasayfa",
 	"mobile-frontend-language-article-heading": "Başka dilde oku",

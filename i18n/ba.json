@@ -13,12 +13,10 @@
 		]
 	},
 	"mobile-frontend-cookies-required": "Ҡарап сығыу режимын үҙгәртергә cookie файлы кәрәк. Уны тоҡандырып, яңынан эшләп ҡарағыҙ.",
-	"mobile-frontend-editor-disabled": "Вандализм булдырмау өсөн был бит һаҡланған.",
 	"mobile-frontend-editor-edit": "Үҙгәртергә",
 	"mobile-frontend-editor-redlink-create": "Яңы бит яһарға",
 	"mobile-frontend-editor-redlink-explain": "Был бит әле булдырылмаған.",
 	"mobile-frontend-editor-redlink-leave": "Юҡ, рәхмәт.",
-	"mobile-frontend-editor-uploadenable": "Мөхәррирләү өсөн тәүҙә фото ҡуйығыҙ.",
 	"mobile-frontend-history": "Был биттең үҙгәртеү тарихын ҡарау.",
 	"mobile-frontend-home-button": "Башына",
 	"mobile-frontend-language-article-heading": "Башҡа телдә уҡырға",
