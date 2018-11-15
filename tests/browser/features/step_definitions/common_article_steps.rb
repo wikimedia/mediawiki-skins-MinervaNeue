@@ -27,13 +27,7 @@ When(/^I click the watch star$/) do
 end
 
 Then(/^I should see a toast notification$/) do
-  # To avoid flakey tests check the notification area element first (T170890)
-  on(ArticlePage) do |page|
-    # Minerva loads mediawiki.notify at startup which defers the loading of this module
-    # We must wait until the lazy loading has happened before checking for the toast (T170890)
-    page.wait_until_rl_module_ready('mediawiki.notification')
-    expect(page.notification_area_element.when_present).to be_visible
-  end
+  expect(on(ArticlePage).notification_area_element.when_present).to be_visible
 end
 
 Then(/^I should see a toast with message "(.+)"$/) do |msg|
