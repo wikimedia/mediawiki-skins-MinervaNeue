@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var BackToTopOverlay = M.require( 'skins.minerva.options/BackToTopOverlay' ),
 		backtotop = new BackToTopOverlay(),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
@@ -19,4 +19,4 @@
 			backtotop.hide();
 		}
 	} );
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

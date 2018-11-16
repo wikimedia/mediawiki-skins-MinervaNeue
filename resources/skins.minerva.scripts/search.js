@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
 		SearchGateway = M.require( 'mobile.search.api/SearchGateway' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
@@ -70,4 +70,4 @@
 		getSearchOverlay().showKeyboard();
 	} );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

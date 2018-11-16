@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var TableOfContents = M.require( 'mobile.toc/TableOfContents' ),
 		Toggler = M.require( 'mobile.toggle/Toggler' );
 
@@ -36,4 +36,4 @@
 		init( M.getCurrentPage() );
 	}
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

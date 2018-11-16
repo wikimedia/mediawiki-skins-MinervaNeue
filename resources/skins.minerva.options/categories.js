@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
@@ -51,4 +51,4 @@
 
 	$( initButton );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

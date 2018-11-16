@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var Page = M.require( 'mobile.startup/Page' ),
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
@@ -216,4 +216,4 @@
 		}
 	} );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

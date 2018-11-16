@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
 		View = M.require( 'mobile.startup/View' );
 
@@ -130,4 +130,4 @@
 
 	M.define( 'skins.minerva.mainMenu/MainMenu', MainMenu );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

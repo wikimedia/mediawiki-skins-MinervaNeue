@@ -2,7 +2,7 @@
  * Warn people if they're trying to switch to desktop but have cookies disabled.
  */
 
-( function ( M, $ ) {
+( function ( M ) {
 
 	var popup = M.require( 'mobile.startup/toast' );
 
@@ -47,4 +47,4 @@
 
 	$( '#mw-mf-display-toggle' ).on( 'click', desktopViewClick );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var MainMenu = M.require( 'skins.minerva.mainMenu/MainMenu' ),
 		mainMenu = createMainMenu();
 
@@ -29,4 +29,4 @@
 	} );
 
 	M.define( 'skins.minerva.scripts.top/mainMenu', mainMenu );
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

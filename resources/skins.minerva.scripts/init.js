@@ -1,4 +1,4 @@
-( function ( M, track, config, $ ) {
+( function ( M, track, config ) {
 	var
 		toast = M.require( 'mobile.startup/toast' ),
 		time = M.require( 'mobile.startup/time' ),
@@ -368,4 +368,4 @@
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
-}( mw.mobileFrontend, mw.track, mw.config, jQuery ) );
+}( mw.mobileFrontend, mw.track, mw.config ) );
