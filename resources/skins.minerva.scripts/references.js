@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var drawer,
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		page = M.getCurrentPage(),
@@ -113,4 +113,4 @@
 	skin.on( 'references-loaded', function ( page ) {
 		setup( page );
 	} );
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

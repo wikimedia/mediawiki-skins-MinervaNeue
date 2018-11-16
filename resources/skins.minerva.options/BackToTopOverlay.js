@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 
 	var View = M.require( 'mobile.startup/View' );
 
@@ -49,4 +49,4 @@
 
 	M.define( 'skins.minerva.options/BackToTopOverlay', BackToTopOverlay );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

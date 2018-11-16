@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		LoadingOverlay = M.require( 'mobile.startup/LoadingOverlay' ),
 		$talk = $( '.talk' ),
@@ -90,4 +90,4 @@
 			}, 10 );
 		} );
 	}
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

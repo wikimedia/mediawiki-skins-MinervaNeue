@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 	var page = M.getCurrentPage(),
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
 		Toggler = M.require( 'mobile.toggle/Toggler' );
@@ -41,4 +41,4 @@
 	) {
 		init( $contentContainer, 'content-', page );
 	}
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );

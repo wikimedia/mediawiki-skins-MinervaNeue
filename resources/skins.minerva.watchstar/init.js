@@ -1,4 +1,4 @@
-( function ( M, $ ) {
+( function ( M ) {
 
 	var Watchstar = M.require( 'mobile.watchstar/Watchstar' ),
 		user = M.require( 'mobile.startup/user' );
@@ -25,4 +25,4 @@
 	}
 	init( M.getCurrentPage() );
 
-}( mw.mobileFrontend, jQuery ) );
+}( mw.mobileFrontend ) );
