@@ -1,4 +1,4 @@
-@chrome @en.m.wikipedia.beta.wmflabs.org @firefox @integration @test2.m.wikipedia.org @vagrant @login
+@chrome @en.m.wikipedia.beta.wmflabs.org @integration @test2.m.wikipedia.org @vagrant @login
 Feature: Search
 
   Scenario: Clicking on a watchstar toggles the watchstar
