@@ -30,8 +30,11 @@
 
 	// Specific to override mobile display
 	.heading-holder .tagline {
-		margin-bottom: 16px;
-		padding-bottom: 16px; // Without it, margin starts right after the tagline and this feels like a bug.
+		padding-bottom: 15px;
+		// Avoid padding bottom being added on pages where there is no tagline
+		&:empty {
+			display: none;
+		}
 	}
 
 	h1,

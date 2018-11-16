@@ -1,36 +1,21 @@
 @import '../../minerva.less/minerva.variables';
 
-.ns-special {
-	#content {
-		background: @colorGray14;
-		.pre-content, form {
-			background: #fff;
-		}
-	}
-}
-
-// T202557: This media query is for mobile devices (less wide than tablet)
-// It overrides default special page style to center the header and content properly.
-// Also it adds a 1px horizontal line as a seperator beetwen header and content
-@media all and ( max-width: ( @width-breakpoint-tablet - 1px ) ) {
-	.ns-special #content .pre-content {
-		margin: 0;
-		#section_0 {
-			padding: 34px 16px 0;
-		}
-		.tagline {
-			margin-bottom: 1px;
-			// This is needed because tagline needs to be positioned correctly
-			padding: 0 16px 16px;
-		}
-	}
-}
-
 @media all and ( min-width: @width-breakpoint-tablet ) {
 	.ns-special .pre-content {
+		background: #fff;
+		margin-bottom: 15px;
+
 		.tagline,
 		h1 {
 			margin: 0 @contentMargin;
+		}
+	}
+
+	.ns-special #content {
+		background: @colorGray14;
+
+		form {
+			background: #fff;
 		}
 	}
 }
