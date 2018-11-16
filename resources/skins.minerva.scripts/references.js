@@ -3,15 +3,12 @@
 		skin = M.require( 'skins.minerva.scripts/skin' ),
 		page = M.getCurrentPage(),
 		router = require( 'mediawiki.router' ),
-		ReferencesGateway = M.require( 'mobile.references.gateway/ReferencesGateway' ),
-		ReferencesMobileViewGateway = M.require(
-			'mobile.references.gateway/ReferencesMobileViewGateway'
-		),
+		mobile = M.require( 'mobile.startup' ),
+		ReferencesGateway = mobile.ReferencesGateway,
+		ReferencesMobileViewGateway = mobile.ReferencesMobileViewGateway,
 		referencesMobileViewGateway = ReferencesMobileViewGateway.getSingleton(),
-		ReferencesHtmlScraperGateway = M.require(
-			'mobile.references.gateway/ReferencesHtmlScraperGateway'
-		),
-		ReferencesDrawer = M.require( 'mobile.references/ReferencesDrawer' );
+		ReferencesHtmlScraperGateway = mobile.ReferencesHtmlScraperGateway,
+		ReferencesDrawer = mobile.ReferencesDrawer;
 
 	/**
 	 * Creates a ReferenceDrawer based on the currently available
