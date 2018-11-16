@@ -11,7 +11,9 @@
 	"mobile-frontend-history": "بو صفحه نین گئچمیشین گور",
 	"mobile-frontend-home-button": "ائو",
 	"mobile-frontend-language-article-heading": "آیری دیل‌لرده اوخویون.",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|خوش گلمیسینیز}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "آنامِنونو آچ",
+	"mobile-frontend-main-menu-contributions": "چالیشمالار",
 	"mobile-frontend-main-menu-login": "گیریش",
 	"mobile-frontend-main-menu-logout": "چیخیش",
 	"mobile-frontend-main-menu-nearby": "یاخیندا",
@@ -23,5 +25,6 @@
 	"mobile-frontend-placeholder": "{{SITENAME}}-دا آختار",
 	"mobile-frontend-random-button": "تصادوفی",
 	"mobile-frontend-talk-back-to-userpage": "«{{GENDER:$1|$1}}» ایشلدن صفحه‌سینه قایید",
+	"mobile-frontend-user-page-contributions": "چالیشمالار",
 	"mobile-frontend-user-page-member-since": "عضویت $1-دن"
 }
