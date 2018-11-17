@@ -52,8 +52,7 @@
 	a > img,
 	a > .lazy-image-placeholder,
 	// due to lazy loading images we also must consider imgs inside noscript tags (T191893)
-	noscript > img,
-	 {
+	noscript > img {
 		// make sure that images in articles don't cause a horizontal scrollbar
 		// on small screens
 		max-width: 100% !important;
