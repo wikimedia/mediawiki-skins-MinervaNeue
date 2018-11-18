@@ -7,15 +7,18 @@
 			"Zoranzoki21"
 		]
 	},
-	"minerva-last-modified-date": "Poslednji izmena na dan $1 u $2 č.",
+	"minerva-last-modified-date": "Poslednja izmena na dan $1 u $2 č.",
 	"minerva-talk-add-topic": "Dodaj diskusiju",
-	"mobile-frontend-cookies-required": "Kolačići su potrebni za menjanje načina pogleda. Omogućite ih i pokušajte ponovo.",
+	"mobile-frontend-cookies-required": "Kolačići su nužni za menjanje režima prikaza. Omogućite ih i pokušajte ponovo.",
 	"mobile-frontend-editor-edit": "Uredi",
 	"minerva-download": "Preuzmi",
+	"skin-minerva-share": "Deli",
+	"skin-minerva-mobile-option-MinervaShareButton": "Deli",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Delite trenutni članak putem funkcije za deljenje pregledača (samo podržani pregledači)",
 	"mobile-frontend-editor-redlink-create": "Napravi stranicu",
 	"mobile-frontend-editor-redlink-explain": "Ova stranica još uvek nije napravljena.",
 	"mobile-frontend-editor-redlink-leave": "Ne, hvala.",
-	"mobile-frontend-history": "Istorija izmena ove stranice.",
+	"mobile-frontend-history": "Istorija izmena ove stranice",
 	"mobile-frontend-home-button": "Početna",
 	"mobile-frontend-language-article-heading": "Čitajte na drugim jezicima",
 	"mobile-frontend-language-change": "Promeni jezik",
@@ -23,7 +26,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Dobro došli}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Otvorite glavni meni",
 	"mobile-frontend-main-menu-contributions": "Doprinosi",
-	"mobile-frontend-main-menu-login": "Prijavi me",
+	"mobile-frontend-main-menu-login": "Prijava",
 	"mobile-frontend-main-menu-logout": "Odjavi me",
 	"mobile-frontend-main-menu-nearby": "U blizini",
 	"mobile-frontend-main-menu-settings": "Podešavanja",
@@ -31,6 +34,7 @@
 	"mobile-frontend-meta-data-issues": "Problemi sa stranicom",
 	"mobile-frontend-meta-data-issues-categories": "O ovoj kategoriji",
 	"mobile-frontend-meta-data-issues-header": "Problemi sa stranicom",
+	"minerva-meta-data-issues-section-header": "Problemi sa odeljkom",
 	"mobile-frontend-meta-data-issues-header-talk": "O ovoj stranici",
 	"mobile-frontend-meta-data-issues-talk": "O ovoj stranici za razgovor",
 	"mobile-frontend-notifications-filter": "Filter",
@@ -54,5 +58,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Pogledaj kategorije na stranicama",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Idi na vrh",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Idi na vrh trenutne stranice uz pomoć padajućeg dugmeta"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Idi na vrh trenutne stranice korišćenjem plutajućeg dugmeta"
 }
