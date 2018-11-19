@@ -36,17 +36,14 @@
 		],
 		"MinervaAlwaysShowLanguageButton": true,
 		"MinervaShowCategoriesButton": {
-			"prefix": "skin-minerva-",
 			"base": false,
 			"beta": true
 		},
 		"MinervaShowShareButton": {
-			"prefix": "skin-minerva-",
 			"base": false,
 			"beta": false
 		},
 		"MinervaEnableBackToTop": {
-			"prefix": "skin-minerva-",
 			"base": false,
 			"beta": true
 		},
