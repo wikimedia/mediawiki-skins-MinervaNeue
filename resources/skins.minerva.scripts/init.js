@@ -24,6 +24,12 @@
 	 * @ignore
 	 */
 	function onClickImage( ev ) {
+		// Do not interfere with non-left clicks or if modifier keys are pressed.
+		if ( ( ev.button !== 0 && ev.which !== 1 ) ||
+			ev.altKey || ev.ctrlKey || ev.shiftKey || ev.metaKey ) {
+			return;
+		}
+
 		ev.preventDefault();
 		routeThumbnail( $( this ).data( 'thumb' ) );
 	}
