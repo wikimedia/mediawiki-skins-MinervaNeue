@@ -7,11 +7,13 @@
 		NS_TALK = 1,
 		NS_CATEGORY = 14,
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
+		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
 		PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' ),
+		// When the query string flag is set force on new treatment.
+		// When wgMinervaPageIssuesNewTreatment is the default this line can be removed.
 		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
-		// T206179 should update this value to enable it
-		newTreatmentEnabled = QUERY_STRING_FLAG === 'b';
+		newTreatmentEnabled = features.pageIssues || QUERY_STRING_FLAG;
 
 	/**
 	 * Create a link element that opens the issues overlay.
@@ -167,7 +169,10 @@
 			inline = newTreatmentEnabled && CURRENT_NS === 0;
 
 		// set A-B test class.
-		$( 'html' ).addClass( newTreatmentEnabled ? 'issues-group-B' : 'issues-group-A' );
+		// When wgMinervaPageIssuesNewTreatment is the default this can be removed.
+		if ( newTreatmentEnabled ) {
+			$( 'html' ).addClass( 'issues-group-B' );
+		}
 
 		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
 			// e.g. Template:English variant category; Template:WikiProject

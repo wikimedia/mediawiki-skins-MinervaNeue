@@ -39,6 +39,10 @@
 			"base": false,
 			"beta": true
 		},
+		"MinervaPageIssuesNewTreatment": {
+			"base": false,
+			"beta": true
+		},
 		"MinervaShowShareButton": {
 			"base": false,
 			"beta": false
