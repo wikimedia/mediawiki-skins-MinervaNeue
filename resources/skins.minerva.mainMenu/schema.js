@@ -7,7 +7,8 @@ mw.loader.using( [
 	'ext.eventLogging.subscriber'
 ] ).then( function () {
 	var M = mw.mobileFrontend,
-		user = M.require( 'mobile.startup/user' ),
+		user = mw.user,
+		editCount = mw.config.get( 'wgUserEditCount' ),
 		// Schema provided by ext.eventLogging.subscriber class
 		Schema = mw.eventLog.Schema, // resource-modules-disable-line
 		context = M.require( 'mobile.startup/context' ),
@@ -37,7 +38,8 @@ mw.loader.using( [
 			{
 				mobileMode: context.getMode(),
 				username: user.getName() || undefined,
-				userEditCount: typeof user.getEditCount() === 'number' ? user.getEditCount() : undefined
+				// FIXME: Use edit bucket here (T210106)
+				userEditCount: typeof editCount === 'number' ? editCount : undefined
 			}
 		);
 
