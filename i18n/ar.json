@@ -65,5 +65,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "التصنيفات",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "عرض تصنيفات الصفحات",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "اقفز للأعلى",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "اقفز لأعلى الصفحة الحالية باستخدام زر عائم"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "اقفز لأعلى الصفحة الحالية باستخدام زر عائم",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "تم تحسين معالجة مشاكل الصفحة",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "سيتم تضمين موضوعات الصفحة (قالب:صندوق رسالة مقالة) في المقالة."
 }

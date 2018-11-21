@@ -63,5 +63,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分類",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "檢視頁面分類",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "跳至頂端",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮動按鍵來跳至目前頁面的頂端"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮動按鍵來跳至目前頁面的頂端",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "已改進頁面問題處理",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "頁面問題（模板:ambox）會內聯至條目裡。"
 }

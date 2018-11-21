@@ -7,7 +7,8 @@
 			"SucreRouge",
 			"ZaDiak",
 			"Ανώνυμος Βικιπαιδιστής",
-			"Nikosgranturismogt"
+			"Nikosgranturismogt",
+			"KATRINE1993"
 		]
 	},
 	"minerva-last-modified-date": "Τελευταία επεξεργασία στις $1, στις $2",
@@ -57,5 +58,7 @@
 	"skin-minerva-issue-learn-more": "Μάθετε περισσότερα",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Κατηγορίες",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Προβολή κατηγοριών των σελίδων",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Πήδηση στη κορυφή"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Πήδηση στη κορυφή",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Προβλήματα διαχείρησης για βελτίωση σελίδας",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Τυχόν προβλήματα με την σελίδα (Template:ambox) θα υπογραμμιστούν στο άρθρο."
 }
