@@ -27,17 +27,12 @@
 
 		Overlay.call( this, {
 			issues: issues,
+			className: 'overlay overlay-issues',
 			heading: '<strong>' + headingText + '</strong>'
 		} );
 	}
 
 	OO.mfExtend( PageIssuesOverlay, Overlay, {
-		/**
-		 * @memberof PageIssuesOverlay
-		 * @instance
-		 */
-		className: 'overlay overlay-issues',
-
 		/**
 		 * @memberof PageIssuesOverlay
 		 * @instance
