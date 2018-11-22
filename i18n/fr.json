@@ -69,5 +69,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Catégories",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Afficher les catégories des pages",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Aller au début",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Aller en haut de la page actuelle en utilisant un bouton flottant"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Aller en haut de la page actuelle en utilisant un bouton flottant",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "traitement amélioré des problèmes de pages",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Les problèmes de page (Template:ambox) seront insérés dans l'article."
 }
