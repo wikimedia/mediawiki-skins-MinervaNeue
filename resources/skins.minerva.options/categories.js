@@ -3,7 +3,7 @@
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
-		user = M.require( 'mobile.startup/user' );
+		isAnon = mw.user.isAnon();
 
 	// check the categories feature has been turned on
 	if ( !features.categories ) {
@@ -21,7 +21,7 @@
 			loadingOverlay.hide();
 			return new CategoryOverlay( {
 				api: new mw.Api(),
-				isAnon: user.isAnon(),
+				isAnon: isAnon,
 				title: M.getCurrentPage().title
 			} );
 		} );
@@ -35,7 +35,7 @@
 			loadingOverlay.hide();
 			return new CategoryAddOverlay( {
 				api: new mw.Api(),
-				isAnon: user.isAnon(),
+				isAnon: isAnon,
 				title: M.getCurrentPage().title
 			} );
 		} );
