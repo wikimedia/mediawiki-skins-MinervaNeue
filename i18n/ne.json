@@ -14,6 +14,7 @@
 	"mobile-frontend-language-article-heading": "अर्को भाषामा पढ्नुहोस्",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|स्वागतम्}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "मुख्य सूची (मेनु) खोल्नुहोस्",
+	"mobile-frontend-main-menu-contributions": "योगदानहरू",
 	"mobile-frontend-main-menu-login": "लगइन",
 	"mobile-frontend-main-menu-logout": "निर्गमन",
 	"mobile-frontend-main-menu-nearby": "नजिकै",
