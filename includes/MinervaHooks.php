@@ -101,7 +101,9 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/pageIssuesParser.js',
 				'resources/skins.minerva.scripts/DownloadIcon.js',
 				'resources/skins.minerva.scripts/AB.js',
-				'resources/skins.minerva.scripts/PageIssuesOverlay.js',
+				'resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.js',
+				'resources/skins.minerva.scripts/page-issues/overlay/IssueList.js',
+				'resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.js',
 				'resources/skins.minerva.scripts/pageIssues.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/DownloadIcon.test.js',
