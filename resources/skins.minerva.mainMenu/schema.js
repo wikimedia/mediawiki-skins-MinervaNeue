@@ -36,7 +36,7 @@ mw.loader.using( [
 			 *  userEditCount is optional.
 			 */
 			{
-				mobileMode: context.getMode(),
+				mode: context.getMode() || 'desktop',
 				username: user.getName() || undefined,
 				// FIXME: Use edit bucket here (T210106)
 				userEditCount: typeof editCount === 'number' ? editCount : undefined
