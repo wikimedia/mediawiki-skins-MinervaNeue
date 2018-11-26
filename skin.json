@@ -51,7 +51,7 @@
 			"base": false,
 			"beta": true
 		},
-		"MinervaSchemaMainMenuClickTrackingSampleRate": 0.5,
+		"MinervaSchemaMainMenuClickTrackingSampleRate": 0,
 		"MinervaABSamplingRate": 0
 	},
 	"ValidSkinNames": {
