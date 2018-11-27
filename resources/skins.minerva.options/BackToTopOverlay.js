@@ -1,18 +1,23 @@
 ( function ( M ) {
 
-	var View = M.require( 'mobile.startup/View' );
+	var View = M.require( 'mobile.startup/View' ),
+		util = M.require( 'mobile.startup/util' );
 
 	/**
 	 * Displays a little arrow at the bottom right of the viewport.
 	 * @class BackToTopOverlay
 	 * @extends View
+	 * @param {Object} props
 	 */
-	function BackToTopOverlay() {
-		View.apply( this, arguments );
+	function BackToTopOverlay( props ) {
+		View.call( this,
+			util.extend( {}, props, {
+				className: 'backtotop'
+			} )
+		);
 	}
 
 	OO.mfExtend( BackToTopOverlay, View, {
-		className: 'backtotop',
 		template: mw.template.get( 'skins.minerva.options', 'BackToTopOverlay.hogan' ),
 		events: $.extend( {}, View.prototype.events, {
 			click: 'onBackToTopClick'

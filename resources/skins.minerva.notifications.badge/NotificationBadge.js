@@ -1,5 +1,6 @@
 ( function ( M ) {
 	var View = M.require( 'mobile.startup/View' ),
+		util = M.require( 'mobile.startup/util' ),
 		Icon = M.require( 'mobile.startup/Icon' ),
 		notificationIcon = new Icon( {
 			name: 'notifications',
@@ -30,7 +31,11 @@
 				window.location.href = this.getNotificationURL();
 			}.bind( this );
 		}
-		View.call( this, options );
+		View.call( this,
+			util.extend( options, {
+				isBorderBox: false
+			} )
+		);
 		this.url = options.url;
 		this._bindOverlayManager();
 		this.setCount( count );
@@ -53,7 +58,6 @@
 			hasUnseenNotifications: false,
 			notificationCountRaw: 0
 		},
-		isBorderBox: false,
 		/**
 		 * Loads a ResourceLoader module script. Shows ajax loader whilst loading.
 		 * @method
