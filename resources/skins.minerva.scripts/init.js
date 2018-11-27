@@ -85,7 +85,7 @@
 	 */
 	function getDeviceLanguage() {
 		var lang = navigator && navigator.languages ?
-			navigator.languages[0] :
+			navigator.languages[ 0 ] :
 			navigator.language || navigator.userLanguage ||
 				navigator.browserLanguage || navigator.systemLanguage;
 

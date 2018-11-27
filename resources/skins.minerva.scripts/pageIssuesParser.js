@@ -109,7 +109,7 @@
 	function parseSeverity( box ) {
 		var severity, identified;
 		identified = Object.keys( SEVERITY_REGEX ).some( function ( key ) {
-			var regex = SEVERITY_REGEX[key];
+			var regex = SEVERITY_REGEX[ key ];
 			severity = key;
 			return regex.test( box.className );
 		} );
@@ -124,13 +124,13 @@
 	function parseType( box, severity ) {
 		var identified, identifiedType;
 		identified = Object.keys( TYPE_REGEX ).some( function ( type ) {
-			var regex = TYPE_REGEX[type];
+			var regex = TYPE_REGEX[ type ];
 			identifiedType = type;
 			return regex.test( box.className );
 		} );
 		return {
-			name: identified ? ICON_NAME.TYPE[identifiedType] : ICON_NAME.SEVERITY[severity],
-			severity: identified ? TYPE_SEVERITY[identifiedType] : severity
+			name: identified ? ICON_NAME.TYPE[ identifiedType ] : ICON_NAME.SEVERITY[ severity ],
+			severity: identified ? TYPE_SEVERITY[ identifiedType ] : severity
 		};
 	}
 
@@ -151,7 +151,7 @@
 		var nameSeverity = parseType( box, severity );
 		// The icon with color variant as expected by ResourceLoader,
 		// {iconName}-{severityColorVariant}.
-		return nameSeverity.name + '-' + ICON_COLOR[nameSeverity.severity];
+		return nameSeverity.name + '-' + ICON_COLOR[ nameSeverity.severity ];
 	}
 
 	/**
@@ -160,7 +160,7 @@
 	 */
 	function maxSeverity( severityLevels ) {
 		return severityLevels.reduce( function ( max, severity ) {
-			return SEVERITY_LEVEL[max] > SEVERITY_LEVEL[severity] ? max : severity;
+			return SEVERITY_LEVEL[ max ] > SEVERITY_LEVEL[ severity ] ? max : severity;
 		}, 'DEFAULT' );
 	}
 

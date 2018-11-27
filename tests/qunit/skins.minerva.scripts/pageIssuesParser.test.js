@@ -72,9 +72,9 @@
 		];
 		tests.forEach( function ( params, i ) {
 			var
-				className = params[0],
-				expect = params[1],
-				test = params[2],
+				className = params[ 0 ],
+				expect = params[ 1 ],
+				test = params[ 2 ],
 				box = newBox( className );
 			assert.strictEqual(
 				pageIssuesParser.test.parseSeverity( box ),
@@ -97,13 +97,13 @@
 		];
 		tests.forEach( function ( params, i ) {
 			var
-				className = params[0],
-				severity = params[1],
+				className = params[ 0 ],
+				severity = params[ 1 ],
 				expect = {
-					name: params[2],
+					name: params[ 2 ],
 					severity: severity
 				},
-				test = params[3],
+				test = params[ 3 ],
 				box = newBox( className );
 			assert.propEqual(
 				pageIssuesParser.test.parseType( box, severity ),
@@ -121,9 +121,9 @@
 		];
 		tests.forEach( function ( params, i ) {
 			var
-				parentClassName = params[0],
-				expect = params[1],
-				test = params[2],
+				parentClassName = params[ 0 ],
+				expect = params[ 1 ],
+				test = params[ 2 ],
 				parent,
 				box = newBox( '' );
 			if ( parentClassName !== undefined ) {
@@ -154,9 +154,9 @@
 		];
 		tests.forEach( function ( params, i ) {
 			var
-				className = params[0],
-				severity = params[1],
-				expect = params[2],
+				className = params[ 0 ],
+				severity = params[ 1 ],
+				expect = params[ 2 ],
 				box = newBox( className );
 			assert.strictEqual(
 				pageIssuesParser.iconName( box, severity ),
@@ -177,8 +177,8 @@
 			[ [ 'DEFAULT', 'HIGH', 'LOW', 'MEDIUM' ], 'HIGH' ]
 		];
 		tests.forEach( function ( params, i ) {
-			var severities = params[0],
-				expect = params[1];
+			var severities = params[ 0 ],
+				expect = params[ 1 ];
 
 			assert.strictEqual(
 				pageIssuesParser.maxSeverity( severities ),

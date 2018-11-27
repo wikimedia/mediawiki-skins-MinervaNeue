@@ -15,7 +15,7 @@
 	 */
 	function getAndroidVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
-		return match ? parseInt( match[1] ) : false;
+		return match ? parseInt( match[ 1 ] ) : false;
 	}
 
 	/**
@@ -26,7 +26,7 @@
 	 */
 	function getChromeVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
-		return match ? parseInt( match[2] ) : false;
+		return match ? parseInt( match[ 2 ] ) : false;
 	}
 
 	/**

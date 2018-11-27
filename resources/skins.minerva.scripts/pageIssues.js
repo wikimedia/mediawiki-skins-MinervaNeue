@@ -147,13 +147,13 @@
 			}
 		} );
 		// store it for later
-		allIssues[section] = issueSummaries;
+		allIssues[ section ] = issueSummaries;
 
 		if ( inline ) {
 			issueSummaries.forEach( function ( issueSummary, i ) {
 				var isGrouped = issueSummary.issue.grouped,
-					lastIssueIsGrouped = issueSummaries[ i - 1] &&
-						issueSummaries[ i - 1].issue.grouped;
+					lastIssueIsGrouped = issueSummaries[ i - 1 ] &&
+						issueSummaries[ i - 1 ].issue.grouped;
 				// only render the first grouped issue of each group
 				if ( isGrouped && !lastIssueIsGrouped ) {
 					createPageIssueBannerMultiple( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager );
@@ -176,14 +176,14 @@
 	 */
 	function getIssues( section ) {
 		if ( section !== KEYWORD_ALL_SECTIONS ) {
-			return allIssues[section] || [];
+			return allIssues[ section ] || [];
 		}
 		// Note section.all may not exist, depending on the structure of the HTML page.
 		// It will only exist when Minerva has been run in desktop mode.
 		// If it's absent, we'll reduce all the other lists into one.
 		return allIssues.all || Object.keys( allIssues ).reduce(
 			function ( all, key ) {
-				return all.concat( allIssues[key] );
+				return all.concat( allIssues[ key ] );
 			},
 			[]
 		);
@@ -200,7 +200,7 @@
 		return Object.keys( allIssues ).reduce( function ( acc, section ) {
 			if ( allIssues[ section ].length ) {
 				allIssues[ section ].forEach( function ( issue, i ) {
-					var lastIssue = allIssues[ section ][i - 1];
+					var lastIssue = allIssues[ section ][ i - 1 ];
 					// If the last issue belongs to a "Multiple issues" template,
 					// and so does the current one, don't add the current one.
 					if ( lastIssue && lastIssue.grouped && issue.grouped ) {

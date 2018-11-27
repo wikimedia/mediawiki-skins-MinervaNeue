@@ -49,7 +49,7 @@
 		// fragment
 		urlComponents = href.split( '#' );
 		if ( urlComponents.length > 1 ) {
-			href = '#' + urlComponents[1];
+			href = '#' + urlComponents[ 1 ];
 		}
 		result = drawer.showReference( href, page, $dest.text() );
 		// Previously showReference method returns nothing so we check its truthy
