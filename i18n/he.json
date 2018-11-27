@@ -58,5 +58,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "הצגת קטגוריות של דפים",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "מעבר למעלה",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "מעבר לראש הדף הנוכחי באמצעות כפתור צף",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "שיפור בטיפול בבעיות בדף"
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "שיפור בטיפול בבעיות בדף",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "תבנית עם בעיות בדף יוצגו בתוך הערך."
 }
