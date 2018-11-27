@@ -107,7 +107,7 @@
 			var self = this,
 				mainMenu = this.options.mainMenu;
 
-			this.$el.on( 'click', $.proxy( this.onClickBadge, this ) );
+			this.$el.on( 'click', this.onClickBadge.bind( this ) );
 			this.options.overlayManager.add( /^\/notifications$/, function () {
 				return self._loadNotificationOverlay().then( function ( overlay ) {
 					mainMenu.openNavigationDrawer( 'secondary' );

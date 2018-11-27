@@ -1,13 +1,12 @@
 {
 	"root": true,
-	"extends": "wikimedia",
-	"env": {
-		"browser": true
-	},
+	"extends": [
+		"wikimedia/client",
+		"wikimedia/jquery"
+	],
 	"globals": {
 		"OO": false,
 		"mw": false,
-		"$": false,
 		"Hogan": false,
 		"require": false
 	},
@@ -17,31 +16,6 @@
 				"object": "$",
 				"property": "noop",
 				"message": "Use function() {}"
-			},
-			{
-				"object": "$",
-				"property": "isFunction",
-				"message": "Please use typeof"
-			},
-			{
-				"object": "$",
-				"property": "map",
-				"message": "Please use Array.prototype.map instead"
-			},
-			{
-				"object": "$",
-				"property": "isArray",
-				"message": "Please use Array.isArray instead"
-			},
-			{
-				"object": "$",
-				"property": "grep",
-				"message": "Please use Array.prototype.filter instead"
-			},
-			{
-				"object": "$",
-				"property": "trim",
-				"message": "Please use String.prototype.trim instead"
 			},
 			{
 				"property": "done",
