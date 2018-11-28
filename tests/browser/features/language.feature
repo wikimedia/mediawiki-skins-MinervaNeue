@@ -1,4 +1,4 @@
-@chrome @en.m.wikipedia.beta.wmflabs.org @test2.m.wikipedia.org
+@chrome @test2.m.wikipedia.org
 Feature: Language selection
 
   Background:

@@ -1,4 +1,4 @@
-@en.m.wikipedia.beta.wmflabs.org @firefox @test2.m.wikipedia.org @vagrant
+@en.m.wikipedia.beta.wmflabs.org @test2.m.wikipedia.org @vagrant
 Feature: Toggling sections
 
   Background:

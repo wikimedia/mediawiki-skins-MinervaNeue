@@ -1,4 +1,4 @@
-@chrome @en.m.wikipedia.beta.wmflabs.org @firefox @integration @test2.m.wikipedia.org @vagrant
+@chrome @firefox @integration @test2.m.wikipedia.org @vagrant
 Feature: Search
 
   Background:
@@ -17,7 +17,7 @@ Feature: Search
     When I click the browser back button
     Then I should not see the search overlay
 
-  @smoke @integration
+  @smoke @integration @en.m.wikipedia.beta.wmflabs.org
   Scenario: Search for partial text
     When I type into search box "Selenium search tes"
     Then search results should contain "Selenium search test"
@@ -39,7 +39,7 @@ Feature: Search
     When I click the browser back button
     Then I should not see '#/search' in URL
 
-  @integration
+  @integration @en.m.wikipedia.beta.wmflabs.org
   Scenario: Search doesn't break after one search result
     When I type into search box "Selenium search tes"
     And I click a search result
