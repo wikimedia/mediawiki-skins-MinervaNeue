@@ -58,15 +58,22 @@
 		// idea by using severity for color variants. Severity is determined independently of icons.
 		// These selectors should be migrated to their templates.
 		SEVERITY_REGEX = {
-			LOW: /ambox-style|avviso-stile/, // en, it
-			MEDIUM: /ambox-content|avviso-contenuto/, // en, it
-			HIGH: /ambox-speedy|ambox-delete|ambox-serious|avviso-importante/ // en, en, es / ru, it
+			// recommended (T206177), en, it
+			LOW: /mobile-issue-severity-low|ambox-style|avviso-stile/,
+			// recommended, en, it
+			MEDIUM: /mobile-issue-severity-medium|ambox-content|avviso-contenuto/,
+			// recommended, en, en, es / ru, it
+			HIGH: /mobile-issue-severity-high|ambox-speedy|ambox-delete|ambox-serious|avviso-importante/
 			// ..And everything else that doesn't match should be considered DEFAULT.
 		},
 		// As above but used to identify specific templates requiring icon customization.
 		TYPE_REGEX = {
-			MOVE: /ambox-converted|ambox-move|ambox-merge|avviso-struttura/, // en, es / ru, it
-			POINT_OF_VIEW: new RegExp( [ // en
+			// recommended (opt-in) / en, es / ru, it (long term only recommended should be used)
+			MOVE: /mobile-issue-move|ambox-converted|ambox-move|ambox-merge|avviso-struttura/,
+			POINT_OF_VIEW: new RegExp( [
+				// recommended (opt-in)
+				'mobile-issue-pov',
+				// FIXME: en classes: plan to remove these provided can get adoption of recommended
 				'ambox-Advert',
 				'ambox-autobiography',
 				'ambox-believerpov',
