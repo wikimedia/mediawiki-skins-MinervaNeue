@@ -65,5 +65,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "분류",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "문서 분류 보기",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "맨 위로 이동",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "떠있는 버튼을 사용하여 현재 문서의 최상위로 이동합니다"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "떠있는 버튼을 사용하여 현재 문서의 최상위로 이동합니다",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "문서의 문제들(틀:ambox)은 문서에서 인라인 처리됩니다."
 }
