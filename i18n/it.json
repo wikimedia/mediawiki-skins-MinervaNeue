@@ -38,7 +38,7 @@
 	"mobile-frontend-meta-data-issues-talk": "A proposito di questa pagina di discussione",
 	"mobile-frontend-notifications-filter": "Filtra",
 	"mobile-frontend-pageaction-edit-tooltip": "Modifica la sezione iniziale di questa pagina",
-	"mobile-frontend-placeholder": "Cerca all'interno di {{SITENAME}}",
+	"mobile-frontend-placeholder": "Cerca in {{SITENAME}}",
 	"mobile-frontend-random-button": "Una pagina a caso",
 	"mobile-frontend-redirected-from": "Reindirizzamento da \"$1\"",
 	"mobile-frontend-talk-back-to-filepage": "Ritorna al file \"$1\".",
