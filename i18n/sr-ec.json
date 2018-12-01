@@ -54,7 +54,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Придружио се|Придружила се|Придружили сте}} се на датум $1",
 	"mobile-frontend-user-page-talk": "Разговор",
 	"mobile-frontend-user-page-uploads": "Отпремања",
-	"skinname-minerva": "Минерва",
+	"skinname-minerva": "Минерва (ново)",
 	"minerva-skin-desc": "Респонзивна тема првенствено за мобилну употребу",
 	"skin-minerva-issue-learn-more": "Сазнајте више",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорије",
