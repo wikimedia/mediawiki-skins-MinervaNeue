@@ -1,6 +1,6 @@
 ( function ( M ) {
 
-	var Watchstar = M.require( 'mobile.watchstar/Watchstar' ),
+	var Watchstar = M.require( 'mobile.startup' ).Watchstar,
 		user = mw.user;
 
 	/**
