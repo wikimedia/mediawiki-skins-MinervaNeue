@@ -1,7 +1,8 @@
 ( function ( M ) {
 	var page = M.getCurrentPage(),
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
-		Toggler = M.require( 'mobile.toggle/Toggler' );
+		Toggler = M.require( 'mobile.toggle/Toggler' ),
+		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
 
 	if ( !page.getLeadSectionElement() ) {
 		// Operating in desktop Minerva mode. Stop execution. (T172948)
@@ -31,7 +32,12 @@
 			delete window.mfTempOpenSection;
 		}
 		// eslint-disable-next-line no-new
-		new Toggler( $container, prefix, page );
+		new Toggler( {
+			$container: $container,
+			prefix: prefix,
+			page: page,
+			eventBus: eventBus
+		} );
 	}
 
 	// avoid this running on Watchlist
