@@ -58,6 +58,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Liittyi}} $1",
 	"mobile-frontend-user-page-talk": "Keskustelu",
 	"mobile-frontend-user-page-uploads": "Tallennukset",
+	"skin-minerva-issue-learn-more": "Lisätietoja",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näytä sivun luokat",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Hyppää alkuun",
