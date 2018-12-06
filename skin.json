@@ -125,7 +125,8 @@
 				"skinStyles/mobile.startup/skin.less",
 				"skinStyles/mobile.startup/toast.less",
 				"skinStyles/mobile.startup/Overlay.less",
-				"skinStyles/mobile.startup/toggle.less"
+				"skinStyles/mobile.startup/toggle.less",
+				"skinStyles/mobile.startup/search/SearchOverlay.less"
 			],
 			"mediawiki.special": [
 				"skinStyles/mobile.special.styles/minerva.less"
@@ -141,9 +142,6 @@
 			],
 			"mediawiki.action.edit.styles": [
 				"skinStyles/mediawiki.action.edit.styles/minerva.less"
-			],
-			"mobile.search": [
-				"skinStyles/mobile.search/SearchOverlay.less"
 			],
 			"mobile.special.mobilemenu.styles": [
 				"skinStyles/mobile.special.mobilemenu.styles/minerva.less"
