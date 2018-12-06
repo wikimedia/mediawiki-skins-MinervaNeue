@@ -29,6 +29,76 @@
 	}
 
 	/**
+	 * Creates a "read more" button with given text.
+	 * @param {string} msg
+	 * @return {JQuery}
+	 */
+	function createLearnMoreLink( msg ) {
+		return $( '<span>' )
+			.addClass( 'ambox-learn-more' )
+			.text( msg );
+	}
+
+	/**
+	 * Modifies the `issue` DOM to create a banner designed for
+	 * single issue templates, and handles event-binding for that issues overlay.
+	 *
+	 * @param {IssueSummary} issue
+	 * @param {string} msg
+	 * @param {string} overlayUrl
+	 * @param {Object} overlayManager
+	 */
+	function createPageIssueBanner( issue, msg, overlayUrl, overlayManager ) {
+		var $learnMoreEl = createLearnMoreLink( msg ),
+			$issueContainer = issue.$el.find( '.mbox-text' );
+
+		$issueContainer.prepend( issue.iconString );
+		$issueContainer.prepend( $learnMoreEl );
+
+		issue.$el.click( function () {
+			overlayManager.router.navigate( overlayUrl );
+			return false;
+		} );
+	}
+
+	/**
+	 * Modifies the `issue` DOM to create a banner designed for
+	 * multiple issue templates, and handles event-binding for that issues overlay.
+	 *
+	 * @param {IssueSummary} issue
+	 * @param {string} msg
+	 * @param {string} overlayUrl
+	 * @param {Object} overlayManager
+	 */
+	function createPageIssueBannerMultiple( issue, msg, overlayUrl, overlayManager ) {
+		var $learnMoreEl = createLearnMoreLink( msg ),
+			$parentContentContainer = issue.$el.parents( '.mbox-text-span, .mbox-text-div' ),
+			$parentContainer = issue.$el.parents( '.mbox-text' );
+
+		$parentContentContainer.prepend( issue.iconString );
+		$parentContentContainer.prepend( $learnMoreEl );
+
+		$parentContainer.click( function () {
+			overlayManager.router.navigate( overlayUrl );
+			return false;
+		} );
+	}
+
+	/**
+	 * Modifies the page DOM to insert a page-issue notice below the title of the page,
+	 * containing a link with a message like "this page has issues".
+	 * Used on talk & category namespaces, or when page-issue banners have been disabled.s
+	 *
+	 * @param {string} labelText
+	 * @param {string} section
+	 */
+	function createPageIssueNotice( labelText, section ) {
+		var $link = createLinkElement( labelText );
+		$link.attr( 'href', '#/issues/' + section );
+		$link.insertAfter( $( 'h1#section_0' ) );
+	}
+
+	/**
 	 * Render a banner in a containing element.
 	 * if in group B, a learn more link will be append to any amboxes inside $container
 	 * if in group A or control, any amboxes in container will be removed and a link "page issues"
@@ -48,11 +118,11 @@
 	 * @return {JQuery.Object}
 	 */
 	function createBanner( page, labelText, section, inline, overlayManager ) {
-		var $learnMore, $metadata,
+		var
+			$metadata,
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
 			selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
-			issues = [],
-			$link;
+			issueSummaries = [];
 
 		if ( section === KEYWORD_ALL_SECTIONS ) {
 			$metadata = page.$( selector );
@@ -63,47 +133,36 @@
 		// clean it up a little
 		$metadata.find( '.NavFrame' ).remove();
 		$metadata.each( function () {
-			var issue,
+			var issueSummary,
 				$this = $( this );
 
 			if ( $this.find( selector ).length === 0 ) {
-				issue = pageIssuesParser.extract( $this );
+				issueSummary = pageIssuesParser.extract( $this );
 				// Some issues after "extract" has been run will have no text.
 				// For example in Template:Talk header the table will be removed and no issue found.
 				// These should not be rendered.
-				if ( issue.text ) {
-					issues.push( issue );
+				if ( issueSummary.text ) {
+					issueSummaries.push( issueSummary );
 				}
 			}
 		} );
 		// store it for later
-		allIssues[section] = issues;
+		allIssues[section] = issueSummaries;
 
-		// If issues were extracted and there are inline amboxes, add learn more
-		// and icon to the UI element.
-		if ( issues.length && $metadata.length && inline ) {
-			issues[0].issue.icon.$el.prependTo( $metadata.eq( 0 ).find( '.mbox-text' ) );
-			$learnMore = $( '<span>' )
-				.addClass( 'ambox-learn-more' )
-				.text( mw.msg( 'skin-minerva-issue-learn-more' ) );
-			if ( $( '.mw-collapsible-content' ).length ) {
-				// e.g. Template:Multiple issues
-				$learnMore.insertAfter( $metadata.find( '.mbox-text-span, .mbox-text-div' ) );
-			} else {
-				// e.g. Template:merge from
-				$learnMore.appendTo( $metadata.find( '.mbox-text' ) );
-			}
-			$metadata.click( function () {
-				overlayManager.router.navigate( issueUrl );
-				return false;
+		if ( inline ) {
+			issueSummaries.forEach( function ( issueSummary, i ) {
+				var isGrouped = issueSummary.issue.grouped,
+					lastIssueIsGrouped = issueSummaries[ i - 1] &&
+						issueSummaries[ i - 1].issue.grouped;
+				// only render the first grouped issue of each group
+				if ( isGrouped && !lastIssueIsGrouped ) {
+					createPageIssueBannerMultiple( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager );
+				} else {
+					createPageIssueBanner( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager );
+				}
 			} );
-		} else {
-			$link = createLinkElement( labelText );
-			$link.attr( 'href', '#/issues/' + section );
-			if ( $metadata.length ) {
-				$link.insertAfter( $( 'h1#section_0' ) );
-				$metadata.remove();
-			}
+		} else if ( issueSummaries.length ) {
+			createPageIssueNotice( labelText, section );
 		}
 
 		return $metadata;

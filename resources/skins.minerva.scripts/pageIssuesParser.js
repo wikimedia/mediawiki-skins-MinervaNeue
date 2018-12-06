@@ -8,6 +8,7 @@
 	/**
 	 * @typedef {Object} IssueSummary
 	 * @prop {PageIssue} issue
+	 * @prop {jQuery.Object} $el where the issue was extracted from
 	 * @prop {string} iconString a string representation of icon.
 	 *  This is kept for template compatibility (our views do not yet support composition).
 	 * @prop {string} text HTML string.
@@ -206,6 +207,7 @@
 
 		return {
 			issue: pageIssue,
+			$el: $box,
 			// For template compatibility with PageIssuesOverlay
 			iconString: pageIssue.icon.toHtmlString(),
 			text: $container.html()
