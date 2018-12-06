@@ -1,8 +1,10 @@
 ( function ( M ) {
-	var SearchOverlay = M.require( 'mobile.search/SearchOverlay' ),
-		SearchGateway = M.require( 'mobile.search.api/SearchGateway' ),
+	var
+		client = M.require( 'mobile.startup' ),
+		SearchOverlay = client.search.SearchOverlay,
+		SearchGateway = client.search.SearchGateway,
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
-		searchLogger = M.require( 'mobile.search/MobileWebSearchLogger' ),
+		searchLogger = client.search.MobileWebSearchLogger,
 		searchInput = $( '#searchInput' ),
 		placeholder = searchInput.attr( 'placeholder' ),
 		searchRoute = new RegExp( /\/search/ ),

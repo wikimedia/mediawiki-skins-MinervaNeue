@@ -396,8 +396,6 @@
 				"mediawiki.Title",
 				"mobile.startup",
 				"skins.minerva.mainMenu",
-				"mobile.search.api",
-				"mobile.search",
 				"mediawiki.user",
 				"mediawiki.storage",
 				"mediawiki.experiments"
