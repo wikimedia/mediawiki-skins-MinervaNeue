@@ -1,6 +1,7 @@
-( function ( M ) {
+( function ( M, EventEmitter ) {
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		LoadingOverlay = M.require( 'mobile.startup/LoadingOverlay' ),
+		eventBus = new EventEmitter(),
 		$talk = $( '.talk' ),
 		// use the plain return value here - T128273
 		title = $talk.attr( 'data-title' ),
@@ -42,7 +43,8 @@
 			// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of
 			// spaces.
 			currentPageTitle: M.getCurrentPage().title,
-			licenseMsg: skin.getLicenseMsg()
+			licenseMsg: skin.getLicenseMsg(),
+			eventBus: eventBus
 		};
 
 		return loader.loadModule( 'mobile.talk.overlays' ).then( function () {
@@ -78,7 +80,7 @@
 
 	if ( inTalkNamespace ) {
 		// reload the page after the new discussion was added
-		M.on( 'talk-added-wo-overlay', function () {
+		eventBus.on( 'talk-added-wo-overlay', function () {
 			var loadingOverlay = new LoadingOverlay();
 
 			window.location.hash = '';
@@ -90,4 +92,4 @@
 			}, 10 );
 		} );
 	}
-}( mw.mobileFrontend ) );
+}( mw.mobileFrontend, OO.EventEmitter ) );
