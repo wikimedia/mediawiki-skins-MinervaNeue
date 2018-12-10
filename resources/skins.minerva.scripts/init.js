@@ -16,7 +16,8 @@
 		overlayManager = OverlayManager.getSingleton(),
 		page = M.getCurrentPage(),
 		api = new mw.Api(),
-		thumbs = page.getThumbnails();
+		thumbs = page.getThumbnails(),
+		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
 
 	/**
 	 * Event handler for clicking on an image thumbnail
@@ -116,7 +117,8 @@
 			imageOverlay = new ImageOverlay( {
 				api: api,
 				thumbnails: thumbs,
-				title: decodeURIComponent( title )
+				title: decodeURIComponent( title ),
+				eventBus: eventBus
 			} );
 		imageOverlay.on( ImageOverlay.EVENT_EXIT, function () {
 			// Actually dismiss the overlay whenever the cross is closed.
@@ -361,7 +363,7 @@
 		initModifiedInfo();
 		initRegistrationInfo();
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
-		M.on( 'resize', loadTabletModules );
+		eventBus.on( 'resize', loadTabletModules );
 		loadTabletModules();
 		appendDownloadButton();
 		initRedlinksCta();

@@ -3,6 +3,7 @@
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		eventBus = M.require( 'mobile.startup/eventBusSingleton' ),
 		isAnon = mw.user.isAnon();
 
 	// check the categories feature has been turned on
@@ -14,7 +15,7 @@
 	overlayManager.add( /^\/categories$/, function () {
 		return loader.loadModule( 'mobile.categories.overlays', true ).then( function ( loadingOverlay ) {
 			var CategoryOverlay = M.require( 'mobile.categories.overlays/CategoryOverlay' );
-			M.on( 'category-added', function () {
+			eventBus.on( 'category-added', function () {
 				window.location.hash = '#/categories';
 			} );
 
@@ -22,7 +23,8 @@
 			return new CategoryOverlay( {
 				api: new mw.Api(),
 				isAnon: isAnon,
-				title: M.getCurrentPage().title
+				title: M.getCurrentPage().title,
+				eventBus: eventBus
 			} );
 		} );
 	} );
@@ -36,7 +38,8 @@
 			return new CategoryAddOverlay( {
 				api: new mw.Api(),
 				isAnon: isAnon,
-				title: M.getCurrentPage().title
+				title: M.getCurrentPage().title,
+				eventBus: eventBus
 			} );
 		} );
 	} );

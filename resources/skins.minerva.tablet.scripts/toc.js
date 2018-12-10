@@ -1,6 +1,7 @@
 ( function ( M ) {
 	var TableOfContents = M.require( 'mobile.toc/TableOfContents' ),
-		Toggler = M.require( 'mobile.toggle/Toggler' );
+		Toggler = M.require( 'mobile.toggle/Toggler' ),
+		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
 
 	/**
 	 * Create TableOfContents if the given Page has sections and is not the main page
@@ -19,7 +20,13 @@
 		} );
 
 		// eslint-disable-next-line no-new
-		new Toggler( toc.$el, 'toc-', null, true );
+		new Toggler( {
+			$container: toc.$el,
+			prefix: 'toc-',
+			page: null,
+			isClosed: true,
+			eventBus: eventBus
+		} );
 		// if there is a toc already, replace it
 		if ( $toc.length > 0 ) {
 			// don't show toc at end of page, when no sections there

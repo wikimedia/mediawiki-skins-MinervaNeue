@@ -11,7 +11,12 @@
 
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
-			this.skin = new Skin( {} );
+			this.skin = new Skin( {
+				eventBus: {
+					on: function () {},
+					off: function () {}
+				}
+			} );
 		}
 	} );
 
@@ -74,6 +79,10 @@
 	QUnit.module( 'Minerva DownloadIcon.isAvailable()', {
 		beforeEach: function () {
 			this.skin = new Skin( {
+				eventBus: {
+					on: function () {},
+					off: function () {}
+				},
 				page: new Page( {
 					id: 0,
 					title: 'Test',
