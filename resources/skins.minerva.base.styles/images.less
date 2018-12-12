@@ -4,6 +4,8 @@
 @placeholderBackgroundColor: @grayLightest;
 
 .lazy-image-placeholder {
+	background-color: @placeholderBackgroundColor;
+
 	// If the placeholder itself is inside an inline element do not use block
 	// See https://phabricator.wikimedia.org/T143558
 	// and https://phabricator.wikimedia.org/T144567
@@ -16,8 +18,6 @@
 	.client-nojs & {
 		display: none;
 	}
-
-	background-color: @placeholderBackgroundColor;
 
 	// In order to avoid reflows placeholder needs to be inline-block
 	// Otherwise display block will always take up the full line

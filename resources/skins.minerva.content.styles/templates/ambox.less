@@ -11,7 +11,7 @@
 @amboxBackground: @colorGray15;
 
 .ambox,
-// Be more specific than .content table styles in Minerva
+/* Be more specific than .content table styles in Minerva */
 table.ambox {
 	display: none;
 	margin: 0;
@@ -72,6 +72,7 @@ table.ambox {
 	a {
 		color: inherit !important;
 		-webkit-tap-highlight-color: rgba( 0, 0, 0, 0 ) !important;
+
 		&:hover,
 		&:focus {
 			text-decoration: none;
@@ -81,17 +82,17 @@ table.ambox {
 
 	small,
 	.hide-when-compact,
-	// Template:Expand Russian
+	/* Template:Expand Russian */
 	.mw-collapsible-content,
-	// Remove empty leftmost column when present (.mbox-empty-cell)
-	// and .verbose and any hr tags that might be present in the ambox
-	// See https://en.wikipedia.org/w/index.php?
-	//   title=Special:WhatLinksHere/Template:Proposed_deletion_notify
-	// (https://phabricator.wikimedia.org/T197265)
+	/* Remove empty leftmost column when present (.mbox-empty-cell)
+	 * and .verbose and any hr tags that might be present in the ambox
+	 * See https://en.wikipedia.org/w/index.php?
+	 *   title=Special:WhatLinksHere/Template:Proposed_deletion_notify
+	 * (https://phabricator.wikimedia.org/T197265) */
 	.mbox-empty-cell,
 	hr,
 	.verbose,
-	// nested amboxes (multiple issues)
+	/* Nested amboxes (multiple issues) */
 	table,
 	.mbox-image {
 		display: none;
@@ -113,6 +114,7 @@ table.ambox {
 		bottom: @amboxPadding;
 		z-index: 1;
 		line-height: @contentLineHeight; // sets height for fade & aligns "learn more" to ambox text.
+
 		/* creates a fade under the "learn more" button to avoid overlapping text. */
 		&:before {
 			content: '';
@@ -135,10 +137,12 @@ table.ambox {
 			height: auto;
 			margin-bottom: @amboxPadding * 3 !important; // important offsets `.ambox div { margin:0!important}` which offsets inline styles.
 		}
+
 		.ambox-learn-more {
 			left: @amboxIconPadding;
 			right: 0;
 			background: none;
+
 			// Move blur to far right last line
 			// https://phabricator.wikimedia.org/T197931#4475197
 			&:before {
@@ -147,5 +151,4 @@ table.ambox {
 			}
 		}
 	}
-
 }

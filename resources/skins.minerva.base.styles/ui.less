@@ -77,7 +77,8 @@ body {
 	.branding-box {
 		width: auto;
 
-		h1, // TODO: remove after T198947 HTML changes expire from cache.
+		// TODO: Remove `h1` after T198947 HTML changes expire from cache.
+		h1,
 		a {
 			margin-left: 5px;
 			font-size: 1em;
@@ -118,32 +119,28 @@ body {
 }
 
 .search-box,
-// Selector is needed to override table-cell rules
+/* `.header .search-box` is needed to override table-cell rules */
 .header .search-box {
 	display: none;
 	width: auto;
 }
 
-.search-box {
-
-	.search {
-		@searchIconSize: 20px;
-		@searchIconGutter: 6px;
-		outline: 0;
-		width: 100%;
-		// FIXME: unable to check but the important may not be needed for Nokia S60;
-		background-color: #fff !important; /* remove fennec default background also see bug 36490 */
-		// get rid of rounded corners in Safari
-		-webkit-appearance: none;
-
-		padding: 0.5em 0 0.5em @searchIconSize + (2 * @searchIconGutter);
-		background-position: left @searchIconGutter center;
-		background-repeat: no-repeat;
-		.background-size( @searchIconSize, @searchIconSize );
-		border-radius: @borderRadius;
-		box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
-		margin-top: 0;
-	}
+.search-box .search {
+	@searchIconSize: 20px;
+	@searchIconGutter: 6px;
+	outline: 0;
+	width: 100%;
+	// FIXME: unable to check but the important may not be needed for Nokia S60;
+	background-color: #fff !important; /* remove fennec default background also see bug 36490 */
+	// get rid of rounded corners in Safari
+	-webkit-appearance: none;
+	padding: 0.5em 0 0.5em @searchIconSize + (2 * @searchIconGutter);
+	background-position: left @searchIconGutter center;
+	background-repeat: no-repeat;
+	.background-size( @searchIconSize, @searchIconSize );
+	border-radius: @borderRadius;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
+	margin-top: 0;
 }
 
 /* Search */
@@ -215,9 +212,11 @@ input.search {
 	.in-block {
 		// Safari needs this. @see T106347
 		display: table;
+
 		.mw-headline {
 			width: 100%;
 		}
+
 		> span {
 			display: table-cell;
 			vertical-align: middle;
@@ -277,9 +276,9 @@ input.search {
 .backtotop,
 .image-list,
 .pre-content,
-// Form only pages e.g Special:MobileOptions
+/* Form only pages e.g Special:MobileOptions */
 #mw-content-text > form > .oo-ui-fieldLayout > .oo-ui-fieldLayout-body,
-// Save button on Special:MobileOptions
+/* Save button on Special:MobileOptions */
 #mw-content-text > form > .oo-ui-widget,
 .content,
 .post-content {
@@ -287,16 +286,16 @@ input.search {
 }
 
 @media all and ( min-width: @width-breakpoint-tablet ) {
-	// FIXME: this should be one generic class name
-	// SpecialMobileEditWatchlist
+	/* FIXME: this should be one generic class name */
+	/* SpecialMobileEditWatchlist */
 	.page-summary-list,
-	// Talk overlay
+	/* Talk overlay */
 	.topic-title-list,
-	// structured languages, mobile pagelists
+	/* structured languages, mobile pagelists */
 	.site-link-list,
-	// overlays
+	/* overlays */
 	.overlay .panel,
-	// language overlay / MobileSpecialPageFeed
+	/* language overlay / MobileSpecialPageFeed */
 	.list-header {
 		padding-left: @contentPaddingTablet;
 		padding-right: @contentPaddingTablet;

@@ -1,10 +1,10 @@
 @import '../../minerva.less/minerva.variables';
 @import '../../minerva.less/minerva.mixins';
 
-// hide the texts inside these selectors because they push the login form below the fold
+// Hide the texts inside these selectors because they push the login form below the fold
+// `#user-button` serves no purpose on the login screen as you are not logged in so cannot use.
 #userloginprompt,
 #languagelinks,
-// This serves no purpose on the login screen as you are not logged in so cannot use.
 #user-button {
 	display: none;
 }
@@ -129,6 +129,7 @@
 		// FIXME: Should we set the height here?
 		height: 72px;
 		margin-bottom: @headingMargin;
+
 		img {
 			// Important to override default max-width and height auto combo
 			height: 72px !important;

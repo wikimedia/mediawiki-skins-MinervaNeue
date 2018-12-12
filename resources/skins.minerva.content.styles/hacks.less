@@ -23,13 +23,13 @@ FIXME: Review all of these hacks to see if they still apply.
 		display: none;
 	}
 
-	// Hide cleanup templates by default to non-javascript users as these stop them from reading the article itself
-	// Edit page notices
+	/* Hide cleanup templates by default to non-javascript users as these stop them from reading the article itself
+	 * Edit page notices */
 	.action-edit .fmbox,
-	// Talk page informational boxes
+	/* Talk page informational boxes */
 	.tmbox,
 	#coordinates,
-	// Hide article badges, clean-up notices, stub notices, and navigation boxes
+	/* Hide article badges, clean-up notices, stub notices, and navigation boxes */
 	.topicon {
 		// It's important as some of these are tables which become display: table on larger screens
 		display: none !important;
@@ -47,7 +47,6 @@ FIXME: Review all of these hacks to see if they still apply.
 			border: 1px solid @colorGray14;
 			margin-bottom: 2em;
 			background-color: @colorGray15;
-
 			display: flex;
 			flex: 1 1 100%;
 			flex-flow: column nowrap;
@@ -131,6 +130,7 @@ FIXME: Review all of these hacks to see if they still apply.
 	background-color: @colorGray15;
 	margin-bottom: 1px;
 	overflow: hidden;
+
 	a {
 		color: @colorProgressive;
 	}
@@ -148,7 +148,6 @@ FIXME: Review all of these hacks to see if they still apply.
 
 // Hacks to render galleries and multicol tables better on mobile
 @media all and ( max-width: @width-breakpoint-tablet ) {
-
 	.content {
 		table {
 			// Make {{col-beg}}, {{col-break}}, and {{col-end}} templates display single column tables

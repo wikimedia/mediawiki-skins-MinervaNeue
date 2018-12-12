@@ -49,7 +49,7 @@ A file for css that optimises the Minerva skin on larger devices.
 
 	// FIXME: Have a class that identifies all of these selectors
 	.pre-content,
-	// Form only pages e.g. Special:MobileOptions
+	/* Form only pages e.g. Special:MobileOptions */
 	#mw-content-text > form,
 	.content,
 	.post-content {
@@ -92,6 +92,7 @@ A file for css that optimises the Minerva skin on larger devices.
 			caption {
 				background: inherit; // T170344
 			}
+
 			tbody {
 				display: table-row-group;
 			}
@@ -108,20 +109,20 @@ A file for css that optimises the Minerva skin on larger devices.
 
 @media screen and ( min-width: @width-breakpoint-desktop ) {
 	.banner-container,
-	// FIXME: Generic header class needed me-thinks!
+	/* FIXME: Generic header class needed me-thinks! */
 	.header,
 	.page-header-bar,
 	.content-header,
 	.overlay-header,
-	// FIXME: Generic content class needed?
+	/* FIXME: Generic content class needed? */
 	.content,
 	.overlay-content,
 	.content-unstyled,
 	.pre-content,
 	.post-content,
-	// Form only pages e.g. Special:MobileOptions
+	/* Form only pages e.g. Special:MobileOptions */
 	#mw-content-text > form,
-	// FIXME: remove need for id selector
+	/* FIXME: remove need for id selector */
 	#mw-mf-page-center .pointer-overlay {
 		margin-left: auto;
 		margin-right: auto;

@@ -5,9 +5,6 @@
  * as well as subtle tweaks to the appearance. It's a work in progress.
  */
 
-// FIXME: to support hlists on enwiki projects - this should be deprecated
-.hlist > ul,
-.hlist > dl,
 // Horizontal Lists
 //
 // Use hlist class when dealing with lists where items should be horizontal.
@@ -19,7 +16,10 @@
 // </ul>
 //
 // Styleguide 1.5.
-ul.hlist {
+// FIXME: `.hlist > *` to support hlists on enwiki projects - this should be deprecated
+ul.hlist,
+.hlist > ul,
+.hlist > dl {
 	li {
 		display: inline-block;
 		margin-right: 8px;
@@ -34,6 +34,7 @@ ul.hlist {
 		font-size: 1em;
 		line-height: 1;
 	}
+
 	:last-child:after {
 		content: none !important;
 	}
