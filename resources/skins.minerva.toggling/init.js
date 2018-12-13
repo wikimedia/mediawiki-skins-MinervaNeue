@@ -1,7 +1,7 @@
 ( function ( M ) {
 	var page = M.getCurrentPage(),
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
-		Toggler = M.require( 'mobile.toggle/Toggler' ),
+		Toggler = M.require( 'mobile.startup' ).Toggler,
 		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
 
 	if ( !page.getLeadSectionElement() ) {
