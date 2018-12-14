@@ -1,6 +1,6 @@
 ( function ( M ) {
 	var TableOfContents = M.require( 'mobile.toc/TableOfContents' ),
-		Toggler = M.require( 'mobile.toggle/Toggler' ),
+		Toggler = M.require( 'mobile.startup' ).Toggler,
 		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
 
 	/**

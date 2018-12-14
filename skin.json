@@ -124,16 +124,14 @@
 			"mobile.startup": [
 				"skinStyles/mobile.startup/skin.less",
 				"skinStyles/mobile.startup/toast.less",
-				"skinStyles/mobile.startup/Overlay.less"
+				"skinStyles/mobile.startup/Overlay.less",
+				"skinStyles/mobile.startup/toggle.less"
 			],
 			"mediawiki.special": [
 				"skinStyles/mobile.special.styles/minerva.less"
 			],
 			"mobile.special.styles": [
 				"skinStyles/mobile.special.styles/minerva.less"
-			],
-			"mobile.toggle": [
-				"skinStyles/mobile.toggle/minerva.less"
 			],
 			"ext.echo.styles.special": [
 				"skinStyles/ext.echo.styles.special/SpecialNotificationsOverlay.less"
@@ -515,7 +513,6 @@
 			"dependencies": [
 				"skins.minerva.scripts",
 				"mediawiki.language",
-				"mobile.toggle",
 				"mobile.startup",
 				"skins.minerva.options.share.icon"
 			],
@@ -557,7 +554,7 @@
 				"desktop"
 			],
 			"dependencies": [
-				"mobile.toggle",
+				"mobile.startup",
 				"skins.minerva.icons.images.variants",
 				"skins.minerva.scripts"
 			],
