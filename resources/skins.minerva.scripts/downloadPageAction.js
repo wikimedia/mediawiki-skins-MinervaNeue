@@ -1,6 +1,5 @@
 ( function ( M, track, msg ) {
-	var helpers,
-		MAX_PRINT_TIMEOUT = 3000,
+	var MAX_PRINT_TIMEOUT = 3000,
 		GLYPH = 'download',
 		icons = M.require( 'mobile.startup/icons' ),
 		Icon = M.require( 'mobile.startup/Icon' ),
@@ -28,78 +27,76 @@
 		return match ? parseInt( match[2] ) : false;
 	}
 
-	helpers = {
-		/**
-		 * Checks whether DownloadIcon is available for given user agent
-		 *
-		 * @memberof DownloadIcon
-		 * @instance
-		 * @param {Window} windowObj
-		 * @param {Page} page to download
-		 * @param {string} userAgent User agent
-		 * @param {number[]} supportedNamespaces where printing is possible
-		 * @return {boolean}
-		*/
-		isAvailable: function ( windowObj, page, userAgent, supportedNamespaces ) {
-			var androidVersion = getAndroidVersion( userAgent ),
-				chromeVersion = getChromeVersion( userAgent );
+	/**
+	 * Checks whether DownloadIcon is available for given user agent
+	 *
+	 * @memberof DownloadIcon
+	 * @instance
+	 * @param {Window} windowObj
+	 * @param {Page} page to download
+	 * @param {string} userAgent User agent
+	 * @param {number[]} supportedNamespaces where printing is possible
+	 * @return {boolean}
+	*/
+	function isAvailable( windowObj, page, userAgent, supportedNamespaces ) {
+		var androidVersion = getAndroidVersion( userAgent ),
+			chromeVersion = getChromeVersion( userAgent );
 
-			// Download button is restricted to certain namespaces T181152.
-			// Defaults to 0, in case cached JS has been served.
-			if ( supportedNamespaces.indexOf( page.getNamespaceId() ) === -1 ||
-				page.isMainPage() ) {
-				// namespace is not supported or it's a main page
-				return false;
-			}
+		// Download button is restricted to certain namespaces T181152.
+		// Defaults to 0, in case cached JS has been served.
+		if ( supportedNamespaces.indexOf( page.getNamespaceId() ) === -1 ||
+			page.isMainPage() ) {
+			// namespace is not supported or it's a main page
+			return false;
+		}
 
-			if ( browser.isIos() || chromeVersion === false ||
-				windowObj.chrome === undefined
-			) {
-				// we support only chrome/chromium on desktop/android
-				return false;
-			}
-			if ( ( androidVersion && androidVersion < 5 ) || chromeVersion < 41 ) {
-				return false;
-			}
-			return true;
-		},
-		/**
-		 * onClick handler for button that invokes print function
-		 * @param {Skin} skin
-		 * @param {Icon} icon
-		 * @param {Icon} spinner
-		 */
-		onClick: function ( skin, icon, spinner ) {
-			function doPrint() {
-				icon.timeout = clearTimeout( icon.timeout );
-				track( 'minerva.downloadAsPDF', {
-					action: 'callPrint'
-				} );
-				window.print();
-				icon.$el.show();
-				spinner.$el.hide();
-			}
+		if ( browser.isIos() || chromeVersion === false ||
+			windowObj.chrome === undefined
+		) {
+			// we support only chrome/chromium on desktop/android
+			return false;
+		}
+		if ( ( androidVersion && androidVersion < 5 ) || chromeVersion < 41 ) {
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * onClick handler for button that invokes print function
+	 * @param {Skin} skin
+	 * @param {Icon} icon
+	 * @param {Icon} spinner
+	 */
+	function onClick( skin, icon, spinner ) {
+		function doPrint() {
+			icon.timeout = clearTimeout( icon.timeout );
+			track( 'minerva.downloadAsPDF', {
+				action: 'callPrint'
+			} );
+			window.print();
+			icon.$el.show();
+			spinner.$el.hide();
+		}
 
-			function doPrintBeforeTimeout() {
-				if ( icon.timeout ) {
-					doPrint();
-				}
-			}
-			// The click handler may be invoked multiple times so if a pending print is occurring
-			// do nothing.
-			if ( !icon.timeout ) {
-				track( 'minerva.downloadAsPDF', {
-					action: 'fetchImages'
-				} );
-				icon.$el.hide();
-				spinner.$el.show();
-				// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
-				// abort the spinner and print regardless.
-				icon.timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-				skin.loadImagesList().then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+		function doPrintBeforeTimeout() {
+			if ( icon.timeout ) {
+				doPrint();
 			}
 		}
-	};
+		// The click handler may be invoked multiple times so if a pending print is occurring
+		// do nothing.
+		if ( !icon.timeout ) {
+			track( 'minerva.downloadAsPDF', {
+				action: 'fetchImages'
+			} );
+			icon.$el.hide();
+			spinner.$el.show();
+			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
+			// abort the spinner and print regardless.
+			icon.timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
+			skin.loadImagesList().then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+		}
+	}
 
 	/**
 	 * Gets a click handler for the download icon
@@ -111,7 +108,7 @@
 	 */
 	function getOnClickHandler( skin, spinner ) {
 		return function () {
-			helpers.onClick( skin, this, spinner );
+			onClick( skin, this, spinner );
 		};
 	}
 
@@ -127,7 +124,7 @@
 	function downloadPageAction( skin, supportedNamespaces, windowObj ) {
 		var icon, spinner = icons.spinner();
 		if (
-			helpers.isAvailable(
+			isAvailable(
 				windowObj, skin.page, navigator.userAgent,
 				supportedNamespaces
 			)
@@ -148,6 +145,6 @@
 	}
 
 	M.define( 'skins.minerva.scripts/test/getOnClickHandler', getOnClickHandler );
-	M.define( 'skins.minerva.scripts/test/isAvailable', helpers.isAvailable );
+	M.define( 'skins.minerva.scripts/test/isAvailable', isAvailable );
 	M.define( 'skins.minerva.scripts/downloadPageAction', downloadPageAction );
 }( mw.mobileFrontend, mw.track, mw.msg ) );
