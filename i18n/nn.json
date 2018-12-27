@@ -30,5 +30,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1",
 	"mobile-frontend-user-page-uploads": "Opplastingar",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoriar",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Sjå kategoriane til sider"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Sjå kategoriane til sider",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Til toppen",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå til toppen av sida med ein flytande knapp"
 }

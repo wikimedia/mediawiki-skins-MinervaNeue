@@ -22,6 +22,8 @@
 	"mobile-frontend-cookies-required": "Näkymien vaihtaminen vaatii evästeitä. Ota evästeet selaimessa käyttöön ja yritä uudestaan.",
 	"mobile-frontend-editor-edit": "Muokkaa",
 	"minerva-download": "Lataa",
+	"skin-minerva-share": "Jaa",
+	"skin-minerva-mobile-option-MinervaShareButton": "Jaa",
 	"mobile-frontend-editor-redlink-create": "Luo sivu",
 	"mobile-frontend-editor-redlink-explain": "Tätä sivua ei ole vielä luotu.",
 	"mobile-frontend-editor-redlink-leave": "Ei kiitos.",

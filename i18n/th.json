@@ -4,7 +4,8 @@
 			"Aefgh39622",
 			"Horus",
 			"Ans",
-			"Octahedron80"
+			"Octahedron80",
+			"Geonuch"
 		]
 	},
 	"minerva-last-modified-date": "แก้ไขล่าสุดเมื่อ $1 เวลา $2",
@@ -23,7 +24,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ยินดีต้อนรับ}} $1!",
 	"mobile-frontend-main-menu-button-tooltip": "เปิดเมนูหลัก",
 	"mobile-frontend-main-menu-contributions": "การมีส่วนร่วม",
-	"mobile-frontend-main-menu-login": "ล็อกอิน",
+	"mobile-frontend-main-menu-login": "เข้าสู่ระบบ",
 	"mobile-frontend-main-menu-logout": "ออกจากระบบ",
 	"mobile-frontend-main-menu-nearby": "ใกล้เคียง",
 	"mobile-frontend-main-menu-settings": "การตั้งค่า",
@@ -43,15 +44,15 @@
 	"mobile-frontend-talk-back-to-projectpage": "กลับไปที่หน้าโครงการ \"$1\"",
 	"mobile-frontend-talk-back-to-userpage": "กลับไปที่หน้าผู้ใช้ของ \"{{GENDER:$1|$1}}\"",
 	"mobile-frontend-user-button-tooltip": "แสดงประกาศของฉัน",
-	"mobile-frontend-user-newmessages": "คุณมีข้อความใหม่บนหน้าคุยของคุณ",
+	"mobile-frontend-user-newmessages": "คุณมีสารใหม่บนหน้าคุยของคุณ",
 	"mobile-frontend-user-page-contributions": "การมีส่วนร่วม",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|เข้าร่วม}} $1 แล้ว",
 	"mobile-frontend-user-page-talk": "คุย",
 	"mobile-frontend-user-page-uploads": "อัปโหลด",
-	"minerva-skin-desc": "หน้าตาแบบดั้งเดิมสำหรับอุปกรณ์เคลื่อนที่",
+	"minerva-skin-desc": "สกินดั้งเดิมสำหรับอุปกรณ์เคลื่อนที่",
 	"skin-minerva-issue-learn-more": "เรียนรู้เพิ่มเติม",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "หมวดหมู่",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ดูหมวดหมู่ของหน้า",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "กลับไปด้านบน",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "กลับไปด้านบนของหน้านี้โดยใช้ปุ่มลอย"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "ข้ามไปด้านบน",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "ข้ามไปด้านบนของหน้านี้โดยใช้ปุ่มลอย"
 }
