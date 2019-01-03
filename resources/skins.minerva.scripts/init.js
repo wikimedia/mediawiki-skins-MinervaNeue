@@ -4,7 +4,7 @@
 		time = M.require( 'mobile.startup/time' ),
 		skin = M.require( 'mobile.init/skin' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
-		DownloadIcon = M.require( 'skins.minerva.scripts/DownloadIcon' ),
+		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
 		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		router = require( 'mediawiki.router' ),
@@ -275,14 +275,15 @@
 	 * @ignore
 	 */
 	function appendDownloadButton() {
-		var downloadIcon = new DownloadIcon( skin, config.get( 'wgMinervaDownloadNamespaces' ), window );
+		var $downloadAction = downloadPageAction( skin,
+			config.get( 'wgMinervaDownloadNamespaces', [] ), window );
 
-		if ( downloadIcon.isAvailable( navigator.userAgent ) ) {
+		if ( $downloadAction ) {
 			// Because the page actions are floated to the right, their order in the
 			// DOM is reversed in the display. The watchstar is last in the DOM and
 			// left-most in the display. Since we want the download button to be to
 			// the left of the watchstar, we put it after it in the DOM.
-			downloadIcon.$el.insertAfter( '#ca-watch' );
+			$downloadAction.insertAfter( '#ca-watch' );
 			track( 'minerva.downloadAsPDF', {
 				action: 'buttonVisible'
 			} );
