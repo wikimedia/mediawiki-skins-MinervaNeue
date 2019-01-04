@@ -9,7 +9,7 @@
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
-		PageIssuesOverlay = M.require( 'skins.minerva.scripts/PageIssuesOverlay' ),
+		pageIssuesOverlay = M.require( 'skins.minerva.scripts/pageIssuesOverlay' ),
 		// When the query string flag is set force on new treatment.
 		// When wgMinervaPageIssuesNewTreatment is the default this line can be removed.
 		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
@@ -267,8 +267,9 @@
 
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
-			return new PageIssuesOverlay(
-				getIssues( section ), section, CURRENT_NS );
+			return pageIssuesOverlay(
+				getIssues( section ), section, CURRENT_NS
+			);
 		} );
 	}
 
