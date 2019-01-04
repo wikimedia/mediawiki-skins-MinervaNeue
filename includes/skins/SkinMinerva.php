@@ -639,6 +639,7 @@ class SkinMinerva extends SkinTemplate {
 	protected function getDiscoveryTools() {
 		$config = $this->getConfig();
 		$menu = new MenuBuilder();
+		$factory = MediaWikiServices::getInstance()->getSpecialPageFactory();
 
 		// Home link
 		$menu->insert( 'home' )
@@ -662,11 +663,7 @@ class SkinMinerva extends SkinTemplate {
 			);
 
 		// Nearby link (if supported)
-		if (
-			SpecialPageFactory::exists( 'Nearby' ) &&
-			$config->get( 'MFNearby' ) &&
-			( $config->get( 'MFNearbyEndpoint' ) || class_exists( 'GeoData\GeoData' ) )
-		) {
+		if ( $factory->exists( 'Nearby' ) ) {
 			$menu->insert( 'nearby', $isJSOnly = true )
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
