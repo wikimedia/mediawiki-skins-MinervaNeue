@@ -179,9 +179,9 @@ class ArticlePage
 
   # issues
   # We use 2 selectors here - the first relates to the old treatment (A) and
-  # the 2nd relates to the new treatment (.ambox)
+  # the 2nd relates to the new treatment (.issues-group-B .ambox)
   # see https://phabricator.wikimedia.org/T206647
-  a(:issues_stamp, css: '.mw-mf-cleanup, .ambox')
+  a(:issues_stamp, css: '.mw-mf-cleanup, .issues-group-B .ambox')
 
   # page info (action=info)
   td(:edit_count, css: '#mw-pageinfo-edits td', index: 1)
