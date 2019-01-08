@@ -1,16 +1,18 @@
 ( function ( M ) {
 	var VALID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
 		VALID_SUPPORTED_NAMESPACES = [ 0 ],
-		Skin = M.require( 'mobile.startup/Skin' ),
-		icons = M.require( 'mobile.startup/icons' ),
+		mobile = M.require( 'mobile.startup' ),
+		Skin = mobile.Skin,
+		icons = mobile.icons,
 		Deferred = $.Deferred,
 		windowChrome = { chrome: true },
 		downloadIcon = icons.spinner(),
 		windowNotChrome = {},
 		getOnClickHandler = M.require( 'skins.minerva.scripts/test/getOnClickHandler' ),
 		isAvailable = M.require( 'skins.minerva.scripts/test/isAvailable' ),
-		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
-		Page = M.require( 'mobile.startup/Page' );
+		browser = mobile.Browser.getSingleton(),
+		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
+		Page = mobile.Page;
 
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
@@ -31,7 +33,7 @@
 			d = Deferred(),
 			spy = this.sandbox.stub( window, 'print' );
 
-		this.sandbox.stub( this.skin, 'loadImagesList' ).returns( d.resolve() );
+		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d.resolve() );
 
 		handler();
 		d.then( function () {
@@ -46,7 +48,7 @@
 			d = Deferred(),
 			spy = this.sandbox.stub( window, 'print' );
 
-		this.sandbox.stub( this.skin, 'loadImagesList' ).returns( d );
+		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d );
 
 		window.setTimeout( function () {
 			d.resolve();
@@ -55,7 +57,7 @@
 		handler();
 		d.then( function () {
 			assert.strictEqual( spy.callCount, 1,
-				'Print was called once despite loadImagesList resolving after MAX_PRINT_TIMEOUT' );
+				'Print was called once despite loadImages resolving after MAX_PRINT_TIMEOUT' );
 		} );
 
 		return d;
@@ -66,7 +68,7 @@
 			d = Deferred(),
 			spy = this.sandbox.stub( window, 'print' );
 
-		this.sandbox.stub( this.skin, 'loadImagesList' ).returns( d );
+		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d );
 
 		window.setTimeout( function () {
 			d.resolve();

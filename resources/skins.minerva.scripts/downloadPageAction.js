@@ -1,9 +1,11 @@
 ( function ( M, track, msg ) {
 	var MAX_PRINT_TIMEOUT = 3000,
-		GLYPH = 'download',
-		icons = M.require( 'mobile.startup/icons' ),
-		Icon = M.require( 'mobile.startup/Icon' ),
-		browser = M.require( 'mobile.startup/Browser' ).getSingleton();
+		mobile = M.require( 'mobile.startup' ),
+		Icon = mobile.Icon,
+		icons = mobile.icons,
+		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
+		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
+		GLYPH = 'download';
 
 	/**
 	 * Helper function to retrieve the Android version
@@ -94,7 +96,9 @@
 			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 			// abort the spinner and print regardless.
 			icon.timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-			skin.loadImagesList().then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+			lazyImageLoader.loadImages(
+				skin.$.bind( skin ), skin.getUnloadedImages()
+			).then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 		}
 	}
 
