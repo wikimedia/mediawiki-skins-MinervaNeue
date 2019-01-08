@@ -24,6 +24,7 @@
 	"minerva-download": "Lataa",
 	"skin-minerva-share": "Jaa",
 	"skin-minerva-mobile-option-MinervaShareButton": "Jaa",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Jaa nykyinen artikkeli selaimen jakotoiminnolla (vain tuetut selaimet)",
 	"mobile-frontend-editor-redlink-create": "Luo sivu",
 	"mobile-frontend-editor-redlink-explain": "Tätä sivua ei ole vielä luotu.",
 	"mobile-frontend-editor-redlink-leave": "Ei kiitos.",
