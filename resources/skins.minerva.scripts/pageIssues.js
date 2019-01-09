@@ -24,8 +24,7 @@
 	 * @return {JQuery}
 	 */
 	function createLinkElement( labelText ) {
-		return $( '<a class="cleanup mw-mf-cleanup"></a>' )
-			.text( labelText );
+		return $( '<a>' ).addClass( 'cleanup mw-mf-cleanup' ).text( labelText );
 	}
 
 	/**
@@ -78,7 +77,7 @@
 		$parentContentContainer.prepend( issue.iconString );
 		$parentContentContainer.prepend( $learnMoreEl );
 
-		$parentContainer.click( function () {
+		$parentContainer.on( 'click', function () {
 			overlayManager.router.navigate( overlayUrl );
 			return false;
 		} );
@@ -95,6 +94,7 @@
 	function createPageIssueNotice( labelText, section ) {
 		var $link = createLinkElement( labelText );
 		$link.attr( 'href', '#/issues/' + section );
+		// eslint-disable-next-line jquery/no-global-selector
 		$link.insertAfter( $( 'h1#section_0' ) );
 	}
 
@@ -230,6 +230,7 @@
 		// set A-B test class.
 		// When wgMinervaPageIssuesNewTreatment is the default this can be removed.
 		if ( newTreatmentEnabled ) {
+			// eslint-disable-next-line jquery/no-global-selector
 			$( 'html' ).addClass( 'issues-group-B' );
 		}
 

@@ -2,5 +2,8 @@
 	"extends": [
 		"wikimedia/qunit",
 		"../../.eslintrc.json"
-	]
+	],
+	"rules": {
+		"jquery/no-parse-html-literal": "off"
+	}
 }

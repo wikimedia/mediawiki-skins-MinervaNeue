@@ -93,7 +93,7 @@
 		 */
 		isOpen: function () {
 			// FIXME: We should be moving away from applying classes to the body
-			return $( 'body' ).hasClass( 'navigation-enabled' );
+			return $( document.body ).hasClass( 'navigation-enabled' );
 		},
 
 		/**
@@ -103,7 +103,7 @@
 		 */
 		closeNavigationDrawers: function () {
 			// FIXME: We should be moving away from applying classes to the body
-			$( 'body' ).removeClass( 'navigation-enabled' )
+			$( document.body ).removeClass( 'navigation-enabled' )
 				.removeClass( 'secondary-navigation-enabled' )
 				.removeClass( 'primary-navigation-enabled' );
 		},
@@ -121,7 +121,7 @@
 			this.closeNavigationDrawers();
 			drawerType = drawerType || 'primary';
 			// FIXME: We should be moving away from applying classes to the body
-			$( 'body' ).toggleClass( 'navigation-enabled' )
+			$( document.body ).toggleClass( 'navigation-enabled' )
 				.toggleClass( drawerType + '-navigation-enabled' );
 
 			this.emit( 'open' );

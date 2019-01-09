@@ -10,6 +10,7 @@
 	 * @ignore
 	 */
 	function init( page ) {
+		// eslint-disable-next-line jquery/no-global-selector
 		var $container = $( '#ca-watch' );
 		if ( !page.inNamespace( 'special' ) ) {
 			// eslint-disable-next-line no-new

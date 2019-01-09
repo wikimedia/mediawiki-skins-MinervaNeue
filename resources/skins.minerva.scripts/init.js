@@ -61,6 +61,7 @@
 	 */
 	function initButton() {
 		// This catches language selectors in page actions and in secondary actions (e.g. Main Page)
+		// eslint-disable-next-line jquery/no-global-selector
 		var $primaryBtn = $( '.language-selector' );
 
 		if ( $primaryBtn.length ) {
@@ -214,6 +215,7 @@
 	 * @ignore
 	 */
 	function initModifiedInfo() {
+		// eslint-disable-next-line jquery/no-global-selector
 		$( '.modified-enhancement' ).each( function () {
 			initHistoryLink( $( this ) );
 		} );
@@ -248,6 +250,7 @@
 	 * @ignore
 	 */
 	function initRegistrationInfo() {
+		// eslint-disable-next-line jquery/no-global-selector
 		$( '#tagline-userpage' ).each( function () {
 			initRegistrationDate( $( this ) );
 		} );
@@ -344,6 +347,7 @@
 			disabledClass = disabledEditIcon.getGlyphClassName();
 
 		if ( mw.config.get( 'wgMinervaReadOnly' ) ) {
+			// eslint-disable-next-line jquery/no-global-selector
 			$( '#ca-edit' )
 				.removeClass( enabledClass )
 				.addClass( disabledClass );
@@ -354,6 +358,7 @@
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
 		initRegistrationInfo();
+		// eslint-disable-next-line jquery/no-global-selector
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 		appendDownloadButton();
 		initRedlinksCta();

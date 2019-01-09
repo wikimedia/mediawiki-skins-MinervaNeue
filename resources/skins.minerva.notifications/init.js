@@ -17,6 +17,7 @@
 			overlayManager: overlayManager,
 			router: router,
 			mainMenu: mainMenu,
+			// eslint-disable-next-line jquery/no-global-selector
 			el: $( '#secondary-button.user-button' ).parent()
 		} );
 
@@ -35,6 +36,7 @@
 					label: mw.msg( 'mobile-frontend-notifications-filter' )
 				} );
 
+			// eslint-disable-next-line jquery/no-global-selector
 			$( '.mw-echo-ui-notificationsInboxWidget-cell-placeholder' ).append(
 				$( '<div>' )
 					.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-nav-filter' )
@@ -57,7 +59,9 @@
 
 			// Load the notification filter overlay
 			mw.loader.using( 'mobile.notifications.overlay' ).then( function () {
+				// eslint-disable-next-line jquery/no-global-selector
 				var $crossWikiUnreadFilter = $( '.mw-echo-ui-crossWikiUnreadFilterWidget' ),
+					// eslint-disable-next-line jquery/no-global-selector
 					$notifReadState = $( '.mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' ),
 					NotificationsFilterOverlay = M.require( 'mobile.notifications.overlay/NotificationsFilterOverlay' );
 

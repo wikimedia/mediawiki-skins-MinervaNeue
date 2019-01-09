@@ -110,13 +110,16 @@
 			this.$el.on( 'click', this.onClickBadge.bind( this ) );
 			this.options.overlayManager.add( /^\/notifications$/, function () {
 				return self._loadNotificationOverlay().then( function ( overlay ) {
+					// eslint-disable-next-line jquery/no-global-selector
+					var $pageCenter = $( '#mw-mf-page-center' );
+
 					mainMenu.openNavigationDrawer( 'secondary' );
 					overlay.on( 'hide', function () {
 						mainMenu.closeNavigationDrawers();
-						$( '#mw-mf-page-center' ).off( '.secondary' );
+						$pageCenter.off( '.secondary' );
 					} );
 
-					$( '#mw-mf-page-center' ).one( 'click.secondary', function () {
+					$pageCenter.one( 'click.secondary', function () {
 						self.options.router.back();
 					} );
 					return overlay;

@@ -11,12 +11,7 @@
 		"require": false
 	},
 	"rules": {
-		"no-restricted-properties": [2,
-			{
-				"object": "$",
-				"property": "noop",
-				"message": "Use function() {}"
-			},
+		"no-restricted-properties": [ "error",
 			{
 				"property": "done",
 				"message": "The method `done` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
@@ -42,7 +37,7 @@
 				}
 		}],
 		"object-property-newline": "error",
-		"no-use-before-define": 0,
-		"no-underscore-dangle": 0
+		"no-use-before-define": "off",
+		"no-underscore-dangle": "off"
 	}
 }

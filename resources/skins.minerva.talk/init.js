@@ -2,6 +2,7 @@
 	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		LoadingOverlay = M.require( 'mobile.startup/LoadingOverlay' ),
 		eventBus = new EventEmitter(),
+		// eslint-disable-next-line jquery/no-global-selector
 		$talk = $( '.talk' ),
 		// use the plain return value here - T128273
 		title = $talk.attr( 'data-title' ),

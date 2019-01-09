@@ -1,5 +1,6 @@
 ( function ( M ) {
 	var page = M.getCurrentPage(),
+		// eslint-disable-next-line jquery/no-global-selector
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
 		Toggler = M.require( 'mobile.startup' ).Toggler,
 		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
@@ -10,6 +11,7 @@
 	}
 	// If there was no mw-parser-output wrapper, just use the parent
 	if ( $contentContainer.length === 0 ) {
+		// eslint-disable-next-line jquery/no-global-selector
 		$contentContainer = $( '#mw-content-text' );
 	}
 

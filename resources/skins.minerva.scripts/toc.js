@@ -2,7 +2,9 @@
 	var mobile = M.require( 'mobile.startup' ),
 		Toggler = mobile.Toggler,
 		TableOfContents = mobile.toc.TableOfContents,
-		eventBus = mobile.eventBusSingleton;
+		eventBus = mobile.eventBusSingleton,
+		// eslint-disable-next-line jquery/no-global-selector
+		$toc = $( '#toc' );
 
 	/**
 	 * Create TableOfContents if the given Page has sections and is not the main page
@@ -12,13 +14,10 @@
 	 * @ignore
 	 */
 	function init( page ) {
-		var toc,
-			sections = page.getSections(),
-			$toc = $( '#toc' );
-
-		toc = new TableOfContents( {
-			sections: sections
-		} );
+		var sections = page.getSections(),
+			toc = new TableOfContents( {
+				sections: sections
+			} );
 
 		// eslint-disable-next-line no-new
 		new Toggler( {
@@ -40,7 +39,7 @@
 
 	// add a ToC only for "view" action (user is reading a page)
 	// provided a table of contents placeholder has been rendered
-	if ( mw.config.get( 'wgAction' ) === 'view' && $( '#toc' ).length > 0 ) {
+	if ( mw.config.get( 'wgAction' ) === 'view' && $toc.length > 0 ) {
 		init( M.getCurrentPage() );
 	}
 
