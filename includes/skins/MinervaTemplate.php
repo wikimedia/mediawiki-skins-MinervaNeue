@@ -231,6 +231,7 @@ class MinervaTemplate extends BaseTemplate {
 	 */
 	protected function render( $data ) {
 		$templateParser = new TemplateParser( __DIR__ );
+		$skin = $this->getSkin();
 		$internalBanner = $data[ 'internalBanner' ];
 		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
@@ -270,7 +271,10 @@ class MinervaTemplate extends BaseTemplate {
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'footer' => $this->getFooterTemplateData( $data ),
-			'isBeta' => $this->getSkin()->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
+			'isBeta' => $skin->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
+			'tabs' => !$this->isSpecialPage && $skin->getSkinOption( SkinMinerva::OPTIONS_TALK_AT_TOP ) ? [
+				'items' => array_values( $data['content_navigation']['namespaces'] ),
+			] : false,
 		];
 		// begin rendering
 		echo $templateParser->processTemplate( 'minerva', $templateData );

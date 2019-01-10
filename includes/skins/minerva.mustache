@@ -31,6 +31,11 @@
 			<div class="pre-content heading-holder heading-holder--new">
 				{{{headinghtml}}}
 				{{{taglinehtml}}}
+				{{#tabs}}
+					{{#items}}
+						<a href="{{href}}" rel="{{rel}}" class="minerva__tab {{class}}">{{text}}</a>
+					{{/items}}
+				{{/tabs}}
 				{{{postheadinghtml}}}
 				{{{subtitle}}}
 				{{{pageactionshtml}}}
@@ -47,4 +52,4 @@
 	</div>
 </div>
 <div class="mw-notification-area" data-mw="interface"></div>
-<!-- v:8.1.2 -->
+<!-- v:8.1.6 -->
