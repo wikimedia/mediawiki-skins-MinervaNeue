@@ -1426,7 +1426,6 @@ class SkinMinerva extends SkinTemplate {
 	protected function getSkinStyles() {
 		$title = $this->getTitle();
 		$styles = [
-			'skins.minerva.base.reset',
 			'skins.minerva.base.styles',
 			'skins.minerva.content.styles',
 			'skins.minerva.content.styles.images',

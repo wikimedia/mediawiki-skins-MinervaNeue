@@ -155,21 +155,13 @@
 		"WebClientError": 18340282
 	},
 	"ResourceModules": {
-		"skins.minerva.base.reset": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"styles": [
-				"resources/skins.minerva.base.reset/reset.less"
-			]
-		},
 		"skins.minerva.base.styles": {
 			"targets": [
 				"mobile",
 				"desktop"
 			],
 			"styles": [
+				"resources/skins.minerva.base.styles/reset.less",
 				"resources/skins.minerva.base.styles/ui.less",
 				"resources/skins.minerva.base.styles/pageactions.less",
 				"resources/skins.minerva.base.styles/common.less",
