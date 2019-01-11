@@ -5,7 +5,6 @@
 		skin = M.require( 'mobile.init/skin' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
-		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
 		loader = M.require( 'mobile.startup/rlModuleLoader' ),
 		router = require( 'mediawiki.router' ),
 		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
@@ -91,18 +90,6 @@
 				navigator.browserLanguage || navigator.systemLanguage;
 
 		return lang ? lang.toLowerCase() : undefined;
-	}
-
-	/**
-	 * Loads tablet modules when the skin is in tablet mode and the
-	 * current page is in the main namespace.
-	 * @method
-	 * @ignore
-	 */
-	function loadTabletModules() {
-		if ( browser.isWideScreen() ) {
-			mw.loader.using( 'skins.minerva.tablet.scripts' );
-		}
 	}
 
 	/**
@@ -368,8 +355,6 @@
 		initModifiedInfo();
 		initRegistrationInfo();
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
-		eventBus.on( 'resize', loadTabletModules );
-		loadTabletModules();
 		appendDownloadButton();
 		initRedlinksCta();
 		initEditLink();
