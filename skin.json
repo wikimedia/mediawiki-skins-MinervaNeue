@@ -185,7 +185,8 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.content.styles/styles.less"
+				"resources/skins.minerva.content.styles/styles.less",
+				"resources/skins.minerva.content.styles/tablet/styles.less"
 			]
 		},
 		"skins.minerva.content.styles.images": {
@@ -202,16 +203,6 @@
 					}
 				}
 			}
-		},
-		"skins.minerva.tablet.styles": {
-			"class": "MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule",
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"styles": [
-				"resources/skins.minerva.tablet.styles/styles.less"
-			]
 		},
 		"skins.minerva.icons.loggedin": {
 			"class": "ResourceLoaderImageModule",
