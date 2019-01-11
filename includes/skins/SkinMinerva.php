@@ -794,7 +794,7 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Prepare the content for the 'last edited' message, e.g. 'Last edited on 30 August
 	 * 2013, at 23:31'. This message is different for the main page since main page
-	 * content is typically transcuded rather than edited directly.
+	 * content is typically transcluded rather than edited directly.
 	 * @param Title $title The Title object of the page being viewed
 	 * @return array
 	 */
