@@ -15,6 +15,9 @@
 	"mobile-frontend-cookies-required": "Куки потрібні для перемикання режимів перегляду. Будь ласка, увімкніть їх і спробуйте знову.",
 	"mobile-frontend-editor-edit": "Редагувати",
 	"minerva-download": "Завантажити",
+	"skin-minerva-share": "Поширити",
+	"skin-minerva-mobile-option-MinervaShareButton": "Поширити",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Поширити поточну статтю за допомогою функції поширення у Вашому браузері (лише браузери, які цю функцію підтримують)",
 	"mobile-frontend-editor-redlink-create": "Створити сторінку",
 	"mobile-frontend-editor-redlink-explain": "Цю сторінку ще не було створено.",
 	"mobile-frontend-editor-redlink-leave": "Ні, дякую.",
@@ -56,6 +59,8 @@
 	"skin-minerva-issue-learn-more": "Дізнатися більше",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорії",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Переглянути категорії сторінок",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти вгору",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти вгору поточної сторінки, скориставшись рухомою кнопкою"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти нагору",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти нагору поточної сторінки, скориставшись рухомою кнопкою",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Поліпшене вирішення проблем сторінки",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблеми сторінки (шаблон:ambox) буде прописано в статті."
 }
