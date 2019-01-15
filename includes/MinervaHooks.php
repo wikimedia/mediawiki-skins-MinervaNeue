@@ -149,9 +149,6 @@ class MinervaHooks {
 					break;
 				case 'Userlogin':
 				case 'CreateAccount':
-					// FIXME: Note mobile.ajax.styles should not be necessary here.
-					// It's used by the Captcha extension (see T162196)
-					$out->addModuleStyles( [ 'mobile.ajax.styles' ] );
 					// Add default warning message to Special:UserLogin and Special:UserCreate
 					// if no warning message set.
 					if (
