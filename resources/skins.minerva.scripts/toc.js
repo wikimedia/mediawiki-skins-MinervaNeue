@@ -1,7 +1,8 @@
 ( function ( M ) {
-	var TableOfContents = M.require( 'mobile.toc/TableOfContents' ),
-		Toggler = M.require( 'mobile.startup' ).Toggler,
-		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
+	var mobile = M.require( 'mobile.startup' ),
+		Toggler = mobile.Toggler,
+		TableOfContents = mobile.toc.TableOfContents,
+		eventBus = mobile.eventBusSingleton;
 
 	/**
 	 * Create TableOfContents if the given Page has sections and is not the main page

@@ -438,7 +438,8 @@
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
-				"resources/skins.minerva.scripts/references.js"
+				"resources/skins.minerva.scripts/references.js",
+				"resources/skins.minerva.scripts/toc.js"
 			]
 		},
 		"skins.minerva.scripts.top": {
@@ -572,18 +573,6 @@
 			],
 			"scripts": [
 				"resources/skins.minerva.watchstar/init.js"
-			]
-		},
-		"skins.minerva.tablet.scripts": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"mobile.toc"
-			],
-			"scripts": [
-				"resources/skins.minerva.tablet.scripts/toc.js"
 			]
 		}
 	},
