@@ -12,7 +12,7 @@
 				<div>{{{menuButton}}}</div>
 				<div class="branding-box">
 					<a href="{{mainPageURL}}">
-						<span>{{{headinghtml}}}</span>
+						<span>{{{siteheading}}}</span>
 						{{#isBeta}}<sup>&beta;</sup>{{/isBeta}}
 					</a>
 				</div>
@@ -26,7 +26,21 @@
 			</form>
 		</header>
 		<main id="content" class="mw-body">
+			{{#hasheadingholder}}
+			<div class="pre-content heading-holder">
+				{{{pageactionshtml}}}
+				{{{headinghtml}}}
+				{{{taglinehtml}}}
+				{{{postheadinghtml}}}
+				{{{subtitle}}}
+				{{{internalBanner}}}
+			</div>
+			{{/hasheadingholder}}
+			{{{precontenthtml}}}
 			{{{contenthtml}}}
+			<div class="post-content" id="page-secondary-actions">
+			{{{secondaryactionshtml}}}
+			</div>
 		</main>
 		{{>footer}}
 	</div>

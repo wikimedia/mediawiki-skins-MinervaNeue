@@ -168,12 +168,9 @@ class MinervaTemplate extends BaseTemplate {
 	 */
 	protected function getSecondaryActionsHtml() {
 		$baseClass = MinervaUI::buttonClass( '', 'button' );
-		$html = Html::openElement( 'div', [
-			'class' => 'post-content',
-			'id' => 'page-secondary-actions'
-		] );
 		/** @var $skin SkinMinerva $skin */
 		$skin = $this->getSkin();
+		$html = '';
 		// no secondary actions on the user page
 		if ( $skin instanceof SkinMinerva && !$skin->getUserPageHelper()->isUserPage() ) {
 			foreach ( $this->getSecondaryActions() as $el ) {
@@ -186,7 +183,7 @@ class MinervaTemplate extends BaseTemplate {
 			}
 		}
 
-		return $html . Html::closeElement( 'div' );
+		return $html;
 	}
 
 	/**
@@ -208,56 +205,6 @@ class MinervaTemplate extends BaseTemplate {
 		} else {
 			return $data[ 'bodytext' ];
 		}
-	}
-
-	/**
-	 * Get the HTML for rendering pre-content (e.g. heading)
-	 * @param array $data Data used to build the page
-	 * @return string HTML
-	 */
-	protected function getPreContentHtml( $data ) {
-		$internalBanner = $data[ 'internalBanner' ];
-		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
-		$headingHtml = isset( $data['headinghtml'] ) ? $data['headinghtml'] : '';
-		$postHeadingHtml = isset( $data['postheadinghtml'] ) ? $data['postheadinghtml'] : '';
-
-		$html = '';
-		if ( $internalBanner || $preBodyHtml || isset( $data['page_actions'] ) ) {
-			$html .= $preBodyHtml
-				. Html::openElement( 'div', [ 'class' => 'pre-content heading-holder' ] );
-
-			if ( !$this->isSpecialPage ) {
-				$html .= $this->getPageActionsHtml( $data );
-			}
-
-			$html .= $headingHtml;
-			$html .= $postHeadingHtml;
-			$html .= $data['subtitle'];
-			$html .= $internalBanner;
-			$html .= '</div>';
-		}
-		return $html;
-	}
-
-	/**
-	 * Gets HTML that needs to come after the main content and before the secondary actions.
-	 *
-	 * @param array $data The data used to build the page
-	 * @return string
-	 */
-	protected function getPostContentHtml( $data ) {
-		return $this->getSecondaryActionsHtml();
-	}
-
-	/**
-	 * Get the HTML for rendering the wrapper for loading content
-	 * @param array $data Data used to build the page
-	 * @return string HTML
-	 */
-	protected function getContentWrapperHtml( $data ) {
-		return $this->getPreContentHtml( $data ) .
-			$this->getContentHtml( $data ) .
-			$this->getPostContentHtml( $data );
 	}
 
 	/**
@@ -284,6 +231,9 @@ class MinervaTemplate extends BaseTemplate {
 	 */
 	protected function render( $data ) {
 		$templateParser = new TemplateParser( __DIR__ );
+		$internalBanner = $data[ 'internalBanner' ];
+		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
+		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
 
 		// prepare template data
 		$templateData = [
@@ -294,7 +244,7 @@ class MinervaTemplate extends BaseTemplate {
 			'placeholder' => wfMessage( 'mobile-frontend-placeholder' ),
 			'headelement' => $data[ 'headelement' ],
 			'menuButton' => $data['menuButton'],
-			'headinghtml' => $data['footer-site-heading-html'],
+			'siteheading' => $data['footer-site-heading-html'],
 			'mainPageURL' => Title::newMainPage()->getLocalUrl(),
 			// A button when clicked will submit the form
 			// This is used so that on tablet devices with JS disabled the search button
@@ -307,7 +257,16 @@ class MinervaTemplate extends BaseTemplate {
 			], wfMessage( 'searchbutton' ) ),
 			'secondaryButtonData' => $data['secondaryButtonData'],
 			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
-			'contenthtml' => $this->getContentWrapperHtml( $data ),
+			'hasheadingholder' => $hasHeadingHolder,
+			'taglinehtml' => $data['taglinehtml'],
+			'internalBanner' => $internalBanner,
+			'prebodyhtml' => $preBodyHtml,
+			'headinghtml' => isset( $data['headinghtml'] ) ? $data['headinghtml'] : '',
+			'postheadinghtml' => isset( $data['postheadinghtml'] ) ? $data['postheadinghtml'] : '',
+			'pageactionshtml' => $this->isSpecialPage ? '' : $this->getPageActionsHtml( $data ),
+			'subtitle' => $data['subtitle'],
+			'contenthtml' => $this->getContentHtml( $data ),
+			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'footer' => $this->getFooterTemplateData( $data ),
 			'isBeta' => $this->getSkin()->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
 		];

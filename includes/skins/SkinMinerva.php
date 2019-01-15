@@ -897,7 +897,7 @@ class SkinMinerva extends SkinTemplate {
 		$title = $this->getTitle();
 		$user = $this->getUser();
 		$out = $this->getOutput();
-		$postHeadingHtml = $this->getTaglineHtml();
+		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
 		if ( $this->getUserPageHelper()->isUserPage() ) {
 			$pageUser = $this->getUserPageHelper()->getPageUser();
 			$talkPage = $pageUser->getTalkPage();
@@ -918,8 +918,9 @@ class SkinMinerva extends SkinTemplate {
 					'mobile-frontend-user-page-uploads' )->escaped(),
 			];
 			$templateParser = new TemplateParser( __DIR__ );
-			$postHeadingHtml .=
-				$templateParser->processTemplate( 'user_page_links', $data );
+			$tpl->set( 'postheadinghtml',
+				$templateParser->processTemplate( 'user_page_links', $data )
+			);
 		} elseif ( $title->isMainPage() ) {
 			if ( $user->isLoggedIn() ) {
 				$pageTitle = $this->msg(
@@ -929,7 +930,6 @@ class SkinMinerva extends SkinTemplate {
 			}
 			$out->setPageTitle( $pageTitle );
 		}
-		$tpl->set( 'postheadinghtml', $postHeadingHtml );
 
 		if ( $this->canUseWikiPage() ) {
 			// If it's a page that exists, add last edited timestamp
