@@ -144,6 +144,11 @@ nav {
 		.transition( opacity 0.25s ease-in-out );
 	}
 }
+// FIXME: overrides the .has-drawer background color when a drawer is open.
+// Should be removed when T214045 is resolved.
+.primary-navigation-enabled.has-drawer {
+	background-color: @primaryNavBackgroundColor;
+}
 
 .primary-navigation-enabled {
 	background-color: @primaryNavBackgroundColor;
