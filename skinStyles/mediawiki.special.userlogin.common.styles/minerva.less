@@ -16,22 +16,6 @@
 	margin: 1em 0;
 }
 
-// FIXME: Move to ConfirmEdit extension
-/* fancycaptcha reload button */
-.confirmedit-captcha-reload,
-#mf-captcha-reload-container {
-	border-top: 1px dashed #e1e1e1;
-	display: inline-block;
-	padding: 14px 25%;
-
-	// FIXME: Make use of icon classes
-	.fancycaptcha-reload,
-	&.fancycaptcha-reload {
-		color: @colorGray7;
-		font-weight: bold;
-	}
-}
-
 .mw-ui-container {
 	.mw-ui-vform {
 		margin: auto;
@@ -53,55 +37,6 @@
 	// reason for account creation is not so important on mobile - it should be obvious through the workflows
 	.mw-createacct-benefits-container {
 		display: none;
-	}
-
-	// CAPTCHA style improvements
-	.captcha {
-		margin: 0.8em 0 0;
-		border: solid 1px @colorGray12;
-		border-radius: @borderRadius;
-		overflow: hidden;
-		background: #fff;
-		text-align: center;
-
-		input:not( [ type='submit' ] ) {
-			-webkit-appearance: none;
-			border-radius: 0;
-			padding: 0.8em 0.5em;
-			margin: 0;
-		}
-
-		input:not( [ type='submit' ] ),
-		img,
-		#wpCaptchaWord {
-			border: 0;
-			border-top: solid 1px @colorGray12;
-
-			&:first-child {
-				border-top: 0;
-			}
-		}
-
-		// CAPTCHA's are well known by internet users, save the space of the explanation
-		> p,
-		label {
-			display: none;
-		}
-
-		// FancyCaptcha things
-		.fancycaptcha-image-container img {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.mw-createacct-captcha-assisted {
-			font-size: 0.8em;
-		}
-
-		.confirmedit-captcha-reload {
-			position: relative;
-		}
 	}
 }
 
