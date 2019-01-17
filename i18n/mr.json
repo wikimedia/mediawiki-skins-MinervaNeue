@@ -4,7 +4,8 @@
 			"BPositive",
 			"Sau6402",
 			"V.narsikar",
-			"संतोष दहिवळ"
+			"संतोष दहिवळ",
+			"Sureshkhole"
 		]
 	},
 	"mobile-frontend-editor-edit": "संपादन करा",
@@ -16,7 +17,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|स्वागत}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "मुख्य मेनू उघडा",
 	"mobile-frontend-main-menu-contributions": "योगदाने",
-	"mobile-frontend-main-menu-login": "सनोंद-प्रवेश करा",
+	"mobile-frontend-main-menu-login": "प्रवेश करा(लॉग इन करा)",
 	"mobile-frontend-main-menu-logout": "सनोंद-निर्गम",
 	"mobile-frontend-main-menu-nearby": "जवळपास",
 	"mobile-frontend-main-menu-settings": "मांडणी",

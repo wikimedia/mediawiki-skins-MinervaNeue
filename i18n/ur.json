@@ -24,7 +24,7 @@
 	"mobile-frontend-language-article-heading": "دوسری زبانوں میں پڑھیں",
 	"mobile-frontend-language-change": "زبان تبدیل کریں",
 	"mobile-frontend-languages-not-available": "یہ صفحہ دوسری زبانوں میں دستیاب نہیں۔",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|خوش آمدید}} $1!",
+	"mobile-frontend-logged-in-homepage-notification": "",
 	"mobile-frontend-main-menu-button-tooltip": "مرکزی مینیو کھولیں",
 	"mobile-frontend-main-menu-contributions": "شراکتیں",
 	"mobile-frontend-main-menu-login": "داخل ہوں",
