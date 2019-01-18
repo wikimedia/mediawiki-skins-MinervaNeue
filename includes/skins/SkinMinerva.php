@@ -1431,7 +1431,6 @@ class SkinMinerva extends SkinTemplate {
 			'skins.minerva.content.styles',
 			'skins.minerva.content.styles.images',
 			'mediawiki.hlist',
-			'skins.minerva.tablet.styles',
 			'mediawiki.ui.icon',
 			'mediawiki.ui.button',
 			'skins.minerva.icons.images',
