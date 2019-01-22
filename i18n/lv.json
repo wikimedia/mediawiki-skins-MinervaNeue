@@ -5,6 +5,7 @@
 			"Papuass"
 		]
 	},
+	"minerva-last-modified-date": "Pēdējoreiz labots $1 $2",
 	"minerva-talk-add-topic": "Pievienot diskusiju",
 	"mobile-frontend-editor-edit": "Labot",
 	"minerva-download": "Lejupielādēt",
@@ -13,10 +14,11 @@
 	"skin-minerva-mobile-option-MinervaShareButton-description": "Dalīties",
 	"mobile-frontend-editor-redlink-create": "Izveidot lapu",
 	"mobile-frontend-editor-redlink-leave": "Nē, paldies.",
-	"mobile-frontend-history": "Apskatīt šīs lapas labojumu vēsturi",
+	"mobile-frontend-history": "Apskatīt šīs lapas labojumu vēsturi.",
 	"mobile-frontend-home-button": "Sākumlapa",
 	"mobile-frontend-language-article-heading": "Lasīt citā valodā",
 	"mobile-frontend-language-change": "Mainīt valodu",
+	"mobile-frontend-languages-not-available": "Šī lapa nav pieejama citās valodās",
 	"mobile-frontend-logged-in-homepage-notification": "Esi {{GENDER:$1|sveicināts|sveicināta}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Atvērt galveno izvēlni",
 	"mobile-frontend-main-menu-contributions": "Devums",
@@ -28,14 +30,20 @@
 	"mobile-frontend-meta-data-issues": "Lapas problēmas",
 	"mobile-frontend-meta-data-issues-categories": "Par šo kategoriju",
 	"mobile-frontend-meta-data-issues-header": "Lapas problēmas",
+	"minerva-meta-data-issues-section-header": "Sadaļas problēmas",
 	"mobile-frontend-meta-data-issues-header-talk": "Par šo lapu",
 	"mobile-frontend-meta-data-issues-talk": "Par šo diskusiju lapu",
+	"mobile-frontend-notifications-filter": "Filtrs",
 	"mobile-frontend-pageaction-edit-tooltip": "Labot šīs lapas ievadsadaļu",
 	"mobile-frontend-placeholder": "Meklēt {{SITENAME}}",
 	"mobile-frontend-random-button": "Nejaušs raksts",
 	"mobile-frontend-user-button-tooltip": "Rādīt manus paziņojumus",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pievienojās}} $1",
 	"mobile-frontend-user-page-talk": "Diskusija",
 	"mobile-frontend-user-page-uploads": "Augšupielādes",
+	"skin-minerva-issue-learn-more": "Uzzināt vairāk",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorijas",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Skatīt lapu kategorijas"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Skatīt lapu kategorijas",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Atpakaļ uz augšu",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Pārlekt uz esošās lapas augšu, izmantojot peldošu pogu"
 }
