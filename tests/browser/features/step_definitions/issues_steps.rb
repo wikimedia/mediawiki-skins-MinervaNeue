@@ -11,11 +11,11 @@ When(/^I see the issues overlay$/) do
 end
 
 When(/^this page has issues$/) do
+  on(ArticlePage).wait_until_rl_module_ready('skins.minerva.scripts')
   on(ArticlePage).issues_stamp_element.when_present
 end
 
 Then(/^I should not see the issues overlay$/) do
-  on(ArticlePage).wait_until_rl_module_ready('skins.minerva.scripts')
   expect(on(ArticlePage).overlay_element).not_to be_visible
 end
 
