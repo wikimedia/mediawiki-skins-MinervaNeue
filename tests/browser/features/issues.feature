@@ -3,7 +3,6 @@ Feature: Issues
 
   Background:
     Given I am using the mobile site
-      And I am in beta mode
       And I am on a page which has cleanup templates
       And this page has issues
 
