@@ -3,7 +3,7 @@
 		pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		mobile = M.require( 'mobile.startup' ),
 		util = mobile.util,
-		createBanner = pageIssues.test.createBanner,
+		insertBannersOrNotice = pageIssues.test.insertBannersOrNotice,
 		icon = {},
 		MEDIUM_ISSUE = {
 			issue: {
@@ -45,21 +45,21 @@
 		labelText = 'label text',
 		inline = true,
 		SECTION = '0',
-		processedAmbox = createBanner(
+		processedAmbox = insertBannersOrNotice(
 			new Page( { el: $mockContainer } ),
 			labelText, SECTION, inline, overlayManager
 		);
 
 	QUnit.module( 'Minerva cleanuptemplates' );
 
-	QUnit.test( 'createBanner() should add a "learn more" message', function ( assert ) {
+	QUnit.test( 'insertBannersOrNotice() should add a "learn more" message', function ( assert ) {
 		assert.strictEqual( /⧼skin-minerva-issue-learn-more⧽/.test( processedAmbox.html() ), true );
 	} );
 
-	QUnit.test( 'createBanner() should add an icon', function ( assert ) {
+	QUnit.test( 'insertBannersOrNotice() should add an icon', function ( assert ) {
 		assert.strictEqual( /mw-ui-icon/.test( processedAmbox.html() ), true );
 	} );
-	QUnit.test( 'clicking on the product of createBanner() should trigger a URL change', function ( assert ) {
+	QUnit.test( 'clicking on the product of insertBannersOrNotice() should trigger a URL change', function ( assert ) {
 		processedAmbox.click();
 		assert.strictEqual( window.location.hash, '#/issues/' + SECTION );
 	} );

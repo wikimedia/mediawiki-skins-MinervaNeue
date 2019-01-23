@@ -10,93 +10,11 @@
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
 		pageIssuesOverlay = M.require( 'skins.minerva.scripts/pageIssuesOverlay' ),
+		pageIssueFormatter = M.require( 'skins.minerva.scripts/page-issues/page/pageIssueFormatter' ),
 		// When the query string flag is set force on new treatment.
 		// When wgMinervaPageIssuesNewTreatment is the default this line can be removed.
 		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
 		newTreatmentEnabled = features.pageIssues || QUERY_STRING_FLAG;
-
-	/**
-	 * Create a link element that opens the issues overlay.
-	 *
-	 * @ignore
-	 *
-	 * @param {string} labelText The text value of the element
-	 * @return {JQuery}
-	 */
-	function createLinkElement( labelText ) {
-		return $( '<a>' ).addClass( 'cleanup mw-mf-cleanup' ).text( labelText );
-	}
-
-	/**
-	 * Creates a "read more" button with given text.
-	 * @param {string} msg
-	 * @return {JQuery}
-	 */
-	function createLearnMoreLink( msg ) {
-		return $( '<span>' )
-			.addClass( 'ambox-learn-more' )
-			.text( msg );
-	}
-
-	/**
-	 * Modifies the `issue` DOM to create a banner designed for
-	 * single issue templates, and handles event-binding for that issues overlay.
-	 *
-	 * @param {IssueSummary} issue
-	 * @param {string} msg
-	 * @param {string} overlayUrl
-	 * @param {Object} overlayManager
-	 */
-	function createPageIssueBanner( issue, msg, overlayUrl, overlayManager ) {
-		var $learnMoreEl = createLearnMoreLink( msg ),
-			$issueContainer = issue.$el.find( '.mbox-text' );
-
-		$issueContainer.prepend( issue.iconString );
-		$issueContainer.prepend( $learnMoreEl );
-
-		issue.$el.on( 'click', function () {
-			overlayManager.router.navigate( overlayUrl );
-			return false;
-		} );
-	}
-
-	/**
-	 * Modifies the `issue` DOM to create a banner designed for
-	 * multiple issue templates, and handles event-binding for that issues overlay.
-	 *
-	 * @param {IssueSummary} issue
-	 * @param {string} msg
-	 * @param {string} overlayUrl
-	 * @param {Object} overlayManager
-	 */
-	function createPageIssueBannerMultiple( issue, msg, overlayUrl, overlayManager ) {
-		var $learnMoreEl = createLearnMoreLink( msg ),
-			$parentContentContainer = issue.$el.parents( '.mbox-text-span, .mbox-text-div' ),
-			$parentContainer = issue.$el.parents( '.mbox-text' );
-
-		$parentContentContainer.prepend( issue.iconString );
-		$parentContentContainer.prepend( $learnMoreEl );
-
-		$parentContainer.on( 'click', function () {
-			overlayManager.router.navigate( overlayUrl );
-			return false;
-		} );
-	}
-
-	/**
-	 * Modifies the page DOM to insert a page-issue notice below the title of the page,
-	 * containing a link with a message like "this page has issues".
-	 * Used on talk & category namespaces, or when page-issue banners have been disabled.s
-	 *
-	 * @param {string} labelText
-	 * @param {string} section
-	 */
-	function createPageIssueNotice( labelText, section ) {
-		var $link = createLinkElement( labelText );
-		$link.attr( 'href', '#/issues/' + section );
-		// eslint-disable-next-line jquery/no-global-selector
-		$link.insertAfter( $( 'h1#section_0' ) );
-	}
 
 	/**
 	 * Render a banner in a containing element.
@@ -117,7 +35,7 @@
 	 *
 	 * @return {JQuery.Object}
 	 */
-	function createBanner( page, labelText, section, inline, overlayManager ) {
+	function insertBannersOrNotice( page, labelText, section, inline, overlayManager ) {
 		var
 			$metadata,
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
@@ -153,16 +71,13 @@
 			issueSummaries.forEach( function ( issueSummary, i ) {
 				var isGrouped = issueSummary.issue.grouped,
 					lastIssueIsGrouped = issueSummaries[ i - 1 ] &&
-						issueSummaries[ i - 1 ].issue.grouped;
+						issueSummaries[ i - 1 ].issue.grouped,
+					multiple = isGrouped && !lastIssueIsGrouped;
 				// only render the first grouped issue of each group
-				if ( isGrouped && !lastIssueIsGrouped ) {
-					createPageIssueBannerMultiple( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager );
-				} else {
-					createPageIssueBanner( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager );
-				}
+				pageIssueFormatter.insertPageIssueBanner( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager, multiple );
 			} );
 		} else if ( issueSummaries.length ) {
-			createPageIssueNotice( labelText, section );
+			pageIssueFormatter.insertPageIssueNotice( labelText, section );
 		}
 
 		return $metadata;
@@ -236,15 +151,15 @@
 
 		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
 			// e.g. Template:English variant category; Template:WikiProject
-			createBanner( page, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
+			insertBannersOrNotice( page, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
 				KEYWORD_ALL_SECTIONS, inline, overlayManager );
 		} else if ( CURRENT_NS === NS_MAIN ) {
 			label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
 			if ( issueOverlayShowAll ) {
-				createBanner( page, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
+				insertBannersOrNotice( page, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
 			} else {
 				// parse lead
-				createBanner( page, label, '0', inline, overlayManager );
+				insertBannersOrNotice( page, label, '0', inline, overlayManager );
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown
 					// for sections.
@@ -257,7 +172,7 @@
 						if ( sectionNum ) {
 							// Render banner for sectionNum associated with headingEl inside
 							// Page
-							createBanner(
+							insertBannersOrNotice(
 								page, label, sectionNum.toString(), inline, overlayManager
 							);
 						}
@@ -278,7 +193,7 @@
 		init: initPageIssues,
 		test: {
 			getAllIssuesSections: getAllIssuesSections,
-			createBanner: createBanner
+			insertBannersOrNotice: insertBannersOrNotice
 		}
 	} );
 

@@ -111,6 +111,9 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.js',
 				'resources/skins.minerva.scripts/page-issues/overlay/IssueList.js',
 				'resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.js',
+				"resources/skins.minerva.scripts/page-issues/page/PageIssueLearnMoreLink.js",
+				"resources/skins.minerva.scripts/page-issues/page/PageIssueLink.js",
+				"resources/skins.minerva.scripts/page-issues/page/pageIssueFormatter.js",
 				'resources/skins.minerva.scripts/pageIssues.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/downloadPageAction.test.js',
