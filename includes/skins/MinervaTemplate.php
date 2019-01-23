@@ -234,6 +234,7 @@ class MinervaTemplate extends BaseTemplate {
 		$internalBanner = $data[ 'internalBanner' ];
 		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
+		$hasPageActions = !$this->isSpecialPage && !$this->isMainPage;
 
 		// prepare template data
 		$templateData = [
@@ -263,7 +264,8 @@ class MinervaTemplate extends BaseTemplate {
 			'prebodyhtml' => $preBodyHtml,
 			'headinghtml' => isset( $data['headinghtml'] ) ? $data['headinghtml'] : '',
 			'postheadinghtml' => isset( $data['postheadinghtml'] ) ? $data['postheadinghtml'] : '',
-			'pageactionshtml' => $this->isSpecialPage ? '' : $this->getPageActionsHtml( $data ),
+			'haspageactions' => $hasPageActions,
+			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml( $data ) : '',
 			'subtitle' => $data['subtitle'],
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),

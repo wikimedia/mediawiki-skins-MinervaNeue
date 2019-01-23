@@ -2,9 +2,14 @@
 @import '../../minerva.less/minerva.mixins';
 
 .heading-holder {
+	@pageActionsGutter: 0.5em;
 	@pageActionsHeight: @pageActionFontSize + (2 * @iconGutterWidth);
-	padding: @titleSectionSpacingTop 0 (@pageActionsHeight + 0.5em);
+	padding: @titleSectionSpacingTop 0 (@pageActionsHeight + @pageActionsGutter);
 	position: relative;
+
+	&--no-page-actions {
+		padding-bottom: @pageActionsGutter;
+	}
 
 	.tagline {
 		color: @colorGray5;
