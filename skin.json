@@ -476,13 +476,6 @@
 				"desktop"
 			]
 		},
-		"skins.minerva.editor": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": "mobile.editor"
-		},
 		"skins.minerva.options.share.icon": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
