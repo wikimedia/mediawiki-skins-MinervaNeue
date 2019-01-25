@@ -34,6 +34,7 @@
 			spy = this.sandbox.stub( window, 'print' );
 
 		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d.resolve() );
+		this.sandbox.stub( lazyImageLoader, 'queryPlaceholders' ).returns( [] );
 
 		handler();
 		d.then( function () {
@@ -49,6 +50,7 @@
 			spy = this.sandbox.stub( window, 'print' );
 
 		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d );
+		this.sandbox.stub( lazyImageLoader, 'queryPlaceholders' ).returns( [] );
 
 		window.setTimeout( function () {
 			d.resolve();
@@ -69,6 +71,7 @@
 			spy = this.sandbox.stub( window, 'print' );
 
 		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d );
+		this.sandbox.stub( lazyImageLoader, 'queryPlaceholders' ).returns( [] );
 
 		window.setTimeout( function () {
 			d.resolve();

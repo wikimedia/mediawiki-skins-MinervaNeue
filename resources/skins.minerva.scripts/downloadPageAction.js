@@ -96,9 +96,8 @@
 			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 			// abort the spinner and print regardless.
 			icon.timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-			lazyImageLoader.loadImages(
-				skin.$.bind( skin ), skin.getUnloadedImages()
-			).then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+			lazyImageLoader.loadImages( lazyImageLoader.queryPlaceholders( document.getElementById( 'content' ) ) )
+				.then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 		}
 	}
 
