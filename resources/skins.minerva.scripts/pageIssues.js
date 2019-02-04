@@ -1,5 +1,8 @@
 ( function ( M ) {
+	/** @typedef {Object.<number | 'all', IssueSummary[]>} IssueSummaryMap */
+
 	var Page = M.require( 'mobile.startup' ).Page,
+		/** @type {IssueSummaryMap} */
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
@@ -74,7 +77,13 @@
 						issueSummaries[ i - 1 ].issue.grouped,
 					multiple = isGrouped && !lastIssueIsGrouped;
 				// only render the first grouped issue of each group
-				pageIssueFormatter.insertPageIssueBanner( issueSummary, mw.msg( 'skin-minerva-issue-learn-more' ), issueUrl, overlayManager, multiple );
+				pageIssueFormatter.insertPageIssueBanner(
+					issueSummary,
+					mw.msg( 'skin-minerva-issue-learn-more' ),
+					issueUrl,
+					overlayManager,
+					multiple
+				);
 			} );
 		} else if ( issueSummaries.length ) {
 			pageIssueFormatter.insertPageIssueNotice( labelText, section );
@@ -96,7 +105,7 @@
 		// Note section.all may not exist, depending on the structure of the HTML page.
 		// It will only exist when Minerva has been run in desktop mode.
 		// If it's absent, we'll reduce all the other lists into one.
-		return allIssues.all || Object.keys( allIssues ).reduce(
+		return allIssues[ KEYWORD_ALL_SECTIONS ] || Object.keys( allIssues ).reduce(
 			function ( all, key ) {
 				return all.concat( allIssues[ key ] );
 			},
