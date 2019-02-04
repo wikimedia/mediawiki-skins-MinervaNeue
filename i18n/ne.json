@@ -7,7 +7,8 @@
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल",
-			"Parbat subedi"
+			"Parbat subedi",
+			"पर्वत सुबेदी"
 		]
 	},
 	"mobile-frontend-editor-edit": "सम्पादन",
@@ -15,19 +16,19 @@
 	"mobile-frontend-home-button": "गृह",
 	"mobile-frontend-language-article-heading": "अर्को भाषामा पढ्नुहोस्",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|स्वागतम्}}, $1!",
-	"mobile-frontend-main-menu-button-tooltip": "मुख्य सूची (मेनु) खोल्नुहोस्",
+	"mobile-frontend-main-menu-button-tooltip": "मुख्य सूची खोल्नुहोस्",
 	"mobile-frontend-main-menu-contributions": "योगदानहरू",
-	"mobile-frontend-main-menu-login": "लगइन",
+	"mobile-frontend-main-menu-login": "प्रवेश",
 	"mobile-frontend-main-menu-logout": "निर्गमन",
-	"mobile-frontend-main-menu-nearby": "नजिकै",
+	"mobile-frontend-main-menu-nearby": "नजिकैको",
 	"mobile-frontend-main-menu-settings": "सेटिङ्गहरू",
 	"mobile-frontend-main-menu-watchlist": "अवलोकनसूची",
-	"mobile-frontend-meta-data-issues-header": "मुद्दाहरू",
-	"mobile-frontend-meta-data-issues-header-talk": "यो पृष्ठको बारेमा",
-	"mobile-frontend-pageaction-edit-tooltip": "यस पृष्ठको भूमिका सम्पादन गर्नुहोस् ।",
-	"mobile-frontend-placeholder": "{{SITENAME}} मा खोज्नुहोस्",
+	"mobile-frontend-meta-data-issues-header": "पृष्ठमा समस्या",
+	"mobile-frontend-meta-data-issues-header-talk": "यस पृष्ठको बारेमा",
+	"mobile-frontend-pageaction-edit-tooltip": "यस पृष्ठको मुख्य खण्ड सम्पादन गर्नुहोस्",
+	"mobile-frontend-placeholder": "{{SITENAME}}मा खोज्नुहोस्",
 	"mobile-frontend-random-button": "कुनै पनि एक",
 	"mobile-frontend-user-page-contributions": "योगदानहरू",
 	"mobile-frontend-user-page-talk": "वार्ता",
-	"mobile-frontend-user-page-uploads": "अपलोडहरू"
+	"mobile-frontend-user-page-uploads": "उर्ध्वभरणहरू"
 }
