@@ -114,31 +114,6 @@
 	}
 
 	/**
-	 * Returns an array containing the section of each page issue.
-	 * In the case that several page issues are grouped in a 'multiple issues' template,
-	 * returns the section of those issues as one item.
-	 * @param {IssueSummaryMap} allIssues mapping section {number} to {IssueSummary}
-	 * @return {number[]}
-	 */
-	function getAllIssuesSections( allIssues ) {
-		return Object.keys( allIssues ).reduce( function ( acc, section ) {
-			if ( allIssues[ section ].length ) {
-				allIssues[ section ].forEach( function ( issue, i ) {
-					var lastIssue = allIssues[ section ][ i - 1 ];
-					// If the last issue belongs to a "Multiple issues" template,
-					// and so does the current one, don't add the current one.
-					if ( lastIssue && lastIssue.grouped && issue.grouped ) {
-						acc[ acc.length - 1 ] = section;
-					} else {
-						acc.push( section );
-					}
-				} );
-			}
-			return acc;
-		}, [] );
-	}
-
-	/**
 	 * Scan an element for any known cleanup templates and replace them with a button
 	 * that opens them in a mobile friendly overlay.
 	 * @ignore
@@ -219,7 +194,6 @@
 	M.define( 'skins.minerva.scripts/pageIssues', {
 		init: initPageIssues,
 		test: {
-			getAllIssuesSections: getAllIssuesSections,
 			insertBannersOrNotice: insertBannersOrNotice
 		}
 	} );
