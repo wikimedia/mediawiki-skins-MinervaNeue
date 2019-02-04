@@ -2,8 +2,6 @@
 	/** @typedef {Object.<number | 'all', IssueSummary[]>} IssueSummaryMap */
 
 	var Page = M.require( 'mobile.startup' ).Page,
-		/** @type {IssueSummaryMap} */
-		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
 		NS_MAIN = 0,
@@ -36,7 +34,7 @@
 	 * @param {OverlayManager} overlayManager
 	 * @ignore
 	 *
-	 * @return {JQuery.Object}
+	 * @return {{ambox: JQuery.Object, issueSummaries: IssueSummary[]}}
 	 */
 	function insertBannersOrNotice( page, labelText, section, inline, overlayManager ) {
 		var
@@ -67,8 +65,6 @@
 				}
 			}
 		} );
-		// store it for later
-		allIssues[ section ] = issueSummaries;
 
 		if ( inline ) {
 			issueSummaries.forEach( function ( issueSummary, i ) {
@@ -89,16 +85,20 @@
 			pageIssueFormatter.insertPageIssueNotice( labelText, section );
 		}
 
-		return $metadata;
+		return {
+			ambox: $metadata,
+			issueSummaries: issueSummaries
+		};
 	}
 
 	/**
 	 * Obtains the list of issues for the current page and provided section
+	 * @param {IssueSummaryMap} allIssues mapping section {number} to {IssueSummary}
 	 * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the
 	 *                                section the issues belong to
 	 * @return {jQuery.Object[]} array of all issues.
 	 */
-	function getIssues( section ) {
+	function getIssues( allIssues, section ) {
 		if ( section !== KEYWORD_ALL_SECTIONS ) {
 			return allIssues[ section ] || [];
 		}
@@ -117,8 +117,8 @@
 	 * Returns an array containing the section of each page issue.
 	 * In the case that several page issues are grouped in a 'multiple issues' template,
 	 * returns the section of those issues as one item.
-	 * @param {Object} allIssues mapping section {Number} to {IssueSummary}
-	 * @return {array}
+	 * @param {IssueSummaryMap} allIssues mapping section {number} to {IssueSummary}
+	 * @return {number[]}
 	 */
 	function getAllIssuesSections( allIssues ) {
 		return Object.keys( allIssues ).reduce( function ( acc, section ) {
@@ -146,7 +146,13 @@
 	 * @param {Page} page
 	 */
 	function initPageIssues( overlayManager, page ) {
-		var label,
+		var
+			section,
+			/** @type {IssueSummary[]} */
+			issueSummaries = [],
+			/** @type {IssueSummaryMap} */
+			allIssues = {},
+			label,
 			$lead = page.getLeadSectionElement(),
 			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || !$lead,
 			inline = newTreatmentEnabled && CURRENT_NS === 0;
@@ -159,16 +165,26 @@
 		}
 
 		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
+			section = KEYWORD_ALL_SECTIONS;
 			// e.g. Template:English variant category; Template:WikiProject
-			insertBannersOrNotice( page, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
-				KEYWORD_ALL_SECTIONS, inline, overlayManager );
+			issueSummaries = insertBannersOrNotice( page, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
+				section, inline, overlayManager ).issueSummaries;
+			allIssues[ section ] = issueSummaries;
 		} else if ( CURRENT_NS === NS_MAIN ) {
 			label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
 			if ( issueOverlayShowAll ) {
-				insertBannersOrNotice( page, label, KEYWORD_ALL_SECTIONS, inline, overlayManager );
+				section = KEYWORD_ALL_SECTIONS;
+				issueSummaries = insertBannersOrNotice(
+					page, label, section, inline, overlayManager
+				).issueSummaries;
+				allIssues[ section ] = issueSummaries;
 			} else {
 				// parse lead
-				insertBannersOrNotice( page, label, '0', inline, overlayManager );
+				section = '0';
+				issueSummaries = insertBannersOrNotice(
+					page, label, section, inline, overlayManager
+				).issueSummaries;
+				allIssues[ section ] = issueSummaries;
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown
 					// for sections.
@@ -181,9 +197,11 @@
 						if ( sectionNum ) {
 							// Render banner for sectionNum associated with headingEl inside
 							// Page
-							insertBannersOrNotice(
-								page, label, sectionNum.toString(), inline, overlayManager
-							);
+							section = sectionNum.toString();
+							issueSummaries = insertBannersOrNotice(
+								page, label, section, inline, overlayManager
+							).issueSummaries;
+							allIssues[ section ] = issueSummaries;
 						}
 					} );
 				}
@@ -193,7 +211,7 @@
 		// Setup the overlay route.
 		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
 			return pageIssuesOverlay(
-				getIssues( section ), section, CURRENT_NS
+				getIssues( allIssues, section ), section, CURRENT_NS
 			);
 		} );
 	}

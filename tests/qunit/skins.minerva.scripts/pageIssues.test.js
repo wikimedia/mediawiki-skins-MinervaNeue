@@ -48,7 +48,7 @@
 		processedAmbox = insertBannersOrNotice(
 			new Page( { el: $mockContainer } ),
 			labelText, SECTION, inline, overlayManager
-		);
+		).ambox;
 
 	QUnit.module( 'Minerva cleanuptemplates' );
 
