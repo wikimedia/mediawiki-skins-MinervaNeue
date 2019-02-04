@@ -54,7 +54,7 @@
 		$issueContainer.prepend( issue.iconString );
 		$issueContainer.prepend( $learnMoreEl );
 
-		issue.$el.click( function () {
+		issue.$el.on( 'click', function () {
 			overlayManager.router.navigate( overlayUrl );
 			return false;
 		} );
