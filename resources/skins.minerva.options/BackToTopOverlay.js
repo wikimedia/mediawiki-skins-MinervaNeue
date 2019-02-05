@@ -12,16 +12,14 @@
 	function BackToTopOverlay( props ) {
 		View.call( this,
 			util.extend( {}, props, {
-				className: 'backtotop'
+				className: 'backtotop',
+				events: { click: 'onBackToTopClick' }
 			} )
 		);
 	}
 
 	OO.mfExtend( BackToTopOverlay, View, {
 		template: mw.template.get( 'skins.minerva.options', 'BackToTopOverlay.hogan' ),
-		events: $.extend( {}, View.prototype.events, {
-			click: 'onBackToTopClick'
-		} ),
 
 		/**
 		 * Show the back to top element, if it's not visible already.

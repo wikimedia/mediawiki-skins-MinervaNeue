@@ -12,7 +12,6 @@
 		Icon = M.require( 'mobile.startup/Icon' ),
 		Button = M.require( 'mobile.startup/Button' ),
 		Anchor = M.require( 'mobile.startup/Anchor' ),
-		util = M.require( 'mobile.startup/util' ),
 		overlayManager = OverlayManager.getSingleton(),
 		page = M.getCurrentPage(),
 		api = new mw.Api(),
@@ -301,9 +300,9 @@
 						label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
 						additionalClassNames: 'hide'
 					} ).options,
-					events: util.extend( {}, CtaDrawer.prototype.events, {
+					events: {
 						'click .hide': 'hide' // Call CtaDrawer.hide() on closeAnchor click.
-					} ),
+					},
 					content: mw.msg( 'mobile-frontend-editor-redlink-explain' ),
 					actionAnchor: false
 				},
