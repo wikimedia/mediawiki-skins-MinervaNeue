@@ -121,7 +121,7 @@
 		var
 			$metadata,
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
-			selector = 'table.ambox, table.tmbox, table.cmbox, table.fmbox',
+			selector = [ '.ambox', '.tmbox', '.cmbox', '.fmbox' ].join( ',' ),
 			issueSummaries = [];
 
 		if ( section === KEYWORD_ALL_SECTIONS ) {
