@@ -25,7 +25,6 @@
 	"mobile-frontend-history": "Zobrazit historii editací této stránky.",
 	"mobile-frontend-home-button": "Domů",
 	"mobile-frontend-language-article-heading": "Přečíst v jiném jazyce",
-	"mobile-frontend-language-change": "Změnit jazyk",
 	"mobile-frontend-languages-not-available": "Tato stránka není v jiných jazycích dostupná.",
 	"mobile-frontend-logged-in-homepage-notification": "Vítejte, {{GENDER:$1|uživateli|uživatelko}} $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Otevřít hlavní menu",

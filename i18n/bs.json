@@ -18,7 +18,6 @@
 	"mobile-frontend-history": "Vidi historiju izmjena ove stranice.",
 	"mobile-frontend-home-button": "Početna",
 	"mobile-frontend-language-article-heading": "Pročitaj na drugom jeziku",
-	"mobile-frontend-language-change": "Promijeni jezik",
 	"mobile-frontend-languages-not-available": "Ova stranica nije dostupna na drugim jezicima.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Dobro došli}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Otvori glavni meni",

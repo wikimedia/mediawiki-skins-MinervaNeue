@@ -18,7 +18,6 @@
 	"mobile-frontend-history": "Skoða breytingaskrá síðunnar.",
 	"mobile-frontend-home-button": "Forsíða",
 	"mobile-frontend-language-article-heading": "Lesa á öðru tungumáli",
-	"mobile-frontend-language-change": "Skipta um tungumál",
 	"mobile-frontend-languages-not-available": "Þessi síða er ekki tiltæk á öðrum tungumálum.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Velkominn|Velkomin|Velkomin(n)}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Opna aðalvalmynd",

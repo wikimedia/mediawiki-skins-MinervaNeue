@@ -19,7 +19,6 @@
 	"mobile-frontend-history": "ดูประวัติการแก้ไขของหน้านี้",
 	"mobile-frontend-home-button": "หน้าหลัก",
 	"mobile-frontend-language-article-heading": "อ่านในภาษาอื่น",
-	"mobile-frontend-language-change": "เปลี่ยนภาษา",
 	"mobile-frontend-languages-not-available": "หน้านี้ไม่มีในภาษาอื่น",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ยินดีต้อนรับ}} $1!",
 	"mobile-frontend-main-menu-button-tooltip": "เปิดเมนูหลัก",

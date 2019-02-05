@@ -31,7 +31,6 @@
 	"mobile-frontend-history": "Näytä tämän sivun muutoshistoria.",
 	"mobile-frontend-home-button": "Etusivu",
 	"mobile-frontend-language-article-heading": "Lue toisella kielellä",
-	"mobile-frontend-language-change": "Vaihda kieli",
 	"mobile-frontend-languages-not-available": "Tämä sivu ei ole saatavilla muilla kielillä.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Tervetuloa}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Avaa päävalikko",
