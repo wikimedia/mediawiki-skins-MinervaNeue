@@ -97,22 +97,22 @@
 				MEDIUM_ISSUE
 			]
 		};
-		assert.deepEqual(
+		assert.propEqual(
 			getAllIssuesSections( allIssuesOldTreatment ),
 			[ '0', '0', '0' ],
 			'section numbers correctly extracted from old treatment'
 		);
-		assert.deepEqual(
+		assert.propEqual(
 			getAllIssuesSections( allIssuesNewTreatment ),
 			[ '0', '0', '0', '1' ],
 			'section numbers correctly extracted from new treatment'
 		);
-		assert.deepEqual(
+		assert.propEqual(
 			getAllIssuesSections( multipleIssues ),
 			[ '0' ],
 			'multiple issues are packed into one entry since there is one box'
 		);
-		assert.deepEqual(
+		assert.propEqual(
 			getAllIssuesSections( multipleIssuesWithDeletion ),
 			[ '0', '0' ],
 			'while multiple issues are grouped, non-multiple issues are still reported'
