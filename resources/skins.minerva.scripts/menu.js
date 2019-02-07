@@ -1,5 +1,5 @@
 ( function ( M ) {
-	var MainMenu = M.require( 'skins.minerva.mainMenu/MainMenu' ),
+	var MainMenu = M.require( 'skins.minerva.scripts/MainMenu' ),
 		mainMenu = createMainMenu();
 
 	/**
@@ -29,5 +29,5 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.scripts.top/mainMenu', mainMenu );
+	M.define( 'skins.minerva.scripts/mainMenu', mainMenu );
 }( mw.mobileFrontend ) );

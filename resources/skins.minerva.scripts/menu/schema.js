@@ -1,5 +1,5 @@
 /**
- * This module is loaded by resources/skins.minerva.mainMenu/MainMenu.js
+ * This module is loaded by resources/skins.minerva.scripts/menu/MainMenu.js
  * inside the Minerva skin. It should be moved to Minerva at our earliest possible
  * convenience.
  */

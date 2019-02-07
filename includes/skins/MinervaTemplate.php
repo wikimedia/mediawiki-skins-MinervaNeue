@@ -216,7 +216,7 @@ class MinervaTemplate extends BaseTemplate {
 	protected function getMainMenuHtml( $data ) {
 		if ( $this->isSpecialMobileMenuPage ) {
 			$templateParser = new TemplateParser(
-				__DIR__ . '/../../resources/skins.minerva.mainMenu/' );
+				__DIR__ . '/../../resources/skins.minerva.scripts/menu/' );
 
 			return $templateParser->processTemplate( 'menu', $data['menu_data'] );
 		} else {

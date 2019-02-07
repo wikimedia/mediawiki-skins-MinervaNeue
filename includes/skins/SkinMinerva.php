@@ -1389,7 +1389,6 @@ class SkinMinerva extends SkinTemplate {
 		$modules['minerva'] = array_merge(
 			$this->getContextSpecificModules(),
 			[
-				'skins.minerva.scripts.top',
 				'skins.minerva.scripts'
 			]
 		);
