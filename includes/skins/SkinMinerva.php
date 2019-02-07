@@ -252,7 +252,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if (
-			! in_array( $action, $config->get( 'MinervaPageActions' ) )
+			!in_array( $action, $config->get( 'MinervaPageActions' ) )
 			|| ( $this->getUserPageHelper()->isUserPage() && !$title->exists() )
 		) {
 			return false;
