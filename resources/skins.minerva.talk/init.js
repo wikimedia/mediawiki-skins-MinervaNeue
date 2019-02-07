@@ -1,6 +1,8 @@
 ( function ( M, EventEmitter ) {
-	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
-		LoadingOverlay = M.require( 'mobile.startup/LoadingOverlay' ),
+	var
+		mobile = M.require( 'mobile.startup' ),
+		loader = mobile.rlModuleLoader,
+		LoadingOverlay = mobile.LoadingOverlay,
 		eventBus = new EventEmitter(),
 		// eslint-disable-next-line jquery/no-global-selector
 		$talk = $( '.talk' ),

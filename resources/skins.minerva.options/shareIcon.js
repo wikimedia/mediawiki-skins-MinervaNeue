@@ -1,5 +1,5 @@
 ( function ( M, msg, config ) {
-	var Icon = M.require( 'mobile.startup/Icon' );
+	var Icon = M.require( 'mobile.startup' ).Icon;
 
 	/**
 	 * Generate a mouse event that when run

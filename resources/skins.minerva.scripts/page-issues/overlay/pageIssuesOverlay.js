@@ -1,6 +1,6 @@
 ( function ( M, mwMsg ) {
 	var
-		Overlay = M.require( 'mobile.startup/Overlay' ),
+		Overlay = M.require( 'mobile.startup' ).Overlay,
 		IssueList = M.require( 'skins.minerva.scripts/IssueList' ),
 		KEYWORD_ALL_SECTIONS = 'all',
 		NS_MAIN = 0,

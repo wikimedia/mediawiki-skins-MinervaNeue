@@ -1,9 +1,11 @@
 ( function ( M ) {
-	var page = M.getCurrentPage(),
+	var
+		page = M.getCurrentPage(),
 		// eslint-disable-next-line jquery/no-global-selector
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
-		Toggler = M.require( 'mobile.startup' ).Toggler,
-		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
+		mobile = M.require( 'mobile.startup' ),
+		Toggler = mobile.Toggler,
+		eventBus = mobile.eventBusSingleton;
 
 	if ( !page.getLeadSectionElement() ) {
 		// Operating in desktop Minerva mode. Stop execution. (T172948)

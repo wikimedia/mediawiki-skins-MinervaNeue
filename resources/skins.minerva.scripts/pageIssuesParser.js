@@ -14,7 +14,7 @@
 	 * @prop {string} text HTML string.
 	*/
 
-	var Icon = M.require( 'mobile.startup/Icon' ),
+	var Icon = M.require( 'mobile.startup' ).Icon,
 		// Icons are matching the type selector below use a TYPE_* icon. When unmatched, the icon is
 		// chosen by severity. Their color is always determined by severity, too.
 		ICON_NAME = {

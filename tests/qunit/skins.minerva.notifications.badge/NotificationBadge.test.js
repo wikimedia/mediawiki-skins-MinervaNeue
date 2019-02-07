@@ -1,5 +1,5 @@
 ( function ( M ) {
-	var OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
+	var OverlayManager = M.require( 'mobile.startup' ).OverlayManager,
 		NotificationBadge = M.require( 'skins.minerva.notifications/NotificationBadge' );
 
 	QUnit.module( 'Minerva NotificationBadge', {

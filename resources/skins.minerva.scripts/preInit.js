@@ -8,7 +8,7 @@
 ( function ( M ) {
 	var skin = M.require( 'mobile.init/skin' ),
 		mainMenu = M.require( 'skins.minerva.scripts.top/mainMenu' ),
-		toast = M.require( 'mobile.startup/toast' );
+		toast = M.require( 'mobile.startup' ).toast;
 
 	// Proxy to MobileFrontend defined skin
 	M.define( 'skins.minerva.scripts/skin', skin );

@@ -11,7 +11,7 @@ mw.loader.using( [
 		editCount = mw.config.get( 'wgUserEditCount' ),
 		// Schema provided by ext.eventLogging.subscriber class
 		Schema = mw.eventLog.Schema, // resource-modules-disable-line
-		context = M.require( 'mobile.startup/context' ),
+		context = M.require( 'mobile.startup' ).context,
 		/**
 		 * MobileWebMainMenuClickTracking schema
 		 * https://meta.wikimedia.org/wiki/Schema:MobileWebMainMenuClickTracking

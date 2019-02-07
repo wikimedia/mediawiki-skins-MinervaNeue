@@ -1,5 +1,5 @@
 ( function ( M ) {
-	var Page = M.require( 'mobile.startup/Page' ),
+	var Page = M.require( 'mobile.startup' ).Page,
 		allIssues = {},
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,

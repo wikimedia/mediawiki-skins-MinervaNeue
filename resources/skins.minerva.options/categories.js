@@ -1,9 +1,10 @@
 ( function ( M ) {
-
-	var loader = M.require( 'mobile.startup/rlModuleLoader' ),
+	var
+		mobile = M.require( 'mobile.startup' ),
+		loader = mobile.rlModuleLoader,
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
-		eventBus = M.require( 'mobile.startup/eventBusSingleton' ),
+		eventBus = mobile.eventBusSingleton,
 		isAnon = mw.user.isAnon();
 
 	// check the categories feature has been turned on

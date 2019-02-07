@@ -2,8 +2,9 @@
 	var BackToTopOverlay = M.require( 'skins.minerva.options/BackToTopOverlay' ),
 		backtotop = new BackToTopOverlay(),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
-		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
-		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
+		mobile = M.require( 'mobile.startup' ),
+		browser = mobile.Browser.getSingleton(),
+		eventBus = mobile.eventBusSingleton;
 
 	// check if browser user agent is iOS (T141598)
 	if ( browser.isIos() || !features.backToTop ) {

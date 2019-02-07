@@ -12,7 +12,7 @@
 				sessionToken = user.sessionId(),
 				EVENT_CLIENT_ERROR_LOG = 'wikimedia.event.WebClientError',
 				page = M.getCurrentPage(),
-				util = M.require( 'mobile.startup/util' ),
+				util = M.require( 'mobile.startup' ).util,
 				errorExperiment = {
 					name: 'WebClientError',
 					enabled: errorSamplingRate > 0,

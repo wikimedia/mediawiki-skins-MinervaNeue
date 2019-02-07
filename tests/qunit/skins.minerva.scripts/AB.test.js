@@ -1,7 +1,7 @@
 ( function ( M ) {
 
 	var AB = M.require( 'skins.minerva.scripts/AB' ),
-		util = M.require( 'mobile.startup/util' ),
+		util = M.require( 'mobile.startup' ).util,
 		defaultConfig = {
 			testName: 'WME.MinervaABTest',
 			samplingRate: 0.5,

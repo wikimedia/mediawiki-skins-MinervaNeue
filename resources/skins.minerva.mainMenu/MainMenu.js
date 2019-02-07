@@ -1,6 +1,8 @@
 ( function ( M ) {
-	var browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
-		View = M.require( 'mobile.startup/View' );
+	var
+		mobile = M.require( 'mobile.startup' ),
+		browser = mobile.Browser.getSingleton(),
+		View = mobile.View;
 
 	/**
 	 * Representation of the main menu

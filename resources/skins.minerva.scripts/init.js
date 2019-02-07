@@ -1,22 +1,23 @@
 ( function ( M, track, config ) {
 	var
-		toast = M.require( 'mobile.startup/toast' ),
-		time = M.require( 'mobile.startup/time' ),
+		mobile = M.require( 'mobile.startup' ),
+		toast = mobile.toast,
+		time = mobile.time,
 		skin = M.require( 'mobile.init/skin' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
-		loader = M.require( 'mobile.startup/rlModuleLoader' ),
+		loader = mobile.rlModuleLoader,
 		router = require( 'mediawiki.router' ),
-		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
-		CtaDrawer = M.require( 'mobile.startup/CtaDrawer' ),
-		Icon = M.require( 'mobile.startup/Icon' ),
-		Button = M.require( 'mobile.startup/Button' ),
-		Anchor = M.require( 'mobile.startup/Anchor' ),
+		OverlayManager = mobile.OverlayManager,
+		CtaDrawer = mobile.CtaDrawer,
+		Icon = mobile.Icon,
+		Button = mobile.Button,
+		Anchor = mobile.Anchor,
 		overlayManager = OverlayManager.getSingleton(),
 		page = M.getCurrentPage(),
 		api = new mw.Api(),
 		thumbs = page.getThumbnails(),
-		eventBus = M.require( 'mobile.startup/eventBusSingleton' );
+		eventBus = mobile.eventBusSingleton;
 
 	/**
 	 * Event handler for clicking on an image thumbnail
@@ -150,7 +151,7 @@
 		var lang = mw.config.get( 'wgUserLanguage' );
 
 		return loader.loadModule( 'mobile.languages.structured', true ).then( function ( loadingOverlay ) {
-			var PageGateway = M.require( 'mobile.startup/PageGateway' ),
+			var PageGateway = mobile.PageGateway,
 				gateway = new PageGateway( api ),
 				LanguageOverlay = M.require( 'mobile.languages.structured/LanguageOverlay' );
 

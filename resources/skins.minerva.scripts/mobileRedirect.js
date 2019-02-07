@@ -4,7 +4,7 @@
 
 ( function ( M ) {
 
-	var popup = M.require( 'mobile.startup/toast' );
+	var popup = M.require( 'mobile.startup' ).toast;
 
 	/**
 	 * Checks whether cookies are enabled

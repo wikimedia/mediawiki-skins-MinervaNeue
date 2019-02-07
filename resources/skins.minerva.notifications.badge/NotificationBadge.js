@@ -1,12 +1,14 @@
 ( function ( M ) {
-	var View = M.require( 'mobile.startup/View' ),
-		util = M.require( 'mobile.startup/util' ),
-		Icon = M.require( 'mobile.startup/Icon' ),
+	var
+		mobile = M.require( 'mobile.startup' ),
+		View = mobile.View,
+		util = mobile.util,
+		Icon = mobile.Icon,
 		notificationIcon = new Icon( {
 			name: 'notifications',
 			glyphPrefix: 'minerva'
 		} ),
-		icons = M.require( 'mobile.startup/icons' );
+		icons = mobile.icons;
 
 	/**
 	 * A notification button for communicating with an NotificationOverlay

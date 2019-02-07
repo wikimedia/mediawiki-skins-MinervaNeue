@@ -4,7 +4,7 @@
 		Icon = mobile.Icon,
 		icons = mobile.icons,
 		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
-		browser = M.require( 'mobile.startup/Browser' ).getSingleton(),
+		browser = mobile.Browser.getSingleton(),
 		GLYPH = 'download';
 
 	/**

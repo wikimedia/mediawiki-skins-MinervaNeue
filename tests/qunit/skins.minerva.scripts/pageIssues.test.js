@@ -1,6 +1,8 @@
 ( function ( M ) {
-	var pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
-		util = M.require( 'mobile.startup/util' ),
+	var
+		pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
+		mobile = M.require( 'mobile.startup' ),
+		util = mobile.util,
 		createBanner = pageIssues.test.createBanner,
 		icon = {},
 		MEDIUM_ISSUE = {
@@ -28,8 +30,8 @@
 			text: 't'
 		},
 		getAllIssuesSections = pageIssues.test.getAllIssuesSections,
-		OverlayManager = M.require( 'mobile.startup/OverlayManager' ),
-		Page = M.require( 'mobile.startup/Page' ),
+		OverlayManager = mobile.OverlayManager,
+		Page = mobile.Page,
 		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
 		$mockContainer = $(
 			'<div id=\'bodyContent\'>' +
