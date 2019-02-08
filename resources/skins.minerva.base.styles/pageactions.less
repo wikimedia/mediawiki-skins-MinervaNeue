@@ -4,17 +4,30 @@
 .heading-holder {
 	@pageActionsGutter: 0.5em;
 	@pageActionsHeight: @pageActionFontSize + (2 * @iconGutterWidth);
+	// FIXME: padding-bottom can be removed when work on T212216
+	// has been deployed and varnish cache cleared.
 	padding: @titleSectionSpacingTop 0 (@pageActionsHeight + @pageActionsGutter);
 	position: relative;
 
+	// FIXME: Can be made default when work on T212216
+	// has been deployed and varnish cache cleared.
+	&--new {
+		padding-bottom: 0;
+	}
+	// FIXME: Can be removed when work on T212216
+	// has been deployed and varnish cache cleared.
 	&--no-page-actions {
 		padding-bottom: @pageActionsGutter;
+
+		&--new {
+			padding-bottom: 0;
+		}
 	}
 
 	.tagline {
 		color: @colorGray5;
 		font-size: 0.85em;
-		margin: 2px 0 0;
+		margin: 2px 0 12px;
 	}
 }
 
@@ -29,9 +42,8 @@
 	float: none;
 	border: 0;
 	overflow: hidden;
-	position: absolute;
-	bottom: 0;
 	width: 100%;
+	margin-top: -2px;
 	border-top: 1px solid @colorGray14;
 	border-bottom: 1px solid @colorGray12;
 	padding: 0.5em 0;
@@ -76,6 +88,13 @@
 	#ca-edit {
 		margin-right: -@iconGutterWidth;
 	}
+}
+
+// FIXME: cached HTML. Can be removed when work on T212216
+// has been deployed and varnish cache cleared.
+.heading-holder #page-actions:first-child {
+	position: absolute;
+	bottom: 0;
 }
 
 // Watchstar is hidden for anonymous no-js users
