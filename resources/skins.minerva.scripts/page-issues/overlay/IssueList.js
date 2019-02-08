@@ -1,5 +1,8 @@
 ( function ( M ) {
-	var View = M.require( 'mobile.startup' ).View,
+	var
+		mobile = M.require( 'mobile.startup' ),
+		mfExtend = mobile.mfExtend,
+		View = mobile.View,
 		IssueNotice = M.require( 'skins.minerva.scripts/IssueNotice' );
 
 	/**
@@ -14,7 +17,7 @@
 		View.call( this, { className: 'cleanup' } );
 	}
 
-	OO.mfExtend( IssueList, View, {
+	mfExtend( IssueList, View, {
 		tagName: 'ul',
 		postRender: function () {
 			View.prototype.postRender.apply( this, arguments );

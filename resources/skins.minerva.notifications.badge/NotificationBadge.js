@@ -1,6 +1,7 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
+		mfExtend = mobile.mfExtend,
 		View = mobile.View,
 		util = mobile.util,
 		Icon = mobile.Icon,
@@ -43,7 +44,7 @@
 		this.setCount( count );
 	}
 
-	OO.mfExtend( NotificationBadge, View, {
+	mfExtend( NotificationBadge, View, {
 		/**
 		 * @cfg {object} defaults Default options hash.
 		 * @cfg {string} defaults.notificationIconClass e.g. mw-ui-icon for icon

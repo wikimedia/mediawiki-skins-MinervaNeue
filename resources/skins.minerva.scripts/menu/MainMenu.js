@@ -1,6 +1,7 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
+		mfExtend = mobile.mfExtend,
 		browser = mobile.Browser.getSingleton(),
 		View = mobile.View;
 
@@ -16,7 +17,7 @@
 		View.call( this, options );
 	}
 
-	OO.mfExtend( MainMenu, View, {
+	mfExtend( MainMenu, View, {
 		isTemplateMode: true,
 		template: mw.template.get( 'skins.minerva.scripts', 'menu.hogan' ),
 		templatePartials: {

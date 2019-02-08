@@ -1,6 +1,7 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
+		mfExtend = mobile.mfExtend,
 		View = mobile.View,
 		util = mobile.util;
 
@@ -19,7 +20,7 @@
 		);
 	}
 
-	OO.mfExtend( BackToTopOverlay, View, {
+	mfExtend( BackToTopOverlay, View, {
 		template: mw.template.get( 'skins.minerva.options', 'BackToTopOverlay.hogan' ),
 
 		/**
