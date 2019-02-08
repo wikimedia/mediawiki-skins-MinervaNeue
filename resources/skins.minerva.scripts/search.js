@@ -1,10 +1,10 @@
 ( function ( M ) {
 	var
-		client = M.require( 'mobile.startup' ),
-		SearchOverlay = client.search.SearchOverlay,
-		SearchGateway = client.search.SearchGateway,
+		mobile = M.require( 'mobile.startup' ),
+		SearchOverlay = mobile.search.SearchOverlay,
+		SearchGateway = mobile.search.SearchGateway,
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
-		searchLogger = client.search.MobileWebSearchLogger,
+		searchLogger = mobile.search.MobileWebSearchLogger,
 		// eslint-disable-next-line jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
 		placeholder = $searchInput.attr( 'placeholder' ),
