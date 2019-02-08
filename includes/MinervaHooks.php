@@ -143,9 +143,6 @@ class MinervaHooks {
 						'skins.minerva.mainMenu.icons',
 						'skins.minerva.mainMenu.styles',
 					] );
-					$out->addModules( [
-						'skins.minerva.mainMenu'
-					] );
 					break;
 				case 'Userlogin':
 				case 'CreateAccount':

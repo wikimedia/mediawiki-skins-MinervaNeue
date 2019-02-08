@@ -338,26 +338,6 @@
 				"resources/skins.minerva.mainMenu.styles/mainmenu.less"
 			]
 		},
-		"skins.minerva.mainMenu": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"skins.minerva.icons.images.variants",
-				"skins.minerva.mainMenu.icons",
-				"skins.minerva.mainMenu.styles",
-				"mobile.startup"
-			],
-			"templates": {
-				"menu.hogan": "resources/skins.minerva.mainMenu/menu.mustache",
-				"menuGroup.hogan": "resources/skins.minerva.mainMenu/menuGroup.mustache"
-			},
-			"scripts": [
-				"resources/skins.minerva.mainMenu/schema.js",
-				"resources/skins.minerva.mainMenu/MainMenu.js"
-			]
-		},
 		"skins.minerva.loggedin.styles": {
 			"targets": [
 				"mobile",
@@ -373,15 +353,16 @@
 				"desktop"
 			],
 			"dependencies": [
+				"skins.minerva.icons.images.variants",
+				"skins.minerva.mainMenu.icons",
+				"skins.minerva.mainMenu.styles",
 				"jquery.cookie",
 				"mobile.init",
 				"skins.minerva.icons.images.scripts",
-				"skins.minerva.scripts.top",
 				"mediawiki.util",
 				"mediawiki.router",
 				"mediawiki.Title",
 				"mobile.startup",
-				"skins.minerva.mainMenu",
 				"mediawiki.user",
 				"mediawiki.storage",
 				"mediawiki.experiments"
@@ -407,9 +388,14 @@
 				"resources/skins.minerva.scripts/page-issues/overlay/PageIssuesOverlay.less"
 			],
 			"templates": {
-				"IssueNotice.hogan": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.hogan"
+				"IssueNotice.hogan": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.hogan",
+				"menu.hogan": "resources/skins.minerva.scripts/menu/menu.mustache",
+				"menuGroup.hogan": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
 			},
 			"scripts": [
+				"resources/skins.minerva.scripts/menu/schema.js",
+				"resources/skins.minerva.scripts/menu/MainMenu.js",
+				"resources/skins.minerva.scripts/menu.js",
 				"resources/skins.minerva.scripts/errorLogging.js",
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/downloadPageAction.js",
@@ -433,11 +419,9 @@
 				"desktop"
 			],
 			"dependencies": [
-				"skins.minerva.mainMenu"
+				"skins.minerva.scripts"
 			],
-			"scripts": [
-				"resources/skins.minerva.scripts.top/init.js"
-			]
+			"deprecated": true
 		},
 		"skins.minerva.notifications.badge": {
 			"messages": [

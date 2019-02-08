@@ -18,9 +18,9 @@
 
 	OO.mfExtend( MainMenu, View, {
 		isTemplateMode: true,
-		template: mw.template.get( 'skins.minerva.mainMenu', 'menu.hogan' ),
+		template: mw.template.get( 'skins.minerva.scripts', 'menu.hogan' ),
 		templatePartials: {
-			menuGroup: mw.template.get( 'skins.minerva.mainMenu', 'menuGroup.hogan' )
+			menuGroup: mw.template.get( 'skins.minerva.scripts', 'menuGroup.hogan' )
 		},
 
 		/**
@@ -130,6 +130,6 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.mainMenu/MainMenu', MainMenu );
+	M.define( 'skins.minerva.scripts/MainMenu', MainMenu );
 
 }( mw.mobileFrontend ) );
