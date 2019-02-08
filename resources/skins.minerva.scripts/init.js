@@ -1,6 +1,7 @@
 ( function ( M, track, config ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
+		PageGateway = mobile.PageGateway,
 		toast = mobile.toast,
 		time = mobile.time,
 		skin = M.require( 'mobile.init/skin' ),
@@ -151,8 +152,7 @@
 		var lang = mw.config.get( 'wgUserLanguage' );
 
 		return loader.loadModule( 'mobile.languages.structured', true ).then( function ( loadingOverlay ) {
-			var PageGateway = mobile.PageGateway,
-				gateway = new PageGateway( api ),
+			var gateway = new PageGateway( api ),
 				LanguageOverlay = M.require( 'mobile.languages.structured/LanguageOverlay' );
 
 			return gateway.getPageLanguages( mw.config.get( 'wgPageName' ), lang ).then( function ( data ) {
