@@ -413,16 +413,6 @@
 				"resources/skins.minerva.scripts/toc.js"
 			]
 		},
-		"skins.minerva.scripts.top": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"skins.minerva.scripts"
-			],
-			"deprecated": true
-		},
 		"skins.minerva.notifications.badge": {
 			"messages": [
 				"echo-badge-count"
