@@ -15,13 +15,13 @@
 	// categories overlay
 	overlayManager.add( /^\/categories$/, function () {
 		return loader.loadModule( 'mobile.categories.overlays', true ).then( function ( loadingOverlay ) {
-			var CategoryOverlay = M.require( 'mobile.categories.overlays/CategoryOverlay' );
+			var categoryOverlay = M.require( 'mobile.categories.overlays/categoryOverlay' );
 			eventBus.on( 'category-added', function () {
 				window.location.hash = '#/categories';
 			} );
 
 			loadingOverlay.hide();
-			return new CategoryOverlay( {
+			return categoryOverlay( {
 				api: new mw.Api(),
 				isAnon: isAnon,
 				title: M.getCurrentPage().title,
