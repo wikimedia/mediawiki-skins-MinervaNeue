@@ -51,16 +51,14 @@
 		};
 
 		return loader.loadModule( 'mobile.talk.overlays' ).then( function () {
-			var Overlay;
 			if ( id === 'new' ) {
-				Overlay = M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' );
-			} else if ( id ) {
-				talkOptions.id = id;
-				Overlay = M.require( 'mobile.talk.overlays/TalkSectionOverlay' );
-			} else {
-				Overlay = M.require( 'mobile.talk.overlays/TalkOverlay' );
+				return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );
 			}
-			return new Overlay( talkOptions );
+			if ( id ) {
+				talkOptions.id = id;
+				return new ( M.require( 'mobile.talk.overlays/TalkSectionOverlay' ) )( talkOptions );
+			}
+			return M.require( 'mobile.talk.overlays/talkOverlay' )( talkOptions );
 		} );
 	} );
 
