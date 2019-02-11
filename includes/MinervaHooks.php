@@ -202,7 +202,6 @@ class MinervaHooks {
 	 *
 	 * @param array &$vars Array of variables to be added into the output of the RL startup module.
 	 * @param string $skin
-	 * @return bool
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars, $skin ) {
 		if ( $skin === 'minerva' ) {
@@ -217,7 +216,5 @@ class MinervaHooks {
 				'wgMinervaReadOnly' => wfReadOnly()
 			];
 		}
-
-		return true;
 	}
 }
