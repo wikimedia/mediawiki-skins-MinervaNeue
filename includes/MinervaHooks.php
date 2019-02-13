@@ -67,6 +67,13 @@ class MinervaHooks {
 					$config->get( 'MinervaPageIssuesNewTreatment' )
 				)
 			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaTalkAtTop',
+					'skin-minerva',
+					$config->get( 'MinervaTalkAtTop' )
+				)
+			);
 		} catch ( RuntimeException $e ) {
 			// features already registered...
 			// due to a bug it's possible for this to run twice
@@ -171,11 +178,17 @@ class MinervaHooks {
 	) {
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
-			$featureManager = \MediaWiki\MediaWikiServices::getInstance()
+			$services = \MediaWiki\MediaWikiServices::getInstance();
+			$featureManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
+			$userMode = $services->getService( 'MobileFrontend.AMC.UserMode' );
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$skin->setSkinOptions( [
+				SkinMinerva::OPTION_AMC => $userMode->isEnabled(),
+				SkinMinerva::OPTIONS_TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
+					'MinervaTalkAtTop'
+				),
 				SkinMinerva::OPTIONS_MOBILE_BETA
 					=> $isBeta,
 				SkinMinerva::OPTION_CATEGORIES

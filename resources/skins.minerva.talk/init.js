@@ -5,7 +5,7 @@
 		LoadingOverlay = mobile.LoadingOverlay,
 		eventBus = new EventEmitter(),
 		// eslint-disable-next-line jquery/no-global-selector
-		$talk = $( '.talk' ),
+		$talk = $( '.talk, [rel="discussion"]' ),
 		// use the plain return value here - T128273
 		title = $talk.attr( 'data-title' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
@@ -13,12 +13,10 @@
 		inTalkNamespace = false,
 		pageTitle, talkTitle, talkNs, pageNs;
 
-	// if there's no title for any reason, don't do anything
-	if ( !title ) {
-		return;
-	}
 	// T127190
-	title = decodeURIComponent( title );
+	if ( title ) {
+		title = decodeURIComponent( title );
+	}
 
 	// sanity check: the talk namespace needs to have the next higher integer
 	// of the page namespace (the api should add topics only to the talk page of the current
@@ -26,9 +24,13 @@
 	// (https://www.mediawiki.org/wiki/Manual:Using_custom_namespaces#Creating_a_custom_namespace)
 	// The method to get associated namespaces will change later (maybe), see T487
 	pageTitle = mw.Title.newFromText( mw.config.get( 'wgPageName' ) );
-	talkTitle = mw.Title.newFromText( title );
+	talkTitle = title ? mw.Title.newFromText( title ) : pageTitle.getTalkPage();
 
-	if ( !pageTitle || !talkTitle || pageTitle.getMainText() !== talkTitle.getMainText() ) {
+	// Check that there is a valid page and talk title
+	if ( !pageTitle || !talkTitle ||
+		// the talk link points to something other than the current page
+		// so we chose to leave this as a normal link
+		pageTitle.getMainText() !== talkTitle.getMainText() ) {
 		return;
 	}
 	talkNs = talkTitle.getNamespaceId();
@@ -42,7 +44,7 @@
 	overlayManager.add( /^\/talk\/?(.*)$/, function ( id ) {
 		var talkOptions = {
 			api: new mw.Api(),
-			title: title,
+			title: talkTitle.toText(),
 			// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of
 			// spaces.
 			currentPageTitle: M.getCurrentPage().title,

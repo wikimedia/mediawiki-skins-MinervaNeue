@@ -35,6 +35,11 @@
 			"switch-language"
 		],
 		"MinervaAlwaysShowLanguageButton": true,
+		"MinervaTalkAtTop": {
+			"base": false,
+			"beta": false,
+			"amc": true
+		},
 		"MinervaShowCategoriesButton": {
 			"base": false,
 			"beta": true
@@ -206,6 +211,15 @@
 			"images": {
 				"notifications": "resources/skins.minerva.icons.loggedin/bell.svg"
 			}
+		},
+		"skins.minerva.amc.styles": {
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"styles": [
+				"resources/skins.minerva.amc.styles/index.less"
+			]
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",

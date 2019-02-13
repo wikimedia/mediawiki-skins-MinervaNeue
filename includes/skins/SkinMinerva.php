@@ -30,12 +30,15 @@ use MediaWiki\Minerva\SkinUserPageHelper;
 class SkinMinerva extends SkinTemplate {
 	/** Set of keys for available skin options. See $skinOptions. */
 	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
+	const OPTION_AMC = 'amc';
 	const OPTION_CATEGORIES = 'categories';
 	const OPTION_BACK_TO_TOP = 'backToTop';
 	const OPTION_PAGE_ISSUES = 'pageIssues';
 	const OPTION_SHARE_BUTTON = 'shareButton';
 	const OPTION_TOGGLING = 'toggling';
 	const OPTIONS_MOBILE_BETA = 'beta';
+	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
+
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	  in editing mode */
 	const LEAD_SECTION_NUMBER = 0;
@@ -106,6 +109,7 @@ class SkinMinerva extends SkinTemplate {
 		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
 		self::OPTION_TOGGLING => false,
 		self::OPTION_PAGE_ISSUES => false,
+		self::OPTIONS_TALK_AT_TOP => false,
 	];
 
 	/**
@@ -144,6 +148,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function prepareQuickTemplate() {
 		$out = $this->getOutput();
+
 		// add head items
 		$out->addMeta( 'viewport', 'initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, ' .
 				'maximum-scale=5.0, width=device-width'
@@ -1093,7 +1098,9 @@ class SkinMinerva extends SkinTemplate {
 		// in stable it will link to the wikitext talk page
 		$title = $this->getTitle();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
-		if ( !$this->getUserPageHelper()->isUserPage() && $this->isTalkAllowed() ) {
+		if ( !$this->getUserPageHelper()->isUserPage() && $this->isTalkAllowed()
+			&& !$this->getSkinOption( self::OPTIONS_TALK_AT_TOP )
+		) {
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
 			$talkId = $subjectId === 'main' ? 'talk' : "{$subjectId}_talk";
@@ -1442,6 +1449,10 @@ class SkinMinerva extends SkinTemplate {
 		if ( $this->isAuthenticatedUser() ) {
 			$styles[] = 'skins.minerva.loggedin.styles';
 			$styles[] = 'skins.minerva.icons.loggedin';
+		}
+
+		if ( $this->getSkinOption( self::OPTION_AMC ) ) {
+			$styles[] = 'skins.minerva.amc.styles';
 		}
 
 		return $styles;
