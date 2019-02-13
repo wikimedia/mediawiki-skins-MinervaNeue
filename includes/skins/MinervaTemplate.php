@@ -272,7 +272,7 @@ class MinervaTemplate extends BaseTemplate {
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'footer' => $this->getFooterTemplateData( $data ),
 			'isBeta' => $skin->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
-			'tabs' => !$this->isSpecialPage && $skin->getSkinOption( SkinMinerva::OPTIONS_TALK_AT_TOP ) ? [
+			'tabs' => $hasPageActions && $skin->getSkinOption( SkinMinerva::OPTIONS_TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
 		];
