@@ -94,6 +94,7 @@ class SkinMinerva extends SkinTemplate {
 
 	/** @var array skin specific options */
 	protected $skinOptions = [
+		self::OPTION_AMC => false,
 		self::OPTIONS_MOBILE_BETA => false,
 		/**
 		 * Whether the main menu should include a link to
