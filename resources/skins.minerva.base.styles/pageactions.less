@@ -2,27 +2,8 @@
 @import '../../minerva.less/minerva.mixins';
 
 .heading-holder {
-	@pageActionsGutter: 0.5em;
-	@pageActionsHeight: @pageActionFontSize + (2 * @iconGutterWidth);
-	// FIXME: padding-bottom can be removed when work on T212216
-	// has been deployed and varnish cache cleared.
-	padding: @titleSectionSpacingTop 0 (@pageActionsHeight + @pageActionsGutter);
+	padding: @titleSectionSpacingTop 0 0;
 	position: relative;
-
-	// FIXME: Can be made default when work on T212216
-	// has been deployed and varnish cache cleared.
-	&--new {
-		padding-bottom: 0;
-	}
-	// FIXME: Can be removed when work on T212216
-	// has been deployed and varnish cache cleared.
-	&--no-page-actions {
-		padding-bottom: @pageActionsGutter;
-
-		&--new {
-			padding-bottom: 0;
-		}
-	}
 
 	.tagline {
 		color: @colorGray5;
