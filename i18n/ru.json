@@ -22,6 +22,7 @@
 	"minerva-download": "Скачать",
 	"skin-minerva-share": "Поделиться",
 	"skin-minerva-mobile-option-MinervaShareButton": "Поделиться",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Поделиться текущей статьёй через соответствующую функцию в браузере (только в поддерживаемых браузерах)",
 	"mobile-frontend-editor-redlink-create": "Создать страницу",
 	"mobile-frontend-editor-redlink-explain": "Эта страница ещё не была создана.",
 	"mobile-frontend-editor-redlink-leave": "Нет, спасибо.",
