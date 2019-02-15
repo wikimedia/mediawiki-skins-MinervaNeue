@@ -29,7 +29,7 @@
 			heading: '<strong>' + headingText + '</strong>'
 		} );
 
-		overlay.$( '.overlay-content' ).append(
+		overlay.$el.find( '.overlay-content' ).append(
 			new IssueList( issues ).$el
 		);
 		return overlay;

@@ -19,7 +19,7 @@
 	 * @private
 	 */
 	function onSkinClick( ev ) {
-		var $target = this.$( ev.target );
+		var $target = $( ev.target );
 
 		// Make sure the menu is open and we are not clicking on the menu button
 		if (

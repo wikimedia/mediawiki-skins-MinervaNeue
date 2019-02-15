@@ -40,7 +40,7 @@
 		 * @instance
 		 */
 		enableLogging: function () {
-			this.$( 'a' ).on( 'click', function () {
+			this.$el.find( 'a' ).on( 'click', function () {
 				var $link = $( this ),
 					eventName = $link.data( 'event-name' );
 				if ( eventName ) {
