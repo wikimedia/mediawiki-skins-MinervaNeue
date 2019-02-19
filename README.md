@@ -52,6 +52,18 @@ If 1, all errors will be logged to the EventLogging client, thus when enabling t
 care should be taken that your setup is bug free in order to not overwhelm the EventLogging
 server.
 
+#### $wgMinervaShowCategoriesButton
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'base' => false,
+    'beta' => true,
+  ]
+```
+Controls whether the category button should be displayed.
+
 #### $wgMinervaApplyKnownTemplateHacks
 
 * Type: `Boolean`
@@ -66,6 +78,57 @@ When enabled and hacks.less exists, hacks.less workarounds are included in style
 
 Controls which page actions, if any, are displayed. Allowed: `edit`, `watch`, `talk`, and
 `switch-language`.
+
+
+#### $wgMinervaPageIssuesNewTreatment
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'base' => false,
+    'beta' => true,
+  ]
+```
+Controls whether page issues should be replaced with a "Page issues" link (false) or displayed inline (true).
+
+#### $wgMinervaTalkAtTop
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'beta' => false,
+    'base' => false,
+    'amc' => true,
+  ]
+```
+Controls whether the talk option should be displayed at the top of the page.
+This will work for all pages except the main page.
+
+#### $wgMinervaShowShareButton
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'beta' => false,
+    'base' => false,
+  ]
+```
+Controls whether the share feature should be added to the page actions menu.
+
+#### $wgMinervaEnableBackToTop
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'base' => false,
+    'beta' => true,
+  ]
+```
+Controls whether the a back to top button should appear in the bottom right of the screen when scrolling.
 
 #### $wgMinervaCustomLogos
 
