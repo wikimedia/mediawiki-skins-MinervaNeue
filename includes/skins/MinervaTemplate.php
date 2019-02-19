@@ -40,6 +40,7 @@ class MinervaTemplate extends BaseTemplate {
 		$this->isSpecialMobileMenuPage = $this->isSpecialPage &&
 			$title->isSpecial( 'MobileMenu' );
 		$this->isMainPage = $title->isMainPage();
+		$this->isMainPageTalk = $title->getSubjectPage()->isMainPage();
 		Hooks::run( 'MinervaPreRender', [ $this ] );
 		$this->render( $this->data );
 	}
@@ -236,6 +237,7 @@ class MinervaTemplate extends BaseTemplate {
 		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
 		$hasPageActions = !$this->isSpecialPage && !$this->isMainPage;
+		$hasTalkTabs = $hasPageActions && !$this->isMainPageTalk;
 
 		// prepare template data
 		$templateData = [
@@ -272,7 +274,7 @@ class MinervaTemplate extends BaseTemplate {
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'footer' => $this->getFooterTemplateData( $data ),
 			'isBeta' => $skin->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
-			'tabs' => $hasPageActions && $skin->getSkinOption( SkinMinerva::OPTIONS_TALK_AT_TOP ) ? [
+			'tabs' => $hasTalkTabs && $skin->getSkinOption( SkinMinerva::OPTIONS_TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
 		];

@@ -1098,9 +1098,12 @@ class SkinMinerva extends SkinTemplate {
 		// in beta it will be the entry point for the talk overlay feature,
 		// in stable it will link to the wikitext talk page
 		$title = $this->getTitle();
+		$subjectPage = $title->getSubjectPage();
+		$talkAtBottom = !$this->getSkinOption( self::OPTIONS_TALK_AT_TOP ) ||
+			$subjectPage->isMainPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
-		if ( !$this->getUserPageHelper()->isUserPage() && $this->isTalkAllowed()
-			&& !$this->getSkinOption( self::OPTIONS_TALK_AT_TOP )
+		if ( !$this->getUserPageHelper()->isUserPage()
+			&& $this->isTalkAllowed() && $talkAtBottom
 		) {
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
