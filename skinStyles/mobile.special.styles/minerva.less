@@ -24,8 +24,10 @@
 	}
 
 	.heading-holder {
-		padding-bottom: 15px;
 		padding-top: 26px;
+		// prevents margin collapsing. i.e. makes .heading-holder height match
+		// the bottom margin on .page-header, a child element.
+		overflow: auto;
 	}
 
 	h1,
