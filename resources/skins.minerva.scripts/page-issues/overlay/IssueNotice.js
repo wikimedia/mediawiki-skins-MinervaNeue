@@ -19,7 +19,7 @@
 		template: mw.template.get( 'skins.minerva.scripts', 'IssueNotice.hogan' ),
 		postRender: function () {
 			View.prototype.postRender.apply( this, arguments );
-			this.$( '.issue-notice' ).prepend( this.options.issue.icon.$el );
+			this.$el.find( '.issue-notice' ).prepend( this.options.issue.icon.$el );
 		}
 	} );
 	M.define( 'skins.minerva.scripts/IssueNotice', IssueNotice );

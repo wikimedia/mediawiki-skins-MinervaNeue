@@ -94,7 +94,7 @@
 	 * @param {Page} page
 	 */
 	function setup( page ) {
-		var $refs = page.$( 'sup.reference a' );
+		var $refs = page.$el.find( 'sup.reference a' );
 
 		if ( $refs.length ) {
 			$refs

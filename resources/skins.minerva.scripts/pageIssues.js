@@ -44,7 +44,7 @@
 			issueSummaries = [];
 
 		if ( section === KEYWORD_ALL_SECTIONS ) {
-			$metadata = page.$( selector );
+			$metadata = page.$el.find( selector );
 		} else {
 			// find heading associated with the section
 			$metadata = page.findChildInSectionLead( parseInt( section, 10 ), selector );
@@ -163,7 +163,7 @@
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown
 					// for sections.
-					page.$( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
+					page.$el.find( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
 
