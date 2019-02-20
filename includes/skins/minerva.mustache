@@ -4,9 +4,6 @@
 		{{{mainmenuhtml}}}
 	</nav>
 	<div id="mw-mf-page-center">
-		<div class="banner-container">
-			{{>banners}}
-		</div>
 		<header class="header-container header-chrome">
 			<form class="header" action="{{wgScript}}" method="get">
 				<div>{{{menuButton}}}</div>
@@ -26,6 +23,9 @@
 			</form>
 		</header>
 		<main id="content" class="mw-body">
+			<div class="banner-container">
+			{{>banners}}
+			</div>
 			{{#hasheadingholder}}
 			{{{prebodyhtml}}}
 			<div class="pre-content heading-holder">
