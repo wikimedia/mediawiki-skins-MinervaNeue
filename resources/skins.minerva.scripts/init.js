@@ -80,21 +80,6 @@
 	}
 
 	/**
-	 * Return the language code of the device in lowercase
-	 *
-	 * @ignore
-	 * @return {string|undefined}
-	 */
-	function getDeviceLanguage() {
-		var lang = navigator && navigator.languages ?
-			navigator.languages[ 0 ] :
-			navigator.language || navigator.userLanguage ||
-				navigator.browserLanguage || navigator.systemLanguage;
-
-		return lang ? lang.toLowerCase() : undefined;
-	}
-
-	/**
 	 * Make an instance of an ImageOverlay. This function assumes that the module
 	 * providing the ImageOverlay has been asynchronously loaded.
 	 * @method
@@ -149,22 +134,7 @@
 	// Routes
 	overlayManager.add( /^\/media\/(.+)$/, loadImageOverlay );
 	overlayManager.add( /^\/languages$/, function () {
-		var lang = mw.config.get( 'wgUserLanguage' );
-
-		return loader.loadModule( 'mobile.languages.structured', true ).then( function ( loadingOverlay ) {
-			var gateway = new PageGateway( api ),
-				LanguageOverlay = M.require( 'mobile.languages.structured/LanguageOverlay' );
-
-			return gateway.getPageLanguages( mw.config.get( 'wgPageName' ), lang ).then( function ( data ) {
-				loadingOverlay.hide();
-				return new LanguageOverlay( {
-					currentLanguage: mw.config.get( 'wgContentLanguage' ),
-					languages: data.languages,
-					variants: data.variants,
-					deviceLanguage: getDeviceLanguage()
-				} );
-			} );
-		} );
+		return mobile.languageOverlay( new PageGateway( api ) );
 	} );
 
 	// Setup
