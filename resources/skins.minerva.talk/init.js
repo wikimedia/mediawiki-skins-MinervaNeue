@@ -4,6 +4,7 @@
 		loader = mobile.rlModuleLoader,
 		loadingOverlay = mobile.loadingOverlay,
 		eventBus = new EventEmitter(),
+		PageGateway = mobile.PageGateway,
 		// eslint-disable-next-line jquery/no-global-selector
 		$talk = $( '.talk, [rel="discussion"]' ),
 		// use the plain return value here - T128273
@@ -42,26 +43,31 @@
 	}
 
 	overlayManager.add( /^\/talk\/?(.*)$/, function ( id ) {
-		var talkOptions = {
-			api: new mw.Api(),
-			title: talkTitle.toText(),
-			// T184273 using `getCurrentPage` because 'wgPageName' contains underscores instead of
-			// spaces.
-			currentPageTitle: M.getCurrentPage().title,
-			licenseMsg: skin.getLicenseMsg(),
-			eventBus: eventBus
-		};
+		var title = talkTitle.toText(),
+			api = new mw.Api(),
+			gateway = new PageGateway( api ),
+			talkOptions = {
+				api: api,
+				title: title,
+				// T184273 using `getCurrentPage` because 'wgPageName'
+				// contains underscores instead of spaces.
+				currentPageTitle: M.getCurrentPage().title,
+				licenseMsg: skin.getLicenseMsg(),
+				eventBus: eventBus,
+				id: id
+			};
 
-		return loader.loadModule( 'mobile.talk.overlays' ).then( function () {
-			if ( id === 'new' ) {
-				return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );
-			}
-			if ( id ) {
-				talkOptions.id = id;
+		// talk case
+		if ( id ) {
+			return loader.loadModule( 'mobile.talk.overlays' ).then( function () {
+				if ( id === 'new' ) {
+					return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );
+				}
 				return new ( M.require( 'mobile.talk.overlays/TalkSectionOverlay' ) )( talkOptions );
-			}
-			return M.require( 'mobile.talk.overlays/talkOverlay' )( talkOptions );
-		} );
+			} );
+		} else {
+			return mobile.talk.overlay( title, gateway );
+		}
 	} );
 
 	/**
