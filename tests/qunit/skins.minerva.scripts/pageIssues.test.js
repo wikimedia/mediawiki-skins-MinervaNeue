@@ -23,7 +23,7 @@
 			labelText, SECTION, inline, overlayManager
 		).ambox;
 
-	QUnit.module( 'Minerva cleanuptemplates' );
+	QUnit.module( 'Minerva pageIssues' );
 
 	QUnit.test( 'insertBannersOrNotice() should add a "learn more" message', function ( assert ) {
 		assert.strictEqual( /⧼skin-minerva-issue-learn-more⧽/.test( processedAmbox.html() ), true );
