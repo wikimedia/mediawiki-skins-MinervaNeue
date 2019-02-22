@@ -56,7 +56,7 @@
 	}
 
 	/**
-	 * Hijack the Special:Languages link and replace it with a trigger to a LanguageOverlay
+	 * Hijack the Special:Languages link and replace it with a trigger to a languageOverlay
 	 * that displays the same data
 	 * @ignore
 	 */

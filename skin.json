@@ -127,14 +127,15 @@
 				"skinStyles/mediawiki.hlist/minerva.less"
 			],
 			"mobile.languages.structured": [
-				"skinStyles/mobile.languages.structured/LanguageOverlay.less"
+				"skinStyles/mobile.languages.structured/LanguageSearcher.less"
 			],
 			"mobile.startup": [
 				"skinStyles/mobile.startup/skin.less",
 				"skinStyles/mobile.startup/toast.less",
 				"skinStyles/mobile.startup/Overlay.less",
 				"skinStyles/mobile.startup/toggle.less",
-				"skinStyles/mobile.startup/search/SearchOverlay.less"
+				"skinStyles/mobile.startup/search/SearchOverlay.less",
+				"skinStyles/mobile.startup/languageOverlay/languageOverlay.less"
 			],
 			"mediawiki.special": [
 				"skinStyles/mobile.special.styles/minerva.less"
