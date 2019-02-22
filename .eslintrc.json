@@ -5,10 +5,9 @@
 		"wikimedia/jquery"
 	],
 	"globals": {
-		"OO": false,
-		"mw": false,
-		"Hogan": false,
-		"require": false
+		"OO": "readonly",
+		"mw": "readonly",
+		"require": "readonly"
 	},
 	"rules": {
 		"no-restricted-properties": [ "error",
