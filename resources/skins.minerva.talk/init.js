@@ -2,7 +2,7 @@
 	var
 		mobile = M.require( 'mobile.startup' ),
 		loader = mobile.rlModuleLoader,
-		LoadingOverlay = mobile.LoadingOverlay,
+		loadingOverlay = mobile.loadingOverlay,
 		eventBus = new EventEmitter(),
 		// eslint-disable-next-line jquery/no-global-selector
 		$talk = $( '.talk, [rel="discussion"]' ),
@@ -84,13 +84,13 @@
 	if ( inTalkNamespace ) {
 		// reload the page after the new discussion was added
 		eventBus.on( 'talk-added-wo-overlay', function () {
-			var loadingOverlay = new LoadingOverlay();
+			var overlay = loadingOverlay();
 
 			window.location.hash = '';
 			// setTimeout to make sure, that loadingOverlay's overlayenabled class on html doesnt
 			// get removed by OverlayManager (who closes TalkSectionAddOverlay).
 			window.setTimeout( function () {
-				loadingOverlay.show();
+				overlay.show();
 				window.location.reload();
 			}, 10 );
 		} );
