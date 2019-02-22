@@ -130,12 +130,7 @@
 				"skinStyles/mobile.languages.structured/LanguageSearcher.less"
 			],
 			"mobile.startup": [
-				"skinStyles/mobile.startup/skin.less",
-				"skinStyles/mobile.startup/toast.less",
-				"skinStyles/mobile.startup/Overlay.less",
-				"skinStyles/mobile.startup/toggle.less",
-				"skinStyles/mobile.startup/search/SearchOverlay.less",
-				"skinStyles/mobile.startup/languageOverlay/languageOverlay.less"
+				"skinStyles/mobile.startup/mobile.startup.less"
 			],
 			"mediawiki.special": [
 				"skinStyles/mobile.special.styles/minerva.less"
