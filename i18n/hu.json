@@ -12,6 +12,9 @@
 	"mobile-frontend-cookies-required": "A sütik szükségesek a módok közötti váltáshoz. Engedélyezd őket, majd próbáld újra.",
 	"mobile-frontend-editor-edit": "Szerkesztés",
 	"minerva-download": "Letöltés",
+	"skin-minerva-share": "Megosztás",
+	"skin-minerva-mobile-option-MinervaShareButton": "Megosztás",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Az aktuális szócikk megosztása a böngésző megosztás funkciójával (csak támogatott böngészőkben)",
 	"mobile-frontend-editor-redlink-create": "Lap létrehozása",
 	"mobile-frontend-editor-redlink-explain": "Ezt a lapot még nem hozták létre.",
 	"mobile-frontend-editor-redlink-leave": "Nem, köszönöm.",
@@ -29,7 +32,8 @@
 	"mobile-frontend-main-menu-watchlist": "Figyelőlista",
 	"mobile-frontend-meta-data-issues": "A lap problémái",
 	"mobile-frontend-meta-data-issues-categories": "Erről a kategóriáról",
-	"mobile-frontend-meta-data-issues-header": "Problémák",
+	"mobile-frontend-meta-data-issues-header": "A lap problémái",
+	"minerva-meta-data-issues-section-header": "A szakasz problémái",
 	"mobile-frontend-meta-data-issues-header-talk": "Erről a lapról",
 	"mobile-frontend-meta-data-issues-talk": "Erről a vitalapról",
 	"mobile-frontend-notifications-filter": "Szűrés",
@@ -47,5 +51,10 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Csatlakozott}} ekkor: $1",
 	"mobile-frontend-user-page-talk": "Vitalap",
 	"mobile-frontend-user-page-uploads": "Feltöltések",
-	"minerva-skin-desc": "Egy alkalmazkodó, mobilra fókuszáló felület"
+	"minerva-skin-desc": "Egy alkalmazkodó, mobilra fókuszáló felület",
+	"skin-minerva-issue-learn-more": "További információk",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategóriák",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "A lapok kategóriáinak megjelenítése",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ugrás a lap tetejére",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Ugrás az aktuális lap tetejére egy lebegő gombbal"
 }
