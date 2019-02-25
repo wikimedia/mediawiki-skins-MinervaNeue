@@ -191,7 +191,8 @@ class ArticlePage
   div(:error_message, css: '.error')
 
   # talk overlay
-  a(:talkadd, css: '.add.continue')
+  a(:talkadd, css: '.talk-overlay .continue')
+  a(:talktopic_save, css: '.overlay .confirm-save')
   p(:talk_overlay_content_header, css: '.talk-overlay .content-header')
   li(:talk_overlay_first_topic_title, css: '.talk-overlay .topic-title-list li:first-child')
   text_field(:talk_overlay_summary, css: '.talk-overlay .summary')

@@ -47,3 +47,8 @@ Then(/^there should be an add discussion button$/) do
   # give overlay time to fully load
   expect(on(ArticlePage).talkadd_element.when_present(10)).to be_visible
 end
+
+Then(/^there should be a save discussion button$/) do
+  # give overlay time to fully load
+  expect(on(ArticlePage).talktopic_save_element.when_present(10)).to be_visible
+end
