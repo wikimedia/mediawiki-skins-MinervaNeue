@@ -1137,18 +1137,17 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Prepare configured and available page actions
 	 *
-	 * When adding new page actions make sure each menu item has
-	 * <code>is_js_only</code> key set to <code>true</code> or <code>false</code>.
-	 * The key will be used to decide whether to display the page actions
-	 * wrapper on the front end. The key will be considered false if not set.
+	 * If a page action should display a placeholder element
+	 * (i.e. it will be hydrated on the client with JS) add the 'jsonly' CSS class to
+	 * the 'class' key of its array.
 	 *
 	 * @param BaseTemplate $tpl
 	 */
 	protected function preparePageActions( BaseTemplate $tpl ) {
 		$menu = [];
 
-		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$menu['edit'] = $this->createEditPageAction();
+		if ( $this->isAllowedPageAction( 'switch-language' ) ) {
+			$menu[] = $this->createSwitchLanguageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'watch' ) ) {
@@ -1156,11 +1155,11 @@ class SkinMinerva extends SkinTemplate {
 			// Pass these actions in as context for #createWatchPageAction.
 			$actions = $tpl->data['content_navigation']['actions'];
 
-			$menu['watch'] = $this->createWatchPageAction( $actions );
+			$menu[] = $this->createWatchPageAction( $actions );
 		}
 
-		if ( $this->isAllowedPageAction( 'switch-language' ) ) {
-			$menu['switch-language'] = $this->createSwitchLanguageAction();
+		if ( $this->isAllowedPageAction( 'edit' ) ) {
+			$menu[] = $this->createEditPageAction();
 		}
 
 		$tpl->set( 'page_actions', $menu );
@@ -1170,7 +1169,8 @@ class SkinMinerva extends SkinTemplate {
 	 * Creates the "edit" page action: the well-known pencil icon that, when tapped, will open an
 	 * editor with the lead section loaded.
 	 *
-	 * @return array A map compatible with BaseTemplate#makeListItem
+	 * @return array A map of HTML attributes and a "text" property to be used with the
+	 * pageActionMenu.mustache template.
 	 */
 	protected function createEditPageAction() {
 		$title = $this->getTitle();
@@ -1187,18 +1187,12 @@ class SkinMinerva extends SkinTemplate {
 		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
 
 		return [
-			'id' => 'ca-edit',
-			'text' => '',
-			'itemtitle' => $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ),
-			'class' => MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
-			'links' => [
-				'edit' => [
-					'href' => $title->getLocalURL( $editArgs ),
-					'msg' => 'mobile-frontend-editor-edit',
-					'class' => 'edit-page',
-				],
-			],
-			'is_js_only' => false,
+				'id' => 'ca-edit',
+				'href' => $title->getLocalURL( $editArgs ),
+				'class' => 'edit-page '
+					. MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
+				'title' => $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ),
+				'text' => $this->msg( 'mobile-frontend-editor-edit' )
 		];
 	}
 
@@ -1208,7 +1202,8 @@ class SkinMinerva extends SkinTemplate {
 	 * will direct the user's UA to Special:Login.
 	 *
 	 * @param array $actions
-	 * @return array A map compatible with BaseTemplate#makeListItem
+	 * @return array A map of HTML attributes and a "text" property to be used with the
+	 * pageActionMenu.mustache template.
 	 */
 	protected function createWatchPageAction( $actions ) {
 		$title = $this->getTitle();
@@ -1222,8 +1217,9 @@ class SkinMinerva extends SkinTemplate {
 		$baseResult = [
 			'id' => 'ca-watch',
 			// Use blank icon to reserve space for watchstar icon once JS loads
-			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' ),
-			'is_js_only' => true
+			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' ) . ' jsonly',
+			'title' => $this->msg( 'watchthispage' ),
+			'text' => $this->msg( 'watchthispage' )
 		];
 
 		if ( isset( $actions['watch'] ) ) {
@@ -1231,11 +1227,10 @@ class SkinMinerva extends SkinTemplate {
 		} elseif ( isset( $actions['unwatch'] ) ) {
 			$result = array_merge( $actions['unwatch'], $baseResult );
 			$result['class'] .= ' watched';
+			$result[ 'text' ] = $this->msg( 'unwatchthispage' );
 		} else {
 			// placeholder for not logged in
 			$result = array_merge( $baseResult, [
-				// FIXME: makeLink (used by makeListItem) when no text is present defaults to use the key
-				'text' => '',
 				'href' => $ctaUrl,
 			] );
 		}
@@ -1247,26 +1242,26 @@ class SkinMinerva extends SkinTemplate {
 	 * Creates the "switch-language" action: the icon that, when tapped, opens the language
 	 * switcher.
 	 *
-	 * @return array A map compatible with BaseTemplate#makeListItem
+	 * @return array A map of HTML attributes and a 'text' property to be used with the
+	 * pageActionMenu.mustache template.
 	 */
 	protected function createSwitchLanguageAction() {
-		$languageSwitcherLinks = [];
-		$languageSwitcherClasses = 'language-selector';
+		$languageSwitcherLink = false;
+		$languageSwitcherClasses = ' language-selector';
 
 		if ( $this->doesPageHaveLanguages ) {
-			$languageSwitcherLinks['mobile-frontend-language-article-heading'] = [
-				'href' => SpecialPage::getTitleFor( 'MobileLanguages', $this->getTitle() )->getLocalURL()
-			];
+			$languageSwitcherLink = SpecialPage::getTitleFor(
+				'MobileLanguages',
+				$this->getTitle()
+			)->getLocalURL();
 		} else {
 			$languageSwitcherClasses .= ' disabled';
 		}
-
 		return [
-			'text' => '',
-			'itemtitle' => $this->msg( 'mobile-frontend-language-article-heading' ),
-			'class' => MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
-			'links' => $languageSwitcherLinks,
-			'is_js_only' => false
+				'class' => MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
+				'href' => $languageSwitcherLink,
+				'title' => $this->msg( 'mobile-frontend-language-article-heading' ),
+				'text' => $this->msg( 'mobile-frontend-language-article-heading' )
 		];
 	}
 

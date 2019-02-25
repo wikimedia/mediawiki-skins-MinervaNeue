@@ -15,7 +15,70 @@
 	margin-bottom: 12px;
 }
 
-#page-actions {
+// used to disable the languages icon.
+.mw-ui-icon-element.disabled {
+	cursor: default;
+	opacity: 0.25;
+}
+
+.page-actions-menu {
+	box-sizing: border-box;
+	border-top: 1px solid @colorGray14;
+	border-bottom: 1px solid @colorGray12;
+}
+
+.page-actions-menu__list {
+	display: flex;
+	justify-content: space-between;
+	height: 44px; // total height is 46px. 2px added by border on .page-actions-menu
+}
+
+.page-actions-menu__list-item {
+	position: relative;
+	display: flex;
+	flex-basis: 4em;
+	justify-content: flex-end;
+	align-items: center;
+
+	// overriding default icon styles
+	.mw-ui-icon-element {
+		// The page actions menu icons are ever so slightly larger
+		// than standard icons.
+		@pageActionsIconSize: @iconSize + 0.15;
+		position: relative;
+		min-width: @pageActionsIconSize;
+		width: @pageActionsIconSize;
+		height: @pageActionsIconSize;
+
+		&:hover {
+			box-shadow: none;
+		}
+
+		&:before {
+			margin: 0;
+			// `.mw-ui-icon` absolutely positions this pseudo-element but only
+			// positions right & left. This ensures icon stretches 100% height and
+			// stretches the entire height of its parent element.
+			top: 0;
+			bottom: 0;
+		}
+	}
+}
+
+// default layout - spacing out the first menu item
+.page-actions-menu__list-item:first-child {
+	flex-grow: 1;
+	justify-content: flex-start;
+}
+
+// overriding common.less `display:inherit` (which causes `display: flex;` in this instance).
+.client-js .jsonly#ca-watch {
+	display: list-item;
+}
+
+// TODO: T213352 Delete this nested block after varnish cache has cleared and selectors
+// no longer apply.
+#page-actions:not( .page-actions-menu__list ) {
 	font-size: @pageActionFontSize;
 	float: none;
 	border: 0;
@@ -70,7 +133,7 @@
 
 // FIXME: cached HTML. Can be removed when work on T212216
 // has been deployed and varnish cache cleared.
-.heading-holder #page-actions:first-child {
+.heading-holder #page-actions:not( .page-actions-menu__list ):first-child {
 	position: absolute;
 	bottom: 0;
 }

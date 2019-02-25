@@ -92,25 +92,15 @@ class MinervaTemplate extends BaseTemplate {
 
 	/**
 	 * Get the HTML for rendering the available page actions
-	 * @param array $data Data used to build page actions
 	 * @return string
 	 */
-	protected function getPageActionsHtml( $data ) {
+	protected function getPageActionsHtml() {
+		$templateParser = new TemplateParser( __DIR__ );
 		$actions = $this->getPageActions();
 		$html = '';
-		$isJSOnly = true;
+
 		if ( $actions ) {
-			foreach ( $actions as $key => $val ) {
-				if ( isset( $val['is_js_only'] ) ) {
-					if ( !$val['is_js_only'] ) {
-						$isJSOnly = false;
-					}
-					unset( $val['is_js_only'] );  // no need to output this attribute
-				}
-				$html .= $this->makeListItem( $key, $val );
-			}
-			$additionalClasses = $isJSOnly ? 'jsonly' : '';
-			$html = '<ul id="page-actions" class="hlist ' . $additionalClasses . '">' . $html . '</ul>';
+			$html = $templateParser->processTemplate( 'pageActionMenu',  [ 'pageactions' => $actions ] );
 		}
 		return $html;
 	}
