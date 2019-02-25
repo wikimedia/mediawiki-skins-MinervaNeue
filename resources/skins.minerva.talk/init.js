@@ -5,6 +5,8 @@
 		loadingOverlay = mobile.loadingOverlay,
 		eventBus = new EventEmitter(),
 		PageGateway = mobile.PageGateway,
+		api = new mw.Api(),
+		gateway = new PageGateway( api ),
 		// eslint-disable-next-line jquery/no-global-selector
 		$talk = $( '.talk, [rel="discussion"]' ),
 		// use the plain return value here - T128273
@@ -44,8 +46,6 @@
 
 	overlayManager.add( /^\/talk\/?(.*)$/, function ( id ) {
 		var title = talkTitle.toText(),
-			api = new mw.Api(),
-			gateway = new PageGateway( api ),
 			talkOptions = {
 				api: api,
 				title: title,
@@ -83,10 +83,23 @@
 			}
 			return false;
 		} );
+		// After adding a new topic, we need to force a refresh of the talk topics
+		eventBus.on( 'talk-discussion-added', function () {
+			// a setTimeout is necessary since talk-discussion-added is fired
+			// BEFORE the overlay is closed. (FIXME)
+			window.setTimeout( function () {
+				// Force a change in the address bar
+				// This is important is #/talk is the current route
+				// (e.g. as is the case after the add discussion overlay has closed)
+				overlayManager.router.navigate( '#/talk/', true );
+				// We use second parameter to turn on replaceState
+				// this ensure nobody knows above the route change above!
+				overlayManager.router.navigate( '#/talk', true );
+			}, 300 );
+		} );
 	}
 
 	init();
-
 	if ( inTalkNamespace ) {
 		// reload the page after the new discussion was added
 		eventBus.on( 'talk-added-wo-overlay', function () {

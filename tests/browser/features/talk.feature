@@ -32,9 +32,8 @@ Feature: Talk
     Given the page "Talk:Selenium talk test" exists
       And I am logged into the mobile website
       And I am on the "Talk:Selenium UI test" page
-      And there should be an add discussion button
     When I click the talk button
-    Then there should be an add discussion button
+    Then there should be a save discussion button
 
   @integration
   Scenario: A newly created topic appears in the list of topics immediately
