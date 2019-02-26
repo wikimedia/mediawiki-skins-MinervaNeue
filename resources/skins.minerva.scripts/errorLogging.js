@@ -8,7 +8,8 @@
 		 * @param {string} [errorUrl] to be logged
 		 */
 		function handleError( errorMessage, lineNumber, columnNumber, errorUrl ) {
-			var errorSamplingRate = config.get( 'wgMinervaErrorLogSamplingRate', 0 ),
+			var suffix,
+				errorSamplingRate = config.get( 'wgMinervaErrorLogSamplingRate', 0 ),
 				sessionToken = user.sessionId(),
 				EVENT_CLIENT_ERROR_LOG = 'wikimedia.event.WebClientError',
 				page = M.getCurrentPage(),
@@ -46,7 +47,8 @@
 				);
 			}
 			if ( config.get( 'wgMinervaCountErrors' ) ) {
-				mw.track( 'counter.MediaWiki.minerva.WebClientError', 1 );
+				suffix = user.isAnon() ? '.anon' : '.loggedin';
+				mw.track( 'counter.MediaWiki.minerva.WebClientError' + suffix, 1 );
 			}
 		}
 		// track RL exceptions
