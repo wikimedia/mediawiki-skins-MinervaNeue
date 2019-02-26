@@ -197,7 +197,9 @@ class SkinMinerva extends SkinTemplate {
 		$title = $this->getTitle();
 
 		// If it's a talk page, add a link to the main namespace page
-		if ( $title->isTalkPage() ) {
+		// In AMC we do not need to do this as there is an easy way back to the article page
+		// via the talk/article tabs.
+		if ( $title->isTalkPage() && !$this->getSkinOption( self::OPTION_AMC ) ) {
 			// if it's a talk page for which we have a special message, use it
 			switch ( $title->getNamespace() ) {
 				case NS_USER_TALK:
