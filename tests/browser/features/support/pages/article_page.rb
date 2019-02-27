@@ -15,7 +15,7 @@ class ArticlePage
   a(:beta_mode_indicator, css: '.branding-box sup')
 
   # left nav
-  nav(:navigation, css: 'nav')
+  nav(:navigation, css: '#mw-mf-page-left')
   a(:about_link) { |page| page.navigation_element.link_element(text: /^About/) }
   a(:disclaimer_link) { |page| page.navigation_element.link_element(text: 'Disclaimers') }
 
