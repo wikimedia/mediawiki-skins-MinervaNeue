@@ -125,7 +125,12 @@
 	 * @returns {jQuery.Object|null}
 	 */
 	function downloadPageAction( skin, supportedNamespaces, windowObj ) {
-		var icon, spinner = icons.spinner();
+		var icon, spinner = icons.spinner(),
+			// TODO: T213352 Temporary cache compatibility - to be deleted.
+			// Any conditionals using this boolean should be DELETED when the
+			// old page action menu is no longer being served to users.
+			// eslint-disable-next-line jquery/no-global-selector
+			oldPageActionsDOM = $( '#page-actions.hlist' ).length > 0;
 		if (
 			isAvailable(
 				windowObj, skin.page, navigator.userAgent,
@@ -136,12 +141,17 @@
 				glyphPrefix: 'minerva',
 				title: msg( 'minerva-download' ),
 				name: GLYPH,
+				tagName: oldPageActionsDOM ? 'div' : 'button',
 				events: {
 					// will be bound to `this`
 					click: getOnClickHandler( skin, spinner )
 				}
 			} );
-			return $( '<li>' ).append( icon.$el ).append( spinner.$el.hide() );
+			if ( oldPageActionsDOM ) {
+				return $( '<li>' ).append( icon.$el ).append( spinner.$el.hide() );
+			} else {
+				return $( '<li>' ).addClass( 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
+			}
 		} else {
 			return null;
 		}

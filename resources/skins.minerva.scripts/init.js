@@ -236,14 +236,19 @@
 	 */
 	function appendDownloadButton() {
 		var $downloadAction = downloadPageAction( skin,
-			config.get( 'wgMinervaDownloadNamespaces', [] ), window );
+				config.get( 'wgMinervaDownloadNamespaces', [] ), window ),
+			// TODO: T213352 Temporary cache compatibility - to be deleted.
+			// Any conditionals using this boolean should be DELETED when the
+			// old page action menu is no longer being served to users.
+			// eslint-disable-next-line jquery/no-global-selector
+			oldPageActionsDOM = $( '#page-actions.hlist' ).length > 0;
 
 		if ( $downloadAction ) {
-			// Because the page actions are floated to the right, their order in the
-			// DOM is reversed in the display. The watchstar is last in the DOM and
-			// left-most in the display. Since we want the download button to be to
-			// the left of the watchstar, we put it after it in the DOM.
-			$downloadAction.insertAfter( '#ca-watch' );
+			if ( oldPageActionsDOM ) {
+				$downloadAction.insertAfter( '#ca-watch' );
+			} else {
+				$downloadAction.insertAfter( '.page-actions-menu__list-item:first-child' );
+			}
 			track( 'minerva.downloadAsPDF', {
 				action: 'buttonVisible'
 			} );
