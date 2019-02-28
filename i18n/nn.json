@@ -29,6 +29,7 @@
 	"mobile-frontend-user-newmessages": "Du har nye meldingar på diskusjonssida di",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1",
 	"mobile-frontend-user-page-uploads": "Opplastingar",
+	"skin-minerva-issue-learn-more": "Lær meir",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoriar",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Sjå kategoriane til sider",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Til toppen",
