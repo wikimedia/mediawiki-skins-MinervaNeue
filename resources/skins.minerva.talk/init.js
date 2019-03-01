@@ -1,9 +1,9 @@
-( function ( M, EventEmitter ) {
+( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
 		loader = mobile.rlModuleLoader,
 		loadingOverlay = mobile.loadingOverlay,
-		eventBus = new EventEmitter(),
+		eventBus = mobile.eventBusSingleton,
 		PageGateway = mobile.PageGateway,
 		api = new mw.Api(),
 		gateway = new PageGateway( api ),
@@ -85,6 +85,7 @@
 		} );
 		// After adding a new topic, we need to force a refresh of the talk topics
 		eventBus.on( 'talk-discussion-added', function () {
+			gateway.invalidatePage( talkTitle );
 			// a setTimeout is necessary since talk-discussion-added is fired
 			// BEFORE the overlay is closed. (FIXME)
 			window.setTimeout( function () {
@@ -114,4 +115,4 @@
 			}, 10 );
 		} );
 	}
-}( mw.mobileFrontend, OO.EventEmitter ) );
+}( mw.mobileFrontend ) );

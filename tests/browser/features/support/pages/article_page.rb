@@ -195,7 +195,7 @@ class ArticlePage
   a(:talktopic_save, css: '.overlay .confirm-save')
   p(:talk_overlay_content_header, css: '.talk-overlay .content-header')
   li(:talk_overlay_first_topic_title, css: '.talk-overlay .topic-title-list li:first-child')
-  text_field(:talk_overlay_summary, css: '.talk-overlay .summary')
+  text_field(:talk_overlay_summary, css: '.talk-overlay input')
   text_area(:talk_overlay_wikitext_editor, css: '.talk-overlay .wikitext-editor')
   button(:talk_overlay_save_button, css: '.talk-overlay .confirm-save')
 end
