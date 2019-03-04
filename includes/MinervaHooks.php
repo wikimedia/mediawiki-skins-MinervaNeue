@@ -122,11 +122,15 @@ class MinervaHooks {
 				"resources/skins.minerva.scripts/page-issues/page/PageIssueLink.js",
 				"resources/skins.minerva.scripts/page-issues/page/pageIssueFormatter.js",
 				'resources/skins.minerva.scripts/pageIssues.js',
+				'resources/skins.minerva.scripts/UriUtil.js',
+				'resources/skins.minerva.scripts/TitleUtil.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/downloadPageAction.test.js',
 				'tests/qunit/skins.minerva.scripts/pageIssuesParser.test.js',
 				'tests/qunit/skins.minerva.scripts/AB.test.js',
 				'tests/qunit/skins.minerva.scripts/pageIssues.test.js',
+				'tests/qunit/skins.minerva.scripts/UriUtil.test.js',
+				'tests/qunit/skins.minerva.scripts/TitleUtil.test.js',
 				'tests/qunit/skins.minerva.notifications.badge/NotificationBadge.test.js'
 			],
 		];

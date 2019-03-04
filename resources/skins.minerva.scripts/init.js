@@ -5,6 +5,7 @@
 		toast = mobile.toast,
 		time = mobile.time,
 		skin = M.require( 'mobile.init/skin' ),
+		TitleUtil = M.require( 'skins.minerva.scripts/TitleUtil' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
 		loader = mobile.rlModuleLoader,
@@ -16,9 +17,11 @@
 		Anchor = mobile.Anchor,
 		overlayManager = OverlayManager.getSingleton(),
 		page = M.getCurrentPage(),
+		redLinks = page.getRedLinks(),
 		api = new mw.Api(),
 		thumbs = page.getThumbnails(),
-		eventBus = mobile.eventBusSingleton;
+		eventBus = mobile.eventBusSingleton,
+		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
 
 	/**
 	 * Event handler for clicking on an image thumbnail
@@ -256,15 +259,77 @@
 	}
 
 	/**
+	 * Tests a URL to determine if it links to a local User namespace page or not.
+	 *
+	 * Assuming the current page visited is hosted on metawiki, the following examples would return
+	 * true:
+	 *
+	 *   https://meta.wikimedia.org/wiki/User:Foo
+	 *   /wiki/User:Foo
+	 *   /wiki/User:Nonexistent_user_page
+	 *
+	 * The following examples return false:
+	 *
+	 *   https://en.wikipedia.org/wiki/User:Foo
+	 *   /wiki/Foo
+	 *   /wiki/User_talk:Foo
+	 *
+	 * @param {string} url
+	 * @return {boolean}
+	 */
+	function isUserUri( url ) {
+		var
+			title = TitleUtil.newFromUri( url ),
+			namespace = title ? title.getNamespaceId() : undefined;
+		return namespace === namespaceIDs.user;
+	}
+
+	/**
+	 * Strip the edit action from red links to nonexistent User namespace pages.
+	 * @return {void}
+	 */
+	function initUserRedLinks() {
+		redLinks.filter( function ( _, element ) {
+			// Filter out non-User namespace pages.
+			return isUserUri( element.href );
+		} ).each( function ( _, element ) {
+			var uri = new mw.Uri( element.href );
+			if ( uri.query.action !== 'edit' ) {
+				// Nothing to strip.
+				return;
+			}
+
+			// Strip the action.
+			delete uri.query.action;
+
+			// Update the element with the new link.
+			element.href = uri.toString();
+		} );
+	}
+
+	/**
 	 * Initialize red links call-to-action
 	 *
 	 * Upon clicking a red link, show an interstitial CTA explaining that the page doesn't exist
 	 * with a button to create it, rather than directly navigate to the edit form.
 	 *
+	 * Special case T201339: following a red link to a user or user talk page should not prompt for
+	 * its creation. The reasoning is that user pages should be created by their owners and it's far
+	 * more common that non-owners follow a user's red linked user page to consider their
+	 * contributions, account age, or other activity.
+	 *
+	 * For example, a user adds a section to a Talk page and signs their contribution (which creates
+	 * a link to their user page whether exists or not). If the user page does not exist, that link
+	 * will be red. In both cases, another user follows this link, not to edit create a page for
+	 * that user but to obtain information on them.
+	 *
 	 * @ignore
 	 */
 	function initRedlinksCta() {
-		page.getRedLinks().on( 'click', function ( ev ) {
+		redLinks.filter( function ( _, element ) {
+			// Filter out local User namespace pages.
+			return !isUserUri( element.href );
+		} ).on( 'click', function ( ev ) {
 			var drawerOptions = {
 					progressiveButton: new Button( {
 						progressive: true,
@@ -337,6 +402,7 @@
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 		appendDownloadButton();
 		initRedlinksCta();
+		initUserRedLinks();
 		initEditLink();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
