@@ -13,12 +13,16 @@ body {
 	background-color: @chromeColor;
 }
 
+main {
+	// Support IE 9-11: Apply correct `display` (normalized), see T207618.
+	display: block;
+}
+
 // FIXME: should we use .mw-body here instead?
 #content {
 	// avoid margin collapsing (see T147956)
 	border-top: 1px solid transparent;
 	padding-bottom: 32px;
-	display: block; // T207618 - Define this <main> element for IE11 and under.
 }
 
 .overlay-enabled,
