@@ -55,7 +55,11 @@
 	}
 
 	pre {
+		// Reset `margin` (opinionated).
+		margin: 0;
 		padding: 1em;
+		// Correct odd `em` font sizing in all browsers (normalized).
+		font-size: 100%;
 	}
 }
 
@@ -68,6 +72,7 @@ blockquote {
 	border-left: 3px solid @colorGray12;
 	font-family: @fontFamilyHeading;
 	font-size: 1.1em;
+	margin: 0;
 	padding: 1em @blockquotePaddingRight 1em @blockquotePaddingLeft;
 	position: relative;
 	overflow: hidden;
