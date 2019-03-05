@@ -3,6 +3,31 @@
 @import '../../minerva.less/minerva.variables';
 @import '../../minerva.less/minerva.mixins';
 
+// Collapse border spacing (opinionated).
+table {
+	border-collapse: collapse;
+}
+
+// Bolden captions (optionated).
+caption {
+	font-weight: bold;
+}
+
+.content {
+	table {
+		margin: 1em 0;
+
+		/* following 4 rules are needed for scrolling */
+		overflow: auto; /* for browsers that don't support overflow-y */
+		overflow-y: hidden;
+		overflow-x: auto;
+
+		caption {
+			text-align: left;
+		}
+	}
+}
+
 // These are only intended for smaller screens.
 // This avoids having to undo them from another media query,
 // by putting the original in a media query instead.
@@ -17,21 +42,6 @@
 
 		caption {
 			display: block;
-		}
-	}
-}
-
-.content {
-	table {
-		margin: 1em 0;
-
-		/* following 4 rules are needed for scrolling */
-		overflow: auto; /* for browsers that don't support overflow-y */
-		overflow-y: hidden;
-		overflow-x: auto;
-
-		caption {
-			text-align: left;
 		}
 	}
 }
