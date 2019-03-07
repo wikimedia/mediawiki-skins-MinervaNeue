@@ -74,6 +74,13 @@ class MinervaHooks {
 					$config->get( 'MinervaTalkAtTop' )
 				)
 			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaHistoryInPageActions',
+					'skin-minerva',
+					$config->get( 'MinervaHistoryInPageActions' )
+				)
+			);
 		} catch ( RuntimeException $e ) {
 			// features already registered...
 			// due to a bug it's possible for this to run twice
@@ -207,6 +214,9 @@ class MinervaHooks {
 					=> $featureManager->isFeatureAvailableInContext( 'MinervaShareButton', $mobileContext ),
 				SkinMinerva::OPTION_TOGGLING => true,
 				SkinMinerva::OPTION_MOBILE_OPTIONS => true,
+				SkinMinerva::OPTIONS_HISTORY_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
+					'MinervaHistoryInPageActions'
+				),
 			] );
 		}
 	}
