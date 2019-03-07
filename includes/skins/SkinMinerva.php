@@ -38,6 +38,7 @@ class SkinMinerva extends SkinTemplate {
 	const OPTION_TOGGLING = 'toggling';
 	const OPTIONS_MOBILE_BETA = 'beta';
 	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
+	const OPTIONS_HISTORY_PAGE_ACTIONS = 'historyInPageActions';
 
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	  in editing mode */
@@ -111,6 +112,7 @@ class SkinMinerva extends SkinTemplate {
 		self::OPTION_TOGGLING => false,
 		self::OPTION_PAGE_ISSUES => false,
 		self::OPTIONS_TALK_AT_TOP => false,
+		self::OPTIONS_HISTORY_PAGE_ACTIONS => false,
 	];
 
 	/**
@@ -1158,9 +1160,7 @@ class SkinMinerva extends SkinTemplate {
 			$menu[] = $this->createWatchPageAction( $actions );
 		}
 
-		if (
-			MediaWikiServices::getInstance()->getService( 'MobileFrontend.AMC.UserMode' )->isEnabled()
-		) {
+		if ( $this->getSkinOption( self::OPTIONS_HISTORY_PAGE_ACTIONS ) ) {
 			$menu[] = $this->getHistoryPageAction( $actions );
 		}
 
@@ -1278,13 +1278,11 @@ class SkinMinerva extends SkinTemplate {
 	 * pageActionMenu.mustache template.
 	 */
 	protected function getHistoryPageAction() {
-		$baseResult = [
+		return [
 			'class' => MinervaUI::iconClass( 'clock-gray' ),
 			'text' => $this->msg( 'mobile-frontend-history' ),
 			'href' => $this->getHistoryUrl( $this->getTitle() )
 		];
-
-		return $baseResult;
 	}
 
 	/**

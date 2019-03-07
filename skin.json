@@ -40,6 +40,11 @@
 			"beta": false,
 			"amc": true
 		},
+		"MinervaHistoryInPageActions": {
+			"base": false,
+			"beta": false,
+			"amc": true
+		},
 		"MinervaShowCategoriesButton": {
 			"base": false,
 			"beta": true

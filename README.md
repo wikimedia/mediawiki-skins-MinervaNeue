@@ -106,6 +106,19 @@ Controls whether page issues should be replaced with a "Page issues" link (false
 Controls whether the talk option should be displayed at the top of the page.
 This will work for all pages except the main page.
 
+#### $wgMinervaHistoryInPageActions
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'beta' => false,
+    'base' => false,
+    'amc' => true,
+  ]
+```
+Controls whether the history link appears in the page actions menu.
+
 #### $wgMinervaShowShareButton
 
 * Type: `Array`
