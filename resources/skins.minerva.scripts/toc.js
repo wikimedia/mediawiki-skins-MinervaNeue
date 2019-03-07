@@ -23,7 +23,7 @@
 		new Toggler( {
 			$container: toc.$el,
 			prefix: 'toc-',
-			page: null,
+			page: page,
 			isClosed: true,
 			eventBus: eventBus
 		} );
