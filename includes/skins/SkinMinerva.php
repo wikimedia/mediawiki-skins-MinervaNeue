@@ -1158,6 +1158,12 @@ class SkinMinerva extends SkinTemplate {
 			$menu[] = $this->createWatchPageAction( $actions );
 		}
 
+		if (
+			MediaWikiServices::getInstance()->getService( 'MobileFrontend.AMC.UserMode' )->isEnabled()
+		) {
+			$menu[] = $this->getHistoryPageAction( $actions );
+		}
+
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
 			$menu[] = $this->createEditPageAction();
 		}
@@ -1263,6 +1269,22 @@ class SkinMinerva extends SkinTemplate {
 				'title' => $this->msg( 'mobile-frontend-language-article-heading' ),
 				'text' => $this->msg( 'mobile-frontend-language-article-heading' )
 		];
+	}
+
+	/**
+	 * Creates a history action: An icon that links to the mobile history page.
+	 *
+	 * @return array A map of HTML attributes and a 'text' property to be used with the
+	 * pageActionMenu.mustache template.
+	 */
+	protected function getHistoryPageAction() {
+		$baseResult = [
+			'class' => MinervaUI::iconClass( 'clock-gray' ),
+			'text' => $this->msg( 'mobile-frontend-history' ),
+			'href' => $this->getHistoryUrl( $this->getTitle() )
+		];
+
+		return $baseResult;
 	}
 
 	/**
