@@ -142,25 +142,24 @@ main {
 	width: auto;
 }
 
+/* Search */
 .search-box .search {
 	@searchIconSize: 20px;
 	@searchIconGutter: 6px;
-	outline: 0;
-	width: 100%;
-	// FIXME: unable to check but the important may not be needed for Nokia S60;
-	background-color: #fff !important; /* remove fennec default background also see bug 36490 */
-	// get rid of rounded corners in Safari
-	-webkit-appearance: none;
-	padding: 0.5em 0 0.5em @searchIconSize + (2 * @searchIconGutter);
+	background-color: #fff; // Support Fennec, Opera Mini: Remove default background, see T38490.
 	background-position: left @searchIconGutter center;
 	background-repeat: no-repeat;
 	.background-size( @searchIconSize, @searchIconSize );
-	border-radius: @borderRadius;
-	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
+	// Support Safari: Get rid of rounded corners.
+	-webkit-appearance: none;
+	width: 100%;
 	margin-top: 0;
+	border-radius: @borderRadius;
+	padding: 0.5em 0 0.5em @searchIconSize + (2 * @searchIconGutter);
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
+	outline: 0;
 }
 
-/* Search */
 input.search {
 	// [T139928] Hide all pseudo-elements added to search inputs in WebKit.
 	&::-webkit-search-decoration,
