@@ -144,8 +144,11 @@ main {
 
 /* Search */
 .search-box .search {
+	@border-width-base: 1px;
 	@searchIconSize: 20px;
 	@searchIconGutter: 6px;
+	@padding-vertical-search: 8px - @border-width-base;
+	@padding-start-search-icon: @searchIconSize + ( 2 * @searchIconGutter ) - @border-width-base;
 	background-color: #fff; // Support Fennec, Opera Mini: Remove default background, see T38490.
 	background-position: left @searchIconGutter center;
 	background-repeat: no-repeat;
@@ -154,10 +157,17 @@ main {
 	-webkit-appearance: none;
 	width: 100%;
 	margin-top: 0;
+	border: @border-width-base solid #fff;
 	border-radius: @borderRadius;
-	padding: 0.5em 0 0.5em @searchIconSize + (2 * @searchIconGutter);
+	padding: @padding-vertical-search 0 @padding-vertical-search @padding-start-search-icon;
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
+	// Keyboard focus is taken care of below at `.search-box .search:focus`.
 	outline: 0;
+}
+
+.search-box .search:focus {
+	border-color: @colorProgressive;
+	box-shadow: inset 0 0 0 1px @colorProgressive, 0 1px 1px rgba( 0, 0, 0, 0.05 );
 }
 
 input.search {
