@@ -1161,7 +1161,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if ( $this->getSkinOption( self::OPTIONS_HISTORY_PAGE_ACTIONS ) ) {
-			$menu[] = $this->getHistoryPageAction( $actions );
+			$menu[] = $this->getHistoryPageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
