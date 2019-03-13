@@ -45,6 +45,9 @@
 		// The page actions menu icons are ever so slightly larger
 		// than standard icons.
 		@pageActionsIconSize: @iconSize + 0.15;
+		// explicitly added to ensure this element (which is an anchor) receives width/height
+		// when it's viewed in services that manipulate DOM such as Google Translate.
+		display: block;
 		position: relative;
 		min-width: @pageActionsIconSize;
 		width: @pageActionsIconSize;
