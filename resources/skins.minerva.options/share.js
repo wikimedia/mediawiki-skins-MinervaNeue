@@ -1,5 +1,6 @@
 ( function ( M, config ) {
 	var shareIcon = M.require( 'skins.minerva.share/shareIcon' ),
+		trackShare = M.require( 'skins.minerva.share/track' ),
 		features = config.get( 'wgMinervaFeatures', {} );
 
 	/**
@@ -17,7 +18,11 @@
 		// DOM is reversed in the display. The watchstar is last in the DOM and
 		// left-most in the display. Since we want the download button to be to
 		// the left of the watchstar, we put it after it in the DOM.
-		shareIcon( navigator ).$el.insertAfter( '#ca-watch' );
+		$( '<li>' ).addClass( 'page-actions-menu__list-item' )
+			.append( shareIcon( navigator ).$el )
+			// eslint-disable-next-line jquery/no-global-selector
+			.insertAfter( $( '#ca-watch' ).parent() );
+		trackShare( 'shownShareButton' );
 	}
 
 }( mw.mobileFrontend, mw.config ) );

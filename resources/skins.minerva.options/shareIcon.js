@@ -1,5 +1,6 @@
 ( function ( M, msg, config ) {
-	var Icon = M.require( 'mobile.startup' ).Icon;
+	var Icon = M.require( 'mobile.startup' ).Icon,
+		trackShare = M.require( 'skins.minerva.share/track' );
 
 	/**
 	 * Generate a mouse event that when run
@@ -12,10 +13,13 @@
 			var url = new URL( window.location.href );
 			url.searchParams.append( 'wprov', 'mfsw1' );
 			url.searchParams.delete( 'debug' );
+			trackShare( 'clickShareButton' );
 			navigator.share( {
 				title: config.get( 'wgTitle' ),
 				text: config.get( 'wgTitle' ),
 				url: url.toString()
+			} ).then( function () {
+				trackShare( 'SharedToApp' );
 			} );
 		};
 	}
@@ -28,7 +32,7 @@
 	 */
 	function shareIcon( navigator ) {
 		return new Icon( {
-			tagName: 'li',
+			tagName: 'button',
 			glyphPrefix: 'minerva',
 			title: msg( 'skin-minerva-share' ),
 			name: 'share',
