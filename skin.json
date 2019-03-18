@@ -164,7 +164,8 @@
 		}
 	},
 	"EventLoggingSchemas": {
-		"WebClientError": 18340282
+		"WebClientError": 18340282,
+		"MobileWebShareButton": 18923688
 	},
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
@@ -501,6 +502,7 @@
 				"resources/skins.minerva.options/BackToTopOverlay.js",
 				"resources/skins.minerva.options/backtotop.js",
 				"resources/skins.minerva.options/categories.js",
+				"resources/skins.minerva.options/trackShare.js",
 				"resources/skins.minerva.options/shareIcon.js",
 				"resources/skins.minerva.options/share.js"
 			]
