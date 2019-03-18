@@ -9,10 +9,13 @@
 	 */
 	function clickShareHandler( navigator ) {
 		return function () {
+			var url = new URL( window.location.href );
+			url.searchParams.append( 'wprov', 'mfsw1' );
+			url.searchParams.delete( 'debug' );
 			navigator.share( {
 				title: config.get( 'wgTitle' ),
 				text: config.get( 'wgTitle' ),
-				url: window.location.href.split( '#' )[ 0 ]
+				url: url.toString()
 			} );
 		};
 	}
