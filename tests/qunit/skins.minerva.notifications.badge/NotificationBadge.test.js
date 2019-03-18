@@ -4,8 +4,7 @@
 
 	QUnit.module( 'Minerva NotificationBadge', {
 		beforeEach: function () {
-			this.router = require( 'mediawiki.router' );
-			this.OverlayManager = new OverlayManager( this.router );
+			this.OverlayManager = OverlayManager.getSingleton();
 		}
 	} );
 

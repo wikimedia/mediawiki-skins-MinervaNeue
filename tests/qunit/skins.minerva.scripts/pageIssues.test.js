@@ -5,7 +5,7 @@
 		insertBannersOrNotice = pageIssues.test.insertBannersOrNotice,
 		OverlayManager = mobile.OverlayManager,
 		Page = mobile.Page,
-		overlayManager = new OverlayManager( require( 'mediawiki.router' ) ),
+		overlayManager = OverlayManager.getSingleton(),
 		$mockContainer = $(
 			'<div id=\'bodyContent\'>' +
 				'<table class=\'ambox ambox-content\'>' +
