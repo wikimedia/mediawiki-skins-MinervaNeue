@@ -128,9 +128,9 @@ class MinervaTemplate extends BaseTemplate {
 			] + $data['historyLink'];
 			$templateParser = new TemplateParser( __DIR__ );
 			return $templateParser->processTemplate( 'history', $args );
-		} else {
-			return '';
 		}
+
+		return '';
 	}
 
 	/**
@@ -159,7 +159,7 @@ class MinervaTemplate extends BaseTemplate {
 	 */
 	protected function getSecondaryActionsHtml() {
 		$baseClass = MinervaUI::buttonClass( '', 'button' );
-		/** @var $skin SkinMinerva $skin */
+		/** @var SkinMinerva $skin */
 		$skin = $this->getSkin();
 		$html = '';
 		// no secondary actions on the user page
@@ -193,9 +193,9 @@ class MinervaTemplate extends BaseTemplate {
 				$content .= $data['subject-page'];
 			}
 			return $content . Html::closeElement( 'div' );
-		} else {
-			return $data[ 'bodytext' ];
 		}
+
+		return $data[ 'bodytext' ];
 	}
 
 	/**
@@ -210,9 +210,9 @@ class MinervaTemplate extends BaseTemplate {
 				__DIR__ . '/../../resources/skins.minerva.scripts/menu/' );
 
 			return $templateParser->processTemplate( 'menu', $data['menu_data'] );
-		} else {
-			return '';
 		}
+
+		return '';
 	}
 
 	/**
@@ -239,7 +239,7 @@ class MinervaTemplate extends BaseTemplate {
 			'headelement' => $data[ 'headelement' ],
 			'menuButton' => $data['menuButton'],
 			'siteheading' => $data['footer-site-heading-html'],
-			'mainPageURL' => Title::newMainPage()->getLocalUrl(),
+			'mainPageURL' => Title::newMainPage()->getLocalURL(),
 			// A button when clicked will submit the form
 			// This is used so that on tablet devices with JS disabled the search button
 			// passes the value of input to the search

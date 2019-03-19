@@ -93,10 +93,10 @@ class MinervaHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
 	 *
 	 * @param array &$testModules
-	 * @param ResourceLoader &$resourceLoader
+	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function onResourceLoaderTestModules( array &$testModules,
-		ResourceLoader &$resourceLoader
+		ResourceLoader $resourceLoader
 	) {
 		$testModule = [
 			'dependencies' => [
@@ -118,9 +118,9 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.js',
 				'resources/skins.minerva.scripts/page-issues/overlay/IssueList.js',
 				'resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.js',
-				"resources/skins.minerva.scripts/page-issues/page/PageIssueLearnMoreLink.js",
-				"resources/skins.minerva.scripts/page-issues/page/PageIssueLink.js",
-				"resources/skins.minerva.scripts/page-issues/page/pageIssueFormatter.js",
+				'resources/skins.minerva.scripts/page-issues/page/PageIssueLearnMoreLink.js',
+				'resources/skins.minerva.scripts/page-issues/page/PageIssueLink.js',
+				'resources/skins.minerva.scripts/page-issues/page/pageIssueFormatter.js',
 				'resources/skins.minerva.scripts/pageIssues.js',
 				'resources/skins.minerva.scripts/UriUtil.js',
 				'resources/skins.minerva.scripts/TitleUtil.js',
@@ -136,7 +136,7 @@ class MinervaHooks {
 		];
 
 		// Expose templates module
-		$testModules['qunit']["tests.skins.minerva"] = $testModule;
+		$testModules['qunit']['tests.skins.minerva'] = $testModule;
 	}
 
 	/**
@@ -170,7 +170,7 @@ class MinervaHooks {
 					// Add default warning message to Special:UserLogin and Special:UserCreate
 					// if no warning message set.
 					if (
-						!$request->getVal( 'warning', null ) &&
+						!$request->getVal( 'warning' ) &&
 						!$special->getUser()->isLoggedIn() &&
 						!$request->wasPosted()
 					) {
