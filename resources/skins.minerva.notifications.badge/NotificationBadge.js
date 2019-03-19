@@ -29,10 +29,6 @@
 			options.title = $el.find( 'a' ).attr( 'title' );
 			options.url = $el.find( 'a' ).attr( 'href' );
 			count = Number( $el.find( 'span' ).data( 'notification-count' ) );
-			options.onError = function () {
-				// FIXME: Blocked on T189173. Ideally we'd use the router here.
-				window.location.href = this.getNotificationURL();
-			}.bind( this );
 		}
 		View.call( this,
 			util.extend( options, {
@@ -141,15 +137,6 @@
 			// Important that we also prevent propagation to avoid interference with events that may
 			// be binded on #mw-mf-page-center that close overlay
 			return false;
-		},
-		/**
-		 * Return the URL for the full non-overlay notification view
-		 * @memberof NotificationBadge
-		 * @instance
-		 * @return {string} url
-		 */
-		getNotificationURL: function () {
-			return this.options.url;
 		},
 		/**
 		 * Update the notification count
