@@ -114,7 +114,7 @@ class MinervaTemplate extends BaseTemplate {
 		$action = Action::getActionName( RequestContext::getMain() );
 		if ( isset( $data['historyLink'] ) && $action === 'view' ) {
 			$args = [
-				'clockIconClass' => MinervaUI::iconClass( 'clock-gray', 'before' ),
+				'clockIconClass' => MinervaUI::iconClass( 'clock', 'before' ),
 				'arrowIconClass' => MinervaUI::iconClass(
 					'arrow-gray', 'element', 'mw-ui-icon-small mf-mw-ui-icon-rotate-anti-clockwise indicator',
 					// Uses icon in MobileFrontend so must be prefixed mf.
