@@ -261,6 +261,10 @@ class SkinMinerva extends SkinTemplate {
 				&& ( $action === 'talk' || $action === 'switch-language' ) );
 		}
 
+		if ( $action === 'history' && $title->exists() ) {
+			return $this->getSkinOption( self::OPTIONS_HISTORY_PAGE_ACTIONS );
+		}
+
 		if (
 			!in_array( $action, $config->get( 'MinervaPageActions' ) )
 			|| ( $this->getUserPageHelper()->isUserPage() && !$title->exists() )
@@ -1160,7 +1164,7 @@ class SkinMinerva extends SkinTemplate {
 			$menu[] = $this->createWatchPageAction( $actions );
 		}
 
-		if ( $this->getSkinOption( self::OPTIONS_HISTORY_PAGE_ACTIONS ) ) {
+		if ( $this->isAllowedPageAction( 'history' ) ) {
 			$menu[] = $this->getHistoryPageAction();
 		}
 
