@@ -160,7 +160,6 @@ class MinervaHooks {
 			switch ( $name ) {
 				case 'MobileMenu':
 					$out->addModuleStyles( [
-						'skins.minerva.icons.images.variants',
 						'skins.minerva.mainMenu.icons',
 						'skins.minerva.mainMenu.styles',
 					] );

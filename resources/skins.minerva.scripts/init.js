@@ -169,10 +169,8 @@
 			if ( time.isRecent( delta ) ) {
 				$bar = $lastModifiedLink.closest( '.last-modified-bar' );
 				$bar.addClass( 'active' );
-				// in beta update icons to be inverted
-				$bar.find( '.mw-ui-icon' ).each( function () {
-					$( this ).attr( 'class', $( this ).attr( 'class' ).replace( '-gray', '-invert' ) );
-				} );
+				$bar.find( '.mw-ui-icon-minerva-clock' ).addClass( 'mw-ui-icon-minerva-clock-invert' );
+				$bar.find( '.mw-ui-icon-mf-arrow-gray' ).addClass( 'mw-ui-icon-mf-arrow-invert' );
 			}
 			msg = time.getLastModifiedMessage( ts, username, gender, historyUrl );
 			$lastModifiedLink.replaceWith( msg );

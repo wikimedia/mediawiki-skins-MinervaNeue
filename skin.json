@@ -228,8 +228,16 @@
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
+			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}:before",
 			"useDataURI": false,
+			"defaultColor": "#54595d",
+			"variants": {
+				"invert": {
+					"color": "#fff",
+					"global": false
+				}
+			},
 			"images": {
 				"watch": "resources/skins.minerva.icons.images/watch.svg",
 				"watched": "resources/skins.minerva.icons.images/watched.svg",
@@ -237,26 +245,12 @@
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
 				"edit-enabled": "resources/skins.minerva.icons.images/edit.svg",
-				"language-switcher": "resources/skins.minerva.icons.images/languageSwitcher.svg"
-			}
-		},
-		"skins.minerva.icons.images.variants": {
-			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
-			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}:before",
-			"class": "ResourceLoaderImageModule",
-			"variants": {
-				"gray": {
-					"color": "#54595d",
-					"global": true
-				},
-				"invert": {
-					"color": "#fff",
-					"global": true
+				"language-switcher": "resources/skins.minerva.icons.images/languageSwitcher.svg",
+				"profile": "resources/skins.minerva.icons.images/profile.svg",
+				"clock": {
+					"file": "resources/skins.minerva.icons.images/clock.svg",
+					"variants": [ "invert" ]
 				}
-			},
-			"images": {
-				"profile": "resources/skins.minerva.icons.images.variants/profile.svg",
-				"clock": "resources/skins.minerva.icons.images.variants/clock.svg"
 			}
 		},
 		"skins.minerva.icons.images.scripts": {
@@ -372,7 +366,6 @@
 				"desktop"
 			],
 			"dependencies": [
-				"skins.minerva.icons.images.variants",
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"jquery.cookie",
@@ -533,7 +526,6 @@
 			],
 			"dependencies": [
 				"mobile.startup",
-				"skins.minerva.icons.images.variants",
 				"skins.minerva.scripts"
 			],
 			"scripts": [

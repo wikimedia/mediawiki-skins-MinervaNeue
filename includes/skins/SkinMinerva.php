@@ -734,7 +734,7 @@ class SkinMinerva extends SkinTemplate {
 				->addComponent(
 					$username,
 					Title::newFromText( $username, NS_USER )->getLocalUrl(),
-					MinervaUI::iconClass( 'profile-gray', 'before', 'truncated-text primary-action' ),
+					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
 					[ 'data-event-name' => 'profile' ]
 				)
 				->addComponent(
@@ -1283,7 +1283,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function getHistoryPageAction() {
 		return [
-			'class' => MinervaUI::iconClass( 'clock-gray' ),
+			'class' => MinervaUI::iconClass( 'clock' ),
 			'text' => $this->msg( 'mobile-frontend-history' ),
 			'href' => $this->getHistoryUrl( $this->getTitle() )
 		];
@@ -1463,7 +1463,7 @@ class SkinMinerva extends SkinTemplate {
 			'mediawiki.hlist',
 			'mediawiki.ui.icon',
 			'mediawiki.ui.button',
-			'skins.minerva.icons.images',
+			'skins.minerva.icons.images'
 		];
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
