@@ -3,23 +3,47 @@
  * with the Toast notifications defined by common/toast.js.
  */
 ( function ( M ) {
-	var mainMenu = M.require( 'skins.minerva.scripts/mainMenu' ),
+	var badge,
+		mainMenu = M.require( 'skins.minerva.scripts/mainMenu' ),
 		router = require( 'mediawiki.router' ),
+		mobile = M.require( 'mobile.startup' ),
+		util = mobile.util,
 		NotificationBadge = M.require( 'skins.minerva.notifications/NotificationBadge' ),
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		initialized = false;
 
+	function showNotificationOverlay() {
+		// eslint-disable-next-line jquery/no-global-selector
+		var $pageCenter = $( '#mw-mf-page-center' ),
+			overlay = mobile.notifications.overlay( badge.setCount.bind( badge ),
+				badge.markAsSeen.bind( badge ) );
+		mainMenu.openNavigationDrawer( 'secondary' );
+		overlay.on( 'hide', function () {
+			mainMenu.closeNavigationDrawers();
+			$pageCenter.off( '.secondary' );
+		} );
+
+		$pageCenter.one( 'click.secondary', function () {
+			router.back();
+		} );
+		return overlay;
+	}
+
 	// Once the DOM is loaded hijack the notifications button to display an overlay rather
 	// than linking to Special:Notifications.
-	$( function () {
-		// eslint-disable-next-line no-new
-		new NotificationBadge( {
-			overlayManager: overlayManager,
-			router: router,
-			mainMenu: mainMenu,
+	util.docReady( function () {
+		badge = new NotificationBadge( {
+			onClick: function () {
+				router.navigate( '#/notifications' );
+				// Important that we also prevent propagation to avoid interference
+				// with events that may
+				// be binded on #mw-mf-page-center that close overlay
+				return false;
+			},
 			// eslint-disable-next-line jquery/no-global-selector
 			el: $( '#secondary-button.user-button' ).parent()
 		} );
+		overlayManager.add( /^\/notifications$/, showNotificationOverlay );
 
 		/**
 		 * Adds a filter button to the UI inside notificationsInboxWidget

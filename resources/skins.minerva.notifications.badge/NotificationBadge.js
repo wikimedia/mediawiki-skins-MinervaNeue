@@ -8,136 +8,57 @@
 		notificationIcon = new Icon( {
 			name: 'notifications',
 			glyphPrefix: 'minerva'
-		} ),
-		icons = mobile.icons;
+		} );
 
 	/**
-	 * A notification button for communicating with an NotificationOverlay
+	 * A notification button for displaying a notifications overlay
 	 * @class NotificationButton
 	 * @extends View
 	 * @param {Object} options Configuration options
+	 * @param {string} options.notificationIconClass e.g. mw-ui-icon for icon
+	 * @param {boolean} options.hasUnseenNotifications whether the user has unseen notifications
+	 * @param {number} options.notificationCountRaw number of unread notifications
+	 * @param {string} options.title tooltip for badge
+	 * @param {string} options.url to see all notifications
+	 * @param {boolean} options.hasNotifications whether the user has unseen notifications
+	 * @param {Function} options.onClick handler for when the badge is clicked
+	 * @memberof NotificationBadge
+	* @instance
 	 */
 	function NotificationBadge( options ) {
-		var $el,
+		var $el, $notificationAnchor,
 			count = options.notificationCountRaw || 0,
 			el = options.el;
 
 		if ( el ) {
+			// Learn properties based on current element
 			$el = $( el );
-			options.hasUnseenNotifications = $el.find( '.notification-unseen' ).length;
+			options.hasUnseenNotifications = $el.find( '.notification-unseen' ).length > 0;
 			options.hasNotifications = options.hasUnseenNotifications;
-			options.title = $el.find( 'a' ).attr( 'title' );
-			options.url = $el.find( 'a' ).attr( 'href' );
+			$notificationAnchor = $el.find( 'a' );
+			options.title = $notificationAnchor.attr( 'title' );
+			options.url = $notificationAnchor.attr( 'href' );
 			count = Number( $el.find( 'span' ).data( 'notification-count' ) );
 		}
 		View.call( this,
-			util.extend( options, {
+			util.extend( {
+				notificationIconClass: notificationIcon.getClassName(),
+				hasNotifications: false,
+				hasUnseenNotifications: false,
+				notificationCountRaw: 0
+			}, options, {
 				isBorderBox: false
 			} )
 		);
 		this.url = options.url;
-		this._bindOverlayManager();
 		this.setCount( count );
+		if ( options.onClick ) {
+			this.$el.on( 'click', options.onClick );
+		}
 	}
 
 	mfExtend( NotificationBadge, View, {
-		/**
-		 * @cfg {object} defaults Default options hash.
-		 * @cfg {string} defaults.notificationIconClass e.g. mw-ui-icon for icon
-		 * @cfg {string} defaults.loadingIconHtml for spinner
-		 * @cfg {boolean} defaults.hasUnseenNotifications whether the user has unseen notifications
-		 * @cfg {number} defaults.notificationCountRaw number of unread notifications
-		 * @memberof NotificationBadge
-		 * @instance
-		 */
-		defaults: {
-			notificationIconClass: notificationIcon.getClassName(),
-			loadingIconHtml: icons.spinner().toHtmlString(),
-			hasNotifications: false,
-			hasUnseenNotifications: false,
-			notificationCountRaw: 0
-		},
-		/**
-		 * Loads a ResourceLoader module script. Shows ajax loader whilst loading.
-		 * @method
-		 * @private
-		 * @memberof NotificationBadge
-		 * @instance
-		 * @param {string} moduleName Name of a module to fetch
-		 * @return {JQuery.Promise}
-		 */
-		_loadModuleScript: function ( moduleName ) {
-			var self = this;
-
-			this.$el.html( this.options.loadingIconHtml );
-			return mw.loader.using( moduleName ).then( function () {
-				// trigger a re-render once one to remove loading icon
-				self.render();
-			} );
-		},
-		/**
-		 * Load the notification overlay.
-		 * @method
-		 * @private
-		 * @memberof NotificationBadge
-		 * @instance
-		 * @uses NotificationsOverlay
-		 * @return {JQuery.Deferred} with an instance of NotificationsOverlay
-		 */
-		_loadNotificationOverlay: function () {
-			var self = this;
-
-			return this._loadModuleScript( 'mobile.notifications.overlay' ).then( function () {
-				var NotificationsOverlay =
-					M.require( 'mobile.notifications.overlay/NotificationsOverlay' ); // resource-modules-disable-line
-				return new NotificationsOverlay( {
-					badge: self
-				} );
-			} );
-		},
-		/**
-		 * Sets up routes in overlay manager and click behaviour for NotificationBadge
-		 * This is not unit tested as it's behaviour is covered by browser tests.
-		 * @memberof NotificationBadge
-		 * @instance
-		 * @private
-		 */
-		_bindOverlayManager: function () {
-			var self = this,
-				mainMenu = this.options.mainMenu;
-
-			this.$el.on( 'click', this.onClickBadge.bind( this ) );
-			this.options.overlayManager.add( /^\/notifications$/, function () {
-				return self._loadNotificationOverlay().then( function ( overlay ) {
-					// eslint-disable-next-line jquery/no-global-selector
-					var $pageCenter = $( '#mw-mf-page-center' );
-
-					mainMenu.openNavigationDrawer( 'secondary' );
-					overlay.on( 'hide', function () {
-						mainMenu.closeNavigationDrawers();
-						$pageCenter.off( '.secondary' );
-					} );
-
-					$pageCenter.one( 'click.secondary', function () {
-						self.options.router.back();
-					} );
-					return overlay;
-				} );
-			} );
-		},
 		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.hogan' ),
-		/**
-		 * Click handler for clicking on the badge
-		 * @memberof NotificationBadge
-		 * @instance
-		 * @return {boolean}
-		 */
-		onClickBadge: function () {
-			this.options.router.navigate( '#/notifications' );
-			// Important that we also prevent propagation to avoid interference with events that may
-			// be binded on #mw-mf-page-center that close overlay
-			return false;
-		},
 		/**
 		 * Update the notification count
 		 * @memberof NotificationBadge
