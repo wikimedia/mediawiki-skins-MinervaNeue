@@ -1197,6 +1197,7 @@ class SkinMinerva extends SkinTemplate {
 		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
 
 		return [
+				'item-id' => 'page-actions-edit',
 				'id' => 'ca-edit',
 				'href' => $title->getLocalURL( $editArgs ),
 				'class' => 'edit-page '
@@ -1225,6 +1226,7 @@ class SkinMinerva extends SkinTemplate {
 			$icon = 'watch';
 		}
 		$baseResult = [
+			'item-id' => 'page-actions-watch',
 			'id' => 'ca-watch',
 			// Use blank icon to reserve space for watchstar icon once JS loads
 			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' ) . ' jsonly',
@@ -1268,6 +1270,7 @@ class SkinMinerva extends SkinTemplate {
 			$languageSwitcherClasses .= ' disabled';
 		}
 		return [
+				'item-id' => 'page-actions-languages',
 				'class' => MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
 				'href' => $languageSwitcherLink,
 				'title' => $this->msg( 'mobile-frontend-language-article-heading' ),
@@ -1283,6 +1286,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function getHistoryPageAction() {
 		return [
+			'item-id' => 'page-actions-history',
 			'class' => MinervaUI::iconClass( 'clock' ),
 			'text' => $this->msg( 'mobile-frontend-history' ),
 			'href' => $this->getHistoryUrl( $this->getTitle() )
