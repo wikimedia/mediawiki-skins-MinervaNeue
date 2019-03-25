@@ -8,7 +8,6 @@
 		TitleUtil = M.require( 'skins.minerva.scripts/TitleUtil' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
-		loader = mobile.rlModuleLoader,
 		router = require( 'mediawiki.router' ),
 		OverlayManager = mobile.OverlayManager,
 		CtaDrawer = mobile.CtaDrawer,
@@ -83,59 +82,30 @@
 	}
 
 	/**
-	 * Make an instance of an ImageOverlay. This function assumes that the module
-	 * providing the ImageOverlay has been asynchronously loaded.
+	 * Returns a rejected promise if MultimediaViewer is available. Otherwise
+	 * returns the mediaViewerOverlay
 	 * @method
 	 * @ignore
-	 * @param {string} title Url of image
-	 * @return {ImageOverlay}
+	 * @param {string} title the title of the image
+	 * @return {JQuery.Deferred|Overlay}
 	 */
-	function makeImageOverlay( title ) {
-		var ImageOverlay = M.require( 'mobile.mediaViewer/ImageOverlay' ),
-			imageOverlay = new ImageOverlay( {
-				api: api,
-				thumbnails: thumbs,
-				title: decodeURIComponent( title ),
-				eventBus: eventBus
-			} );
-		imageOverlay.on( ImageOverlay.EVENT_EXIT, function () {
-			// Actually dismiss the overlay whenever the cross is closed.
-			window.location.hash = '';
-			// Clear the hash.
-			router.navigate( '' );
-		} );
-		imageOverlay.on( ImageOverlay.EVENT_SLIDE, function ( nextThumbnail ) {
-			routeThumbnail( nextThumbnail );
-		} );
-		return imageOverlay;
-	}
-
-	/**
-	 * Load image overlay
-	 * @method
-	 * @ignore
-	 * @uses ImageOverlay
-	 * @param {string} title Url of image
-	 * @return {JQuery.Deferred|ImageOverlay}
-	 */
-	function loadImageOverlay( title ) {
+	function makeMediaViewerOverlayIfNeeded( title ) {
 		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {
 			// This means MultimediaViewer has been installed and is loaded.
 			// Avoid loading it (T169622)
 			return $.Deferred().reject();
 		}
-		if ( mw.loader.getState( 'mobile.mediaViewer' ) === 'ready' ) {
-			// If module already loaded, do this synchronously to avoid the event loop causing
-			// a visible flash (see T197110)
-			return makeImageOverlay( title );
-		}
-		return loader.loadModule( 'mobile.mediaViewer' ).then( function () {
-			return makeImageOverlay( title );
+
+		return mobile.mediaViewer.overlay( {
+			api: api,
+			thumbnails: thumbs,
+			title: decodeURIComponent( title ),
+			eventBus: eventBus
 		} );
 	}
 
 	// Routes
-	overlayManager.add( /^\/media\/(.+)$/, loadImageOverlay );
+	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
 	overlayManager.add( /^\/languages$/, function () {
 		return mobile.languageOverlay( new PageGateway( api ) );
 	} );
