@@ -226,7 +226,8 @@ class MinervaTemplate extends BaseTemplate {
 		$internalBanner = $data[ 'internalBanner' ];
 		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
-		$hasPageActions = !$this->isSpecialPage && !$this->isMainPage;
+		$hasPageActions = !$this->isSpecialPage && !$this->isMainPage &&
+			Action::getActionName( RequestContext::getMain() ) === 'view';
 		$hasTalkTabs = $hasPageActions && !$this->isMainPageTalk;
 
 		// prepare template data
