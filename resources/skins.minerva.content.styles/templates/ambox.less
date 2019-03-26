@@ -42,7 +42,7 @@ table.ambox {
 	// https://phabricator.wikimedia.org/T206887 suggests .mbox-text-div is also needed.
 	.mbox-text-div,
 	.mbox-text-span {
-		display: inline-block;
+		display: block;
 		max-height: @contentLineHeight * 2em;
 		// All will have this height (approx 2 lines) even if a single line e.g. {{dictdef}} when on mobile.
 		// Overriden later in tablet styles.
