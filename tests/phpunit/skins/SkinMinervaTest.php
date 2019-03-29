@@ -173,6 +173,9 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$moduleName, $expected
 	) {
 		$skin = new SkinMinerva();
+		$skin->setSkinOptions( [
+			SkinMinerva::OPTION_AMC => false,
+		] );
 		$title = Title::newFromText( 'Test' );
 		$testContext = RequestContext::getMain();
 		$testContext->setTitle( $title );

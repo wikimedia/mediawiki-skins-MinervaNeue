@@ -95,7 +95,8 @@ class SkinMinerva extends SkinTemplate {
 
 	/** @var array skin specific options */
 	protected $skinOptions = [
-		self::OPTION_AMC => false,
+		// Defaults to true for desktop mode.
+		self::OPTION_AMC => true,
 		self::OPTIONS_MOBILE_BETA => false,
 		/**
 		 * Whether the main menu should include a link to
@@ -1445,6 +1446,11 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function addToBodyAttributes( $out, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
+		if ( $this->getSkinOption( self::OPTION_AMC ) ) {
+			$classes .= ' minerva--amc-enabled';
+		} else {
+			$classes .= ' minerva--amc-disabled';
+		}
 
 		$bodyAttrs[ 'class' ] .= ' ' . $classes;
 	}
