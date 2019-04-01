@@ -165,7 +165,8 @@
 	},
 	"EventLoggingSchemas": {
 		"WebClientError": 18340282,
-		"MobileWebShareButton": 18923688
+		"MobileWebShareButton": 18923688,
+		"MobileWebMainMenuClickTracking": 18203509
 	},
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
