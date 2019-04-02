@@ -890,16 +890,11 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string HTML for header
 	 */
 	protected function getHeadingHtml() {
-		$heading = '';
 		if ( $this->getUserPageHelper()->isUserPage() ) {
 			// The heading is just the username without namespace
 			$heading = $this->getUserPageHelper()->getPageUser()->getName();
 		} else {
-			$pageTitle = $this->getOutput()->getPageTitle();
-			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
-			if ( $pageTitle != '' ) {
-				$heading = $pageTitle;
-			}
+			$heading = $this->getOutput()->getPageTitle();
 		}
 		return Html::rawElement( 'h1', [ 'id' => 'section_0' ], $heading );
 	}
