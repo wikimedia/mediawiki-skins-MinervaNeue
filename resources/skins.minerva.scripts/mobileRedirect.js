@@ -45,7 +45,7 @@
 		}
 	}
 
-	// eslint-disable-next-line jquery/no-global-selector
+	// eslint-disable-next-line no-jquery/no-global-selector
 	$( '#mw-mf-display-toggle' ).on( 'click', desktopViewClick );
 
 }( mw.mobileFrontend ) );

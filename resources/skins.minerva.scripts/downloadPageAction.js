@@ -129,7 +129,7 @@
 			// TODO: T213352 Temporary cache compatibility - to be deleted.
 			// Any conditionals using this boolean should be DELETED when the
 			// old page action menu is no longer being served to users.
-			// eslint-disable-next-line jquery/no-global-selector
+			// eslint-disable-next-line no-jquery/no-global-selector
 			oldPageActionsDOM = $( '#page-actions.hlist' ).length > 0;
 		if (
 			isAvailable(

@@ -64,7 +64,7 @@
 	 */
 	function initButton() {
 		// This catches language selectors in page actions and in secondary actions (e.g. Main Page)
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		var $primaryBtn = $( '.language-selector' );
 
 		if ( $primaryBtn.length ) {
@@ -156,7 +156,7 @@
 	 * @ignore
 	 */
 	function initModifiedInfo() {
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.modified-enhancement' ).each( function () {
 			initHistoryLink( $( this ) );
 		} );
@@ -191,7 +191,7 @@
 	 * @ignore
 	 */
 	function initRegistrationInfo() {
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#tagline-userpage' ).each( function () {
 			initRegistrationDate( $( this ) );
 		} );
@@ -211,7 +211,7 @@
 			// TODO: T213352 Temporary cache compatibility - to be deleted.
 			// Any conditionals using this boolean should be DELETED when the
 			// old page action menu is no longer being served to users.
-			// eslint-disable-next-line jquery/no-global-selector
+			// eslint-disable-next-line no-jquery/no-global-selector
 			oldPageActionsDOM = $( '#page-actions.hlist' ).length > 0;
 
 		if ( $downloadAction ) {
@@ -355,7 +355,7 @@
 			disabledClass = disabledEditIcon.getGlyphClassName();
 
 		if ( mw.config.get( 'wgMinervaReadOnly' ) ) {
-			// eslint-disable-next-line jquery/no-global-selector
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( '#ca-edit' )
 				.removeClass( enabledClass )
 				.addClass( disabledClass );
@@ -366,7 +366,7 @@
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
 		initRegistrationInfo();
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 		appendDownloadButton();
 		initRedlinksCta();

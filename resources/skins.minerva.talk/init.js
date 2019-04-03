@@ -7,7 +7,7 @@
 		PageGateway = mobile.PageGateway,
 		api = new mw.Api(),
 		gateway = new PageGateway( api ),
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$talk = $( '.talk, [rel="discussion"]' ),
 		// use the plain return value here - T128273
 		title = $talk.attr( 'data-title' ),
