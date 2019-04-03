@@ -12,14 +12,14 @@ Feature: Talk
     When I click the talk button
     Then I should see the talk overlay
 
-  @login @integration
+  @login
   Scenario: Talk on a page that doesn't exist (bug 64268)
     Given I am logged into the mobile website
       And I am on a page that does not exist
     When I click the talk button
     Then I should see the talk overlay
 
-  @smoke @integration @login
+  @smoke @login
   Scenario: Add discussion for talk page possible as logged in user
     Given the page "Talk:Selenium talk test" exists
       And I am logged into the mobile website
@@ -27,7 +27,7 @@ Feature: Talk
     When I click the talk button
     Then there should be an add discussion button
 
-  @smoke @integration @login
+  @smoke @login
   Scenario: Add topic button shows on talk pages for logged in users
     Given the page "Talk:Selenium talk test" exists
       And I am logged into the mobile website
@@ -35,7 +35,6 @@ Feature: Talk
     When I click the talk button
     Then there should be a save discussion button
 
-  @integration
   Scenario: A newly created topic appears in the list of topics immediately
     Given the page "Talk:Selenium talk test" exists
       And I am logged into the mobile website

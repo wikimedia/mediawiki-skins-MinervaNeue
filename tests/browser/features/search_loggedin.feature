@@ -1,4 +1,4 @@
-@integration @test2.m.wikipedia.org @vagrant @login
+@test2.m.wikipedia.org @vagrant @login
 Feature: Search
 
   Scenario: Clicking on a watchstar toggles the watchstar

@@ -4,7 +4,7 @@ Feature: Wikitext Editor (Makes actual saves)
   Background:
     Given I am logged into the mobile website
 
-  @editing @integration
+  @editing
   Scenario: It is possible to edit
     Given I go to a page that has languages
     When I click the edit button

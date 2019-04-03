@@ -7,7 +7,7 @@ Feature: Notification
     When I click on the notification icon
       And the notifications overlay appears
 
-  @smoke @integration
+  @smoke
   Scenario: Opening notifications
     Then I should see the notifications overlay
 
