@@ -296,7 +296,7 @@ class SkinMinerva extends SkinTemplate {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
 			$html .= Html::element( 'a', [
-				'href' => $this->getTitle()->getLocalUrl( [ 'action' => 'edit', 'section' => $section ] ),
+				'href' => $this->getTitle()->getLocalURL( [ 'action' => 'edit', 'section' => $section ] ),
 				'title' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
 				'data-section' => $section,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
@@ -563,7 +563,7 @@ class SkinMinerva extends SkinTemplate {
 				->addComponent(
 					$this->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
 					SpecialPage::getTitleFor( 'MobileOptions' )->
-						getLocalUrl( [ 'returnto' => $returnToTitle ] ),
+						getLocalURL( [ 'returnto' => $returnToTitle ] ),
 					MinervaUI::iconClass( 'settings', 'before' ),
 					[ 'data-event-name' => 'settings' ]
 				);
@@ -659,7 +659,7 @@ class SkinMinerva extends SkinTemplate {
 		$menu->insert( 'home' )
 			->addComponent(
 				$this->msg( 'mobile-frontend-home-button' )->escaped(),
-				Title::newMainPage()->getLocalUrl(),
+				Title::newMainPage()->getLocalURL(),
 				MinervaUI::iconClass( 'home', 'before' ),
 				[ 'data-event-name' => 'home' ]
 			);
@@ -668,7 +668,7 @@ class SkinMinerva extends SkinTemplate {
 		$menu->insert( 'random' )
 			->addComponent(
 				$this->msg( 'mobile-frontend-random-button' )->escaped(),
-				SpecialPage::getTitleFor( 'Randompage' )->getLocalUrl() . '#/random',
+				SpecialPage::getTitleFor( 'Randompage' )->getLocalURL() . '#/random',
 				MinervaUI::iconClass( 'random', 'before' ),
 				[
 					'id' => 'randomButton',
@@ -733,7 +733,7 @@ class SkinMinerva extends SkinTemplate {
 			$menu->insert( 'auth', false )
 				->addComponent(
 					$username,
-					Title::newFromText( $username, NS_USER )->getLocalUrl(),
+					Title::newFromText( $username, NS_USER )->getLocalURL(),
 					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
 					[ 'data-event-name' => 'profile' ]
 				)
@@ -914,7 +914,7 @@ class SkinMinerva extends SkinTemplate {
 				// Talk page icon is provided by mobile.userpage.icons for time being
 				'userPageIconClass' => MinervaUI::iconClass( 'talk', 'before', 'talk', 'mf' ),
 				'talkPageTitle' => $talkPage->getPrefixedURL(),
-				'talkPageLink' => $talkPage->getLocalUrl(),
+				'talkPageLink' => $talkPage->getLocalURL(),
 				'talkPageLinkTitle' => $this->msg(
 					'mobile-frontend-user-page-talk' )->escaped(),
 				'contributionsPageLink' => SpecialPage::getTitleFor(
@@ -966,7 +966,7 @@ class SkinMinerva extends SkinTemplate {
 	protected function prepareMenuButton( BaseTemplate $tpl ) {
 		// menu button
 		$url = SpecialPageFactory::exists( 'MobileMenu' ) ?
-			SpecialPage::getTitleFor( 'MobileMenu' )->getLocalUrl() : '#';
+			SpecialPage::getTitleFor( 'MobileMenu' )->getLocalURL() : '#';
 
 		$tpl->set( 'menuButton',
 			Html::element( 'a', [
@@ -1011,7 +1011,7 @@ class SkinMinerva extends SkinTemplate {
 		$msg = $this->msg( 'aboutsite' );
 		if ( $title && !$msg->isDisabled() ) {
 			$menu->insert( 'about' )
-				->addComponent( $msg->text(), $title->getLocalUrl() );
+				->addComponent( $msg->text(), $title->getLocalURL() );
 		}
 
 		// Disclaimers link
@@ -1019,7 +1019,7 @@ class SkinMinerva extends SkinTemplate {
 		$msg = $this->msg( 'disclaimers' );
 		if ( $title && !$msg->isDisabled() ) {
 			$menu->insert( 'disclaimers' )
-				->addComponent( $msg->text(), $title->getLocalUrl() );
+				->addComponent( $msg->text(), $title->getLocalURL() );
 		}
 
 		// Allow other extensions to add or override tools
