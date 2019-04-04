@@ -801,7 +801,8 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string
 	 */
 	protected function getHistoryUrl( Title $title ) {
-		return SpecialPageFactory::exists( 'History' ) ?
+		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
+			SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->getUser() ) ?
 			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
 			$title->getLocalURL( [ 'action' => 'history' ] );
 	}
