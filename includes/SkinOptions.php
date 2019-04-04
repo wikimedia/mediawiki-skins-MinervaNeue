@@ -34,6 +34,7 @@ final class SkinOptions {
 	const OPTIONS_MOBILE_BETA = 'beta';
 	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
 	const OPTIONS_HISTORY_PAGE_ACTIONS = 'historyInPageActions';
+	const OPTION_OVERFLOW_SUBMENU = 'overflowSubmenu';
 
 	/** @var array skin specific options */
 	private $skinOptions = [
@@ -56,6 +57,7 @@ final class SkinOptions {
 		self::OPTION_PAGE_ISSUES => false,
 		self::OPTIONS_TALK_AT_TOP => false,
 		self::OPTIONS_HISTORY_PAGE_ACTIONS => false,
+		self::OPTION_OVERFLOW_SUBMENU => false,
 	];
 
 	/**

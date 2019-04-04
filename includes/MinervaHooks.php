@@ -28,6 +28,8 @@ use MediaWiki\Minerva\SkinOptions;
  *	on<HookName>()
  */
 class MinervaHooks {
+	const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
+
 	/**
 	 * Register mobile web beta features
 	 * @see https://www.mediawiki.org/wiki/
@@ -80,6 +82,13 @@ class MinervaHooks {
 					'MinervaHistoryInPageActions',
 					'skin-minerva',
 					$config->get( 'MinervaHistoryInPageActions' )
+				)
+			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					self::FEATURE_OVERFLOW_PAGE_ACTIONS,
+					'skin-minerva',
+					$config->get( self::FEATURE_OVERFLOW_PAGE_ACTIONS )
 				)
 			);
 		} catch ( RuntimeException $e ) {
@@ -221,6 +230,9 @@ class MinervaHooks {
 				SkinOptions::OPTION_MOBILE_OPTIONS => true,
 				SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaHistoryInPageActions'
+				),
+				SkinOptions::OPTION_OVERFLOW_SUBMENU => $featureManager->isFeatureAvailableForCurrentUser(
+					self::FEATURE_OVERFLOW_PAGE_ACTIONS
 				),
 			] );
 		}

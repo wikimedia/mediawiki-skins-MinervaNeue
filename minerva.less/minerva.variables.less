@@ -1,7 +1,7 @@
 @import 'mediawiki.ui/variables';
 
 @z-indexBase: 0;
-@z-indexOverOverlay: 2;
+@z-indexOverOverlay: 3;
 
 /**
  * System font stack for sans-serif fonts
@@ -38,7 +38,6 @@
 
 // Headings
 @firstHeadingFontSize: 2.6525em; // 42px
-@pageActionFontSize: 1.1em; // Icons are 24px square.
 @fontSizeH1: 1.7em;
 @fontSizeH2: 1.5em;
 @fontSizeH3: 1.2em;
@@ -49,7 +48,7 @@
 
 // Header
 @headerHeight: 3.35em;
-@headerMarginTop: -1px;  // used to hide the header border top when a banner is not present
+@headerMarginTop: -1px; // used to hide the header border top when a banner is not present
 @searchBoxWidth: 375/16em;
 @iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
 @deviceWidthTabletEms: unit( @width-breakpoint-tablet/16, em );
@@ -61,6 +60,8 @@
 // Page actions
 @taglineFontSize: 0.85em;
 @pageActionBorder: 1px;
+@pageActionFontSize: 0.9em;
+@pageActionToolbarHeight: 44px; // total height is 46px. 2px added by border on .page-actions-menu
 
 // colors
 @chromeColor: @grayLightest;
@@ -125,7 +126,9 @@
 @notificationColorUnread: #fff;
 
 // z-index:
-@z-indexOverlay: 1;
+@z-indexOccluded: -1;
+@z-indexDrawer: 1;
+@z-indexOverlay: 2;
 
 // Print specific
 @colorPrintSubtle: #999;
