@@ -49,7 +49,7 @@ class MinervaTemplate extends BaseTemplate {
 	 * Returns available page actions
 	 * @return array
 	 */
-	public function getPageActions() {
+	protected function getPageActions() {
 		return $this->isFallbackEditor() ? [] : $this->data['page_actions'];
 	}
 
@@ -100,7 +100,7 @@ class MinervaTemplate extends BaseTemplate {
 		$html = '';
 
 		if ( $actions ) {
-			$html = $templateParser->processTemplate( 'pageActionMenu',  [ 'pageactions' => $actions ] );
+			$html = $templateParser->processTemplate( 'pageActionMenu',  [ 'pageActions' => $actions ] );
 		}
 		return $html;
 	}

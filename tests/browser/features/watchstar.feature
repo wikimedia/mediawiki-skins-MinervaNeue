@@ -1,4 +1,4 @@
-@chrome @integration @smoke @test2.m.wikipedia.org @login @vagrant
+@chrome @smoke @test2.m.wikipedia.org @login @vagrant
 Feature: Manage Watchlist
 
   Background:

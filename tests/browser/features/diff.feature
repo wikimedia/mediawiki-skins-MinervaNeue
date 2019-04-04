@@ -1,7 +1,7 @@
 @chrome @en.m.wikipedia.beta.wmflabs.org @firefox @test2.m.wikipedia.org @vagrant @login
 Feature: Page diff
 
-  @smoke @editing @integration
+  @smoke @editing
   Scenario: Added and removed content
     Given I am logged into the mobile website
       And I am on a page that has the following edits:

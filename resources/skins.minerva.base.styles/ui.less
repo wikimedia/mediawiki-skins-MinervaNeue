@@ -152,7 +152,7 @@ main {
 	background-color: #fff; // Support Fennec, Opera Mini: Remove default background, see T38490.
 	background-position: left @searchIconGutter center;
 	background-repeat: no-repeat;
-	.background-size( @searchIconSize, @searchIconSize );
+	background-size: @searchIconSize;
 	// Support Safari: Get rid of rounded corners.
 	-webkit-appearance: none;
 	width: 100%;
@@ -163,9 +163,12 @@ main {
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
 	// Keyboard focus is taken care of below at `.search-box .search:focus`.
 	outline: 0;
+	.transition( ~'border-color 250ms, box-shadow 250ms' );
 }
 
-.search-box .search:focus {
+// Provide focus styles only in non-JS and overlay to prevent double transition.
+.client-nojs .search-box .search:focus,
+.search-overlay .search-box .search:focus {
 	border-color: @colorProgressive;
 	box-shadow: inset 0 0 0 1px @colorProgressive, 0 1px 1px rgba( 0, 0, 0, 0.05 );
 }
