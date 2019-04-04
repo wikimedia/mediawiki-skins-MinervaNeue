@@ -48,7 +48,7 @@
 		 * @instance
 		 */
 		onBackToTopClick: function () {
-			// eslint-disable-next-line jquery/no-global-selector, jquery/no-animate
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$( 'html, body' ).animate( { scrollTop: 0 }, 400 );
 		}
 	} );

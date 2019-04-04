@@ -3,7 +3,7 @@
 		Toggler = mobile.Toggler,
 		TableOfContents = mobile.toc.TableOfContents,
 		eventBus = mobile.eventBusSingleton,
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$toc = $( '#toc' );
 
 	/**

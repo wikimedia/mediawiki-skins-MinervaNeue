@@ -5,10 +5,10 @@
 		SearchGateway = mobile.search.SearchGateway,
 		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
 		searchLogger = mobile.search.MobileWebSearchLogger,
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
 		placeholder = $searchInput.attr( 'placeholder' ),
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchBar = $( '#searchInput, #searchIcon, .skin-minerva-search-trigger' ),
 		searchRoute = new RegExp( /\/search/ ),
 		searchOverlayInstance;
