@@ -62,6 +62,14 @@ class MinervaPage extends Page {
 		this.setCookie( 'optin', 'beta' );
 	}
 
+	waitUntilResourceLoaderModuleReady( moduleName ) {
+		browser.waitUntil( () => {
+			const state = browser.execute( ( m ) => {
+				return mw.loader.getState( m );
+			}, moduleName );
+			return state.value === 'ready';
+		} );
+	}
 }
 
 module.exports = MinervaPage;

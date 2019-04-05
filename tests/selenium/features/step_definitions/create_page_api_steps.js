@@ -1,13 +1,10 @@
-const { api, ArticlePage } = require( '../support/world' ),
-	Api = require( 'wdio-mediawiki/Api' );
-
-const login = () => {
-	return api.loginGetEditToken( {
-		username: browser.options.username,
-		password: browser.options.password,
-		apiUrl: `${browser.options.baseUrl}/api.php`
-	} );
-};
+const { api, ArticlePage } = require( '../support/world' );
+const Api = require( 'wdio-mediawiki/Api' );
+const {
+	iAmOnPage,
+	createPages,
+	createPage
+} = require( './common_steps' );
 
 const waitForPropagation = ( timeMs ) => {
 	// wait 2 seconds so the change can propogate.
@@ -17,7 +14,6 @@ const waitForPropagation = ( timeMs ) => {
 
 const iAmInAWikiThatHasCategories = ( title ) => {
 	const msg = 'This page is used by Selenium to test category related features.',
-		summary = 'edit by selenium test',
 		wikitext = `
             ${msg}
 
@@ -26,11 +22,11 @@ const iAmInAWikiThatHasCategories = ( title ) => {
             [[Category:Selenium hidden category]]
         `;
 
-	login().then( () => api.batch( [
-		[ 'create', 'Category:Selenium artifacts', msg, summary ],
-		[ 'create', 'Category:Test category', msg, summary ],
-		[ 'create', 'Category:Selenium hidden category', '__HIDDENCAT__', summary ]
-	] ) )
+	createPages( [
+		[ 'create', 'Category:Selenium artifacts', msg ],
+		[ 'create', 'Category:Test category', msg ],
+		[ 'create', 'Category:Selenium hidden category', '__HIDDENCAT__' ]
+	] )
 		.catch( ( err ) => {
 			if ( err.code === 'articleexists' ) {
 				return;
@@ -63,8 +59,20 @@ const iAmOnAPageThatHasTheFollowingEdits = function ( table ) {
 	waitForPropagation( 5000 );
 };
 
+const iGoToAPageThatHasLanguages = () => {
+	const wikitext = `This page is used by Selenium to test language related features.
+
+	[[es:Selenium language test page]]
+`;
+
+	return createPage( 'Selenium language test page', wikitext ).then( () => {
+		iAmOnPage( 'Selenium language test page' );
+	} );
+};
+
 module.exports = {
 	waitForPropagation,
 	iAmOnAPageThatHasTheFollowingEdits,
-	iAmInAWikiThatHasCategories
+	iAmInAWikiThatHasCategories,
+	iGoToAPageThatHasLanguages
 };
