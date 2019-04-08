@@ -18,9 +18,10 @@
  * @file
  */
 
-use MediaWiki\Minerva\MenuBuilder;
-use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
+use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Minerva\SkinUserPageHelper;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -53,8 +54,28 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * Initalized main menu. Please use getter.
+	 * @return MainMenuDirector
+	 *
+	 */
+	private $mainMenu;
+
+	/**
+	 * Build the Main Menu Director by passing the skin options
+	 *
+	 * @return MainMenuDirector
+	 */
+	protected function getMainMenu() {
+		if ( !$this->mainMenu ) {
+			$this->mainMenu = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.MainDirector' );
+		}
+		return $this->mainMenu;
+	}
+
+	/**
 	 * Returns the site name for the footer, either as a text or <img> tag
 	 * @return string
+	 * @throws ConfigException
 	 */
 	public function getSitename() {
 		$config = $this->getConfig();
@@ -118,7 +139,7 @@ class SkinMinerva extends SkinTemplate {
 		$tpl->set( 'unstyledContent', $out->getProperty( 'unstyledContent' ) );
 
 		// Set the links for the main menu
-		$tpl->set( 'menu_data', $this->getMenuData() );
+		$tpl->set( 'menu_data', $this->getMainMenu()->getMenuData() );
 
 		// Set the links for page secondary actions
 		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
@@ -428,122 +449,6 @@ class SkinMinerva extends SkinTemplate {
 			] );
 		}
 	}
-
-	/**
-	 * Inserts the Contributions menu item into the menu.
-	 *
-	 * @param MenuBuilder $menu
-	 * @param User $user The user to whom the contributions belong
-	 */
-	private function insertContributionsMenuItem( MenuBuilder $menu, User $user ) {
-		$menu->insert( 'contribs' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
-				SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalUrl(),
-				MinervaUI::iconClass( 'contributions', 'before' ),
-				[ 'data-event-name' => 'contributions' ]
-			);
-	}
-
-	/**
-	 * Inserts the Watchlist menu item into the menu for a logged in user
-	 *
-	 * @param MenuBuilder $menu
-	 * @param User $user that must be logged in
-	 */
-	protected function insertWatchlistMenuItem( MenuBuilder $menu, User $user ) {
-		$watchTitle = SpecialPage::getTitleFor( 'Watchlist' );
-
-		// Watchlist link
-		$watchlistQuery = [];
-		// Avoid fatal when MobileFrontend not available (T171241)
-		if ( class_exists( 'SpecialMobileWatchlist' ) ) {
-			$view = $user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
-			$filter = $user->getOption( SpecialMobileWatchlist::FILTER_OPTION_NAME, false );
-			if ( $view ) {
-				$watchlistQuery['watchlistview'] = $view;
-			}
-			if ( $filter && $view === 'feed' ) {
-				$watchlistQuery['filter'] = $filter;
-			}
-		}
-
-		$menu->insert( 'watchlist' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
-				$watchTitle->getLocalURL( $watchlistQuery ),
-				MinervaUI::iconClass( 'watchlist', 'before' ),
-				[ 'data-event-name' => 'watchlist' ]
-			);
-	}
-
-	/**
-	 * If the user is using a mobile device (or the UA presents itself as a mobile device), then the
-	 * Settings menu item is inserted into the menu; otherwise the Preferences menu item is inserted.
-	 *
-	 * @param MenuBuilder $menu
-	 */
-	protected function insertSettingsMenuItem( MenuBuilder $menu ) {
-		$returnToTitle = $this->getTitle()->getPrefixedText();
-
-		// Links specifically for mobile mode
-		if ( $this->skinOptions->get( SkinOptions::OPTION_MOBILE_OPTIONS ) ) {
-			// Settings link
-			$menu->insert( 'settings' )
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
-					SpecialPage::getTitleFor( 'MobileOptions' )->
-						getLocalURL( [ 'returnto' => $returnToTitle ] ),
-					MinervaUI::iconClass( 'settings', 'before' ),
-					[ 'data-event-name' => 'settings' ]
-				);
-
-		// Links specifically for desktop mode
-		} else {
-
-			// Preferences link
-			$menu->insert( 'preferences' )
-				->addComponent(
-					$this->msg( 'preferences' )->escaped(),
-					SpecialPage::getTitleFor( 'Preferences' )->getLocalURL(),
-					MinervaUI::iconClass( 'settings', 'before' ),
-					[ 'data-event-name' => 'preferences' ]
-				);
-		}
-	}
-
-	/**
-	 * Builds the personal tools menu item group.
-	 *
-	 * ... by adding the Watchlist, Settings, and Log{in,out} menu items in the given order.
-	 *
-	 * @param MenuBuilder $menu
-	 */
-	protected function buildPersonalTools( MenuBuilder $menu ) {
-		$this->insertLogInOutMenuItem( $menu );
-
-		$user = $this->getUser();
-
-		if ( $user->isLoggedIn() ) {
-			$this->insertWatchlistMenuItem( $menu, $user );
-			$this->insertContributionsMenuItem( $menu, $user );
-		}
-	}
-
-	/**
-	 * Prepares and returns urls and links personal to the given user
-	 * @return array
-	 */
-	protected function getPersonalTools() {
-		$menu = new MenuBuilder();
-
-		$this->buildPersonalTools( $menu );
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'personal', &$menu ] );
-		return $menu->getEntries();
-	}
-
 	/**
 	 * Rewrites the language list so that it cannot be contaminated by other extensions with things
 	 * other than languages
@@ -562,131 +467,12 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Like <code>SkinMinerva#getDiscoveryTools</code> and <code>#getPersonalTools</code>, create
-	 * a group of configuration-related menu items. Currently, only the Settings menu item is in the
-	 * group.
-	 *
-	 * @return array
-	 */
-	private function getConfigurationTools() {
-		$menu = new MenuBuilder();
-
-		$this->insertSettingsMenuItem( $menu );
-
-		return $menu->getEntries();
-	}
-
-	/**
-	 * Prepares a list of links that have the purpose of discovery in the main navigation menu
-	 * @return array
-	 */
-	protected function getDiscoveryTools() {
-		$config = $this->getConfig();
-		$menu = new MenuBuilder();
-		$factory = MediaWikiServices::getInstance()->getSpecialPageFactory();
-
-		// Home link
-		$menu->insert( 'home' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-home-button' )->escaped(),
-				Title::newMainPage()->getLocalURL(),
-				MinervaUI::iconClass( 'home', 'before' ),
-				[ 'data-event-name' => 'home' ]
-			);
-
-		// Random link
-		$menu->insert( 'random' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-random-button' )->escaped(),
-				SpecialPage::getTitleFor( 'Randompage' )->getLocalURL() . '#/random',
-				MinervaUI::iconClass( 'random', 'before' ),
-				[
-					'id' => 'randomButton',
-					'data-event-name' => 'random',
-				]
-			);
-
-		// Nearby link (if supported)
-		if ( $factory->exists( 'Nearby' ) ) {
-			$menu->insert( 'nearby', $isJSOnly = true )
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
-					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
-					MinervaUI::iconClass( 'nearby', 'before', 'nearby' ),
-					[ 'data-event-name' => 'nearby' ]
-				);
-		}
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'discovery', &$menu ] );
-		return $menu->getEntries();
-	}
-
-	/**
 	 * Prepares a url to the Special:UserLogin with query parameters
 	 * @param array $query
 	 * @return string
 	 */
 	public function getLoginUrl( $query ) {
 		return SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $query );
-	}
-
-	/**
-	 * Creates a login or logout button
-	 *
-	 * @param MenuBuilder $menu
-	 */
-	protected function insertLogInOutMenuItem( MenuBuilder $menu ) {
-		$query = [];
-		$returntoquery = [];
-
-		if ( !$this->getRequest()->wasPosted() ) {
-			$returntoquery = $this->getRequest()->getValues();
-			unset( $returntoquery['title'] );
-			unset( $returntoquery['returnto'] );
-			unset( $returntoquery['returntoquery'] );
-		}
-		$title = $this->getTitle();
-		// Don't ever redirect back to the login page (bug 55379)
-		if ( !$title->isSpecial( 'Userlogin' ) ) {
-			$query[ 'returnto' ] = $title->getPrefixedText();
-		}
-
-		$user = $this->getUser();
-		if ( $user->isLoggedIn() ) {
-			if ( !empty( $returntoquery ) ) {
-				$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
-			}
-			$url = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $query );
-			$username = $user->getName();
-
-			$menu->insert( 'auth', false )
-				->addComponent(
-					$username,
-					Title::newFromText( $username, NS_USER )->getLocalURL(),
-					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
-					[ 'data-event-name' => 'profile' ]
-				)
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-logout' )->escaped(),
-					$url,
-					MinervaUI::iconClass(
-						'logout', 'element', 'secondary-action truncated-text' ),
-					[ 'data-event-name' => 'logout' ]
-				);
-		} else {
-			// unset campaign on login link so as not to interfere with A/B tests
-			unset( $returntoquery['campaign'] );
-			$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
-			$url = $this->getLoginUrl( $query );
-			$menu->insert( 'auth', false )
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-login' )->escaped(),
-					$url,
-					MinervaUI::iconClass( 'login', 'before' ),
-					[ 'data-event-name' => 'login' ]
-				);
-		}
 	}
 
 	/**
@@ -928,34 +714,6 @@ class SkinMinerva extends SkinTemplate {
 		// These banners unlike 'banners' show inside the main content chrome underneath the
 		// page actions.
 		$tpl->set( 'internalBanner', '' );
-	}
-
-	/**
-	 * Returns an array of sitelinks to add into the main menu footer.
-	 * @return array Array of site links
-	 */
-	protected function getSiteLinks() {
-		$menu = new MenuBuilder();
-
-		// About link
-		$title = Title::newFromText( $this->msg( 'aboutpage' )->inContentLanguage()->text() );
-		$msg = $this->msg( 'aboutsite' );
-		if ( $title && !$msg->isDisabled() ) {
-			$menu->insert( 'about' )
-				->addComponent( $msg->text(), $title->getLocalURL() );
-		}
-
-		// Disclaimers link
-		$title = Title::newFromText( $this->msg( 'disclaimerpage' )->inContentLanguage()->text() );
-		$msg = $this->msg( 'disclaimers' );
-		if ( $title && !$msg->isDisabled() ) {
-			$menu->insert( 'disclaimers' )
-				->addComponent( $msg->text(), $title->getLocalURL() );
-		}
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'sitelinks', &$menu ] );
-		return $menu->getEntries();
 	}
 
 	/**
@@ -1233,23 +991,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Returns a data representation of the main menus
-	 * @return array
-	 */
-	protected function getMenuData() {
-		$data = [
-			'groups' => [
-				$this->getDiscoveryTools(),
-				$this->getPersonalTools(),
-				$this->getConfigurationTools(),
-			],
-			'sitelinks' => $this->getSiteLinks(),
-		];
-
-		return $data;
-	}
-
-	/**
 	 * Returns array of config variables that should be added only to this skin
 	 * for use in JavaScript.
 	 * @return array
@@ -1258,7 +999,7 @@ class SkinMinerva extends SkinTemplate {
 		$vars = [
 			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
-			'wgMinervaMenuData' => $this->getMenuData(),
+			'wgMinervaMenuData' => $this->getMainMenu()->getMenuData(),
 		];
 
 		return $vars;

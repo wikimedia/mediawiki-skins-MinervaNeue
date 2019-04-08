@@ -67,14 +67,17 @@
 	"ValidSkinNames": {
 		"minerva": "MinervaNeue"
 	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Minerva\\Menu\\": "includes/menu/"
+	},
 	"AutoloadClasses": {
 		"MinervaUI": "includes/MinervaUI.php",
 		"MinervaHooks": "includes/MinervaHooks.php",
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/skins/SkinMinerva.php",
 		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",
-		"MediaWiki\\Minerva\\MenuBuilder": "includes/skins/MenuBuilder.php",
-		"MediaWiki\\Minerva\\MenuEntry": "includes/skins/MenuEntry.php",
+		"MediaWiki\\Minerva\\Menu\\Group": "includes/menu/Group.php",
+		"MediaWiki\\Minerva\\MenuBuilder": "includes/menu/Group.php",
 		"MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule": "includes/ResourceLoaderLessVarFileModule.php",
 		"MediaWiki\\Minerva\\SkinOptions": "includes/SkinOptions.php",
 		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
@@ -341,7 +344,9 @@
 				"random": "resources/skins.minerva.mainMenu.icons/random.svg",
 				"settings": "resources/skins.minerva.mainMenu.icons/settings.svg",
 				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
-				"contributions": "resources/skins.minerva.mainMenu.icons/contributions.svg"
+				"contributions": "resources/skins.minerva.mainMenu.icons/contributions.svg",
+				"recentchanges": "resources/skins.minerva.mainMenu.icons/recentchanges.svg",
+				"specialpages": "resources/skins.minerva.mainMenu.icons/specialpages.svg"
 			}
 		},
 		"skins.minerva.mainMenu.styles": {

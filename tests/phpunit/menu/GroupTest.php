@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\MediaWiki\Minerva;
+namespace Tests\MediaWiki\Minerva\Menu;
 
-use MediaWiki\Minerva\MenuBuilder;
-use MediaWiki\Minerva\MenuEntry;
+use MediaWiki\Minerva\Menu\Group;
 
 /**
  * @group MinervaNeue
+ * @coversDefaultClass \MediaWiki\Minerva\Menu\Group
  */
-class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
+class GroupTest extends \MediaWikiTestCase {
 	private $homeComponent = [
 		'text' => 'Home',
 		'href' => '/Main_page',
@@ -23,22 +23,22 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	];
 
 	/**
-	 * @covers \MediaWiki\Minerva\MenuBuilder::getEntries
+	 * @covers ::getEntries
 	 */
 	public function testItShouldntHaveEntriesByDefault() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 
 		$this->assertEmpty( $menu->getEntries() );
 	}
 
 	/**
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insert
-	 * @covers \MediaWiki\Minerva\MenuBuilder::search
-	 * @covers \MediaWiki\Minerva\MenuBuilder::getEntries
-	 * @covers \MediaWiki\Minerva\MenuEntry::addComponent
+	 * @covers ::insert
+	 * @covers ::search
+	 * @covers ::getEntries
+	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
 	 */
 	public function testInsertingAnEntry() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'home' )
 			->addComponent(
 				$this->homeComponent['text'],
@@ -60,13 +60,13 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insert
-	 * @covers \MediaWiki\Minerva\MenuBuilder::search
-	 * @covers \MediaWiki\Minerva\MenuBuilder::getEntries
-	 * @covers \MediaWiki\Minerva\MenuEntry::addComponent
+	 * @covers ::insert
+	 * @covers ::search
+	 * @covers ::getEntries
+	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
 	 */
 	public function testInsertingAnEntryAfterAnother() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'home' )
 			->addComponent(
 				$this->homeComponent['text'],
@@ -113,12 +113,12 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @expectedException \DomainException
 	 * @expectedExceptionMessage The "home" entry doesn't exist.
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insertAfter
-	 * @covers \MediaWiki\Minerva\MenuBuilder::search
-	 * @covers \MediaWiki\Minerva\MenuEntry::addComponent
+	 * @covers ::insertAfter
+	 * @covers ::search
+	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
 	 */
 	public function testInsertAfterWhenTargetEntryDoesntExist() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insertAfter( 'home', 'nearby' )
 			->addComponent(
 				$this->nearbyComponent['text'],
@@ -130,10 +130,10 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @expectedException \DomainException
 	 * @expectedExceptionMessage The "car" entry already exists.
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insertAfter
+	 * @covers ::insertAfter
 	 */
 	public function testInsertAfterWithAnEntryWithAnExistingName() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'home' );
 		$menu->insert( 'car' );
 		$menu->insertAfter( 'home', 'car' );
@@ -142,20 +142,20 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @expectedException \DomainException
 	 * @expectedExceptionMessage The "home" entry already exists.
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insert
+	 * @covers ::insert
 	 */
 	public function testInsertingAnEntryWithAnExistingName() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'home' );
 		$menu->insert( 'home' );
 	}
 
 	/**
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insert
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insertAfter
+	 * @covers ::insert
+	 * @covers ::insertAfter
 	 */
 	public function testInsertingAnEntryAfterAnotherOne() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'first' );
 		$menu->insert( 'last' );
 		$menu->insertAfter( 'first', 'middle' );
@@ -167,9 +167,9 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insert
-	 * @covers \MediaWiki\Minerva\MenuBuilder::getEntries
-	 * @covers \MediaWiki\Minerva\MenuEntry::addComponent
+	 * @covers ::insert
+	 * @covers ::getEntries
+	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
 	 */
 	public function testinsertingAnEntryWithMultipleComponents() {
 		$authLoginComponent = [
@@ -185,7 +185,7 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 				'mw-ui-icon mw-ui-icon-element secondary-logout secondary-action truncated-text',
 		];
 
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'auth' )
 			->addComponent(
 				$authLoginComponent['text'],
@@ -212,12 +212,12 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Minerva\MenuBuilder::insert
-	 * @covers \MediaWiki\Minerva\MenuBuilder::getEntries
-	 * @covers \MediaWiki\Minerva\MenuEntry::addComponent
+	 * @covers ::insert
+	 * @covers ::getEntries
+	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
 	 */
 	public function testInsertingAJavascriptOnlyEntry() {
-		$menu = new MenuBuilder();
+		$menu = new Group();
 		$menu->insert( 'nearby', $isJSOnly = true )
 			->addComponent(
 				$this->nearbyComponent['text'],
@@ -236,18 +236,4 @@ class MenuBuilderTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $expectedEntries, $menu->getEntries() );
 	}
 
-	/**
-	 * @covers \MediaWiki\Minerva\MenuEntry::__construct
-	 * @covers \MediaWiki\Minerva\MenuEntry::getName()
-	 * @covers \MediaWiki\Minerva\MenuEntry::isJSOnly()
-	 * @covers \MediaWiki\Minerva\MenuEntry::getComponents()
-	 */
-	public function testMenuEntryConstruction() {
-		$name = 'test';
-		$isJSOnly = true;
-		$entry = new MenuEntry( $name, $isJSOnly );
-		$this->assertSame( $name, $entry->getName() );
-		$this->assertSame( $isJSOnly, $entry->isJSOnly() );
-		$this->assertSame( [], $entry->getComponents() );
-	}
 }
