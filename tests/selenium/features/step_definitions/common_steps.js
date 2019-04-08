@@ -71,6 +71,12 @@ const iShouldSeeAToastNotification = () => {
 	ArticlePage.notification_element.waitForVisible();
 };
 
+const iShouldSeeAToastNotificationWithMessage = ( msg ) => {
+	iShouldSeeAToastNotification();
+	const notificationBody = ArticlePage.notification_element.element( '.mw-notification-content' );
+	assert.strictEqual( notificationBody.getText().indexOf( msg ) > -1, true );
+};
+
 const iClickTheBrowserBackButton = () => {
 	browser.back();
 };
@@ -86,17 +92,24 @@ const iSeeAnOverlay = () => {
 };
 
 const iDoNotSeeAnOverlay = () => {
+	waitForPropagation( 5000 );
 	browser.waitUntil( () => !ArticlePageWithOverlay.overlay_element.isVisible() );
 	assert.strictEqual( ArticlePageWithOverlay.overlay_element.isVisible(), false );
 };
 
+const iAmUsingMobileScreenResolution = () => {
+	browser.setViewportSize( { width: 320, height: 480 }, true );
+};
+
 module.exports = {
 	waitForPropagation,
+	iAmUsingMobileScreenResolution,
 	iSeeAnOverlay, iDoNotSeeAnOverlay,
 	iClickTheOverlayCloseButton,
 	iClickTheBrowserBackButton,
 	createPage, createPages,
 	pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
+	iShouldSeeAToastNotificationWithMessage,
 	iAmLoggedIntoTheMobileWebsite,
 	iAmUsingTheMobileSite,
 	iAmLoggedIn, iAmOnPage, iAmInBetaMode

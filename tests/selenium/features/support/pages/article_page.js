@@ -10,6 +10,13 @@ const MinervaPage = require( './minerva_page' );
 
 class ArticlePage extends MinervaPage {
 
+	get watch_element() { return $( '#ca-watch' ); }
+	get talk_element() { return $( '.talk ' ); }
+	get watched_element() { return $( '.mw-ui-icon-mf-watched' ); }
+	get menu_button_element() { return $( '#mw-mf-main-menu-button' ); }
+	get search_icon_element() { return $( '#searchIcon' ); }
+	get menu_element() { return $( 'nav' ); }
+	get user_links_element() { return $( '.user-links' ); }
 	get notifications_button_element() { return $( '.user-button' ); }
 	get category_element() { return $( '.category-button' ); }
 	get edit_link_element() { return $( '#ca-edit' ); }

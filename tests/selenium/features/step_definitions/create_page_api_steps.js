@@ -1,5 +1,6 @@
 const { api, ArticlePage } = require( '../support/world' );
 const Api = require( 'wdio-mediawiki/Api' );
+const Page = require( 'wdio-mediawiki/Page' );
 const {
 	iAmOnPage,
 	waitForPropagation,
@@ -65,9 +66,48 @@ const iGoToAPageThatHasLanguages = () => {
 	} );
 };
 
+const watch = ( title ) => {
+	// Ideally this would use the API but mwbot / Selenium's API can't do this right now
+	// So we run the non-js workflow.
+	const page = new Page();
+	page.openTitle( title, { action: 'watch' } );
+	browser.element( '#mw-content-text button[type="submit"]' ).click();
+	waitForPropagation( 10000 );
+};
+
+const iAmViewingAWatchedPage = () => {
+	const title = `I am on the "Selenium mobile watched page test ${new Date().getTime()}`;
+
+	createPage( title, 'watch test' ).then( () => {
+		watch( title );
+		// navigate away from page
+		iAmOnPage( 'Main Page' );
+		waitForPropagation( 5000 );
+		// and back to page
+		iAmOnPage( title );
+		waitForPropagation( 5000 );
+	} );
+};
+
+const iAmViewingAnUnwatchedPage = () => {
+	// new pages are watchable but unwatched by default
+	const title = 'I am on the "Selenium mobile unwatched test ' + new Date();
+	iAmOnPage( title );
+};
+
+const iAmOnAPageWithNoTalkTopics = () => {
+	const title = `Selenium talk test ${new Date()}`;
+
+	createPage( title, 'Selenium' );
+	iAmOnPage( title );
+};
+
 module.exports = {
 	waitForPropagation,
 	iAmOnAPageThatHasTheFollowingEdits,
+	iAmOnAPageWithNoTalkTopics,
+	iAmViewingAWatchedPage,
+	iAmViewingAnUnwatchedPage,
 	iAmInAWikiThatHasCategories,
 	iGoToAPageThatHasLanguages
 };
