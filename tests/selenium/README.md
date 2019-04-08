@@ -58,7 +58,7 @@ Example: https://gerrit.wikimedia.org/r/#/c/mediawiki/skins/MinervaNeue/+/501792
 ## Step 2 - add boilerplate for missing steps
 Run the feature in cucumber
 ```
-./node_modules/.bin/wdio tests/selenium/wdio.conf.cucumber.js --spec tests/selenium/features/<name>.feature
+npm run selenium-test-cucumber -- --spec tests/selenium/features/<name>.feature
 ```
 
 You will get warnings such as:

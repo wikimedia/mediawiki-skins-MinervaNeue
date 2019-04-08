@@ -7,7 +7,7 @@ const { defineSupportCode } = require( 'cucumber' ),
 		iGoToAPageThatHasLanguages } = require( './create_page_api_steps' ),
 	{
 		pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
-		iAmUsingTheMobileSite,
+		iAmUsingTheMobileSite, iClickTheBrowserBackButton,
 		iAmLoggedIntoTheMobileWebsite,
 		iAmOnPage, iAmInBetaMode
 	} = require( './common_steps' ),
@@ -21,6 +21,10 @@ const { defineSupportCode } = require( 'cucumber' ),
 		iTypeIntoTheEditor, iClickContinue, iClickSubmit, iSayOkayInTheConfirmDialog,
 		theTextOfTheFirstHeadingShouldBe, thereShouldBeARedLinkWithText
 	} = require( './editor_steps' ),
+	{ iHaveNoNotifications, iClickOnTheNotificationIcon,
+		iShouldSeeTheNotificationsOverlay, iClickTheNotificationsOverlayCloseButton,
+		iShouldNotSeeTheNotificationsOverlay
+	} = require( './notification_steps' ),
 	{
 		iClickOnTheHistoryLinkInTheLastModifiedBar
 	} = require( './history_steps' );
@@ -48,6 +52,7 @@ defineSupportCode( function ( { Then, When, Given } ) {
 
 	Given( /^I am logged into the mobile website$/, iAmLoggedIntoTheMobileWebsite );
 	Then( /^I should see a toast notification$/, iShouldSeeAToastNotification );
+	When( /I click the browser back button/, iClickTheBrowserBackButton );
 
 	// Page steps
 	Given( /^I am in a wiki that has categories$/, () => {
@@ -66,6 +71,13 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	// diff steps
 	Then( /^I should see "(.*?)" as added content$/, iShouldSeeAddedContent );
 	Then( /^I should see "(.*?)" as removed content$/, iShouldSeeRemovedContent );
+
+	// notifications
+	Then( /I have no notifications/, iHaveNoNotifications );
+	When( /I click on the notification icon/, iClickOnTheNotificationIcon );
+	When( /I click the notifications overlay close button/, iClickTheNotificationsOverlayCloseButton );
+	Then( /after 1 seconds I should not see the notifications overlay/, iShouldNotSeeTheNotificationsOverlay );
+	Then( /I should see the notifications overlay/, iShouldSeeTheNotificationsOverlay );
 
 	// Category steps
 	When( /^I click on the category button$/, iClickOnTheCategoryButton );
