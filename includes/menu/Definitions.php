@@ -315,7 +315,22 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertCommunityPortal( Group $group ) {
-		/// placeholder for a follow-up patch @see T216152
+		$titleName = \MessageCache::singleton()->get( 'Portal-url' );
+		if ( !$titleName || \Http::isValidURI( $titleName ) ) {
+			return;
+		}
+		$title = Title::newFromText( $titleName );
+		if ( !$title->exists() ) {
+			return;
+		}
+
+		$group->insert( 'communityportal' )
+			->addComponent(
+				$title->getText(),
+				$title->getLocalURL(),
+				MinervaUI::iconClass( 'communityportal', 'before' ),
+				[ 'data-event-name' => 'community-portal' ]
+			);
 	}
 
 	/**
