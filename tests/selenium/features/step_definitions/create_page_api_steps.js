@@ -1,4 +1,5 @@
 const { api, ArticlePage } = require( '../support/world' );
+const RunJobs = require( 'wdio-mediawiki/RunJobs' );
 const Api = require( 'wdio-mediawiki/Api' );
 const Page = require( 'wdio-mediawiki/Page' );
 const {
@@ -33,9 +34,15 @@ const iAmInAWikiThatHasCategories = ( title ) => {
 	// A pause is necessary to let the categories register with database before trying to use
 	// them in an article
 	waitForPropagation( 5000 );
-	Api.edit( title, wikitext );
-	// categories are handled by a JobRunner so need extra time to appear via API calls!
-	waitForPropagation( 5000 );
+	browser.call( () => {
+		return Api.edit( title, wikitext );
+	} );
+	browser.call( () => {
+		// The category overlay uses the category API
+		// which will only return results if the job queue has completed.
+		// Run before continuing!
+		return RunJobs.run();
+	} );
 };
 
 const iAmOnAPageThatHasTheFollowingEdits = function ( table ) {
