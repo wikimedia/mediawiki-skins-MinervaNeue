@@ -4,6 +4,7 @@
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
 		"doc": "jsdoc -c jsdoc.json",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
+		"selenium-daily": "npm run selenium-test -- --mochaOpts.grep @daily",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js"
 	},
 	"dependencies": {},
