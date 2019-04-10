@@ -6,6 +6,11 @@ const iAmUsingTheMobileSite = () => {
 };
 
 const iAmInBetaMode = () => {
+	// running beta mode requires being on the mobile domain
+	iAmUsingTheMobileSite();
+	// and making sure the browser URL is set to the mobile domain by triggering a page load
+	ArticlePage.open( 'Page on the mobile domain' );
+	// Cookie will now set on mobile domain
 	ArticlePage.setBetaMode();
 };
 

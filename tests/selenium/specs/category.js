@@ -6,7 +6,6 @@ const { iClickOnTheCategoryButton,
 		iAmInAWikiThatHasCategories
 	} = require( '../features/step_definitions/create_page_api_steps' ),
 	{
-		iAmUsingTheMobileSite,
 		iAmOnPage, iAmInBetaMode
 	} = require( '../features/step_definitions/common_steps' );
 
@@ -19,8 +18,6 @@ describe( 'Categories', function () {
 		iAmInAWikiThatHasCategories( title );
 
 		// And I am using the mobile site
-		iAmUsingTheMobileSite();
-
 		// And I am in beta mode
 		iAmInBetaMode();
 
