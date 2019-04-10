@@ -65,11 +65,10 @@
 	}
 	/**
 	 * onClick handler for button that invokes print function
-	 * @param {Skin} skin
 	 * @param {Icon} icon
 	 * @param {Icon} spinner
 	 */
-	function onClick( skin, icon, spinner ) {
+	function onClick( icon, spinner ) {
 		function doPrint() {
 			icon.timeout = clearTimeout( icon.timeout );
 			track( 'minerva.downloadAsPDF', {
@@ -105,13 +104,12 @@
 	 * Gets a click handler for the download icon
 	 * Expects to be run in the context of an icon using `Function.bind`
 	 *
-	 * @param {Skin} skin
 	 * @param {Icon} spinner
 	 * @returns {function}
 	 */
-	function getOnClickHandler( skin, spinner ) {
+	function getOnClickHandler( spinner ) {
 		return function () {
-			onClick( skin, this, spinner );
+			onClick( this, spinner );
 		};
 	}
 
@@ -140,7 +138,7 @@
 				tagName: 'button',
 				events: {
 					// will be bound to `this`
-					click: getOnClickHandler( skin, spinner )
+					click: getOnClickHandler( spinner )
 				}
 			} );
 
