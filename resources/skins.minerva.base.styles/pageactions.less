@@ -80,68 +80,6 @@
 	display: list-item;
 }
 
-// TODO: T213352 Delete this nested block after varnish cache has cleared and selectors
-// no longer apply.
-#page-actions:not( .page-actions-menu__list ) {
-	font-size: @pageActionFontSize;
-	float: none;
-	border: 0;
-	overflow: hidden;
-	width: 100%;
-	margin-top: -2px;
-	border-top: @pageActionBorder solid @colorGray14;
-	border-bottom: @pageActionBorder solid @colorGray12;
-	padding: 0.5em 0;
-
-	li {
-		display: inline-block;
-		// Needed for non-JavaScript users
-		position: relative;
-		cursor: pointer;
-		// Override .hlist rule.
-		margin-right: 0;
-		margin-bottom: 0;
-		float: right;
-
-		// edit, language and watchstar
-		a {
-			// Needed for non-JavaScript users
-			position: absolute;
-			display: block;
-			width: 100%;
-			height: 100%;
-			// needed for ContentOverlay pointer arrow
-			margin: 0 0 8px;
-			cursor: pointer;
-		}
-
-		&:first-child {
-			margin-top: 0;
-		}
-	}
-
-	.language-selector {
-		float: left;
-		margin-left: -@iconGutterWidth;
-
-		&.disabled {
-			cursor: default;
-			opacity: 0.25;
-		}
-	}
-
-	#ca-edit {
-		margin-right: -@iconGutterWidth;
-	}
-}
-
-// FIXME: cached HTML. Can be removed when work on T212216
-// has been deployed and varnish cache cleared.
-.heading-holder #page-actions:not( .page-actions-menu__list ):first-child {
-	position: absolute;
-	bottom: 0;
-}
-
 // Watchstar is hidden for anonymous no-js users
 // While we could link the icon to the login/signup form, this is not
 // a perfect experience and could be confusing.
