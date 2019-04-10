@@ -4,6 +4,6 @@
  */
 module.exports = {
 	// Page is a constructor, all other pageObjects are instances.
-	Page: require( '../../../../../../../tests/selenium/pageobjects/page.js' ),
-	UserLoginPage: require( '../../../../../../../tests/selenium/pageobjects/userlogin.page.js' )
+	Page: require( 'wdio-mediawiki/Page' ),
+	UserLoginPage: require( 'wdio-mediawiki/LoginPage' )
 };
