@@ -207,19 +207,12 @@
 	 */
 	function appendDownloadButton() {
 		var $downloadAction = downloadPageAction( skin,
-				config.get( 'wgMinervaDownloadNamespaces', [] ), window ),
-			// TODO: T213352 Temporary cache compatibility - to be deleted.
-			// Any conditionals using this boolean should be DELETED when the
-			// old page action menu is no longer being served to users.
-			// eslint-disable-next-line no-jquery/no-global-selector
-			oldPageActionsDOM = $( '#page-actions.hlist' ).length > 0;
+			config.get( 'wgMinervaDownloadNamespaces', [] ), window );
 
 		if ( $downloadAction ) {
-			if ( oldPageActionsDOM ) {
-				$downloadAction.insertAfter( '#ca-watch' );
-			} else {
-				$downloadAction.insertAfter( '.page-actions-menu__list-item:first-child' );
-			}
+
+			$downloadAction.insertAfter( '.page-actions-menu__list-item:first-child' );
+
 			track( 'minerva.downloadAsPDF', {
 				action: 'buttonVisible'
 			} );
