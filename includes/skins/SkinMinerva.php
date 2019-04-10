@@ -19,6 +19,7 @@
  */
 
 use MediaWiki\Minerva\MenuBuilder;
+use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\MediaWikiServices;
 
 /**
@@ -27,17 +28,6 @@ use MediaWiki\MediaWikiServices;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinTemplate {
-	/** Set of keys for available skin options. See $skinOptions. */
-	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
-	const OPTION_AMC = 'amc';
-	const OPTION_CATEGORIES = 'categories';
-	const OPTION_BACK_TO_TOP = 'backToTop';
-	const OPTION_PAGE_ISSUES = 'pageIssues';
-	const OPTION_SHARE_BUTTON = 'shareButton';
-	const OPTION_TOGGLING = 'toggling';
-	const OPTIONS_MOBILE_BETA = 'beta';
-	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
-	const OPTIONS_HISTORY_PAGE_ACTIONS = 'historyInPageActions';
 
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	  in editing mode */
@@ -50,6 +40,17 @@ class SkinMinerva extends SkinTemplate {
 
 	/** @var bool Whether the page is also available in other languages or variants */
 	protected $doesPageHaveLanguages = false;
+
+	/** @var SkinOptions  */
+	private $skinOptions;
+
+	/**
+	 * Initialize Minerva Skin
+	 */
+	public function __construct() {
+		parent::__construct( 'minerva' );
+		$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+	}
 
 	/**
 	 * Returns the site name for the footer, either as a text or <img> tag
@@ -87,59 +88,6 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		return $sitename;
-	}
-
-	/** @var array skin specific options */
-	protected $skinOptions = [
-		// Defaults to true for desktop mode.
-		self::OPTION_AMC => true,
-		self::OPTIONS_MOBILE_BETA => false,
-		/**
-		 * Whether the main menu should include a link to
-		 * Special:Preferences of Special:MobileOptions
-		 */
-		self::OPTION_MOBILE_OPTIONS => false,
-		/** Whether a categories button should appear at the bottom of the skin. */
-		self::OPTION_CATEGORIES => false,
-		/** Whether a back to top button appears at the bottom of the view page */
-		self::OPTION_BACK_TO_TOP => false,
-		/** Whether a share button should appear in icons section */
-		self::OPTION_SHARE_BUTTON => false,
-		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
-		self::OPTION_TOGGLING => false,
-		self::OPTION_PAGE_ISSUES => false,
-		self::OPTIONS_TALK_AT_TOP => false,
-		self::OPTIONS_HISTORY_PAGE_ACTIONS => false,
-	];
-
-	/**
-	 * override an existing option or options with new values
-	 * @param array $options
-	 */
-	public function setSkinOptions( $options ) {
-		$this->skinOptions = array_merge( $this->skinOptions, $options );
-	}
-
-	/**
-	 * Return whether a skin option is truthy
-	 * @param string $key
-	 * @return bool
-	 */
-	public function getSkinOption( $key ) {
-		return $this->skinOptions[$key];
-	}
-
-	/**
-	 * Return whether any of the skin options have been set
-	 * @return bool
-	 */
-	public function hasSkinOptions() {
-		foreach ( $this->skinOptions as $key => $val ) {
-			if ( $val ) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -198,7 +146,7 @@ class SkinMinerva extends SkinTemplate {
 		// If it's a talk page, add a link to the main namespace page
 		// In AMC we do not need to do this as there is an easy way back to the article page
 		// via the talk/article tabs.
-		if ( $title->isTalkPage() && !$this->getSkinOption( self::OPTION_AMC ) ) {
+		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			// if it's a talk page for which we have a special message, use it
 			switch ( $title->getNamespace() ) {
 				case NS_USER_TALK:
@@ -259,7 +207,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if ( $action === 'history' && $title->exists() ) {
-			return $this->getSkinOption( self::OPTIONS_HISTORY_PAGE_ACTIONS );
+			return $this->skinOptions->get( SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS );
 		}
 
 		if (
@@ -313,7 +261,8 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function getPageClasses( $title ) {
 		$className = parent::getPageClasses( $title );
-		$className .= ' ' . ( $this->getSkinOption( self::OPTIONS_MOBILE_BETA ) ? 'beta' : 'stable' );
+		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA )
+				? 'beta' : 'stable' );
 
 		if ( $title->isMainPage() ) {
 			$className .= ' page-Main_Page ';
@@ -325,7 +274,7 @@ class SkinMinerva extends SkinTemplate {
 		// The new treatment should only apply to the main namespace
 		if (
 			$title->getNamespace() === NS_MAIN &&
-			$this->getSkinOption( self::OPTION_PAGE_ISSUES )
+			$this->skinOptions->get( SkinOptions::OPTION_PAGE_ISSUES )
 		) {
 			$className .= ' issues-group-B';
 		}
@@ -346,7 +295,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return bool
 	 */
 	private function hasCategoryLinks() {
-		if ( !$this->getSkinOption( self::OPTION_CATEGORIES ) ) {
+		if ( !$this->skinOptions->get( SkinOptions::OPTION_CATEGORIES ) ) {
 			return false;
 		}
 		$categoryLinks = $this->getOutput()->getCategoryLinks();
@@ -538,7 +487,7 @@ class SkinMinerva extends SkinTemplate {
 		$returnToTitle = $this->getTitle()->getPrefixedText();
 
 		// Links specifically for mobile mode
-		if ( $this->getSkinOption( self::OPTION_MOBILE_OPTIONS ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_MOBILE_OPTIONS ) ) {
 			// Settings link
 			$menu->insert( 'settings' )
 				->addComponent(
@@ -1084,7 +1033,7 @@ class SkinMinerva extends SkinTemplate {
 		// in stable it will link to the wikitext talk page
 		$title = $this->getTitle();
 		$subjectPage = $title->getSubjectPage();
-		$talkAtBottom = !$this->getSkinOption( self::OPTIONS_TALK_AT_TOP ) ||
+		$talkAtBottom = !$this->skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
 		if ( !$this->getUserPageHelper()->isUserPage()
@@ -1306,12 +1255,8 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	public function getSkinConfigVariables() {
-		$title = $this->getTitle();
-		$user = $this->getUser();
-		$out = $this->getOutput();
-
 		$vars = [
-			'wgMinervaFeatures' => $this->skinOptions,
+			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			'wgMinervaMenuData' => $this->getMenuData(),
 		];
@@ -1374,10 +1319,10 @@ class SkinMinerva extends SkinTemplate {
 			$modules[] = 'skins.minerva.talk';
 		}
 
-		if ( $this->hasSkinOptions() ) {
+		if ( $this->skinOptions->hasSkinOptions() ) {
 			$modules[] = 'skins.minerva.options';
 		}
-		if ( $this->getSkinOption( self::OPTION_SHARE_BUTTON ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_SHARE_BUTTON ) ) {
 			$modules[] = 'skins.minerva.share';
 		}
 		return $modules;
@@ -1407,7 +1352,7 @@ class SkinMinerva extends SkinTemplate {
 			]
 		);
 
-		if ( $this->getSkinOption( self::OPTION_TOGGLING ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_TOGGLING ) ) {
 			// Extension can unload "toggling" modules via the hook
 			$modules['toggling'] = [ 'skins.minerva.toggling' ];
 		}
@@ -1428,7 +1373,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function addToBodyAttributes( $out, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
-		if ( $this->getSkinOption( self::OPTION_AMC ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			$classes .= ' minerva--amc-enabled';
 		} else {
 			$classes .= ' minerva--amc-disabled';
@@ -1463,7 +1408,7 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
-		if ( $this->getSkinOption( self::OPTION_AMC ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			$styles[] = 'skins.minerva.amc.styles';
 		}
 

@@ -76,6 +76,7 @@
 		"MediaWiki\\Minerva\\MenuBuilder": "includes/skins/MenuBuilder.php",
 		"MediaWiki\\Minerva\\MenuEntry": "includes/skins/MenuEntry.php",
 		"MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule": "includes/ResourceLoaderLessVarFileModule.php",
+		"MediaWiki\\Minerva\\SkinOptions": "includes/SkinOptions.php",
 		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
 	},
 	"ConfigRegistry": {

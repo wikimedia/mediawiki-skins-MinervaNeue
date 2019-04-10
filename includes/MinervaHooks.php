@@ -19,6 +19,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\SkinOptions;
 
 /**
  * Hook handlers for Minerva skin.
@@ -191,33 +192,34 @@ class MinervaHooks {
 	) {
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
-			$services = \MediaWiki\MediaWikiServices::getInstance();
+			$services = MediaWikiServices::getInstance();
 			$featureManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
 			$userMode = $services->getService( 'MobileFrontend.AMC.UserMode' );
+			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
 
 			$isBeta = $mobileContext->isBetaGroupMember();
-			$skin->setSkinOptions( [
-				SkinMinerva::OPTION_AMC => $userMode->isEnabled(),
-				SkinMinerva::OPTIONS_TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
+			$skinOptions->setMultiple( [
+				SkinOptions::OPTION_AMC => $userMode->isEnabled(),
+				SkinOptions::OPTIONS_TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaTalkAtTop'
 				),
-				SkinMinerva::OPTIONS_MOBILE_BETA
+				SkinOptions::OPTIONS_MOBILE_BETA
 					=> $isBeta,
-				SkinMinerva::OPTION_CATEGORIES
+				SkinOptions::OPTION_CATEGORIES
 					=> $featureManager->isFeatureAvailableInContext( 'MinervaShowCategoriesButton',
 							$mobileContext ),
-				SkinMinerva::OPTION_BACK_TO_TOP
+				SkinOptions::OPTION_BACK_TO_TOP
 					=> $featureManager->isFeatureAvailableInContext( 'MinervaEnableBackToTop', $mobileContext ),
-				SkinMinerva::OPTION_PAGE_ISSUES
+				SkinOptions::OPTION_PAGE_ISSUES
 					=> $featureManager->isFeatureAvailableInContext(
 							'MinervaPageIssuesNewTreatment', $mobileContext
 						),
-				SkinMinerva::OPTION_SHARE_BUTTON
+				SkinOptions::OPTION_SHARE_BUTTON
 					=> $featureManager->isFeatureAvailableInContext( 'MinervaShareButton', $mobileContext ),
-				SkinMinerva::OPTION_TOGGLING => true,
-				SkinMinerva::OPTION_MOBILE_OPTIONS => true,
-				SkinMinerva::OPTIONS_HISTORY_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
+				SkinOptions::OPTION_TOGGLING => true,
+				SkinOptions::OPTION_MOBILE_OPTIONS => true,
+				SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaHistoryInPageActions'
 				),
 			] );

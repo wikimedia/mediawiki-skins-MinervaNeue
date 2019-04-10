@@ -17,6 +17,8 @@
  *
  * @file
  */
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\SkinOptions;
 
 /**
  * Extended Template class of BaseTemplate for mobile devices
@@ -221,8 +223,9 @@ class MinervaTemplate extends BaseTemplate {
 	 * @todo replace with template engines
 	 */
 	protected function render( $data ) {
+		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
 		$templateParser = new TemplateParser( __DIR__ );
-		$skin = $this->getSkin();
+
 		$internalBanner = $data[ 'internalBanner' ];
 		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
@@ -264,8 +267,8 @@ class MinervaTemplate extends BaseTemplate {
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'footer' => $this->getFooterTemplateData( $data ),
-			'isBeta' => $skin->getSkinOption( SkinMinerva::OPTIONS_MOBILE_BETA ),
-			'tabs' => $hasTalkTabs && $skin->getSkinOption( SkinMinerva::OPTIONS_TALK_AT_TOP ) ? [
+			'isBeta' => $skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA ),
+			'tabs' => $hasTalkTabs && $skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
 		];
