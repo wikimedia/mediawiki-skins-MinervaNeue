@@ -548,5 +548,8 @@
 			]
 		}
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"manifest_version": 1
 }

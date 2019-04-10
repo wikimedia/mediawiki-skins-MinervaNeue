@@ -20,7 +20,6 @@
 
 use MediaWiki\Minerva\MenuBuilder;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Minerva\SkinUserPageHelper;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -48,12 +47,9 @@ class SkinMinerva extends SkinTemplate {
 	public $skinname = 'minerva';
 	/** @var string $template Name of this used template */
 	public $template = 'MinervaTemplate';
-	/** @var ContentHandler Content handler of page; only access through getContentHandler */
-	protected $contentHandler = null;
+
 	/** @var bool Whether the page is also available in other languages or variants */
 	protected $doesPageHaveLanguages = false;
-	/** @var SkinUserPageHelper Helper class for UserPage handling */
-	protected $userPageHelper;
 
 	/**
 	 * Returns the site name for the footer, either as a text or <img> tag
@@ -311,19 +307,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Gets content handler of current title
-	 *
-	 * @return ContentHandler
-	 */
-	protected function getContentHandler() {
-		if ( $this->contentHandler === null ) {
-			$this->contentHandler = ContentHandler::getForTitle( $this->getTitle() );
-		}
-
-		return $this->contentHandler;
-	}
-
-	/**
 	 * Takes a title and returns classes to apply to the body tag
 	 * @param Title $title
 	 * @return string
@@ -378,10 +361,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return SkinUserPageHelper
 	 */
 	public function getUserPageHelper() {
-		if ( $this->userPageHelper === null ) {
-			$this->userPageHelper = new SkinUserPageHelper( $this->getContext()->getTitle() );
-		}
-		return $this->userPageHelper;
+		return MediaWikiServices::getInstance()->getService( 'Minerva.SkinUserPageHelper' );
 	}
 
 	/**
@@ -1296,7 +1276,8 @@ class SkinMinerva extends SkinTemplate {
 	 * @return bool
 	 */
 	protected function isCurrentPageContentModelEditable() {
-		$contentHandler = $this->getContentHandler();
+		$contentHandler = MediaWikiServices::getInstance()
+			->getService( 'Minerva.ContentHandler' );
 
 		return $contentHandler->supportsDirectEditing()
 			&& $contentHandler->supportsDirectApiEditing();
