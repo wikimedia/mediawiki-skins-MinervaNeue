@@ -8,7 +8,8 @@
 			"Mormegil",
 			"Vks",
 			"Ilimanaq29",
-			"Martin Urbanec"
+			"Martin Urbanec",
+			"Patriccck"
 		]
 	},
 	"minerva-last-modified-date": "Naposledy editováno $1 v $2",
@@ -55,6 +56,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Připojil|Připojila|Připojil(a)}} se dne $1",
 	"mobile-frontend-user-page-talk": "Diskuse",
 	"mobile-frontend-user-page-uploads": "Načtené soubory",
+	"skinname-minerva": "Nová minerva",
 	"minerva-skin-desc": "Responzivní vzhled navržený pro mobily",
 	"skin-minerva-issue-learn-more": "Další informace",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
