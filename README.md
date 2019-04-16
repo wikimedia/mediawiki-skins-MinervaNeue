@@ -242,4 +242,4 @@ when clearing it: `mw.storage.session.remove('mwuser-sessionId')`.
 Defines the sampling rate for the MobileWebMainMenuClickTracking schema.
 
 * Type: `Number`
-* Default: `0.5`
+* Default: `0`
