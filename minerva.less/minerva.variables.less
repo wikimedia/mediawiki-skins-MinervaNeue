@@ -84,7 +84,15 @@
 
 // typography
 @fontFamilyHeading: 'Linux Libertine', 'Georgia', 'Times', serif;
-@fontFamilyMonospace: monospace, monospace;
+/**
+ * System font stack for monospace fonts, see T221043.
+ *
+ * `Menlo` – macOS 10.6+
+ * `Consolas` – Windows Vista & newer
+ * `Liberation Mono` – Fedora, Ubuntu, … OFL licensed
+ * `Courier New` – (Generic) web font fallback
+ */
+@fontFamilyMonospace: 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 @fontScalingFactor: 1;
 @contentLineHeight: 1.65;
 
