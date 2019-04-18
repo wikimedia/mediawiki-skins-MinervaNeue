@@ -278,23 +278,6 @@ final class Definitions {
 	}
 
 	/**
-	 * Build and insert the RecentChanges link
-	 * @param Group $group
-	 * @throws MWException
-	 */
-	public function insertRecentChanges( Group $group ) {
-		$title = SpecialPage::getTitleFor( 'Recentchanges' );
-
-		$group->insert( 'recentchanges' )
-			->addComponent(
-				$this->context->msg( 'recentchanges' )->escaped(),
-				$title->getLocalURL(),
-				MinervaUI::iconClass( 'recentchanges', 'before' ),
-				[ 'data-event-name' => 'recentchanges' ]
-			);
-	}
-
-	/**
 	 * Build and insert the SpecialPages link
 	 * @param Group $group
 	 * @throws MWException

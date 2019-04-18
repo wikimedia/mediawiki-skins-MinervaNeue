@@ -57,7 +57,6 @@ class AdvancedBuilder extends DefaultBuilder {
 	public function getSiteTools() {
 		$group = new Group();
 
-		$this->definitions->insertRecentChanges( $group );
 		$this->definitions->insertSpecialPages( $group );
 		$this->definitions->insertCommunityPortal( $group );
 

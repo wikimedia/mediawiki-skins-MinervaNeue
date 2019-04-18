@@ -345,7 +345,6 @@
 				"settings": "resources/skins.minerva.mainMenu.icons/settings.svg",
 				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
 				"contributions": "resources/skins.minerva.mainMenu.icons/contributions.svg",
-				"recentchanges": "resources/skins.minerva.mainMenu.icons/recentchanges.svg",
 				"specialpages": "resources/skins.minerva.mainMenu.icons/specialpages.svg",
 				"communityportal": "resources/skins.minerva.mainMenu.icons/communityportal.svg"
 			}
