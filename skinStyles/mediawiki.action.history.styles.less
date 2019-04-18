@@ -1,8 +1,16 @@
 @import '../minerva.less/minerva.mixins';
+@import '../minerva.less/minerva.variables';
+@import 'mediawiki.ui/variables';
+@import 'mediawiki.ui/mixins.buttons';
 
 .action-history {
 	#mw-content-text > form {
 		margin: 0;
+	}
+
+	// TODO: Show the filters when show/hide functionality is enabled on Minerva.
+	.oo-ui-panelLayout-padded.oo-ui-panelLayout-framed {
+		display: none;
 	}
 
 	#pagehistory {
@@ -14,26 +22,10 @@
 	}
 }
 
-.mw-history-compareselectedversions,
-.mw-history-legend {
-	font-size: 0.8em;
-}
-
-.minerva--amc-enabled {
-	#pagehistory input {
-		margin-right: 10px;
-	}
-
-	#pagehistory {
-		padding: 0;
-
-		li {
-			min-height: inherit;
-			padding-bottom: 0;
-		}
-	}
-}
-
+/**
+ * Non-AMC mode styling for the action=history page.
+ * Meant to mimic the look of the mobile Special:History page.
+ */
 .minerva--amc-disabled {
 	.mw-rollback-link,
 	.mw-tag-markers,
@@ -111,5 +103,207 @@
 		#mw-history-searchform {
 			display: none;
 		}
+	}
+}
+
+/**
+ * AMC-mode styling for action=history page.
+ * Meant to make the page resemble the desktop version.
+ */
+.minerva--amc-enabled.action-history {
+	// the margin value used to create a "faux" column after the
+	// radio buttons.
+	@revision-selectors-width: 50px;
+
+	// form element wrapping history page content. Overrides #mw-content-text > form
+	// for tablet widths.
+	#mw-history-compare {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	// The large "Compare selected revisions" button container
+	.mw-history-compareselectedversions {
+		position: sticky;
+		position: -webkit-sticky;
+		top: 0;
+		background: @skinContentBgColor;
+		z-index: @z-indexOverlay;
+
+		// "Compare selected revisions" button
+		.mw-history-compareselectedversions-button {
+			.mw-ui-button-colors-primary( @colorProgressive, @colorProgressiveHighlight, @colorProgressiveActive );
+			width: 100%;
+			max-width: 100%;
+			-webkit-appearance: unset;
+			font-weight: bold;
+			border-radius: 2px;
+			margin: 10px 0;
+		}
+
+		// Admin specific "change visibility of selected revisions" buttons.
+		.mw-history-revisionactions,
+		.mw-checkbox-toggle-controls {
+			display: none;
+		}
+
+		// Second large "Compare selected revisions" button container at bottom of page
+		& ~ .mw-history-compareselectedversions {
+			// hide second "Compare selected revisions" button near bottom
+			.mw-history-compareselectedversions-button {
+				display: none;
+			}
+
+			// show second "Change visibility of selected revisions" button near bottom
+			.mw-history-revisionactions,
+			.mw-checkbox-toggle-controls {
+				display: block;
+			}
+		}
+	}
+
+	// "Change visibility of selected revisions" button (for admins only)
+	.mw-history-revisiondelete-button {
+		.mw-ui-button();
+		.mw-ui-button-states();
+		background-color: @colorGray15;
+		margin-bottom: 1em;
+	}
+
+	#pagehistory {
+		margin-bottom: 24px;
+
+		li {
+			min-height: inherit;
+			padding: 12px 0;
+			font-size: 0.85em;
+		}
+
+		li:after {
+			.clearfix();
+		}
+
+		// diff radio buttons, admin revision-delete checkbox
+		input[ type='radio' ],
+		input[ type='checkbox' ] {
+			float: left;
+			position: relative;
+			display: inline-block;
+			vertical-align: baseline;
+			// aligning checkboxes with text
+			top: 5px;
+			margin-right: 10px;
+			// FIXME: Overrides the border: 0 in reset.less
+			// When that reset rule doesn't exist, neither should this.
+			border: 1px solid @grayLight;
+		}
+
+		// FIXME: Override the background: none; in reset.less.
+		// When that reset rule doesn't exist, neither should this.
+		input[ type='radio' ] {
+			background: @grayMediumDark;
+		}
+
+		// checkbox appears slightly smaller than radio buttons,
+		// moving down 6px to vertically center.
+		input[ type='checkbox' ] {
+			top: 6px;
+		}
+
+		// (cur|prev) links
+		.mw-history-histlinks {
+			float: right;
+		}
+
+		// date
+		.mw-changeslist-date {
+			float: left;
+			font-weight: bold;
+		}
+
+		// user name
+		.history-user {
+			float: left;
+			// margin separates the entire username (talk | contrib) block
+			// from the (cur|prev) links on the right. Approximates a &nbsp;
+			margin-right: 0.5em;
+
+			.mw-userlink {
+				// margin separates the username
+				// from the (talk | contrib) links. Approximates a &nbsp;
+				margin-right: 0.5em;
+			}
+		}
+
+		// container for rollback, undo buttons
+		.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
+			float: right;
+			font-size: 0.85em;
+
+			&:after {
+				.clearfix();
+			}
+
+			// removing parentheses around undo button
+			& > span:before {
+				content: '';
+			}
+
+			& > span:after {
+				content: '';
+			}
+
+			// rollback edit link
+			.mw-rollback-link a {
+				// separating rollback link from undo link.
+				margin-left: 1em;
+			}
+
+			// undo link, styled as button
+			.mw-history-undo a, .mw-rollback-link a {
+				float: right;
+				background-color: @colorGray15;
+				color: @colorText;
+				text-decoration: none;
+				.mw-ui-button();
+				.mw-ui-button-states();
+			}
+		}
+
+		// edit summary
+		.comment {
+			// meant to give space for the undo button to the right of
+			// the revision description.
+			width: 65%;
+		}
+
+		// edit summary, +/- bytes changed, tags
+		.comment,
+		.mw-diff-bytes,
+		.mw-tag-markers {
+			float: left;
+			clear: left;
+		}
+
+		// add left margin to create a faux column after the radio buttons
+		.history-user,
+		.comment,
+		.mw-diff-bytes,
+		.mw-history-tools,
+		.mw-tag-markers {
+			margin-left: @revision-selectors-width;
+		}
+	}
+
+	// hide page instructions
+	.mw-history-legend,
+	// article size
+	.history-size,
+	// double dot separator
+	.mw-changeslist-separator,
+	// thank link
+	.mw-thanks-thank-link,
+	abbr {
+		display: none;
 	}
 }

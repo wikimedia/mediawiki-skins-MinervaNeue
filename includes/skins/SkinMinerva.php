@@ -1141,6 +1141,7 @@ class SkinMinerva extends SkinTemplate {
 		$modules = [];
 		$user = $this->getUser();
 		$title = $this->getTitle();
+		$action = Action::getActionName( $this->getContext() );
 
 		if ( !$title->isSpecialPage() && $this->isAllowedPageAction( 'watch' ) ) {
 			// Explicitly add the mobile watchstar code.
@@ -1166,6 +1167,11 @@ class SkinMinerva extends SkinTemplate {
 		if ( $this->skinOptions->get( SkinOptions::OPTION_SHARE_BUTTON ) ) {
 			$modules[] = 'skins.minerva.share';
 		}
+
+		if ( $action === 'history' ) {
+			$modules[] = 'mediawiki.action.history';
+		}
+
 		return $modules;
 	}
 
