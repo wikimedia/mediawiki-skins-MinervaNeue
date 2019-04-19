@@ -3,8 +3,10 @@ const { defineSupportCode } = require( 'cucumber' ),
 		iShouldSeeTheCategoriesOverlay, iShouldSeeAListOfCategories
 	} = require( './category_steps' ),
 	{ iAmInAWikiThatHasCategories,
-		iAmOnAPageThatHasTheFollowingEdits } = require( './create_page_api_steps' ),
+		iAmOnAPageThatHasTheFollowingEdits,
+		iGoToAPageThatHasLanguages } = require( './create_page_api_steps' ),
 	{
+		pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
 		iAmUsingTheMobileSite,
 		iAmLoggedIntoTheMobileWebsite,
 		iAmOnPage, iAmInBetaMode
@@ -14,10 +16,28 @@ const { defineSupportCode } = require( 'cucumber' ),
 	} = require( './diff_steps' ),
 	{
 		iOpenTheLatestDiff,
+		iClickTheEditButton, iSeeTheWikitextEditorOverlay, iClearTheEditor,
+		iDoNotSeeTheWikitextEditorOverlay,
+		iTypeIntoTheEditor, iClickContinue, iClickSubmit, iSayOkayInTheConfirmDialog,
+		theTextOfTheFirstHeadingShouldBe, thereShouldBeARedLinkWithText
+	} = require( './editor_steps' ),
+	{
 		iClickOnTheHistoryLinkInTheLastModifiedBar
 	} = require( './history_steps' );
 
 defineSupportCode( function ( { Then, When, Given } ) {
+
+	// Editor steps
+	Given( /^I click the edit button$/, iClickTheEditButton );
+	Then( /^I see the wikitext editor overlay$/, iSeeTheWikitextEditorOverlay );
+	When( /^I clear the editor$/, iClearTheEditor );
+	When( /^I type "(.+)" into the editor$/, iTypeIntoTheEditor );
+	When( /^I click continue$/, iClickContinue );
+	When( /^I click submit$/, iClickSubmit );
+	When( /^I say OK in the confirm dialog$/, iSayOkayInTheConfirmDialog );
+	Then( /^I do not see the wikitext editor overlay$/, iDoNotSeeTheWikitextEditorOverlay );
+	Then( /^the text of the first heading should be "(.+)"$/, theTextOfTheFirstHeadingShouldBe );
+	Then( /^there should be a red link with text "(.+)"$/, thereShouldBeARedLinkWithText );
 
 	// common steps
 	Given( /^I am using the mobile site$/, iAmUsingTheMobileSite );
@@ -27,12 +47,16 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	Given( /^I am on the "(.+)" page$/, iAmOnPage );
 
 	Given( /^I am logged into the mobile website$/, iAmLoggedIntoTheMobileWebsite );
+	Then( /^I should see a toast notification$/, iShouldSeeAToastNotification );
 
 	// Page steps
 	Given( /^I am in a wiki that has categories$/, () => {
 		iAmInAWikiThatHasCategories( 'Selenium categories test page' );
 	} );
 	Given( /^I am on a page that has the following edits:$/, iAmOnAPageThatHasTheFollowingEdits );
+	Given( /^I am on a page that does not exist$/, iAmOnAPageThatDoesNotExist );
+	Given( /^I go to a page that has languages$/, iGoToAPageThatHasLanguages );
+	Given( /^the page "(.+)" exists$/, pageExists );
 
 	// history steps
 	When( /^I open the latest diff$/, iOpenTheLatestDiff );
