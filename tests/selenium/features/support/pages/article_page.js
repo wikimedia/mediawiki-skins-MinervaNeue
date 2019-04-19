@@ -10,6 +10,7 @@ const MinervaPage = require( './minerva_page' );
 
 class ArticlePage extends MinervaPage {
 
+	get notifications_button_element() { return $( '.user-button' ); }
 	get category_element() { return $( '.category-button' ); }
 	get edit_link_element() { return $( '#ca-edit' ); }
 	get first_heading_element() { return $( '#section_0' ); }

@@ -1,6 +1,13 @@
 const assert = require( 'assert' ),
 	Api = require( 'wdio-mediawiki/Api' ),
+	ArticlePageWithOverlay = require( '../support/pages/article_page_with_overlay' ),
 	{ ArticlePage, UserLoginPage, api } = require( '../support/world.js' );
+
+const waitForPropagation = ( timeMs ) => {
+	// wait 2 seconds so the change can propogate.
+	const d = new Date();
+	browser.waitUntil( () => new Date() - d > timeMs );
+};
 
 const login = () => {
 	return api.loginGetEditToken( {
@@ -64,7 +71,30 @@ const iShouldSeeAToastNotification = () => {
 	ArticlePage.notification_element.waitForVisible();
 };
 
+const iClickTheBrowserBackButton = () => {
+	browser.back();
+};
+
+const iClickTheOverlayCloseButton = () => {
+	waitForPropagation( 2000 );
+	ArticlePageWithOverlay.overlay_close_element.click();
+};
+
+const iSeeAnOverlay = () => {
+	ArticlePageWithOverlay.overlay_element.waitForVisible();
+	assert.strictEqual( ArticlePageWithOverlay.overlay_element.isVisible(), true );
+};
+
+const iDoNotSeeAnOverlay = () => {
+	browser.waitUntil( () => !ArticlePageWithOverlay.overlay_element.isVisible() );
+	assert.strictEqual( ArticlePageWithOverlay.overlay_element.isVisible(), false );
+};
+
 module.exports = {
+	waitForPropagation,
+	iSeeAnOverlay, iDoNotSeeAnOverlay,
+	iClickTheOverlayCloseButton,
+	iClickTheBrowserBackButton,
 	createPage, createPages,
 	pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
 	iAmLoggedIntoTheMobileWebsite,

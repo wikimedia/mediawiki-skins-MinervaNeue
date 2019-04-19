@@ -2,15 +2,10 @@ const { api, ArticlePage } = require( '../support/world' );
 const Api = require( 'wdio-mediawiki/Api' );
 const {
 	iAmOnPage,
+	waitForPropagation,
 	createPages,
 	createPage
 } = require( './common_steps' );
-
-const waitForPropagation = ( timeMs ) => {
-	// wait 2 seconds so the change can propogate.
-	const d = new Date();
-	browser.waitUntil( () => new Date() - d > timeMs );
-};
 
 const iAmInAWikiThatHasCategories = ( title ) => {
 	const msg = 'This page is used by Selenium to test category related features.',
