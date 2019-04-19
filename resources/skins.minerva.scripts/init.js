@@ -16,7 +16,6 @@
 		page = M.getCurrentPage(),
 		redLinks = page.getRedLinks(),
 		api = new mw.Api(),
-		thumbs = page.getThumbnails(),
 		eventBus = mobile.eventBusSingleton,
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
 
@@ -48,9 +47,10 @@
 	 * Add routes to images and handle clicks
 	 * @method
 	 * @ignore
+	 * @param {JQuery.Object} [$container] Optional container to search within
 	 */
-	function initMediaViewer() {
-		thumbs.forEach( function ( thumb ) {
+	function initMediaViewer( $container ) {
+		page.getThumbnails( $container ).forEach( function ( thumb ) {
 			thumb.$el.off().data( 'thumb', thumb ).on( 'click', onClickImage );
 		} );
 	}
@@ -96,7 +96,7 @@
 
 		return mobile.mediaViewer.overlay( {
 			api: api,
-			thumbnails: thumbs,
+			thumbnails: page.getThumbnails(),
 			title: decodeURIComponent( title ),
 			eventBus: eventBus
 		} );
@@ -111,8 +111,9 @@
 	// Setup
 	$( function () {
 		initButton();
-		initMediaViewer();
 	} );
+
+	mw.hook( 'wikipage.content' ).add( initMediaViewer );
 
 	/**
 	 * Initialisation function for last modified module.
