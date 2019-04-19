@@ -1035,20 +1035,15 @@ class SkinMinerva extends SkinTemplate {
 	public function getContextSpecificModules() {
 		$modules = [];
 		$user = $this->getUser();
-		$req = $this->getRequest();
 		$title = $this->getTitle();
 
-		if ( !$title->isSpecialPage() ) {
-			if ( $this->isAllowedPageAction( 'watch' ) ) {
-				// Explicitly add the mobile watchstar code.
-				$modules[] = 'skins.minerva.watchstar';
-			}
+		if ( !$title->isSpecialPage() && $this->isAllowedPageAction( 'watch' ) ) {
+			// Explicitly add the mobile watchstar code.
+			$modules[] = 'skins.minerva.watchstar';
 		}
 
-		if ( $user->isLoggedIn() ) {
-			if ( $this->useEcho() ) {
-				$modules[] = 'skins.minerva.notifications';
-			}
+		if ( $user->isLoggedIn() && $this->useEcho() ) {
+			$modules[] = 'skins.minerva.notifications';
 		}
 
 		// TalkOverlay feature

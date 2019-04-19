@@ -262,7 +262,7 @@ class MinervaTemplate extends BaseTemplate {
 			'headinghtml' => isset( $data['headinghtml'] ) ? $data['headinghtml'] : '',
 			'postheadinghtml' => isset( $data['postheadinghtml'] ) ? $data['postheadinghtml'] : '',
 			'haspageactions' => $hasPageActions,
-			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml( $data ) : '',
+			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml() : '',
 			'subtitle' => $data['subtitle'],
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
