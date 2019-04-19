@@ -119,6 +119,19 @@ This will work for all pages except the main page.
 ```
 Controls whether the history link appears in the page actions menu.
 
+#### $wgMinervaOverflowInPageActions
+
+* Type: `Array`
+* Default:
+```php
+  [
+    'beta' => false,
+    'base' => false,
+    'amc' => false,
+  ]
+```
+Controls whether the overflow link appears in the page actions menu.
+
 #### $wgMinervaShowShareButton
 
 * Type: `Array`

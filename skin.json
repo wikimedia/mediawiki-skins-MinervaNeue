@@ -45,6 +45,11 @@
 			"beta": false,
 			"amc": true
 		},
+		"MinervaOverflowInPageActions": {
+			"base": false,
+			"beta": false,
+			"amc": false
+		},
 		"MinervaShowCategoriesButton": {
 			"base": false,
 			"beta": true
@@ -231,6 +236,44 @@
 				"resources/skins.minerva.amc.styles/index.less"
 			]
 		},
+		"wikimedia.ui": {
+			"class": "ResourceLoaderImageModule",
+			"selectorWithoutVariant": ".wikimedia-ui-{name}:before",
+			"selectorWithVariant": ".wikimedia-ui-{name}-{variant}:before",
+			"useDataURI": false,
+			"variants": {
+				"base20": {
+					"color": "#54595d",
+					"global": true
+				}
+			},
+			"images": {
+				"articleRedirect": {
+					"file": {
+						"ltr": "resources/wikimedia.ui/articleRedirect-ltr.svg",
+						"rtl": "resources/wikimedia.ui/articleRedirect-rtl.svg"
+					}
+				},
+				"info": "resources/wikimedia.ui/info.svg",
+				"link": "resources/wikimedia.ui/link.svg",
+				"listBullet": {
+					"file": {
+						"ltr": "resources/wikimedia.ui/listBullet-ltr.svg",
+						"rtl": "resources/wikimedia.ui/listBullet-rtl.svg"
+					}
+				},
+				"logo-Wikidata": "resources/wikimedia.ui/logo-Wikidata.svg",
+				"logo-Wikimedia": "resources/wikimedia.ui/logo-Wikimedia.svg",
+				"quotes": {
+					"file": {
+						"ltr": "resources/wikimedia.ui/quotes-ltr.svg",
+						"rtl": "resources/wikimedia.ui/quotes-rtl.svg"
+					}
+				},
+				"upload": "resources/wikimedia.ui/upload.svg",
+				"userAvatar": "resources/wikimedia.ui/userAvatar.svg"
+			}
+		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
@@ -255,7 +298,8 @@
 				"clock": {
 					"file": "resources/skins.minerva.icons.images/clock.svg",
 					"variants": [ "invert" ]
-				}
+				},
+				"page-actions-overflow": "resources/skins.minerva.icons.images/page-actions-overflow.svg"
 			}
 		},
 		"skins.minerva.icons.images.scripts": {
@@ -373,6 +417,7 @@
 				"desktop"
 			],
 			"dependencies": [
+				"wikimedia.ui",
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"jquery.cookie",
@@ -431,6 +476,7 @@
 				"resources/skins.minerva.scripts/pageIssues.js",
 				"resources/skins.minerva.scripts/UriUtil.js",
 				"resources/skins.minerva.scripts/TitleUtil.js",
+				"resources/skins.minerva.scripts/Toolbar.js",
 				"resources/skins.minerva.scripts/init.js",
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",

@@ -29,7 +29,6 @@ use MediaWiki\Minerva\SkinUserPageHelper;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinTemplate {
-
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	  in editing mode */
 	const LEAD_SECTION_NUMBER = 0;
@@ -229,6 +228,10 @@ class SkinMinerva extends SkinTemplate {
 
 		if ( $action === 'history' && $title->exists() ) {
 			return $this->skinOptions->get( SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS );
+		}
+
+		if ( $action === SkinOptions::OPTION_OVERFLOW_SUBMENU ) {
+			return $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU );
 		}
 
 		if (
@@ -834,10 +837,11 @@ class SkinMinerva extends SkinTemplate {
 	 * @param BaseTemplate $tpl
 	 */
 	protected function preparePageActions( BaseTemplate $tpl ) {
-		$menu = [];
+		$toolbar = [];
+		$overflowMenu = null;
 
 		if ( $this->isAllowedPageAction( 'switch-language' ) ) {
-			$menu[] = $this->createSwitchLanguageAction();
+			$toolbar[] = $this->createSwitchLanguageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'watch' ) ) {
@@ -845,18 +849,25 @@ class SkinMinerva extends SkinTemplate {
 			// Pass these actions in as context for #createWatchPageAction.
 			$actions = $tpl->data['content_navigation']['actions'];
 
-			$menu[] = $this->createWatchPageAction( $actions );
+			$toolbar[] = $this->createWatchPageAction( $actions );
 		}
 
 		if ( $this->isAllowedPageAction( 'history' ) ) {
-			$menu[] = $this->getHistoryPageAction();
+			$toolbar[] = $this->getHistoryPageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$menu[] = $this->createEditPageAction();
+			$toolbar[] = $this->createEditPageAction();
 		}
 
-		$tpl->set( 'page_actions', $menu );
+		if ( $this->isAllowedPageAction( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+			$overflowMenu = $this->newToolbarOverflowMenu( $tpl );
+		}
+
+		$tpl->set( 'page_actions', [
+			'toolbar' => $toolbar,
+			'overflowMenu' => $overflowMenu
+		] );
 	}
 
 	/**
@@ -975,6 +986,85 @@ class SkinMinerva extends SkinTemplate {
 			'text' => $this->msg( 'mobile-frontend-history' ),
 			'href' => $this->getHistoryUrl( $this->getTitle() )
 		];
+	}
+
+	/**
+	 * Creates an overflow action: An icon that links to the overflow menu.
+	 *
+	 * @param BaseTemplate $tpl
+	 * @return array|null A map of HTML attributes and a 'text' property to be used with the
+	 * pageActionMenu.mustache template.
+	 */
+	private function newToolbarOverflowMenu( BaseTemplate $tpl ) {
+		$pageActions = $this->getUserPageHelper()->isUserPage()
+		? $this->getUserNamespaceOverflowPageActions( $tpl )
+		: $this->getDefaultOverflowPageActions( $tpl );
+		return empty( $pageActions ) ? null : [
+			'item-id' => 'page-actions-overflow',
+			'class' => MinervaUI::iconClass( 'page-actions-overflow' ),
+			'text' => $this->msg( 'minerva-page-actions-overflow' ),
+			'pageActions' => $pageActions
+		];
+	}
+
+	/**
+	 * @param BaseTemplate $tpl
+	 * @return array
+	 */
+	private function getDefaultOverflowPageActions( BaseTemplate $tpl ) {
+		return array_values( array_filter( [
+			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
+			$this->newOverflowPageAction(
+				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'cite', 'quotes', $tpl->data['nav_urls']['citethispage']['href'] ?? null
+			)
+		] ) );
+	}
+
+	/**
+	 * @param BaseTemplate $tpl
+	 * @return array
+	 */
+	private function getUserNamespaceOverflowPageActions( BaseTemplate $tpl ) {
+		$pageUser = $this->getUserPageHelper()->getPageUser();
+		return [
+			$this->newOverflowPageAction(
+				'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $pageUser )->getLocalURL()
+			),
+			$this->newOverflowPageAction(
+				'user-rights', 'userAvatar', $tpl->data['nav_urls']['userrights']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'logs', 'listBullet', $tpl->data['nav_urls']['log']['href'] ?? null
+			),
+			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
+			$this->newOverflowPageAction(
+				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
+			)
+		];
+	}
+
+	/**
+	 * @param string $name
+	 * @param string $icon Wikimedia UI icon name.
+	 * @param string|null $href
+	 * @return array
+	 */
+	private function newOverflowPageAction( $name, $icon, $href ) {
+		return $href ? [
+			'item-id' => 'page-actions-overflow-' . $name,
+			'class' => MinervaUI::iconClass( '', 'before', 'wikimedia-ui-' . $icon . '-base20' ),
+			'text' => $this->msg( 'minerva-page-actions-' . $name ),
+			'href' => $href
+		] : null;
 	}
 
 	/**

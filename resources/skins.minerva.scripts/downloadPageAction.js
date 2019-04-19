@@ -120,10 +120,17 @@
 	 * @param {Skin} skin
 	 * @param {number[]} supportedNamespaces
 	 * @param {Window} [windowObj] window object
+	 * @param {boolean} [hasText] Use icon + button style.
 	 * @returns {jQuery.Object|null}
 	 */
-	function downloadPageAction( skin, supportedNamespaces, windowObj ) {
-		var icon, spinner = icons.spinner();
+	function downloadPageAction( skin, supportedNamespaces, windowObj, hasText ) {
+		var
+			modifier = hasText ? 'toolbar-overflow-menu__list-item' : 'mw-ui-icon-element',
+			icon,
+			spinner = icons.spinner( {
+				hasText: hasText,
+				modifier: modifier
+			} );
 
 		if (
 			isAvailable(
@@ -139,11 +146,13 @@
 				events: {
 					// will be bound to `this`
 					click: getOnClickHandler( spinner )
-				}
+				},
+				hasText: hasText,
+				label: hasText ? mw.msg( 'minerva-download' ) : '',
+				modifier: modifier
 			} );
 
 			return $( '<li>' ).addClass( 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
-
 		} else {
 			return null;
 		}

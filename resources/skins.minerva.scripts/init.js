@@ -1,17 +1,15 @@
-( function ( M, track, config ) {
+( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
 		PageGateway = mobile.PageGateway,
 		toast = mobile.toast,
 		time = mobile.time,
-		skin = M.require( 'mobile.init/skin' ),
 		TitleUtil = M.require( 'skins.minerva.scripts/TitleUtil' ),
 		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
-		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
+		Toolbar = M.require( 'skins.minerva.scripts/Toolbar' ),
 		router = require( 'mediawiki.router' ),
 		OverlayManager = mobile.OverlayManager,
 		CtaDrawer = mobile.CtaDrawer,
-		Icon = mobile.Icon,
 		Button = mobile.Button,
 		Anchor = mobile.Anchor,
 		overlayManager = OverlayManager.getSingleton(),
@@ -198,28 +196,6 @@
 	}
 
 	/**
-	 * Initialize and inject the download button
-	 *
-	 * There are many restrictions when we can show the download button, this function should handle
-	 * all device/os/operating system related checks and if device supports printing it will inject
-	 * the Download icon
-	 * @ignore
-	 */
-	function appendDownloadButton() {
-		var $downloadAction = downloadPageAction( skin,
-			config.get( 'wgMinervaDownloadNamespaces', [] ), window );
-
-		if ( $downloadAction ) {
-
-			$downloadAction.insertAfter( '.page-actions-menu__list-item:first-child' );
-
-			track( 'minerva.downloadAsPDF', {
-				action: 'buttonVisible'
-			} );
-		}
-	}
-
-	/**
 	 * Tests a URL to determine if it links to a local User namespace page or not.
 	 *
 	 * Assuming the current page visited is hosted on metawiki, the following examples would return
@@ -317,54 +293,19 @@
 		} );
 	}
 
-	/**
-	 * Initialize page edit action link (#ca-edit)
-	 *
-	 * Mark the edit link as disabled if the user is not actually able to edit the page for some
-	 * reason (e.g. page is protected or user is blocked).
-	 *
-	 * Note that the link is still clickable, but clicking it will probably open a view-source
-	 * form or display an error message, rather than open an edit form.
-	 *
-	 * FIXME: Review this code as part of T206262
-	 *
-	 * @ignore
-	 */
-	function initEditLink() {
-		var
-			// FIXME: create a utility method to generate class names instead of
-			//       constructing temporary objects. This affects disabledEditIcon,
-			//       enabledEditIcon, enabledEditIcon, and disabledClass and
-			//       a number of other places in the code base.
-			disabledEditIcon = new Icon( {
-				name: 'edit',
-				glyphPrefix: 'minerva'
-			} ),
-			enabledEditIcon = new Icon( {
-				name: 'edit-enabled',
-				glyphPrefix: 'minerva'
-			} ),
-			enabledClass = enabledEditIcon.getGlyphClassName(),
-			disabledClass = disabledEditIcon.getGlyphClassName();
-
-		if ( mw.config.get( 'wgMinervaReadOnly' ) ) {
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#ca-edit' )
-				.removeClass( enabledClass )
-				.addClass( disabledClass );
-		}
-	}
-
 	$( function () {
+		var toolbarElement = document.querySelector( Toolbar.selector );
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
 		initRegistrationInfo();
 		// eslint-disable-next-line no-jquery/no-global-selector
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
-		appendDownloadButton();
+		if ( toolbarElement ) {
+			Toolbar.bind( window, toolbarElement, eventBus );
+			Toolbar.render( window, toolbarElement );
+		}
 		initRedlinksCta();
 		initUserRedLinks();
-		initEditLink();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
 		if ( !page.isMissing ) {
@@ -373,4 +314,4 @@
 	} );
 
 	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
-}( mw.mobileFrontend, mw.track, mw.config ) );
+}( mw.mobileFrontend ) );
