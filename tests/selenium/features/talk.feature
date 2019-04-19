@@ -31,14 +31,13 @@ Feature: Talk
   Scenario: Add topic button shows on talk pages for logged in users
     Given the page "Talk:Selenium talk test" exists
       And I am logged into the mobile website
-      And I am on the "Talk:Selenium UI test" page
+      And I am on the "Talk:Selenium talk test" page
     When I click the talk button
     Then there should be a save discussion button
 
   Scenario: A newly created topic appears in the list of topics immediately
-    Given the page "Talk:Selenium talk test" exists
-      And I am logged into the mobile website
-      And the page "Selenium talk test" exists
+    Given I am logged into the mobile website
+     And I am on a page with no talk topics
     When I click the talk button
     And I see the talk overlay
 	  And no topic is present

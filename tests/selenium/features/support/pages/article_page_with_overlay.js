@@ -13,6 +13,7 @@ class ArticlePageWithOverlay extends MinervaPage {
 	get overlay_element() { return $( '.overlay' ); }
 
 	// overlay components
+	get overlay_content_element() { return $( '.overlay-content' ); }
 	get overlay_close_element() { return $( '.overlay .cancel' ); }
 }
 

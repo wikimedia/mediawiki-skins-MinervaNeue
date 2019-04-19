@@ -4,10 +4,14 @@ const { defineSupportCode } = require( 'cucumber' ),
 	} = require( './category_steps' ),
 	{ iAmInAWikiThatHasCategories,
 		iAmOnAPageThatHasTheFollowingEdits,
+		iAmOnAPageWithNoTalkTopics,
+		iAmViewingAWatchedPage, iAmViewingAnUnwatchedPage,
 		iGoToAPageThatHasLanguages } = require( './create_page_api_steps' ),
 	{
 		pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
+		iShouldSeeAToastNotificationWithMessage, iAmUsingMobileScreenResolution,
 		iAmUsingTheMobileSite, iClickTheBrowserBackButton,
+		iClickTheOverlayCloseButton, iDoNotSeeAnOverlay,
 		iAmLoggedIntoTheMobileWebsite,
 		iAmOnPage, iAmInBetaMode
 	} = require( './common_steps' ),
@@ -21,6 +25,32 @@ const { defineSupportCode } = require( 'cucumber' ),
 		iTypeIntoTheEditor, iClickContinue, iClickSubmit, iSayOkayInTheConfirmDialog,
 		theTextOfTheFirstHeadingShouldBe, thereShouldBeARedLinkWithText
 	} = require( './editor_steps' ),
+	{
+		theWatchstarShouldNotBeSelected, theWatchstarShouldBeSelected,
+		iClickTheWatchstar, iClickTheUnwatchStar } = require( './watch_steps' ),
+	{ iVisitMyUserPage, iShouldBeOnMyUserPage, thereShouldBeALinkToMyUploads,
+		thereShouldBeALinkToMyContributions, thereShouldBeALinkToMyTalkPage
+	} = require( './user_page_steps' ),
+	{
+		iClickTheSearchIcon,
+		iTypeIntoTheSearchBox,
+		iClickASearchWatchstar,
+		iSeeTheSearchOverlay
+	} = require( './search_steps' ),
+	{
+		iClickTheTalkButton,
+		iAddATopic,
+		iSeeTheTalkOverlay,
+		thereShouldBeASaveDiscussionButton,
+		noTopicIsPresent,
+		thereShouldBeAnAddDiscussionButton,
+		thereShouldBeNoTalkButton,
+		iShouldSeeTheTopicInTheListOfTopics
+	} = require( './talk_steps' ),
+	{ iSeeALinkToAboutPage, iShouldSeeAUserPageLinkInMenu,
+		iClickOnTheMainNavigationButton,
+		iShouldSeeALinkInMenu, iShouldSeeALinkToDisclaimer
+	} = require( './menu_steps' ),
 	{ iHaveNoNotifications, iClickOnTheNotificationIcon,
 		iShouldSeeTheNotificationsOverlay, iClickTheNotificationsOverlayCloseButton,
 		iShouldNotSeeTheNotificationsOverlay
@@ -39,12 +69,15 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	When( /^I click continue$/, iClickContinue );
 	When( /^I click submit$/, iClickSubmit );
 	When( /^I say OK in the confirm dialog$/, iSayOkayInTheConfirmDialog );
+	When( /^I click the wikitext editor overlay close button$/, iClickTheOverlayCloseButton );
 	Then( /^I do not see the wikitext editor overlay$/, iDoNotSeeTheWikitextEditorOverlay );
 	Then( /^the text of the first heading should be "(.+)"$/, theTextOfTheFirstHeadingShouldBe );
 	Then( /^there should be a red link with text "(.+)"$/, thereShouldBeARedLinkWithText );
+	Then( /^I should not see the wikitext editor overlay$/, iDoNotSeeAnOverlay );
 
 	// common steps
 	Given( /^I am using the mobile site$/, iAmUsingTheMobileSite );
+	When( /^I am viewing the site in mobile mode$/, iAmUsingMobileScreenResolution );
 
 	Given( /^I am in beta mode$/, iAmInBetaMode );
 
@@ -52,9 +85,11 @@ defineSupportCode( function ( { Then, When, Given } ) {
 
 	Given( /^I am logged into the mobile website$/, iAmLoggedIntoTheMobileWebsite );
 	Then( /^I should see a toast notification$/, iShouldSeeAToastNotification );
+	Then( /^I should see a toast with message "(.+)"$/, iShouldSeeAToastNotificationWithMessage );
 	When( /I click the browser back button/, iClickTheBrowserBackButton );
 
 	// Page steps
+	Given( /^I am on a page with no talk topics$/, iAmOnAPageWithNoTalkTopics );
 	Given( /^I am in a wiki that has categories$/, () => {
 		iAmInAWikiThatHasCategories( 'Selenium categories test page' );
 	} );
@@ -62,6 +97,8 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	Given( /^I am on a page that does not exist$/, iAmOnAPageThatDoesNotExist );
 	Given( /^I go to a page that has languages$/, iGoToAPageThatHasLanguages );
 	Given( /^the page "(.+)" exists$/, pageExists );
+	Given( /^I am viewing a watched page$/, iAmViewingAWatchedPage );
+	Given( /^I am viewing an unwatched page$/, iAmViewingAnUnwatchedPage );
 
 	// history steps
 	When( /^I open the latest diff$/, iOpenTheLatestDiff );
@@ -78,6 +115,43 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	When( /I click the notifications overlay close button/, iClickTheNotificationsOverlayCloseButton );
 	Then( /after 1 seconds I should not see the notifications overlay/, iShouldNotSeeTheNotificationsOverlay );
 	Then( /I should see the notifications overlay/, iShouldSeeTheNotificationsOverlay );
+
+	// talk
+	When( /^I click the talk button$/, iClickTheTalkButton );
+	When( /^I add a topic called "(.+)"$/, iAddATopic );
+	Then( /^I see the talk overlay$/, iSeeTheTalkOverlay );
+	Then( /^I should see the talk overlay$/, iSeeTheTalkOverlay );
+	Then( /^there should be a save discussion button$/, thereShouldBeASaveDiscussionButton );
+	Then( /^no topic is present$/, noTopicIsPresent );
+	Then( /^there should be an add discussion button$/, thereShouldBeAnAddDiscussionButton );
+	Then( /^there should be no talk button$/, thereShouldBeNoTalkButton );
+	Then( /^I should see the topic called "(.+)" in the list of topics$/, iShouldSeeTheTopicInTheListOfTopics );
+
+	// user page
+	Given( /^I visit my user page$/, iVisitMyUserPage );
+	When( /^I should be on my user page$/, iShouldBeOnMyUserPage );
+	Then( /^there should be a link to my uploads$/, thereShouldBeALinkToMyUploads );
+	Then( /^there should be a link to my contributions$/, thereShouldBeALinkToMyContributions );
+	Then( /^there should be a link to my talk page$/, thereShouldBeALinkToMyTalkPage );
+
+	// search
+	When( /^I click the search icon$/, iClickTheSearchIcon );
+	When( /^I type into search box "(.+)"$/, iTypeIntoTheSearchBox );
+	When( /^I click a search watch star$/, iClickASearchWatchstar );
+	Then( /^I see the search overlay$/, iSeeTheSearchOverlay );
+
+	// main menu
+	When( /^I click on the main navigation button$/, iClickOnTheMainNavigationButton );
+	When( /^I should see a link to the about page$/, iSeeALinkToAboutPage );
+	Then( /^I should see a link to my user page in the main navigation menu$/, iShouldSeeAUserPageLinkInMenu );
+	Then( /^I should see a link to "(.+)" in the main navigation menu$/, iShouldSeeALinkInMenu );
+	Then( /^I should see a link to the disclaimer$/, iShouldSeeALinkToDisclaimer );
+
+	// watchstar
+	When( /^I click the watch star$/, iClickTheWatchstar );
+	When( /^I click the unwatch star$/, iClickTheUnwatchStar );
+	Then( /^the watch star should not be selected$/, theWatchstarShouldNotBeSelected );
+	Then( /^the watch star should be selected$/, theWatchstarShouldBeSelected );
 
 	// Category steps
 	When( /^I click on the category button$/, iClickOnTheCategoryButton );
