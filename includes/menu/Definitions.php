@@ -71,7 +71,7 @@ final class Definitions {
 		$group->insert( 'contribs' )
 			->addComponent(
 				$this->context->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
-				SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalUrl(),
+				SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL(),
 				MinervaUI::iconClass( 'contributions', 'before' ),
 				[ 'data-event-name' => 'contributions' ]
 			);
@@ -142,7 +142,7 @@ final class Definitions {
 			$group->insert( 'auth', false )
 				->addComponent(
 					$username,
-					Title::newFromText( $username, NS_USER )->getLocalUrl(),
+					Title::newFromText( $username, NS_USER )->getLocalURL(),
 					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
 					[ 'data-event-name' => 'profile' ]
 				)
@@ -177,7 +177,7 @@ final class Definitions {
 		$group->insert( 'home' )
 			->addComponent(
 				$this->context->msg( 'mobile-frontend-home-button' )->escaped(),
-				Title::newMainPage()->getLocalUrl(),
+				Title::newMainPage()->getLocalURL(),
 				MinervaUI::iconClass( 'home', 'before' ),
 				[ 'data-event-name' => 'home' ]
 			);
@@ -192,7 +192,7 @@ final class Definitions {
 		// Random link
 		$group->insert( 'random' )
 			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->escaped(),
-				SpecialPage::getTitleFor( 'Randompage' )->getLocalUrl() . '#/random',
+				SpecialPage::getTitleFor( 'Randompage' )->getLocalURL() . '#/random',
 				MinervaUI::iconClass( 'random', 'before' ), [
 					'id' => 'randomButton',
 					'data-event-name' => 'random',
@@ -259,7 +259,7 @@ final class Definitions {
 		$msg = $this->context->msg( 'aboutsite' );
 		if ( $title && !$msg->isDisabled() ) {
 			$group->insert( 'about' )
-				->addComponent( $msg->text(), $title->getLocalUrl() );
+				->addComponent( $msg->text(), $title->getLocalURL() );
 		}
 	}
 
@@ -273,7 +273,7 @@ final class Definitions {
 		$msg = $this->context->msg( 'disclaimers' );
 		if ( $title && !$msg->isDisabled() ) {
 			$group->insert( 'disclaimers' )
-				->addComponent( $msg->text(), $title->getLocalUrl() );
+				->addComponent( $msg->text(), $title->getLocalURL() );
 		}
 	}
 
