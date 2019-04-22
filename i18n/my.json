@@ -35,5 +35,11 @@
 	"mobile-frontend-user-page-contributions": "ဆောင်ရွက်ချက်များ",
 	"mobile-frontend-user-page-talk": "ဆွေးနွေး",
 	"mobile-frontend-user-page-uploads": "တင်ထားသည်များ",
+	"minerva-page-actions-info": "စာမျက်နှာ အချက်အလက်များ",
+	"minerva-page-actions-permalink": "ပုံ​သေ​လိပ်​စာ​",
+	"minerva-page-actions-backlinks": "ဘယ်ကလင့်ခ်ထားလဲ",
+	"minerva-page-actions-uploads": "တင်ထားသည်များ",
+	"minerva-page-actions-user-rights": "အသုံးပြုသူ အခွင့်အရေးများ",
+	"minerva-page-actions-logs": "မှတ်​တမ်း​များ​",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "ကဏ္ဍများ"
 }
