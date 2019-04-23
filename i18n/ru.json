@@ -12,7 +12,8 @@
 			"Facenapalm",
 			"OlegCinema",
 			"Stjn",
-			"Vlad5250"
+			"Vlad5250",
+			"DmitTrix"
 		]
 	},
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
@@ -59,6 +60,8 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Присоединился|Присоединилась}} $1",
 	"mobile-frontend-user-page-talk": "Обсуждение",
 	"mobile-frontend-user-page-uploads": "Загрузки",
+	"minerva-page-actions-permalink": "Постоянная ссылка",
+	"minerva-page-actions-backlinks": "Ссылки сюда",
 	"minerva-skin-desc": "Первая адаптивная мобильная тема оформления.",
 	"skin-minerva-issue-learn-more": "Узнать больше",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
