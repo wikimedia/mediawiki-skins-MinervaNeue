@@ -18,8 +18,9 @@
  * @file
  */
 
-use MediaWiki\Minerva\MenuBuilder;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
+use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
 /**
@@ -28,18 +29,6 @@ use MediaWiki\Minerva\SkinUserPageHelper;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinTemplate {
-	/** Set of keys for available skin options. See $skinOptions. */
-	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
-	const OPTION_AMC = 'amc';
-	const OPTION_CATEGORIES = 'categories';
-	const OPTION_BACK_TO_TOP = 'backToTop';
-	const OPTION_PAGE_ISSUES = 'pageIssues';
-	const OPTION_SHARE_BUTTON = 'shareButton';
-	const OPTION_TOGGLING = 'toggling';
-	const OPTIONS_MOBILE_BETA = 'beta';
-	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
-	const OPTIONS_HISTORY_PAGE_ACTIONS = 'historyInPageActions';
-
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	  in editing mode */
 	const LEAD_SECTION_NUMBER = 0;
@@ -48,16 +37,44 @@ class SkinMinerva extends SkinTemplate {
 	public $skinname = 'minerva';
 	/** @var string $template Name of this used template */
 	public $template = 'MinervaTemplate';
-	/** @var ContentHandler Content handler of page; only access through getContentHandler */
-	protected $contentHandler = null;
+
 	/** @var bool Whether the page is also available in other languages or variants */
 	protected $doesPageHaveLanguages = false;
-	/** @var SkinUserPageHelper Helper class for UserPage handling */
-	protected $userPageHelper;
+
+	/** @var SkinOptions  */
+	private $skinOptions;
+
+	/**
+	 * Initialize Minerva Skin
+	 */
+	public function __construct() {
+		parent::__construct( 'minerva' );
+		$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+	}
+
+	/**
+	 * Initalized main menu. Please use getter.
+	 * @return MainMenuDirector
+	 *
+	 */
+	private $mainMenu;
+
+	/**
+	 * Build the Main Menu Director by passing the skin options
+	 *
+	 * @return MainMenuDirector
+	 */
+	protected function getMainMenu() {
+		if ( !$this->mainMenu ) {
+			$this->mainMenu = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.MainDirector' );
+		}
+		return $this->mainMenu;
+	}
 
 	/**
 	 * Returns the site name for the footer, either as a text or <img> tag
 	 * @return string
+	 * @throws ConfigException
 	 */
 	public function getSitename() {
 		$config = $this->getConfig();
@@ -93,58 +110,6 @@ class SkinMinerva extends SkinTemplate {
 		return $sitename;
 	}
 
-	/** @var array skin specific options */
-	protected $skinOptions = [
-		self::OPTION_AMC => false,
-		self::OPTIONS_MOBILE_BETA => false,
-		/**
-		 * Whether the main menu should include a link to
-		 * Special:Preferences of Special:MobileOptions
-		 */
-		self::OPTION_MOBILE_OPTIONS => false,
-		/** Whether a categories button should appear at the bottom of the skin. */
-		self::OPTION_CATEGORIES => false,
-		/** Whether a back to top button appears at the bottom of the view page */
-		self::OPTION_BACK_TO_TOP => false,
-		/** Whether a share button should appear in icons section */
-		self::OPTION_SHARE_BUTTON => false,
-		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
-		self::OPTION_TOGGLING => false,
-		self::OPTION_PAGE_ISSUES => false,
-		self::OPTIONS_TALK_AT_TOP => false,
-		self::OPTIONS_HISTORY_PAGE_ACTIONS => false,
-	];
-
-	/**
-	 * override an existing option or options with new values
-	 * @param array $options
-	 */
-	public function setSkinOptions( $options ) {
-		$this->skinOptions = array_merge( $this->skinOptions, $options );
-	}
-
-	/**
-	 * Return whether a skin option is truthy
-	 * @param string $key
-	 * @return bool
-	 */
-	public function getSkinOption( $key ) {
-		return $this->skinOptions[$key];
-	}
-
-	/**
-	 * Return whether any of the skin options have been set
-	 * @return bool
-	 */
-	public function hasSkinOptions() {
-		foreach ( $this->skinOptions as $key => $val ) {
-			if ( $val ) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	/**
 	 * initialize various variables and generate the template
 	 * @return QuickTemplate
@@ -173,7 +138,7 @@ class SkinMinerva extends SkinTemplate {
 		$tpl->set( 'unstyledContent', $out->getProperty( 'unstyledContent' ) );
 
 		// Set the links for the main menu
-		$tpl->set( 'menu_data', $this->getMenuData() );
+		$tpl->set( 'menu_data', $this->getMainMenu()->getMenuData() );
 
 		// Set the links for page secondary actions
 		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
@@ -201,7 +166,7 @@ class SkinMinerva extends SkinTemplate {
 		// If it's a talk page, add a link to the main namespace page
 		// In AMC we do not need to do this as there is an easy way back to the article page
 		// via the talk/article tabs.
-		if ( $title->isTalkPage() && !$this->getSkinOption( self::OPTION_AMC ) ) {
+		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			// if it's a talk page for which we have a special message, use it
 			switch ( $title->getNamespace() ) {
 				case NS_USER_TALK:
@@ -262,7 +227,11 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if ( $action === 'history' && $title->exists() ) {
-			return $this->getSkinOption( self::OPTIONS_HISTORY_PAGE_ACTIONS );
+			return $this->skinOptions->get( SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS );
+		}
+
+		if ( $action === SkinOptions::OPTION_OVERFLOW_SUBMENU ) {
+			return $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU );
 		}
 
 		if (
@@ -310,26 +279,14 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Gets content handler of current title
-	 *
-	 * @return ContentHandler
-	 */
-	protected function getContentHandler() {
-		if ( $this->contentHandler === null ) {
-			$this->contentHandler = ContentHandler::getForTitle( $this->getTitle() );
-		}
-
-		return $this->contentHandler;
-	}
-
-	/**
 	 * Takes a title and returns classes to apply to the body tag
 	 * @param Title $title
 	 * @return string
 	 */
 	public function getPageClasses( $title ) {
 		$className = parent::getPageClasses( $title );
-		$className .= ' ' . ( $this->getSkinOption( self::OPTIONS_MOBILE_BETA ) ? 'beta' : 'stable' );
+		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA )
+				? 'beta' : 'stable' );
 
 		if ( $title->isMainPage() ) {
 			$className .= ' page-Main_Page ';
@@ -341,7 +298,7 @@ class SkinMinerva extends SkinTemplate {
 		// The new treatment should only apply to the main namespace
 		if (
 			$title->getNamespace() === NS_MAIN &&
-			$this->getSkinOption( self::OPTION_PAGE_ISSUES )
+			$this->skinOptions->get( SkinOptions::OPTION_PAGE_ISSUES )
 		) {
 			$className .= ' issues-group-B';
 		}
@@ -362,7 +319,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return bool
 	 */
 	private function hasCategoryLinks() {
-		if ( !$this->getSkinOption( self::OPTION_CATEGORIES ) ) {
+		if ( !$this->skinOptions->get( SkinOptions::OPTION_CATEGORIES ) ) {
 			return false;
 		}
 		$categoryLinks = $this->getOutput()->getCategoryLinks();
@@ -377,10 +334,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return SkinUserPageHelper
 	 */
 	public function getUserPageHelper() {
-		if ( $this->userPageHelper === null ) {
-			$this->userPageHelper = new SkinUserPageHelper( $this->getContext()->getTitle() );
-		}
-		return $this->userPageHelper;
+		return MediaWikiServices::getInstance()->getService( 'Minerva.SkinUserPageHelper' );
 	}
 
 	/**
@@ -498,122 +452,6 @@ class SkinMinerva extends SkinTemplate {
 			] );
 		}
 	}
-
-	/**
-	 * Inserts the Contributions menu item into the menu.
-	 *
-	 * @param MenuBuilder $menu
-	 * @param User $user The user to whom the contributions belong
-	 */
-	private function insertContributionsMenuItem( MenuBuilder $menu, User $user ) {
-		$menu->insert( 'contribs' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
-				SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalUrl(),
-				MinervaUI::iconClass( 'contributions', 'before' ),
-				[ 'data-event-name' => 'contributions' ]
-			);
-	}
-
-	/**
-	 * Inserts the Watchlist menu item into the menu for a logged in user
-	 *
-	 * @param MenuBuilder $menu
-	 * @param User $user that must be logged in
-	 */
-	protected function insertWatchlistMenuItem( MenuBuilder $menu, User $user ) {
-		$watchTitle = SpecialPage::getTitleFor( 'Watchlist' );
-
-		// Watchlist link
-		$watchlistQuery = [];
-		// Avoid fatal when MobileFrontend not available (T171241)
-		if ( class_exists( 'SpecialMobileWatchlist' ) ) {
-			$view = $user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
-			$filter = $user->getOption( SpecialMobileWatchlist::FILTER_OPTION_NAME, false );
-			if ( $view ) {
-				$watchlistQuery['watchlistview'] = $view;
-			}
-			if ( $filter && $view === 'feed' ) {
-				$watchlistQuery['filter'] = $filter;
-			}
-		}
-
-		$menu->insert( 'watchlist' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
-				$watchTitle->getLocalURL( $watchlistQuery ),
-				MinervaUI::iconClass( 'watchlist', 'before' ),
-				[ 'data-event-name' => 'watchlist' ]
-			);
-	}
-
-	/**
-	 * If the user is using a mobile device (or the UA presents itself as a mobile device), then the
-	 * Settings menu item is inserted into the menu; otherwise the Preferences menu item is inserted.
-	 *
-	 * @param MenuBuilder $menu
-	 */
-	protected function insertSettingsMenuItem( MenuBuilder $menu ) {
-		$returnToTitle = $this->getTitle()->getPrefixedText();
-
-		// Links specifically for mobile mode
-		if ( $this->getSkinOption( self::OPTION_MOBILE_OPTIONS ) ) {
-			// Settings link
-			$menu->insert( 'settings' )
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
-					SpecialPage::getTitleFor( 'MobileOptions' )->
-						getLocalURL( [ 'returnto' => $returnToTitle ] ),
-					MinervaUI::iconClass( 'settings', 'before' ),
-					[ 'data-event-name' => 'settings' ]
-				);
-
-		// Links specifically for desktop mode
-		} else {
-
-			// Preferences link
-			$menu->insert( 'preferences' )
-				->addComponent(
-					$this->msg( 'preferences' )->escaped(),
-					SpecialPage::getTitleFor( 'Preferences' )->getLocalURL(),
-					MinervaUI::iconClass( 'settings', 'before' ),
-					[ 'data-event-name' => 'preferences' ]
-				);
-		}
-	}
-
-	/**
-	 * Builds the personal tools menu item group.
-	 *
-	 * ... by adding the Watchlist, Settings, and Log{in,out} menu items in the given order.
-	 *
-	 * @param MenuBuilder $menu
-	 */
-	protected function buildPersonalTools( MenuBuilder $menu ) {
-		$this->insertLogInOutMenuItem( $menu );
-
-		$user = $this->getUser();
-
-		if ( $user->isLoggedIn() ) {
-			$this->insertWatchlistMenuItem( $menu, $user );
-			$this->insertContributionsMenuItem( $menu, $user );
-		}
-	}
-
-	/**
-	 * Prepares and returns urls and links personal to the given user
-	 * @return array
-	 */
-	protected function getPersonalTools() {
-		$menu = new MenuBuilder();
-
-		$this->buildPersonalTools( $menu );
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'personal', &$menu ] );
-		return $menu->getEntries();
-	}
-
 	/**
 	 * Rewrites the language list so that it cannot be contaminated by other extensions with things
 	 * other than languages
@@ -632,131 +470,12 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Like <code>SkinMinerva#getDiscoveryTools</code> and <code>#getPersonalTools</code>, create
-	 * a group of configuration-related menu items. Currently, only the Settings menu item is in the
-	 * group.
-	 *
-	 * @return array
-	 */
-	private function getConfigurationTools() {
-		$menu = new MenuBuilder();
-
-		$this->insertSettingsMenuItem( $menu );
-
-		return $menu->getEntries();
-	}
-
-	/**
-	 * Prepares a list of links that have the purpose of discovery in the main navigation menu
-	 * @return array
-	 */
-	protected function getDiscoveryTools() {
-		$config = $this->getConfig();
-		$menu = new MenuBuilder();
-		$factory = MediaWikiServices::getInstance()->getSpecialPageFactory();
-
-		// Home link
-		$menu->insert( 'home' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-home-button' )->escaped(),
-				Title::newMainPage()->getLocalURL(),
-				MinervaUI::iconClass( 'home', 'before' ),
-				[ 'data-event-name' => 'home' ]
-			);
-
-		// Random link
-		$menu->insert( 'random' )
-			->addComponent(
-				$this->msg( 'mobile-frontend-random-button' )->escaped(),
-				SpecialPage::getTitleFor( 'Randompage' )->getLocalURL() . '#/random',
-				MinervaUI::iconClass( 'random', 'before' ),
-				[
-					'id' => 'randomButton',
-					'data-event-name' => 'random',
-				]
-			);
-
-		// Nearby link (if supported)
-		if ( $factory->exists( 'Nearby' ) ) {
-			$menu->insert( 'nearby', $isJSOnly = true )
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
-					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
-					MinervaUI::iconClass( 'nearby', 'before', 'nearby' ),
-					[ 'data-event-name' => 'nearby' ]
-				);
-		}
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'discovery', &$menu ] );
-		return $menu->getEntries();
-	}
-
-	/**
 	 * Prepares a url to the Special:UserLogin with query parameters
 	 * @param array $query
 	 * @return string
 	 */
 	public function getLoginUrl( $query ) {
 		return SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $query );
-	}
-
-	/**
-	 * Creates a login or logout button
-	 *
-	 * @param MenuBuilder $menu
-	 */
-	protected function insertLogInOutMenuItem( MenuBuilder $menu ) {
-		$query = [];
-		$returntoquery = [];
-
-		if ( !$this->getRequest()->wasPosted() ) {
-			$returntoquery = $this->getRequest()->getValues();
-			unset( $returntoquery['title'] );
-			unset( $returntoquery['returnto'] );
-			unset( $returntoquery['returntoquery'] );
-		}
-		$title = $this->getTitle();
-		// Don't ever redirect back to the login page (bug 55379)
-		if ( !$title->isSpecial( 'Userlogin' ) ) {
-			$query[ 'returnto' ] = $title->getPrefixedText();
-		}
-
-		$user = $this->getUser();
-		if ( $user->isLoggedIn() ) {
-			if ( !empty( $returntoquery ) ) {
-				$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
-			}
-			$url = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $query );
-			$username = $user->getName();
-
-			$menu->insert( 'auth', false )
-				->addComponent(
-					$username,
-					Title::newFromText( $username, NS_USER )->getLocalURL(),
-					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
-					[ 'data-event-name' => 'profile' ]
-				)
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-logout' )->escaped(),
-					$url,
-					MinervaUI::iconClass(
-						'logout', 'element', 'secondary-action truncated-text' ),
-					[ 'data-event-name' => 'logout' ]
-				);
-		} else {
-			// unset campaign on login link so as not to interfere with A/B tests
-			unset( $returntoquery['campaign'] );
-			$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
-			$url = $this->getLoginUrl( $query );
-			$menu->insert( 'auth', false )
-				->addComponent(
-					$this->msg( 'mobile-frontend-main-menu-login' )->escaped(),
-					$url,
-					MinervaUI::iconClass( 'login', 'before' ),
-					[ 'data-event-name' => 'login' ]
-				);
-		}
 	}
 
 	/**
@@ -800,7 +519,8 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string
 	 */
 	protected function getHistoryUrl( Title $title ) {
-		return SpecialPageFactory::exists( 'History' ) ?
+		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
+			SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->getUser() ) ?
 			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
 			$title->getLocalURL( [ 'action' => 'history' ] );
 	}
@@ -1000,34 +720,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Returns an array of sitelinks to add into the main menu footer.
-	 * @return array Array of site links
-	 */
-	protected function getSiteLinks() {
-		$menu = new MenuBuilder();
-
-		// About link
-		$title = Title::newFromText( $this->msg( 'aboutpage' )->inContentLanguage()->text() );
-		$msg = $this->msg( 'aboutsite' );
-		if ( $title && !$msg->isDisabled() ) {
-			$menu->insert( 'about' )
-				->addComponent( $msg->text(), $title->getLocalURL() );
-		}
-
-		// Disclaimers link
-		$title = Title::newFromText( $this->msg( 'disclaimerpage' )->inContentLanguage()->text() );
-		$msg = $this->msg( 'disclaimers' );
-		if ( $title && !$msg->isDisabled() ) {
-			$menu->insert( 'disclaimers' )
-				->addComponent( $msg->text(), $title->getLocalURL() );
-		}
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'sitelinks', &$menu ] );
-		return $menu->getEntries();
-	}
-
-	/**
 	 * Returns an array with details for a language button.
 	 * @return array
 	 */
@@ -1102,7 +794,7 @@ class SkinMinerva extends SkinTemplate {
 		// in stable it will link to the wikitext talk page
 		$title = $this->getTitle();
 		$subjectPage = $title->getSubjectPage();
-		$talkAtBottom = !$this->getSkinOption( self::OPTIONS_TALK_AT_TOP ) ||
+		$talkAtBottom = !$this->skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
 		if ( !$this->getUserPageHelper()->isUserPage()
@@ -1145,10 +837,11 @@ class SkinMinerva extends SkinTemplate {
 	 * @param BaseTemplate $tpl
 	 */
 	protected function preparePageActions( BaseTemplate $tpl ) {
-		$menu = [];
+		$toolbar = [];
+		$overflowMenu = null;
 
 		if ( $this->isAllowedPageAction( 'switch-language' ) ) {
-			$menu[] = $this->createSwitchLanguageAction();
+			$toolbar[] = $this->createSwitchLanguageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'watch' ) ) {
@@ -1156,18 +849,25 @@ class SkinMinerva extends SkinTemplate {
 			// Pass these actions in as context for #createWatchPageAction.
 			$actions = $tpl->data['content_navigation']['actions'];
 
-			$menu[] = $this->createWatchPageAction( $actions );
+			$toolbar[] = $this->createWatchPageAction( $actions );
 		}
 
 		if ( $this->isAllowedPageAction( 'history' ) ) {
-			$menu[] = $this->getHistoryPageAction();
+			$toolbar[] = $this->getHistoryPageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$menu[] = $this->createEditPageAction();
+			$toolbar[] = $this->createEditPageAction();
 		}
 
-		$tpl->set( 'page_actions', $menu );
+		if ( $this->isAllowedPageAction( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+			$overflowMenu = $this->newToolbarOverflowMenu( $tpl );
+		}
+
+		$tpl->set( 'page_actions', [
+			'toolbar' => $toolbar,
+			'overflowMenu' => $overflowMenu
+		] );
 	}
 
 	/**
@@ -1289,32 +989,95 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * Creates an overflow action: An icon that links to the overflow menu.
+	 *
+	 * @param BaseTemplate $tpl
+	 * @return array|null A map of HTML attributes and a 'text' property to be used with the
+	 * pageActionMenu.mustache template.
+	 */
+	private function newToolbarOverflowMenu( BaseTemplate $tpl ) {
+		$pageActions = $this->getUserPageHelper()->isUserPage()
+		? $this->getUserNamespaceOverflowPageActions( $tpl )
+		: $this->getDefaultOverflowPageActions( $tpl );
+		return empty( $pageActions ) ? null : [
+			'item-id' => 'page-actions-overflow',
+			'class' => MinervaUI::iconClass( 'page-actions-overflow' ),
+			'text' => $this->msg( 'minerva-page-actions-overflow' ),
+			'pageActions' => $pageActions
+		];
+	}
+
+	/**
+	 * @param BaseTemplate $tpl
+	 * @return array
+	 */
+	private function getDefaultOverflowPageActions( BaseTemplate $tpl ) {
+		return array_values( array_filter( [
+			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
+			$this->newOverflowPageAction(
+				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'cite', 'quotes', $tpl->data['nav_urls']['citethispage']['href'] ?? null
+			)
+		] ) );
+	}
+
+	/**
+	 * @param BaseTemplate $tpl
+	 * @return array
+	 */
+	private function getUserNamespaceOverflowPageActions( BaseTemplate $tpl ) {
+		$pageUser = $this->getUserPageHelper()->getPageUser();
+		return [
+			$this->newOverflowPageAction(
+				'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $pageUser )->getLocalURL()
+			),
+			$this->newOverflowPageAction(
+				'user-rights', 'userAvatar', $tpl->data['nav_urls']['userrights']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'logs', 'listBullet', $tpl->data['nav_urls']['log']['href'] ?? null
+			),
+			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
+			$this->newOverflowPageAction(
+				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
+			),
+			$this->newOverflowPageAction(
+				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
+			)
+		];
+	}
+
+	/**
+	 * @param string $name
+	 * @param string $icon Wikimedia UI icon name.
+	 * @param string|null $href
+	 * @return array
+	 */
+	private function newOverflowPageAction( $name, $icon, $href ) {
+		return $href ? [
+			'item-id' => 'page-actions-overflow-' . $name,
+			'class' => MinervaUI::iconClass( '', 'before', 'wikimedia-ui-' . $icon . '-base20' ),
+			'text' => $this->msg( 'minerva-page-actions-' . $name ),
+			'href' => $href
+		] : null;
+	}
+
+	/**
 	 * Checks whether the editor can handle the existing content handler type.
 	 *
 	 * @return bool
 	 */
 	protected function isCurrentPageContentModelEditable() {
-		$contentHandler = $this->getContentHandler();
+		$contentHandler = MediaWikiServices::getInstance()
+			->getService( 'Minerva.ContentHandler' );
 
 		return $contentHandler->supportsDirectEditing()
 			&& $contentHandler->supportsDirectApiEditing();
-	}
-
-	/**
-	 * Returns a data representation of the main menus
-	 * @return array
-	 */
-	protected function getMenuData() {
-		$data = [
-			'groups' => [
-				$this->getDiscoveryTools(),
-				$this->getPersonalTools(),
-				$this->getConfigurationTools(),
-			],
-			'sitelinks' => $this->getSiteLinks(),
-		];
-
-		return $data;
 	}
 
 	/**
@@ -1323,14 +1086,10 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	public function getSkinConfigVariables() {
-		$title = $this->getTitle();
-		$user = $this->getUser();
-		$out = $this->getOutput();
-
 		$vars = [
-			'wgMinervaFeatures' => $this->skinOptions,
+			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
-			'wgMinervaMenuData' => $this->getMenuData(),
+			'wgMinervaMenuData' => $this->getMainMenu()->getMenuData(),
 		];
 
 		return $vars;
@@ -1366,20 +1125,15 @@ class SkinMinerva extends SkinTemplate {
 	public function getContextSpecificModules() {
 		$modules = [];
 		$user = $this->getUser();
-		$req = $this->getRequest();
 		$title = $this->getTitle();
 
-		if ( !$title->isSpecialPage() ) {
-			if ( $this->isAllowedPageAction( 'watch' ) ) {
-				// Explicitly add the mobile watchstar code.
-				$modules[] = 'skins.minerva.watchstar';
-			}
+		if ( !$title->isSpecialPage() && $this->isAllowedPageAction( 'watch' ) ) {
+			// Explicitly add the mobile watchstar code.
+			$modules[] = 'skins.minerva.watchstar';
 		}
 
-		if ( $user->isLoggedIn() ) {
-			if ( $this->useEcho() ) {
-				$modules[] = 'skins.minerva.notifications';
-			}
+		if ( $user->isLoggedIn() && $this->useEcho() ) {
+			$modules[] = 'skins.minerva.notifications';
 		}
 
 		// TalkOverlay feature
@@ -1391,10 +1145,10 @@ class SkinMinerva extends SkinTemplate {
 			$modules[] = 'skins.minerva.talk';
 		}
 
-		if ( $this->hasSkinOptions() ) {
+		if ( $this->skinOptions->hasSkinOptions() ) {
 			$modules[] = 'skins.minerva.options';
 		}
-		if ( $this->getSkinOption( self::OPTION_SHARE_BUTTON ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_SHARE_BUTTON ) ) {
 			$modules[] = 'skins.minerva.share';
 		}
 		return $modules;
@@ -1424,7 +1178,7 @@ class SkinMinerva extends SkinTemplate {
 			]
 		);
 
-		if ( $this->getSkinOption( self::OPTION_TOGGLING ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_TOGGLING ) ) {
 			// Extension can unload "toggling" modules via the hook
 			$modules['toggling'] = [ 'skins.minerva.toggling' ];
 		}
@@ -1445,6 +1199,11 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function addToBodyAttributes( $out, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
+		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
+			$classes .= ' minerva--amc-enabled';
+		} else {
+			$classes .= ' minerva--amc-disabled';
+		}
 
 		$bodyAttrs[ 'class' ] .= ' ' . $classes;
 	}
@@ -1475,7 +1234,7 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
-		if ( $this->getSkinOption( self::OPTION_AMC ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			$styles[] = 'skins.minerva.amc.styles';
 		}
 

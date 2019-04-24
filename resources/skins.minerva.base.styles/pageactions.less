@@ -21,8 +21,12 @@
 	opacity: 0.25;
 }
 
+#page-actions {
+	position: relative;
+}
+
 .page-actions-menu {
-	box-sizing: border-box;
+	.box-sizing( border-box );
 	border-top: 1px solid @colorGray14;
 	border-bottom: 1px solid @colorGray12;
 }
@@ -30,11 +34,10 @@
 .page-actions-menu__list {
 	display: flex;
 	justify-content: space-between;
-	height: 44px; // total height is 46px. 2px added by border on .page-actions-menu
+	height: @pageActionToolbarHeight;
 }
 
 .page-actions-menu__list-item {
-	position: relative;
 	display: flex;
 	flex-basis: 4em;
 	justify-content: flex-end;
@@ -68,6 +71,10 @@
 	}
 }
 
+.minerva--amc-enabled .page-actions-menu__list-item {
+	flex-basis: auto;
+}
+
 // Layout for less than 5 items - one item at the beginning, rest at the end.
 // |1-----2--3--4|
 .page-actions-menu__list-item:first-child {
@@ -75,71 +82,102 @@
 	justify-content: flex-start;
 }
 
+// When AMC is enabled, space all items equally.
+.minerva--amc-enabled .page-actions-menu__list-item:first-child {
+	flex-grow: 0;
+}
+
+#toolbar-overflow-menu__checkbox {
+	// Always occlude the checkbox. The checkbox display cannot be none since its focus state is used
+	// for other selectors.
+	position: absolute;
+	z-index: @z-indexOccluded;
+	opacity: 0;
+}
+
+.toolbar-overflow-menu__button {
+	// Use the hand icon for the overflow button which is actually a checkbox label.
+	cursor: pointer;
+}
+
+#toolbar-overflow-menu__checkbox:focus + .toolbar-overflow-menu__button {
+	// The overflow button / label itself cannot receive focus but the underlying checkbox can. Keep
+	// the button and checkbox focus presentation in sync. From
+	// resources/src/mediawiki.toc.styles/screen.less.
+	outline: dotted 1px; /* Firefox style for focus */
+	outline: auto @colorProgressiveHighlight; /* Webkit style for focus */
+}
+
+.touch-events #toolbar-overflow-menu__checkbox:focus + .toolbar-overflow-menu__button {
+	// Buttons have no focus outline on mobile.
+	outline: 0;
+}
+
+.toolbar-overflow-menu__list {
+	// The top of the menu is flush with the bottom of the page actions toolbar.
+	position: absolute;
+	top: 100%;
+	right: 0;
+	//
+	// A variable max-height is set in JavaScript so a minimum height is needed.
+	min-height: 200px;
+	//
+	// If the height exceeds the maximum allowed, add a vertical scrollbar.
+	overflow-y: auto;
+	//
+	// The menu floats over content but below overlays.
+	z-index: @z-indexDrawer;
+	//
+	font-size: @pageActionFontSize;
+	font-weight: bold;
+	background: @skinContentBgColor;
+	box-shadow: 0 5px 17px 0 rgba( 0, 0, 0, 0.24 ), 0 0 1px @colorGray10;
+	border-radius: @borderRadius;
+	//
+	// Animate menu visibility, opacity, and translation changes in and out. Visibility must be
+	// animated since it's a boolean and nothing can be seen in the hidden state.
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY( -8px );
+	.transition( visibility .1s ease-in-out, opacity .1s ease-in-out, transform .1s ease-in-out; );
+}
+
+.toolbar-overflow-menu__list-item {
+	// Fill the list item cell.
+	.box-sizing( border-box );
+	display: inline-block;
+	width: 100%;
+	//
+	padding: 1em;
+	white-space: nowrap;
+	// Left-align text. Button elements are centered.
+	text-align: left;
+	//
+	color: @grayMediumDark;
+
+	&:visited, &:active {
+		// Visited and active links need extra specificity.
+		color: @grayMediumDark;
+	}
+	//
+	// Make the app feel like an app, not a JPEG. When hovering over a menu item, add a little
+	// interactivity.
+	&:hover {
+		text-decoration: none;
+		background: @grayLightest;
+	}
+}
+
+#toolbar-overflow-menu__checkbox:checked ~ .toolbar-overflow-menu__list {
+	// Reveal the overflow menu when checked.
+	visibility: visible;
+	opacity: 1;
+	transform: translateY( 0 );
+}
+
 // overriding common.less `display:inherit` (which causes `display: flex;` in this instance).
 .client-js .jsonly#ca-watch {
 	display: list-item;
-}
-
-// TODO: T213352 Delete this nested block after varnish cache has cleared and selectors
-// no longer apply.
-#page-actions:not( .page-actions-menu__list ) {
-	font-size: @pageActionFontSize;
-	float: none;
-	border: 0;
-	overflow: hidden;
-	width: 100%;
-	margin-top: -2px;
-	border-top: @pageActionBorder solid @colorGray14;
-	border-bottom: @pageActionBorder solid @colorGray12;
-	padding: 0.5em 0;
-
-	li {
-		display: inline-block;
-		// Needed for non-JavaScript users
-		position: relative;
-		cursor: pointer;
-		// Override .hlist rule.
-		margin-right: 0;
-		margin-bottom: 0;
-		float: right;
-
-		// edit, language and watchstar
-		a {
-			// Needed for non-JavaScript users
-			position: absolute;
-			display: block;
-			width: 100%;
-			height: 100%;
-			// needed for ContentOverlay pointer arrow
-			margin: 0 0 8px;
-			cursor: pointer;
-		}
-
-		&:first-child {
-			margin-top: 0;
-		}
-	}
-
-	.language-selector {
-		float: left;
-		margin-left: -@iconGutterWidth;
-
-		&.disabled {
-			cursor: default;
-			opacity: 0.25;
-		}
-	}
-
-	#ca-edit {
-		margin-right: -@iconGutterWidth;
-	}
-}
-
-// FIXME: cached HTML. Can be removed when work on T212216
-// has been deployed and varnish cache cleared.
-.heading-holder #page-actions:not( .page-actions-menu__list ):first-child {
-	position: absolute;
-	bottom: 0;
 }
 
 // Watchstar is hidden for anonymous no-js users

@@ -2,11 +2,14 @@
 	"private": true,
 	"scripts": {
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
-		"doc": "jsdoc -c jsdoc.json"
+		"doc": "jsdoc -c jsdoc.json",
+		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
+		"selenium-daily": "MW_SERVER=https://en.m.wikipedia.beta.wmflabs.org npm run selenium-test",
+		"selenium-test": "wdio tests/selenium/wdio.conf.js"
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.10.1",
+		"eslint-config-wikimedia": "0.11.0",
 		"grunt": "1.0.3",
 		"grunt-banana-checker": "0.6.0",
 		"grunt-contrib-watch": "1.1.0",
@@ -15,8 +18,14 @@
 		"grunt-notify": "0.4.5",
 		"grunt-stylelint": "0.10.1",
 		"jsdoc": "3.5.5",
+		"mwbot": "1.0.10",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.5.0",
-		"svgo": "0.7.2"
+		"svgo": "0.7.2",
+		"wdio-cucumber-framework": "1.1.1",
+		"wdio-mocha-framework": "0.5.13",
+		"wdio-mediawiki": "0.2.0",
+		"wdio-spec-reporter": "0.1.4",
+		"webdriverio": "4.13.1"
 	}
 }

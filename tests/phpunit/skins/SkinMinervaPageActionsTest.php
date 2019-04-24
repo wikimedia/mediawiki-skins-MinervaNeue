@@ -6,28 +6,21 @@ use SkinMinerva;
 use MediaWikiTestCase;
 use Title;
 use RequestContext;
-use ContentHandler;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
 // FIXME: That this class exists is an indicator that at least SkinMinerva#isAllowedPageAction
 // should be extracted from SkinMinerva.
 // phpcs:ignore MediaWiki.Files.ClassMatchesFilename.NotMatch
 class TestSkinMinerva extends SkinMinerva {
+
 	public function isAllowedPageAction( $action ) {
 		return parent::isAllowedPageAction( $action );
-	}
-
-	public function setContentHandler( ContentHandler $contentHandler ) {
-		$this->contentHandler = $contentHandler;
 	}
 
 	public function setDoesPageHaveLanguages( $doesPageHaveLanguages ) {
 		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
 	}
 
-	public function overWriteUserPageHelper( $helper ) {
-		$this->userPageHelper = $helper;
-	}
 }
 
 /**
@@ -51,7 +44,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	 * @return TestSkinMinerva
 	 */
 	private function getSkin( Title $title ) {
-		$requestContext = new RequestContext();
+		$requestContext = RequestContext::getMain();
 		$requestContext->setTitle( $title );
 
 		$result = new TestSkinMinerva();
@@ -122,7 +115,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 		$contentHandler->method( 'supportsDirectApiEditing' )
 			->will( $this->returnValue( $supportsDirectApiEditing ) );
 
-		$this->skin->setContentHandler( $contentHandler );
+		$this->setService( 'Minerva.ContentHandler', $contentHandler );
 
 		$this->assertEquals( $expected, $this->skin->isAllowedPageAction( 'edit' ) );
 	}
@@ -140,7 +133,8 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 			->willReturn( true );
 
 		$skin = $this->getSkin( Title::newFromText( 'User:Admin' ) );
-		$skin->overWriteUserPageHelper( $userPageHelper );
+
+		$this->setService( 'Minerva.SkinUserPageHelper', $userPageHelper );
 
 		$this->assertFalse( $skin->isAllowedPageAction( 'talk' ) );
 	}
@@ -158,7 +152,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 			->willReturn( false );
 
 		$skin = $this->getSkin( Title::newFromText( 'User:Admin' ) );
-		$skin->overWriteUserPageHelper( $userPageHelper );
+		$this->setService( 'Minerva.SkinUserPageHelper', $userPageHelper );
 
 		$this->assertTrue( $skin->isAllowedPageAction( 'talk' ) );
 	}

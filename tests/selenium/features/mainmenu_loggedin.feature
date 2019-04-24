@@ -16,9 +16,4 @@ Feature: Menus open correct page for anonymous users
       And I should see a link to "Settings" in the main navigation menu
       And I should see a link to "Contributions" in the main navigation menu
       And I should see a link to "Watchlist" in the main navigation menu
-
-  @extension-geodata
-  Scenario: Nearby link in menu
-    Given at least one article with geodata exists
-    When I click on the main navigation button
-    Then I should see a link to "Nearby" in the main navigation menu
+      And I should see a link to "Nearby" in the main navigation menu

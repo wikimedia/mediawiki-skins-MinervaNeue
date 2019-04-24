@@ -2,7 +2,6 @@
 	var VALID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
 		VALID_SUPPORTED_NAMESPACES = [ 0 ],
 		mobile = M.require( 'mobile.startup' ),
-		Skin = mobile.Skin,
 		icons = mobile.icons,
 		Deferred = $.Deferred,
 		windowChrome = { chrome: true },
@@ -16,20 +15,14 @@
 
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
-			this.skin = new Skin( {
-				eventBus: {
-					on: function () {},
-					off: function () {}
-				}
-			} );
-			this.getOnClickHandler = function ( skin ) {
-				return getOnClickHandler( skin, icons.spinner() ).bind( downloadIcon );
+			this.getOnClickHandler = function () {
+				return getOnClickHandler( icons.spinner() ).bind( downloadIcon );
 			};
 		}
 	} );
 
 	QUnit.test( '#getOnClickHandler (print after image download)', function ( assert ) {
-		var handler = this.getOnClickHandler( this.skin ),
+		var handler = this.getOnClickHandler(),
 			d = Deferred(),
 			spy = this.sandbox.stub( window, 'print' );
 
@@ -45,7 +38,7 @@
 	} );
 
 	QUnit.test( '#getOnClickHandler (print via timeout)', function ( assert ) {
-		var handler = this.getOnClickHandler( this.skin ),
+		var handler = this.getOnClickHandler(),
 			d = Deferred(),
 			spy = this.sandbox.stub( window, 'print' );
 
@@ -66,7 +59,7 @@
 	} );
 
 	QUnit.test( '#getOnClickHandler (multiple clicks)', function ( assert ) {
-		var handler = this.getOnClickHandler( this.skin ),
+		var handler = this.getOnClickHandler(),
 			d = Deferred(),
 			spy = this.sandbox.stub( window, 'print' );
 
@@ -95,13 +88,6 @@
 				isMainPage: false
 			} );
 			this.page = page;
-			this.skin = new Skin( {
-				eventBus: {
-					on: function () {},
-					off: function () {}
-				},
-				page: page
-			} );
 			this.isAvailable = function ( ua ) {
 				return isAvailable( windowChrome, page, ua,
 					VALID_SUPPORTED_NAMESPACES );

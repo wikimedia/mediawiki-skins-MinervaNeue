@@ -2,6 +2,7 @@
 
 namespace Tests\MediaWiki\Minerva;
 
+use MediaWiki\Minerva\SkinOptions;
 use MediaWikiTestCase;
 use MinervaUI;
 use MWTimestamp;
@@ -41,43 +42,14 @@ class EchoNotifUser {
 class SkinMinervaTest extends MediaWikiTestCase {
 	const OPTIONS_MODULE = 'skins.minerva.options';
 
-	/**
-	 * @covers ::addToBodyAttributes
-	 */
-	public function testAddToBodyAttributes() {
-		// The `class` attribute gets set to the "bodyClassName" property by
-		// default.
-		$this->assertContains(
-			'no-js',
-			$this->addToBodyAttributes( 'no-js', false )
-		);
-
-		$classes = $this->addToBodyAttributes( 'no-js', true );
-
-		$this->assertContains( 'no-js', $classes );
-	}
-
-	private function addToBodyAttributes(
-		$bodyClassName
-	) {
-		$context = new RequestContext();
-		$context->setTitle( Title::newFromText( 'Test' ) );
-
-		$outputPage = $context->getOutput();
-		$outputPage->setProperty( 'bodyClassName', $bodyClassName );
-
-		$bodyAttrs = [ 'class' => '' ];
-
-		$skin = new SkinMinerva();
-		$skin->setContext( $context );
-		$skin->addToBodyAttributes( $outputPage, $bodyAttrs );
-
-		return explode( ' ', $bodyAttrs[ 'class' ] );
+	private function overrideSkinOptions( $options ) {
+		$mockOptions = new SkinOptions();
+		$mockOptions->setMultiple( $options );
+		$this->setService( 'Minerva.SkinOptions', $mockOptions );
 	}
 
 	/**
 	 * @covers ::setContext
-	 * @covers ::setSkinOptions
 	 * @covers ::hasCategoryLinks
 	 */
 	public function testHasCategoryLinksWhenOptionIsOff() {
@@ -87,14 +59,13 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$outputPage->expects( $this->never() )
 			->method( 'getCategoryLinks' );
 
+		$this->overrideSkinOptions( [ SkinOptions::OPTION_CATEGORIES => false ] );
 		$context = new RequestContext();
 		$context->setTitle( Title::newFromText( 'Test' ) );
 		$context->setOutput( $outputPage );
 
 		$skin = new SkinMinerva();
 		$skin->setContext( $context );
-		$skin->setSkinOptions( [ SkinMinerva::OPTION_CATEGORIES => false ] );
-
 		$skin = TestingAccessWrapper::newFromObject( $skin );
 
 		$this->assertEquals( $skin->hasCategoryLinks(), false );
@@ -105,7 +76,6 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 * @param array $categoryLinks
 	 * @param bool $expected
 	 * @covers ::setContext
-	 * @covers ::setSkinOptions
 	 * @covers ::hasCategoryLinks
 	 */
 	public function testHasCategoryLinks( array $categoryLinks, $expected ) {
@@ -116,13 +86,14 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			->method( 'getCategoryLinks' )
 			->will( $this->returnValue( $categoryLinks ) );
 
+		$this->overrideSkinOptions( [ SkinOptions::OPTION_CATEGORIES => true ] );
+
 		$context = new RequestContext();
 		$context->setTitle( Title::newFromText( 'Test' ) );
 		$context->setOutput( $outputPage );
 
 		$skin = new SkinMinerva();
 		$skin->setContext( $context );
-		$skin->setSkinOptions( [ SkinMinerva::OPTION_CATEGORIES => true ] );
 
 		$skin = TestingAccessWrapper::newFromObject( $skin );
 
@@ -169,18 +140,18 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 * @param string $moduleName Module name that is being tested
 	 * @param bool $expected Whether the module is expected to be returned by the function being tested
 	 */
-	public function testGetContextSpecificModules( $backToTopValue,
-		$moduleName, $expected
-	) {
+	public function testGetContextSpecificModules( $backToTopValue, $moduleName, $expected ) {
+		$this->overrideSkinOptions( [
+			SkinOptions::OPTION_AMC => false,
+			'backToTop' => $backToTopValue,
+		] );
+
 		$skin = new SkinMinerva();
 		$title = Title::newFromText( 'Test' );
 		$testContext = RequestContext::getMain();
 		$testContext->setTitle( $title );
 
 		$skin->setContext( $testContext );
-		$skin->setSkinOptions( [
-			'backToTop' => $backToTopValue,
-		] );
 
 		if ( $expected ) {
 			$this->assertContains( $moduleName, $skin->getContextSpecificModules() );
