@@ -6,3 +6,4 @@
 /composer.phar
 .DS_Store
 /.eslintcache
+/tests/selenium/log

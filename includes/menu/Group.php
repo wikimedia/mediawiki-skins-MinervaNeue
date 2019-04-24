@@ -18,18 +18,27 @@
  * @file
  */
 
-namespace MediaWiki\Minerva;
+namespace MediaWiki\Minerva\Menu;
 
 use DomainException;
 
 /**
  * Model for a menu that can be presented in a skin.
  */
-class MenuBuilder {
+class Group {
 	/**
 	 * @var MenuEntry[]
 	 */
 	private $entries = [];
+
+	/**
+	 * Return entries count
+	 *
+	 * @return int
+	 */
+	public function hasEntries() {
+		return count( $this->entries ) > 0;
+	}
 
 	/**
 	 * Get all entries represented as plain old PHP arrays.
@@ -116,3 +125,9 @@ class MenuBuilder {
 		return $entry;
 	}
 }
+
+/**
+ * make sure BlueSpiceMultiUpload and GrowthExperiments use the new class
+ * @TODO remove after updating all extensions that still depend upon MenuBuilder
+ */
+class_alias( 'MediaWiki\Minerva\Menu\Group', 'MediaWiki\Minerva\MenuBuilder' );

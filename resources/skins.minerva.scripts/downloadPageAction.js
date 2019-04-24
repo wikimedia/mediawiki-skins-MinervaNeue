@@ -65,11 +65,10 @@
 	}
 	/**
 	 * onClick handler for button that invokes print function
-	 * @param {Skin} skin
 	 * @param {Icon} icon
 	 * @param {Icon} spinner
 	 */
-	function onClick( skin, icon, spinner ) {
+	function onClick( icon, spinner ) {
 		function doPrint() {
 			icon.timeout = clearTimeout( icon.timeout );
 			track( 'minerva.downloadAsPDF', {
@@ -105,13 +104,12 @@
 	 * Gets a click handler for the download icon
 	 * Expects to be run in the context of an icon using `Function.bind`
 	 *
-	 * @param {Skin} skin
 	 * @param {Icon} spinner
 	 * @returns {function}
 	 */
-	function getOnClickHandler( skin, spinner ) {
+	function getOnClickHandler( spinner ) {
 		return function () {
-			onClick( skin, this, spinner );
+			onClick( this, spinner );
 		};
 	}
 
@@ -122,15 +120,18 @@
 	 * @param {Skin} skin
 	 * @param {number[]} supportedNamespaces
 	 * @param {Window} [windowObj] window object
+	 * @param {boolean} [hasText] Use icon + button style.
 	 * @returns {jQuery.Object|null}
 	 */
-	function downloadPageAction( skin, supportedNamespaces, windowObj ) {
-		var icon, spinner = icons.spinner(),
-			// TODO: T213352 Temporary cache compatibility - to be deleted.
-			// Any conditionals using this boolean should be DELETED when the
-			// old page action menu is no longer being served to users.
-			// eslint-disable-next-line jquery/no-global-selector
-			oldPageActionsDOM = $( '#page-actions.hlist' ).length > 0;
+	function downloadPageAction( skin, supportedNamespaces, windowObj, hasText ) {
+		var
+			modifier = hasText ? 'toolbar-overflow-menu__list-item' : 'mw-ui-icon-element',
+			icon,
+			spinner = icons.spinner( {
+				hasText: hasText,
+				modifier: modifier
+			} );
+
 		if (
 			isAvailable(
 				windowObj, skin.page, navigator.userAgent,
@@ -141,17 +142,17 @@
 				glyphPrefix: 'minerva',
 				title: msg( 'minerva-download' ),
 				name: GLYPH,
-				tagName: oldPageActionsDOM ? 'div' : 'button',
+				tagName: 'button',
 				events: {
 					// will be bound to `this`
-					click: getOnClickHandler( skin, spinner )
-				}
+					click: getOnClickHandler( spinner )
+				},
+				hasText: hasText,
+				label: hasText ? mw.msg( 'minerva-download' ) : '',
+				modifier: modifier
 			} );
-			if ( oldPageActionsDOM ) {
-				return $( '<li>' ).append( icon.$el ).append( spinner.$el.hide() );
-			} else {
-				return $( '<li>' ).addClass( 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
-			}
+
+			return $( '<li>' ).addClass( 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
 		} else {
 			return null;
 		}

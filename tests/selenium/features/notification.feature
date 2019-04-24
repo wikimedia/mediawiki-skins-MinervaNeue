@@ -5,10 +5,6 @@ Feature: Notification
     Given I am logged into the mobile website
       And I have no notifications
     When I click on the notification icon
-      And the notifications overlay appears
-
-  @smoke
-  Scenario: Opening notifications
     Then I should see the notifications overlay
 
   Scenario: Closing notifications (overlay button)

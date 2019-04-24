@@ -79,4 +79,9 @@ h3, h4, h5, h6 {
 	h2, h3, h4, h5, h6 {
 		padding: @headingMargin 0;
 	}
+
+	// `h3`s need extra `margin-top` after paragraphs, see T219572.
+	p + h3 {
+		margin-top: @headingMargin * 3;
+	}
 }

@@ -21,7 +21,7 @@
 	}
 
 	$( function () {
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		if ( !$( '#mw-mf-page-left' ).find( '.menu' ).length ) {
 			// Now we have a main menu button register it.
 			mainMenu.registerClickEvents();

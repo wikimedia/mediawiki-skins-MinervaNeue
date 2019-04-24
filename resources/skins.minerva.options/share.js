@@ -20,7 +20,7 @@
 		// the left of the watchstar, we put it after it in the DOM.
 		$( '<li>' ).addClass( 'page-actions-menu__list-item' )
 			.append( shareIcon( navigator ).$el )
-			// eslint-disable-next-line jquery/no-global-selector
+			// eslint-disable-next-line no-jquery/no-global-selector
 			.insertAfter( $( '#ca-watch' ).parent() );
 		trackShare( 'shownShareButton' );
 	}
