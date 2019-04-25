@@ -21,7 +21,7 @@
 	}
 
 	mfExtend( BackToTopOverlay, View, {
-		template: mw.template.get( 'skins.minerva.options', 'BackToTopOverlay.hogan' ),
+		template: mw.template.get( 'skins.minerva.options', 'BackToTopOverlay.mustache' ),
 
 		/**
 		 * Show the back to top element, if it's not visible already.

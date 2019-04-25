@@ -460,9 +460,9 @@
 				"resources/skins.minerva.scripts/page-issues/overlay/PageIssuesOverlay.less"
 			],
 			"templates": {
-				"IssueNotice.hogan": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.hogan",
-				"menu.hogan": "resources/skins.minerva.scripts/menu/menu.mustache",
-				"menuGroup.hogan": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
+				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache",
+				"menu.mustache": "resources/skins.minerva.scripts/menu/menu.mustache",
+				"menuGroup.mustache": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
 			},
 			"scripts": [
 				"resources/skins.minerva.scripts/menu/schema.js",
@@ -503,7 +503,7 @@
 				"resources/skins.minerva.notifications.badge/NotificationBadge.js"
 			],
 			"templates": {
-				"badge.hogan": "includes/skins/secondaryButton.mustache"
+				"badge.mustache": "includes/skins/secondaryButton.mustache"
 			},
 			"targets": [
 				"mobile",
@@ -549,7 +549,7 @@
 				"skin-minerva-share"
 			],
 			"templates": {
-				"BackToTopOverlay.hogan": "resources/skins.minerva.options/BackToTopOverlay.hogan"
+				"BackToTopOverlay.mustache": "resources/skins.minerva.options/BackToTopOverlay.mustache"
 			},
 			"styles": [
 				"resources/skins.minerva.options/backtotop.less"

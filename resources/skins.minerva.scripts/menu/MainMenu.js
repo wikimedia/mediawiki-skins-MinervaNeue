@@ -19,9 +19,9 @@
 
 	mfExtend( MainMenu, View, {
 		isTemplateMode: true,
-		template: mw.template.get( 'skins.minerva.scripts', 'menu.hogan' ),
+		template: mw.template.get( 'skins.minerva.scripts', 'menu.mustache' ),
 		templatePartials: {
-			menuGroup: mw.template.get( 'skins.minerva.scripts', 'menuGroup.hogan' )
+			menuGroup: mw.template.get( 'skins.minerva.scripts', 'menuGroup.mustache' )
 		},
 
 		/**
