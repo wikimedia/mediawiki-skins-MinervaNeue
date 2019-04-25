@@ -212,9 +212,16 @@
 		},
 		"skins.minerva.content.styles.images": {
 			"class": "ResourceLoaderImageModule",
-			"selector": "{name}",
+			"selectorWithoutVariant": "{name}",
+			"selectorWithVariant": "{name}--{variant}",
 			"defaultColor": "#36c",
 			"useDataURI": false,
+			"variants": {
+				"reference": {
+					"color": "#69f",
+					"global": true
+				}
+			},
 			"images": {
 				"input.search,.mw-ui-icon-minerva-magnifying-glass:before": "resources/skins.minerva.content.styles.images/magnifying-glass.svg",
 				"a.external": {
