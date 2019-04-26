@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Tem",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Smirkybec"
 		]
 	},
 	"mobile-frontend-editor-edit": "Cuir in Eagar",
@@ -13,5 +14,6 @@
 	"mobile-frontend-main-menu-nearby": "In aice láimhe",
 	"mobile-frontend-main-menu-settings": "Sainroghanna",
 	"mobile-frontend-main-menu-watchlist": "Liosta faire",
-	"mobile-frontend-random-button": "Fánach"
+	"mobile-frontend-random-button": "Fánach",
+	"minerva-page-actions-logs": "Logaí"
 }
