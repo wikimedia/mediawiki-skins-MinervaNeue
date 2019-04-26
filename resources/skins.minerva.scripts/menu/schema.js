@@ -10,6 +10,9 @@ mw.loader.using( [
 		// Schema provided by ext.eventLogging.subscriber class
 		Schema = mw.eventLog.Schema, // resource-modules-disable-line
 		context = M.require( 'mobile.startup' ).context,
+		DEFAULT_SAMPLING_RATE = mw.config.get( 'wgMinervaSchemaMainMenuClickTrackingSampleRate' ),
+		// T218627: Sampling rate should be 100% if user has amc enabled
+		AMC_SAMPLING_RATE = 1,
 		/**
 		 * MobileWebMainMenuClickTracking schema
 		 * https://meta.wikimedia.org/wiki/Schema:MobileWebMainMenuClickTracking
@@ -19,7 +22,7 @@ mw.loader.using( [
 		 */
 		schemaMobileWebMainMenuClickTracking = new Schema(
 			'MobileWebMainMenuClickTracking',
-			mw.config.get( 'wgMinervaSchemaMainMenuClickTrackingSampleRate' ),
+			amc ? AMC_SAMPLING_RATE : DEFAULT_SAMPLING_RATE,
 			/**
 			 * @property {Object} defaults Default options hash.
 			 * @property {string} defaults.mode whether user is in stable, beta, or desktop
@@ -44,12 +47,6 @@ mw.loader.using( [
 		);
 
 	mw.trackSubscribe( 'minerva.schemaMobileWebMainMenuClickTracking', function ( topic, data ) {
-		if ( amc ) {
-			// T218627: Sampling rate should be 100% if user has amc enabled
-			schemaMobileWebMainMenuClickTracking.log( data, 1 );
-			return;
-		}
-
 		schemaMobileWebMainMenuClickTracking.log( data );
 	} );
 } );
