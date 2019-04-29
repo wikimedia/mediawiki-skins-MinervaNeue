@@ -13,7 +13,7 @@ When(/^I add a topic called "(.+)"$/) do |topic|
   step 'I click the add discussion button'
   on(ArticlePage) do |page|
     page.talk_overlay_summary = topic
-    page.talk_overlay_wikitext_editor = 'Topic body is a really long text.'
+    page.talk_overlay_body = 'Topic body is a really long text.'
     page.wait_until { page.talk_overlay_save_button_element.enabled? }
     page.talk_overlay_save_button
   end
