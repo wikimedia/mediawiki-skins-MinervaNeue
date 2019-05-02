@@ -22,6 +22,7 @@ namespace MediaWiki\Minerva\Menu;
 
 use IContextSource;
 use MediaWiki\Special\SpecialPageFactory;
+use Message;
 use MinervaUI;
 use MWException;
 use SpecialMobileWatchlist;
@@ -298,8 +299,13 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertCommunityPortal( Group $group ) {
-		$titleName = \MessageCache::singleton()->get( 'Portal-url' );
-		if ( !$titleName || \Http::isValidURI( $titleName ) ) {
+		$message = new Message( 'Portal-url' );
+		if ( !$message->exists() ) {
+			return;
+		}
+		$inContentLang = $message->inContentLanguage();
+		$titleName = $inContentLang->plain();
+		if ( $inContentLang->isDisabled() || \Http::isValidURI( $titleName ) ) {
 			return;
 		}
 		$title = Title::newFromText( $titleName );
