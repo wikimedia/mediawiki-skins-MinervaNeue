@@ -309,7 +309,7 @@ final class Definitions {
 			return;
 		}
 		$title = Title::newFromText( $titleName );
-		if ( !$title->exists() ) {
+		if ( $title === null || !$title->exists() ) {
 			return;
 		}
 
