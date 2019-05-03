@@ -169,8 +169,8 @@ class ArticlePage
 
   # references
   a(:reference, css: 'sup.reference a')
-  a(:nested_reference, css: '.drawer.references sup.reference a')
-  a(:reference_drawer, css: '.drawer.references')
+  a(:nested_reference, css: '.drawer.references-drawer sup.reference a')
+  a(:reference_drawer, css: '.drawer.references-drawer')
 
   # sections
   h2(:first_section, css: '.section-heading', index: 0)
