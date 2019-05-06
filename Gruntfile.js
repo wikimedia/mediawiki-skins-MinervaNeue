@@ -5,7 +5,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
-	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-notify' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 
@@ -13,11 +12,12 @@ module.exports = function ( grunt ) {
 		eslint: {
 			options: {
 				cache: true,
+				extensions: [ '.js', '.json' ],
 				maxWarnings: 0,
 				reportUnusedDisableDirectives: true
 			},
 			all: [
-				'**/*.js',
+				'**/*.js{,on}',
 				'!docs/**',
 				'!libs/**',
 				'!node_modules/**',
@@ -33,15 +33,6 @@ module.exports = function ( grunt ) {
 				'**/*.less',
 				// TODO: Nested imports cause stylelint to crash
 				'!resources/skins.minerva.base.styles/print/styles.less',
-				'!docs/**',
-				'!libs/**',
-				'!node_modules/**',
-				'!vendor/**'
-			]
-		},
-		jsonlint: {
-			all: [
-				'**/*.json',
 				'!docs/**',
 				'!libs/**',
 				'!node_modules/**',
@@ -67,7 +58,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana' ] );
 	grunt.registerTask( 'test', [ 'lint' ] );
 
 	grunt.registerTask( 'default', [ 'test' ] );
