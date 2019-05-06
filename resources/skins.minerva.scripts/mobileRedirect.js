@@ -38,7 +38,7 @@
 		if ( !cookiesEnabled() ) {
 			popup.show(
 				mw.msg( 'mobile-frontend-cookies-required' ),
-				'error'
+				{ type: 'error' }
 			);
 			// Prevent default action
 			return false;

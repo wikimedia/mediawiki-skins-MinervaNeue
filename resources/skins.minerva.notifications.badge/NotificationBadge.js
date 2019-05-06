@@ -58,7 +58,7 @@
 	}
 
 	mfExtend( NotificationBadge, View, {
-		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.hogan' ),
+		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.mustache' ),
 		/**
 		 * Update the notification count
 		 * @memberof NotificationBadge

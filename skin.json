@@ -119,6 +119,12 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.action.history.styles": [
+				"skinStyles/mediawiki.action.history.styles.less"
+			],
+			"mediawiki.interface.helpers.styles": [],
+			"mediawiki.rcfilters.highlightCircles.seenunseen.styles": [],
+			"mediawiki.rcfilters.filters.base.styles": [],
 			"ext.confirmEdit.fancyCaptcha.styles": [
 				"skinStyles/ext.confirmEdit.fancyCaptcha.styles/minerva.less"
 			],
@@ -206,9 +212,16 @@
 		},
 		"skins.minerva.content.styles.images": {
 			"class": "ResourceLoaderImageModule",
-			"selector": "{name}",
+			"selectorWithoutVariant": "{name}",
+			"selectorWithVariant": "{name}--{variant}",
 			"defaultColor": "#36c",
 			"useDataURI": false,
+			"variants": {
+				"reference": {
+					"color": "#69f",
+					"global": true
+				}
+			},
 			"images": {
 				"input.search,.mw-ui-icon-minerva-magnifying-glass:before": "resources/skins.minerva.content.styles.images/magnifying-glass.svg",
 				"a.external": {
@@ -454,9 +467,9 @@
 				"resources/skins.minerva.scripts/page-issues/overlay/PageIssuesOverlay.less"
 			],
 			"templates": {
-				"IssueNotice.hogan": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.hogan",
-				"menu.hogan": "resources/skins.minerva.scripts/menu/menu.mustache",
-				"menuGroup.hogan": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
+				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache",
+				"menu.mustache": "resources/skins.minerva.scripts/menu/menu.mustache",
+				"menuGroup.mustache": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
 			},
 			"scripts": [
 				"resources/skins.minerva.scripts/menu/schema.js",
@@ -497,7 +510,7 @@
 				"resources/skins.minerva.notifications.badge/NotificationBadge.js"
 			],
 			"templates": {
-				"badge.hogan": "includes/skins/secondaryButton.mustache"
+				"badge.mustache": "includes/skins/secondaryButton.mustache"
 			},
 			"targets": [
 				"mobile",
@@ -543,7 +556,7 @@
 				"skin-minerva-share"
 			],
 			"templates": {
-				"BackToTopOverlay.hogan": "resources/skins.minerva.options/BackToTopOverlay.hogan"
+				"BackToTopOverlay.mustache": "resources/skins.minerva.options/BackToTopOverlay.mustache"
 			},
 			"styles": [
 				"resources/skins.minerva.options/backtotop.less"

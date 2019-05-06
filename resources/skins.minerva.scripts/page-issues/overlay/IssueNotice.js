@@ -16,7 +16,7 @@
 	}
 	mfExtend( IssueNotice, View, {
 		tagName: 'li',
-		template: mw.template.get( 'skins.minerva.scripts', 'IssueNotice.hogan' ),
+		template: mw.template.get( 'skins.minerva.scripts', 'IssueNotice.mustache' ),
 		postRender: function () {
 			View.prototype.postRender.apply( this, arguments );
 			this.$el.find( '.issue-notice' ).prepend( this.options.issue.icon.$el );

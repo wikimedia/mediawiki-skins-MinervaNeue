@@ -1,6 +1,6 @@
 @import 'mediawiki.mixins.less';
-@import 'minerva.variables.less';
 @import 'mediawiki.mixins.animation.less';
+@import 'minerva.variables.less';
 
 .editor-textarea() {
 	// stylelint-disable-next-line no-descending-specificity
@@ -9,6 +9,51 @@
 	// Note if a textarea has a .mw-ui-input class, this may be overridden
 	padding: 10px @contentPadding 10px @contentPadding;
 	resize: none;
+}
+
+// Mixins for history, contributions, watchlist and recent changes' changes list
+.changeslist-minor-edit() {
+	background-color: @colorGray14;
+	position: absolute;
+	bottom: 10px;
+	left: 85px;
+	border-radius: 2px;
+	padding: 0 6px 1px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.changeslist-meta() {
+	position: absolute;
+	left: 0;
+	font-size: 0.9em;
+}
+
+.changeslist-row() {
+	list-style: none;
+	position: relative;
+	min-height: 100px;
+	/* !important to override the too-specific rule .content ol li, .content ul li */
+	margin: 0 !important;
+	border-bottom: 1px solid @colorGray14;
+	padding-bottom: 32px;
+}
+
+.changeslist-row-item() {
+	color: @colorGray7;
+	margin: 0.5em 0;
+	padding-left: 85px;
+	font-size: 0.9em;
+}
+
+.changeslist-header() {
+	background-color: @colorGray14;
+	color: @colorGray7;
+	display: block;
+	width: 100%;
+	padding: 0.5em 16px 0.4em;
+	font-size: 0.85em;
+	font-weight: bold;
 }
 
 // Generic mixin for applying styles to text that accompanies/adds context to workflows

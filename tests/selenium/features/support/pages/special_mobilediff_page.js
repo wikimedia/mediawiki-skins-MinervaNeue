@@ -10,6 +10,8 @@ const { Page } = require( './mw_core_pages' );
 
 class SpecialMobileDiffPage extends Page {
 
+	get inserted_content_element() { return $( 'ins' ); }
+	get deleted_content_element() { return $( 'del' ); }
 	get user_info_element() { return $( '#mw-mf-userinfo' ); }
 }
 
