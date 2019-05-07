@@ -974,6 +974,14 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * Minerva skin do not have sidebar, there is no need to calculate that.
+	 * @return array
+	 */
+	public function buildSidebar() {
+		return [];
+	}
+
+	/**
 	 * Creates a history action: An icon that links to the mobile history page.
 	 *
 	 * @return array A map of HTML attributes and a 'text' property to be used with the
