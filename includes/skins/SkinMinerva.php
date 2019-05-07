@@ -149,7 +149,7 @@ class SkinMinerva extends SkinTemplate {
 		$this->prepareMenuButton( $tpl );
 		$this->prepareBanners( $tpl );
 		$this->preparePageActions( $tpl );
-		$this->prepareUserButton( $tpl );
+		$this->prepareUserButton( $tpl, $tpl->get( 'newtalk' ) );
 		$this->prepareLanguages( $tpl );
 
 		return $tpl;
@@ -385,8 +385,9 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Prepares the user button.
 	 * @param QuickTemplate $tpl
+	 * @param string $newTalks New talk page messages for the current user
 	 */
-	protected function prepareUserButton( QuickTemplate $tpl ) {
+	protected function prepareUserButton( QuickTemplate $tpl, $newTalks ) {
 		// Set user button to empty string by default
 		$tpl->set( 'secondaryButtonData', '' );
 		$notificationsTitle = '';
@@ -396,7 +397,6 @@ class SkinMinerva extends SkinTemplate {
 		$hasUnseen = false;
 
 		$user = $this->getUser();
-		$newtalks = $this->getNewtalks();
 		$currentTitle = $this->getTitle();
 
 		// If Echo is available, the user is logged in, and they are not already on the
@@ -431,7 +431,7 @@ class SkinMinerva extends SkinTemplate {
 
 				$countLabel = $this->getFormattedEchoNotificationCount( $count );
 			}
-		} elseif ( !empty( $newtalks ) ) {
+		} elseif ( !empty( $newTalks ) ) {
 			$notificationsTitle = SpecialPage::getTitleFor( 'Mytalk' );
 			$notificationsMsg = $this->msg( 'mobile-frontend-user-newmessages' )->text();
 		}
