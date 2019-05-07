@@ -1027,6 +1027,20 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * Unless the OverflowMenu is enabled, Minerva doesn't use nav_urls from QuikcTemplate.
+	 * We can skip that heavy operation
+	 * @return array
+	 */
+	protected function buildNavUrls() {
+		if ( $this->isAllowedPageAction( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+			// the OverflowMenu uses nav_urls, use the value from SkinTemplate
+			return parent::buildNavUrls();
+		} else {
+			return [];
+		}
+	}
+
+	/**
 	 * @param BaseTemplate $tpl
 	 * @return array
 	 */
