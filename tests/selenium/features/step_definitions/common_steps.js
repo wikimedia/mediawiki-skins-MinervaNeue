@@ -19,7 +19,8 @@ const login = () => {
 
 const createPages = ( pages ) => {
 	const summary = 'edit by selenium test';
-	return login().then( () =>
+	browser.call( () => login() );
+	browser.call( () =>
 		api.batch(
 			pages.map( ( page ) => [ 'create' ].concat( page ).concat( [ summary ] ) )
 		)
@@ -27,7 +28,8 @@ const createPages = ( pages ) => {
 };
 
 const createPage = ( title, wikitext ) => {
-	return login().then( () => Api.edit( title, wikitext ) );
+	browser.call( () => login() );
+	browser.call( () => Api.edit( title, wikitext ) );
 };
 
 const iAmUsingTheMobileSite = () => {
@@ -56,11 +58,11 @@ const iAmLoggedIntoTheMobileWebsite = () => {
 };
 
 const pageExists = ( title ) => {
-	return createPage( title, 'Page created by Selenium browser test.' ).then( () => {
-		const d = new Date();
-		// wait 2 seconds so the change can propogate.
-		browser.waitUntil( () => new Date() - d > 2000 );
-	} );
+	browser.call( () =>
+		createPage( title, 'Page created by Selenium browser test.' )
+	);
+	// wait 2 seconds so the change can propogate.
+	waitForPropagation( 2000 );
 };
 
 const iAmOnAPageThatDoesNotExist = () => {
