@@ -122,7 +122,9 @@
 			"mediawiki.action.history.styles": [
 				"skinStyles/mediawiki.action.history.styles.less"
 			],
-			"mediawiki.interface.helpers.styles": [],
+			"mediawiki.interface.helpers.styles": [
+				"skinStyles/mediawiki.interface.helpers.styles.less"
+			],
 			"mediawiki.rcfilters.highlightCircles.seenunseen.styles": [],
 			"mediawiki.rcfilters.filters.base.styles": [],
 			"ext.confirmEdit.fancyCaptcha.styles": [
