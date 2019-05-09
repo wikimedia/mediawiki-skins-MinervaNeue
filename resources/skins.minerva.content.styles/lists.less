@@ -1,3 +1,36 @@
+dl,
+dt,
+dd,
+ol,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+dl {
+	margin-left: 1em;
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		display: block;
+		// Some dd's may contain images so these need to be scrollable
+		// Text will not become scrollable.
+		// (see T160946)
+		overflow: auto;
+	}
+}
+
+// FIXME: `ul` treatment might be better of in 'ui.less', specifically when
+// it's about `nav ul` combinations, but it's not clear if MinervaNeue is
+// ready for this yet.
+ul {
+	list-style: none;
+}
+
 .content {
 	ol {
 		padding-left: 2.25em;
@@ -33,22 +66,6 @@
 		}
 	}
 	/* stylelint-enable no-descending-specificity */
-}
-
-dl {
-	margin-left: 1em;
-
-	dt {
-		font-weight: bold;
-	}
-
-	dd {
-		display: block;
-		// Some dd's may contain images so these need to be scrollable
-		// Text will not become scrollable.
-		// (see T160946)
-		overflow: auto;
-	}
 }
 
 /* the following rule is completely copied from mediawiki.skinning.content[1], as
