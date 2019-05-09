@@ -19,10 +19,13 @@ const { iAmOnAPageWithNoTalkTopics } = require( '../features/step_definitions/cr
 // @chrome @en.m.wikipedia.beta.wmflabs.org @firefox @test2.m.wikipedia.org @vagrant
 describe( 'Talk', () => {
 
-	beforeEach( () => {
-		iAmUsingTheMobileSite();
+	before( () => {
 		pageExists( 'Talk:Selenium talk test' );
 		pageExists( 'Selenium talk test' );
+	} );
+
+	beforeEach( () => {
+		iAmUsingTheMobileSite();
 	} );
 
 	it( 'Add discussion on talk page not possible as logged out user', () => {

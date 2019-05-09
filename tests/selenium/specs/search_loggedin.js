@@ -13,7 +13,7 @@ const {
 	} = require( '../features/step_definitions/search_steps' );
 
 // @test2.m.wikipedia.org @vagrant @login
-describe( 'Search', () => {
+describe.skip( 'Search', () => {
 
 	it( 'Clicking on a watchstar toggles the watchstar', () => {
 		iAmUsingTheMobileSite();
