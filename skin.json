@@ -119,6 +119,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"+mediawiki.ui.icon": [
+				"skinStyles/mediawiki.ui.icon.less"
+			],
 			"mediawiki.action.history.styles": [
 				"skinStyles/mediawiki.action.history.styles.less"
 			],

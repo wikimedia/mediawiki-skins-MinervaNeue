@@ -140,7 +140,7 @@ main {
 	width: auto;
 }
 
-/* Search */
+/* Search input element */
 .search-box .search {
 	@border-width-base: 1px;
 	@searchIconSize: 20px;
@@ -161,6 +161,8 @@ main {
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
 	// Keyboard focus is taken care of below at `.search-box .search:focus`.
 	outline: 0;
+	// Reset any default input styles.
+	font-size: 100%;
 	.transition( ~'border-color 250ms, box-shadow 250ms' );
 }
 
