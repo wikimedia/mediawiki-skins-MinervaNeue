@@ -177,6 +177,9 @@
 			],
 			"mobile.notifications.overlay": [
 				"skinStyles/mobile.notifications.overlay/minerva.less"
+			],
+			"mediawiki.content.json": [
+				"skinStyles/mediawiki.content-json/minerva.less"
 			]
 		}
 	},
