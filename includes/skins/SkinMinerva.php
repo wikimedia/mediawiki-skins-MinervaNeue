@@ -911,7 +911,6 @@ class SkinMinerva extends SkinTemplate {
 		$modules = [];
 		$user = $this->getUser();
 		$title = $this->getTitle();
-		$action = Action::getActionName( $this->getContext() );
 
 		if ( !$title->isSpecialPage() && $this->isAllowedPageAction( 'watch' ) ) {
 			// Explicitly add the mobile watchstar code.
@@ -938,10 +937,6 @@ class SkinMinerva extends SkinTemplate {
 			$modules[] = 'skins.minerva.share';
 		}
 
-		if ( $action === 'history' ) {
-			$modules[] = 'mediawiki.action.history';
-		}
-
 		return $modules;
 	}
 
@@ -952,10 +947,19 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
-		// dequeue default content modules (toc, sortable, collapsible, etc.)
-		$modules['content'] = [];
-		// dequeue styles associated with `content` key.
-		$modules['styles']['content'] = [];
+
+		// FIXME: T223204: Dequeue default content modules except for the history
+		// action. Allow default history action content modules
+		// (mediawiki.page.ready, jquery.makeCollapsible,
+		// jquery.makeCollapsible.styles, etc) in order to enable toggling of the
+		// filters. Long term this won't be necessary when T111565 is resolved and a
+		// more general solution can be used.
+		if ( Action::getActionName( $this->getContext() ) !== 'history' ) {
+			// dequeue default content modules (toc, sortable, collapsible, etc.)
+			$modules['content'] = [];
+			// dequeue styles associated with `content` key.
+			$modules['styles']['content'] = [];
+		}
 		$modules['styles']['core'] = $this->getSkinStyles();
 		// dequeue default watch module (not needed, no watchstar in this skin)
 		$modules['watch'] = [];
