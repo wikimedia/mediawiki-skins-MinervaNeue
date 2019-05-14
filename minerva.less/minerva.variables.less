@@ -1,8 +1,5 @@
 @import 'mediawiki.ui/variables';
 
-@z-indexBase: 0;
-@z-indexOverOverlay: 3;
-
 /**
  * System font stack for sans-serif fonts
  *
@@ -127,8 +124,11 @@
 
 // z-index:
 @z-indexOccluded: -1;
-@z-indexDrawer: 1;
-@z-indexOverlay: 2;
+@z-indexBase: 0;
+@z-indexAboveContent: 1;
+@z-indexDrawer: 2;
+@z-indexOverlay: 3;
+@z-indexOverOverlay: 4;
 
 // Print specific
 @colorPrintSubtle: #999;
