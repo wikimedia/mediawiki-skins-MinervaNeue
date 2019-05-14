@@ -2,6 +2,7 @@
 
 namespace Tests\MediaWiki\Minerva;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWikiTestCase;
 use MinervaUI;
@@ -202,7 +203,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$skin = TestingAccessWrapper::newFromObject(
 			$this->getMockBuilder( SkinMinerva::class )
 				->disableOriginalConstructor()
-				->setMethods( [ 'getTitle', 'getUser', 'getNewtalks', 'useEcho',
+				->setMethods( [ 'getTitle', 'getUser', 'useEcho',
 								'getEchoNotifUser', 'getEchoSeenTime',
 								'getFormattedEchoNotificationCount' ] )
 				->getMock()
@@ -213,9 +214,6 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$skin->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( $user ) );
-		$skin->expects( $this->any() )
-			->method( 'getNewtalks' )
-			->will( $this->returnValue( $newtalks ) );
 		$skin->expects( $this->any() )
 			->method( 'useEcho' )
 			->will( $this->returnValue( $useEcho ) );
@@ -238,8 +236,10 @@ class SkinMinervaTest extends MediaWikiTestCase {
 
 		$tpl = $this->getMockBuilder( QuickTemplate::class )
 			->setMethods( [ 'execute' ] )
+			->setConstructorArgs( [ MediaWikiServices::getInstance()->getMainConfig() ] )
 			->getMock();
-		$skin->prepareUserButton( $tpl );
+		$skin->prepareUserButton( $tpl, $newtalks );
+
 		$this->assertEquals(
 			$expectedSecondaryButtonData,
 			$tpl->get( 'secondaryButtonData' ),
