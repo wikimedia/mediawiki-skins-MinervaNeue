@@ -20,7 +20,7 @@ namespace MediaWiki\Minerva\Menu;
 /**
  * Model for a menu entry.
  */
-class MenuEntry {
+class MenuEntry implements IMenuEntry {
 	private $name;
 	private $isJSOnly;
 	private $components;
@@ -43,19 +43,22 @@ class MenuEntry {
 	}
 
 	/**
-	 * Gets whether the entry should only be shown if JavaScript is disabled
-	 * in the client.
+	 * Return the CSS classes applied to the Menu element
 	 *
-	 * @return bool
+	 * @return array
 	 */
-	public function isJSOnly() {
-		return $this->isJSOnly;
+	public function getCSSClasses(): array {
+		$classes = [];
+		if ( $this->isJSOnly ) {
+			$classes[] = 'jsonly';
+		}
+		return $classes;
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getComponents() {
+	public function getComponents(): array {
 		return $this->components;
 	}
 
