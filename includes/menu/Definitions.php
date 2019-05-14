@@ -69,13 +69,12 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertContributionsMenuItem( Group $group ) {
-		$group->insert( 'contribs' )
-			->addComponent(
-				$this->context->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
-				SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL(),
-				MinervaUI::iconClass( 'contributions', 'before' ),
-				[ 'data-event-name' => 'contributions' ]
-			);
+		$group->insertEntry( new SingleMenuEntry(
+			'contributions',
+			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
+			SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL()
+
+		) );
 	}
 
 	/**
@@ -100,14 +99,11 @@ final class Definitions {
 				$watchlistQuery['filter'] = $filter;
 			}
 		}
-
-		$group->insert( 'watchlist' )
-			->addComponent(
-				$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
-				$watchTitle->getLocalURL( $watchlistQuery ),
-				MinervaUI::iconClass( 'watchlist', 'before' ),
-				[ 'data-event-name' => 'watchlist' ]
-			);
+		$group->insertEntry( new SingleMenuEntry(
+			'watchlist',
+			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
+			$watchTitle->getLocalURL( $watchlistQuery )
+		) );
 	}
 
 	/**
@@ -174,14 +170,11 @@ final class Definitions {
 	 * @param Group $group
 	 */
 	public function insertHomeItem( Group $group ) {
-		// Home link
-		$group->insert( 'home' )
-			->addComponent(
-				$this->context->msg( 'mobile-frontend-home-button' )->escaped(),
-				Title::newMainPage()->getLocalURL(),
-				MinervaUI::iconClass( 'home', 'before' ),
-				[ 'data-event-name' => 'home' ]
-			);
+		$group->insertEntry( new SingleMenuEntry(
+			'home',
+			$this->context->msg( 'mobile-frontend-home-button' )->escaped(),
+			Title::newMainPage()->getLocalURL()
+		) );
 	}
 
 	/**
@@ -226,14 +219,13 @@ final class Definitions {
 	public function insertMobileOptionsItem( Group $group ) {
 		$title = $this->context->getTitle();
 		$returnToTitle = $title->getPrefixedText();
-		$group->insert( 'settings' )
-			->addComponent(
-				$this->context->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
-				SpecialPage::getTitleFor( 'MobileOptions' )->
-					getLocalURL( [ 'returnto' => $returnToTitle ] ),
-				MinervaUI::iconClass( 'settings', 'before' ),
-				[ 'data-event-name' => 'settings' ]
-			);
+
+		$group->insertEntry( new SingleMenuEntry(
+			'settings',
+			$this->context->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
+			SpecialPage::getTitleFor( 'MobileOptions' )
+				->getLocalURL( [ 'returnto' => $returnToTitle ] )
+		) );
 	}
 
 	/**
@@ -242,13 +234,13 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertPreferencesItem( Group $group ) {
-		$group->insert( 'preferences' )
-			->addComponent(
-				$this->context->msg( 'preferences' )->escaped(),
-				SpecialPage::getTitleFor( 'Preferences' )->getLocalURL(),
-				MinervaUI::iconClass( 'settings', 'before' ),
-				[ 'data-event-name' => 'preferences' ]
-			);
+		$group->insertEntry( new SingleMenuEntry(
+			'preferences',
+			$this->context->msg( 'preferences' )->escaped(),
+			SpecialPage::getTitleFor( 'Preferences' )->getLocalURL(),
+			true,
+			'settings'
+		) );
 	}
 
 	/**
@@ -284,13 +276,13 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertSpecialPages( Group $group ) {
-		$group->insert( 'specialpages' )
-			->addComponent(
+		$group->insertEntry(
+			new SingleMenuEntry(
+				'specialpages',
 				$this->context->msg( 'specialpages' )->escaped(),
-				SpecialPage::getTitleFor( 'Specialpages' )->getLocalURL(),
-				MinervaUI::iconClass( 'specialpages', 'before' ),
-				[ 'data-event-name' => 'specialpages' ]
-			);
+				SpecialPage::getTitleFor( 'Specialpages' )->getLocalURL()
+			)
+		);
 	}
 
 	/**
@@ -313,13 +305,11 @@ final class Definitions {
 			return;
 		}
 
-		$group->insert( 'communityportal' )
-			->addComponent(
-				$title->getText(),
-				$title->getLocalURL(),
-				MinervaUI::iconClass( 'communityportal', 'before' ),
-				[ 'data-event-name' => 'community-portal' ]
-			);
+		$group->insertEntry( new SingleMenuEntry(
+			'communityportal',
+			$title->getText(),
+			$title->getLocalURL()
+		) );
 	}
 
 	/**

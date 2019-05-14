@@ -486,9 +486,9 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function getRelativeHistoryLink( Title $title, $timestamp ) {
 		$user = $this->getUser();
+		$userDate = $this->getLanguage()->userDate( $timestamp, $user );
 		$text = $this->msg(
-			'minerva-last-modified-date',
-			$this->getLanguage()->userDate( $timestamp, $user ),
+			'minerva-last-modified-date', $userDate,
 			$this->getLanguage()->userTime( $timestamp, $user )
 		)->parse();
 		return [
