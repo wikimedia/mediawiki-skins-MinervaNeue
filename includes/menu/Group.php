@@ -63,6 +63,18 @@ class Group {
 	}
 
 	/**
+	 * Helper method to verify that the $name of entry is unique (do not exists
+	 * in current Group )
+	 * @param string $name
+	 * @throws DomainException When the entry already exists
+	 */
+	private function throwIfNotUnique( $name ) {
+		if ( $this->search( $name ) !== -1 ) {
+			throw new DomainException( "The \"${name}\" entry already exists." );
+		}
+	}
+
+	/**
 	 * Insert an entry into the menu.
 	 *
 	 * @param string $name A unique name identifying the menu entry
@@ -71,10 +83,7 @@ class Group {
 	 * @return MenuEntry
 	 */
 	public function insert( $name, $isJSOnly = false ) {
-		if ( $this->search( $name ) !== -1 ) {
-			throw new DomainException( "The \"${name}\" entry already exists." );
-		}
-
+		$this->throwIfNotUnique( $name );
 		$this->entries[] = $entry = new MenuEntry( $name, $isJSOnly );
 
 		return $entry;
@@ -109,9 +118,7 @@ class Group {
 	 * @return MenuEntry
 	 */
 	public function insertAfter( $targetName, $name, $isJSOnly = false ) {
-		if ( $this->search( $name ) !== -1 ) {
-			throw new DomainException( "The \"${name}\" entry already exists." );
-		}
+		$this->throwIfNotUnique( $name );
 
 		$index = $this->search( $targetName );
 
