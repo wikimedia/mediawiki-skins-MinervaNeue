@@ -3,7 +3,8 @@
 		"authors": [
 			"Minisarm",
 			"Strainu",
-			"Adrianbblk"
+			"Adrianbblk",
+			"Andrei Stroe"
 		]
 	},
 	"minerva-last-modified-date": "Ultima modificare pe $1, la $2",
@@ -27,7 +28,7 @@
 	"mobile-frontend-main-menu-watchlist": "Pagini urmărite",
 	"mobile-frontend-meta-data-issues": "Problemele paginii",
 	"mobile-frontend-meta-data-issues-categories": "Despre această categorie",
-	"mobile-frontend-meta-data-issues-header": "Probleme",
+	"mobile-frontend-meta-data-issues-header": "Probleme în pagini",
 	"mobile-frontend-meta-data-issues-header-talk": "Despre această pagină",
 	"mobile-frontend-meta-data-issues-talk": "Despre această pagină de discuție",
 	"mobile-frontend-notifications-filter": "Filtrare",
