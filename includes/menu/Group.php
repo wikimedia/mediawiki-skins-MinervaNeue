@@ -27,7 +27,7 @@ use DomainException;
  */
 class Group {
 	/**
-	 * @var MenuEntry[]
+	 * @var IMenuEntry[]
 	 */
 	private $entries = [];
 
@@ -46,14 +46,14 @@ class Group {
 	 * @return array
 	 */
 	public function getEntries() {
-		$entryPresenter = function ( MenuEntry $entry ) {
+		$entryPresenter = function ( IMenuEntry $entry ) {
 			$result = [
 				'name' => $entry->getName(),
 				'components' => $entry->getComponents(),
 			];
-
-			if ( $entry->isJSOnly() ) {
-				$result['class'] = 'jsonly';
+			$classes = $entry->getCSSClasses();
+			if ( $classes ) {
+				$result[ 'class' ] = implode( ' ', $classes );
 			}
 
 			return $result;
@@ -72,6 +72,16 @@ class Group {
 		if ( $this->search( $name ) !== -1 ) {
 			throw new DomainException( "The \"${name}\" entry already exists." );
 		}
+	}
+
+	/**
+	 * Insert new menu entry
+	 * @param IMenuEntry $entry
+	 * @throws DomainException When the entry already exists
+	 */
+	public function insertEntry( IMenuEntry $entry ) {
+		$this->throwIfNotUnique( $entry->getName() );
+		$this->entries[] = $entry;
 	}
 
 	/**
@@ -119,7 +129,6 @@ class Group {
 	 */
 	public function insertAfter( $targetName, $name, $isJSOnly = false ) {
 		$this->throwIfNotUnique( $name );
-
 		$index = $this->search( $targetName );
 
 		if ( $index === -1 ) {

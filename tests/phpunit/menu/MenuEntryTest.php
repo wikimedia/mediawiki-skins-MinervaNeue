@@ -13,7 +13,7 @@ class MenuEntryTest extends \MediaWikiTestCase {
 	/**
 	 * @covers ::__construct
 	 * @covers ::getName()
-	 * @covers ::isJSOnly()
+	 * @covers ::getCSSClasses()
 	 * @covers ::getComponents()
 	 */
 	public function testMenuEntryConstruction() {
@@ -21,7 +21,7 @@ class MenuEntryTest extends \MediaWikiTestCase {
 		$isJSOnly = true;
 		$entry = new MenuEntry( $name, $isJSOnly );
 		$this->assertSame( $name, $entry->getName() );
-		$this->assertSame( $isJSOnly, $entry->isJSOnly() );
+		$this->assertArrayEquals( [ 'jsonly' ], $entry->getCSSClasses() );
 		$this->assertSame( [], $entry->getComponents() );
 	}
 }
