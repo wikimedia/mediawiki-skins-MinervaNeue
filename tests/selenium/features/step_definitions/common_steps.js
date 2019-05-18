@@ -20,11 +20,17 @@ const login = () => {
 const createPages = ( pages ) => {
 	const summary = 'edit by selenium test';
 	browser.call( () => login() );
-	browser.call( () =>
-		api.batch(
+	browser.call( () => {
+		return api.batch(
 			pages.map( ( page ) => [ 'create' ].concat( page ).concat( [ summary ] ) )
-		)
-	);
+		).catch( ( err ) => {
+			if ( err.code === 'articleexists' ) {
+				return;
+			}
+			throw err;
+		} );
+
+	} );
 };
 
 const createPage = ( title, wikitext ) => {
