@@ -34,7 +34,7 @@ class Group {
 	/**
 	 * Return entries count
 	 *
-	 * @return int
+	 * @return bool
 	 */
 	public function hasEntries() {
 		return count( $this->entries ) > 0;

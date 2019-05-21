@@ -20,6 +20,8 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
+use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Minerva\Menu\PageActions\PageActionMenuEntry;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
@@ -838,23 +840,23 @@ class SkinMinerva extends SkinTemplate {
 	 * @param BaseTemplate $tpl
 	 */
 	protected function preparePageActions( BaseTemplate $tpl ) {
-		$toolbar = [];
+		$toolbar = new Group();
 		$overflowMenu = null;
 
 		if ( $this->isAllowedPageAction( 'switch-language' ) ) {
-			$toolbar[] = $this->createSwitchLanguageAction();
+			$toolbar->insertEntry( $this->createSwitchLanguageAction() );
 		}
 
 		if ( $this->isAllowedPageAction( 'watch' ) ) {
-			$toolbar[] = $this->createWatchPageAction();
+			$toolbar->insertEntry( $this->createWatchPageAction() );
 		}
 
 		if ( $this->isAllowedPageAction( 'history' ) ) {
-			$toolbar[] = $this->getHistoryPageAction();
+			$toolbar->insertEntry( $this->getHistoryPageAction() );
 		}
 
 		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$toolbar[] = $this->createEditPageAction();
+			$toolbar->insertEntry( $this->createEditPageAction() );
 		}
 
 		if ( $this->isAllowedPageAction( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
@@ -862,7 +864,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		$tpl->set( 'page_actions', [
-			'toolbar' => $toolbar,
+			'toolbar' => $toolbar->getEntries(),
 			'overflowMenu' => $overflowMenu
 		] );
 	}
@@ -871,8 +873,7 @@ class SkinMinerva extends SkinTemplate {
 	 * Creates the "edit" page action: the well-known pencil icon that, when tapped, will open an
 	 * editor with the lead section loaded.
 	 *
-	 * @return array A map of HTML attributes and a "text" property to be used with the
-	 * pageActionMenu.mustache template.
+	 * @return PageActionMenuEntry An edit page actions menu entry
 	 */
 	protected function createEditPageAction() {
 		$title = $this->getTitle();
@@ -888,15 +889,15 @@ class SkinMinerva extends SkinTemplate {
 		$userBlockInfo = $user->getId() == 0 ? false : $user->isBlockedFrom( $title, true );
 		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
 
-		return [
-				'item-id' => 'page-actions-edit',
-				'id' => 'ca-edit',
-				'href' => $title->getLocalURL( $editArgs ),
-				'class' => 'edit-page '
-					. MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
-				'title' => $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ),
-				'text' => $this->msg( 'mobile-frontend-editor-edit' )
-		];
+		return PageActionMenuEntry::create(
+			'page-actions-edit',
+			$title->getLocalURL( $editArgs ),
+			'edit-page '
+			. MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
+			$this->msg( 'mobile-frontend-editor-edit' )
+		)
+			->setTitle( $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
+			->setNodeID( 'ca-edit' );
 	}
 
 	/**
@@ -904,8 +905,7 @@ class SkinMinerva extends SkinTemplate {
 	 * add the page to or remove the page from the user's watchlist; or, if the user is logged out,
 	 * will direct the user's UA to Special:Login.
 	 *
-	 * @return array A map of HTML attributes and a "text" property to be used with the
-	 * pageActionMenu.mustache template.
+	 * @return PageActionMenuEntry An watch/unwatch page actions menu entry
 	 */
 	protected function createWatchPageAction() {
 		$title = $this->getTitle();
@@ -925,24 +925,24 @@ class SkinMinerva extends SkinTemplate {
 			$msg = $this->msg( 'watchthispage' );
 			$icon = 'watch';
 		}
-		return [
-			'item-id' => 'page-actions-watch',
-			'id' => 'ca-watch',
-			// Use blank icon to reserve space for watchstar icon once JS loads
-			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' )
-				. $additionalClassNames,
-			'title' => $msg,
-			'text' => $msg,
-			'href' => $href
-		];
+		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article' );
+
+		return PageActionMenuEntry::create(
+			'page-actions-watch',
+			$href,
+			$iconClass . $additionalClassNames,
+			$msg
+		)
+			->setTitle( $msg )
+			->setNodeID( 'ca-watch' );
 	}
 
 	/**
 	 * Creates the "switch-language" action: the icon that, when tapped, opens the language
 	 * switcher.
 	 *
-	 * @return array A map of HTML attributes and a 'text' property to be used with the
-	 * pageActionMenu.mustache template.
+	 * @return PageActionMenuEntry A menu entry object that represents a map of HTML attributes
+	 * and a 'text' property to be used with the pageActionMenu.mustache template.
 	 */
 	protected function createSwitchLanguageAction() {
 		$languageSwitcherLink = false;
@@ -956,13 +956,12 @@ class SkinMinerva extends SkinTemplate {
 		} else {
 			$languageSwitcherClasses .= ' disabled';
 		}
-		return [
-				'item-id' => 'page-actions-languages',
-				'class' => MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
-				'href' => $languageSwitcherLink,
-				'title' => $this->msg( 'mobile-frontend-language-article-heading' ),
-				'text' => $this->msg( 'mobile-frontend-language-article-heading' )
-		];
+		return PageActionMenuEntry::create(
+			'page-actions-languages',
+			$languageSwitcherLink,
+			MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
+			$this->msg( 'mobile-frontend-language-article-heading' )
+		)->setTitle( $this->msg( 'mobile-frontend-language-article-heading' ) );
 	}
 
 	/**
@@ -976,16 +975,16 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Creates a history action: An icon that links to the mobile history page.
 	 *
-	 * @return array A map of HTML attributes and a 'text' property to be used with the
-	 * pageActionMenu.mustache template.
+	 * @return PageActionMenuEntry A menu entry object that represents a map of HTML attributes
+	 * and a 'text' property to be used with the pageActionMenu.mustache template.
 	 */
 	protected function getHistoryPageAction() {
-		return [
-			'item-id' => 'page-actions-history',
-			'class' => MinervaUI::iconClass( 'clock' ),
-			'text' => $this->msg( 'mobile-frontend-history' ),
-			'href' => $this->getHistoryUrl( $this->getTitle() )
-		];
+		return new PageActionMenuEntry(
+			'page-actions-history',
+			$this->getHistoryUrl( $this->getTitle() ),
+			MinervaUI::iconClass( 'clock' ),
+			$this->msg( 'mobile-frontend-history' )
+		);
 	}
 
 	/**
@@ -1006,20 +1005,22 @@ class SkinMinerva extends SkinTemplate {
 		$pageActions = $this->getUserPageHelper()->isUserPage()
 		? $this->getUserNamespaceOverflowPageActions( $tpl )
 		: $this->getDefaultOverflowPageActions( $tpl );
-		return empty( $pageActions ) ? null : [
+		return $pageActions->hasEntries() ? [
 			'item-id' => 'page-actions-overflow',
 			'class' => MinervaUI::iconClass( 'page-actions-overflow' ),
 			'text' => $this->msg( 'minerva-page-actions-overflow' ),
-			'pageActions' => $pageActions
-		];
+			'pageActions' => $pageActions->getEntries()
+		] : null;
 	}
 
 	/**
 	 * @param BaseTemplate $tpl
-	 * @return array
+	 * @return Group
 	 */
 	private function getDefaultOverflowPageActions( BaseTemplate $tpl ) {
-		return array_values( array_filter( [
+		$group = new Group();
+
+		foreach ( [
 			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
 			$this->newOverflowPageAction(
 				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
@@ -1030,7 +1031,12 @@ class SkinMinerva extends SkinTemplate {
 			$this->newOverflowPageAction(
 				'cite', 'quotes', $tpl->data['nav_urls']['citethispage']['href'] ?? null
 			)
-		] ) );
+		] as $menuEntry ) {
+			if ( $menuEntry !== null ) {
+				$group->insertEntry( $menuEntry );
+			}
+		}
+		return $group;
 	}
 
 	/**
@@ -1049,11 +1055,12 @@ class SkinMinerva extends SkinTemplate {
 
 	/**
 	 * @param BaseTemplate $tpl
-	 * @return array
+	 * @return Group
 	 */
 	private function getUserNamespaceOverflowPageActions( BaseTemplate $tpl ) {
 		$pageUser = $this->getUserPageHelper()->getPageUser();
-		return [
+		$group = new Group();
+		foreach ( [
 			$this->newOverflowPageAction(
 				'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $pageUser )->getLocalURL()
 			),
@@ -1070,22 +1077,28 @@ class SkinMinerva extends SkinTemplate {
 			$this->newOverflowPageAction(
 				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
 			)
-		];
+		] as $menuEntry ) {
+			if ( $menuEntry !== null ) {
+				$group->insertEntry( $menuEntry );
+			}
+		}
+		return $group;
 	}
 
 	/**
 	 * @param string $name
 	 * @param string $icon Wikimedia UI icon name.
 	 * @param string|null $href
-	 * @return array
+	 * @return PageActionMenuEntry|null
 	 */
 	private function newOverflowPageAction( $name, $icon, $href ) {
-		return $href ? [
-			'item-id' => 'page-actions-overflow-' . $name,
-			'class' => MinervaUI::iconClass( '', 'before', 'wikimedia-ui-' . $icon . '-base20' ),
-			'text' => $this->msg( 'minerva-page-actions-' . $name ),
-			'href' => $href
-		] : null;
+		return $href ?
+			new PageActionMenuEntry(
+				'page-actions-overflow-' . $name,
+				$href,
+				MinervaUI::iconClass( '', 'before', 'wikimedia-ui-' . $icon . '-base20' ),
+				$this->msg( 'minerva-page-actions-' . $name )
+			) : null;
 	}
 
 	/**
