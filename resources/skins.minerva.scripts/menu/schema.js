@@ -1,5 +1,5 @@
 mw.loader.using( [
-	'ext.eventLogging.subscriber'
+	'ext.eventLogging'
 ] ).then( function () {
 	var M = mw.mobileFrontend,
 		user = mw.user,
@@ -7,7 +7,7 @@ mw.loader.using( [
 		// Need to make amc default to false because it will not exist in mw.config
 		// if using desktop Minerva or if MobileFrontend extension is not installed.
 		amc = mw.config.get( 'wgMFAmc', false ),
-		// Schema provided by ext.eventLogging.subscriber class
+		// Schema class provided by ext.eventLogging module
 		Schema = mw.eventLog.Schema, // resource-modules-disable-line
 		context = M.require( 'mobile.startup' ).context,
 		DEFAULT_SAMPLING_RATE = mw.config.get( 'wgMinervaSchemaMainMenuClickTrackingSampleRate' ),
