@@ -93,7 +93,7 @@ class PageActionMenuEntry implements IMenuEntry {
 	 * @param Message $message Title message
 	 * @return $this
 	 */
-	public function setTitle( \Message $message ) {
+	public function setTitle( Message $message ) {
 		$this->component['title'] = $message->escaped();
 		return $this;
 	}
