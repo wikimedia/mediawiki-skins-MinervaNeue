@@ -128,15 +128,11 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$userPageHelper->expects( $this->once() )
-			->method( 'isUserPage' )
-			->willReturn( true );
-
 		$skin = $this->getSkin( Title::newFromText( 'User:Admin' ) );
 
 		$this->setService( 'Minerva.SkinUserPageHelper', $userPageHelper );
 
-		$this->assertFalse( $skin->isAllowedPageAction( 'talk' ) );
+		$this->assertTrue( $skin->isAllowedPageAction( 'talk' ) );
 	}
 
 	/**
@@ -147,11 +143,21 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$userPageHelper->expects( $this->once() )
-			->method( 'isUserPage' )
-			->willReturn( false );
+		$skin = $this->getSkin( Title::newFromText( 'A_test_page' ) );
+		$this->setService( 'Minerva.SkinUserPageHelper', $userPageHelper );
 
-		$skin = $this->getSkin( Title::newFromText( 'User:Admin' ) );
+		$this->assertTrue( $skin->isAllowedPageAction( 'talk' ) );
+	}
+
+	/**
+	 * @covers SkinMinerva::isAllowedPageAction
+	 */
+	public function testPageActionsWhenOnAnonUserPage() {
+		$userPageHelper = $this->getMockBuilder( SkinUserPageHelper::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$skin = $this->getSkin( Title::newFromText( 'User:1.1.1.1' ) );
 		$this->setService( 'Minerva.SkinUserPageHelper', $userPageHelper );
 
 		$this->assertTrue( $skin->isAllowedPageAction( 'talk' ) );

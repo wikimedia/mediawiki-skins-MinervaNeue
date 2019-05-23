@@ -36,6 +36,42 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * @covers ::isUserPage
+	 * @covers ::fetchData
+	 * @covers ::buildPageUserObject
+	 */
+	public function testTitleisAnIP() {
+		$title = Title::newFromText( 'User:127.0.0.1' );
+
+		$helper = new SkinUserPageHelper( $title );
+		$this->assertEquals( true, $helper->isUserPage() );
+	}
+
+	/**
+	 * @covers ::isUserPage
+	 * @covers ::fetchData
+	 * @covers ::buildPageUserObject
+	 */
+	public function testTitleIsIPRange() {
+		$title = Title::newFromText( 'User:127.0.0.1/24' );
+
+		$helper = new SkinUserPageHelper( $title );
+		$this->assertEquals( false, $helper->isUserPage() );
+	}
+
+	/**
+	 * @covers ::isUserPage
+	 * @covers ::fetchData
+	 * @covers ::buildPageUserObject
+	 */
+	public function testTitleIsFakeUserPage() {
+		$title = Title::newFromText( 'User:Fake user' );
+
+		$helper = new SkinUserPageHelper( $title );
+		$this->assertEquals( false, $helper->isUserPage() );
+	}
+
+	/**
 	 * @covers ::fetchData
 	 */
 	public function testTitleProcessingIsCached() {

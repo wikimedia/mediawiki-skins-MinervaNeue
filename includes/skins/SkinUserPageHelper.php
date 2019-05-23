@@ -46,33 +46,50 @@ class SkinUserPageHelper {
 	}
 
 	/**
-	 * Fetch user data and store locally for perfomance improvement
+	 * Fetch user data and store locally for performance improvement
+	 * @return User|null
 	 */
 	private function fetchData() {
 		if ( $this->fetchedData === false ) {
 			if ( $this->title->inNamespace( NS_USER ) && !$this->title->isSubpage() ) {
-				$pageUserId = User::idFromName( $this->title->getText() );
-				if ( $pageUserId ) {
-					$this->pageUser = User::newFromId( $pageUserId );
-				}
+				$this->pageUser = $this->buildPageUserObject( $this->title );
 			}
 			$this->fetchedData = true;
 		}
+		return $this->pageUser;
+	}
+
+	/**
+	 * Return new User object based on username or IP address.
+	 * @param Title $title
+	 * @return User|null
+	 */
+	private function buildPageUserObject( Title $title ) {
+		$titleText = $title->getText();
+
+		if ( User::isIP( $titleText ) ) {
+			return User::newFromAnyId( null, $titleText, null );
+		}
+
+		$pageUserId = User::idFromName( $titleText );
+		if ( $pageUserId ) {
+			return User::newFromId( $pageUserId );
+		}
+
+		return null;
 	}
 
 	/**
 	 * @return User|null
 	 */
 	public function getPageUser() {
-		$this->fetchData();
-		return $this->pageUser;
+		return $this->fetchData();
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function isUserPage() {
-		$this->fetchData();
-		return $this->pageUser !== null;
+		return $this->fetchData() !== null;
 	}
 }

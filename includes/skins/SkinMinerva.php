@@ -234,10 +234,7 @@ class SkinMinerva extends SkinTemplate {
 			return $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU );
 		}
 
-		if (
-			!in_array( $action, $config->get( 'MinervaPageActions' ) )
-			|| ( $this->getUserPageHelper()->isUserPage() && !$title->exists() )
-		) {
+		if ( !in_array( $action, $config->get( 'MinervaPageActions' ) ) ) {
 			return false;
 		}
 
