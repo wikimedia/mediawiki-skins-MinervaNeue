@@ -23,6 +23,7 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 use ExtensionRegistry;
 use Hooks;
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Permissions\PermissionManager;
 use MessageLocalizer;
 use MinervaUI;
 use MWException;
@@ -54,18 +55,24 @@ class ToolbarBuilder {
 	private $messageLocalizer;
 
 	/**
+	 * @var PermissionManager
+	 */
+	private $permissionsManager;
+	/**
 	 * Build Group containing icons for toolbar
 	 * @param SkinMinerva $skin User Skin
 	 * @param Title $title Article title user is currently browsing
 	 * @param User $user Currently logged in user
 	 * @param MessageLocalizer $msgLocalizer Message localizer to generate localized texts
+	 * @param PermissionManager $permissionManager Mediawiki Permissions Manager
 	 */
 	public function __construct( SkinMinerva $skin, Title $title, User $user,
-								 MessageLocalizer $msgLocalizer ) {
+								 MessageLocalizer $msgLocalizer, PermissionManager $permissionManager ) {
 		$this->skin = $skin;
 		$this->title = $title;
 		$this->user = $user;
 		$this->messageLocalizer = $msgLocalizer;
+		$this->permissionsManager = $permissionManager;
 	}
 
 	/**
@@ -104,10 +111,12 @@ class ToolbarBuilder {
 	 *
 	 * @return PageActionMenuEntry An edit page actions menu entry
 	 * @throws MWException
+	 * @throws \Exception
 	 */
 	protected function createEditPageAction() {
 		$title = $this->title;
 		$user = $this->user;
+		$pm = $this->permissionsManager;
 
 		$editArgs = [ 'action' => 'edit' ];
 		if ( $title->isWikitextPage() ) {
@@ -115,9 +124,15 @@ class ToolbarBuilder {
 			// Full wikitext editing is hard on mobile devices.
 			$editArgs['section'] = SkinMinerva::LEAD_SECTION_NUMBER;
 		}
-		$userQuickEditCheck = $title->quickUserCan( 'edit', $user )
-							  && ( $title->exists() || $title->quickUserCan( 'create', $user ) );
-		$userBlockInfo = $user->getId() == 0 ? false : $user->isBlockedFrom( $title, true );
+
+		$userQuickEditCheck =
+			$pm->userCan( 'edit', $user, $title, PermissionManager::RIGOR_QUICK ) &&
+			(
+				$title->exists() ||
+				$pm->userCan( 'create', $user, $title, PermissionManager::RIGOR_QUICK )
+			);
+
+		$userBlockInfo = $user->isAnon() ? false : $pm->isBlockedFrom( $user, $title, true );
 		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
 
 		$entry = new PageActionMenuEntry(
