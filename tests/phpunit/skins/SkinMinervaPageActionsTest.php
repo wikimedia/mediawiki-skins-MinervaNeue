@@ -186,4 +186,31 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 
 		$this->assertEquals( $expected, $this->skin->isAllowedPageAction( 'switch-language' ) );
 	}
+
+	/**
+	 * Watch action requires 'viewmywatchlist' and 'editmywatchlist' permissions
+	 * to be grated. Verify that isAllowedAction('watch') returns false when user
+	 * do not have those permissions granted
+	 * @covers SkinMinerva::isAllowedPageAction
+	 */
+	public function test_watch_is_allowed_only_when_watchlist_permissions_are_granted() {
+		$title = Title::newFromText( 'test_watchstar_permissions' );
+		$requestContext = RequestContext::getMain();
+		$requestContext->setTitle( $title );
+		$userMock = $this->getMockBuilder( 'User' )
+			->disableOriginalConstructor()
+			->setMethods( [ 'isAllowedAll' ] )
+			->getMock();
+		$userMock->expects( $this->once() )
+			->method( 'isAllowedAll' )
+			->with( 'viewmywatchlist', 'editmywatchlist' )
+			->willReturn( false );
+		$requestContext->setUser( $userMock );
+
+		$result = new TestSkinMinerva();
+		$result->setContext( $requestContext );
+
+		$this->assertTrue( $this->skin->isAllowedPageAction( 'talk' ) );
+		$this->assertFalse( $this->skin->isAllowedPageAction( 'watch' ) );
+	}
 }
