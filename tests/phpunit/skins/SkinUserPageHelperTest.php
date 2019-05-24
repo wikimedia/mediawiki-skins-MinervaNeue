@@ -27,6 +27,19 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 	/**
 	 * @covers ::isUserPage
 	 * @covers ::fetchData
+	 * @covers ::__construct
+	 */
+	public function testTitleIsNull() {
+		$title = null;
+
+		$helper = new SkinUserPageHelper( $title );
+		$this->assertEquals( null, $helper->getPageUser() );
+		$this->assertEquals( false, $helper->isUserPage() );
+	}
+
+	/**
+	 * @covers ::isUserPage
+	 * @covers ::fetchData
 	 */
 	public function testTitleisASubpage() {
 		$title = Title::newFromText( 'User:TestUser/subpage' );

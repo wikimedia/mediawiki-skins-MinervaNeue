@@ -25,7 +25,7 @@ use User;
 
 class SkinUserPageHelper {
 	/**
-	 * @var Title
+	 * @var Title|null
 	 */
 	private $title;
 	/**
@@ -39,9 +39,9 @@ class SkinUserPageHelper {
 	private $pageUser;
 
 	/**
-	 * @param Title $title
+	 * @param Title|null $title
 	 */
-	public function __construct( Title $title ) {
+	public function __construct( Title $title = null ) {
 		$this->title = $title;
 	}
 
@@ -51,7 +51,8 @@ class SkinUserPageHelper {
 	 */
 	private function fetchData() {
 		if ( $this->fetchedData === false ) {
-			if ( $this->title->inNamespace( NS_USER ) && !$this->title->isSubpage() ) {
+			if ( $this->title && $this->title->inNamespace( NS_USER ) && !$this->title->isSubpage()
+			) {
 				$this->pageUser = $this->buildPageUserObject( $this->title );
 			}
 			$this->fetchedData = true;
