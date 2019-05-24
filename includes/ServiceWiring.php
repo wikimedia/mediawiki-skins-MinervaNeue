@@ -23,13 +23,13 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Main as MainMenu;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
+use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
+use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
+use MediaWiki\Minerva\Permissions\MinervaNoPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
 return [
-	'Minerva.ContentHandler' => function () {
-		return ContentHandler::getForTitle( RequestContext::getMain()->getTitle() );
-	},
 	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ) {
 		$context = RequestContext::getMain();
 		/** @var SkinOptions $options */
@@ -51,14 +51,13 @@ return [
 		 */
 		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
 		$context = RequestContext::getMain();
-		$skin = $context->getSkin();
 		$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
 		$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
-			$skin,
 			$context->getTitle(),
 			$context->getUser(),
 			$context,
-			$services->getPermissionManager()
+			$services->getPermissionManager(),
+			$services->getService( 'Minerva.Permissions' )
 		);
 		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
 			 $overflowBuilder = $userPageHelper->isUserPage() ?
@@ -85,5 +84,25 @@ return [
 	},
 	'Minerva.SkinOptions' => function () {
 		return new SkinOptions();
+	},
+	'Minerva.Permissions' => function ( MediaWikiServices $services ): IMinervaPagePermissions {
+		$context = RequestContext::getMain();
+		$title = $context->getTitle();
+
+		// Title may be undefined in certain contexts (T179833)
+		if ( $title ) {
+			$contentHandler = ContentHandler::getForTitle( $title );
+
+			return new MinervaPagePermissions(
+				$context->getTitle(),
+				$context->getConfig(),
+				$context->getUser(),
+				$context->getOutput(),
+				$services->getService( 'Minerva.SkinOptions' ),
+				$contentHandler
+			);
+		} else {
+			return new MinervaNoPagePermissions();
+		}
 	}
 ];

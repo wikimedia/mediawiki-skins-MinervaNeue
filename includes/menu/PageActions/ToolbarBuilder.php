@@ -24,6 +24,7 @@ use ExtensionRegistry;
 use Hooks;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Menu\LanguageSelectorEntry;
+use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Permissions\PermissionManager;
 use MessageLocalizer;
 use MinervaUI;
@@ -45,15 +46,13 @@ class ToolbarBuilder {
 	 */
 	private $title;
 	/**
-	 * Temporary variable to access isAllowedPageAction() method.
-	 * FIXME: Create MinervaAllowedPageActions service
-	 * @var SkinMinerva user skin
-	 */
-	private $skin;
-	/**
 	 * @var MessageLocalizer Message localizer to generate localized texts
 	 */
 	private $messageLocalizer;
+	/**
+	 * @var IMinervaPagePermissions
+	 */
+	private $permissions;
 
 	/**
 	 * @var PermissionManager
@@ -61,19 +60,23 @@ class ToolbarBuilder {
 	private $permissionsManager;
 	/**
 	 * Build Group containing icons for toolbar
-	 * @param SkinMinerva $skin User Skin
 	 * @param Title $title Article title user is currently browsing
 	 * @param User $user Currently logged in user
 	 * @param MessageLocalizer $msgLocalizer Message localizer to generate localized texts
 	 * @param PermissionManager $permissionManager Mediawiki Permissions Manager
+	 * @param IMinervaPagePermissions $permissions Minerva permissions system
 	 */
-	public function __construct( SkinMinerva $skin, Title $title, User $user,
-								 MessageLocalizer $msgLocalizer, PermissionManager $permissionManager ) {
-		$this->skin = $skin;
+	public function __construct(
+		Title $title,
+		User $user,
+		MessageLocalizer $msgLocalizer,
+		PermissionManager $permissionManager,
+		IMinervaPagePermissions $permissions ) {
 		$this->title = $title;
 		$this->user = $user;
 		$this->messageLocalizer = $msgLocalizer;
 		$this->permissionsManager = $permissionManager;
+		$this->permissions = $permissions;
 	}
 
 	/**
@@ -84,25 +87,25 @@ class ToolbarBuilder {
 	 */
 	public function getGroup( $doesPageHaveLanguages ) {
 		$group = new Group();
+		$permissions = $this->permissions;
 
-		if ( $this->skin->isAllowedPageAction( 'switch-language' ) ) {
-			$group->insertEntry(
-				new LanguageSelectorEntry( $this->title, $doesPageHaveLanguages, $this->messageLocalizer )
-			);
+		if ( $permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
+			$group->insertEntry( new LanguageSelectorEntry( $this->title, $doesPageHaveLanguages,
+					$this->messageLocalizer ) );
 		}
 
-		if ( $this->skin->isAllowedPageAction( 'watch' ) ) {
+		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) ) {
 			$group->insertEntry( $this->createWatchPageAction() );
 		}
 
-		if ( $this->skin->isAllowedPageAction( 'history' ) ) {
+		if ( $permissions->isAllowed( IMinervaPagePermissions::HISTORY ) ) {
 			$group->insertEntry( $this->getHistoryPageAction() );
 		}
 
 		Hooks::run( 'MobileMenu', [ 'pageactions.toolbar', &$group ] );
 
 		// We want the edit icon/action always to be the last element on the toolbar list
-		if ( $this->skin->isAllowedPageAction( 'edit' ) ) {
+		if ( $permissions->isAllowed( IMinervaPagePermissions::EDIT ) ) {
 			$group->insertEntry( $this->createEditPageAction() );
 		}
 		return $group;

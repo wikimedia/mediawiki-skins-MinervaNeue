@@ -20,6 +20,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
+use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
@@ -45,11 +46,32 @@ class SkinMinerva extends SkinTemplate {
 	private $skinOptions;
 
 	/**
+	 * This variable is lazy loaded, please use getPermissions() getter
+	 * @see SkinMinerva::getPermissions()
+	 * @var IMinervaPagePermissions
+	 */
+	private $permissions;
+
+	/**
 	 * Initialize Minerva Skin
 	 */
 	public function __construct() {
 		parent::__construct( 'minerva' );
 		$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+	}
+
+	/**
+	 * Lazy load the permissions object. We don't want to initialize it as it requires many
+	 * dependencies, sometimes some of those dependencies cannot be fulfilled (like missing Title
+	 * object)
+	 * @return IMinervaPagePermissions
+	 */
+	private function getPermissions() {
+		if ( $this->permissions === null ) {
+			$this->permissions = MediaWikiServices::getInstance()
+				->getService( 'Minerva.Permissions' );
+		}
+		return $this->permissions;
 	}
 
 	/**
@@ -190,70 +212,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Gets whether or not the page action is allowed.
-	 *
-	 * Page actions isn't allowed when:
-	 * <ul>
-	 *   <li>
-	 *     the action is disabled (by removing it from the <code>MinervaPageActions</code>
-	 *     configuration variable; or
-	 *   </li>
-	 *   <li>the user is on the main page</li>
-	 * </ul>
-	 *
-	 * The "edit" page action is not allowed if editing is not possible on the page
-	 * see @method: isCurrentPageContentModelEditable
-	 *
-	 * The "switch-language" is allowed if there are interlanguage links on the page,
-	 * or <code>$wgMinervaAlwaysShowLanguageButton</code>
-	 * is truthy.
-	 *
-	 * @param string $action
-	 * @return bool
-	 */
-	public function isAllowedPageAction( $action ) {
-		$title = $this->getTitle();
-		$config = $this->getConfig();
-		// Title may be undefined in certain contexts (T179833)
-		if ( !$title ) {
-			return false;
-		}
-
-		// T206406: Enable "Talk" or "Discussion" button on Main page, also, not forgetting
-		// the "switch-language" button. But disable "edit" and "watch" actions.
-		if ( $title->isMainPage() ) {
-			return ( in_array( $action, $config->get( 'MinervaPageActions' ) )
-				&& ( $action === 'talk' || $action === 'switch-language' ) );
-		}
-
-		if ( $action === 'history' && $title->exists() ) {
-			return $this->skinOptions->get( SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS );
-		}
-
-		if ( $action === SkinOptions::OPTION_OVERFLOW_SUBMENU ) {
-			return $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU );
-		}
-
-		if ( !in_array( $action, $config->get( 'MinervaPageActions' ) ) ) {
-			return false;
-		}
-
-		if ( $action === 'edit' ) {
-			return $this->isCurrentPageContentModelEditable();
-		}
-
-		if ( $action === 'watch' ) {
-			return $this->getUser()->isAllowedAll( 'viewmywatchlist', 'editmywatchlist' );
-		}
-
-		if ( $action === 'switch-language' ) {
-			return $this->doesPageHaveLanguages || $config->get( 'MinervaAlwaysShowLanguageButton' );
-		}
-
-		return true;
-	}
-
-	/**
 	 * Overrides Skin::doEditSectionLink
 	 * @param Title $nt
 	 * @param string $section
@@ -262,7 +220,8 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string
 	 */
 	public function doEditSectionLink( Title $nt, $section, $tooltip, Language $lang ) {
-		if ( $this->isAllowedPageAction( 'edit' ) && !$nt->isMainPage() ) {
+		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::EDIT ) &&
+			 !$nt->isMainPage() ) {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
 			$html .= Html::element( 'a', [
@@ -790,7 +749,7 @@ class SkinMinerva extends SkinTemplate {
 			$subjectPage->isMainPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
 		if ( !$this->getUserPageHelper()->isUserPage()
-			&& $this->isTalkAllowed() && $talkAtBottom
+			 && $this->getPermissions()->isTalkAllowed() && $talkAtBottom
 		) {
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
@@ -853,19 +812,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Checks whether the editor can handle the existing content handler type.
-	 *
-	 * @return bool
-	 */
-	protected function isCurrentPageContentModelEditable() {
-		$contentHandler = MediaWikiServices::getInstance()
-			->getService( 'Minerva.ContentHandler' );
-
-		return $contentHandler->supportsDirectEditing()
-			&& $contentHandler->supportsDirectApiEditing();
-	}
-
-	/**
 	 * Returns array of config variables that should be added only to this skin
 	 * for use in JavaScript.
 	 * @return array
@@ -878,17 +824,6 @@ class SkinMinerva extends SkinTemplate {
 		];
 
 		return $vars;
-	}
-
-	/**
-	 * Returns true, if the page can have a talk page and user is logged in.
-	 * @return bool
-	 */
-	protected function isTalkAllowed() {
-		$title = $this->getTitle();
-		return $this->isAllowedPageAction( 'talk' ) &&
-			( $title->isTalkPage() || $title->canHaveTalkPage() ) &&
-			$this->getUser()->isLoggedIn();
 	}
 
 	/**
@@ -912,7 +847,7 @@ class SkinMinerva extends SkinTemplate {
 		$user = $this->getUser();
 		$title = $this->getTitle();
 
-		if ( !$title->isSpecialPage() && $this->isAllowedPageAction( 'watch' ) ) {
+		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ) ) {
 			// Explicitly add the mobile watchstar code.
 			$modules[] = 'skins.minerva.watchstar';
 		}
@@ -924,7 +859,7 @@ class SkinMinerva extends SkinTemplate {
 		// TalkOverlay feature
 		if (
 			$this->getUserPageHelper()->isUserPage() ||
-			( $this->isTalkAllowed() || $title->isTalkPage() ) &&
+			( $this->getPermissions()->isTalkAllowed() || $title->isTalkPage() ) &&
 			$this->isWikiTextTalkPage()
 		) {
 			$modules[] = 'skins.minerva.talk';

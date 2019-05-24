@@ -73,7 +73,8 @@
 		"minerva": "MinervaNeue"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Minerva\\Menu\\": "includes/menu/"
+		"MediaWiki\\Minerva\\Menu\\": "includes/menu/",
+		"MediaWiki\\Minerva\\Permissions\\": "includes/permissions/"
 	},
 	"AutoloadClasses": {
 		"MinervaUI": "includes/MinervaUI.php",

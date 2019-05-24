@@ -1,0 +1,237 @@
+<?php
+
+namespace Tests\MediaWiki\Minerva;
+
+use ContentHandler;
+use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
+use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
+use MediaWiki\Minerva\SkinOptions;
+use MediaWikiTestCase;
+use OutputPage;
+use Title;
+use RequestContext;
+use User;
+
+/**
+ * @group MinervaNeue
+ * @coversDefaultClass \MediaWiki\Minerva\Permissions\MinervaPagePermissions
+ */
+class MinervaPagePermissionsTest extends MediaWikiTestCase {
+
+	private function buildPermissionsObject(
+		Title $title,
+		array $actions = null,
+		array $options = [],
+		ContentHandler $contentHandler = null,
+		User $user = null,
+		OutputPage $outputPage = null,
+		$alwaysShowLanguageButton = true
+	) {
+		$outputPage = $outputPage ?? RequestContext::getMain()->getOutput();
+
+		$user = $user ?? $this->getTestUser()->getUser();
+		$actions = $actions ?? [
+				IMinervaPagePermissions::EDIT,
+				IMinervaPagePermissions::WATCH,
+				IMinervaPagePermissions::TALK,
+				IMinervaPagePermissions::SWITCH_LANGUAGE,
+		];
+
+		$contentHandler = $contentHandler ??
+			$this->getMockForAbstractClass( ContentHandler::class, [], '', false );
+		$skinOptions = new SkinOptions();
+		if ( $options ) {
+			$skinOptions->setMultiple( $options );
+		}
+
+		return new MinervaPagePermissions(
+			$title,
+			new \HashConfig( [
+				'MinervaPageActions' => $actions,
+				'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton
+			] ),
+			$user,
+			$outputPage,
+			$skinOptions,
+			$contentHandler
+		);
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testWatchAndEditNotAllowedOnMainPage() {
+		$perms = $this->buildPermissionsObject( Title::newMainPage() );
+
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::EDIT ) );
+
+		// Check to make sure 'talk' and 'switch-language' are enabled on the Main page.
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) );
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testInvalidPageActionsArentAllowed() {
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), [] );
+
+		// By default, the "talk" and "watch" page actions are allowed but are now deemed invalid.
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testValidPageActionsAreAllowed() {
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
+	}
+
+	public static function editPageActionProvider() {
+		return [
+			[ false, false, false ],
+			[ true, false, false ],
+			[ true, true, true ]
+		];
+	}
+
+	/**
+	 * The "edit" page action is allowed when the page doesn't support direct editing via the API.
+	 *
+	 * @dataProvider editPageActionProvider
+	 * @covers ::isAllowed
+	 */
+	public function testEditPageAction(
+		$supportsDirectEditing,
+		$supportsDirectApiEditing,
+		$expected
+	) {
+		$contentHandler = $this->getMockBuilder( 'ContentHandler' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$contentHandler->method( 'supportsDirectEditing' )
+			->will( $this->returnValue( $supportsDirectEditing ) );
+
+		$contentHandler->method( 'supportsDirectApiEditing' )
+			->will( $this->returnValue( $supportsDirectApiEditing ) );
+
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), null, [],
+			$contentHandler );
+
+		$this->assertEquals( $expected, $perms->isAllowed( IMinervaPagePermissions::EDIT ) );
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testPageActionsWhenOnUserPage() {
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'User:Admin' ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testPageActionsWhenOnAnonUserPage() {
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'User:1.1.1.1' ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
+	}
+
+	public static function switchLanguagePageActionProvider() {
+		return [
+			[ true,  true,  false, true ],
+			[ false, false, true,  true ],
+			[ false, false, false, false ],
+			[ true,  false, false, true ],
+		];
+	}
+
+	/**
+	 * The "switch-language" page action is allowed when: v2 of the page action bar is enabled and
+	 * if the page has interlanguage links or if the <code>$wgMinervaAlwaysShowLanguageButton</code>
+	 * configuration variable is set to truthy.
+	 *
+	 * @dataProvider switchLanguagePageActionProvider
+	 * @covers ::isAllowed
+	 */
+	public function testSwitchLanguagePageAction(
+		$hasLanguages,
+		$hasVariants,
+		$minervaAlwaysShowLanguageButton,
+		$expected
+	) {
+		$out = RequestContext::getMain()->getOutput();
+		$out->setLanguageLinks( $hasLanguages ? [ 'pl:StronaTestowa', 'en:TestPage' ] : [] );
+
+		$languageMock = $this->getMock( \Language::class, [ 'hasVariants' ], [], '', false );
+		$languageMock->expects( $this->once() )
+			->method( 'hasVariants' )
+			->willReturn( $hasVariants );
+		$title = $this->getMock( Title::class, [ 'isMainPage', 'getPageLanguage' ] );
+		$title->expects( $this->once() )
+			->method( 'isMainPage' )
+			->willReturn( false );
+		$title->expects( $this->once() )
+			->method( 'getPageLanguage' )
+			->willReturn( $languageMock );
+
+		$permissions = $this->buildPermissionsObject(
+			$title,
+			null,
+			[],
+			null,
+			null,
+			$out,
+			$minervaAlwaysShowLanguageButton
+		);
+
+		$actual = $permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE );
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * Watch action requires 'viewmywatchlist' and 'editmywatchlist' permissions
+	 * to be grated. Verify that isAllowedAction('watch') returns false when user
+	 * do not have those permissions granted
+	 * @covers ::isAllowed
+	 */
+	public function testWatchIsAllowedOnlyWhenWatchlistPermissionsAreGranted() {
+		$title = Title::newFromText( 'test_watchstar_permissions' );
+
+		$userMock = $this->getMockBuilder( 'User' )
+			->disableOriginalConstructor()
+			->setMethods( [ 'isAllowedAll' ] )
+			->getMock();
+		$userMock->expects( $this->once() )
+			->method( 'isAllowedAll' )
+			->with( 'viewmywatchlist', 'editmywatchlist' )
+			->willReturn( false );
+
+		$perms = $this->buildPermissionsObject( $title, null, [], null, $userMock );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
+	}
+
+	/**
+	 * If Title is not watchable, it cannot be watched
+	 * @covers ::isAllowed
+	 */
+	public function testCannotWatchNotWatchableTitle() {
+		$title = $this->getMock( Title::class, [ 'isMainPage', 'isWatchable' ] );
+		$title->expects( $this->once() )
+			->method( 'isMainPage' )
+			->willReturn( false );
+		$title->expects( $this->once() )
+			->method( 'isWatchable' )
+			->willReturn( false );
+
+		$permissions = $this->buildPermissionsObject( $title );
+		$this->assertEquals( false, $permissions->isAllowed( IMinervaPagePermissions::WATCH ) );
+	}
+
+}
