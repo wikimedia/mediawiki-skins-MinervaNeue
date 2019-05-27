@@ -997,7 +997,7 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Minerva skin do use any of those, there is no need to calculate that
+	 * Minerva skin do not use any of those, there is no need to calculate that
 	 * @return array
 	 */
 	protected function buildPersonalUrls() {
