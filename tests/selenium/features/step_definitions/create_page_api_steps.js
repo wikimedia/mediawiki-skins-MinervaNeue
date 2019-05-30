@@ -23,13 +23,7 @@ const iAmInAWikiThatHasCategories = ( title ) => {
 		[ 'create', 'Category:Selenium artifacts', msg ],
 		[ 'create', 'Category:Test category', msg ],
 		[ 'create', 'Category:Selenium hidden category', '__HIDDENCAT__' ]
-	] )
-		.catch( ( err ) => {
-			if ( err.code === 'articleexists' ) {
-				return;
-			}
-			throw err;
-		} );
+	] );
 
 	// A pause is necessary to let the categories register with database before trying to use
 	// them in an article
@@ -68,7 +62,10 @@ const iGoToAPageThatHasLanguages = () => {
 	[[es:Selenium language test page]]
 `;
 
-	return createPage( 'Selenium language test page', wikitext ).then( () => {
+	browser.call( () => {
+		createPage( 'Selenium language test page', wikitext );
+	} );
+	browser.call( () => {
 		iAmOnPage( 'Selenium language test page' );
 	} );
 };
@@ -85,7 +82,10 @@ const watch = ( title ) => {
 const iAmViewingAWatchedPage = () => {
 	const title = `I am on the "Selenium mobile watched page test ${new Date().getTime()}`;
 
-	createPage( title, 'watch test' ).then( () => {
+	browser.call( () => {
+		createPage( title, 'watch test' );
+	} );
+	browser.call( () => {
 		watch( title );
 		// navigate away from page
 		iAmOnPage( 'Main Page' );
