@@ -45,7 +45,7 @@
 	"mobile-frontend-talk-back-to-userpage": "Назад на корисничката страница на „{{GENDER:$1|$1}}“.",
 	"mobile-frontend-user-button-tooltip": "Прикажи ги моите известувања",
 	"mobile-frontend-user-newmessages": "Имате нови пораки на вашата разговорна страница",
-	"mobile-frontend-user-page-contributions": "Учесници",
+	"mobile-frontend-user-page-contributions": "Придонеси",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Членува од}} $1",
 	"mobile-frontend-user-page-talk": "Разговор",
 	"mobile-frontend-user-page-uploads": "Подигања",
