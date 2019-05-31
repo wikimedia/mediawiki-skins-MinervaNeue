@@ -229,9 +229,7 @@ class MinervaTemplate extends BaseTemplate {
 		$internalBanner = $data[ 'internalBanner' ];
 		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
-		$hasPageActions = !$this->isSpecialPage && !$this->isMainPage &&
-			Action::getActionName( RequestContext::getMain() ) === 'view';
-		$hasTalkTabs = $hasPageActions && !$this->isMainPageTalk;
+		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
 		// prepare template data
 		$templateData = [
@@ -268,7 +266,8 @@ class MinervaTemplate extends BaseTemplate {
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'footer' => $this->getFooterTemplateData( $data ),
 			'isBeta' => $skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA ),
-			'tabs' => $hasTalkTabs && $skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ? [
+			'tabs' => $this->showTalkTabs( $hasPageActions, $skinOptions ) &&
+					  $skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
 		];
@@ -279,5 +278,28 @@ class MinervaTemplate extends BaseTemplate {
 		</body>
 		</html>
 		<?php
+	}
+
+	/**
+	 * @param IContextSource $context
+	 * @return bool
+	 */
+	private function hasPageActions( IContextSource $context ) {
+		return !$this->isSpecialPage && !$this->isMainPage &&
+		   Action::getActionName( $context ) === 'view';
+	}
+
+	/**
+	 * @param bool $hasPageActions
+	 * @param SkinOptions $skinOptions
+	 * @return bool
+	 */
+	private function showTalkTabs( $hasPageActions, SkinOptions $skinOptions ) {
+		$hasTalkTabs = $hasPageActions && !$this->isMainPageTalk;
+		if ( !$hasTalkTabs && $this->isSpecialPage &&
+			 $skinOptions->get( SkinOptions::OPTION_TABS_ON_SPECIALS ) ) {
+			$hasTalkTabs = true;
+		}
+		return $hasTalkTabs;
 	}
 }

@@ -234,9 +234,12 @@ class MinervaHooks {
 				SkinOptions::OPTION_OVERFLOW_SUBMENU => $featureManager->isFeatureAvailableForCurrentUser(
 					self::FEATURE_OVERFLOW_PAGE_ACTIONS
 				),
+				SkinOptions::OPTION_TABS_ON_SPECIALS => false,
 			] );
+			Hooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
 		}
 	}
+
 	/**
 	 * ResourceLoaderGetConfigVars hook handler.
 	 * Used for setting JS variables which are pulled in dynamically with RL

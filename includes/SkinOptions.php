@@ -35,6 +35,7 @@ final class SkinOptions {
 	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
 	const OPTIONS_HISTORY_PAGE_ACTIONS = 'historyInPageActions';
 	const OPTION_OVERFLOW_SUBMENU = 'overflowSubmenu';
+	const OPTION_TABS_ON_SPECIALS = 'tabsOnSpecials';
 
 	/** @var array skin specific options */
 	private $skinOptions = [
