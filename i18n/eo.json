@@ -16,6 +16,7 @@
 	"minerva-download": "Elŝuti kiel PDF-dosieron",
 	"skin-minerva-share": "Konigi",
 	"skin-minerva-mobile-option-MinervaShareButton": "Konigi",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Diskonigi aktualan artikolon per funkcio de TTT-legilo (nur por subtenataj TTT-legiloj)",
 	"mobile-frontend-editor-redlink-create": "Krei paĝon",
 	"mobile-frontend-editor-redlink-explain": "Ĉi tiu paĝo ankoraŭ ne estas kreita.",
 	"mobile-frontend-editor-redlink-leave": "Ne, dankon",
@@ -52,6 +53,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Aliĝis}} $1",
 	"mobile-frontend-user-page-talk": "Diskuto",
 	"mobile-frontend-user-page-uploads": "Alŝutoj",
+	"minerva-page-actions-overflow": "Submenuo de sekundaraj paĝaj agoj",
 	"minerva-page-actions-info": "Informo pri paĝo",
 	"minerva-page-actions-permalink": "Konstanta ligilo",
 	"minerva-page-actions-backlinks": "Kio enhavas ligilojn ĉi tien",
@@ -63,5 +65,8 @@
 	"skin-minerva-issue-learn-more": "Ekscii pli",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorioj",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vidi kategoriojn aŭ paĝojn",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ŝalti al la supro"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ŝalti al la supro",
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Salti al la supro de la aktuala paĝo per flosanta butono",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Pli bona traktado de paĝaj problemoj",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Paĝaj problemoj (Ŝablono:ambox) estos enkorpigitaj en la artikolon."
 }
