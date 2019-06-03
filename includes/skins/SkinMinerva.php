@@ -245,6 +245,10 @@ class SkinMinerva extends SkinTemplate {
 			return $this->isCurrentPageContentModelEditable();
 		}
 
+		if ( $action === 'watch' ) {
+			return $this->getUser()->isAllowedAll( 'viewmywatchlist', 'editmywatchlist' );
+		}
+
 		if ( $action === 'switch-language' ) {
 			return $this->doesPageHaveLanguages || $config->get( 'MinervaAlwaysShowLanguageButton' );
 		}
