@@ -56,7 +56,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	/**
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
-	public function test_page_actions_arent_allowed_when_on_the_main_page() {
+	public function testPageActionsArentAllowedWhenOnTheMainPage() {
 		$skin = $this->getSkin( Title::newMainPage() );
 
 		$this->assertFalse( $skin->isAllowedPageAction( 'watch' ) );
@@ -70,7 +70,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	/**
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
-	public function test_invalid_page_actions_arent_allowed() {
+	public function testInvalidPageActionsArentAllowed() {
 		$this->setMwGlobals( 'wgMinervaPageActions', [] );
 
 		// By default, the "talk" and "watch" page actions are allowed but are now deemed invalid.
@@ -81,7 +81,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	/**
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
-	public function test_valid_page_actions_are_allowed() {
+	public function testValidPageActionsAreAllowed() {
 		$this->assertTrue( $this->skin->isAllowedPageAction( 'talk' ) );
 		$this->assertTrue( $this->skin->isAllowedPageAction( 'watch' ) );
 	}
@@ -100,7 +100,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	 * @dataProvider editPageActionProvider
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
-	public function test_edit_page_action(
+	public function testEditPageAction(
 		$supportsDirectEditing,
 		$supportsDirectApiEditing,
 		$expected
@@ -174,7 +174,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	 * @dataProvider switchLanguagePageActionProvider
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
-	public function test_switch_language_page_action(
+	public function testSwitchLanguagePageAction(
 		$doesPageHaveLanguages,
 		$minervaAlwaysShowLanguageButton,
 		$expected
@@ -193,7 +193,7 @@ class SkinMinervaPageActionsTest extends MediaWikiTestCase {
 	 * do not have those permissions granted
 	 * @covers SkinMinerva::isAllowedPageAction
 	 */
-	public function test_watch_is_allowed_only_when_watchlist_permissions_are_granted() {
+	public function testWatchIsAllowedOnlyWhenWatchlistPermissionsAreGranted() {
 		$title = Title::newFromText( 'test_watchstar_permissions' );
 		$requestContext = RequestContext::getMain();
 		$requestContext->setTitle( $title );
