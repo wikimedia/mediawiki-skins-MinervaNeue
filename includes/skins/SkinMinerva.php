@@ -846,11 +846,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if ( $this->isAllowedPageAction( 'watch' ) ) {
-			// SkinTemplate#buildContentNavigationUrls creates distinct "watch" and "unwatch" actions.
-			// Pass these actions in as context for #createWatchPageAction.
-			$actions = $tpl->data['content_navigation']['actions'];
-
-			$toolbar[] = $this->createWatchPageAction( $actions );
+			$toolbar[] = $this->createWatchPageAction();
 		}
 
 		if ( $this->isAllowedPageAction( 'history' ) ) {
@@ -908,42 +904,37 @@ class SkinMinerva extends SkinTemplate {
 	 * add the page to or remove the page from the user's watchlist; or, if the user is logged out,
 	 * will direct the user's UA to Special:Login.
 	 *
-	 * @param array $actions
 	 * @return array A map of HTML attributes and a "text" property to be used with the
 	 * pageActionMenu.mustache template.
 	 */
-	protected function createWatchPageAction( $actions ) {
+	protected function createWatchPageAction() {
 		$title = $this->getTitle();
 		$user = $this->getUser();
-		$ctaUrl = $this->getLoginUrl( [ 'returnto' => $title ] );
-		if ( $title && $user->isWatched( $title ) ) {
+		$isWatched = $title && $user->isLoggedIn() && $user->isWatched( $title );
+		$actionOnClick = $isWatched ? 'unwatch' : 'watch';
+		$href = $user->isAnon()
+			? $this->getLoginUrl( [ 'returnto' => $title ] )
+			: $title->getLocalURL( [ 'action' => $actionOnClick ] );
+		$additionalClassNames = ' jsonly';
+
+		if ( $isWatched ) {
+			$msg = $this->msg( 'unwatchthispage' );
 			$icon = 'watched';
+			$additionalClassNames .= ' watched';
 		} else {
+			$msg = $this->msg( 'watchthispage' );
 			$icon = 'watch';
 		}
-		$baseResult = [
+		return [
 			'item-id' => 'page-actions-watch',
 			'id' => 'ca-watch',
 			// Use blank icon to reserve space for watchstar icon once JS loads
-			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' ) . ' jsonly',
-			'title' => $this->msg( 'watchthispage' ),
-			'text' => $this->msg( 'watchthispage' )
+			'class' => MinervaUI::iconClass( $icon, 'element', 'watch-this-article' )
+				. $additionalClassNames,
+			'title' => $msg,
+			'text' => $msg,
+			'href' => $href
 		];
-
-		if ( isset( $actions['watch'] ) ) {
-			$result = array_merge( $actions['watch'], $baseResult );
-		} elseif ( isset( $actions['unwatch'] ) ) {
-			$result = array_merge( $actions['unwatch'], $baseResult );
-			$result['class'] .= ' watched';
-			$result[ 'text' ] = $this->msg( 'unwatchthispage' );
-		} else {
-			// placeholder for not logged in
-			$result = array_merge( $baseResult, [
-				'href' => $ctaUrl,
-			] );
-		}
-
-		return $result;
 	}
 
 	/**
