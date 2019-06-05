@@ -21,14 +21,13 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Definitions;
-use MediaWiki\Minerva\Menu\Main\AdvancedBuilder;
-use MediaWiki\Minerva\Menu\Main\DefaultBuilder;
-use MediaWiki\Minerva\Menu\Main\Director;
+use MediaWiki\Minerva\Menu\Main as MainMenu;
+use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
 return [
-	'Minerva.ContentHandler' => function ( MediaWikiServices $services ) {
+	'Minerva.ContentHandler' => function () {
 		return ContentHandler::getForTitle( RequestContext::getMain()->getTitle() );
 	},
 	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ) {
@@ -39,15 +38,51 @@ return [
 		$user = $context->getUser();
 		$definitions = new Definitions( $context,  $services->getSpecialPageFactory() );
 		$builder = $options->get( SkinOptions::OPTION_AMC ) ?
-			new AdvancedBuilder( $showMobileOptions, $user, $definitions ) :
-			new DefaultBuilder( $showMobileOptions, $user, $definitions );
+			new MainMenu\AdvancedBuilder( $showMobileOptions, $user, $definitions ) :
+			new MainMenu\DefaultBuilder( $showMobileOptions, $user, $definitions );
 
-		return new Director( $builder );
+		return new MainMenu\Director( $builder );
 	},
-	'Minerva.SkinUserPageHelper' => function ( MediaWikiServices $services ) {
+	'Minerva.Menu.PageActionsDirector' => function ( MediaWikiServices $services ) {
+		/**
+		 * @var SkinOptions $skinOptions
+		 * @var SkinMinerva $skin
+		 * @var SkinUserPageHelper $userPageHelper
+		 */
+		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
+		$context = RequestContext::getMain();
+		$skin = $context->getSkin();
+		$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
+		$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
+			$skin,
+			$context->getTitle(),
+			$context->getUser(),
+			$context
+		);
+		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+			 $overflowBuilder = $userPageHelper->isUserPage() ?
+				 new PageActionsMenu\UserNamespaceOverflowBuilder(
+					 $context,
+					 $userPageHelper
+				 ) :
+				 new PageActionsMenu\DefaultOverflowBuilder(
+					 $context
+				 );
+		} else {
+			$overflowBuilder = new PageActionsMenu\EmptyOverflowBuilder();
+		}
+
+		return new PageActionsMenu\PageActionsDirector(
+			$toolbarBuilder,
+			$overflowBuilder,
+			$context
+		);
+	},
+
+	'Minerva.SkinUserPageHelper' => function () {
 		return new SkinUserPageHelper( RequestContext::getMain()->getTitle() );
 	},
-	'Minerva.SkinOptions' => function ( MediaWikiServices $services ) {
+	'Minerva.SkinOptions' => function () {
 		return new SkinOptions();
 	}
 ];

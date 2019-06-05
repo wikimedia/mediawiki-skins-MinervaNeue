@@ -20,8 +20,6 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
-use MediaWiki\Minerva\Menu\Group;
-use MediaWiki\Minerva\Menu\PageActions\PageActionMenuEntry;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
@@ -213,7 +211,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @param string $action
 	 * @return bool
 	 */
-	protected function isAllowedPageAction( $action ) {
+	public function isAllowedPageAction( $action ) {
 		$title = $this->getTitle();
 		$config = $this->getConfig();
 		// Title may be undefined in certain contexts (T179833)
@@ -470,15 +468,6 @@ class SkinMinerva extends SkinTemplate {
 		// If the array is empty, then instead give the skin boolean false
 		$language_urls = $this->getLanguages() ?: false;
 		$tpl->set( 'language_urls', $language_urls );
-	}
-
-	/**
-	 * Prepares a url to the Special:UserLogin with query parameters
-	 * @param array $query
-	 * @return string
-	 */
-	public function getLoginUrl( $query ) {
-		return SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $query );
 	}
 
 	/**
@@ -840,128 +829,11 @@ class SkinMinerva extends SkinTemplate {
 	 * @param BaseTemplate $tpl
 	 */
 	protected function preparePageActions( BaseTemplate $tpl ) {
-		$toolbar = new Group();
-		$overflowMenu = null;
-
-		if ( $this->isAllowedPageAction( 'switch-language' ) ) {
-			$toolbar->insertEntry( $this->createSwitchLanguageAction() );
-		}
-
-		if ( $this->isAllowedPageAction( 'watch' ) ) {
-			$toolbar->insertEntry( $this->createWatchPageAction() );
-		}
-
-		if ( $this->isAllowedPageAction( 'history' ) ) {
-			$toolbar->insertEntry( $this->getHistoryPageAction() );
-		}
-
-		if ( $this->isAllowedPageAction( 'edit' ) ) {
-			$toolbar->insertEntry( $this->createEditPageAction() );
-		}
-
-		if ( $this->isAllowedPageAction( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
-			$overflowMenu = $this->newToolbarOverflowMenu( $tpl );
-		}
-
-		$tpl->set( 'page_actions', [
-			'toolbar' => $toolbar->getEntries(),
-			'overflowMenu' => $overflowMenu
-		] );
-	}
-
-	/**
-	 * Creates the "edit" page action: the well-known pencil icon that, when tapped, will open an
-	 * editor with the lead section loaded.
-	 *
-	 * @return PageActionMenuEntry An edit page actions menu entry
-	 */
-	protected function createEditPageAction() {
-		$title = $this->getTitle();
-		$user = $this->getUser();
-		$editArgs = [ 'action' => 'edit' ];
-		if ( $title->isWikitextPage() ) {
-			// If the content model is wikitext we'll default to editing the lead section.
-			// Full wikitext editing is hard on mobile devices.
-			$editArgs['section'] = self::LEAD_SECTION_NUMBER;
-		}
-		$userQuickEditCheck = $title->quickUserCan( 'edit', $user )
-			&& ( $title->exists() || $title->quickUserCan( 'create', $user ) );
-		$userBlockInfo = $user->getId() == 0 ? false : $user->isBlockedFrom( $title, true );
-		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
-
-		return PageActionMenuEntry::create(
-			'page-actions-edit',
-			$title->getLocalURL( $editArgs ),
-			'edit-page '
-			. MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
-			$this->msg( 'mobile-frontend-editor-edit' )
-		)
-			->setTitle( $this->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
-			->setNodeID( 'ca-edit' );
-	}
-
-	/**
-	 * Creates the "watch" or "unwatch" action: the well-known star icon that, when tapped, will
-	 * add the page to or remove the page from the user's watchlist; or, if the user is logged out,
-	 * will direct the user's UA to Special:Login.
-	 *
-	 * @return PageActionMenuEntry An watch/unwatch page actions menu entry
-	 */
-	protected function createWatchPageAction() {
-		$title = $this->getTitle();
-		$user = $this->getUser();
-		$isWatched = $title && $user->isLoggedIn() && $user->isWatched( $title );
-		$actionOnClick = $isWatched ? 'unwatch' : 'watch';
-		$href = $user->isAnon()
-			? $this->getLoginUrl( [ 'returnto' => $title ] )
-			: $title->getLocalURL( [ 'action' => $actionOnClick ] );
-		$additionalClassNames = ' jsonly';
-
-		if ( $isWatched ) {
-			$msg = $this->msg( 'unwatchthispage' );
-			$icon = 'watched';
-			$additionalClassNames .= ' watched';
-		} else {
-			$msg = $this->msg( 'watchthispage' );
-			$icon = 'watch';
-		}
-		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article' );
-
-		return PageActionMenuEntry::create(
-			'page-actions-watch',
-			$href,
-			$iconClass . $additionalClassNames,
-			$msg
-		)
-			->setTitle( $msg )
-			->setNodeID( 'ca-watch' );
-	}
-
-	/**
-	 * Creates the "switch-language" action: the icon that, when tapped, opens the language
-	 * switcher.
-	 *
-	 * @return PageActionMenuEntry A menu entry object that represents a map of HTML attributes
-	 * and a 'text' property to be used with the pageActionMenu.mustache template.
-	 */
-	protected function createSwitchLanguageAction() {
-		$languageSwitcherLink = false;
-		$languageSwitcherClasses = ' language-selector';
-
-		if ( $this->doesPageHaveLanguages ) {
-			$languageSwitcherLink = SpecialPage::getTitleFor(
-				'MobileLanguages',
-				$this->getTitle()
-			)->getLocalURL();
-		} else {
-			$languageSwitcherClasses .= ' disabled';
-		}
-		return PageActionMenuEntry::create(
-			'page-actions-languages',
-			$languageSwitcherLink,
-			MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
-			$this->msg( 'mobile-frontend-language-article-heading' )
-		)->setTitle( $this->msg( 'mobile-frontend-language-article-heading' ) );
+		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $director */
+		$director = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.PageActionsDirector' );
+		$tpl->set( 'page_actions',
+			$director->buildMenu( $tpl->data[ 'nav_urls'], $this->doesPageHaveLanguages )
+		);
 	}
 
 	/**
@@ -973,132 +845,11 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Creates a history action: An icon that links to the mobile history page.
-	 *
-	 * @return PageActionMenuEntry A menu entry object that represents a map of HTML attributes
-	 * and a 'text' property to be used with the pageActionMenu.mustache template.
-	 */
-	protected function getHistoryPageAction() {
-		return new PageActionMenuEntry(
-			'page-actions-history',
-			$this->getHistoryUrl( $this->getTitle() ),
-			MinervaUI::iconClass( 'clock' ),
-			$this->msg( 'mobile-frontend-history' )
-		);
-	}
-
-	/**
-	 * Minerva skin do not use any of those, there is no need to calculate that
+	 * Minerva skin do use any of those, there is no need to calculate that
 	 * @return array
 	 */
 	protected function buildPersonalUrls() {
 		return [];
-	}
-	/**
-	 * Creates an overflow action: An icon that links to the overflow menu.
-	 *
-	 * @param BaseTemplate $tpl
-	 * @return array|null A map of HTML attributes and a 'text' property to be used with the
-	 * pageActionMenu.mustache template.
-	 */
-	private function newToolbarOverflowMenu( BaseTemplate $tpl ) {
-		$pageActions = $this->getUserPageHelper()->isUserPage()
-		? $this->getUserNamespaceOverflowPageActions( $tpl )
-		: $this->getDefaultOverflowPageActions( $tpl );
-		return $pageActions->hasEntries() ? [
-			'item-id' => 'page-actions-overflow',
-			'class' => MinervaUI::iconClass( 'page-actions-overflow' ),
-			'text' => $this->msg( 'minerva-page-actions-overflow' ),
-			'pageActions' => $pageActions->getEntries()
-		] : null;
-	}
-
-	/**
-	 * @param BaseTemplate $tpl
-	 * @return Group
-	 */
-	private function getDefaultOverflowPageActions( BaseTemplate $tpl ) {
-		$group = new Group();
-
-		foreach ( [
-			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
-			$this->newOverflowPageAction(
-				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
-			),
-			$this->newOverflowPageAction(
-				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
-			),
-			$this->newOverflowPageAction(
-				'cite', 'quotes', $tpl->data['nav_urls']['citethispage']['href'] ?? null
-			)
-		] as $menuEntry ) {
-			if ( $menuEntry !== null ) {
-				$group->insertEntry( $menuEntry );
-			}
-		}
-		return $group;
-	}
-
-	/**
-	 * Unless the OverflowMenu is enabled, Minerva doesn't use nav_urls from QuikcTemplate.
-	 * We can skip that heavy operation
-	 * @return array
-	 */
-	protected function buildNavUrls() {
-		if ( $this->isAllowedPageAction( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
-			// the OverflowMenu uses nav_urls, use the value from SkinTemplate
-			return parent::buildNavUrls();
-		} else {
-			return [];
-		}
-	}
-
-	/**
-	 * @param BaseTemplate $tpl
-	 * @return Group
-	 */
-	private function getUserNamespaceOverflowPageActions( BaseTemplate $tpl ) {
-		$pageUser = $this->getUserPageHelper()->getPageUser();
-		$group = new Group();
-		foreach ( [
-			$this->newOverflowPageAction(
-				'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $pageUser )->getLocalURL()
-			),
-			$this->newOverflowPageAction(
-				'user-rights', 'userAvatar', $tpl->data['nav_urls']['userrights']['href'] ?? null
-			),
-			$this->newOverflowPageAction(
-				'logs', 'listBullet', $tpl->data['nav_urls']['log']['href'] ?? null
-			),
-			$this->newOverflowPageAction( 'info', 'info', $tpl->data['nav_urls']['info']['href'] ?? null ),
-			$this->newOverflowPageAction(
-				'permalink', 'link', $tpl->data['nav_urls']['permalink']['href'] ?? null
-			),
-			$this->newOverflowPageAction(
-				'backlinks', 'articleRedirect', $tpl->data['nav_urls']['whatlinkshere']['href'] ?? null
-			)
-		] as $menuEntry ) {
-			if ( $menuEntry !== null ) {
-				$group->insertEntry( $menuEntry );
-			}
-		}
-		return $group;
-	}
-
-	/**
-	 * @param string $name
-	 * @param string $icon Wikimedia UI icon name.
-	 * @param string|null $href
-	 * @return PageActionMenuEntry|null
-	 */
-	private function newOverflowPageAction( $name, $icon, $href ) {
-		return $href ?
-			new PageActionMenuEntry(
-				'page-actions-overflow-' . $name,
-				$href,
-				MinervaUI::iconClass( '', 'before', 'wikimedia-ui-' . $icon . '-base20' ),
-				$this->msg( 'minerva-page-actions-' . $name )
-			) : null;
 	}
 
 	/**
