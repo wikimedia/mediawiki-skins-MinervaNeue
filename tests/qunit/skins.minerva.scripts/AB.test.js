@@ -38,18 +38,18 @@
 		}
 
 		assert.strictEqual(
-			( userBuckets.unsampled / maxUsers > 0.4 ) &&
-			( userBuckets.unsampled / maxUsers < 0.6 ),
+			( userBuckets.unsampled / maxUsers > 0.3 ) &&
+			( userBuckets.unsampled / maxUsers < 0.7 ),
 			true, 'test unsampled group is about 50% (' + userBuckets.unsampled / 10 + '%)' );
 
 		assert.strictEqual(
-			( userBuckets.control / maxUsers > 0.2 ) &&
-			( userBuckets.control / maxUsers < 0.3 ),
+			( userBuckets.control / maxUsers > 0.1 ) &&
+			( userBuckets.control / maxUsers < 0.4 ),
 			true, 'test control group is about 25% (' + userBuckets.control / 10 + '%)' );
 
 		assert.strictEqual(
-			( userBuckets.treatment / maxUsers > 0.2 ) &&
-			( userBuckets.treatment / maxUsers < 0.3 ),
+			( userBuckets.treatment / maxUsers > 0.1 ) &&
+			( userBuckets.treatment / maxUsers < 0.4 ),
 			true, 'test new treatment group is about 25% (' + userBuckets.treatment / 10 + '%)' );
 	} );
 
