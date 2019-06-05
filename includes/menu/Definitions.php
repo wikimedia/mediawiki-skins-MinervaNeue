@@ -117,56 +117,12 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertLogInOutMenuItem( Group $group ) {
-		$query = [];
-		$returntoquery = [];
-		$request = $this->context->getRequest();
-
-		if ( !$request->wasPosted() ) {
-			$returntoquery = $request->getValues();
-			unset( $returntoquery['title'] );
-			unset( $returntoquery['returnto'] );
-			unset( $returntoquery['returntoquery'] );
-		}
-		$title = $this->context->getTitle();
-		// Don't ever redirect back to the login page (bug 55379)
-		if ( !$title->isSpecial( 'Userlogin' ) ) {
-			$query[ 'returnto' ] = $title->getPrefixedText();
-		}
-
-		if ( $this->user->isLoggedIn() ) {
-			if ( !empty( $returntoquery ) ) {
-				$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
-			}
-			$url = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $query );
-			$username = $this->user->getName();
-
-			$group->insert( 'auth', false )
-				->addComponent(
-					$username,
-					Title::newFromText( $username, NS_USER )->getLocalURL(),
-					MinervaUI::iconClass( 'profile', 'before', 'truncated-text primary-action' ),
-					[ 'data-event-name' => 'profile' ]
-				)
-				->addComponent(
-					$this->context->msg( 'mobile-frontend-main-menu-logout' )->escaped(),
-					$url,
-					MinervaUI::iconClass(
-						'logout', 'element', 'secondary-action truncated-text' ),
-					[ 'data-event-name' => 'logout' ]
-				);
-		} else {
-			// unset campaign on login link so as not to interfere with A/B tests
-			unset( $returntoquery['campaign'] );
-			$query[ 'returntoquery' ] = wfArrayToCgi( $returntoquery );
-			$url = $this->getLoginUrl( $query );
-			$group->insert( 'auth', false )
-				->addComponent(
-					$this->context->msg( 'mobile-frontend-main-menu-login' )->escaped(),
-					$url,
-					MinervaUI::iconClass( 'login', 'before' ),
-					[ 'data-event-name' => 'login' ]
-				);
-		}
+		$group->insertEntry( new AuthMenuEntry(
+			$this->user,
+			$this->context->getRequest(),
+			$this->context,
+			$this->context->getTitle()
+		) );
 	}
 
 	/**
@@ -320,17 +276,6 @@ final class Definitions {
 				MinervaUI::iconClass( 'communityportal', 'before' ),
 				[ 'data-event-name' => 'community-portal' ]
 			);
-	}
-
-	/**
-	 * Prepares a url to the Special:UserLogin with query parameters
-	 *
-	 * @param array $query
-	 * @return string
-	 * @throws MWException
-	 */
-	private function getLoginUrl( $query ) {
-		return SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $query );
 	}
 
 }
