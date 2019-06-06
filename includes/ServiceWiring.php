@@ -57,7 +57,8 @@ return [
 			$skin,
 			$context->getTitle(),
 			$context->getUser(),
-			$context
+			$context,
+			$services->getPermissionManager()
 		);
 		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
 			 $overflowBuilder = $userPageHelper->isUserPage() ?
