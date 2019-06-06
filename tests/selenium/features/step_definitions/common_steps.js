@@ -1,7 +1,8 @@
 const assert = require( 'assert' ),
+	MWBot = require( 'mwbot' ),
 	Api = require( 'wdio-mediawiki/Api' ),
 	ArticlePageWithOverlay = require( '../support/pages/article_page_with_overlay' ),
-	{ ArticlePage, UserLoginPage, api } = require( '../support/world.js' );
+	{ ArticlePage, UserLoginPage } = require( '../support/world.js' );
 
 const waitForPropagation = ( timeMs ) => {
 	// wait 2 seconds so the change can propogate.
@@ -9,32 +10,30 @@ const waitForPropagation = ( timeMs ) => {
 	browser.waitUntil( () => new Date() - d > timeMs );
 };
 
-const login = () => {
-	return api.loginGetEditToken( {
-		username: browser.options.username,
-		password: browser.options.password,
-		apiUrl: `${browser.options.baseUrl}/api.php`
-	} );
-};
-
 const createPages = ( pages ) => {
 	const summary = 'edit by selenium test';
-	browser.call( () => login() );
 	browser.call( () => {
-		return api.batch(
-			pages.map( ( page ) => [ 'create' ].concat( page ).concat( [ summary ] ) )
-		).catch( ( err ) => {
-			if ( err.code === 'articleexists' ) {
-				return;
-			}
-			throw err;
-		} );
-
+		const bot = new MWBot();
+		return bot.loginGetEditToken( {
+			username: browser.options.username,
+			password: browser.options.password,
+			apiUrl: `${browser.options.baseUrl}/api.php`
+		} )
+			.then( () => {
+				return bot.batch(
+					pages.map( ( page ) => [ 'create' ].concat( page ).concat( [ summary ] ) )
+				).catch( ( err ) => {
+					if ( err.code === 'articleexists' ) {
+						return;
+					}
+					throw err;
+				} );
+			} )
+			.catch( ( err ) => { throw err; } );
 	} );
 };
 
 const createPage = ( title, wikitext ) => {
-	browser.call( () => login() );
 	browser.call( () => Api.edit( title, wikitext ) );
 };
 
