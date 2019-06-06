@@ -69,9 +69,12 @@ class Group {
 	 * @throws DomainException When the entry already exists
 	 */
 	private function throwIfNotUnique( $name ) {
-		if ( $this->search( $name ) !== -1 ) {
-			throw new DomainException( "The \"${name}\" entry already exists." );
+		try {
+			$this->search( $name );
+		} catch ( DomainException $exception ) {
+			return;
 		}
+		throw new DomainException( "The \"${name}\" entry already exists." );
 	}
 
 	/**
@@ -104,6 +107,7 @@ class Group {
 	 *
 	 * @param string $name
 	 * @return integer If the menu entry exists, then the 0-based index of the entry; otherwise, -1
+	 * @throws DomainException
 	 */
 	private function search( $name ) {
 		$count = count( $this->entries );
@@ -113,8 +117,7 @@ class Group {
 				return $i;
 			}
 		}
-
-		return -1;
+		throw new DomainException( "The \"{$name}\" entry doesn't exist." );
 	}
 
 	/**
@@ -131,14 +134,20 @@ class Group {
 		$this->throwIfNotUnique( $name );
 		$index = $this->search( $targetName );
 
-		if ( $index === -1 ) {
-			throw new DomainException( "The \"{$targetName}\" entry doesn't exist." );
-		}
-
 		$entry = new MenuEntry( $name, $isJSOnly );
 		array_splice( $this->entries, $index + 1, 0, [ $entry ] );
 
 		return $entry;
+	}
+
+	/**
+	 * @param string $targetName
+	 * @return IMenuEntry
+	 * @throws DomainException
+	 */
+	public function getEntryByName( $targetName ): IMenuEntry {
+		$index = $this->search( $targetName );
+		return $this->entries[$index];
 	}
 }
 

@@ -148,6 +148,7 @@ class AuthMenuEntry implements IMenuEntry {
 		}
 		return $returnToQuery;
 	}
+
 	/**
 	 * @param array $returnToQuery
 	 * @param array $authLinksQuery
@@ -191,7 +192,7 @@ class AuthMenuEntry implements IMenuEntry {
 	private function buildComponentsForAnon( array $returnToQuery, $authLinksQuery ): array {
 		// unset campaign on login link so as not to interfere with A/B tests
 		unset( $returnToQuery['campaign'] );
-		if ( !empty( $returntoquery ) ) {
+		if ( !empty( $returnToQuery ) ) {
 			$authLinksQuery['returntoquery'] = wfArrayToCgi( $returnToQuery );
 		}
 

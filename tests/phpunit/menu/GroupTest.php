@@ -3,6 +3,7 @@
 namespace Tests\MediaWiki\Minerva\Menu;
 
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Minerva\Menu\IMenuEntry;
 
 /**
  * @group MinervaNeue
@@ -234,6 +235,30 @@ class GroupTest extends \MediaWikiTestCase {
 		];
 
 		$this->assertEquals( $expectedEntries, $menu->getEntries() );
+	}
+
+	/**
+	 * @covers ::getEntryByName
+	 * @covers ::search
+	 */
+	public function testGetEntryByName() {
+		$menu = new Group();
+		$menu->insert( 'home' )
+			->addComponent(
+				$this->homeComponent['text'],
+				$this->homeComponent['href']
+			);
+		$this->assertInstanceOf( IMenuEntry::class, $menu->getEntryByName( 'home' ) );
+	}
+
+	/**
+	 * @covers ::getEntryByName
+	 * @covers ::search
+	 * @expectedException \DomainException
+	 */
+	public function testGetEntryByNameException() {
+		$menu = new Group();
+		$menu->getEntryByName( 'home' );
 	}
 
 }

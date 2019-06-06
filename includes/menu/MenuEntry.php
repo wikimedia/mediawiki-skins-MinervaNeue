@@ -77,11 +77,11 @@ class MenuEntry implements IMenuEntry {
 	 */
 	public function addComponent( $label, $url, $className = '', $attrs = [] ) {
 		$this->components[] = [
-				'text' => $label,
-				'href' => $url,
-				'class' => $className,
-			] + $attrs;
-
+			'text' => $label,
+			'href' => $url,
+			'class' => $className
+		] + $attrs;
 		return $this;
 	}
+
 }
