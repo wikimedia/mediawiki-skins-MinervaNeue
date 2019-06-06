@@ -1,13 +1,14 @@
-const { api, ArticlePage } = require( '../support/world' );
-const RunJobs = require( 'wdio-mediawiki/RunJobs' );
-const Api = require( 'wdio-mediawiki/Api' );
-const Page = require( 'wdio-mediawiki/Page' );
-const {
-	iAmOnPage,
-	waitForPropagation,
-	createPages,
-	createPage
-} = require( './common_steps' );
+const { ArticlePage } = require( '../support/world' ),
+	RunJobs = require( 'wdio-mediawiki/RunJobs' ),
+	Api = require( 'wdio-mediawiki/Api' ),
+	Page = require( 'wdio-mediawiki/Page' ),
+	MWBot = require( 'mwbot' ),
+	{
+		iAmOnPage,
+		waitForPropagation,
+		createPages,
+		createPage
+	} = require( './common_steps' );
 
 const iAmInAWikiThatHasCategories = ( title ) => {
 	const msg = 'This page is used by Selenium to test category related features.',
@@ -45,15 +46,19 @@ const iAmOnAPageThatHasTheFollowingEdits = function ( table ) {
 		edits = table.rawTable.map( ( row, i ) =>
 			[ i === 0 ? 'create' : 'edit', pageTitle, row[ 0 ] ] );
 
-	api.loginGetEditToken( {
-		username: browser.options.username,
-		password: browser.options.password,
-		apiUrl: `${browser.options.baseUrl}/api.php`
-	} )
-		.then( () => api.batch( edits ) )
-		.then( () => ArticlePage.open( pageTitle ) )
-		.catch( ( err ) => { throw err; } );
-	waitForPropagation( 5000 );
+	browser.call( () => {
+		const bot = new MWBot();
+		return bot.loginGetEditToken( {
+			username: browser.options.username,
+			password: browser.options.password,
+			apiUrl: `${browser.options.baseUrl}/api.php`
+		} )
+			.then( () => bot.batch( edits ) )
+			.catch( ( err ) => { throw err; } );
+	} );
+
+	browser.call( () => RunJobs.run() );
+	ArticlePage.open( pageTitle );
 };
 
 const iGoToAPageThatHasLanguages = () => {
