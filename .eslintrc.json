@@ -10,7 +10,8 @@
 		"require": "readonly"
 	},
 	"rules": {
-		"no-restricted-properties": [ "error",
+		"no-restricted-properties": [
+			"error",
 			{
 				"property": "done",
 				"message": "The method `done` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
@@ -24,17 +25,20 @@
 				"message": "The method `always` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
 			}
 		],
-		"valid-jsdoc": ["error", {
+		"valid-jsdoc": [
+			"error",
+			{
 				"requireParamDescription": false,
 				"requireReturnDescription": false,
 				"requireReturn": false,
 				"preferType": {
-						"Boolean": "boolean",
-						"Number": "number",
-						"object": "Object",
-						"String": "string"
+					"Boolean": "boolean",
+					"Number": "number",
+					"object": "Object",
+					"String": "string"
 				}
-		}],
+			}
+		],
 		"object-property-newline": "error",
 		"no-use-before-define": "off",
 		"no-underscore-dangle": "off"
