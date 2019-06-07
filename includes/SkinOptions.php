@@ -59,6 +59,8 @@ final class SkinOptions {
 		self::OPTIONS_TALK_AT_TOP => false,
 		self::OPTIONS_HISTORY_PAGE_ACTIONS => false,
 		self::OPTION_OVERFLOW_SUBMENU => false,
+		/** Whether to show tabs on special pages */
+		self::OPTION_TABS_ON_SPECIALS => false,
 	];
 
 	/**
