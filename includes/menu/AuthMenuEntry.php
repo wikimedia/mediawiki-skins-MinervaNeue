@@ -155,11 +155,12 @@ class AuthMenuEntry implements IMenuEntry {
 	 * @return array
 	 * @throws \MWException
 	 */
-	private function buildComponentsForLoggedIn( array $returnToQuery,
-		array $authLinksQuery ): array {
+	private function buildComponentsForLoggedIn( array $returnToQuery, array $authLinksQuery ): array {
 		if ( !empty( $returnToQuery ) ) {
 			$authLinksQuery['returntoquery'] = wfArrayToCgi( $returnToQuery );
 		}
+		$authLinksQuery['logoutToken'] = $this->user->getEditToken( 'logoutToken', $this->request );
+
 		$logoutURL = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $authLinksQuery );
 		$username = $this->user->getName();
 		$profileUrl = $this->customProfileURL ??
