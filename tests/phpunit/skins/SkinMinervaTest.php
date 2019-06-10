@@ -171,8 +171,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	/**
 	 * Test the notification user button
 	 *
-	 * @covers ::prepareUserButton
-	 * @dataProvider providePrepareUserButton
+	 * @covers ::prepareUserNotificationsButton
+	 * @dataProvider providePrepareUserNotificationsButton
 	 * @param array|string $expectedSecondaryButtonData Expected test case outcome
 	 * @param string $message Test message
 	 * @param Title $title
@@ -186,7 +186,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 * @param string|bool $msgSeenTime String in format TS_ISO_8601 or false
 	 * @param string|bool $formattedEchoNotificationCount
 	 */
-	public function testPrepareUserButton(
+	public function testPrepareUserNotificationsButton(
 		$expectedSecondaryButtonData, $message, $title, $useEcho, $isUserLoggedIn,
 		$newtalks, $lastUnreadAlertTime = false, $lastUnreadMessageTime = false,
 		$echoNotificationCount = false, $alertSeenTime = false, $msgSeenTime = false,
@@ -238,7 +238,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			->setMethods( [ 'execute' ] )
 			->setConstructorArgs( [ MediaWikiServices::getInstance()->getMainConfig() ] )
 			->getMock();
-		$skin->prepareUserButton( $tpl, $newtalks );
+		$skin->prepareUserNotificationsButton( $tpl, $newtalks );
 
 		$this->assertEquals(
 			$expectedSecondaryButtonData,
@@ -281,11 +281,11 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Data provider for the test case testPrepareUserButton with Echo enabled
+	 * Data provider for the test case testPrepareUserNotificationsButton with Echo enabled
 	 * @param Title @title Page title
 	 * @return array
 	 */
-	private function providePrepareUserButtonEcho( Title $title ) {
+	private function providePrepareUserNotificationsButtonEcho( Title $title ) {
 		return [
 			[ '', 'Echo, not logged in, no talk page alerts',
 				$title, true, false, '' ],
@@ -377,11 +377,11 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Data provider for the test case testPrepareUserButton with Echo disabled
+	 * Data provider for the test case testPrepareUserNotificationsButton with Echo disabled
 	 * @param Title @title Page title
 	 * @return array
 	 */
-	private function providePrepareUserButtonNoEcho( Title $title ) {
+	private function providePrepareUserNotificationsButtonNoEcho( Title $title ) {
 		return [
 			[ '', 'No Echo, not logged in, no talk page alerts',
 				$title, false, false, '' ],
@@ -401,14 +401,14 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Data provider for the test case testPrepareUserButton
+	 * Data provider for the test case testPrepareUserNotificationsButton
 	 * @return array
 	 */
-	public function providePrepareUserButton() {
+	public function providePrepareUserNotificationsButton() {
 		$title = Title::newFromText( 'Test' );
 		return array_merge(
-			$this->providePrepareUserButtonEcho( $title ),
-			$this->providePrepareUserButtonNoEcho( $title )
+			$this->providePrepareUserNotificationsButtonEcho( $title ),
+			$this->providePrepareUserNotificationsButtonNoEcho( $title )
 		);
 	}
 }

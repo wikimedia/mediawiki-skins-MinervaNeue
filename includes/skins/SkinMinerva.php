@@ -149,7 +149,7 @@ class SkinMinerva extends SkinTemplate {
 		$this->prepareMenuButton( $tpl );
 		$this->prepareBanners( $tpl );
 		$this->preparePageActions( $tpl );
-		$this->prepareUserButton( $tpl, $tpl->get( 'newtalk' ) );
+		$this->prepareUserNotificationsButton( $tpl, $tpl->get( 'newtalk' ) );
 		$this->prepareLanguages( $tpl );
 
 		return $tpl;
@@ -388,7 +388,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @param QuickTemplate $tpl
 	 * @param string $newTalks New talk page messages for the current user
 	 */
-	protected function prepareUserButton( QuickTemplate $tpl, $newTalks ) {
+	protected function prepareUserNotificationsButton( QuickTemplate $tpl, $newTalks ) {
 		// Set user button to empty string by default
 		$tpl->set( 'secondaryButtonData', '' );
 		$notificationsTitle = '';
