@@ -14,7 +14,7 @@
 		Anchor = mobile.Anchor,
 		overlayManager = OverlayManager.getSingleton(),
 		page = M.getCurrentPage(),
-		redLinks = page.getRedLinks(),
+		$redLinks = page.getRedLinks(),
 		api = new mw.Api(),
 		eventBus = mobile.eventBusSingleton,
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
@@ -227,7 +227,7 @@
 	 * @return {void}
 	 */
 	function initUserRedLinks() {
-		redLinks.filter( function ( _, element ) {
+		$redLinks.filter( function ( _, element ) {
 			// Filter out non-User namespace pages.
 			return isUserUri( element.href );
 		} ).each( function ( _, element ) {
@@ -264,7 +264,7 @@
 	 * @ignore
 	 */
 	function initRedlinksCta() {
-		redLinks.filter( function ( _, element ) {
+		$redLinks.filter( function ( _, element ) {
 			// Filter out local User namespace pages.
 			return !isUserUri( element.href );
 		} ).on( 'click', function ( ev ) {
