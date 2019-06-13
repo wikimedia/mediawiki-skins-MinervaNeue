@@ -4,7 +4,7 @@ Feature: Language selection
   Background:
     Given I am using the mobile site
 
-  @smoke @integration @en.m.wikipedia.beta.wmflabs.org @skip
+  @smoke @integration @en.m.wikipedia.beta.wmflabs.org
   Scenario: Language button
     Given I go to a page that has languages
     Then I should see the switch-language page action
