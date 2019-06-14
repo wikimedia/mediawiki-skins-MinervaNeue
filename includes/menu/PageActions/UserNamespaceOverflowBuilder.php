@@ -55,18 +55,18 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * @inheritDoc
 	 * @throws MWException
 	 */
-	public function getGroup( array $navUrls ) {
+	public function getGroup( array $toolbox ) {
 		$group = new Group();
-		$group->insertEntry( $this->buildEntry(
+		$group->insertEntry( $this->build(
 			'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $this->pageUser )->getLocalURL()
 		) );
 
 		$possibleEntries = array_filter( [
-			$this->buildEntryFromNav( 'user-rights', 'userAvatar', 'userrights', $navUrls ),
-			$this->buildEntryFromNav( 'logs', 'listBullet', 'log', $navUrls ),
-			$this->buildEntryFromNav( 'info', 'info', 'info', $navUrls ),
-			$this->buildEntryFromNav( 'permalink', 'link', 'permalink', $navUrls ),
-			$this->buildEntryFromNav( 'backlinks', 'articleRedirect', 'whatlinkshere', $navUrls )
+			$this->buildFromToolbox( 'user-rights', 'userAvatar', 'userrights', $toolbox ),
+			$this->buildFromToolbox( 'logs', 'listBullet', 'log', $toolbox ),
+			$this->buildFromToolbox( 'info', 'info', 'info', $toolbox ),
+			$this->buildFromToolbox( 'permalink', 'link', 'permalink', $toolbox ),
+			$this->buildFromToolbox( 'backlinks', 'articleRedirect', 'whatlinkshere', $toolbox )
 		] );
 
 		foreach ( $possibleEntries as $menuEntry ) {
@@ -77,23 +77,27 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	}
 
 	/**
+	 * Build entry based on the $toolbox element
+	 *
 	 * @param string $name
 	 * @param string $icon Wikimedia UI icon name.
-	 * @param string $navUrlKey
-	 * @param array $navUrls A set of navigation urls build by SkinTemplate::buildNavUrls()
+	 * @param string $toolboxIdx
+	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @return PageActionMenuEntry|null
 	 */
-	private function buildEntryFromNav( $name, $icon, $navUrlKey, array $navUrls ) {
-		return $this->buildEntry( $name, $icon, $navUrls[$navUrlKey]['href'] ?? null );
+	private function buildFromToolbox( $name, $icon, $toolboxIdx, array $toolbox ) {
+		return $this->build( $name, $icon, $toolbox[$toolboxIdx]['href'] ?? null );
 	}
 
 	/**
+	 * Build single Menu entry
+	 *
 	 * @param string $name
 	 * @param string $icon Wikimedia UI icon name.
 	 * @param string|null $href
 	 * @return PageActionMenuEntry|null
 	 */
-	private function buildEntry( $name, $icon, $href ) {
+	private function build( $name, $icon, $href ) {
 		return $href ?
 			new PageActionMenuEntry(
 				'page-actions-overflow-' . $name,

@@ -25,8 +25,8 @@ use MediaWiki\Minerva\Menu\Group;
 interface IOverflowBuilder {
 
 	/**
-	 * @param array $navUrls A set of navigation urls build by SkinTemplate::buildNavUrls()
+	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @return Group
 	 */
-	public function getGroup( array $navUrls );
+	public function getGroup( array $toolbox );
 }

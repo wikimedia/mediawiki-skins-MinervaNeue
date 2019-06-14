@@ -44,14 +44,14 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getGroup( array $navUrls ) {
+	public function getGroup( array $toolbox ) {
 		$group = new Group();
 		$possibleEntries = array_filter( [
-			$this->buildEntry( 'info', 'info', 'info', $navUrls ),
-			$this->buildEntry( 'permalink', 'link', 'permalink', $navUrls ),
-			$this->buildEntry( 'backlinks', 'articleRedirect', 'whatlinkshere', $navUrls ),
-			$this->buildEntry( 'wikibase', 'logo-Wikidata', 'wikibase', $navUrls ),
-			$this->buildEntry( 'cite', 'quotes', 'citethispage', $navUrls )
+			$this->build( 'info', 'info', 'info', $toolbox ),
+			$this->build( 'permalink', 'link', 'permalink', $toolbox ),
+			$this->build( 'backlinks', 'articleRedirect', 'whatlinkshere', $toolbox ),
+			$this->build( 'wikibase', 'logo-Wikidata', 'wikibase', $toolbox ),
+			$this->build( 'cite', 'quotes', 'citethispage', $toolbox )
 		] );
 
 		foreach ( $possibleEntries as $menuEntry ) {
@@ -62,14 +62,16 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	}
 
 	/**
+	 * Build the single menu entry
+	 *
 	 * @param string $name
 	 * @param string $icon Wikimedia UI icon name.
-	 * @param string $navUrlKey
-	 * @param array $navUrls A set of navigation urls build by SkinTemplate::buildNavUrls()
+	 * @param string $toolboxIdx
+	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @return PageActionMenuEntry|null
 	 */
-	private function buildEntry( $name, $icon, $navUrlKey, array $navUrls ) {
-		$href = $navUrls[$navUrlKey]['href'] ?? null;
+	private function build( $name, $icon, $toolboxIdx, array $toolbox ) {
+		$href = $toolbox[$toolboxIdx]['href'] ?? null;
 
 		return $href ?
 			new PageActionMenuEntry(

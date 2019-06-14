@@ -27,7 +27,7 @@ class EmptyOverflowBuilder implements IOverflowBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getGroup( array $navUrls ) {
+	public function getGroup( array $toolbox ) {
 		return new Group();
 	}
 }

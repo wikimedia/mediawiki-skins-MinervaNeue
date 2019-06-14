@@ -60,14 +60,14 @@ final class PageActionsDirector {
 
 	/**
 	 * Build the menu data array that can be passed to views/javascript
-	 * @param array $navUrls A set of navigation urls passed to the builder
+	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @param bool $doesHaveLangUrls Whether the page is also available in other languages or variants
 	 * @return array
 	 * @throws MWException
 	 */
-	public function buildMenu( array $navUrls, $doesHaveLangUrls ): array {
+	public function buildMenu( array $toolbox, $doesHaveLangUrls ): array {
 		$toolbar = $this->toolbarBuilder->getGroup( $doesHaveLangUrls );
-		$overflowMenu = $this->overflowBuilder->getGroup( $navUrls );
+		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox );
 
 		$menu = [
 			'toolbar' => $toolbar->getEntries()
