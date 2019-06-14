@@ -60,7 +60,7 @@ final class PageActionsDirector {
 
 	/**
 	 * Build the menu data array that can be passed to views/javascript
-	 * @param array $navUrls A set of navigation urls build by SkinTemplate::buildNavUrls()
+	 * @param array $navUrls A set of navigation urls passed to the builder
 	 * @param bool $doesHaveLangUrls Whether the page is also available in other languages or variants
 	 * @return array
 	 * @throws MWException

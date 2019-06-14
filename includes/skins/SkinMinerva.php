@@ -832,7 +832,7 @@ class SkinMinerva extends SkinTemplate {
 		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $director */
 		$director = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.PageActionsDirector' );
 		$tpl->set( 'page_actions',
-			$director->buildMenu( $tpl->data[ 'nav_urls'], $this->doesPageHaveLanguages )
+			$director->buildMenu( $tpl->getToolbox(), $this->doesPageHaveLanguages )
 		);
 	}
 

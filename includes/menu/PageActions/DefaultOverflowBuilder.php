@@ -50,6 +50,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 			$this->buildEntry( 'info', 'info', 'info', $navUrls ),
 			$this->buildEntry( 'permalink', 'link', 'permalink', $navUrls ),
 			$this->buildEntry( 'backlinks', 'articleRedirect', 'whatlinkshere', $navUrls ),
+			$this->buildEntry( 'wikibase', 'logo-Wikidata', 'wikibase', $navUrls ),
 			$this->buildEntry( 'cite', 'quotes', 'citethispage', $navUrls )
 		] );
 

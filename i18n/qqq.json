@@ -64,6 +64,7 @@
 	"minerva-page-actions-uploads": "In the secondary page menu for user pages, the user uploads button label",
 	"minerva-page-actions-user-rights": "In the secondary page menu for user pages, the user rights button label",
 	"minerva-page-actions-logs": "In the secondary page menu for user pages, the user logs button label",
+	"minerva-page-actions-wikibase": "In the secondary page menu, the wikibase item button label",
 	"skinname-minerva": "{{name}}",
 	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}",
 	"skin-minerva-issue-learn-more": "Label for link that allows expanding of ambox issue templates.",
