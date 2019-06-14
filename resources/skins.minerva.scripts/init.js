@@ -294,6 +294,28 @@
 		} );
 	}
 
+	/**
+	 * When tabs are present and one is selected, scroll the selected tab into view.
+	 * @return {void}
+	 */
+	function initTabsScrollPosition() {
+		var selectedTabSelector = '.minerva__tab.selected',
+			$selectedTab;
+		if ( window.pageYOffset ) {
+			// The user has already scrolled down the page.
+			// Calling scrollIntoView() below would force the page to
+			// scroll back all the way up. That is undesirable.
+			return;
+		}
+		$selectedTab = $( selectedTabSelector );
+		if ( $selectedTab.length === 1 ) {
+			$selectedTab[ 0 ].scrollIntoView( {
+				block: 'end', // does nothing since we're already at the top of the page
+				inline: 'center' // center horizontally
+			} );
+		}
+	}
+
 	$( function () {
 		var toolbarElement = document.querySelector( Toolbar.selector );
 		// Update anything else that needs enhancing (e.g. watchlist)
@@ -307,6 +329,7 @@
 		}
 		initRedlinksCta();
 		initUserRedLinks();
+		initTabsScrollPosition();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
 		if ( !page.isMissing ) {
