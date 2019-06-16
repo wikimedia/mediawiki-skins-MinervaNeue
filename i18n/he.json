@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Guycn2",
-			"YaronSh"
+			"YaronSh",
+			"Steeve815"
 		]
 	},
 	"minerva-last-modified-date": "נערך לאחרונה ב־$1, בשעה $2",
@@ -58,6 +59,7 @@
 	"minerva-page-actions-uploads": "העלאות",
 	"minerva-page-actions-user-rights": "הרשאות משתמש",
 	"minerva-page-actions-logs": "יומנים",
+	"minerva-page-actions-wikibase": "פריט {{WBREPONAME}}",
 	"skinname-minerva": "מינרווה נויה",
 	"minerva-skin-desc": "ערכת עיצוב שמתאימה את עצמה לסוג המכשיר ומפותחת ראשית למכשירים מיידים",
 	"skin-minerva-issue-learn-more": "מידע נוסף",

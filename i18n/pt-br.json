@@ -64,6 +64,7 @@
 	"minerva-page-actions-uploads": "Envios",
 	"minerva-page-actions-user-rights": "Direitos de uso",
 	"minerva-page-actions-logs": "Registros",
+	"minerva-page-actions-wikibase": "Item no {{WBREPONAME}}",
 	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Um primeiro tema mobile responsivo",
 	"skin-minerva-issue-learn-more": "Saiba mais",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"Fitoschido"
 		]
 	},
 	"minerva-last-modified-date": "Última edición el $1 a les $2",
@@ -45,6 +46,8 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Xunióse'l}} $1",
 	"mobile-frontend-user-page-talk": "Alderique",
 	"mobile-frontend-user-page-uploads": "Xubíes",
+	"minerva-page-actions-info": "Información de la páxina",
+	"minerva-page-actions-permalink": "Enllaz permanente",
 	"minerva-skin-desc": "Una piel reactiva principalmente pa móviles.",
 	"skin-minerva-issue-learn-more": "Más información",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categoríes",

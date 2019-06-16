@@ -56,6 +56,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Se unió}} el $1",
 	"mobile-frontend-user-page-talk": "Discusión",
 	"mobile-frontend-user-page-uploads": "Cargas",
+	"minerva-page-actions-wikibase": "Elemento de {{WBREPONAME}}",
 	"skin-minerva-issue-learn-more": "Más información",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas",
