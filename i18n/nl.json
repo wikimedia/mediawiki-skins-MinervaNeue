@@ -63,6 +63,7 @@
 	"minerva-page-actions-uploads": "Uploads",
 	"minerva-page-actions-user-rights": "Gebruikersrechten",
 	"minerva-page-actions-logs": "Logboeken",
+	"minerva-page-actions-wikibase": "{{WBREPONAME}}-item",
 	"skin-minerva-issue-learn-more": "Meer leren",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorieën",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Toon paginacategorieën",
