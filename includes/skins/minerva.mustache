@@ -34,9 +34,11 @@
 					{{{taglinehtml}}}
 				</div>
 				{{#tabs}}
-					{{#items}}
-						<a href="{{href}}" rel="{{rel}}" class="minerva__tab {{class}}">{{text}}</a>
-					{{/items}}
+					<div class="minerva__tab-container">
+						{{#items}}
+							<a href="{{href}}" rel="{{rel}}" class="minerva__tab {{class}}">{{text}}</a>
+						{{/items}}
+					</div>
 				{{/tabs}}
 				{{{subtitle}}}
 				{{{pageactionshtml}}}

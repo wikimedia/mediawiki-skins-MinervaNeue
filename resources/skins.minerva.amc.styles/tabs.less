@@ -1,23 +1,31 @@
-.minerva__tab {
-	font-size: @taglineFontSize;
-	margin: 0 10px 1px 0;
-	color: @colorGray5;
-	font-weight: bold;
-	padding-bottom: 6px;
-	display: inline-block;
+.minerva__tab-container {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
 
-	&:visited,
-	&:hover,
-	&:active,
-	&.new,
-	&.new:visited,
-	&.new:active,
-	&.new:hover {
+	.minerva__tab {
+		font-size: @taglineFontSize;
+		margin: 0 10px 1px 0;
 		color: @colorGray5;
-		text-decoration: none;
-	}
-	// note core doesn't use BEM.
-	&.selected {
-		border-bottom: (@pageActionBorder * 2) solid @colorGray5;
+		font-weight: bold;
+		padding-bottom: 6px;
+		display: inline-block;
+		flex: 0 0 auto;
+
+		&:visited,
+		&:hover,
+		&:active,
+		&.new,
+		&.new:visited,
+		&.new:active,
+		&.new:hover {
+			color: @colorGray5;
+			text-decoration: none;
+		}
+
+		// note core doesn't use BEM.
+		&.selected {
+			border-bottom: (@pageActionBorder * 2) solid @colorGray5;
+		}
 	}
 }
