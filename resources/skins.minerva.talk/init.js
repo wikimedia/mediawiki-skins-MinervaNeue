@@ -26,7 +26,7 @@
 	// page)
 	// (https://www.mediawiki.org/wiki/Manual:Using_custom_namespaces#Creating_a_custom_namespace)
 	// The method to get associated namespaces will change later (maybe), see T487
-	pageTitle = mw.Title.newFromText( mw.config.get( 'wgPageName' ) );
+	pageTitle = mw.Title.newFromText( mw.config.get( 'wgRelevantPageName' ) );
 	talkTitle = title ? mw.Title.newFromText( title ) : pageTitle.getTalkPage();
 
 	// Check that there is a valid page and talk title
