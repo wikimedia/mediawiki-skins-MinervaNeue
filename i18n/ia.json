@@ -10,6 +10,9 @@
 	"mobile-frontend-cookies-required": "Cookies es necessari pro cambiar de modo de vista. Per favor activa los e reproba.",
 	"mobile-frontend-editor-edit": "Modificar",
 	"minerva-download": "Discargar PDF",
+	"skin-minerva-share": "Divider",
+	"skin-minerva-mobile-option-MinervaShareButton": "Divider",
+	"skin-minerva-mobile-option-MinervaShareButton-description": "Condivider le articulo actual via le function de condivision del navigator (solo sur navigatores compatibile)",
 	"mobile-frontend-editor-redlink-create": "Crear pagina",
 	"mobile-frontend-editor-redlink-explain": "Iste pagina non ha ancora essite create.",
 	"mobile-frontend-editor-redlink-leave": "No, gratias.",
@@ -60,5 +63,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorias",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vider categorias de paginas",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Initio del pagina",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al initio del pagina actual usante un button flottante"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al initio del pagina actual usante un button flottante",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Tractamento meliorate de problemas de paginas",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemas de paginas (Template:ambox) essera inserite in le articulo."
 }
