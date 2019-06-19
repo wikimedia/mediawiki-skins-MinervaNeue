@@ -173,7 +173,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 *
 	 * @covers ::prepareUserNotificationsButton
 	 * @dataProvider providePrepareUserNotificationsButton
-	 * @param array|string $expectedSecondaryButtonData Expected test case outcome
+	 * @param array|string $expectedUserNotificationsData Expected test case outcome
 	 * @param string $message Test message
 	 * @param Title $title
 	 * @param bool $useEcho Whether to use Extension:Echo
@@ -187,7 +187,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 * @param string|bool $formattedEchoNotificationCount
 	 */
 	public function testPrepareUserNotificationsButton(
-		$expectedSecondaryButtonData, $message, $title, $useEcho, $isUserLoggedIn,
+		$expectedUserNotificationsData, $message, $title, $useEcho, $isUserLoggedIn,
 		$newtalks, $lastUnreadAlertTime = false, $lastUnreadMessageTime = false,
 		$echoNotificationCount = false, $alertSeenTime = false, $msgSeenTime = false,
 		$formattedEchoNotificationCount = false
@@ -241,8 +241,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$skin->prepareUserNotificationsButton( $tpl, $newtalks );
 
 		$this->assertEquals(
-			$expectedSecondaryButtonData,
-			$tpl->get( 'secondaryButtonData' ),
+			$expectedUserNotificationsData,
+			$tpl->get( 'userNotificationsData' ),
 			$message
 		);
 	}
@@ -257,7 +257,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 * @param bool $hasUnseen
 	 * @return array
 	 */
-	private function getSecondaryButtonExpectedResult(
+	private function getUserNotificationsExpectedResult(
 		$title,
 		$notificationsMsg,
 		$notificationsTitle,
@@ -295,7 +295,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				Title::newFromText( 'Special:Notifications' ), true, true,
 				'newtalks alert' ],
 
-			[ $this->getSecondaryButtonExpectedResult(
+			[ $this->getUserNotificationsExpectedResult(
 				$title,
 				'Show my notifications',
 				'Notifications',
@@ -311,7 +311,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			MWTimestamp::getInstance( strtotime( '2017-05-12T07:18:42Z' ) ),
 			110, '2017-05-11T20:28:11Z', '2017-05-11T20:28:11Z', '99+' ],
 
-			[ $this->getSecondaryButtonExpectedResult(
+			[ $this->getUserNotificationsExpectedResult(
 				$title,
 				'Show my notifications',
 				'Notifications',
@@ -327,7 +327,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			MWTimestamp::getInstance( strtotime( '2017-03-27T17:07:57Z' ) ),
 			3, '2017-03-25T00:17:44Z', '2017-03-28T19:00:42Z', '3' ],
 
-			[ $this->getSecondaryButtonExpectedResult(
+			[ $this->getUserNotificationsExpectedResult(
 				$title,
 				'Show my notifications',
 				'Notifications',
@@ -343,7 +343,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			MWTimestamp::getInstance( strtotime( '2017-04-10T15:12:31Z' ) ),
 			3, '2017-04-12T10:37:13Z', '2017-04-11T12:55:47Z', '3' ],
 
-			[ $this->getSecondaryButtonExpectedResult(
+			[ $this->getUserNotificationsExpectedResult(
 				$title,
 				'Show my notifications',
 				'Notifications',
@@ -359,7 +359,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			MWTimestamp::getInstance( strtotime( '2017-12-15T08:14:33Z' ) ),
 			5, '2017-12-21T18:07:24Z', '2017-12-19T16:55:52Z', '5' ],
 
-			[ $this->getSecondaryButtonExpectedResult(
+			[ $this->getUserNotificationsExpectedResult(
 				$title,
 				'Show my notifications',
 				'Notifications',
@@ -387,7 +387,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				$title, false, false, '' ],
 			[ '', 'No Echo, logged in, no talk page alerts',
 				$title, false, true, '' ],
-			[ $this->getSecondaryButtonExpectedResult(
+			[ $this->getUserNotificationsExpectedResult(
 				$title,
 				'You have new messages on your talk page',
 				'Mytalk',

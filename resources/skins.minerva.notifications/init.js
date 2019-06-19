@@ -41,7 +41,7 @@
 				return false;
 			},
 			// eslint-disable-next-line no-jquery/no-global-selector
-			el: $( '#secondary-button.user-button' ).parent()
+			el: $( '#user-notifications.user-button' ).parent()
 		} );
 		overlayManager.add( /^\/notifications$/, showNotificationOverlay );
 

@@ -531,7 +531,7 @@
 				"resources/skins.minerva.notifications.badge/NotificationBadge.js"
 			],
 			"templates": {
-				"badge.mustache": "includes/skins/secondaryButton.mustache"
+				"badge.mustache": "includes/skins/userNotifications.mustache"
 			},
 			"targets": [
 				"mobile",

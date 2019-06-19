@@ -251,7 +251,7 @@ class MinervaTemplate extends BaseTemplate {
 				'id' => 'searchIcon',
 				'class' => MinervaUI::iconClass( 'magnifying-glass', 'element', 'skin-minerva-search-trigger' ),
 			], wfMessage( 'searchbutton' ) ),
-			'secondaryButtonData' => $data['secondaryButtonData'],
+			'userNotificationsData' => $data['userNotificationsData'],
 			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
 			'hasheadingholder' => $hasHeadingHolder,
 			'taglinehtml' => $data['taglinehtml'],

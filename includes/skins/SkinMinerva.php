@@ -390,7 +390,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function prepareUserNotificationsButton( QuickTemplate $tpl, $newTalks ) {
 		// Set user button to empty string by default
-		$tpl->set( 'secondaryButtonData', '' );
+		$tpl->set( 'userNotificationsData', '' );
 		$notificationsTitle = '';
 		$count = 0;
 		$countLabel = '';
@@ -441,7 +441,7 @@ class SkinMinerva extends SkinTemplate {
 			$url = $notificationsTitle->getLocalURL(
 				[ 'returnto' => $currentTitle->getPrefixedText() ] );
 
-			$tpl->set( 'secondaryButtonData', [
+			$tpl->set( 'userNotificationsData', [
 				'notificationIconClass' => MinervaUI::iconClass( 'notifications' ),
 				'title' => $notificationsMsg,
 				'url' => $url,
