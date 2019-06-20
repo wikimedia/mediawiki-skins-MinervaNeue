@@ -243,3 +243,54 @@ Defines the sampling rate for the MobileWebMainMenuClickTracking schema.
 
 * Type: `Number`
 * Default: `0`
+
+### Components
+
+Components may be shared between server and client. Keeping all code for a single component only in
+one directory makes it easier to understand the complete domain of a component, all of its implicit
+dependencies, and also what it is independent of. The structure does not hint at ResourceLoader
+module bundling of resources and code. That is the domain of skin.json.
+
+New components are stored under components/. Potential older components are stored under includes/
+and resources/, and those directory structures imperfectly represent ResourceLoader module
+divisions.
+
+#### Mustache
+
+Mustache templates at the root components/ directory, like components/PageActionsMenu.mustache or
+components/ToggleList.mustache, are designed to be rendered as root templates not partials. E.g.:
+
+```lang=php
+// 🆗
+
+$templatesDir = __DIR__ . '/../../components';
+$invalidateTemplateCache = false;
+$templateParser = new TemplateParser( $templatesDir, $invalidateTemplateCache );
+
+// Render components/ToggleList.mustache not components/ToggleList/ToggleList.mustache.
+$html = $templateParser->processTemplate( 'ToggleList',  $data );
+```
+
+Attempting to render a partial as a template root will fail because of components/ root path
+assumptions:
+
+```lang=php
+// 🚫
+
+$templatesDir = __DIR__ . '/../../components/ToggleList';
+$invalidateTemplateCache = false;
+$templateParser = new TemplateParser( $templatesDir, $invalidateTemplateCache );
+
+// Error: components/ToggleList/ToggleList.mustache references
+// components/ToggleList/ToggleList/ToggleListItem.mustache which does not exist.
+$html = $templateParser->processTemplate( 'ToggleList',  $data );
+```
+
+Partials in components/ subdirectories, like components/PageActionsMenu/PageActionsMenu.mustache or
+components/ToggleList/ToggleList.mustache, are for in-template partial composition only as their
+paths assume the render root is components/. E.g.:
+
+```lang=mustache
+{{! Include components/ToggleList/ToggleList.mustache, not components/ToggleList.mustache. }}
+{{> ToggleList/ToggleList}}
+```

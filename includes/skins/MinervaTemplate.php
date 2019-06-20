@@ -97,12 +97,12 @@ class MinervaTemplate extends BaseTemplate {
 	 * @return string
 	 */
 	protected function getPageActionsHtml() {
-		$templateParser = new TemplateParser( __DIR__ );
+		$templateParser = new TemplateParser( __DIR__ . '/../../components' );
 		$pageActions = $this->getPageActions();
 		$html = '';
 
 		if ( $pageActions && $pageActions['toolbar'] ) {
-			$html = $templateParser->processTemplate( 'pageActionMenu',  $pageActions );
+			$html = $templateParser->processTemplate( 'PageActionsMenu',  $pageActions );
 		}
 		return $html;
 	}

@@ -198,6 +198,9 @@
 			"styles": [
 				"resources/skins.minerva.base.styles/reset.less",
 				"resources/skins.minerva.base.styles/ui.less",
+				"components/ToggleList/ToggleList.less",
+				"components/ToggleList/DropDownList.less",
+				"components/ToggleList/MenuListItem.less",
 				"resources/skins.minerva.base.styles/pageactions.less",
 				"resources/skins.minerva.base.styles/common.less",
 				"resources/skins.minerva.base.styles/images.less",
@@ -511,6 +514,7 @@
 				"resources/skins.minerva.scripts/pageIssues.js",
 				"resources/skins.minerva.scripts/UriUtil.js",
 				"resources/skins.minerva.scripts/TitleUtil.js",
+				"components/ToggleList/ToggleList.js",
 				"resources/skins.minerva.scripts/Toolbar.js",
 				"resources/skins.minerva.scripts/init.js",
 				"resources/skins.minerva.scripts/initLogging.js",
