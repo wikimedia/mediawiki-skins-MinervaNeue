@@ -264,6 +264,7 @@ class MinervaTemplate extends BaseTemplate {
 			'subtitle' => $data['subtitle'],
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
+			'dataAfterContent' => $this->get( 'dataAfterContent' ),
 			'footer' => $this->getFooterTemplateData( $data ),
 			'isBeta' => $skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA ),
 			'tabs' => $this->showTalkTabs( $hasPageActions, $skinOptions ) &&
