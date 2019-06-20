@@ -23,6 +23,7 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 use ExtensionRegistry;
 use Hooks;
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Minerva\Menu\LanguageSelectorEntry;
 use MediaWiki\Permissions\PermissionManager;
 use MessageLocalizer;
 use MinervaUI;
@@ -85,7 +86,9 @@ class ToolbarBuilder {
 		$group = new Group();
 
 		if ( $this->skin->isAllowedPageAction( 'switch-language' ) ) {
-			$group->insertEntry( $this->createSwitchLanguageAction( $doesPageHaveLanguages ) );
+			$group->insertEntry(
+				new LanguageSelectorEntry( $this->title, $doesPageHaveLanguages, $this->messageLocalizer )
+			);
 		}
 
 		if ( $this->skin->isAllowedPageAction( 'watch' ) ) {
@@ -145,38 +148,6 @@ class ToolbarBuilder {
 		return $entry
 			->setTitle( $this->messageLocalizer->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
 			->setNodeID( 'ca-edit' );
-	}
-
-	/**
-	 * Creates the "switch-language" action: the icon that, when tapped, opens the language
-	 * switcher.
-	 * @param bool $doesPageHaveLanguages Whether the page is also available in other
-	 * languages or variants
-	 * @return PageActionMenuEntry A menu entry object that represents a map of HTML attributes
-	 * and a 'text' property to be used with the pageActionMenu.mustache template.
-	 * @throws MWException
-	 */
-	protected function createSwitchLanguageAction( $doesPageHaveLanguages ) {
-		$languageSwitcherLink = false;
-		$languageSwitcherClasses = ' language-selector';
-
-		if ( $doesPageHaveLanguages ) {
-			$languageSwitcherLink = SpecialPage::getTitleFor(
-				'MobileLanguages',
-				$this->title
-			)->getLocalURL();
-		} else {
-			$languageSwitcherClasses .= ' disabled';
-		}
-		$entry = new PageActionMenuEntry(
-			'page-actions-languages',
-			$languageSwitcherLink,
-			MinervaUI::iconClass( 'language-switcher', 'element', $languageSwitcherClasses ),
-			$this->messageLocalizer->msg( 'mobile-frontend-language-article-heading' )
-		);
-		return $entry->setTitle(
-			$this->messageLocalizer->msg( 'mobile-frontend-language-article-heading' )
-		);
 	}
 
 	/**
