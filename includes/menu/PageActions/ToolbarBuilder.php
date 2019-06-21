@@ -23,6 +23,7 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 use ExtensionRegistry;
 use Hooks;
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Minerva\Menu\IMenuEntry;
 use MediaWiki\Minerva\Menu\LanguageSelectorEntry;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Permissions\PermissionManager;
@@ -85,7 +86,7 @@ class ToolbarBuilder {
 	 * @return Group
 	 * @throws MWException
 	 */
-	public function getGroup( $doesPageHaveLanguages ) {
+	public function getGroup( $doesPageHaveLanguages ): Group {
 		$group = new Group();
 		$permissions = $this->permissions;
 
@@ -119,7 +120,7 @@ class ToolbarBuilder {
 	 * @throws MWException
 	 * @throws \Exception
 	 */
-	protected function createEditPageAction() {
+	protected function createEditPageAction(): IMenuEntry {
 		$title = $this->title;
 		$user = $this->user;
 		$pm = $this->permissionsManager;
@@ -161,7 +162,7 @@ class ToolbarBuilder {
 	 * @return PageActionMenuEntry An watch/unwatch page actions menu entry
 	 * @throws MWException
 	 */
-	protected function createWatchPageAction() {
+	protected function createWatchPageAction(): IMenuEntry {
 		$title = $this->title;
 		$user = $this->user;
 		$isWatched = $title && $user->isLoggedIn() && $user->isWatched( $title );
@@ -200,7 +201,7 @@ class ToolbarBuilder {
 	 * and a 'text' property to be used with the pageActionMenu.mustache template.
 	 * @throws MWException
 	 */
-	protected function getHistoryPageAction() {
+	protected function getHistoryPageAction(): IMenuEntry {
 		return new PageActionMenuEntry(
 			'page-actions-history',
 			$this->getHistoryUrl( $this->title ),

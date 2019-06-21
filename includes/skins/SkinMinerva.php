@@ -66,7 +66,7 @@ class SkinMinerva extends SkinTemplate {
 	 * object)
 	 * @return IMinervaPagePermissions
 	 */
-	private function getPermissions() {
+	private function getPermissions(): IMinervaPagePermissions {
 		if ( $this->permissions === null ) {
 			$this->permissions = MediaWikiServices::getInstance()
 				->getService( 'Minerva.Permissions' );
@@ -86,7 +86,7 @@ class SkinMinerva extends SkinTemplate {
 	 *
 	 * @return MainMenuDirector
 	 */
-	protected function getMainMenu() {
+	protected function getMainMenu(): MainMenuDirector {
 		if ( !$this->mainMenu ) {
 			$this->mainMenu = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.MainDirector' );
 		}

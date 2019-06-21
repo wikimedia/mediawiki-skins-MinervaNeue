@@ -47,7 +47,7 @@ final class Director {
 	 * Returns a data representation of the main menus
 	 * @return array
 	 */
-	public function getMenuData() {
+	public function getMenuData(): array {
 		if ( $this->menuData === null ) {
 			$this->menuData = $this->buildMenu();
 		}
@@ -58,7 +58,7 @@ final class Director {
 	 * Build the menu data array that can be passed to views/javascript
 	 * @return array
 	 */
-	private function buildMenu() {
+	private function buildMenu(): array {
 		$menuData = [
 			'groups' => [],
 			'sitelinks' => $this->builder->getSiteLinks()->getEntries()

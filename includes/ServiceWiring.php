@@ -30,7 +30,7 @@ use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
 return [
-	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ) {
+	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ): MainMenu\Director {
 		$context = RequestContext::getMain();
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
@@ -43,7 +43,8 @@ return [
 
 		return new MainMenu\Director( $builder );
 	},
-	'Minerva.Menu.PageActionsDirector' => function ( MediaWikiServices $services ) {
+	'Minerva.Menu.PageActionsDirector' =>
+		function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
 		/**
 		 * @var SkinOptions $skinOptions
 		 * @var SkinMinerva $skin
@@ -77,12 +78,11 @@ return [
 			$overflowBuilder,
 			$context
 		);
-	},
-
-	'Minerva.SkinUserPageHelper' => function () {
+	 },
+	'Minerva.SkinUserPageHelper' => function (): SkinUserPageHelper {
 		return new SkinUserPageHelper( RequestContext::getMain()->getTitle() );
 	},
-	'Minerva.SkinOptions' => function () {
+	'Minerva.SkinOptions' => function (): SkinOptions {
 		return new SkinOptions();
 	},
 	'Minerva.Permissions' => function ( MediaWikiServices $services ): IMinervaPagePermissions {

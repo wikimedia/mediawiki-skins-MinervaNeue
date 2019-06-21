@@ -27,10 +27,10 @@ interface IBuilder {
 	/**
 	 * @return Group[]
 	 */
-	public function getGroups();
+	public function getGroups(): array;
 
 	/**
 	 * @return Group
 	 */
-	public function getSiteLinks();
+	public function getSiteLinks(): Group;
 }

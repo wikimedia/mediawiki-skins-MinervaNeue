@@ -44,7 +44,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getGroup( array $toolbox ) {
+	public function getGroup( array $toolbox ): Group {
 		$group = new Group();
 		$possibleEntries = array_filter( [
 			$this->build( 'info', 'info', 'info', $toolbox ),

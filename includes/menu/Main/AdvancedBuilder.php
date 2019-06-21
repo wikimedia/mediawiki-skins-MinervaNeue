@@ -35,11 +35,11 @@ use MediaWiki\Minerva\Menu\Group;
 class AdvancedBuilder extends DefaultBuilder {
 
 	/**
-	 * @return array|Group[]
+	 * @return Group[]
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	public function getGroups() {
+	public function getGroups(): array {
 		return [
 			$this->getDiscoveryTools(),
 			$this->getPersonalTools(),
@@ -54,7 +54,7 @@ class AdvancedBuilder extends DefaultBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	public function getSiteTools() {
+	public function getSiteTools(): Group {
 		$group = new Group();
 
 		$this->definitions->insertSpecialPages( $group );

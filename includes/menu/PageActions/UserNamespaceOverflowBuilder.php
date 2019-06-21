@@ -55,7 +55,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * @inheritDoc
 	 * @throws MWException
 	 */
-	public function getGroup( array $toolbox ) {
+	public function getGroup( array $toolbox ): Group {
 		$group = new Group();
 		$group->insertEntry( $this->build(
 			'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $this->pageUser )->getLocalURL()

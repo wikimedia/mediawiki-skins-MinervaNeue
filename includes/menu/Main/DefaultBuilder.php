@@ -66,7 +66,7 @@ class DefaultBuilder implements IBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	public function getGroups() {
+	public function getGroups(): array {
 		return [
 			$this->getDiscoveryTools(),
 			$this->getPersonalTools(),
@@ -80,7 +80,7 @@ class DefaultBuilder implements IBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	protected function getDiscoveryTools() {
+	protected function getDiscoveryTools(): Group {
 		$group = new Group();
 
 		$this->definitions->insertHomeItem( $group );
@@ -101,7 +101,7 @@ class DefaultBuilder implements IBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	protected function getPersonalTools() {
+	protected function getPersonalTools(): Group {
 		$group = new Group();
 
 		$this->definitions->insertLogInOutMenuItem( $group );
@@ -124,7 +124,7 @@ class DefaultBuilder implements IBuilder {
 	 * @return Group
 	 * @throws MWException
 	 */
-	protected function getConfigurationTools() {
+	protected function getConfigurationTools(): Group {
 		$group = new Group();
 
 		$this->showMobileOptions ?
@@ -139,7 +139,7 @@ class DefaultBuilder implements IBuilder {
 	 * @return Group Collection of site links
 	 * @throws MWException
 	 */
-	public function getSiteLinks() {
+	public function getSiteLinks(): Group {
 		$group = new Group();
 
 		$this->definitions->insertAboutItem( $group );

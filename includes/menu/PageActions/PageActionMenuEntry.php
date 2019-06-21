@@ -62,7 +62,7 @@ class PageActionMenuEntry implements IMenuEntry {
 	 * @param Message $message Message
 	 * @return self
 	 */
-	public static function create( $name, $href, $componentClass, Message $message ) {
+	public static function create( $name, $href, $componentClass, Message $message ): self {
 		return new PageActionMenuEntry( $name, $href, $componentClass, $message );
 	}
 
@@ -93,7 +93,7 @@ class PageActionMenuEntry implements IMenuEntry {
 	 * @param Message $message Title message
 	 * @return $this
 	 */
-	public function setTitle( Message $message ) {
+	public function setTitle( Message $message ): self {
 		$this->component['title'] = $message->escaped();
 		return $this;
 	}
@@ -103,7 +103,7 @@ class PageActionMenuEntry implements IMenuEntry {
 	 * @param string $nodeID
 	 * @return $this
 	 */
-	public function setNodeID( $nodeID ) {
+	public function setNodeID( $nodeID ): self {
 		$this->component['id'] = $nodeID;
 		return $this;
 	}
