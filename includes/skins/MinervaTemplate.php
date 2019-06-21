@@ -211,7 +211,7 @@ class MinervaTemplate extends BaseTemplate {
 			$templateParser = new TemplateParser(
 				__DIR__ . '/../../resources/skins.minerva.scripts/menu/' );
 
-			return $templateParser->processTemplate( 'menu', $data['menu_data'] );
+			return $templateParser->processTemplate( 'menu', $data['mainMenu']['items'] );
 		}
 
 		return '';
@@ -239,7 +239,7 @@ class MinervaTemplate extends BaseTemplate {
 			'search' => $data['search'],
 			'placeholder' => wfMessage( 'mobile-frontend-placeholder' ),
 			'headelement' => $data[ 'headelement' ],
-			'menuButton' => $data['menuButton'],
+			'menuButton' => $data['mainMenu']['buttonHTML'],
 			'siteheading' => $data['footer-site-heading-html'],
 			'mainPageURL' => Title::newMainPage()->getLocalURL(),
 			// A button when clicked will submit the form

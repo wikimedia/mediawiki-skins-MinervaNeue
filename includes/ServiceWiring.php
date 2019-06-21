@@ -41,7 +41,7 @@ return [
 			new MainMenu\AdvancedBuilder( $showMobileOptions, $user, $definitions ) :
 			new MainMenu\DefaultBuilder( $showMobileOptions, $user, $definitions );
 
-		return new MainMenu\Director( $builder );
+		return new MainMenu\Director( $builder, $context, $services->getSpecialPageFactory() );
 	},
 	'Minerva.Menu.PageActionsDirector' => function ( MediaWikiServices $services ) {
 		/**

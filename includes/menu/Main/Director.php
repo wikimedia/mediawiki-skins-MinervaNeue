@@ -19,6 +19,12 @@
  */
 namespace MediaWiki\Minerva\Menu\Main;
 
+use Html;
+use MessageLocalizer;
+use MinervaUI;
+use SpecialPage;
+use \MediaWiki\Special\SpecialPageFactory;
+
 /**
  * Director responsible for building Main Menu
  */
@@ -35,12 +41,31 @@ final class Director {
 	private $menuData;
 
 	/**
+	 * @var MessageLocalizer
+	 */
+	private $msgLocalizer;
+
+	/**
+	 * @var SpecialPageFactory
+	 */
+	private $specialPageFactory;
+
+	/**
 	 * Director responsible for Main Menu building
 	 *
 	 * @param IBuilder $builder
+	 * @param MessageLocalizer $messageLocalizer Used for translating texts in menu toggle
+	 * @param SpecialPageFactory $specialPageFactory Used to check for MobileMenu special page
+	 * existence
 	 */
-	public function __construct( IBuilder $builder ) {
+	public function __construct(
+		IBuilder $builder,
+		MessageLocalizer $messageLocalizer,
+		SpecialPageFactory $specialPageFactory
+	) {
 		$this->builder = $builder;
+		$this->msgLocalizer = $messageLocalizer;
+		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	/**
@@ -60,15 +85,37 @@ final class Director {
 	 */
 	private function buildMenu() {
 		$menuData = [
-			'groups' => [],
-			'sitelinks' => $this->builder->getSiteLinks()->getEntries()
+			'buttonHTML' => $this->prepareToggle(),
+			'items' => [
+				'groups' => [],
+				'sitelinks' => $this->builder->getSiteLinks()->getEntries()
+			]
 		];
 		foreach ( $this->builder->getGroups() as $group ) {
 			if ( $group->hasEntries() ) {
-				$menuData['groups'][] = $group->getEntries();
+				$menuData['items']['groups'][] = $group->getEntries();
 			}
 		}
 		return $menuData;
+	}
+
+	/**
+	 * Prepare the button opens the main side menu
+	 * @return string Rendered Menu button as HTML
+	 */
+	protected function prepareToggle() {
+		$url = $this->specialPageFactory->exists( 'MobileMenu' ) ?
+			SpecialPage::getTitleFor( 'MobileMenu' )->getLocalURL() : '#';
+		$title = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )->text();
+		$tooltip = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )
+			->text();
+
+		return Html::element( 'a', [
+				'title' => $title,
+				'href' => $url,
+				'class' => MinervaUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
+				'id' => 'mw-mf-main-menu-button',
+			], $tooltip );
 	}
 
 }
