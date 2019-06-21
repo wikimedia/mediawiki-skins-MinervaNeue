@@ -108,11 +108,18 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @throws ConfigException
 	 */
 	public function isAllowed( $action ) {
+		global $wgHideInterlanguageLinks;
+
 		// T206406: Enable "Talk" or "Discussion" button on Main page, also, not forgetting
 		// the "switch-language" button. But disable "edit" and "watch" actions.
 		if ( $this->title->isMainPage() ) {
-			return ( in_array( $action, $this->config->get( 'MinervaPageActions' ) )
-					 && ( $action === self::TALK || $action === self::SWITCH_LANGUAGE ) );
+			if ( !in_array( $action, $this->config->get( 'MinervaPageActions' ) ) ) {
+				return false;
+			}
+			if ( $action === self::SWITCH_LANGUAGE ) {
+				return !$wgHideInterlanguageLinks;
+			}
+			return $action === self::TALK;
 		}
 
 		if ( $action === self::HISTORY && $this->title->exists() ) {
@@ -138,6 +145,9 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		}
 
 		if ( $action === self::SWITCH_LANGUAGE ) {
+			if ( $wgHideInterlanguageLinks ) {
+				return false;
+			}
 			$hasVariants = $this->title->getPageLanguage()->hasVariants();
 			$hasLanguages = count( $this->output->getLanguageLinks() );
 
