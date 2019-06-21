@@ -152,6 +152,28 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * MediaWiki defines wgHideInterlanguageLinks which is default set to false, but some wikis
+	 * can set this config to true. Minerva page permissions must respect that
+	 * @covers ::isAllowed
+	 */
+	public function testGlobalHideLanguageLinksTakesPrecedenceOnMainPage() {
+		$this->setMwGlobals( [ 'wgHideInterlanguageLinks' => true ] );
+		$perms = $this->buildPermissionsObject( Title::newMainPage() );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) );
+	}
+
+	/**
+	 * MediaWiki defines wgHideInterlanguageLinks which is default set to false, but some wikis
+	 * can set this config to true. Minerva page permissions must respect that
+	 * @covers ::isAllowed
+	 */
+	public function testGlobalHideLanguageLinksTakesPrecedence() {
+		$this->setMwGlobals( [ 'wgHideInterlanguageLinks' => true ] );
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) );
+	}
+
+	/**
 	 * The "switch-language" page action is allowed when: v2 of the page action bar is enabled and
 	 * if the page has interlanguage links or if the <code>$wgMinervaAlwaysShowLanguageButton</code>
 	 * configuration variable is set to truthy.
