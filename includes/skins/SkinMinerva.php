@@ -252,7 +252,7 @@ class SkinMinerva extends SkinTemplate {
 			$className .= ' page-Main_Page ';
 		}
 
-		if ( $this->isAuthenticatedUser() ) {
+		if ( $this->getUser()->isLoggedIn() ) {
 			$className .= ' is-authenticated';
 		}
 		// The new treatment should only apply to the main namespace
@@ -263,15 +263,6 @@ class SkinMinerva extends SkinTemplate {
 			$className .= ' issues-group-B';
 		}
 		return $className;
-	}
-
-	/**
-	 * Check whether the current user is authenticated or not.
-	 * @todo This helper function is only truly needed whilst SkinMobileApp does not support login
-	 * @return bool
-	 */
-	protected function isAuthenticatedUser() {
-		return $this->getUser()->isLoggedIn();
 	}
 
 	/**
@@ -960,7 +951,7 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.userpage.styles';
 			$styles[] = 'skins.minerva.userpage.icons';
 		}
-		if ( $this->isAuthenticatedUser() ) {
+		if ( $this->getUser()->isLoggedIn() ) {
 			$styles[] = 'skins.minerva.loggedin.styles';
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}
