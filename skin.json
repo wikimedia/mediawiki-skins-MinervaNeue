@@ -306,6 +306,10 @@
 				"invert": {
 					"color": "#fff",
 					"global": false
+				},
+				"base20": {
+					"color": "#54595d",
+					"global": false
 				}
 			},
 			"images": {
@@ -315,7 +319,10 @@
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
 				"edit-enabled": "resources/skins.minerva.icons.images/edit.svg",
-				"language-switcher": "resources/skins.minerva.icons.images/languageSwitcher.svg",
+				"language-switcher": {
+					"file": "resources/skins.minerva.icons.images/languageSwitcher.svg",
+					"variants": [ "base20" ]
+				},
 				"profile": "resources/skins.minerva.icons.images/profile.svg",
 				"clock": {
 					"file": "resources/skins.minerva.icons.images/clock.svg",

@@ -18,7 +18,6 @@
 namespace MediaWiki\Minerva\Menu\Entries;
 
 use MessageLocalizer;
-use MinervaUI;
 use SpecialPage;
 use Title;
 
@@ -40,21 +39,36 @@ class LanguageSelectorEntry implements IMenuEntry {
 	 */
 	private $doesPageHaveLanguages;
 	/**
+	 * @var string An icon class generated via MinervaUI::iconClass()
+	 */
+	private $iconClass;
+
+	/**
+	 * @var string A translatable label used as text and title
+	 */
+	private $label;
+
+	/**
 	 * LanguageSelectorEntry constructor.
 	 * @param Title $title Current Title
 	 * @param bool $doesPageHaveLanguages Whether the page is also available in other
 	 * languages or variants
 	 * @param MessageLocalizer $messageLocalizer Used for translation texts
-	 *
+	 * @param string $iconClass An icon class generated via MinervaUI::iconClass()
+	 * @param string $label Menu entry label and title
 	 */
 	public function __construct(
 		Title $title,
 		$doesPageHaveLanguages,
-		MessageLocalizer $messageLocalizer
+		MessageLocalizer $messageLocalizer,
+		$iconClass,
+		$label = 'mobile-frontend-language-article-heading'
 	) {
 		$this->title = $title;
 		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
 		$this->messageLocalizer = $messageLocalizer;
+		$this->iconClass = $iconClass;
+		$this->label = $label;
 	}
 
 	/**
@@ -86,14 +100,14 @@ class LanguageSelectorEntry implements IMenuEntry {
 		} else {
 			$switcherClasses .= ' disabled';
 		}
-		$iconClass = MinervaUI::iconClass( 'language-switcher', 'element', $switcherClasses );
+		$msg = $this->messageLocalizer->msg( $this->label );
 
 		return [
 			[
 				'href' => $switcherLink,
-				'class' => $iconClass,
-				'text' => $this->messageLocalizer->msg( 'mobile-frontend-language-article-heading' ),
-				'title' => $this->messageLocalizer->msg( 'mobile-frontend-language-article-heading' )
+				'class' => $this->iconClass . $switcherClasses,
+				'text' => $msg,
+				'title' => $msg
 			]
 
 		];

@@ -22,10 +22,13 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use Hooks;
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
+use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 use MessageLocalizer;
 use MinervaUI;
 use MWException;
+use Title;
 use SpecialPage;
 use User;
 
@@ -42,13 +45,40 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	private $pageUser;
 
 	/**
+	 * @var Title
+	 */
+	private $title;
+
+	/**
+	 * @var IMinervaPagePermissions
+	 */
+	private $permissions;
+
+	/**
+	 * @var bool
+	 */
+	private $doesPageHaveLanguages;
+
+	/**
 	 * Initialize the overflow menu visible on the User namespace
+	 * @param Title $title
 	 * @param MessageLocalizer $msgLocalizer
 	 * @param SkinUserPageHelper $userPageHelper
+	 * @param IMinervaPagePermissions $permissions
+	 * @param bool $doesPageHaveLanguages
 	 */
-	public function __construct( MessageLocalizer $msgLocalizer, SkinUserPageHelper $userPageHelper ) {
+	public function __construct(
+		Title $title,
+		MessageLocalizer $msgLocalizer,
+		SkinUserPageHelper $userPageHelper,
+		IMinervaPagePermissions $permissions,
+		$doesPageHaveLanguages
+	) {
+		$this->title = $title;
 		$this->messageLocalizer = $msgLocalizer;
 		$this->pageUser = $userPageHelper->getPageUser();
+		$this->permissions = $permissions;
+		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
 	}
 
 	/**
@@ -57,6 +87,14 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 */
 	public function getGroup( array $toolbox ): Group {
 		$group = new Group();
+		if ( $this->permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
+			$group->insertEntry( new LanguageSelectorEntry( $this->title,
+				$this->doesPageHaveLanguages, $this->messageLocalizer,
+				MinervaUI::iconClass( 'language-switcher-base20',  'before',
+					'minerva-page-actions-language-switcher toggle-list-item__anchor--menu' ),
+				'minerva-page-actions-language-switcher'
+			) );
+		}
 		$group->insertEntry( $this->build(
 			'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $this->pageUser )->getLocalURL()
 		) );
@@ -102,8 +140,8 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 			new PageActionMenuEntry(
 				'page-actions-overflow-' . $name,
 				$href,
-				MinervaUI::iconClass(
-					'', 'before', 'wikimedia-ui-' . $icon . '-base20 toggle-list-item__anchor--menu'
+				MinervaUI::iconClass( '', 'before',
+					'wikimedia-ui-' . $icon . '-base20 toggle-list-item__anchor--menu'
 				),
 				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name )
 			) : null;

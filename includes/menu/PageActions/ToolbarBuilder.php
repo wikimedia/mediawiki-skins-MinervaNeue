@@ -108,10 +108,17 @@ class ToolbarBuilder {
 	public function getGroup( $doesPageHaveLanguages ): Group {
 		$group = new Group();
 		$permissions = $this->permissions;
+		$userPageWithOveflowMode = $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) &&
+			$this->userPageHelper->isUserPage();
 
-		if ( $permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
-			$group->insertEntry( new LanguageSelectorEntry( $this->title, $doesPageHaveLanguages,
-					$this->messageLocalizer ) );
+		if ( !$userPageWithOveflowMode && $permissions->isAllowed(
+			IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
+			$group->insertEntry( new LanguageSelectorEntry(
+				$this->title,
+				$doesPageHaveLanguages,
+				$this->messageLocalizer,
+				MinervaUI::iconClass( 'language-switcher', 'element', '' ) )
+			);
 		}
 
 		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) ) {
@@ -122,8 +129,7 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->getHistoryPageAction() );
 		}
 
-		if ( $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) &&
-			$this->userPageHelper->isUserPage() ) {
+		if ( $userPageWithOveflowMode ) {
 			// User links are hidden when Overflow menu is visible. We want to show Contributions
 			// link on toolbar only when overflow is visible
 			$group->insertEntry( $this->createContributionsPageAction() );
