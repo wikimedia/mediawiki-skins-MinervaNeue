@@ -26,6 +26,8 @@ use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Menu\IMenuEntry;
 use MediaWiki\Minerva\Menu\LanguageSelectorEntry;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
+use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Minerva\SkinUserPageHelper;
 use MediaWiki\Permissions\PermissionManager;
 use MessageLocalizer;
 use MinervaUI;
@@ -59,6 +61,16 @@ class ToolbarBuilder {
 	 * @var PermissionManager
 	 */
 	private $permissionsManager;
+
+	/**
+	 * @var SkinOptions
+	 */
+	private $skinOptions;
+
+	/**
+	 * @var SkinUserPageHelper
+	 */
+	private $userPageHelper;
 	/**
 	 * Build Group containing icons for toolbar
 	 * @param Title $title Article title user is currently browsing
@@ -66,18 +78,25 @@ class ToolbarBuilder {
 	 * @param MessageLocalizer $msgLocalizer Message localizer to generate localized texts
 	 * @param PermissionManager $permissionManager Mediawiki Permissions Manager
 	 * @param IMinervaPagePermissions $permissions Minerva permissions system
+	 * @param SkinOptions $skinOptions Skin options
+	 * @param SkinUserPageHelper $userPageHelper User Page helper
 	 */
 	public function __construct(
 		Title $title,
 		User $user,
 		MessageLocalizer $msgLocalizer,
 		PermissionManager $permissionManager,
-		IMinervaPagePermissions $permissions ) {
+		IMinervaPagePermissions $permissions,
+		SkinOptions $skinOptions,
+		SkinUserPageHelper $userPageHelper
+	) {
 		$this->title = $title;
 		$this->user = $user;
 		$this->messageLocalizer = $msgLocalizer;
 		$this->permissionsManager = $permissionManager;
 		$this->permissions = $permissions;
+		$this->skinOptions = $skinOptions;
+		$this->userPageHelper = $userPageHelper;
 	}
 
 	/**
@@ -103,6 +122,13 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->getHistoryPageAction() );
 		}
 
+		if ( $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) &&
+			$this->userPageHelper->isUserPage() ) {
+			// User links are hidden when Overflow menu is visible. We want to show Contributions
+			// link on toolbar only when overflow is visible
+			$group->insertEntry( $this->createContributionsPageAction() );
+		}
+
 		Hooks::run( 'MobileMenu', [ 'pageactions.toolbar', &$group ] );
 
 		// We want the edit icon/action always to be the last element on the toolbar list
@@ -110,6 +136,23 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->createEditPageAction() );
 		}
 		return $group;
+	}
+
+	/**
+	 * Create Contributions page action visible on user pages
+	 *
+	 * @return IMenuEntry
+	 */
+	protected function createContributionsPageAction(): IMenuEntry {
+		$pageUser = $this->userPageHelper->getPageUser();
+		$label = $this->messageLocalizer->msg( 'mobile-frontend-user-page-contributions' );
+
+		return PageActionMenuEntry::create(
+			'page-actions-contributions',
+			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL(),
+			MinervaUI::iconClass( 'contributions' ),
+			$label
+		)->setTitle( $label );
 	}
 
 	/**

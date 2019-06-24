@@ -58,7 +58,9 @@ return [
 			$context->getUser(),
 			$context,
 			$services->getPermissionManager(),
-			$services->getService( 'Minerva.Permissions' )
+			$services->getService( 'Minerva.Permissions' ),
+			$skinOptions,
+			$services->get( 'Minerva.SkinUserPageHelper' )
 		);
 		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
 			 $overflowBuilder = $userPageHelper->isUserPage() ?
