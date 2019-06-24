@@ -21,7 +21,7 @@
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.5.0",
 		"svgo": "0.7.2",
-		"wdio-cucumber-framework": "1.1.1",
+		"wdio-cucumber-framework": "2.2.8",
 		"wdio-mediawiki": "0.3.0",
 		"wdio-mocha-framework": "0.6.4",
 		"wdio-spec-reporter": "0.1.4",
