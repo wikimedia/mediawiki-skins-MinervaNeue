@@ -299,20 +299,35 @@
 	 * @return {void}
 	 */
 	function initTabsScrollPosition() {
-		var selectedTabSelector = '.minerva__tab.selected',
-			$selectedTab;
-		if ( window.pageYOffset ) {
-			// The user has already scrolled down the page.
-			// Calling scrollIntoView() below would force the page to
-			// scroll back all the way up. That is undesirable.
+		var $tabContainer, tabPosition, containerPosition, left, right,
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$selectedTab = $( '.minerva__tab.selected' );
+		if ( $selectedTab.length !== 1 ) {
 			return;
 		}
-		$selectedTab = $( selectedTabSelector );
-		if ( $selectedTab.length === 1 ) {
-			$selectedTab[ 0 ].scrollIntoView( {
-				block: 'end', // does nothing since we're already at the top of the page
-				inline: 'center' // center horizontally
-			} );
+
+		$tabContainer = $selectedTab.closest( '.minerva__tab-container' );
+		tabPosition = $selectedTab.position();
+		containerPosition = $tabContainer.position();
+		// Position of the left edge of $selectedTab relative to the left edge of $tabContainer
+		left = tabPosition.left - containerPosition.left;
+		// Position of the right edge of $selectedTab relative to the left edge of $tabContainer
+		right = left + $selectedTab.outerWidth();
+
+		// If $selectedTab is (partly) scrolled out of view, scroll it into view
+		// This only considers and manipulates the horizontal scroll position within $tabContainer,
+		// not the vertical scroll position of the viewport
+		if ( left < 0 ) {
+			// Left edge of $selectedTab is to the left of the left edge of $tabContainer
+			// Scroll $tabContainer to the left, by subtracting the difference from its scrollLeft
+			// (we're subtracting here by adding a negative number)
+			$tabContainer.scrollLeft( $tabContainer.scrollLeft() + left );
+		} else if ( right > $tabContainer.innerWidth() ) {
+			// Right edge of $selectedTab is to the right of the right edge of $tabContainer
+			// Scroll $tabContainer to the right, by adding the difference to its scrollLeft
+			$tabContainer.scrollLeft(
+				$tabContainer.scrollLeft() + right - $tabContainer.innerWidth()
+			);
 		}
 	}
 
