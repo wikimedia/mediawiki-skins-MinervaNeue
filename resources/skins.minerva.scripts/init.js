@@ -16,6 +16,7 @@
 		issues = require( './page-issues/index.js' ),
 		Toolbar = require( './Toolbar.js' ),
 		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
+		TabScroll = require( './TabScroll.js' ),
 		router = require( 'mediawiki.router' ),
 		CtaDrawer = mobile.CtaDrawer,
 		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
@@ -303,43 +304,6 @@
 		} );
 	}
 
-	/**
-	 * When tabs are present and one is selected, scroll the selected tab into view.
-	 * @return {void}
-	 */
-	function initTabsScrollPosition() {
-		var $tabContainer, tabPosition, containerPosition, left, right,
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$selectedTab = $( '.minerva__tab.selected' );
-		if ( $selectedTab.length !== 1 ) {
-			return;
-		}
-
-		$tabContainer = $selectedTab.closest( '.minerva__tab-container' );
-		tabPosition = $selectedTab.position();
-		containerPosition = $tabContainer.position();
-		// Position of the left edge of $selectedTab relative to the left edge of $tabContainer
-		left = tabPosition.left - containerPosition.left;
-		// Position of the right edge of $selectedTab relative to the left edge of $tabContainer
-		right = left + $selectedTab.outerWidth();
-
-		// If $selectedTab is (partly) scrolled out of view, scroll it into view
-		// This only considers and manipulates the horizontal scroll position within $tabContainer,
-		// not the vertical scroll position of the viewport
-		if ( left < 0 ) {
-			// Left edge of $selectedTab is to the left of the left edge of $tabContainer
-			// Scroll $tabContainer to the left, by subtracting the difference from its scrollLeft
-			// (we're subtracting here by adding a negative number)
-			$tabContainer.scrollLeft( $tabContainer.scrollLeft() + left );
-		} else if ( right > $tabContainer.innerWidth() ) {
-			// Right edge of $selectedTab is to the right of the right edge of $tabContainer
-			// Scroll $tabContainer to the right, by adding the difference to its scrollLeft
-			$tabContainer.scrollLeft(
-				$tabContainer.scrollLeft() + right - $tabContainer.innerWidth()
-			);
-		}
-	}
-
 	$( function () {
 		var $toc,
 			toolbarElement = document.querySelector( Toolbar.selector ),
@@ -371,7 +335,7 @@
 		}
 		initRedlinksCta();
 		initUserRedLinks();
-		initTabsScrollPosition();
+		TabScroll.initTabsScrollPosition();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
 		if ( !currentPage.isMissing ) {

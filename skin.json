@@ -535,6 +535,7 @@
 				"resources/skins.minerva.scripts/UriUtil.js",
 				"resources/skins.minerva.scripts/TitleUtil.js",
 				"components/ToggleList/ToggleList.js",
+				"resources/skins.minerva.scripts/TabScroll.js",
 				"resources/skins.minerva.scripts/Toolbar.js",
 				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
