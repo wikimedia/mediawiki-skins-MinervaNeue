@@ -15,6 +15,7 @@
 		TitleUtil = require( './TitleUtil.js' ),
 		issues = require( './page-issues/index.js' ),
 		Toolbar = require( './Toolbar.js' ),
+		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
 		router = require( 'mediawiki.router' ),
 		CtaDrawer = mobile.CtaDrawer,
 		Button = mobile.Button,
@@ -341,7 +342,8 @@
 
 	$( function () {
 		var $toc,
-			toolbarElement = document.querySelector( Toolbar.selector );
+			toolbarElement = document.querySelector( Toolbar.selector ),
+			userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
 		// Init:
 		// - main menu closes when you click outside of it
 		// - redirects show a toast.
@@ -362,6 +364,10 @@
 		if ( toolbarElement ) {
 			Toolbar.bind( window, toolbarElement, eventBus );
 			Toolbar.render( window, toolbarElement );
+		}
+		if ( userMenu ) {
+			ToggleList.bind( window, userMenu, eventBus, true );
+			ToggleList.render( userMenu, true );
 		}
 		initRedlinksCta();
 		initUserRedLinks();

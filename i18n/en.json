@@ -47,6 +47,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Joined}} $1",
 	"mobile-frontend-user-page-talk": "Talk",
 	"mobile-frontend-user-page-uploads": "Uploads",
+	"minerva-user-menu-button": "User menu",
 	"minerva-page-actions-overflow": "Secondary page actions submenu",
 	"minerva-page-actions-info": "Page information",
 	"minerva-page-actions-permalink": "Permanent link",

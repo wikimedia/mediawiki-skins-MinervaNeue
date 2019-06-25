@@ -23,6 +23,10 @@ use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\Minerva\Menu\User\UserMenuDirector;
+use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
+use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
+use MediaWiki\Minerva\Menu\Definitions;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -87,6 +91,29 @@ class SkinMinerva extends SkinTemplate {
 			$this->mainMenu = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.MainDirector' );
 		}
 		return $this->mainMenu;
+	}
+
+	/**
+	 * @param BaseTemplate $tpl
+	 * @return string|null
+	*/
+	private function getUserMenuHTML( BaseTemplate $tpl ) {
+		$services = MediaWikiServices::getInstance();
+		$options = $services->getService( 'Minerva.SkinOptions' );
+		$context = RequestContext::getMain();
+		$definitions = new Definitions( $context, $services->getSpecialPageFactory() );
+		$director = new UserMenuDirector(
+			$options->get( SkinOptions::OPTION_AMC )
+				? new AdvancedUserMenuBuilder(
+					$context,
+					$this->getUser(),
+					$definitions,
+					$tpl->getPersonalTools()['sandbox']['links'][0] ?? null
+				)
+				: new DefaultUserMenuBuilder(),
+				$this
+		);
+		return $director->renderMenuData();
 	}
 
 	/**
@@ -155,6 +182,9 @@ class SkinMinerva extends SkinTemplate {
 
 		// Set the links for the main menu
 		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
+
+		// Set the links for page secondary actions
+		$tpl->set( 'userMenuHTML', $this->getUserMenuHTML( $tpl ) );
 
 		// Set the links for page secondary actions
 		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
@@ -771,14 +801,6 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	public function buildSidebar() {
-		return [];
-	}
-
-	/**
-	 * Minerva skin do use any of those, there is no need to calculate that
-	 * @return array
-	 */
-	protected function buildPersonalUrls() {
 		return [];
 	}
 

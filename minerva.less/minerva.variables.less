@@ -34,6 +34,7 @@
 @menuWidthTablet: 600px;
 @rightDrawerWidth: 60%;
 @primaryNavBackgroundColor: @colorGray14;
+@menuButtonIconSize: 3.5em;
 
 // Headings
 @firstHeadingFontSize: 2.6525em; // 42px
@@ -52,7 +53,7 @@
 @searchBoxWidth: 375/16em;
 @iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
 @deviceWidthTabletEms: unit( @width-breakpoint-tablet / @fontSizeBrowserDefault, em );
-@brandingBoxWidth: @deviceWidthTabletEms - ( @iconSizeTotal * 3 ) - @searchBoxWidth;
+@brandingBoxWidth: @deviceWidthTabletEms - (3 * @menuButtonIconSize + @iconGutterWidth) - @searchBoxWidth;
 
 @titleSectionSpacingTop: 20px;
 @titleSectionSpacingBottom: 25px;

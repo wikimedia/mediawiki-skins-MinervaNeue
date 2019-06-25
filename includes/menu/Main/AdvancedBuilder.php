@@ -97,13 +97,6 @@ final class AdvancedBuilder implements IBuilder {
 	private function getPersonalTools(): Group {
 		$group = new Group();
 
-		$this->definitions->insertAuthMenuItem( $group );
-
-		if ( $this->user->isLoggedIn() ) {
-			$this->definitions->insertWatchlistMenuItem( $group );
-			$this->definitions->insertContributionsMenuItem( $group );
-		}
-
 		// Allow other extensions to add or override tools
 		Hooks::run( 'MobileMenu', [ 'personal', &$group ] );
 		return $group;

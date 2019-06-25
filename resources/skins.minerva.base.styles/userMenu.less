@@ -1,0 +1,26 @@
+@import '../../minerva.less/minerva.variables';
+
+// The top level user account button in the upper right near the notifications button.
+.minerva-user-navigation {
+	display: flex;
+	height: @headerHeight;
+	// Fill empty space left / start so the buttons can stay right / end.
+	width: 100%;
+	// Keep space for at least two buttons.
+	min-width: 2 * @menuButtonIconSize;
+	// Center vertically.
+	align-items: center;
+	// Layout from right / end.
+	justify-content: flex-end;
+	// Show the list relative the button.
+	position: relative;
+
+	.mw-ui-icon-element {
+		display: block;
+	}
+
+	.toggle-list {
+		width: @menuButtonIconSize;
+		display: inline-block;
+	}
+}
