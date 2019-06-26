@@ -160,7 +160,7 @@ class SkinMinerva extends SkinTemplate {
 		$tpl->set( 'unstyledContent', $out->getProperty( 'unstyledContent' ) );
 
 		// Set the links for the main menu
-		$tpl->set( 'menu_data', $this->getMainMenu()->getMenuData() );
+		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
 
 		// Set the links for page secondary actions
 		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
@@ -168,7 +168,6 @@ class SkinMinerva extends SkinTemplate {
 		// Construct various Minerva-specific interface elements
 		$this->preparePageContent( $tpl );
 		$this->prepareHeaderAndFooter( $tpl );
-		$this->prepareMenuButton( $tpl );
 		$this->prepareBanners( $tpl );
 		$this->preparePageActions( $tpl );
 		$this->prepareUserNotificationsButton( $tpl, $tpl->get( 'newtalk' ) );
@@ -622,25 +621,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Prepare the button opens the main side menu
-	 * @param BaseTemplate $tpl
-	 */
-	protected function prepareMenuButton( BaseTemplate $tpl ) {
-		// menu button
-		$url = SpecialPageFactory::exists( 'MobileMenu' ) ?
-			SpecialPage::getTitleFor( 'MobileMenu' )->getLocalURL() : '#';
-
-		$tpl->set( 'menuButton',
-			Html::element( 'a', [
-				'title' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->text(),
-				'href' => $url,
-				'class' => MinervaUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
-				'id' => 'mw-mf-main-menu-button',
-			], $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->text() )
-		);
-	}
-
-	/**
 	 * Load internal banner content to show in pre content in template
 	 * Beware of HTML caching when using this function.
 	 * Content set as "internalbanner"
@@ -808,10 +788,12 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	public function getSkinConfigVariables() {
+		$menuData = $this->getMainMenu()->getMenuData();
 		$vars = [
 			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
-			'wgMinervaMenuData' => $this->getMainMenu()->getMenuData(),
+			// hamburger icon is already rendered, pass only menu items
+			'wgMinervaMenuData' => $menuData['items']
 		];
 
 		return $vars;
