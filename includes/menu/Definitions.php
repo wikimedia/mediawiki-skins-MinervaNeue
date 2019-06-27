@@ -126,7 +126,7 @@ final class Definitions {
 	 * @param Group $group
 	 */
 	public function insertHomeItem( Group $group ) {
-		$group->insertEntry( new SingleMenuEntry(
+		$group->insertEntry( new HomeMenuEntry(
 			'home',
 			$this->context->msg( 'mobile-frontend-home-button' )->escaped(),
 			Title::newMainPage()->getLocalURL()
