@@ -1,6 +1,5 @@
-const { iGoToAPageThatHasLanguages } = require( './../features/step_definitions/create_page_api_steps' ),
-	{
-		pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
+const {
+		pageExists, iAmOnAPageThatDoesNotExist,
 		iAmLoggedIntoTheMobileWebsite
 	} = require( './../features/step_definitions/common_steps' ),
 	{
@@ -15,18 +14,6 @@ describe( 'Wikitext Editor (Makes actual saves)', () => {
 
 	beforeEach( () => {
 		iAmLoggedIntoTheMobileWebsite();
-	} );
-
-	// @editing
-	it( 'It is possible to edit', () => {
-		iGoToAPageThatHasLanguages();
-		iClickTheEditButton();
-		iSeeTheWikitextEditorOverlay();
-		iTypeIntoTheEditor( 'ABC GHI' );
-		iClickContinue();
-		iClickSubmit();
-		iDoNotSeeTheWikitextEditorOverlay();
-		iShouldSeeAToastNotification();
 	} );
 
 	// @editing @en.m.wikipedia.beta.wmflabs.org
