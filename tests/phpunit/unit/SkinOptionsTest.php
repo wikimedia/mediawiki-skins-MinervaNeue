@@ -3,7 +3,6 @@
 namespace Tests\MediaWiki\Minerva;
 
 use MediaWiki\Minerva\SkinOptions;
-use MediaWikiTestCase;
 
 /**
  * Class SkinMinervaTest
@@ -11,7 +10,7 @@ use MediaWikiTestCase;
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\SkinOptions
  */
-class SkinOptionsTest extends MediaWikiTestCase {
+class SkinOptionsTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::get
