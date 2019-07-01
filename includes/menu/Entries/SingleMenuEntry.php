@@ -15,62 +15,39 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-namespace MediaWiki\Minerva\Menu;
+namespace MediaWiki\Minerva\Menu\Entries;
 
 use MinervaUI;
 
 /**
- * Class for defining a home menu entry in Special:MobileMenu
+ * Model for a simple menu entries with label and icon
  */
-final class HomeMenuEntry implements IMenuEntry {
-
+class SingleMenuEntry implements IMenuEntry {
 	/**
 	 * @var string
 	 */
 	private $name;
-
 	/**
 	 * @var array
 	 */
 	private $component;
 
 	/**
-	 * Override the text used in the home menu entry.
-	 *
-	 * @param string $text
-	 * @return $this
-	 */
-	public function overrideText( $text ) {
-		$this->component['text'] = $text;
-		return $this;
-	}
-
-	/**
-	 * Override the CSS class used in the home menu entry.
-	 *
-	 * @param string $cssClass
-	 * @return $this
-	 */
-	public function overrideCssClass( $cssClass ) {
-		$this->component['class'] = $cssClass;
-		return $this;
-	}
-
-	/**
-	 * Create a home menu element with one component
+	 * Create a simple menu element with one component
 	 *
 	 * @param string $name An unique menu element identifier
 	 * @param string $text Text to show on menu element
 	 * @param string $url URL menu element points to
 	 * @param bool|string $trackClicks Should clicks be tracked. To override the tracking code
 	 * pass the tracking code as string
+	 * @param string|null $iconName The Icon name, if not defined, the $name will be used
 	 */
-	public function __construct( $name, $text, $url, $trackClicks = true ) {
+	public function __construct( $name, $text, $url, $trackClicks = true, $iconName = null ) {
 		$this->name = $name;
 		$this->component = [
 			'text' => $text,
 			'href' => $url,
-			'class' => trim( MinervaUI::iconClass( $name, 'before' ) )
+			'class' => MinervaUI::iconClass( $iconName ?? $name, 'before' ),
 		];
 		if ( $trackClicks !== false ) {
 			$this->component['data-event-name'] = $trackClicks === true ? $name : $trackClicks;
@@ -97,5 +74,4 @@ final class HomeMenuEntry implements IMenuEntry {
 	public function getComponents(): array {
 		return [ $this->component ];
 	}
-
 }

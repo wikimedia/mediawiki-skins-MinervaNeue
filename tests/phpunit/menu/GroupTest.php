@@ -2,8 +2,8 @@
 
 namespace Tests\MediaWiki\Minerva\Menu;
 
+use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
-use MediaWiki\Minerva\Menu\IMenuEntry;
 
 /**
  * @group MinervaNeue
@@ -36,7 +36,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::insert
 	 * @covers ::search
 	 * @covers ::getEntries
-	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
+	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertingAnEntry() {
 		$menu = new Group();
@@ -64,7 +64,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::insert
 	 * @covers ::search
 	 * @covers ::getEntries
-	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
+	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertingAnEntryAfterAnother() {
 		$menu = new Group();
@@ -116,7 +116,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @expectedExceptionMessage The "home" entry doesn't exist.
 	 * @covers ::insertAfter
 	 * @covers ::search
-	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
+	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertAfterWhenTargetEntryDoesntExist() {
 		$menu = new Group();
@@ -170,7 +170,7 @@ class GroupTest extends \MediaWikiTestCase {
 	/**
 	 * @covers ::insert
 	 * @covers ::getEntries
-	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
+	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testinsertingAnEntryWithMultipleComponents() {
 		$authLoginComponent = [
@@ -215,7 +215,7 @@ class GroupTest extends \MediaWikiTestCase {
 	/**
 	 * @covers ::insert
 	 * @covers ::getEntries
-	 * @covers \MediaWiki\Minerva\Menu\MenuEntry::addComponent
+	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertingAJavascriptOnlyEntry() {
 		$menu = new Group();

@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\MediaWiki\Minerva\Menu;
+namespace Tests\MediaWiki\Minerva\Menu\Entries;
 
-use MediaWiki\Minerva\Menu\MenuEntry;
+use MediaWiki\Minerva\Menu\Entries\MenuEntry;
 
 /**
  * @group MinervaNeue
- * @coversDefaultClass \MediaWiki\Minerva\Menu\MenuEntry
+ * @coversDefaultClass \MediaWiki\Minerva\Menu\Entries\MenuEntry
  */
 class MenuEntryTest extends \MediaWikiTestCase {
 

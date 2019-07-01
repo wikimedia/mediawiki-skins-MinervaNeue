@@ -22,9 +22,9 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use ExtensionRegistry;
 use Hooks;
+use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Menu\Group;
-use MediaWiki\Minerva\Menu\IMenuEntry;
-use MediaWiki\Minerva\Menu\LanguageSelectorEntry;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;

@@ -21,6 +21,8 @@
 namespace MediaWiki\Minerva\Menu;
 
 use DomainException;
+use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\MenuEntry;
 
 /**
  * Model for a menu that can be presented in a skin.

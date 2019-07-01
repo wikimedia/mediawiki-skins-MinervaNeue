@@ -15,7 +15,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-namespace MediaWiki\Minerva\Menu;
+namespace MediaWiki\Minerva\Menu\Entries;
 
 use MessageLocalizer;
 use MinervaUI;

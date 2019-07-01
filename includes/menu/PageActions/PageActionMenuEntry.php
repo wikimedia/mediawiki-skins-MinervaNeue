@@ -21,7 +21,7 @@
 namespace MediaWiki\Minerva\Menu\PageActions;
 
 use Message;
-use MediaWiki\Minerva\Menu\IMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 
 class PageActionMenuEntry implements IMenuEntry {
 
