@@ -139,10 +139,11 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertRandomItem( Group $group ) {
+		$page = $this->context->msg( 'randompage-url' )->escaped();
 		// Random link
 		$group->insert( 'random' )
 			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->escaped(),
-				SpecialPage::getTitleFor( 'Randompage' )->getLocalURL() . '#/random',
+				Title::newFromText( $page )->getLocalURL() . '#/random',
 				MinervaUI::iconClass( 'random', 'before' ), [
 					'id' => 'randomButton',
 					'data-event-name' => 'random',
