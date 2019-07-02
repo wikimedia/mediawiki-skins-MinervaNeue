@@ -122,7 +122,7 @@ class MinervaHooks {
 				// additional scaffolding (minus initialisation scripts)
 				'tests/qunit/skins.minerva.scripts/stubs.js',
 
-				'resources/skins.minerva.scripts/pageIssuesParser.js',
+				'resources/skins.minerva.scripts/page-issues/parser.js',
 				'resources/skins.minerva.scripts/downloadPageAction.js',
 				'resources/skins.minerva.scripts/AB.js',
 				'resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.js',
@@ -131,7 +131,7 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/page-issues/page/PageIssueLearnMoreLink.js',
 				'resources/skins.minerva.scripts/page-issues/page/PageIssueLink.js',
 				'resources/skins.minerva.scripts/page-issues/page/pageIssueFormatter.js',
-				'resources/skins.minerva.scripts/pageIssues.js',
+				'resources/skins.minerva.scripts/page-issues/index.js',
 				'resources/skins.minerva.scripts/UriUtil.js',
 				'resources/skins.minerva.scripts/TitleUtil.js',
 				// test files
