@@ -1,7 +1,7 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
-		pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
+		pageIssues = require( '../../../../resources/skins.minerva.scripts/page-issues/index.js' ),
 		insertBannersOrNotice = pageIssues.test.insertBannersOrNotice,
 		OverlayManager = mobile.OverlayManager,
 		PageHTMLParser = mobile.PageHTMLParser,

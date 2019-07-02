@@ -3,8 +3,8 @@
 // of a SiteInfo, it still becomes a public API. If it lives where used, it becomes a copy and paste
 // implementation where each copy can deviate but deletion is easy. See additional discussion in
 // T218358 and I95b08e77eece5cd4dae62f6f237d492d6b0fe42b.
-( function ( M ) {
-	var UriUtil = M.require( 'skins.minerva.scripts/UriUtil' );
+( function () {
+	var UriUtil = require( './UriUtil.js' );
 
 	/**
 	 * Returns the decoded wiki page title referenced by the passed link as a string when parsable.
@@ -132,7 +132,7 @@
 		return length === ( ( 'oldid' in uri.query ? 1 : 0 ) + ( 'title' in uri.query ? 1 : 0 ) );
 	}
 
-	M.define( 'skins.minerva.scripts/TitleUtil', {
+	module.exports = {
 		newFromUri: newFromUri
-	} );
-}( mw.mobileFrontend ) );
+	};
+}() );

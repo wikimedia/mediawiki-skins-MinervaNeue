@@ -829,10 +829,6 @@ class SkinMinerva extends SkinTemplate {
 			$modules[] = 'skins.minerva.watchstar';
 		}
 
-		if ( $user->isLoggedIn() && $this->useEcho() ) {
-			$modules[] = 'skins.minerva.notifications';
-		}
-
 		// TalkOverlay feature
 		if (
 			$this->getUserPageHelper()->isUserPage() ||

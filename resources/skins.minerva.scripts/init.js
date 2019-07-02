@@ -4,15 +4,20 @@
 		PageGateway = mobile.PageGateway,
 		toast = mobile.toast,
 		time = mobile.time,
-		TitleUtil = M.require( 'skins.minerva.scripts/TitleUtil' ),
-		issues = M.require( 'skins.minerva.scripts/pageIssues' ),
-		Toolbar = M.require( 'skins.minerva.scripts/Toolbar' ),
+		notifications = require( './notifications.js' ),
+		preInit = require( './preInit.js' ),
+		initLogging = require( './initLogging.js' ),
+		mobileRedirect = require( './mobileRedirect.js' ),
+		search = require( './search.js' ),
+		references = require( './references.js' ),
+		TitleUtil = require( './TitleUtil.js' ),
+		issues = require( './page-issues/index.js' ),
+		Toolbar = require( './Toolbar.js' ),
 		router = require( 'mediawiki.router' ),
-		OverlayManager = mobile.OverlayManager,
 		CtaDrawer = mobile.CtaDrawer,
 		Button = mobile.Button,
 		Anchor = mobile.Anchor,
-		overlayManager = OverlayManager.getSingleton(),
+		overlayManager = require( './overlayManager.js' ),
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
 		$redLinks = currentPageHTMLParser.getRedLinks(),
@@ -334,6 +339,18 @@
 
 	$( function () {
 		var toolbarElement = document.querySelector( Toolbar.selector );
+		// Init:
+		// - main menu closes when you click outside of it
+		// - redirects show a toast.
+		preInit();
+		// - logging
+		initLogging();
+		// - references
+		references();
+		// - search
+		search();
+		// - mobile redirect
+		mobileRedirect();
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
 		initRegistrationInfo();
@@ -351,7 +368,12 @@
 		if ( !currentPage.isMissing ) {
 			issues.init( overlayManager, currentPageHTMLParser );
 		}
+		// If Echo is installed (using config as a proxy) and user is logged in init notifications
+		if ( !mw.user.isAnon() && mw.config.get( 'wgEchoMaxNotificationCount' ) !== undefined ) {
+			notifications();
+		}
 	} );
-
-	M.define( 'skins.minerva.scripts/overlayManager', overlayManager );
+	module.exports = {
+		overlayManager: overlayManager
+	};
 }( mw.mobileFrontend ) );

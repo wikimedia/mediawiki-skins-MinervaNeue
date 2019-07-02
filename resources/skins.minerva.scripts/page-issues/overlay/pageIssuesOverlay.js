@@ -1,7 +1,7 @@
 ( function ( M, mwMsg ) {
 	var
 		Overlay = M.require( 'mobile.startup' ).Overlay,
-		IssueList = M.require( 'skins.minerva.scripts/IssueList' ),
+		IssueList = require( './IssueList.js' ),
 		KEYWORD_ALL_SECTIONS = 'all',
 		NS_MAIN = 0,
 		NS_TALK = 1,
@@ -53,5 +53,5 @@
 		}
 	}
 
-	M.define( 'skins.minerva.scripts/pageIssuesOverlay', pageIssuesOverlay );
+	module.exports = pageIssuesOverlay;
 }( mw.mobileFrontend, mw.msg ) );

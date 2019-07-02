@@ -9,9 +9,9 @@
 		NS_CATEGORY = 14,
 		CURRENT_NS = config.get( 'wgNamespaceNumber' ),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
-		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
-		pageIssuesOverlay = M.require( 'skins.minerva.scripts/pageIssuesOverlay' ),
-		pageIssueFormatter = M.require( 'skins.minerva.scripts/page-issues/page/pageIssueFormatter' ),
+		pageIssuesParser = require( './parser.js' ),
+		pageIssuesOverlay = require( './overlay/pageIssuesOverlay.js' ),
+		pageIssueFormatter = require( './page/pageIssueFormatter.js' ),
 		// When the query string flag is set force on new treatment.
 		// When wgMinervaPageIssuesNewTreatment is the default this line can be removed.
 		QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
@@ -194,11 +194,11 @@
 		} );
 	}
 
-	M.define( 'skins.minerva.scripts/pageIssues', {
+	module.exports = {
 		init: initPageIssues,
 		test: {
 			insertBannersOrNotice: insertBannersOrNotice
 		}
-	} );
+	};
 
 }( mw.mobileFrontend ) );

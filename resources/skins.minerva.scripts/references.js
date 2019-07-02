@@ -1,5 +1,6 @@
-( function ( M ) {
+module.exports = function () {
 	var drawer,
+		M = mw.mobileFrontend,
 		router = require( 'mediawiki.router' ),
 		mobile = M.require( 'mobile.startup' ),
 		currentPage = mobile.currentPage(),
@@ -93,4 +94,4 @@
 	}
 
 	init();
-}( mw.mobileFrontend ) );
+};

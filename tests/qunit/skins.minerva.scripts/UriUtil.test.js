@@ -1,5 +1,5 @@
-( function ( M ) {
-	var UriUtil = M.require( 'skins.minerva.scripts/UriUtil' );
+( function () {
+	var UriUtil = require( '../../../resources/skins.minerva.scripts/UriUtil.js' );
 
 	QUnit.module( 'Minerva UriUtil', QUnit.newMwEnvironment( {
 		setup: function () {
@@ -44,4 +44,4 @@
 			'differing subdomains are not internal'
 		);
 	} );
-}( mw.mobileFrontend ) );
+}() );

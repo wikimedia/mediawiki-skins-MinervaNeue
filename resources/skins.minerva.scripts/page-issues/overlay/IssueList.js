@@ -3,7 +3,7 @@
 		mobile = M.require( 'mobile.startup' ),
 		mfExtend = mobile.mfExtend,
 		View = mobile.View,
-		IssueNotice = M.require( 'skins.minerva.scripts/IssueNotice' );
+		IssueNotice = require( './IssueNotice.js' );
 
 	/**
 	 * IssueList
@@ -29,5 +29,5 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.scripts/IssueList', IssueList );
+	module.exports = IssueList;
 }( mw.mobileFrontend ) );

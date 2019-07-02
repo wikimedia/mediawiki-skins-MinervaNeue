@@ -7,8 +7,9 @@
 		windowChrome = { chrome: true },
 		downloadIcon = icons.spinner(),
 		windowNotChrome = {},
-		getOnClickHandler = M.require( 'skins.minerva.scripts/test/getOnClickHandler' ),
-		isAvailable = M.require( 'skins.minerva.scripts/test/isAvailable' ),
+		downloadAction = require( '../../../resources/skins.minerva.scripts/downloadPageAction.js' ),
+		getOnClickHandler = downloadAction.test.getOnClickHandler,
+		isAvailable = downloadAction.test.isAvailable,
 		browser = mobile.Browser.getSingleton(),
 		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
 		Page = mobile.Page;

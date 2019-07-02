@@ -5,13 +5,11 @@
  * @class mw.mobileFrontend
  * @singleton
  */
-( function ( M ) {
-	var skin = M.require( 'mobile.init/skin' ),
-		mainMenu = M.require( 'skins.minerva.scripts/mainMenu' ),
+module.exports = function () {
+	var M = mw.mobileFrontend,
+		skin = M.require( 'mobile.init/skin' ),
+		mainMenu = require( './menu.js' ),
 		toast = M.require( 'mobile.startup' ).toast;
-
-	// Proxy to MobileFrontend defined skin
-	M.define( 'skins.minerva.scripts/skin', skin );
 
 	/**
 	 * Close navigation if skin is tapped
@@ -55,4 +53,4 @@
 		}
 	}( mw.config.get( 'wgRedirectedFrom' ) ) );
 	/* eslint-enable no-console */
-}( mw.mobileFrontend ) );
+};
