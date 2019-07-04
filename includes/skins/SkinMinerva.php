@@ -559,6 +559,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 		return Html::rawElement( 'h1', [ 'id' => 'section_0' ], $heading );
 	}
+
 	/**
 	 * Create and prepare header and footer content
 	 * @param BaseTemplate $tpl
@@ -568,7 +569,10 @@ class SkinMinerva extends SkinTemplate {
 		$user = $this->getUser();
 		$out = $this->getOutput();
 		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
-		if ( $this->getUserPageHelper()->isUserPage() ) {
+		if ( $this->getUserPageHelper()->isUserPage() &&
+			 // when overflow menu is visible, we don't need to build secondary options
+			 // as most of options are visible on Toolbar/Overflow menu
+			 !$this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
 			$pageUser = $this->getUserPageHelper()->getPageUser();
 			$talkPage = $pageUser->getTalkPage();
 			$data = [
