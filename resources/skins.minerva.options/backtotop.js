@@ -1,7 +1,8 @@
-( function ( M ) {
-	var BackToTopOverlay = M.require( 'skins.minerva.options/BackToTopOverlay' ),
+module.exports = function () {
+	var BackToTopOverlay = require( './BackToTopOverlay.js' ),
 		backtotop = new BackToTopOverlay(),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
+		M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
 		browser = mobile.Browser.getSingleton(),
 		eventBus = mobile.eventBusSingleton;
@@ -21,4 +22,4 @@
 			backtotop.hide();
 		}
 	} );
-}( mw.mobileFrontend ) );
+};

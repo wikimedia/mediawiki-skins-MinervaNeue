@@ -1,6 +1,6 @@
 ( function ( M, msg, config ) {
 	var Icon = M.require( 'mobile.startup' ).Icon,
-		trackShare = M.require( 'skins.minerva.share/track' );
+		trackShare = require( './trackShare.js' );
 
 	/**
 	 * Generate a mouse event that when run
@@ -42,5 +42,5 @@
 		} );
 	}
 
-	M.define( 'skins.minerva.share/shareIcon', shareIcon );
+	module.exports = shareIcon;
 }( mw.mobileFrontend, mw.msg, mw.config ) );

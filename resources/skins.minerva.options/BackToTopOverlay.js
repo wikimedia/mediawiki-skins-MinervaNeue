@@ -53,6 +53,6 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.options/BackToTopOverlay', BackToTopOverlay );
+	module.exports = BackToTopOverlay;
 
 }( mw.mobileFrontend ) );

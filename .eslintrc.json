@@ -4,6 +4,9 @@
 		"wikimedia/client",
 		"wikimedia/jquery"
 	],
+	"env": {
+		"commonjs": true
+	},
 	"globals": {
 		"OO": "readonly",
 		"mw": "readonly",
