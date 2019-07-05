@@ -125,7 +125,7 @@
 	 */
 	function downloadPageAction( skin, supportedNamespaces, windowObj, hasText ) {
 		var
-			modifier = hasText ? 'toolbar-overflow-menu__list-item' : 'mw-ui-icon-element',
+			modifier = hasText ? 'toggle-list-item__anchor--menu' : 'mw-ui-icon-element',
 			icon,
 			spinner = icons.spinner( {
 				hasText: hasText,

@@ -1,6 +1,7 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
+		ToggleList = M.require( 'skins.minerva.scripts/ToggleList' ),
 		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
 		Icon = mobile.Icon,
 		skin = M.require( 'mobile.init/skin' ),
@@ -8,11 +9,7 @@
 		toolbarSelector = '.page-actions-menu',
 		/** The secondary overflow submenu component container. */
 		overflowSubmenuSelector = '#page-actions-overflow',
-		/** The visible label icon associated with the checkbox. */
-		overflowButtonSelector = '.toolbar-overflow-menu__button',
-		/** The underlying hidden checkbox that controls secondary overflow submenu visibility. */
-		overflowCheckboxSelector = '#toolbar-overflow-menu__checkbox',
-		overflowListSelector = '.toolbar-overflow-menu__list';
+		overflowListSelector = '.toggle-list__list';
 
 	/**
 	 * @param {Window} window
@@ -21,16 +18,9 @@
 	 * @return {void}
 	 */
 	function bind( window, toolbar, eventBus ) {
-		var
-			overflowSubmenu = toolbar.querySelector( overflowSubmenuSelector ),
-			overflowButton = toolbar.querySelector( overflowButtonSelector ),
-			overflowCheckbox = toolbar.querySelector( overflowCheckboxSelector ),
-			overflowList = toolbar.querySelector( overflowListSelector );
-
+		var overflowSubmenu = toolbar.querySelector( overflowSubmenuSelector );
 		if ( overflowSubmenu ) {
-			bindOverflowSubmenu(
-				window, overflowSubmenu, overflowButton, overflowCheckbox, overflowList, eventBus
-			);
+			ToggleList.bind( window, overflowSubmenu, eventBus, true );
 		}
 	}
 
@@ -40,65 +30,13 @@
 	 * @return {void}
 	 */
 	function render( window, toolbar ) {
-		var overflowList = toolbar.querySelector( overflowListSelector );
+		var
+			overflowSubmenu = toolbar.querySelector( overflowSubmenuSelector ),
+			overflowList = toolbar.querySelector( overflowListSelector );
 		renderEditButton();
 		renderDownloadButton( window, overflowList );
-		if ( overflowList ) {
-			resizeOverflowList( overflowList );
-		}
-	}
-
-	/**
-	 * Automatically dismiss the submenu when clicking or focusing elsewhere, resize the menu on
-	 * scroll and window resize, and update the aria-expanded attribute based on submenu visibility.
-	 * @param {Window} window
-	 * @param {Element} submenu
-	 * @param {Element} button
-	 * @param {HTMLInputElement} checkbox
-	 * @param {Element} list
-	 * @param {OO.EventEmitter} eventBus
-	 * @return {void}
-	 */
-	function bindOverflowSubmenu( window, submenu, button, checkbox, list, eventBus ) {
-		var
-			resize = resizeOverflowList.bind( undefined, list ),
-			updateAriaExpanded = function () {
-				checkbox.setAttribute( 'aria-expanded', ( !!checkbox.checked ).toString() );
-			};
-
-		window.addEventListener( 'click', function ( event ) {
-			if ( event.target !== button && event.target !== checkbox ) {
-				// Something besides the button or checkbox was tapped. Dismiss the submenu.
-				checkbox.checked = false;
-				updateAriaExpanded();
-			}
-		} );
-
-		// If focus is given to any element outside the menu, dismiss the submenu. Setting a
-		// focusout listener on submenu would be preferable, but this interferes with the click
-		// listener.
-		window.addEventListener( 'focusin', function ( event ) {
-			if ( event.target instanceof Node && !submenu.contains( event.target ) ) {
-				// Something besides the button or checkbox was focused. Dismiss the menu.
-				checkbox.checked = false;
-				updateAriaExpanded();
-			}
-		} );
-
-		eventBus.on( 'scroll:throttled', resize );
-		eventBus.on( 'resize:throttled', resize );
-
-		checkbox.addEventListener( 'change', updateAriaExpanded );
-	}
-
-	/**
-	 * @param {HTMLElement} list
-	 * @return {void}
-	 */
-	function resizeOverflowList( list ) {
-		var rect = list.getClientRects()[ 0 ];
-		if ( rect ) {
-			list.style.maxHeight = window.document.documentElement.clientHeight - rect.top + 'px';
+		if ( overflowSubmenu ) {
+			ToggleList.render( overflowSubmenu, true );
 		}
 	}
 

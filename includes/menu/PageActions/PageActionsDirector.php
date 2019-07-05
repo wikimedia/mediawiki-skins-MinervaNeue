@@ -73,11 +73,15 @@ final class PageActionsDirector {
 			'toolbar' => $toolbar->getEntries()
 		];
 		if ( $overflowMenu->hasEntries() ) {
+			// See components/ToggleList.
 			$menu[ 'overflowMenu' ] = [
 				'item-id' => 'page-actions-overflow',
-				'class' => MinervaUI::iconClass( 'page-actions-overflow' ),
+				'checkboxID' => 'page-actions-overflow-checkbox',
+				'toggleID' => 'page-actions-overflow-toggle',
+				'toggleClass' => MinervaUI::iconClass( 'page-actions-overflow' ),
+				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',
 				'text' => $this->messageLocalizer->msg( 'minerva-page-actions-overflow' ),
-				'pageActions' => $overflowMenu->getEntries()
+				'items' => $overflowMenu->getEntries()
 			];
 		}
 		return $menu;

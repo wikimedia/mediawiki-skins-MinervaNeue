@@ -1,0 +1,11 @@
+{{!
+	array components
+	string|null components.class Optional anchor CSS class.
+	string|null components.href Optional URI.
+	string|null components.text Optional text.
+}}
+{{#components}}
+	<li class="toggle-list-item">
+		<a class="toggle-list-item__anchor {{class}}" href="{{href}}">{{text}}</a>
+	</li>
+{{/components}}
