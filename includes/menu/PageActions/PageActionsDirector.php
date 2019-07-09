@@ -51,8 +51,11 @@ final class PageActionsDirector {
 	 * @param IOverflowBuilder $overflowBuilder The overflow menu builder
 	 * @param MessageLocalizer $messageLocalizer Message localizer used to translate texts
 	 */
-	public function __construct( ToolbarBuilder $toolbarBuilder, IOverflowBuilder $overflowBuilder,
-								 MessageLocalizer $messageLocalizer ) {
+	public function __construct(
+		ToolbarBuilder $toolbarBuilder,
+		IOverflowBuilder $overflowBuilder,
+		MessageLocalizer $messageLocalizer
+	) {
 		$this->toolbarBuilder = $toolbarBuilder;
 		$this->overflowBuilder = $overflowBuilder;
 		$this->messageLocalizer = $messageLocalizer;
@@ -61,12 +64,11 @@ final class PageActionsDirector {
 	/**
 	 * Build the menu data array that can be passed to views/javascript
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
-	 * @param bool $doesHaveLangUrls Whether the page is also available in other languages or variants
 	 * @return array
 	 * @throws MWException
 	 */
-	public function buildMenu( array $toolbox, $doesHaveLangUrls ): array {
-		$toolbar = $this->toolbarBuilder->getGroup( $doesHaveLangUrls );
+	public function buildMenu( array $toolbox ): array {
+		$toolbar = $this->toolbarBuilder->getGroup();
 		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox );
 
 		$menu = [

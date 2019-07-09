@@ -3,13 +3,12 @@
 namespace Tests\MediaWiki\Minerva;
 
 use ContentHandler;
+use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWikiTestCase;
-use OutputPage;
 use Title;
-use RequestContext;
 use User;
 
 /**
@@ -24,10 +23,19 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		array $options = [],
 		ContentHandler $contentHandler = null,
 		User $user = null,
-		OutputPage $outputPage = null,
+		$hasOtherLanguagesOrVariants = false,
 		$alwaysShowLanguageButton = true
 	) {
-		$outputPage = $outputPage ?? RequestContext::getMain()->getOutput();
+		$languageHelper = $this->getMock(
+			LanguagesHelper::class,
+			[ 'doesTitleHasLanguagesOrVariants' ],
+			[],
+			'',
+			false
+		);
+		$languageHelper->expects( $this->any() )
+			->method( 'doesTitleHasLanguagesOrVariants' )
+			->willReturn( $hasOtherLanguagesOrVariants );
 
 		$user = $user ?? $this->getTestUser()->getUser();
 		$actions = $actions ?? [
@@ -36,7 +44,6 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 				IMinervaPagePermissions::TALK,
 				IMinervaPagePermissions::SWITCH_LANGUAGE,
 		];
-
 		$contentHandler = $contentHandler ??
 			$this->getMockForAbstractClass( ContentHandler::class, [], '', false );
 		$skinOptions = new SkinOptions();
@@ -51,9 +58,9 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 				'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton
 			] ),
 			$user,
-			$outputPage,
 			$skinOptions,
-			$contentHandler
+			$contentHandler,
+			$languageHelper
 		);
 	}
 
@@ -144,10 +151,9 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 
 	public static function switchLanguagePageActionProvider() {
 		return [
-			[ true,  true,  false, true ],
-			[ false, false, true,  true ],
-			[ false, false, false, false ],
-			[ true,  false, false, true ],
+			[ true,  false, true ],
+			[ false, true,  true ],
+			[ false, false, false ],
 		];
 	}
 
@@ -182,25 +188,14 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 	 * @covers ::isAllowed
 	 */
 	public function testSwitchLanguagePageAction(
-		$hasLanguages,
-		$hasVariants,
+		$hasLanguagesOrVariants,
 		$minervaAlwaysShowLanguageButton,
 		$expected
 	) {
-		$out = RequestContext::getMain()->getOutput();
-		$out->setLanguageLinks( $hasLanguages ? [ 'pl:StronaTestowa', 'en:TestPage' ] : [] );
-
-		$languageMock = $this->getMock( \Language::class, [ 'hasVariants' ], [], '', false );
-		$languageMock->expects( $this->once() )
-			->method( 'hasVariants' )
-			->willReturn( $hasVariants );
-		$title = $this->getMock( Title::class, [ 'isMainPage', 'getPageLanguage' ] );
+		$title = $this->getMock( Title::class, [ 'isMainPage' ] );
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
-		$title->expects( $this->once() )
-			->method( 'getPageLanguage' )
-			->willReturn( $languageMock );
 
 		$permissions = $this->buildPermissionsObject(
 			$title,
@@ -208,7 +203,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 			[],
 			null,
 			null,
-			$out,
+			$hasLanguagesOrVariants,
 			$minervaAlwaysShowLanguageButton
 		);
 

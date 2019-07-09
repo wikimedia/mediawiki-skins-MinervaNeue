@@ -22,6 +22,7 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use ExtensionRegistry;
 use Hooks;
+use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Menu\Group;
@@ -71,6 +72,11 @@ class ToolbarBuilder {
 	 * @var SkinUserPageHelper
 	 */
 	private $userPageHelper;
+
+	/**
+	 * @var LanguagesHelper
+	 */
+	private $languagesHelper;
 	/**
 	 * Build Group containing icons for toolbar
 	 * @param Title $title Article title user is currently browsing
@@ -80,6 +86,7 @@ class ToolbarBuilder {
 	 * @param IMinervaPagePermissions $permissions Minerva permissions system
 	 * @param SkinOptions $skinOptions Skin options
 	 * @param SkinUserPageHelper $userPageHelper User Page helper
+	 * @param LanguagesHelper $languagesHelper Helper to check title languages/variants
 	 */
 	public function __construct(
 		Title $title,
@@ -88,7 +95,8 @@ class ToolbarBuilder {
 		PermissionManager $permissionManager,
 		IMinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
-		SkinUserPageHelper $userPageHelper
+		SkinUserPageHelper $userPageHelper,
+		LanguagesHelper $languagesHelper
 	) {
 		$this->title = $title;
 		$this->user = $user;
@@ -97,15 +105,14 @@ class ToolbarBuilder {
 		$this->permissions = $permissions;
 		$this->skinOptions = $skinOptions;
 		$this->userPageHelper = $userPageHelper;
+		$this->languagesHelper = $languagesHelper;
 	}
 
 	/**
-	 * @param bool $doesPageHaveLanguages Whether the page is also available in other languages
-	 * or variants
 	 * @return Group
 	 * @throws MWException
 	 */
-	public function getGroup( $doesPageHaveLanguages ): Group {
+	public function getGroup(): Group {
 		$group = new Group();
 		$permissions = $this->permissions;
 		$userPageWithOveflowMode = $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) &&
@@ -115,7 +122,7 @@ class ToolbarBuilder {
 			IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->insertEntry( new LanguageSelectorEntry(
 				$this->title,
-				$doesPageHaveLanguages,
+				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
 				MinervaUI::iconClass( 'language-switcher', 'element', '' ) )
 			);

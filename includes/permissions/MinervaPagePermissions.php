@@ -22,8 +22,8 @@ namespace MediaWiki\Minerva\Permissions;
 use Config;
 use ConfigException;
 use ContentHandler;
+use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
-use OutputPage;
 use Title;
 use User;
 
@@ -52,38 +52,38 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	private $contentHandler;
 
 	/**
-	 * @var OutputPage just to retrieve list of language links
-	 */
-	private $output;
-
-	/**
 	 * @var SkinOptions Minerva skin options
 	 */
 	private $skinOptions;
+
+	/**
+	 * @var LanguagesHelper
+	 */
+	private $languagesHelper;
 
 	/**
 	 * Initialize internal Minerva Permissions system
 	 * @param Title $title Current page title
 	 * @param Config $config Minerva config
 	 * @param User $user Currently logged in user
-	 * @param OutputPage $output Output page used to fetch languages
 	 * @param SkinOptions $skinOptions Skin options`
 	 * @param ContentHandler $contentHandler
+	 * @param LanguagesHelper $languagesHelper
 	 */
 	public function __construct(
 		Title $title,
 		Config $config,
 		User $user,
-		OutputPage $output,
 		SkinOptions $skinOptions,
-		ContentHandler $contentHandler
+		ContentHandler $contentHandler,
+		LanguagesHelper $languagesHelper
 	) {
 		$this->title = $title;
 		$this->config = $config;
 		$this->user = $user;
-		$this->output = $output;
 		$this->skinOptions = $skinOptions;
 		$this->contentHandler = $contentHandler;
+		$this->languagesHelper = $languagesHelper;
 	}
 
 	/**
@@ -148,11 +148,8 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			if ( $wgHideInterlanguageLinks ) {
 				return false;
 			}
-			$hasVariants = $this->title->getPageLanguage()->hasVariants();
-			$hasLanguages = count( $this->output->getLanguageLinks() );
-
-			return $hasVariants || $hasLanguages ||
-				   $this->config->get( 'MinervaAlwaysShowLanguageButton' );
+			return $this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ) ||
+				$this->config->get( 'MinervaAlwaysShowLanguageButton' );
 		}
 		return true;
 	}
