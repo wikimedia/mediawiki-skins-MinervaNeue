@@ -6,8 +6,8 @@ const assert = require( 'assert' ),
 
 const waitForPropagation = ( timeMs ) => {
 	// wait 2 seconds so the change can propogate.
-	const d = new Date();
-	browser.waitUntil( () => new Date() - d > timeMs );
+	// Replace this with a more dynamic statement.
+	browser.pause( timeMs );
 };
 
 const createPages = ( pages ) => {
