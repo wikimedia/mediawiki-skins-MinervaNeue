@@ -1,5 +1,6 @@
-( function ( M ) {
+module.exports = function () {
 	var
+		M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
 		loader = mobile.rlModuleLoader,
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
@@ -56,4 +57,4 @@
 
 	$( initButton );
 
-}( mw.mobileFrontend ) );
+};

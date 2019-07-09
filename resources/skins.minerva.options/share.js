@@ -1,6 +1,7 @@
-( function ( M, config ) {
-	var shareIcon = M.require( 'skins.minerva.share/shareIcon' ),
-		trackShare = M.require( 'skins.minerva.share/track' ),
+module.exports = function () {
+	var config = mw.config,
+		shareIcon = require( './shareIcon.js' ),
+		trackShare = require( './trackShare.js' ),
 		features = config.get( 'wgMinervaFeatures', {} );
 
 	/**
@@ -25,4 +26,4 @@
 		trackShare( 'shownShareButton' );
 	}
 
-}( mw.mobileFrontend, mw.config ) );
+};

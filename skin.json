@@ -587,7 +587,8 @@
 			"styles": [
 				"resources/skins.minerva.options/backtotop.less"
 			],
-			"scripts": [
+			"packageFiles": [
+				"resources/skins.minerva.options/index.js",
 				"resources/skins.minerva.options/BackToTopOverlay.js",
 				"resources/skins.minerva.options/backtotop.js",
 				"resources/skins.minerva.options/categories.js",

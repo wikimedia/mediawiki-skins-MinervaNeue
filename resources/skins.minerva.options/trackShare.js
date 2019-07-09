@@ -1,4 +1,4 @@
-( function ( M, track, user, config ) {
+( function ( track, user, config ) {
 	/**
 	 * Helper function to track share button usage
 	 *
@@ -14,5 +14,5 @@
 		} );
 	}
 
-	M.define( 'skins.minerva.share/track', trackShare );
-}( mw.mobileFrontend, mw.track, mw.user, mw.config ) );
+	module.exports = trackShare;
+}( mw.track, mw.user, mw.config ) );
