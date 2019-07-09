@@ -6,8 +6,8 @@
 		util = mobile.util,
 		Icon = mobile.Icon,
 		notificationIcon = new Icon( {
-			name: 'notifications',
-			glyphPrefix: 'minerva'
+			name: 'bellOutline-base20',
+			glyphPrefix: 'wikimedia'
 		} );
 
 	/**

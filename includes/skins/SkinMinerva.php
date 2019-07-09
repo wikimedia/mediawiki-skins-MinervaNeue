@@ -399,7 +399,8 @@ class SkinMinerva extends SkinTemplate {
 				[ 'returnto' => $currentTitle->getPrefixedText() ] );
 
 			$tpl->set( 'userNotificationsData', [
-				'notificationIconClass' => MinervaUI::iconClass( 'notifications' ),
+				'notificationIconClass' => MinervaUI::iconClass( 'bellOutline-base20',
+					'element', '', 'wikimedia' ),
 				'title' => $notificationsMsg,
 				'url' => $url,
 				'notificationCountRaw' => $count,
@@ -923,6 +924,7 @@ class SkinMinerva extends SkinTemplate {
 			'mediawiki.hlist',
 			'mediawiki.ui.icon',
 			'mediawiki.ui.button',
+			'skins.minerva.icons.wikimedia',
 			'skins.minerva.icons.images',
 		];
 		if ( $title->isMainPage() ) {
