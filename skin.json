@@ -489,7 +489,7 @@
 			],
 			"styles": [
 				"resources/skins.minerva.scripts/styles.less",
-				"resources/skins.minerva.scripts/page-issues/overlay/PageIssuesOverlay.less"
+				"resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.less"
 			],
 			"templates": {
 				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache",
