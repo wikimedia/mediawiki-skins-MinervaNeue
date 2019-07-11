@@ -27,12 +27,7 @@ use WebRequest;
 /**
  * Model for a menu entry that represents log-in / profile+logout pair of links
  */
-class AuthMenuEntry implements IMenuEntry {
-
-	/**
-	 * Default tracking code for clicks on profile menu link
-	 */
-	const DEFAULT_PROFILE_TRACKING_CODE = 'profile';
+class AuthMenuEntry implements IProfileMenuEntry {
 	/**
 	 * @var User
 	 */
@@ -93,17 +88,14 @@ class AuthMenuEntry implements IMenuEntry {
 	}
 
 	/**
-	 * Override the href for the profile component for logged in users
-	 * @param string $customURL A new href for profile entry
-	 * @param string|null $customLabel A new label for profile entry. Null if you don't want to
-	 * override it
-	 * @param string $trackingCode new tracking code
+	 * @inheritDoc
 	 */
 	public function overrideProfileURL( $customURL, $customLabel = null,
 		$trackingCode = self::DEFAULT_PROFILE_TRACKING_CODE ) {
 		$this->customProfileURL = $customURL;
 		$this->customProfileLabel = $customLabel;
 		$this->profileTrackingCode = $trackingCode;
+		return $this;
 	}
 
 	/**
