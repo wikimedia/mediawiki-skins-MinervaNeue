@@ -37,7 +37,7 @@ When(/^I press the enter key$/) do
 end
 
 When(/^I click the search overlay close button$/) do
-  on(ArticlePage).search_overlay_close_button_element.click
+  on(ArticlePage).search_overlay_close_button_element.when_visible.click
 end
 
 When(/^I see the search overlay$/) do
