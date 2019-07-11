@@ -12,8 +12,9 @@
 				errorSamplingRate = config.get( 'wgMinervaErrorLogSamplingRate', 0 ),
 				sessionToken = user.sessionId(),
 				EVENT_CLIENT_ERROR_LOG = 'wikimedia.event.WebClientError',
-				page = M.getCurrentPage(),
-				util = M.require( 'mobile.startup' ).util,
+				mobile = M.require( 'mobile.startup' ),
+				currentPage = mobile.currentPage(),
+				util = mobile.util,
 				errorExperiment = {
 					name: 'WebClientError',
 					enabled: errorSamplingRate > 0,
@@ -29,7 +30,7 @@
 					wgVersion: config.get( 'wgVersion' ),
 					mobileMode: config.get( 'wgMFMode', 'desktop' ),
 					isAnon: user.isAnon(),
-					revision: page.getRevisionId()
+					revision: currentPage.getRevisionId()
 				};
 
 			if ( isErrorLoggingEnabled ) {

@@ -1,13 +1,14 @@
 ( function ( M ) {
 	var
-		page = M.getCurrentPage(),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$contentContainer = $( '#mw-content-text > .mw-parser-output' ),
 		mobile = M.require( 'mobile.startup' ),
+		currentPage = mobile.currentPage(),
+		currentPageHTMLParser = mobile.currentPageHTMLParser(),
 		Toggler = mobile.Toggler,
 		eventBus = mobile.eventBusSingleton;
 
-	if ( !page.getLeadSectionElement() ) {
+	if ( !currentPageHTMLParser.getLeadSectionElement() ) {
 		// Operating in desktop Minerva mode. Stop execution. (T172948)
 		return;
 	}
@@ -46,9 +47,9 @@
 
 	// avoid this running on Watchlist
 	if (
-		!page.inNamespace( 'special' ) &&
+		!currentPage.inNamespace( 'special' ) &&
 		mw.config.get( 'wgAction' ) === 'view'
 	) {
-		init( $contentContainer, 'content-', page );
+		init( $contentContainer, 'content-', currentPage );
 	}
 }( mw.mobileFrontend ) );

@@ -1,9 +1,9 @@
 ( function ( M ) {
 	var drawer,
-		skin = M.require( 'skins.minerva.scripts/skin' ),
-		page = M.getCurrentPage(),
 		router = require( 'mediawiki.router' ),
 		mobile = M.require( 'mobile.startup' ),
+		currentPage = mobile.currentPage(),
+		currentPageHTMLParser = mobile.currentPageHTMLParser(),
 		ReferencesGateway = mobile.ReferencesGateway,
 		ReferencesMobileViewGateway = mobile.ReferencesMobileViewGateway,
 		referencesMobileViewGateway = ReferencesMobileViewGateway.getSingleton(),
@@ -36,9 +36,8 @@
 	 * @ignore
 	 * @param {JQuery.Event} ev Click event of the reference element
 	 * @param {ReferencesDrawer} drawer to show the reference in
-	 * @param {Page} page
 	 */
-	function showReference( ev, drawer, page ) {
+	function showReference( ev, drawer ) {
 		var urlComponents, result,
 			$dest = $( ev.currentTarget ),
 			href = $dest.attr( 'href' );
@@ -51,7 +50,7 @@
 		if ( urlComponents.length > 1 ) {
 			href = '#' + urlComponents[ 1 ];
 		}
-		result = drawer.showReference( href, page, $dest.text() );
+		result = drawer.showReference( href, currentPage, $dest.text(), currentPageHTMLParser );
 		// Previously showReference method returns nothing so we check its truthy
 		// Can be removed when I5a7b23f60722eb5017a85c68f38844dd460f8b63 is merged.
 		if ( result ) {
@@ -85,29 +84,13 @@
 		if ( !drawer ) {
 			drawer = referenceDrawerFactory();
 		}
-		showReference( ev, drawer, ev.data.page );
+		showReference( ev, drawer );
 	}
 
-	/**
-	 * Make references clickable and show a drawer when clicked on.
-	 * @ignore
-	 * @param {Page} page
-	 */
-	function setup( page ) {
-		var $refs = page.$el.find( 'sup.reference a' );
-
-		if ( $refs.length ) {
-			$refs
-				.off( 'click.references' )
-				.on( 'click.references', {
-					page: page
-				}, onClickReference );
-		}
+	function init() {
+		// Make references clickable and show a drawer when clicked on.
+		mobile.util.getDocument().on( 'click', 'sup.reference a', onClickReference );
 	}
 
-	setup( page );
-	// When references are lazy loaded you'll want to take care of nested references
-	skin.on( 'references-loaded', function ( page ) {
-		setup( page );
-	} );
+	init();
 }( mw.mobileFrontend ) );

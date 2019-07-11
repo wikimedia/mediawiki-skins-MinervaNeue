@@ -4,7 +4,7 @@
 		pageIssues = M.require( 'skins.minerva.scripts/pageIssues' ),
 		insertBannersOrNotice = pageIssues.test.insertBannersOrNotice,
 		OverlayManager = mobile.OverlayManager,
-		Page = mobile.Page,
+		PageHTMLParser = mobile.PageHTMLParser,
 		overlayManager = OverlayManager.getSingleton(),
 		$mockContainer = $(
 			'<div id=\'bodyContent\'>' +
@@ -19,7 +19,7 @@
 		inline = true,
 		SECTION = '0',
 		processedAmbox = insertBannersOrNotice(
-			new Page( { el: $mockContainer } ),
+			new PageHTMLParser( $mockContainer ),
 			labelText, SECTION, inline, overlayManager
 		).ambox;
 

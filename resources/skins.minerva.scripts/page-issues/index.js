@@ -1,7 +1,7 @@
 ( function ( M ) {
 	/** @typedef {Object.<number | 'all', IssueSummary[]>} IssueSummaryMap */
 
-	var Page = M.require( 'mobile.startup' ).Page,
+	var PageHTMLParser = M.require( 'mobile.startup' ).PageHTMLParser,
 		KEYWORD_ALL_SECTIONS = 'all',
 		config = mw.config,
 		NS_MAIN = 0,
@@ -24,7 +24,7 @@
 	 * will be rendered above the heading.
 	 * This function comes with side effects. It will populate a global "allIssues" object which
 	 * will link section numbers to issues.
-	 * @param {Page} page to search for page issues inside
+	 * @param {PageHTMLParser} pageHTMLParser parser to search for page issues
 	 * @param {string} labelText what the label of the page issues banner should say
 	 * @param {string} section that the banner and its issues belong to.
 	 *  If string KEYWORD_ALL_SECTIONS banner should apply to entire page.
@@ -36,7 +36,7 @@
 	 *
 	 * @return {{ambox: JQuery.Object, issueSummaries: IssueSummary[]}}
 	 */
-	function insertBannersOrNotice( page, labelText, section, inline, overlayManager ) {
+	function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, overlayManager ) {
 		var
 			$metadata,
 			issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
@@ -44,10 +44,10 @@
 			issueSummaries = [];
 
 		if ( section === KEYWORD_ALL_SECTIONS ) {
-			$metadata = page.$el.find( selector );
+			$metadata = pageHTMLParser.$el.find( selector );
 		} else {
 			// find heading associated with the section
-			$metadata = page.findChildInSectionLead( parseInt( section, 10 ), selector );
+			$metadata = pageHTMLParser.findChildInSectionLead( parseInt( section, 10 ), selector );
 		}
 		// clean it up a little
 		$metadata.find( '.NavFrame' ).remove();
@@ -118,9 +118,9 @@
 	 * that opens them in a mobile friendly overlay.
 	 * @ignore
 	 * @param {OverlayManager} overlayManager
-	 * @param {Page} page
+	 * @param {PageHTMLParser} pageHTMLParser
 	 */
-	function initPageIssues( overlayManager, page ) {
+	function initPageIssues( overlayManager, pageHTMLParser ) {
 		var
 			section,
 			/** @type {IssueSummary[]} */
@@ -128,7 +128,7 @@
 			/** @type {IssueSummaryMap} */
 			allIssues = {},
 			label,
-			$lead = page.getLeadSectionElement(),
+			$lead = pageHTMLParser.getLeadSectionElement(),
 			issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || CURRENT_NS === NS_TALK || !$lead,
 			inline = newTreatmentEnabled && CURRENT_NS === 0;
 
@@ -142,7 +142,7 @@
 		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {
 			section = KEYWORD_ALL_SECTIONS;
 			// e.g. Template:English variant category; Template:WikiProject
-			issueSummaries = insertBannersOrNotice( page, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
+			issueSummaries = insertBannersOrNotice( pageHTMLParser, mw.msg( 'mobile-frontend-meta-data-issues-header-talk' ),
 				section, inline, overlayManager ).issueSummaries;
 			allIssues[ section ] = issueSummaries;
 		} else if ( CURRENT_NS === NS_MAIN ) {
@@ -150,35 +150,38 @@
 			if ( issueOverlayShowAll ) {
 				section = KEYWORD_ALL_SECTIONS;
 				issueSummaries = insertBannersOrNotice(
-					page, label, section, inline, overlayManager
+					pageHTMLParser, label, section, inline, overlayManager
 				).issueSummaries;
 				allIssues[ section ] = issueSummaries;
 			} else {
 				// parse lead
 				section = '0';
 				issueSummaries = insertBannersOrNotice(
-					page, label, section, inline, overlayManager
+					pageHTMLParser, label, section, inline, overlayManager
 				).issueSummaries;
 				allIssues[ section ] = issueSummaries;
 				if ( newTreatmentEnabled ) {
 					// parse other sections but only in group B. In treatment A no issues are shown
 					// for sections.
-					page.$el.find( Page.HEADING_SELECTOR ).each( function ( i, headingEl ) {
-						var $headingEl = $( headingEl ),
-							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
+					pageHTMLParser.$el.find( PageHTMLParser.HEADING_SELECTOR ).each(
+						function ( i, headingEl ) {
+							var $headingEl = $( headingEl ),
+								sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
 
-						// Note certain headings matched using Page.HEADING_SELECTOR may not be
-						// headings and will not have a edit link. E.g. table of contents.
-						if ( sectionNum ) {
-							// Render banner for sectionNum associated with headingEl inside
-							// Page
-							section = sectionNum.toString();
-							issueSummaries = insertBannersOrNotice(
-								page, label, section, inline, overlayManager
-							).issueSummaries;
-							allIssues[ section ] = issueSummaries;
+							// Note certain headings matched using
+							// PageHTMLParser.HEADING_SELECTOR may not be headings and will
+							// not have a edit link. E.g. table of contents.
+							if ( sectionNum ) {
+								// Render banner for sectionNum associated with headingEl inside
+								// Page
+								section = sectionNum.toString();
+								issueSummaries = insertBannersOrNotice(
+									pageHTMLParser, label, section, inline, overlayManager
+								).issueSummaries;
+								allIssues[ section ] = issueSummaries;
+							}
 						}
-					} );
+					);
 				}
 			}
 		}

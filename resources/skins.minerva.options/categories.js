@@ -25,7 +25,7 @@ module.exports = function () {
 			return categoryOverlay( {
 				api: new mw.Api(),
 				isAnon: isAnon,
-				title: M.getCurrentPage().title,
+				title: mobile.currentPage().title,
 				eventBus: eventBus
 			} );
 		} );
@@ -40,7 +40,7 @@ module.exports = function () {
 			return new CategoryAddOverlay( {
 				api: new mw.Api(),
 				isAnon: isAnon,
-				title: M.getCurrentPage().title,
+				title: mobile.currentPage().title,
 				eventBus: eventBus
 			} );
 		} );

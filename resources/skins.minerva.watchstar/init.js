@@ -1,6 +1,9 @@
 ( function ( M ) {
 
-	var Watchstar = M.require( 'mobile.startup' ).Watchstar,
+	var
+		mobile = M.require( 'mobile.startup' ),
+		currentPage = mobile.currentPage(),
+		Watchstar = mobile.Watchstar,
 		user = mw.user;
 
 	/**
@@ -24,6 +27,6 @@
 			} );
 		}
 	}
-	init( M.getCurrentPage() );
+	init( currentPage );
 
 }( mw.mobileFrontend ) );

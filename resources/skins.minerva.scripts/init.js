@@ -13,8 +13,9 @@
 		Button = mobile.Button,
 		Anchor = mobile.Anchor,
 		overlayManager = OverlayManager.getSingleton(),
-		page = M.getCurrentPage(),
-		$redLinks = page.getRedLinks(),
+		currentPage = mobile.currentPage(),
+		currentPageHTMLParser = mobile.currentPageHTMLParser(),
+		$redLinks = currentPageHTMLParser.getRedLinks(),
 		api = new mw.Api(),
 		eventBus = mobile.eventBusSingleton,
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
@@ -50,7 +51,7 @@
 	 * @param {JQuery.Object} [$container] Optional container to search within
 	 */
 	function initMediaViewer( $container ) {
-		page.getThumbnails( $container ).forEach( function ( thumb ) {
+		currentPageHTMLParser.getThumbnails( $container ).forEach( function ( thumb ) {
 			thumb.$el.off().data( 'thumb', thumb ).on( 'click', onClickImage );
 		} );
 	}
@@ -96,7 +97,7 @@
 
 		return mobile.mediaViewer.overlay( {
 			api: api,
-			thumbnails: page.getThumbnails(),
+			thumbnails: currentPageHTMLParser.getThumbnails(),
 			title: decodeURIComponent( title ),
 			eventBus: eventBus
 		} );
@@ -347,8 +348,8 @@
 		initTabsScrollPosition();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
-		if ( !page.isMissing ) {
-			issues.init( overlayManager, page );
+		if ( !currentPage.isMissing ) {
+			issues.init( overlayManager, currentPageHTMLParser );
 		}
 	} );
 
