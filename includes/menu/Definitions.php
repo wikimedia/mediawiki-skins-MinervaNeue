@@ -118,9 +118,8 @@ final class Definitions {
 	public function insertLogInOutMenuItem( Group $group ) {
 		$group->insertEntry( new AuthMenuEntry(
 			$this->user,
-			$this->context->getRequest(),
 			$this->context,
-			$this->context->getTitle()
+			$this->newLogInOutQuery( $this->newReturnToQuery() )
 		) );
 	}
 
@@ -274,4 +273,44 @@ final class Definitions {
 		) );
 	}
 
+	/**
+	 * @param array $returnToQuery
+	 * @return array
+	 */
+	private function newLogInOutQuery( array $returnToQuery ): array {
+		$ret = [];
+		$title = $this->context->getTitle();
+		$user = $this->user;
+		if ( $title && !$title->isSpecial( 'Userlogin' ) ) {
+			$ret[ 'returnto' ] = $title->getPrefixedText();
+		}
+		if ( $user && $user->isLoggedIn() ) {
+			$ret['logoutToken'] = $user->getEditToken( 'logoutToken', $this->context->getRequest() );
+		} else {
+			// unset campaign on login link so as not to interfere with A/B tests
+			unset( $returnToQuery['campaign'] );
+		}
+		if ( !empty( $returnToQuery ) ) {
+			$ret['returntoquery'] = wfArrayToCgi( $returnToQuery );
+		}
+		return $ret;
+	}
+
+	/**
+	 * Retrieve current query parameters from Request object so system can pass those
+	 * to the Login/logout links
+	 * Some parameters are disabled (like title), as the returnto will be replaced with
+	 * the current page.
+	 * @return array
+	 */
+	private function newReturnToQuery(): array {
+		$returnToQuery = [];
+		if ( !$this->context->getRequest()->wasPosted() ) {
+			$returnToQuery = $this->context->getRequest()->getValues();
+			unset( $returnToQuery['title'] );
+			unset( $returnToQuery['returnto'] );
+			unset( $returnToQuery['returntoquery'] );
+		}
+		return $returnToQuery;
+	}
 }

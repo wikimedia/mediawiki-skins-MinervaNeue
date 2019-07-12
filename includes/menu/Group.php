@@ -27,7 +27,7 @@ use MediaWiki\Minerva\Menu\Entries\MenuEntry;
 /**
  * Model for a menu that can be presented in a skin.
  */
-class Group {
+final class Group {
 	/**
 	 * @var IMenuEntry[]
 	 */

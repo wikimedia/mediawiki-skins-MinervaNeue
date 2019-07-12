@@ -41,13 +41,17 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param bool|string $trackClicks Should clicks be tracked. To override the tracking code
 	 * pass the tracking code as string
 	 * @param string|null $iconName The Icon name, if not defined, the $name will be used
+	 * @param string $iconType 'before' or 'element'
+	 * @param string $classes Additional CSS class names.
 	 */
-	public function __construct( $name, $text, $url, $trackClicks = true, $iconName = null ) {
+	public function __construct(
+		$name, $text, $url, $trackClicks = true, $iconName = null, $iconType = 'before', $classes = ''
+	) {
 		$this->name = $name;
 		$this->component = [
 			'text' => $text,
 			'href' => $url,
-			'class' => MinervaUI::iconClass( $iconName ?? $name, 'before' ),
+			'class' => MinervaUI::iconClass( $iconName ?? $name, $iconType, $classes ),
 		];
 		if ( $trackClicks !== false ) {
 			$this->component['data-event-name'] = $trackClicks === true ? $name : $trackClicks;

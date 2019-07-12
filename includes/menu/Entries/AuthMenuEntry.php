@@ -18,66 +18,37 @@
 namespace MediaWiki\Minerva\Menu\Entries;
 
 use MessageLocalizer;
-use MinervaUI;
-use SpecialPage;
-use Title;
 use User;
-use WebRequest;
 
 /**
  * Model for a menu entry that represents log-in / profile+logout pair of links
  */
-class AuthMenuEntry implements IProfileMenuEntry {
+final class AuthMenuEntry extends CompositeMenuEntry implements IProfileMenuEntry {
 	/**
-	 * @var User
+	 * @var ProfileMenuEntry
 	 */
-	private $user;
-	/**
-	 * @var WebRequest
-	 */
-	private $request;
-	/**
-	 * @var Title
-	 */
-	private $title;
-
-	/**
-	 * @var MessageLocalizer
-	 */
-	private $messageLocalizer;
-
-	/**
-	 * Code used to track clicks on the link to profile page
-	 * @var string
-	 */
-	private $profileTrackingCode = 'profile';
-
-	/**
-	 * Custom profile URL, can be used to override where the profile link href
-	 * @var string|null
-	 */
-	private $customProfileURL = null;
-
-	/**
-	 * Custom profile label, can be used to override the profile label
-	 * @var string|null
-	 */
-	private $customProfileLabel = null;
+	private $profileMenuEntry;
 
 	/**
 	 * Initialize the Auth menu entry
 	 *
 	 * @param User $user Currently logged in user/anon
-	 * @param WebRequest $request Request to load the returnToQuery values
 	 * @param MessageLocalizer $messageLocalizer used for text translation
-	 * @param Title|null $currentTitle The current title, will be used as returnTo
+	 * @param array $authLinksQuery Mapping of URI query parameter names to values.
 	 */
-	public function __construct( User $user, WebRequest $request,
-		\MessageLocalizer $messageLocalizer, Title $currentTitle = null ) {
-		$this->user = $user;
-		$this->request = $request;
-		$this->title = $currentTitle;
-		$this->messageLocalizer = $messageLocalizer;
+	public function __construct(
+		User $user, MessageLocalizer $messageLocalizer, array $authLinksQuery
+	) {
+		$this->profileMenuEntry = new ProfileMenuEntry( $user );
+		$entries = $user->isLoggedIn()
+			? [
+				$this->profileMenuEntry,
+				new LogOutMenuEntry(
+					$messageLocalizer, $authLinksQuery, 'element', 'truncated-text secondary-action'
+				)
+			]
+			: [ new LogInMenuEntry( $messageLocalizer, $authLinksQuery ) ];
+		parent::__construct( $entries );
 	}
 
 	/**
@@ -90,111 +61,8 @@ class AuthMenuEntry implements IProfileMenuEntry {
 	/**
 	 * @inheritDoc
 	 */
-	public function overrideProfileURL( $customURL, $customLabel = null,
-		$trackingCode = self::DEFAULT_PROFILE_TRACKING_CODE ) {
-		$this->customProfileURL = $customURL;
-		$this->customProfileLabel = $customLabel;
-		$this->profileTrackingCode = $trackingCode;
+	public function overrideProfileURL( $customURL, $customLabel = null, $trackingCode = null ) {
+		$this->profileMenuEntry->overrideProfileURL( $customURL, $customLabel, $trackingCode );
 		return $this;
 	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getCSSClasses(): array {
-		return [];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getComponents(): array {
-		$authLinksQuery = [];
-		$returnToQuery = $this->getReturnToQuery();
-
-		// Don't ever redirect back to the login page (bug 55379)
-		if ( $this->title && !$this->title->isSpecial( 'Userlogin' ) ) {
-			$authLinksQuery[ 'returnto' ] = $this->title->getPrefixedText();
-		}
-
-		return $this->user->isLoggedIn()
-			? $this->buildComponentsForLoggedIn( $returnToQuery, $authLinksQuery )
-			: $this->buildComponentsForAnon( $returnToQuery, $authLinksQuery );
-	}
-
-	/**
-	 * Retrieve current query parameters from Request object so system can pass those
-	 * to the Login/logout links
-	 * Some parameters are disabled (like title), as the returnto will be replaced with
-	 * the current page.
-	 * @return array
-	 */
-	private function getReturnToQuery(): array {
-		$returnToQuery = [];
-
-		if ( !$this->request->wasPosted() ) {
-			$returnToQuery = $this->request->getValues();
-			unset( $returnToQuery['title'] );
-			unset( $returnToQuery['returnto'] );
-			unset( $returnToQuery['returntoquery'] );
-		}
-		return $returnToQuery;
-	}
-
-	/**
-	 * @param array $returnToQuery
-	 * @param array $authLinksQuery
-	 * @return array
-	 * @throws \MWException
-	 */
-	private function buildComponentsForLoggedIn( array $returnToQuery, array $authLinksQuery ): array {
-		if ( !empty( $returnToQuery ) ) {
-			$authLinksQuery['returntoquery'] = wfArrayToCgi( $returnToQuery );
-		}
-		$authLinksQuery['logoutToken'] = $this->user->getEditToken( 'logoutToken', $this->request );
-
-		$logoutURL = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $authLinksQuery );
-		$username = $this->user->getName();
-		$profileUrl = $this->customProfileURL ??
-					  Title::newFromText( $username, NS_USER )->getLocalURL();
-		$profileLabel = $this->customProfileLabel ?? $username;
-
-		return [
-			[
-				'text' => $profileLabel,
-				'href' => $profileUrl,
-				'class' => MinervaUI::iconClass( 'profile', 'before',
-					'truncated-text primary-action' ),
-				'data-event-name' => $this->profileTrackingCode
-			],
-			[
-				'text' => $this->messageLocalizer->msg( 'mobile-frontend-main-menu-logout' )->escaped(),
-				'href' => $logoutURL,
-				'class' => MinervaUI::iconClass( 'logout', 'element',
-					'truncated-text secondary-action' ),
-				'data-event-name' => 'logout'
-			]
-		];
-	}
-
-	/**
-	 * @param array $returnToQuery
-	 * @param $authLinksQuery
-	 * @return array
-	 */
-	private function buildComponentsForAnon( array $returnToQuery, $authLinksQuery ): array {
-		// unset campaign on login link so as not to interfere with A/B tests
-		unset( $returnToQuery['campaign'] );
-		if ( !empty( $returnToQuery ) ) {
-			$authLinksQuery['returntoquery'] = wfArrayToCgi( $returnToQuery );
-		}
-
-		return [
-			'text' => $this->messageLocalizer->msg( 'mobile-frontend-main-menu-login' )->escaped(),
-			'href' => SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $authLinksQuery ),
-			'class' => MinervaUI::iconClass( 'login', 'before' ),
-			'data-event-name' => 'login'
-		];
-	}
-
 }

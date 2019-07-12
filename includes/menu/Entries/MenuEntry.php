@@ -20,9 +20,18 @@ namespace MediaWiki\Minerva\Menu\Entries;
 /**
  * Model for a menu entry.
  */
-class MenuEntry implements IMenuEntry {
+final class MenuEntry implements IMenuEntry {
+	/**
+	 * @var string
+	 */
 	private $name;
+	/**
+	 * @var bool
+	 */
 	private $isJSOnly;
+	/**
+	 * @var array
+	 */
 	private $components;
 
 	/**
@@ -83,5 +92,4 @@ class MenuEntry implements IMenuEntry {
 		] + $attrs;
 		return $this;
 	}
-
 }
