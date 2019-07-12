@@ -13,7 +13,8 @@
 	 * @ignore
 	 */
 	function createMainMenu() {
-		var options = mw.config.get( 'wgMinervaMenuData' );
+		// Failsafe in case this is not defined e.g. T225423
+		var options = mw.config.get( 'wgMinervaMenuData', {} );
 
 		options.activator = '.header .main-menu-button';
 
