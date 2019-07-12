@@ -65,9 +65,9 @@ class ArticlePage
   text_field(:search_box2, name: 'search', index: 1)
   li(:search_results, css: '.search-overlay .page-list li')
   div(:search_watchstars, css: '.search-overlay .page-list li .watch-this-article')
-  div(:search_overlay, class: 'search-overlay')
+  div(:search_overlay, css: '.search-overlay')
   button(:search_overlay_close_button) do |page|
-    page.search_overlay_element.button_element(class: 'cancel')
+    page.search_overlay_element.button_element(css: '.header-action .cancel')
   end
   ul(:search_overlay_page_list) do |page|
     page.search_overlay_element.element.ul(class: 'page-list thumbs actionable')
