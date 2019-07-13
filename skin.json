@@ -198,9 +198,6 @@
 			"styles": [
 				"resources/skins.minerva.base.styles/reset.less",
 				"resources/skins.minerva.base.styles/ui.less",
-				"components/ToggleList/ToggleList.less",
-				"components/ToggleList/DropDownList.less",
-				"components/ToggleList/MenuListItem.less",
 				"resources/skins.minerva.base.styles/pageactions.less",
 				"resources/skins.minerva.base.styles/common.less",
 				"resources/skins.minerva.base.styles/images.less",
@@ -255,7 +252,10 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.amc.styles/index.less"
+				"resources/skins.minerva.amc.styles/index.less",
+				"components/ToggleList/ToggleList.less",
+				"components/ToggleList/DropDownList.less",
+				"components/ToggleList/MenuListItem.less"
 			]
 		},
 		"wikimedia.ui": {
