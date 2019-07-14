@@ -33,6 +33,9 @@ class MinervaTemplate extends BaseTemplate {
 	/** @var bool Specify whether the page is main page */
 	protected $isMainPage;
 
+	/** @var bool */
+	protected $isMainPageTalk;
+
 	/**
 	 * Start render the page in template
 	 */
@@ -87,7 +90,7 @@ class MinervaTemplate extends BaseTemplate {
 			'headinghtml' => $data['footer-site-heading-html'],
 			// Note mobile-license is only available on the mobile skin. It is outputted as part of
 			// footer-info on desktop hence the conditional check.
-			'licensehtml' => isset( $data['mobile-license'] ) ? $data['mobile-license'] : '',
+			'licensehtml' => $data['mobile-license'] ?? '',
 			'lists' => $groups,
 		];
 	}
@@ -145,7 +148,7 @@ class MinervaTemplate extends BaseTemplate {
 
 	/**
 	 * Get page secondary actions
-	 * @return string[]
+	 * @return array
 	 */
 	protected function getSecondaryActions() {
 		if ( $this->isFallbackEditor() ) {
@@ -158,6 +161,8 @@ class MinervaTemplate extends BaseTemplate {
 	/**
 	 * Get HTML representing secondary page actions like language selector
 	 * @return string
+	 * @suppress PhanTypeArraySuspiciousNullable,PhanTypeMismatchArgument The array shape of
+	 *  $el is too complicated, and not inferred correctly
 	 */
 	protected function getSecondaryActionsHtml() {
 		$baseClass = MinervaUI::buttonClass( '', 'button' );
@@ -227,7 +232,7 @@ class MinervaTemplate extends BaseTemplate {
 		$templateParser = new TemplateParser( __DIR__ );
 
 		$internalBanner = $data[ 'internalBanner' ];
-		$preBodyHtml = isset( $data['prebodyhtml'] ) ? $data['prebodyhtml'] : '';
+		$preBodyHtml = $data['prebodyhtml'] ?? '';
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
 		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
@@ -257,8 +262,8 @@ class MinervaTemplate extends BaseTemplate {
 			'taglinehtml' => $data['taglinehtml'],
 			'internalBanner' => $internalBanner,
 			'prebodyhtml' => $preBodyHtml,
-			'headinghtml' => isset( $data['headinghtml'] ) ? $data['headinghtml'] : '',
-			'postheadinghtml' => isset( $data['postheadinghtml'] ) ? $data['postheadinghtml'] : '',
+			'headinghtml' => $data['headinghtml'] ?? '',
+			'postheadinghtml' => $data['postheadinghtml'] ?? '',
 			'haspageactions' => $hasPageActions,
 			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml() : '',
 			'subtitle' => $data['subtitle'],

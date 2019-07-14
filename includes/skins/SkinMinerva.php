@@ -76,8 +76,7 @@ class SkinMinerva extends SkinTemplate {
 
 	/**
 	 * Initalized main menu. Please use getter.
-	 * @return MainMenuDirector
-	 *
+	 * @var MainMenuDirector
 	 */
 	private $mainMenu;
 
@@ -135,6 +134,7 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * initialize various variables and generate the template
 	 * @return QuickTemplate
+	 * @suppress PhanTypeMismatchArgument
 	 */
 	protected function prepareQuickTemplate() {
 		$out = $this->getOutput();
@@ -710,7 +710,7 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Returns an array of links for page secondary actions
 	 * @param BaseTemplate $tpl
-	 * @return string[]
+	 * @return array
 	 */
 	protected function getSecondaryActions( BaseTemplate $tpl ) {
 		$buttons = [];

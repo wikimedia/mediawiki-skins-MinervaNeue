@@ -40,7 +40,7 @@ final class PageActionsDirector {
 	private $overflowBuilder;
 
 	/**
-	 * @var MessageLocalizers
+	 * @var MessageLocalizer
 	 */
 	private $messageLocalizer;
 
