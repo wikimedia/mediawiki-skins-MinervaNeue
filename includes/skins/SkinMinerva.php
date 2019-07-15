@@ -845,9 +845,6 @@ class SkinMinerva extends SkinTemplate {
 		if ( $this->skinOptions->hasSkinOptions() ) {
 			$modules[] = 'skins.minerva.options';
 		}
-		if ( $this->skinOptions->get( SkinOptions::OPTION_SHARE_BUTTON ) ) {
-			$modules[] = 'skins.minerva.share';
-		}
 
 		return $modules;
 	}
@@ -930,7 +927,6 @@ class SkinMinerva extends SkinTemplate {
 			'mediawiki.ui.button',
 			'skins.minerva.icons.images',
 			'skins.minerva.mainMenu.icons',
-			'wikimedia.ui'
 		];
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
@@ -945,6 +941,7 @@ class SkinMinerva extends SkinTemplate {
 
 		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			$styles[] = 'skins.minerva.amc.styles';
+			$styles[] = 'wikimedia.ui';
 		}
 
 		return $styles;
