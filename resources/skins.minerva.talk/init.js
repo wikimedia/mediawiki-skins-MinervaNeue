@@ -49,9 +49,9 @@
 			talkOptions = {
 				api: api,
 				title: title,
-				// T184273 using `getCurrentPage` because 'wgPageName'
+				// T184273 using `currentPage` because 'wgPageName'
 				// contains underscores instead of spaces.
-				currentPageTitle: M.getCurrentPage().title,
+				currentPageTitle: mobile.currentPage().title,
 				licenseMsg: skin.getLicenseMsg(),
 				eventBus: eventBus,
 				id: id

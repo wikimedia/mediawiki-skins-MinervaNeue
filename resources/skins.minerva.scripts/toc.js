@@ -1,5 +1,6 @@
 ( function ( M ) {
 	var mobile = M.require( 'mobile.startup' ),
+		currentPage = mobile.currentPage(),
 		Toggler = mobile.Toggler,
 		TableOfContents = mobile.toc.TableOfContents,
 		eventBus = mobile.eventBusSingleton,
@@ -40,7 +41,7 @@
 	// add a ToC only for "view" action (user is reading a page)
 	// provided a table of contents placeholder has been rendered
 	if ( mw.config.get( 'wgAction' ) === 'view' && $toc.length > 0 ) {
-		init( M.getCurrentPage() );
+		init( currentPage );
 	}
 
 }( mw.mobileFrontend ) );
