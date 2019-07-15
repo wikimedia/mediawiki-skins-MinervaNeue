@@ -34,24 +34,6 @@
 		},
 
 		/**
-		 * Turn on event logging on the existing main menu by reading `event-name` data
-		 * attributes on elements.
-		 * @memberof MainMenu
-		 * @instance
-		 */
-		enableLogging: function () {
-			this.$el.find( 'a' ).on( 'click', function () {
-				var $link = $( this ),
-					eventName = $link.data( 'event-name' );
-				if ( eventName ) {
-					mw.track( 'minerva.schemaMobileWebMainMenuClickTracking', {
-						name: eventName,
-						destination: $link.attr( 'href' )
-					} );
-				}
-			} );
-		},
-		/**
 		 * Remove the nearby menu entry if the browser doesn't support geo location
 		 * @memberof MainMenu
 		 * @instance
