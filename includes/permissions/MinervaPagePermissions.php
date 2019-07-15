@@ -99,7 +99,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * </ul>
 	 *
 	 * The "edit" action is not allowed if editing is not possible on the page
-	 * see @method: isCurrentPageContentModelEditable
+	 * @see method isCurrentPageContentModelEditable
 	 *
 	 * The "switch-language" is allowed if there are interlanguage links on the page,
 	 * or <code>$wgMinervaAlwaysShowLanguageButton</code> is truthy.
