@@ -4,6 +4,8 @@
 		PageGateway = mobile.PageGateway,
 		toast = mobile.toast,
 		time = mobile.time,
+		toc = require( './toc.js' ),
+		errorLogging = require( './errorLogging.js' ),
 		notifications = require( './notifications.js' ),
 		preInit = require( './preInit.js' ),
 		initLogging = require( './initLogging.js' ),
@@ -338,7 +340,8 @@
 	}
 
 	$( function () {
-		var toolbarElement = document.querySelector( Toolbar.selector );
+		var $toc,
+			toolbarElement = document.querySelector( Toolbar.selector );
 		// Init:
 		// - main menu closes when you click outside of it
 		// - redirects show a toast.
@@ -372,6 +375,15 @@
 		if ( !mw.user.isAnon() && mw.config.get( 'wgEchoMaxNotificationCount' ) !== undefined ) {
 			notifications();
 		}
+
+		// add a ToC only for "view" action (user is reading a page)
+		// provided a table of contents placeholder has been rendered
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$toc = $( '#toc' );
+		if ( mw.config.get( 'wgAction' ) === 'view' && $toc.length > 0 ) {
+			toc( currentPage, $toc );
+		}
+		mw.requestIdleCallback( errorLogging );
 	} );
 	module.exports = {
 		overlayManager: overlayManager

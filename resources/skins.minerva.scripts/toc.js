@@ -1,20 +1,18 @@
 ( function ( M ) {
 	var mobile = M.require( 'mobile.startup' ),
-		currentPage = mobile.currentPage(),
 		Toggler = mobile.Toggler,
 		TableOfContents = mobile.toc.TableOfContents,
-		eventBus = mobile.eventBusSingleton,
-		// eslint-disable-next-line no-jquery/no-global-selector
-		$toc = $( '#toc' );
+		eventBus = mobile.eventBusSingleton;
 
 	/**
 	 * Create TableOfContents if the given Page has sections and is not the main page
 	 * and wgMFTocEnabled config variable is set to true.
 	 * @method
 	 * @param {Page} page for which a TOC is generated
+	 * @param {jQuery.Object} $toc container to replace
 	 * @ignore
 	 */
-	function init( page ) {
+	function init( page, $toc ) {
 		var sections = page.getSections(),
 			toc = new TableOfContents( {
 				sections: sections
@@ -38,10 +36,6 @@
 		}
 	}
 
-	// add a ToC only for "view" action (user is reading a page)
-	// provided a table of contents placeholder has been rendered
-	if ( mw.config.get( 'wgAction' ) === 'view' && $toc.length > 0 ) {
-		init( currentPage );
-	}
+	module.exports = init;
 
 }( mw.mobileFrontend ) );

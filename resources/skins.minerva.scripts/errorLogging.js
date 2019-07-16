@@ -1,5 +1,5 @@
-( function ( M, requestIdleCallback, track, config, trackSubscribe, user, experiments ) {
-	requestIdleCallback( function () {
+( function ( M, track, config, trackSubscribe, user, experiments ) {
+	module.exports = function () {
 		/**
 		 * Handle an error and log it if necessary
 		 * @param {string} errorMessage to be logged
@@ -61,10 +61,9 @@
 		trackSubscribe( 'global.error', function ( topic, error ) {
 			handleError( error.errorMessage, error.lineNumber, error.columnNumber, error.url );
 		} );
-	} );
+	};
 }(
 	mw.mobileFrontend,
-	mw.requestIdleCallback,
 	mw.track,
 	mw.config,
 	mw.trackSubscribe,
