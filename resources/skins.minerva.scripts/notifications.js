@@ -2,14 +2,15 @@
  * This code loads the necessary modules for the notifications overlay, not to be confused
  * with the Toast notifications defined by common/toast.js.
  */
-( function ( M ) {
+module.exports = function () {
 	var badge,
-		mainMenu = M.require( 'skins.minerva.scripts/mainMenu' ),
+		M = mw.mobileFrontend,
+		mainMenu = require( './menu.js' ),
 		router = require( 'mediawiki.router' ),
 		mobile = M.require( 'mobile.startup' ),
 		util = mobile.util,
-		NotificationBadge = M.require( 'skins.minerva.notifications/NotificationBadge' ),
-		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		NotificationBadge = require( './NotificationBadge.js' ),
+		overlayManager = require( './overlayManager.js' ),
 		initialized = false;
 
 	function showNotificationOverlay() {
@@ -106,4 +107,4 @@
 		} );
 	} );
 
-}( mw.mobileFrontend ) );
+};

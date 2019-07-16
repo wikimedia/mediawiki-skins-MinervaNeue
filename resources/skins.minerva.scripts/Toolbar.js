@@ -1,8 +1,8 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
-		ToggleList = M.require( 'skins.minerva.scripts/ToggleList' ),
-		downloadPageAction = M.require( 'skins.minerva.scripts/downloadPageAction' ),
+		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
+		downloadPageAction = require( './downloadPageAction.js' ).downloadPageAction,
 		Icon = mobile.Icon,
 		skin = M.require( 'mobile.init/skin' ),
 		/** The top level menu. */
@@ -105,9 +105,9 @@
 		}
 	}
 
-	M.define( 'skins.minerva.scripts/Toolbar', {
+	module.exports = {
 		selector: toolbarSelector,
 		bind: bind,
 		render: render
-	} );
+	};
 }( mw.mobileFrontend ) );

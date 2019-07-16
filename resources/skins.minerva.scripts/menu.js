@@ -1,34 +1,31 @@
-( function ( M ) {
-	var MainMenu = M.require( 'skins.minerva.scripts/MainMenu' ),
-		mainMenu = createMainMenu();
+var MainMenu = require( './menu/MainMenu.js' ),
+	mainMenu = createMainMenu();
 
-	/**
-	 * Creates an instance of the `MainMenu`, using the `wgMinervaMenuData` for configuration.
-	 *
-	 * N.B. that the activator - the UI element that the user must click in order to open the main
-	 * menu - is always `.header .main-menu-button`.
-	 *
-	 * @return {MainMenu}
-	 *
-	 * @ignore
-	 */
-	function createMainMenu() {
-		// Failsafe in case this is not defined e.g. T225423
-		var options = mw.config.get( 'wgMinervaMenuData', {} );
+/**
+ * Creates an instance of the `MainMenu`, using the `wgMinervaMenuData` for configuration.
+ *
+ * N.B. that the activator - the UI element that the user must click in order to open the main
+ * menu - is always `.header .main-menu-button`.
+ *
+ * @return {MainMenu}
+ *
+ * @ignore
+ */
+function createMainMenu() {
+	var options = mw.config.get( 'wgMinervaMenuData', {} );
 
-		options.activator = '.header .main-menu-button';
+	options.activator = '.header .main-menu-button';
 
-		return new MainMenu( options );
+	return new MainMenu( options );
+}
+
+$( function () {
+	// eslint-disable-next-line no-jquery/no-global-selector
+	if ( !$( '#mw-mf-page-left' ).find( '.menu' ).length ) {
+		// Now we have a main menu button register it.
+		mainMenu.registerClickEvents();
+		mainMenu.appendTo( '#mw-mf-page-left' );
 	}
+} );
 
-	$( function () {
-		// eslint-disable-next-line no-jquery/no-global-selector
-		if ( !$( '#mw-mf-page-left' ).find( '.menu' ).length ) {
-			// Now we have a main menu button register it.
-			mainMenu.registerClickEvents();
-			mainMenu.appendTo( '#mw-mf-page-left' );
-		}
-	} );
-
-	M.define( 'skins.minerva.scripts/mainMenu', mainMenu );
-}( mw.mobileFrontend ) );
+module.exports = mainMenu;

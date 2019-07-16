@@ -58,7 +58,7 @@
 	}
 
 	mfExtend( NotificationBadge, View, {
-		template: mw.template.get( 'skins.minerva.notifications.badge', 'badge.mustache' ),
+		template: mw.template.get( 'skins.minerva.scripts', 'badge.mustache' ),
 		/**
 		 * Update the notification count
 		 * @memberof NotificationBadge
@@ -88,5 +88,5 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.notifications/NotificationBadge', NotificationBadge );
+	module.exports = NotificationBadge;
 }( mw.mobileFrontend ) );

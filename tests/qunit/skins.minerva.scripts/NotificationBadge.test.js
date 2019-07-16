@@ -1,6 +1,6 @@
 ( function ( M ) {
 	var OverlayManager = M.require( 'mobile.startup' ).OverlayManager,
-		NotificationBadge = M.require( 'skins.minerva.notifications/NotificationBadge' );
+		NotificationBadge = require( '../../../resources/skins.minerva.scripts/NotificationBadge.js' );
 
 	QUnit.module( 'Minerva NotificationBadge', {
 		beforeEach: function () {
@@ -32,6 +32,9 @@
 		this.sandbox.stub( mw.language, 'convertNumber' )
 			.withArgs( 2 ).returns( '۲' )
 			.withArgs( 5 ).returns( '۵' );
+		this.sandbox.stub( mw, 'message' )
+			.withArgs( 'echo-badge-count', '۵' ).returns( { text: function () { return '۵'; } } )
+			.withArgs( 'echo-badge-count', '۲' ).returns( { text: function () { return '۲'; } } );
 
 		badge = new NotificationBadge( {
 			overlayManager: this.OverlayManager,

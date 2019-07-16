@@ -11,8 +11,9 @@
 		$talk = $( '.talk, [rel="discussion"]' ),
 		// use the plain return value here - T128273
 		title = $talk.attr( 'data-title' ),
-		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
-		skin = M.require( 'skins.minerva.scripts/skin' ),
+		overlayManager = require( 'skins.minerva.scripts' ).overlayManager,
+		// FIXME: This dependency shouldn't exist
+		skin = M.require( 'mobile.init/skin' ),
 		inTalkNamespace = false,
 		pageTitle, talkTitle, talkNs, pageNs;
 

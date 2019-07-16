@@ -73,5 +73,5 @@
 		};
 	}
 
-	M.define( 'skins.minerva.scripts/AB', AB );
+	module.exports = AB;
 }( mw.mobileFrontend, mw.experiments ) );

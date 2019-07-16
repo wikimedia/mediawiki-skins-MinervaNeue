@@ -131,6 +131,6 @@
 		}
 	} );
 
-	M.define( 'skins.minerva.scripts/MainMenu', MainMenu );
+	module.exports = MainMenu;
 
 }( mw.mobileFrontend ) );

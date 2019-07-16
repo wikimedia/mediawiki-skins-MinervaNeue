@@ -1,4 +1,4 @@
-( function ( M ) {
+( function () {
 	/**
 	 * Compares the default Uri host, usually `window.location.host`, and `mw.Uri.host`. Equivalence
 	 * tests internal linkage, a mismatch may indicate an external link. Interwiki links are
@@ -28,7 +28,7 @@
 		return uri.host === mw.Uri().host;
 	}
 
-	M.define( 'skins.minerva.scripts/UriUtil', {
+	module.exports = {
 		isInternal: isInternal
-	} );
-}( mw.mobileFrontend ) );
+	};
+}() );

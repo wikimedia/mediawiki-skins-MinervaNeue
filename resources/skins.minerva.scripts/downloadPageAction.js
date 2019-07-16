@@ -158,7 +158,11 @@
 		}
 	}
 
-	M.define( 'skins.minerva.scripts/test/getOnClickHandler', getOnClickHandler );
-	M.define( 'skins.minerva.scripts/test/isAvailable', isAvailable );
-	M.define( 'skins.minerva.scripts/downloadPageAction', downloadPageAction );
+	module.exports = {
+		downloadPageAction: downloadPageAction,
+		test: {
+			isAvailable: isAvailable,
+			getOnClickHandler: getOnClickHandler
+		}
+	};
 }( mw.mobileFrontend, mw.track, mw.msg ) );

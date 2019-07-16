@@ -1,9 +1,10 @@
-( function ( M ) {
+module.exports = function () {
 	var
+		M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
 		SearchOverlay = mobile.search.SearchOverlay,
 		SearchGateway = mobile.search.SearchGateway,
-		overlayManager = M.require( 'skins.minerva.scripts/overlayManager' ),
+		overlayManager = require( './overlayManager.js' ),
 		searchLogger = mobile.search.MobileWebSearchLogger,
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
@@ -75,4 +76,4 @@
 		getSearchOverlay().showKeyboard();
 	} );
 
-}( mw.mobileFrontend ) );
+};

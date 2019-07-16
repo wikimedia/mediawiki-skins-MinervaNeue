@@ -111,17 +111,19 @@ class MinervaHooks {
 		$testModule = [
 			'dependencies' => [
 				'mobile.startup',
-				'skins.minerva.notifications.badge',
 				'mediawiki.user',
 				'mediawiki.experiments'
+			],
+			'templates' => [
+				"badge.mustache" => "includes/skins/userNotifications.mustache",
 			],
 			'localBasePath' => dirname( __DIR__ ),
 			'remoteSkinPath' => 'MinervaNeue',
 			'targets' => [ 'mobile', 'desktop' ],
-			'scripts' => [
+			'packageFiles' => [
 				// additional scaffolding (minus initialisation scripts)
-				'tests/qunit/skins.minerva.scripts/stubs.js',
-
+				'tests/qunit/skins.minerva.scripts/index.js',
+				'resources/skins.minerva.scripts/NotificationBadge.js',
 				'resources/skins.minerva.scripts/page-issues/parser.js',
 				'resources/skins.minerva.scripts/downloadPageAction.js',
 				'resources/skins.minerva.scripts/AB.js',
@@ -136,12 +138,12 @@ class MinervaHooks {
 				'resources/skins.minerva.scripts/TitleUtil.js',
 				// test files
 				'tests/qunit/skins.minerva.scripts/downloadPageAction.test.js',
-				'tests/qunit/skins.minerva.scripts/pageIssuesParser.test.js',
+				'tests/qunit/skins.minerva.scripts/page-issues/parser.test.js',
 				'tests/qunit/skins.minerva.scripts/AB.test.js',
-				'tests/qunit/skins.minerva.scripts/pageIssues.test.js',
+				'tests/qunit/skins.minerva.scripts/page-issues/index.test.js',
 				'tests/qunit/skins.minerva.scripts/UriUtil.test.js',
 				'tests/qunit/skins.minerva.scripts/TitleUtil.test.js',
-				'tests/qunit/skins.minerva.notifications.badge/NotificationBadge.test.js'
+				'tests/qunit/skins.minerva.scripts/NotificationBadge.test.js'
 			],
 		];
 

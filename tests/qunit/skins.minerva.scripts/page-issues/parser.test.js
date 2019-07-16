@@ -1,6 +1,6 @@
-( function ( M ) {
+( function () {
 	var icon = {},
-		pageIssuesParser = M.require( 'skins.minerva.scripts/pageIssuesParser' ),
+		pageIssuesParser = require( '../../../../resources/skins.minerva.scripts/page-issues/parser.js' ),
 		extractMessage = pageIssuesParser.extract;
 
 	QUnit.module( 'Minerva pageIssuesParser' );
@@ -188,4 +188,4 @@
 		} );
 	} );
 
-}( mw.mobileFrontend ) );
+}() );

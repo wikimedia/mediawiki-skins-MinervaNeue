@@ -16,6 +16,10 @@
 		"no-restricted-properties": [
 			"error",
 			{
+				"property": "define",
+				"message": "The method `define` if used with mw.mobileFrontend is deprecated. Please use `module.exports`."
+			},
+			{
 				"property": "done",
 				"message": "The method `done` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
 			},

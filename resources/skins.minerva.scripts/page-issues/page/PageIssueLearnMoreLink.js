@@ -1,4 +1,4 @@
-( function ( M ) {
+( function () {
 	/**
 	 * Creates a "read more" button with given text.
 	 * @param {string} msg
@@ -10,5 +10,5 @@
 			.text( msg );
 	}
 
-	M.define( 'skins.minerva.scripts/page-issues/page/PageIssueLearnMoreLink', newPageIssueLearnMoreLink );
-}( mw.mobileFrontend ) );
+	module.exports = newPageIssueLearnMoreLink;
+}() );

@@ -217,7 +217,7 @@
 	/**
 	 * @module skins.minerva.scripts/utils
 	 */
-	M.define( 'skins.minerva.scripts/pageIssuesParser', {
+	module.exports = {
 		extract: extract,
 		parse: parse,
 		maxSeverity: maxSeverity,
@@ -227,6 +227,6 @@
 			parseType: parseType,
 			parseGroup: parseGroup
 		}
-	} );
+	};
 
 }( mw.mobileFrontend ) );

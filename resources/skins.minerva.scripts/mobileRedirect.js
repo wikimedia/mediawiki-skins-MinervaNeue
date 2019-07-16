@@ -1,11 +1,7 @@
 /*
  * Warn people if they're trying to switch to desktop but have cookies disabled.
  */
-
-( function ( M ) {
-
-	var popup = M.require( 'mobile.startup' ).toast;
-
+module.exports = function () {
 	/**
 	 * Checks whether cookies are enabled
 	 * @method
@@ -36,7 +32,7 @@
 	 */
 	function desktopViewClick() {
 		if ( !cookiesEnabled() ) {
-			popup.show(
+			mw.notify(
 				mw.msg( 'mobile-frontend-cookies-required' ),
 				{ type: 'error' }
 			);
@@ -47,5 +43,4 @@
 
 	// eslint-disable-next-line no-jquery/no-global-selector
 	$( '#mw-mf-display-toggle' ).on( 'click', desktopViewClick );
-
-}( mw.mobileFrontend ) );
+};

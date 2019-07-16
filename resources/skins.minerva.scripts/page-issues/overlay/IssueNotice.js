@@ -22,5 +22,5 @@
 			this.$el.find( '.issue-notice' ).prepend( this.options.issue.icon.$el );
 		}
 	} );
-	M.define( 'skins.minerva.scripts/IssueNotice', IssueNotice );
+	module.exports = IssueNotice;
 }( mw.mobileFrontend ) );

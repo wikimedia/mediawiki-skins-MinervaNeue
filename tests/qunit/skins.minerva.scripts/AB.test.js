@@ -1,6 +1,6 @@
 ( function ( M ) {
 
-	var AB = M.require( 'skins.minerva.scripts/AB' ),
+	var AB = require( '../../../resources/skins.minerva.scripts/AB.js' ),
 		util = M.require( 'mobile.startup' ).util,
 		defaultConfig = {
 			testName: 'WME.MinervaABTest',

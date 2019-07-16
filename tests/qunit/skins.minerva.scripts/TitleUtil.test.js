@@ -1,5 +1,5 @@
-( function ( M ) {
-	var TitleUtil = M.require( 'skins.minerva.scripts/TitleUtil' );
+( function () {
+	var TitleUtil = require( '../../../resources/skins.minerva.scripts/TitleUtil.js' );
 
 	QUnit.module( 'Minerva TitleUtil', QUnit.newMwEnvironment( {
 		setup: function () {
@@ -226,4 +226,4 @@
 			'mismatching host (2)'
 		);
 	} );
-}( mw.mobileFrontend ) );
+}() );

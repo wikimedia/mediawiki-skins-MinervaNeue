@@ -1,4 +1,4 @@
-( function ( M ) {
+( function () {
 	var
 		/** The component selector. */
 		selector = '.toggle-list',
@@ -91,9 +91,9 @@
 		checkbox.setAttribute( 'aria-expanded', ( !!checkbox.checked ).toString() );
 	}
 
-	M.define( 'skins.minerva.scripts/ToggleList', Object.freeze( {
+	module.exports = Object.freeze( {
 		selector: selector,
 		render: render,
 		bind: bind
-	} ) );
-}( mw.mobileFrontend ) );
+	} );
+}() );
