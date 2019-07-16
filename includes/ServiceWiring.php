@@ -52,10 +52,13 @@ return [
 		 */
 		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
 		$context = RequestContext::getMain();
+		$title = $context->getTitle();
+		$output = $context->getOutput();
+		$user = $context->getUser();
 		$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
 		$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
-			$context->getTitle(),
-			$context->getUser(),
+			$title,
+			$user,
 			$context,
 			$services->getPermissionManager(),
 			$services->getService( 'Minerva.Permissions' ),
@@ -63,10 +66,15 @@ return [
 			$services->get( 'Minerva.SkinUserPageHelper' )
 		);
 		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+			$hasVariants = $title->getPageLanguage()->hasVariants();
+			$hasLanguages = count( $output->getLanguageLinks() );
 			 $overflowBuilder = $userPageHelper->isUserPage() ?
 				 new PageActionsMenu\UserNamespaceOverflowBuilder(
+					 $title,
 					 $context,
-					 $userPageHelper
+					 $userPageHelper,
+					 $services->getService( 'Minerva.Permissions' ),
+					 $hasVariants || $hasLanguages
 				 ) :
 				 new PageActionsMenu\DefaultOverflowBuilder(
 					 $context
