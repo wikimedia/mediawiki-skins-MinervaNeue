@@ -384,6 +384,8 @@
 			toc( currentPage, $toc );
 		}
 		mw.requestIdleCallback( errorLogging );
+		// deprecation notices
+		mw.log.deprecate( router, 'navigate', router.navigate, 'use navigateTo instead' );
 	} );
 	module.exports = {
 		overlayManager: overlayManager

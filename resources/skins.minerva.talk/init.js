@@ -93,10 +93,10 @@
 				// Force a change in the address bar
 				// This is important is #/talk is the current route
 				// (e.g. as is the case after the add discussion overlay has closed)
-				overlayManager.router.navigate( '#/talk/', true );
+				overlayManager.router.navigateTo( '#/talk/', { useReplaceState: true } );
 				// We use second parameter to turn on replaceState
 				// this ensure nobody knows above the route change above!
-				overlayManager.router.navigate( '#/talk', true );
+				overlayManager.router.navigateTo( '#/talk', { useReplaceState: true } );
 			}, 300 );
 		} );
 	}
