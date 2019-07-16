@@ -21,6 +21,7 @@
 namespace MediaWiki\Minerva\Menu\PageActions;
 
 use Hooks;
+use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
@@ -55,9 +56,9 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	private $permissions;
 
 	/**
-	 * @var bool
+	 * @var LanguagesHelper
 	 */
-	private $doesPageHaveLanguages;
+	private $languagesHelper;
 
 	/**
 	 * Initialize the overflow menu visible on the User namespace
@@ -65,20 +66,20 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * @param MessageLocalizer $msgLocalizer
 	 * @param SkinUserPageHelper $userPageHelper
 	 * @param IMinervaPagePermissions $permissions
-	 * @param bool $doesPageHaveLanguages
+	 * @param LanguagesHelper $languagesHelper
 	 */
 	public function __construct(
 		Title $title,
 		MessageLocalizer $msgLocalizer,
 		SkinUserPageHelper $userPageHelper,
 		IMinervaPagePermissions $permissions,
-		$doesPageHaveLanguages
+		LanguagesHelper $languagesHelper
 	) {
 		$this->title = $title;
 		$this->messageLocalizer = $msgLocalizer;
 		$this->pageUser = $userPageHelper->getPageUser();
 		$this->permissions = $permissions;
-		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
+		$this->languagesHelper = $languagesHelper;
 	}
 
 	/**
@@ -88,8 +89,10 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	public function getGroup( array $toolbox ): Group {
 		$group = new Group();
 		if ( $this->permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
-			$group->insertEntry( new LanguageSelectorEntry( $this->title,
-				$this->doesPageHaveLanguages, $this->messageLocalizer,
+			$group->insertEntry( new LanguageSelectorEntry(
+				$this->title,
+				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
+				$this->messageLocalizer,
 				MinervaUI::iconClass( 'language-switcher-base20',  'before',
 					'minerva-page-actions-language-switcher toggle-list-item__anchor--menu' ),
 				'minerva-page-actions-language-switcher'

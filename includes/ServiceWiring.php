@@ -20,6 +20,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Main as MainMenu;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
@@ -53,9 +54,9 @@ return [
 		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
 		$context = RequestContext::getMain();
 		$title = $context->getTitle();
-		$output = $context->getOutput();
 		$user = $context->getUser();
 		$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
+		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 		$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
 			$title,
 			$user,
@@ -63,18 +64,17 @@ return [
 			$services->getPermissionManager(),
 			$services->getService( 'Minerva.Permissions' ),
 			$skinOptions,
-			$services->get( 'Minerva.SkinUserPageHelper' )
+			$userPageHelper,
+			$languagesHelper
 		);
 		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
-			$hasVariants = $title->getPageLanguage()->hasVariants();
-			$hasLanguages = count( $output->getLanguageLinks() );
 			 $overflowBuilder = $userPageHelper->isUserPage() ?
 				 new PageActionsMenu\UserNamespaceOverflowBuilder(
 					 $title,
 					 $context,
 					 $userPageHelper,
 					 $services->getService( 'Minerva.Permissions' ),
-					 $hasVariants || $hasLanguages
+					 $languagesHelper
 				 ) :
 				 new PageActionsMenu\DefaultOverflowBuilder(
 					 $context
@@ -92,6 +92,9 @@ return [
 	'Minerva.SkinUserPageHelper' => function (): SkinUserPageHelper {
 		return new SkinUserPageHelper( RequestContext::getMain()->getTitle() );
 	},
+	'Minerva.LanguagesHelper' => function (): LanguagesHelper {
+		return new LanguagesHelper( RequestContext::getMain()->getOutput() );
+	},
 	'Minerva.SkinOptions' => function (): SkinOptions {
 		return new SkinOptions();
 	},
@@ -107,9 +110,9 @@ return [
 				$context->getTitle(),
 				$context->getConfig(),
 				$context->getUser(),
-				$context->getOutput(),
 				$services->getService( 'Minerva.SkinOptions' ),
-				$contentHandler
+				$contentHandler,
+				$services->getService( 'Minerva.LanguagesHelper' )
 			);
 		} else {
 			return new MinervaNoPagePermissions();

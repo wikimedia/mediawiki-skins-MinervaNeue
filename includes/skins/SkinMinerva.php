@@ -39,9 +39,6 @@ class SkinMinerva extends SkinTemplate {
 	/** @var string $template Name of this used template */
 	public $template = 'MinervaTemplate';
 
-	/** @var bool Whether the page is also available in other languages or variants */
-	protected $doesPageHaveLanguages = false;
-
 	/** @var SkinOptions  */
 	private $skinOptions;
 
@@ -151,9 +148,6 @@ class SkinMinerva extends SkinTemplate {
 
 		// Generate skin template
 		$tpl = parent::prepareQuickTemplate();
-
-		$this->doesPageHaveLanguages = $tpl->data['content_navigation']['variants'] ||
-			$tpl->data['language_urls'];
 
 		// Set whether or not the page content should be wrapped in div.content (for
 		// example, on a special page)
@@ -713,8 +707,10 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	protected function getSecondaryActions( BaseTemplate $tpl ) {
+		/** @var \MediaWiki\Minerva\LanguagesHelper $languagesHelper */
+		$languagesHelper = MediaWikiServices::getInstance()
+			->getService( 'Minerva.LanguagesHelper' );
 		$buttons = [];
-
 		// always add a button to link to the talk page
 		// in beta it will be the entry point for the talk overlay feature,
 		// in stable it will link to the wikitext talk page
@@ -742,7 +738,7 @@ class SkinMinerva extends SkinTemplate {
 			}
 		}
 
-		if ( $this->doesPageHaveLanguages && $title->isMainPage() ) {
+		if ( $languagesHelper->doesTitleHasLanguagesOrVariants( $title ) && $title->isMainPage() ) {
 			$buttons['language'] = $this->getLanguageButton();
 		}
 
@@ -766,7 +762,7 @@ class SkinMinerva extends SkinTemplate {
 		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $director */
 		$director = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.PageActionsDirector' );
 		$tpl->set( 'page_actions',
-			$director->buildMenu( $tpl->getToolbox(), $this->doesPageHaveLanguages )
+			$director->buildMenu( $tpl->getToolbox() )
 		);
 	}
 
