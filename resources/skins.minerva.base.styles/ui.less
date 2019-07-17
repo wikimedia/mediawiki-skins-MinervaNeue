@@ -279,6 +279,12 @@ input.search {
 	visibility: hidden;
 }
 
+.transparent-shield {
+	background: @semiTransparent;
+	z-index: @z-indexAboveContent;
+	.transition( opacity 0.25s ease-in-out );
+}
+
 // It may be better to express these in a single class
 // or think about using extend or a mixin to stay with semantic selectors
 // https://css-tricks.com/the-extend-concept/
