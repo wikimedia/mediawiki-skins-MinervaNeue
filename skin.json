@@ -260,42 +260,12 @@
 			]
 		},
 		"wikimedia.ui": {
-			"class": "ResourceLoaderImageModule",
-			"selectorWithoutVariant": ".wikimedia-ui-{name}:before",
-			"selectorWithVariant": ".wikimedia-ui-{name}-{variant}:before",
+			"selectorWithoutVariant": ".wikimedia-ui-{name}-base20:before",
 			"useDataURI": false,
-			"variants": {
-				"base20": {
-					"color": "#54595d",
-					"global": true
-				}
-			},
-			"images": {
-				"articleRedirect": {
-					"file": {
-						"ltr": "resources/wikimedia.ui/articleRedirect-ltr.svg",
-						"rtl": "resources/wikimedia.ui/articleRedirect-rtl.svg"
-					}
-				},
-				"info": "resources/wikimedia.ui/info.svg",
-				"link": "resources/wikimedia.ui/link.svg",
-				"listBullet": {
-					"file": {
-						"ltr": "resources/wikimedia.ui/listBullet-ltr.svg",
-						"rtl": "resources/wikimedia.ui/listBullet-rtl.svg"
-					}
-				},
-				"logo-Wikidata": "resources/wikimedia.ui/logo-Wikidata.svg",
-				"logo-Wikimedia": "resources/wikimedia.ui/logo-Wikimedia.svg",
-				"quotes": {
-					"file": {
-						"ltr": "resources/wikimedia.ui/quotes-ltr.svg",
-						"rtl": "resources/wikimedia.ui/quotes-rtl.svg"
-					}
-				},
-				"upload": "resources/wikimedia.ui/upload.svg",
-				"userAvatar": "resources/wikimedia.ui/userAvatar.svg"
-			}
+			"defaultColor": "#54595d",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"icons": [ "articleRedirect", "info", "link", "listBullet",
+				"logoWikidata", "logoWikimedia", "quotes", "upload", "userAvatar" ]
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
