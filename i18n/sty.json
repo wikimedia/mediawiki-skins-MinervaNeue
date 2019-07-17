@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khanmarat"
+			"Khanmarat",
+			"Sorbat"
 		]
 	},
 	"mobile-frontend-editor-edit": "Төсәткәле",
@@ -11,8 +12,9 @@
 	"mobile-frontend-main-menu-login": "Системаға танытылғалы",
 	"mobile-frontend-main-menu-nearby": "Йыуыҡта",
 	"mobile-frontend-main-menu-settings": "Ҡоролошлар",
-	"mobile-frontend-main-menu-watchlist": "Көсәтеү күцермәлек",
+	"mobile-frontend-main-menu-watchlist": "Күргәсеү күцермәлек",
 	"mobile-frontend-pageaction-edit-tooltip": "Питнең төп пүлеген төсәткәле",
 	"mobile-frontend-placeholder": "{{SITENAME}} эцтә эстәгәле",
-	"mobile-frontend-random-button": "Көтөлмәгән"
+	"mobile-frontend-random-button": "Сәктә",
+	"minerva-page-actions-language-switcher": "Телләр"
 }
