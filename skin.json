@@ -93,6 +93,9 @@
 		"minerva": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
+		"FetchChangesList": [
+			"MinervaHooks::onFetchChangesList"
+		],
 		"MobileFrontendFeaturesRegistration": [
 			"MinervaHooks::onMobileFrontendFeaturesRegistration"
 		],

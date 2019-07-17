@@ -31,6 +31,23 @@ class MinervaHooks {
 	const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
 	/**
+	 * Disable recent changes enhanced mode (table mode)
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FetchChangesList
+	 *
+	 * @param User $user
+	 * @param Skin &$skin
+	 * @param array &$list
+	 * @param array $groups
+	 * @return bool
+	 */
+	public static function onFetchChangesList( User $user, Skin &$skin, &$list, $groups = [] ) {
+		// The new changes list (table-based) does not work with Minerva
+		$list = new OldChangesList( $skin->getContext(), $groups );
+		// returning false makes sure $list is used instead.
+		return false;
+	}
+
+	/**
 	 * Register mobile web beta features
 	 * @see https://www.mediawiki.org/wiki/
 	 *  Extension:MobileFrontend/MobileFrontendFeaturesRegistration
