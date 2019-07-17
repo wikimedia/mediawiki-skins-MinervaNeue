@@ -13,7 +13,7 @@
 		title = $talk.attr( 'data-title' ),
 		overlayManager = require( 'skins.minerva.scripts' ).overlayManager,
 		// FIXME: This dependency shouldn't exist
-		skin = M.require( 'mobile.init/skin' ),
+		skin = mobile.Skin.getSingleton(),
 		inTalkNamespace = false,
 		pageTitle, talkTitle, talkNs, pageNs;
 

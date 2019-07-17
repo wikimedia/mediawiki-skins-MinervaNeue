@@ -441,7 +441,6 @@
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"jquery.cookie",
-				"mobile.init",
 				"skins.minerva.icons.images.scripts",
 				"mediawiki.util",
 				"mediawiki.router",

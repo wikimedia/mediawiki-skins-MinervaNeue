@@ -4,7 +4,7 @@
 		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
 		downloadPageAction = require( './downloadPageAction.js' ).downloadPageAction,
 		Icon = mobile.Icon,
-		skin = M.require( 'mobile.init/skin' ),
+		skin = mobile.Skin.getSingleton(),
 		/** The top level menu. */
 		toolbarSelector = '.page-actions-menu',
 		/** The secondary overflow submenu component container. */

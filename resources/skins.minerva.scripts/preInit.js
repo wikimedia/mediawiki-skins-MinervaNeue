@@ -7,9 +7,10 @@
  */
 module.exports = function () {
 	var M = mw.mobileFrontend,
-		skin = M.require( 'mobile.init/skin' ),
+		mobile = M.require( 'mobile.startup' ),
+		skin = mobile.Skin.getSingleton(),
 		mainMenu = require( './menu.js' ),
-		toast = M.require( 'mobile.startup' ).toast;
+		toast = mobile.toast;
 
 	/**
 	 * Close navigation if skin is tapped
