@@ -14,6 +14,8 @@
  */
 @fontFamilySans: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Lato', 'Helvetica', 'Arial', sans-serif;
 @fontFamilyBase: @fontFamilySans;
+
+@fontSizeBrowserDefault: 16; // Assumed browser default of `16px`.
 @tocFontSize: 0.8em;
 
 @indicatorFontSize: 0.4em;
@@ -44,7 +46,8 @@
 @contentMargin: 16px;
 
 // Header
-@headerHeight: 3.35em;
+@headerHeight: unit( 54 / @fontSizeBrowserDefault, em );
+@headerVerticalPadding: 0.15em;
 @headerMarginTop: -1px; // used to hide the header border top when a banner is not present
 @searchBoxWidth: 375/16em;
 @iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
