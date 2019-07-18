@@ -1,4 +1,4 @@
-class ArticlePage
+class ArticlePage # rubocop:disable Metrics/ClassLength
   include PageObject
 
   page_url '<%=params[:article_name]%><%=params[:hash]%>'
@@ -148,7 +148,7 @@ class ArticlePage
   # loader
   element(:content_wrapper, 'main')
   div(:content, id: 'bodyContent')
-
+  div(:transparent_shield, css: '.transparent-shield')
   # secondary menu
   ## languages
   a(:switch_language_page_action, css: '#page-actions .language-selector')

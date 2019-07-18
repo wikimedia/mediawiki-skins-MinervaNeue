@@ -15,7 +15,7 @@ When(/^I click on the history link in the last modified bar$/) do
 end
 
 When(/^I click on the page$/) do
-  on(ArticlePage).content_wrapper_element.click
+  on(ArticlePage).transparent_shield_element.when_visible(10).click
 end
 
 When(/^I click the unwatch star$/) do
