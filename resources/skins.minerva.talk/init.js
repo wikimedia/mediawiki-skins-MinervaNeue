@@ -50,6 +50,18 @@
 			talkOptions = {
 				api: api,
 				title: title,
+				onSaveComplete: function () {
+					gateway.invalidatePage( title );
+					overlayManager.replaceCurrent(
+						mobile.talk.overlay( title, gateway )
+					);
+					overlayManager.router.navigateTo( null, {
+						// This should be defined in Minerva.
+						path: '#/talk',
+						useReplaceState: true
+					} );
+					mw.notify( mw.msg( 'mobile-frontend-talk-topic-feedback' ) );
+				},
 				// T184273 using `currentPage` because 'wgPageName'
 				// contains underscores instead of spaces.
 				currentPageTitle: mobile.currentPage().title,
@@ -83,21 +95,6 @@
 				window.location.hash = '#/talk';
 			}
 			return false;
-		} );
-		// After adding a new topic, we need to force a refresh of the talk topics
-		eventBus.on( 'talk-discussion-added', function () {
-			gateway.invalidatePage( talkTitle );
-			// a setTimeout is necessary since talk-discussion-added is fired
-			// BEFORE the overlay is closed. (FIXME)
-			window.setTimeout( function () {
-				// Force a change in the address bar
-				// This is important is #/talk is the current route
-				// (e.g. as is the case after the add discussion overlay has closed)
-				overlayManager.router.navigateTo( '#/talk/', { useReplaceState: true } );
-				// We use second parameter to turn on replaceState
-				// this ensure nobody knows above the route change above!
-				overlayManager.router.navigateTo( '#/talk', { useReplaceState: true } );
-			}, 300 );
 		} );
 	}
 
