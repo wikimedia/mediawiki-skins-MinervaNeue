@@ -18,6 +18,7 @@
 		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
 		router = require( 'mediawiki.router' ),
 		CtaDrawer = mobile.CtaDrawer,
+		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
 		Button = mobile.Button,
 		Anchor = mobile.Anchor,
 		overlayManager = require( './overlayManager.js' ),
@@ -122,7 +123,10 @@
 		initButton();
 	} );
 
-	mw.hook( 'wikipage.content' ).add( initMediaViewer );
+	// If the MMV module is missing or disabled from the page, initialise our version
+	if ( desktopMMV === null || desktopMMV === 'registered' ) {
+		mw.hook( 'wikipage.content' ).add( initMediaViewer );
+	}
 
 	/**
 	 * Initialisation function for last modified module.
