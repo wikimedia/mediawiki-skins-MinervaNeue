@@ -8,7 +8,6 @@
 		errorLogging = require( './errorLogging.js' ),
 		notifications = require( './notifications.js' ),
 		preInit = require( './preInit.js' ),
-		initLogging = require( './initLogging.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
 		search = require( './search.js' ),
 		references = require( './references.js' ),
@@ -312,8 +311,6 @@
 		// - main menu closes when you click outside of it
 		// - redirects show a toast.
 		preInit();
-		// - logging
-		initLogging();
 		// - references
 		references();
 		// - search

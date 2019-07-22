@@ -66,7 +66,6 @@
 			"base": false,
 			"beta": true
 		},
-		"MinervaSchemaMainMenuClickTrackingSampleRate": 0,
 		"MinervaABSamplingRate": 0
 	},
 	"ValidSkinNames": {
@@ -195,8 +194,7 @@
 	},
 	"EventLoggingSchemas": {
 		"WebClientError": 18340282,
-		"MobileWebShareButton": 18923688,
-		"MobileWebMainMenuClickTracking": 18984528
+		"MobileWebShareButton": 18923688
 	},
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
@@ -516,7 +514,6 @@
 				"resources/skins.minerva.scripts/NotificationBadge.js",
 				"resources/skins.minerva.scripts/notifications.js",
 				"resources/skins.minerva.scripts/overlayManager.js",
-				"resources/skins.minerva.scripts/menu/schema.js",
 				"resources/skins.minerva.scripts/menu/MainMenu.js",
 				"resources/skins.minerva.scripts/menu.js",
 				"resources/skins.minerva.scripts/errorLogging.js",
@@ -536,7 +533,6 @@
 				"components/ToggleList/ToggleList.js",
 				"resources/skins.minerva.scripts/TabScroll.js",
 				"resources/skins.minerva.scripts/Toolbar.js",
-				"resources/skins.minerva.scripts/initLogging.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
 				"resources/skins.minerva.scripts/references.js",
