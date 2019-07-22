@@ -30,7 +30,7 @@ use MediaWiki\Minerva\Menu\Group;
 /**
  * Used to build default (available for everyone by default) main menu
  */
-class DefaultBuilder implements IBuilder {
+final class DefaultBuilder implements IBuilder {
 
 	/**
 	 * @var bool
@@ -41,12 +41,12 @@ class DefaultBuilder implements IBuilder {
 	 * Currently logged in user
 	 * @var User
 	 */
-	protected $user;
+	private $user;
 
 	/**
 	 * @var Definitions
 	 */
-	protected $definitions;
+	private $definitions;
 
 	/**
 	 * Initialize the Default Main Menu builder
@@ -62,34 +62,24 @@ class DefaultBuilder implements IBuilder {
 	}
 
 	/**
-	 * @return Group[]
+	 * @inheritDoc
 	 * @throws FatalError
 	 * @throws MWException
 	 */
 	public function getGroups(): array {
 		return [
-			$this->getDiscoveryTools(),
+			BuilderUtil::getDiscoveryTools( $this->definitions ),
 			$this->getPersonalTools(),
-			$this->getConfigurationTools(),
+			BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions ),
 		];
 	}
 
 	/**
-	 * Prepares a list of links that have the purpose of discovery in the main navigation menu
-	 * @return Group
-	 * @throws FatalError
+	 * @inheritDoc
 	 * @throws MWException
 	 */
-	protected function getDiscoveryTools(): Group {
-		$group = new Group();
-
-		$this->definitions->insertHomeItem( $group );
-		$this->definitions->insertRandomItem( $group );
-		$this->definitions->insertNearbyIfSupported( $group );
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'discovery', &$group ] );
-		return $group;
+	public function getSiteLinks(): Group {
+		return BuilderUtil::getSiteLinks( $this->definitions );
 	}
 
 	/**
@@ -101,10 +91,10 @@ class DefaultBuilder implements IBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	protected function getPersonalTools(): Group {
+	private function getPersonalTools(): Group {
 		$group = new Group();
 
-		$this->definitions->insertLogInOutMenuItem( $group );
+		$this->definitions->insertAuthMenuItem( $group );
 
 		if ( $this->user->isLoggedIn() ) {
 			$this->definitions->insertWatchlistMenuItem( $group );
@@ -115,38 +105,4 @@ class DefaultBuilder implements IBuilder {
 		Hooks::run( 'MobileMenu', [ 'personal', &$group ] );
 		return $group;
 	}
-
-	/**
-	 * Like <code>SkinMinerva#getDiscoveryTools</code> and <code>#getPersonalTools</code>, create
-	 * a group of configuration-related menu items. Currently, only the Settings menu item is in the
-	 * group.
-	 *
-	 * @return Group
-	 * @throws MWException
-	 */
-	protected function getConfigurationTools(): Group {
-		$group = new Group();
-
-		$this->showMobileOptions ?
-			$this->definitions->insertMobileOptionsItem( $group ) :
-			$this->definitions->insertPreferencesItem( $group );
-
-		return $group;
-	}
-
-	/**
-	 * Returns an array of sitelinks to add into the main menu footer.
-	 * @return Group Collection of site links
-	 * @throws MWException
-	 */
-	public function getSiteLinks(): Group {
-		$group = new Group();
-
-		$this->definitions->insertAboutItem( $group );
-		$this->definitions->insertDisclaimersItem( $group );
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'sitelinks', &$group ] );
-		return $group;
-	}
-
 }

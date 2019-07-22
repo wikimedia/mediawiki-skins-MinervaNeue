@@ -76,7 +76,6 @@ final class Definitions {
 			'contributions',
 			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
 			SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL()
-
 		) );
 	}
 
@@ -110,12 +109,12 @@ final class Definitions {
 	}
 
 	/**
-	 * Creates a login or logout button
+	 * Creates a login or logout button with a profile button.
 	 *
 	 * @param Group $group
 	 * @throws MWException
 	 */
-	public function insertLogInOutMenuItem( Group $group ) {
+	public function insertAuthMenuItem( Group $group ) {
 		$group->insertEntry( new AuthMenuEntry(
 			$this->user,
 			$this->context,

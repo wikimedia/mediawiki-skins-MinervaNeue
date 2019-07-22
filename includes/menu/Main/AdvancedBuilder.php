@@ -23,6 +23,8 @@ namespace MediaWiki\Minerva\Menu\Main;
 use FatalError;
 use Hooks;
 use MWException;
+use User;
+use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
 
 /**
@@ -32,20 +34,79 @@ use MediaWiki\Minerva\Menu\Group;
  *
  * @package MediaWiki\Minerva\Menu\Main
  */
-class AdvancedBuilder extends DefaultBuilder {
+final class AdvancedBuilder implements IBuilder {
+	/**
+	 * @var bool
+	 */
+	private $showMobileOptions;
 
 	/**
+	 * Currently logged in user
+	 * @var User
+	 */
+	private $user;
+
+	/**
+	 * @var Definitions
+	 */
+	private $definitions;
+
+	/**
+	 * Initialize the Default Main Menu builder
+	 *
+	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
+	 * @param User $user The current user
+	 * @param Definitions $definitions A menu items definitions set
+	 */
+	public function __construct( $showMobileOptions, User $user, Definitions $definitions ) {
+		$this->showMobileOptions = $showMobileOptions;
+		$this->user = $user;
+		$this->definitions = $definitions;
+	}
+
+	/**
+	 * @inheritDoc
 	 * @return Group[]
 	 * @throws FatalError
 	 * @throws MWException
 	 */
 	public function getGroups(): array {
 		return [
-			$this->getDiscoveryTools(),
+			BuilderUtil::getDiscoveryTools( $this->definitions ),
 			$this->getPersonalTools(),
 			$this->getSiteTools(),
-			$this->getConfigurationTools(),
+			BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions ),
 		];
+	}
+
+	/**
+	 * @inheritDoc
+	 * @throws FatalError
+	 * @throws MWException
+	 */
+	public function getSiteLinks(): Group {
+		return BuilderUtil::getSiteLinks( $this->definitions );
+	}
+
+	/**
+	 * Builds the personal tools menu item group.
+	 * @return Group
+	 * @throws FatalError
+	 * @throws MWException
+	 */
+	private function getPersonalTools(): Group {
+		$group = new Group();
+
+		$this->definitions->insertAuthMenuItem( $group );
+
+		if ( $this->user->isLoggedIn() ) {
+			$this->definitions->insertWatchlistMenuItem( $group );
+			$this->definitions->insertContributionsMenuItem( $group );
+		}
+
+		// Allow other extensions to add or override tools
+		Hooks::run( 'MobileMenu', [ 'personal', &$group ] );
+		return $group;
 	}
 
 	/**
@@ -54,7 +115,7 @@ class AdvancedBuilder extends DefaultBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	public function getSiteTools(): Group {
+	private function getSiteTools(): Group {
 		$group = new Group();
 
 		$this->definitions->insertSpecialPages( $group );
