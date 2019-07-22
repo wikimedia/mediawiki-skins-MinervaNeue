@@ -237,6 +237,13 @@ Group membership can be debugged from the console via:
 And since session ID is an input in calculating the group, reassignment occurs
 when clearing it: `mw.storage.session.remove('mwuser-sessionId')`.
 
+#### $wgMinervaSchemaMainMenuClickTrackingSampleRate
+
+Defines the sampling rate for the MobileWebMainMenuClickTracking schema.
+
+* Type: `Number`
+* Default: `0`
+
 ### Components
 
 Components may be shared between server and client. Keeping all code for a single component only in
