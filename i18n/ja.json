@@ -11,7 +11,8 @@
 			"Yusuke1109",
 			"Aefgh39622",
 			"S2KTS",
-			"Omotecho"
+			"Omotecho",
+			"神樂坂秀吉"
 		]
 	},
 	"minerva-last-modified-date": "最終更新: $1 $2",
@@ -54,6 +55,7 @@
 	"mobile-frontend-user-page-member-since": "$1に{{GENDER:$2|参加}}",
 	"mobile-frontend-user-page-talk": "トーク",
 	"mobile-frontend-user-page-uploads": "アップロード",
+	"minerva-page-actions-info": "ページ情報",
 	"minerva-skin-desc": "最初のモバイル機器用外装",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",

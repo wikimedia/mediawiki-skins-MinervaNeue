@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ganbarzada",
-			"Гусейн"
+			"Гусейн",
+			"Patriot Kur"
 		]
 	},
-	"mobile-frontend-home-button": "Әсосә сәһифә",
-	"mobile-frontend-language-article-heading": "Co zıvınədə hande",
+	"mobile-frontend-home-button": "Əsos səhifə",
+	"mobile-frontend-language-article-heading": "Co zıvonədə hande",
 	"mobile-frontend-main-menu-button-tooltip": "Əsas menü okə",
 	"mobile-frontend-main-menu-login": "Dəşi",
 	"mobile-frontend-main-menu-nearby": "Neziyədə",

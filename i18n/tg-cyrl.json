@@ -13,5 +13,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Қисмати асосии ин саҳифаро вироиш кунед.",
 	"mobile-frontend-placeholder": "Ҷустуҷӯ дар {{SITENAME}}",
 	"mobile-frontend-random-button": "Тасодуфӣ",
-	"mobile-frontend-user-newmessages": "Шумо паёми нав дар саҳифаи мубоҳисавиатон доред."
+	"mobile-frontend-user-newmessages": "Шумо паёми нав дар саҳифаи мубоҳисавиатон доред.",
+	"minerva-page-actions-language-switcher": "Забонҳо"
 }

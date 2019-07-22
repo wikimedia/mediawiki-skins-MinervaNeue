@@ -9,7 +9,8 @@
 			"Xiaomingyan",
 			"Yfdyh000",
 			"A Chinese Wikipedian",
-			"94rain"
+			"94rain",
+			"神樂坂秀吉"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -56,6 +57,7 @@
 	"mobile-frontend-user-page-member-since": "于$1{{GENDER:$2|加入}}",
 	"mobile-frontend-user-page-talk": "讨论",
 	"mobile-frontend-user-page-uploads": "上传",
+	"minerva-page-actions-info": "页面信息",
 	"minerva-page-actions-permalink": "固定链接",
 	"minerva-page-actions-uploads": "上传",
 	"minerva-page-actions-user-rights": "用户权限",
