@@ -24,6 +24,8 @@ use IContextSource;
 use MediaWiki\Special\SpecialPageFactory;
 use MediaWiki\Minerva\Menu\Entries\AuthMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\HomeMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\LogInMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\LogOutMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use Message;
 use MinervaUI;
@@ -105,6 +107,32 @@ final class Definitions {
 			'watchlist',
 			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
 			$watchTitle->getLocalURL( $watchlistQuery )
+		) );
+	}
+
+	/**
+	 * Creates a log in or log out button.
+	 *
+	 * @param Group $group
+	 * @throws MWException
+	 */
+	public function insertLogInMenuItem( Group $group ) {
+		$group->insertEntry( new LogInMenuEntry(
+			$this->context,
+			$this->newLogInOutQuery( $this->newReturnToQuery() )
+		) );
+	}
+
+	/**
+	 * Creates a log in or log out button.
+	 *
+	 * @param Group $group
+	 * @throws MWException
+	 */
+	public function insertLogOutMenuItem( Group $group ) {
+		$group->insertEntry( new LogOutMenuEntry(
+			$this->context,
+			$this->newLogInOutQuery( $this->newReturnToQuery() )
 		) );
 	}
 

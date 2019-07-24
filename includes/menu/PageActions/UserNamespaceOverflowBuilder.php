@@ -121,7 +121,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * Build entry based on the $toolbox element
 	 *
 	 * @param string $name
-	 * @param string $icon Wikimedia UI icon name.
+	 * @param string $icon Icon CSS class name.
 	 * @param string $toolboxIdx
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @return PageActionMenuEntry|null

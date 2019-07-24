@@ -266,6 +266,7 @@ class MinervaTemplate extends BaseTemplate {
 			'postheadinghtml' => $data['postheadinghtml'] ?? '',
 			'haspageactions' => $hasPageActions,
 			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml() : '',
+			'userMenuHTML' => $data['userMenuHTML'],
 			'subtitle' => $data['subtitle'],
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
