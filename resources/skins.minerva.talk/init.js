@@ -45,6 +45,19 @@
 		return;
 	}
 
+	/**
+	 * Render a talk overlay for a given section
+	 * @param {string} id (a number e.g. '1' or the string 'new')
+	 * @param {Object} talkOptions
+	 * @return {Overlay}
+	 */
+	function talkSectionOverlay( id, talkOptions ) {
+		if ( id === 'new' ) {
+			return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );
+		}
+		return new ( M.require( 'mobile.talk.overlays/TalkSectionOverlay' ) )( talkOptions );
+	}
+
 	overlayManager.add( /^\/talk\/?(.*)$/, function ( id ) {
 		var title = talkTitle.toText(),
 			talkOptions = {
@@ -72,12 +85,15 @@
 
 		// talk case
 		if ( id ) {
-			return loader.loadModule( 'mobile.talk.overlays' ).then( function () {
-				if ( id === 'new' ) {
-					return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );
-				}
-				return new ( M.require( 'mobile.talk.overlays/TalkSectionOverlay' ) )( talkOptions );
-			} );
+			// If the module is already loaded return it instantly and synchronously.
+			// this avoids a flash of
+			// content when transitioning from mobile.talk.overlay to this overlay (T221978)
+			return mw.loader.getState( 'mobile.talk.overlays' ) === 'ready' ?
+				talkSectionOverlay( id, talkOptions ) :
+				// otherwise pull it from ResourceLoader async
+				loader.loadModule( 'mobile.talk.overlays' ).then( function () {
+					return talkSectionOverlay( id, talkOptions );
+				} );
 		} else {
 			return mobile.talk.overlay( title, gateway );
 		}
