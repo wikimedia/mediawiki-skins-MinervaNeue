@@ -58,6 +58,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|اشترك|اشتركت}} منذ $1",
 	"mobile-frontend-user-page-talk": "نقاش",
 	"mobile-frontend-user-page-uploads": "المرفوعات",
+	"minerva-user-menu-button": "قائمة المستخدم",
 	"minerva-page-actions-overflow": "القائمة الفرعية لإجراءات الصفحة الثانوية",
 	"minerva-page-actions-info": "معلومات الصفحة",
 	"minerva-page-actions-permalink": "وصلة دائمة",

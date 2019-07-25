@@ -52,6 +52,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Iscritto|Iscritta}} il $1",
 	"mobile-frontend-user-page-talk": "Discussione",
 	"mobile-frontend-user-page-uploads": "Caricamenti",
+	"minerva-user-menu-button": "Menu utente",
 	"minerva-page-actions-info": "Informazioni pagina",
 	"minerva-page-actions-backlinks": "Puntano qui",
 	"minerva-page-actions-cite": "Cita la pagina",

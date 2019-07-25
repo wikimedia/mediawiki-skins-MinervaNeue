@@ -52,6 +52,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Juntou-se a}} $1",
 	"mobile-frontend-user-page-talk": "Discussão",
 	"mobile-frontend-user-page-uploads": "Carregamentos",
+	"minerva-user-menu-button": "Menu do utilizador",
 	"minerva-page-actions-overflow": "Submenu de operações da página secundária",
 	"minerva-page-actions-info": "Informações da página",
 	"minerva-page-actions-permalink": "Hiperligação permanente",

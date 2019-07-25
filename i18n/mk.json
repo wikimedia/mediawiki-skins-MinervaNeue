@@ -49,6 +49,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Членува од}} $1",
 	"mobile-frontend-user-page-talk": "Разговор",
 	"mobile-frontend-user-page-uploads": "Подигања",
+	"minerva-user-menu-button": "Корисничко мени",
 	"minerva-page-actions-overflow": "Подмени за споредни дејства во страниците",
 	"minerva-page-actions-info": "Информации за страницата",
 	"minerva-page-actions-permalink": "Постојана врска",
