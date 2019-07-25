@@ -11,7 +11,7 @@ const { iAmOnAPageThatHasTheFollowingEdits
 		iClickOnTheHistoryLinkInTheLastModifiedBar
 	} = require( '../features/step_definitions/history_steps' );
 
-describe( 'Page diff', () => {
+describe.skip( 'Page diff', () => {
 	it( 'Added and removed content', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnAPageThatHasTheFollowingEdits( {
