@@ -938,7 +938,17 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
-		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
+		$keys = [
+			SkinOptions::OPTION_AMC,
+			SkinOptions::OPTIONS_TALK_AT_TOP,
+			SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS,
+			SkinOptions::OPTION_OVERFLOW_SUBMENU,
+			SkinOptions::OPTION_TABS_ON_SPECIALS
+		];
+		$includeAMCStyles = array_reduce( $keys, function ( $val, $key ) {
+			return $val || $this->skinOptions->get( $key );
+		}, false );
+		if ( $includeAMCStyles ) {
 			$styles[] = 'skins.minerva.amc.styles';
 			$styles[] = 'wikimedia.ui';
 		}
