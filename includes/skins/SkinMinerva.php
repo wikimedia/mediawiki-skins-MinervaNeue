@@ -23,10 +23,6 @@ use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
-use MediaWiki\Minerva\Menu\User\UserMenuDirector;
-use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
-use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
-use MediaWiki\Minerva\Menu\Definitions;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -98,22 +94,10 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string|null
 	*/
 	private function getUserMenuHTML( BaseTemplate $tpl ) {
-		$services = MediaWikiServices::getInstance();
-		$options = $services->getService( 'Minerva.SkinOptions' );
-		$context = RequestContext::getMain();
-		$definitions = new Definitions( $context, $services->getSpecialPageFactory() );
-		$director = new UserMenuDirector(
-			$options->get( SkinOptions::OPTION_AMC )
-				? new AdvancedUserMenuBuilder(
-					$context,
-					$this->getUser(),
-					$definitions,
-					$tpl->getPersonalTools()['sandbox']['links'][0] ?? null
-				)
-				: new DefaultUserMenuBuilder(),
-				$this
-		);
-		return $director->renderMenuData();
+		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $director */
+		$director = MediaWikiServices::getInstance()
+			->getService( 'Minerva.Menu.UserMenuDirector' );
+		return $director->renderMenuData( $tpl->getPersonalTools() );
 	}
 
 	/**

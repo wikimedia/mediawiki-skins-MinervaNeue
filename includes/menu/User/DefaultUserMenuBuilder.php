@@ -29,7 +29,7 @@ final class DefaultUserMenuBuilder implements IUserMenuBuilder {
 	 * @inheritDoc
 	 * @return Group
 	 */
-	public function getGroup(): Group {
+	public function getGroup( array $personalTools ): Group {
 		return new Group();
 	}
 }

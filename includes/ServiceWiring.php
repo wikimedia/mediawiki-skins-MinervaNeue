@@ -24,6 +24,9 @@ use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Main as MainMenu;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
+use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
+use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
+use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaNoPagePermissions;
@@ -31,13 +34,34 @@ use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 
 return [
+	'Minerva.Menu.Definitions' => function ( MediaWikiServices $services ): Definitions {
+		return new Definitions( RequestContext::getMain(), $services->getSpecialPageFactory() );
+	},
+	'Minerva.Menu.UserMenuDirector' => function ( MediaWikiServices $services ): UserMenuDirector {
+		$options = $services->getService( 'Minerva.SkinOptions' );
+		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
+
+		$context = RequestContext::getMain();
+		$builder = $options->get( SkinOptions::OPTION_AMC ) ?
+			new AdvancedUserMenuBuilder(
+				$context,
+				$context->getUser(),
+				$definitions
+			) :
+			new DefaultUserMenuBuilder();
+
+		return new UserMenuDirector(
+			$builder,
+			$context->getSkin()
+		);
+	},
 	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ): MainMenu\Director {
 		$context = RequestContext::getMain();
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
+		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
 		$showMobileOptions = $options->get( SkinOptions::OPTION_MOBILE_OPTIONS );
 		$user = $context->getUser();
-		$definitions = new Definitions( $context,  $services->getSpecialPageFactory() );
 		$builder = $options->get( SkinOptions::OPTION_AMC ) ?
 			new MainMenu\AdvancedBuilder( $showMobileOptions, $user, $definitions ) :
 			new MainMenu\DefaultBuilder( $showMobileOptions, $user, $definitions );
