@@ -19,6 +19,7 @@
  */
 namespace MediaWiki\Minerva\Menu\User;
 
+use Hooks;
 use IContextSource;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\ProfileMenuEntry;
@@ -95,6 +96,7 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 		} else {
 			$this->definitions->insertLogOutMenuItem( $group );
 		}
+		Hooks::run( 'MobileMenu', [ 'user', &$group ] );
 		return $group;
 	}
 }

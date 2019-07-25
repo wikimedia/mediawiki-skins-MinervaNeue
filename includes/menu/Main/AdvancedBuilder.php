@@ -73,7 +73,6 @@ final class AdvancedBuilder implements IBuilder {
 	public function getGroups(): array {
 		return [
 			BuilderUtil::getDiscoveryTools( $this->definitions ),
-			$this->getPersonalTools(),
 			$this->getSiteTools(),
 			BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions ),
 		];
@@ -86,20 +85,6 @@ final class AdvancedBuilder implements IBuilder {
 	 */
 	public function getSiteLinks(): Group {
 		return BuilderUtil::getSiteLinks( $this->definitions );
-	}
-
-	/**
-	 * Builds the personal tools menu item group.
-	 * @return Group
-	 * @throws FatalError
-	 * @throws MWException
-	 */
-	private function getPersonalTools(): Group {
-		$group = new Group();
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'personal', &$group ] );
-		return $group;
 	}
 
 	/**
