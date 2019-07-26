@@ -6,8 +6,6 @@ module.exports = function () {
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
 		ReferencesGateway = mobile.ReferencesGateway,
-		ReferencesMobileViewGateway = mobile.ReferencesMobileViewGateway,
-		referencesMobileViewGateway = ReferencesMobileViewGateway.getSingleton(),
 		ReferencesHtmlScraperGateway = mobile.ReferencesHtmlScraperGateway,
 		ReferencesDrawer = mobile.ReferencesDrawer;
 
@@ -19,13 +17,7 @@ module.exports = function () {
 	 * @return {ReferencesDrawer}
 	 */
 	function referenceDrawerFactory() {
-		var gateway = null;
-
-		if ( mw.config.get( 'wgMFLazyLoadReferences', false ) ) {
-			gateway = referencesMobileViewGateway;
-		} else {
-			gateway = new ReferencesHtmlScraperGateway( new mw.Api() );
-		}
+		var gateway = new ReferencesHtmlScraperGateway( new mw.Api() );
 
 		return new ReferencesDrawer( {
 			gateway: gateway
