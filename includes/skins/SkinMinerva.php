@@ -952,7 +952,7 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.amc.styles';
 			$styles[] = 'wikimedia.ui';
 		}
-		if ( $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
 			// ToolbarBuilder is reusing the Contributions icon in toolbar @see T224735
 			$styles[] = 'skins.minerva.mainMenu.icons';
 		}
