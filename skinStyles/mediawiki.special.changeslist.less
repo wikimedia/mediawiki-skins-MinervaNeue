@@ -1,0 +1,107 @@
+/**
+ * The "changeslist" module appears on Special pages such
+ * as recent changes, watchlist, and parts of the action history page.
+ */
+
+@import '../minerva.less/minerva.mixins';
+@import '../minerva.less/minerva.variables';
+@import 'mediawiki.ui/mixins.buttons';
+@import 'mediawiki.ui/variables';
+
+ul.special {
+	padding-left: 0 !important; // overriding `.content ul`
+
+	// the following selector are nested due to their
+	// generic names.
+	.mw-title {
+		font-weight: bold;
+	}
+
+	.comment {
+		clear: both;
+		font-style: italic;
+		line-height: 1.4em;
+		padding: 0.5em 0;
+	}
+}
+
+.mw-changeslist-line {
+	.changeslist-row();
+}
+
+.mw-changeslist-line-inner {
+	display: block;
+}
+
+.mw-changeslist-line-inner > * {
+	float: left;
+	margin-right: 0.5em;
+}
+
+.mw-changeslist-line-inner:before,
+.mw-changeslist-line-inner:after {
+	.clearfix();
+}
+
+.mw-changeslist-date,
+.mw-tag-markers {
+	clear: left;
+}
+
+/**
+ * Colored watchlist and recent changes numbers.
+ */
+.mw-plusminus-pos {
+	color: @wmui-color-green30;
+}
+
+.mw-plusminus-neg {
+	color: @wmui-color-red30;
+}
+
+.mw-plusminus-null {
+	color: @wmui-color-grey30;
+}
+
+/*
+ * Bidi-isolate these numbers.
+ * See https://phabricator.wikimedia.org/T93484
+ */
+.mw-plusminus-pos,
+.mw-plusminus-neg,
+.mw-plusminus-null {
+	unicode-bidi: -moz-isolate;
+	unicode-bidi: isolate;
+}
+
+/**
+ * "pill" style tags meant to emulate the OOUI ".oo-ui-tagItemWidget" style.
+ */
+
+.mw-tag-markers {
+	margin: 0 0 0.5em 0;
+}
+
+.mw-tag-marker {
+	// due to the extra space afforded by padding,
+	// we can make the font-size a bit smaller to save space.
+	font-size: @taglineFontSize;
+	display: inline-block;
+	box-sizing: border-box;
+	height: 1.6em;
+	border: 1px solid #a2a9b1;
+	border-radius: 1.6em;
+	line-height: 1.6em;
+	padding: 0 0.6em;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+/**
+ * Button style rollback link, visible to admins.
+ */
+.mw-rollback-link {
+	.mw-ui-button();
+	float: right;
+	font-size: @taglineFontSize;
+}
