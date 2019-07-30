@@ -51,6 +51,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|הצטרף|הצטרפה}} ב־$1",
 	"mobile-frontend-user-page-talk": "שיחה",
 	"mobile-frontend-user-page-uploads": "העלאות",
+	"minerva-user-menu-button": "תפריט משתשמ",
 	"minerva-page-actions-overflow": "תת־תפריט משני של פעולות דף",
 	"minerva-page-actions-info": "מידע על הדף",
 	"minerva-page-actions-permalink": "קישור קבוע",

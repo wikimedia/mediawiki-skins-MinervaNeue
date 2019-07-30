@@ -53,6 +53,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Aliĝis}} $1",
 	"mobile-frontend-user-page-talk": "Diskuto",
 	"mobile-frontend-user-page-uploads": "Alŝutoj",
+	"minerva-user-menu-button": "Menuo de uzanto",
 	"minerva-page-actions-overflow": "Submenuo de sekundaraj paĝaj agoj",
 	"minerva-page-actions-info": "Informo pri paĝo",
 	"minerva-page-actions-permalink": "Konstanta ligilo",
