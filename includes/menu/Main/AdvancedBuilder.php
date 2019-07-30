@@ -96,6 +96,7 @@ final class AdvancedBuilder implements IBuilder {
 	private function getSiteTools(): Group {
 		$group = new Group();
 
+		$this->definitions->insertRecentChanges( $group );
 		$this->definitions->insertSpecialPages( $group );
 		$this->definitions->insertCommunityPortal( $group );
 
