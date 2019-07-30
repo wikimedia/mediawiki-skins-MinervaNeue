@@ -422,6 +422,12 @@
 						"rtl":  "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
 					}
 				},
+				"recentchanges": {
+					"file": {
+						"ltr":"resources/skins.minerva.mainMenu.icons/recentChanges-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.icons/recentChanges-rtl.svg"
+					}
+				},
 				"specialpages": {
 					"file": {
 						"ltr":"resources/skins.minerva.mainMenu.icons/specialpages-ltr.svg",
