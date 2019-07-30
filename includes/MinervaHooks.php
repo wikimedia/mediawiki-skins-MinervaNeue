@@ -235,16 +235,13 @@ class MinervaHooks {
 				SkinOptions::OPTIONS_MOBILE_BETA
 					=> $isBeta,
 				SkinOptions::OPTION_CATEGORIES
-					=> $featureManager->isFeatureAvailableInContext( 'MinervaShowCategoriesButton',
-							$mobileContext ),
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategoriesButton' ),
 				SkinOptions::OPTION_BACK_TO_TOP
-					=> $featureManager->isFeatureAvailableInContext( 'MinervaEnableBackToTop', $mobileContext ),
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaEnableBackToTop' ),
 				SkinOptions::OPTION_PAGE_ISSUES
-					=> $featureManager->isFeatureAvailableInContext(
-							'MinervaPageIssuesNewTreatment', $mobileContext
-						),
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
 				SkinOptions::OPTION_SHARE_BUTTON
-					=> $featureManager->isFeatureAvailableInContext( 'MinervaShareButton', $mobileContext ),
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShareButton' ),
 				SkinOptions::OPTION_TOGGLING => true,
 				SkinOptions::OPTION_MOBILE_OPTIONS => true,
 				SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
