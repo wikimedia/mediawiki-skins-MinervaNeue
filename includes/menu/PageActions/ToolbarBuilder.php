@@ -222,10 +222,10 @@ class ToolbarBuilder {
 		$title = $this->title;
 		$user = $this->user;
 		$isWatched = $title && $user->isLoggedIn() && $user->isWatched( $title );
-		$mode = $isWatched ? 'watch' : 'unwatch';
+		$newModeToSet = $isWatched ? 'unwatch' : 'watch';
 		$href = $user->isAnon()
 			? $this->getLoginUrl( [ 'returnto' => $title ] )
-			: $title->getLocalURL( [ 'action' => $mode ] );
+			: $title->getLocalURL( [ 'action' => $newModeToSet ] );
 
 		if ( $isWatched ) {
 			$msg = $this->messageLocalizer->msg( 'unwatchthispage' );
