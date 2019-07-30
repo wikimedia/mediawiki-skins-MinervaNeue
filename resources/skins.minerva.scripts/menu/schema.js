@@ -1,6 +1,4 @@
-mw.loader.using( [
-	'ext.eventLogging'
-] ).then( function () {
+module.exports = function () {
 	var M = mw.mobileFrontend,
 		user = mw.user,
 		editCount = mw.config.get( 'wgUserEditCount' ),
@@ -50,4 +48,4 @@ mw.loader.using( [
 	mw.trackSubscribe( 'minerva.schemaMobileWebMainMenuClickTracking', function ( topic, data ) {
 		schemaMobileWebMainMenuClickTracking.log( data );
 	} );
-} );
+};
