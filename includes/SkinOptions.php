@@ -55,10 +55,14 @@ final class SkinOptions {
 		self::SHARE_BUTTON => false,
 		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
 		self::TOGGLING => false,
+		/** requires a wiki using Template:Ambox */
 		self::PAGE_ISSUES => false,
-		self::TALK_AT_TOP => false,
-		self::HISTORY_IN_PAGE_ACTIONS => false,
-		self::TOOLBAR_SUBMENU => false,
+		/** no extension requirements */
+		self::TALK_AT_TOP => true,
+		/** no extension requirements */
+		self::HISTORY_IN_PAGE_ACTIONS => true,
+		/** no extension requirements */
+		self::TOOLBAR_SUBMENU => true,
 		/** Whether to show tabs on special pages */
 		self::TABS_ON_SPECIALS => false,
 	];

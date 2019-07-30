@@ -144,6 +144,9 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	public function testGetContextSpecificModules( $backToTopValue, $moduleName, $expected ) {
 		$this->overrideSkinOptions( [
 			SkinOptions::AMC_MODE => false,
+			SkinOptions::TALK_AT_TOP => false,
+			SkinOptions::HISTORY_IN_PAGE_ACTIONS => false,
+			SkinOptions::TOOLBAR_SUBMENU => false,
 			'backToTop' => $backToTopValue,
 		] );
 
