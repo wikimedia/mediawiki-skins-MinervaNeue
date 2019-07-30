@@ -48,7 +48,7 @@
 		"MinervaOverflowInPageActions": {
 			"base": false,
 			"beta": false,
-			"amc": false
+			"amc": true
 		},
 		"MinervaShowCategoriesButton": {
 			"base": false,
