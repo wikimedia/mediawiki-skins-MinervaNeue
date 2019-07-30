@@ -287,16 +287,12 @@
 						label: mw.msg( 'mobile-frontend-editor-redlink-create' ),
 						href: $( this ).attr( 'href' )
 					} ).options,
-					closeAnchor: new Anchor( {
+					actionAnchor: new Anchor( {
 						progressive: true,
 						label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
-						additionalClassNames: 'hide'
+						additionalClassNames: 'cancel'
 					} ).options,
-					events: {
-						'click .hide': 'hide' // Call CtaDrawer.hide() on closeAnchor click.
-					},
-					content: mw.msg( 'mobile-frontend-editor-redlink-explain' ),
-					actionAnchor: false
+					content: mw.msg( 'mobile-frontend-editor-redlink-explain' )
 				},
 				drawer = new CtaDrawer( drawerOptions );
 
