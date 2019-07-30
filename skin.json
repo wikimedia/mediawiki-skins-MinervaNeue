@@ -185,6 +185,12 @@
 			],
 			"mediawiki.content.json": [
 				"skinStyles/mediawiki.content-json/minerva.less"
+			],
+			"mediawiki.special.changeslist": [
+				"skinStyles/mediawiki.special.changeslist.less"
+			],
+			"mediawiki.special.changeslist.legend": [
+				"skinStyles/mediawiki.special.changeslist.legend.less"
 			]
 		}
 	},
