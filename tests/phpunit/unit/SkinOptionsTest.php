@@ -46,4 +46,24 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 		] );
 		$this->assertFalse( $options->hasSkinOptions() );
 	}
+
+	/**
+	 * @covers ::get
+	 * @expectedException \OutOfBoundsException
+	 */
+	public function testGettingUnknownKeyShouldThrowException() {
+		$options = new SkinOptions();
+		$options->get( 'non_existing_key' );
+	}
+
+	/**
+	 * @covers ::get
+	 * @expectedException \OutOfBoundsException
+	*/
+	public function testSettingUnknownKeyShouldThrowException() {
+		$options = new SkinOptions();
+		$options->setMultiple( [
+			'non_existing_key' => 1
+		] );
+	}
 }

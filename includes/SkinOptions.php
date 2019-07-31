@@ -68,6 +68,11 @@ final class SkinOptions {
 	 * @param array $options
 	 */
 	public function setMultiple( array $options ) {
+		foreach ( $options as $option => $value ) {
+			if ( !array_key_exists( $option, $this->skinOptions ) ) {
+				throw new \OutOfBoundsException( "SkinOption $option is not defined" );
+			}
+		}
 		$this->skinOptions = array_merge( $this->skinOptions, $options );
 	}
 
