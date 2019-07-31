@@ -114,7 +114,9 @@ return [
 		);
 	 },
 	'Minerva.SkinUserPageHelper' => function (): SkinUserPageHelper {
-		return new SkinUserPageHelper( RequestContext::getMain()->getTitle() );
+		return new SkinUserPageHelper(
+			RequestContext::getMain()->getSkin()->getRelevantTitle()
+		);
 	},
 	'Minerva.LanguagesHelper' => function (): LanguagesHelper {
 		return new LanguagesHelper( RequestContext::getMain()->getOutput() );
