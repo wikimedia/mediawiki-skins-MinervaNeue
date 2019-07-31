@@ -193,6 +193,15 @@ class MinervaHooks {
 						'skins.minerva.mainMenu.styles',
 					] );
 					break;
+				case 'Recentchanges':
+					$isEnhancedDefaultForUser = $special->getUser()->getOption( 'usenewrc' );
+					$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
+					if ( $enhanced ) {
+						$out->addHTML( Html::warningBox(
+							$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )
+						) );
+					}
+					break;
 				case 'Userlogin':
 				case 'CreateAccount':
 					// Add default warning message to Special:UserLogin and Special:UserCreate
