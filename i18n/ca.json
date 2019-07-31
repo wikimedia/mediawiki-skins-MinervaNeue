@@ -46,5 +46,6 @@
 	"mobile-frontend-user-page-contributions": "Contribucions",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Membre}} des de $1",
 	"mobile-frontend-user-page-talk": "Discussió",
+	"minerva-user-menu-button": "Menú d’usuari",
 	"skin-minerva-issue-learn-more": "Més informació"
 }
