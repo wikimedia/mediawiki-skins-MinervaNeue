@@ -14,13 +14,12 @@
 	/**
 	 * @param {Window} window
 	 * @param {Element} toolbar
-	 * @param {OO.EventEmitter} eventBus
 	 * @return {void}
 	 */
-	function bind( window, toolbar, eventBus ) {
+	function bind( window, toolbar ) {
 		var overflowSubmenu = toolbar.querySelector( overflowSubmenuSelector );
 		if ( overflowSubmenu ) {
-			ToggleList.bind( window, overflowSubmenu, eventBus, true );
+			ToggleList.bind( window, overflowSubmenu );
 		}
 	}
 
@@ -30,14 +29,9 @@
 	 * @return {void}
 	 */
 	function render( window, toolbar ) {
-		var
-			overflowSubmenu = toolbar.querySelector( overflowSubmenuSelector ),
-			overflowList = toolbar.querySelector( overflowListSelector );
+		var overflowList = toolbar.querySelector( overflowListSelector );
 		renderEditButton();
 		renderDownloadButton( window, overflowList );
-		if ( overflowSubmenu ) {
-			ToggleList.render( overflowSubmenu, true );
-		}
 	}
 
 	/**
