@@ -36,7 +36,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Edit the lead section of this page",
 	"mobile-frontend-placeholder": "Search {{SITENAME}}",
 	"mobile-frontend-random-button": "Random",
-	"mobile-frontend-redirected-from": "Redirected from \"$1\"",
+	"mobile-frontend-redirected-from": "Redirected from \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Return to the file \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Return to \"$1\" page.",
 	"mobile-frontend-talk-back-to-projectpage": "Return to the project page \"$1\".",
