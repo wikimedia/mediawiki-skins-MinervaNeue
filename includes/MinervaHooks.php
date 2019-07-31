@@ -38,13 +38,15 @@ class MinervaHooks {
 	 * @param Skin &$skin
 	 * @param array &$list
 	 * @param array $groups
-	 * @return bool
+	 * @return bool|null
 	 */
 	public static function onFetchChangesList( User $user, Skin &$skin, &$list, $groups = [] ) {
-		// The new changes list (table-based) does not work with Minerva
-		$list = new OldChangesList( $skin->getContext(), $groups );
-		// returning false makes sure $list is used instead.
-		return false;
+		if ( $skin->getSkinName() === 'minerva' ) {
+			// The new changes list (table-based) does not work with Minerva
+			$list = new OldChangesList( $skin->getContext(), $groups );
+			// returning false makes sure $list is used instead.
+			return false;
+		}
 	}
 
 	/**
