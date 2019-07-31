@@ -75,5 +75,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Label for jump to top mobile web beta feature",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Description label for jump to top mobile web beta feature",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Title for page issues feature flag displayed in Special:MobileOptions",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Description shown on Special:MobileOptions for page issues beta feature."
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Description shown on Special:MobileOptions for page issues beta feature.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Warning message when informing about lack of '''group results by page''' feature availability on on mobile site. Message should recommend visiting desktop site to access grouping results by page."
 }
