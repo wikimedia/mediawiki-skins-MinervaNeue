@@ -326,12 +326,11 @@
 		// eslint-disable-next-line no-jquery/no-global-selector
 		initHistoryLink( $( '.last-modifier-tagline a' ) );
 		if ( toolbarElement ) {
-			Toolbar.bind( window, toolbarElement, eventBus );
+			Toolbar.bind( window, toolbarElement );
 			Toolbar.render( window, toolbarElement );
 		}
 		if ( userMenu ) {
-			ToggleList.bind( window, userMenu, eventBus, true );
-			ToggleList.render( userMenu, true );
+			ToggleList.bind( window, userMenu );
 		}
 		initRedlinksCta();
 		initUserRedLinks();
