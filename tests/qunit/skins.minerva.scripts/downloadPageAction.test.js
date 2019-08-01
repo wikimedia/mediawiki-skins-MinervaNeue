@@ -86,6 +86,7 @@
 			var page = new Page( {
 				id: 0,
 				title: 'Test',
+				isMissing: false,
 				isMainPage: false
 			} );
 			this.page = page;
@@ -108,10 +109,20 @@
 		assert.notOk( isAvailable( windowChrome, this.page, VALID_UA, [ 9999 ] ) );
 	} );
 
+	QUnit.test( 'isAvailable() handles missing pages', function ( assert ) {
+		var page = new Page( {
+			id: 0,
+			title: 'Missing',
+			isMissing: true
+		} );
+		assert.notOk( isAvailable( windowChrome, page, VALID_UA, VALID_SUPPORTED_NAMESPACES ) );
+	} );
+
 	QUnit.test( 'isAvailable() handles properly main page', function ( assert ) {
 		var page = new Page( {
 			id: 0,
 			title: 'Test',
+			isMissing: false,
 			isMainPage: true
 		} );
 		assert.notOk( isAvailable( windowChrome, page, VALID_UA, VALID_SUPPORTED_NAMESPACES ) );

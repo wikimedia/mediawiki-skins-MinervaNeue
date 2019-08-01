@@ -45,9 +45,10 @@
 			chromeVersion = getChromeVersion( userAgent );
 
 		// Download button is restricted to certain namespaces T181152.
+		// Not shown on missing pages
 		// Defaults to 0, in case cached JS has been served.
 		if ( supportedNamespaces.indexOf( page.getNamespaceId() ) === -1 ||
-			page.isMainPage() ) {
+			page.isMainPage() || page.isMissing ) {
 			// namespace is not supported or it's a main page
 			return false;
 		}
@@ -117,13 +118,13 @@
 	 * Generate a download icon for triggering print functionality if
 	 * printing is available
 	 *
-	 * @param {Skin} skin
+	 * @param {Page} page
 	 * @param {number[]} supportedNamespaces
 	 * @param {Window} [windowObj] window object
 	 * @param {boolean} [hasText] Use icon + button style.
 	 * @returns {jQuery.Object|null}
 	 */
-	function downloadPageAction( skin, supportedNamespaces, windowObj, hasText ) {
+	function downloadPageAction( page, supportedNamespaces, windowObj, hasText ) {
 		var
 			modifier = hasText ? 'toggle-list-item__anchor--menu' : 'mw-ui-icon-element',
 			icon,
@@ -134,7 +135,7 @@
 
 		if (
 			isAvailable(
-				windowObj, skin.page, navigator.userAgent,
+				windowObj, page, navigator.userAgent,
 				supportedNamespaces
 			)
 		) {

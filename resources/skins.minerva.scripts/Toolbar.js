@@ -4,7 +4,7 @@
 		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
 		downloadPageAction = require( './downloadPageAction.js' ).downloadPageAction,
 		Icon = mobile.Icon,
-		skin = mobile.Skin.getSingleton(),
+		page = mobile.currentPage(),
 		/** The top level menu. */
 		toolbarSelector = '.page-actions-menu',
 		/** The secondary overflow submenu component container. */
@@ -83,7 +83,7 @@
 	 * @return {void}
 	 */
 	function renderDownloadButton( window, overflowList ) {
-		var $downloadAction = downloadPageAction( skin,
+		var $downloadAction = downloadPageAction( page,
 			mw.config.get( 'wgMinervaDownloadNamespaces', [] ), window, !!overflowList );
 
 		if ( $downloadAction ) {
