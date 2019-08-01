@@ -131,7 +131,6 @@
 				"skinStyles/mediawiki.interface.helpers.styles.less"
 			],
 			"mediawiki.rcfilters.highlightCircles.seenunseen.styles": [],
-			"mediawiki.rcfilters.filters.base.styles": [],
 			"ext.confirmEdit.fancyCaptcha.styles": [
 				"skinStyles/ext.confirmEdit.fancyCaptcha.styles/minerva.less"
 			],
