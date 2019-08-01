@@ -239,29 +239,29 @@ class MinervaHooks {
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$skinOptions->setMultiple( [
-				SkinOptions::OPTION_AMC => $userMode->isEnabled(),
-				SkinOptions::OPTIONS_TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
+				SkinOptions::AMC_MODE => $userMode->isEnabled(),
+				SkinOptions::TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaTalkAtTop'
 				),
-				SkinOptions::OPTIONS_MOBILE_BETA
+				SkinOptions::BETA_MODE
 					=> $isBeta,
-				SkinOptions::OPTION_CATEGORIES
+				SkinOptions::CATEGORIES
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategoriesButton' ),
-				SkinOptions::OPTION_BACK_TO_TOP
+				SkinOptions::BACK_TO_TOP
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaEnableBackToTop' ),
-				SkinOptions::OPTION_PAGE_ISSUES
+				SkinOptions::PAGE_ISSUES
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
-				SkinOptions::OPTION_SHARE_BUTTON
+				SkinOptions::SHARE_BUTTON
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShareButton' ),
-				SkinOptions::OPTION_TOGGLING => true,
-				SkinOptions::OPTION_MOBILE_OPTIONS => true,
-				SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
+				SkinOptions::TOGGLING => true,
+				SkinOptions::MOBILE_OPTIONS => true,
+				SkinOptions::HISTORY_IN_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaHistoryInPageActions'
 				),
-				SkinOptions::OPTION_OVERFLOW_SUBMENU => $featureManager->isFeatureAvailableForCurrentUser(
+				SkinOptions::TOOLBAR_SUBMENU => $featureManager->isFeatureAvailableForCurrentUser(
 					self::FEATURE_OVERFLOW_PAGE_ACTIONS
 				),
-				SkinOptions::OPTION_TABS_ON_SPECIALS => false,
+				SkinOptions::TABS_ON_SPECIALS => false,
 			] );
 			Hooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
 		}

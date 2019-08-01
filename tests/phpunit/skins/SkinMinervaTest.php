@@ -60,7 +60,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 		$outputPage->expects( $this->never() )
 			->method( 'getCategoryLinks' );
 
-		$this->overrideSkinOptions( [ SkinOptions::OPTION_CATEGORIES => false ] );
+		$this->overrideSkinOptions( [ SkinOptions::CATEGORIES => false ] );
 		$context = new RequestContext();
 		$context->setTitle( Title::newFromText( 'Test' ) );
 		$context->setOutput( $outputPage );
@@ -87,7 +87,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			->method( 'getCategoryLinks' )
 			->will( $this->returnValue( $categoryLinks ) );
 
-		$this->overrideSkinOptions( [ SkinOptions::OPTION_CATEGORIES => true ] );
+		$this->overrideSkinOptions( [ SkinOptions::CATEGORIES => true ] );
 
 		$context = new RequestContext();
 		$context->setTitle( Title::newFromText( 'Test' ) );
@@ -143,7 +143,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 */
 	public function testGetContextSpecificModules( $backToTopValue, $moduleName, $expected ) {
 		$this->overrideSkinOptions( [
-			SkinOptions::OPTION_AMC => false,
+			SkinOptions::AMC_MODE => false,
 			'backToTop' => $backToTopValue,
 		] );
 

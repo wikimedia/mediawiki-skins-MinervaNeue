@@ -42,7 +42,7 @@ return [
 		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
 
 		$context = RequestContext::getMain();
-		$builder = $options->get( SkinOptions::OPTION_AMC ) ?
+		$builder = $options->get( SkinOptions::AMC_MODE ) ?
 			new AdvancedUserMenuBuilder(
 				$context,
 				$context->getUser(),
@@ -60,9 +60,9 @@ return [
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
 		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
-		$showMobileOptions = $options->get( SkinOptions::OPTION_MOBILE_OPTIONS );
+		$showMobileOptions = $options->get( SkinOptions::MOBILE_OPTIONS );
 		$user = $context->getUser();
-		$builder = $options->get( SkinOptions::OPTION_AMC ) ?
+		$builder = $options->get( SkinOptions::AMC_MODE ) ?
 			new MainMenu\AdvancedBuilder( $showMobileOptions, $user, $definitions ) :
 			new MainMenu\DefaultBuilder( $showMobileOptions, $user, $definitions );
 
@@ -91,7 +91,7 @@ return [
 			$userPageHelper,
 			$languagesHelper
 		);
-		if ( $skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+		if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
 			 $overflowBuilder = $userPageHelper->isUserPage() ?
 				 new PageActionsMenu\UserNamespaceOverflowBuilder(
 					 $title,
