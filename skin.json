@@ -449,7 +449,10 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.mainMenu.styles/mainmenu.less"
+				"resources/skins.minerva.mainMenu.styles/MainMenu.less",
+				"resources/skins.minerva.mainMenu.styles/MainMenuItem.less",
+				"resources/skins.minerva.mainMenu.styles/MainMenuFooter.less",
+				"resources/skins.minerva.mainMenu.styles/NotificationsOverlay.less"
 			]
 		},
 		"skins.minerva.loggedin.styles": {

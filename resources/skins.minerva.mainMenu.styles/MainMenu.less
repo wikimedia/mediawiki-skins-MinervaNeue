@@ -1,0 +1,131 @@
+// Component of ui.less
+// FIXME: Move to components/
+@import '../../minerva.less/minerva.variables';
+@import '../../minerva.less/minerva.mixins';
+
+/* stylelint-disable no-descending-specificity */
+
+// .menu
+#mw-mf-page-left {
+	background-color: @primaryNavBackgroundColor;
+	float: left;
+	height: 100%;
+	// Add vertical scrollbar as needed.
+	overflow-y: auto;
+
+	ul {
+		padding-bottom: 22px;
+	}
+}
+
+.navigation-enabled {
+	#mw-mf-viewport {
+		// disable horizontal scrolling
+		overflow: hidden;
+		// the two following properties are needed to override the height set
+		// by position: fixed fallback on scroll event
+		min-height: 100%;
+	}
+
+	#mw-mf-page-center {
+		// Since we change the color of the body tag above we need to ensure the content has a white background
+		background: #fff;
+		position: absolute;
+		height: 100%;
+		// Overriden in mainmenuAnimation
+		left: @menuWidth;
+	}
+
+	// .menu
+	#mw-mf-page-left,
+	.transparent-shield {
+		visibility: visible;
+	}
+
+	.transparent-shield {
+		opacity: 0.5;
+	}
+}
+// FIXME: overrides the .has-drawer background color when a drawer is open.
+// Should be removed when T214045 is resolved.
+.primary-navigation-enabled.has-drawer {
+	background-color: @primaryNavBackgroundColor;
+}
+
+.primary-navigation-enabled {
+	background-color: @primaryNavBackgroundColor;
+
+	// .menu
+	#mw-mf-page-left {
+		width: @menuWidth;
+	}
+
+	// FIXME: Menu shouldn't need to know about drawers but a cta drawer might be open
+	.drawer .position-fixed {
+		left: @menuWidth !important;
+	}
+}
+
+// FIXME: Cleanup animation css
+.animations {
+	#mw-mf-page-center {
+		min-height: 100%;
+
+		// *2 to avoid weird glitch of left nav flickering after closing
+		@transition: @menu-animation-duration @menu-animation-easing, height 0s ( @menu-animation-duration * 2 );
+		.transition-transform( @transition );
+	}
+
+	// .menu
+	#mw-mf-page-left {
+		width: @menuWidth;
+
+		.transition( visibility 0s @menu-animation-duration );
+	}
+}
+
+.primary-navigation-enabled.animations {
+	// FIXME: Menu shouldn't need to know about drawers
+	.drawer .position-fixed,
+	#mw-mf-page-center {
+		// override non-animated version
+		left: 0 !important;
+		.transform( translate( @menuWidth, 0 ) );
+	}
+
+	// .menu
+	#mw-mf-page-left {
+		// make menu scrollable when open (on small screens)
+		position: static;
+		.transition( none );
+	}
+}
+
+@media all and ( min-width: @width-breakpoint-tablet ) {
+	.navigation-enabled {
+		// .menu
+		#mw-mf-page-center {
+			left: @menuWidthTablet;
+		}
+	}
+
+	.primary-navigation-enabled {
+		&.animations {
+			// FIXME: Menu shouldn't need to know about drawers
+			.drawer .position-fixed,
+			#mw-mf-page-center {
+				.transform( translate( @menuWidthTablet, 0 ) );
+			}
+		}
+
+		// .menu
+		#mw-mf-page-left {
+			width: @menuWidthTablet;
+		}
+
+		// FIXME: Menu shouldn't need to know about drawers but a cta drawer might be open
+		.drawer .position-fixed {
+			left: @menuWidthTablet !important;
+		}
+	}
+}
