@@ -19,14 +19,14 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testSettersAndGetters() {
 		$options = new SkinOptions();
-		$defaultValue = $options->get( SkinOptions::OPTION_AMC );
-		$options->setMultiple( [ SkinOptions::OPTION_AMC => !$defaultValue ] );
+		$defaultValue = $options->get( SkinOptions::AMC_MODE );
+		$options->setMultiple( [ SkinOptions::AMC_MODE => !$defaultValue ] );
 
 		$allOptions = $options->getAll();
 
-		$this->assertEquals( !$defaultValue, $options->get( SkinOptions::OPTION_AMC ) );
-		$this->assertArrayHasKey( SkinOptions::OPTION_AMC, $allOptions );
-		$this->assertEquals( !$defaultValue, $allOptions[ SkinOptions::OPTION_AMC ] );
+		$this->assertEquals( !$defaultValue, $options->get( SkinOptions::AMC_MODE ) );
+		$this->assertArrayHasKey( SkinOptions::AMC_MODE, $allOptions );
+		$this->assertEquals( !$defaultValue, $allOptions[ SkinOptions::AMC_MODE ] );
 	}
 
 	/**
@@ -34,15 +34,15 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testHasSkinOptions() {
 		$options = new SkinOptions();
-		// set OPTION_AMC to true just in case someone decides to set everything to false
+		// set AMC_MODE to true just in case someone decides to set everything to false
 		// sometime in the future.
-		$options->setMultiple( [ SkinOptions::OPTION_AMC => true ] );
+		$options->setMultiple( [ SkinOptions::AMC_MODE => true ] );
 		$this->assertTrue( $options->hasSkinOptions() );
-		$options->setMultiple( [ SkinOptions::OPTION_BACK_TO_TOP => true ] );
+		$options->setMultiple( [ SkinOptions::BACK_TO_TOP => true ] );
 		$this->assertTrue( $options->hasSkinOptions() );
 		$options->setMultiple( [
-			SkinOptions::OPTION_AMC => false,
-			SkinOptions::OPTION_BACK_TO_TOP => false
+			SkinOptions::AMC_MODE => false,
+			SkinOptions::BACK_TO_TOP => false
 		] );
 		$this->assertFalse( $options->hasSkinOptions() );
 	}

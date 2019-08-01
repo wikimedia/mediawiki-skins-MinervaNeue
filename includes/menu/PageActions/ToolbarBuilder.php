@@ -115,7 +115,7 @@ class ToolbarBuilder {
 	public function getGroup(): Group {
 		$group = new Group();
 		$permissions = $this->permissions;
-		$userPageWithOveflowMode = $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) &&
+		$userPageWithOveflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) &&
 			$this->userPageHelper->isUserPage();
 
 		if ( !$userPageWithOveflowMode && $permissions->isAllowed(

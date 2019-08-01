@@ -195,7 +195,7 @@ class SkinMinerva extends SkinTemplate {
 		// If it's a talk page, add a link to the main namespace page
 		// In AMC we do not need to do this as there is an easy way back to the article page
 		// via the talk/article tabs.
-		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
+		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
 			// if it's a talk page for which we have a special message, use it
 			switch ( $title->getNamespace() ) {
 				case NS_USER_TALK:
@@ -252,7 +252,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function getPageClasses( $title ) {
 		$className = parent::getPageClasses( $title );
-		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA )
+		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::BETA_MODE )
 				? 'beta' : 'stable' );
 
 		if ( $title->isMainPage() ) {
@@ -265,7 +265,7 @@ class SkinMinerva extends SkinTemplate {
 		// The new treatment should only apply to the main namespace
 		if (
 			$title->getNamespace() === NS_MAIN &&
-			$this->skinOptions->get( SkinOptions::OPTION_PAGE_ISSUES )
+			$this->skinOptions->get( SkinOptions::PAGE_ISSUES )
 		) {
 			$className .= ' issues-group-B';
 		}
@@ -277,7 +277,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return bool
 	 */
 	private function hasCategoryLinks() {
-		if ( !$this->skinOptions->get( SkinOptions::OPTION_CATEGORIES ) ) {
+		if ( !$this->skinOptions->get( SkinOptions::CATEGORIES ) ) {
 			return false;
 		}
 		$categoryLinks = $this->getOutput()->getCategoryLinks();
@@ -581,7 +581,7 @@ class SkinMinerva extends SkinTemplate {
 		if ( $this->getUserPageHelper()->isUserPage() &&
 			 // when overflow menu is visible, we don't need to build secondary options
 			 // as most of options are visible on Toolbar/Overflow menu
-			 !$this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU ) ) {
+			 !$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
 			$pageUser = $this->getUserPageHelper()->getPageUser();
 			$talkPage = $pageUser->getTalkPage();
 			$data = [
@@ -731,7 +731,7 @@ class SkinMinerva extends SkinTemplate {
 		// in stable it will link to the wikitext talk page
 		$title = $this->getTitle();
 		$subjectPage = $title->getSubjectPage();
-		$talkAtBottom = !$this->skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ||
+		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
 		if ( !$this->getUserPageHelper()->isUserPage()
@@ -881,7 +881,7 @@ class SkinMinerva extends SkinTemplate {
 			]
 		);
 
-		if ( $this->skinOptions->get( SkinOptions::OPTION_TOGGLING ) ) {
+		if ( $this->skinOptions->get( SkinOptions::TOGGLING ) ) {
 			// Extension can unload "toggling" modules via the hook
 			$modules['toggling'] = [ 'skins.minerva.toggling' ];
 		}
@@ -902,7 +902,7 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function addToBodyAttributes( $out, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
-		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
+		if ( $this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
 			$classes .= ' minerva--amc-enabled';
 		} else {
 			$classes .= ' minerva--amc-disabled';
@@ -939,11 +939,11 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		$keys = [
-			SkinOptions::OPTION_AMC,
-			SkinOptions::OPTIONS_TALK_AT_TOP,
-			SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS,
-			SkinOptions::OPTION_OVERFLOW_SUBMENU,
-			SkinOptions::OPTION_TABS_ON_SPECIALS
+			SkinOptions::AMC_MODE,
+			SkinOptions::TALK_AT_TOP,
+			SkinOptions::HISTORY_IN_PAGE_ACTIONS,
+			SkinOptions::TOOLBAR_SUBMENU,
+			SkinOptions::TABS_ON_SPECIALS
 		];
 		$includeAMCStyles = array_reduce( $keys, function ( $val, $key ) {
 			return $val || $this->skinOptions->get( $key );
@@ -952,7 +952,7 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.amc.styles';
 			$styles[] = 'wikimedia.ui';
 		}
-		if ( $this->skinOptions->get( SkinOptions::OPTION_AMC ) ) {
+		if ( $this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
 			// ToolbarBuilder is reusing the Contributions icon in toolbar @see T224735
 			$styles[] = 'skins.minerva.mainMenu.icons';
 		}

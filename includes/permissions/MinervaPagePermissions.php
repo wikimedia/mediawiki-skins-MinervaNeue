@@ -123,11 +123,11 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		}
 
 		if ( $action === self::HISTORY && $this->title->exists() ) {
-			return $this->skinOptions->get( SkinOptions::OPTIONS_HISTORY_PAGE_ACTIONS );
+			return $this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS );
 		}
 
-		if ( $action === SkinOptions::OPTION_OVERFLOW_SUBMENU ) {
-			return $this->skinOptions->get( SkinOptions::OPTION_OVERFLOW_SUBMENU );
+		if ( $action === SkinOptions::TOOLBAR_SUBMENU ) {
+			return $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU );
 		}
 
 		if ( !in_array( $action, $this->config->get( 'MinervaPageActions' ) ) ) {

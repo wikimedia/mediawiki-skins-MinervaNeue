@@ -274,9 +274,9 @@ class MinervaTemplate extends BaseTemplate {
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 			'dataAfterContent' => $this->get( 'dataAfterContent' ),
 			'footer' => $this->getFooterTemplateData( $data ),
-			'isBeta' => $skinOptions->get( SkinOptions::OPTIONS_MOBILE_BETA ),
+			'isBeta' => $skinOptions->get( SkinOptions::BETA_MODE ),
 			'tabs' => $this->showTalkTabs( $hasPageActions, $skinOptions ) &&
-					  $skinOptions->get( SkinOptions::OPTIONS_TALK_AT_TOP ) ? [
+					  $skinOptions->get( SkinOptions::TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
 		];
@@ -306,7 +306,7 @@ class MinervaTemplate extends BaseTemplate {
 	private function showTalkTabs( $hasPageActions, SkinOptions $skinOptions ) {
 		$hasTalkTabs = $hasPageActions && !$this->isMainPageTalk;
 		if ( !$hasTalkTabs && $this->isSpecialPage &&
-			 $skinOptions->get( SkinOptions::OPTION_TABS_ON_SPECIALS ) ) {
+			 $skinOptions->get( SkinOptions::TABS_ON_SPECIALS ) ) {
 			$hasTalkTabs = true;
 		}
 		return $hasTalkTabs;

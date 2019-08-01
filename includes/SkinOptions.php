@@ -23,44 +23,44 @@ namespace MediaWiki\Minerva;
  * A wrapper for all available Skin options.
  */
 final class SkinOptions {
-	/** Set of keys for available skin options. See $skinOptions. */
-	const OPTION_MOBILE_OPTIONS = 'mobileOptionsLink';
-	const OPTION_AMC = 'amc';
-	const OPTION_CATEGORIES = 'categories';
-	const OPTION_BACK_TO_TOP = 'backToTop';
-	const OPTION_PAGE_ISSUES = 'pageIssues';
-	const OPTION_SHARE_BUTTON = 'shareButton';
-	const OPTION_TOGGLING = 'toggling';
-	const OPTIONS_MOBILE_BETA = 'beta';
-	const OPTIONS_TALK_AT_TOP = 'talkAtTop';
-	const OPTIONS_HISTORY_PAGE_ACTIONS = 'historyInPageActions';
-	const OPTION_OVERFLOW_SUBMENU = 'overflowSubmenu';
-	const OPTION_TABS_ON_SPECIALS = 'tabsOnSpecials';
 
-	/** @var array skin specific options */
+	const MOBILE_OPTIONS = 'mobileOptionsLink';
+	const AMC_MODE = 'amc';
+	const CATEGORIES = 'categories';
+	const BACK_TO_TOP = 'backToTop';
+	const PAGE_ISSUES = 'pageIssues';
+	const SHARE_BUTTON = 'shareButton';
+	const TOGGLING = 'toggling';
+	const BETA_MODE = 'beta';
+	const TALK_AT_TOP = 'talkAtTop';
+	const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
+	const TOOLBAR_SUBMENU = 'overflowSubmenu';
+	const TABS_ON_SPECIALS = 'tabsOnSpecials';
+
+	/** @var array skin specific options, initialized with default values */
 	private $skinOptions = [
 		// Defaults to true for desktop mode.
-		self::OPTION_AMC => true,
-		self::OPTIONS_MOBILE_BETA => false,
+		self::AMC_MODE => true,
+		self::BETA_MODE => false,
 		/**
 		 * Whether the main menu should include a link to
 		 * Special:Preferences of Special:MobileOptions
 		 */
-		self::OPTION_MOBILE_OPTIONS => false,
+		self::MOBILE_OPTIONS => false,
 		/** Whether a categories button should appear at the bottom of the skin. */
-		self::OPTION_CATEGORIES => false,
+		self::CATEGORIES => false,
 		/** Whether a back to top button appears at the bottom of the view page */
-		self::OPTION_BACK_TO_TOP => false,
+		self::BACK_TO_TOP => false,
 		/** Whether a share button should appear in icons section */
-		self::OPTION_SHARE_BUTTON => false,
+		self::SHARE_BUTTON => false,
 		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
-		self::OPTION_TOGGLING => false,
-		self::OPTION_PAGE_ISSUES => false,
-		self::OPTIONS_TALK_AT_TOP => false,
-		self::OPTIONS_HISTORY_PAGE_ACTIONS => false,
-		self::OPTION_OVERFLOW_SUBMENU => false,
+		self::TOGGLING => false,
+		self::PAGE_ISSUES => false,
+		self::TALK_AT_TOP => false,
+		self::HISTORY_IN_PAGE_ACTIONS => false,
+		self::TOOLBAR_SUBMENU => false,
 		/** Whether to show tabs on special pages */
-		self::OPTION_TABS_ON_SPECIALS => false,
+		self::TABS_ON_SPECIALS => false,
 	];
 
 	/**
@@ -77,7 +77,7 @@ final class SkinOptions {
 	}
 
 	/**
-	 * Return whether a skin option is truthy. Should be one of self:OPTION_* flags
+	 * Return whether a skin option is truthy. Should be one of self:* constants
 	 * @param string $key
 	 * @return bool
 	 */
