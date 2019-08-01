@@ -93,6 +93,9 @@
 		"minerva": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
+		"UserLogoutComplete": [
+			"MinervaHooks::onUserLogoutComplete"
+		],
 		"FetchChangesList": [
 			"MinervaHooks::onFetchChangesList"
 		],
