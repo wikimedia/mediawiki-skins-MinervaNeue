@@ -15,8 +15,9 @@
 @fontFamilySans: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Lato', 'Helvetica', 'Arial', sans-serif;
 @fontFamilyBase: @fontFamilySans;
 
-@fontSizeBrowserDefault: 16; // Assumed browser default of `16px`.
-@tocFontSize: 0.8em;
+@font-size-browser: 16; // Assumed browser default of `16px`.
+@font-size-minerva-small: unit( 14 / @font-size-browser, em ); // Equals `14px` at `16px` browser default.
+@tocFontSize: @font-size-minerva-small;
 
 @indicatorFontSize: 0.4em;
 
@@ -54,12 +55,12 @@
 @contentMargin: 16px;
 
 // Header
-@headerHeight: unit( 54 / @fontSizeBrowserDefault, em );
+@headerHeight: unit( 54 / @font-size-browser, em );
 @headerVerticalPadding: 0.15em;
 @headerMarginTop: -1px; // used to hide the header border top when a banner is not present
 @searchBoxWidth: 375/16em;
 @iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
-@deviceWidthTabletEms: unit( @width-breakpoint-tablet / @fontSizeBrowserDefault, em );
+@deviceWidthTabletEms: unit( @width-breakpoint-tablet / @font-size-browser, em );
 @brandingBoxWidth: @deviceWidthTabletEms - (3 * @menuButtonIconSize + @iconGutterWidth) - @searchBoxWidth;
 
 @titleSectionSpacingTop: 20px;
@@ -68,7 +69,6 @@
 // Page actions
 @taglineFontSize: 0.85em;
 @pageActionBorder: 1px;
-@pageActionFontSize: 0.9em;
 @pageActionToolbarHeight: 44px; // total height is 46px. 2px added by border on .page-actions-menu
 
 // colors
