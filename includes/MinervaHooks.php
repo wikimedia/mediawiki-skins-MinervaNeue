@@ -221,12 +221,12 @@ class MinervaHooks {
 	}
 
 	/**
-	 * BeforePageDisplayMobile hook handler.
+	 * Set the skin options for Minerva
 	 *
 	 * @param MobileContext $mobileContext
 	 * @param Skin $skin
 	 */
-	public static function onRequestContextCreateSkinMobile(
+	private static function setMinervaSkinOptions(
 		MobileContext $mobileContext, Skin $skin
 	) {
 		// setSkinOptions is not available
@@ -265,6 +265,34 @@ class MinervaHooks {
 			] );
 			Hooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
 		}
+	}
+
+	/**
+	 * UserLogoutComplete hook handler.
+	 * Resets skin options if a user logout occurs - this is necessary as the
+	 * RequestContextCreateSkinMobile hook runs before the UserLogout hook.
+	 *
+	 * @param User $user
+	 */
+	public static function onUserLogoutComplete( User $user ) {
+		try {
+			$ctx = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			self::setMinervaSkinOptions( $ctx, $ctx->getSkin() );
+		} catch ( Wikimedia\Services\NoSuchServiceException $ex ) {
+			// MobileFrontend not installed. Not important.
+		}
+	}
+
+	/**
+	 * BeforePageDisplayMobile hook handler.
+	 *
+	 * @param MobileContext $mobileContext
+	 * @param Skin $skin
+	 */
+	public static function onRequestContextCreateSkinMobile(
+		MobileContext $mobileContext, Skin $skin
+	) {
+		self::setMinervaSkinOptions( $mobileContext, $skin );
 	}
 
 	/**
