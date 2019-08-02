@@ -109,4 +109,26 @@ final class SkinOptions {
 		return false;
 	}
 
+	/**
+	 * Check if user enabled any of the options bundled in the AMC mode
+	 *
+	 * @todo this shouldn't exist, each option should provide it's own logic/styles/js modules
+	 *
+	 * @return bool
+	 */
+	public function isAnyAMCOptionEnabled() {
+		$keys = [
+			self::AMC_MODE,
+			self::TALK_AT_TOP,
+			self::HISTORY_IN_PAGE_ACTIONS,
+			self::TOOLBAR_SUBMENU,
+			self::TABS_ON_SPECIALS
+		];
+		foreach ( $keys as $key ) {
+			if ( $this->skinOptions[$key] ) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

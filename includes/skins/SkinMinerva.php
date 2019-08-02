@@ -938,20 +938,11 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
-		$keys = [
-			SkinOptions::AMC_MODE,
-			SkinOptions::TALK_AT_TOP,
-			SkinOptions::HISTORY_IN_PAGE_ACTIONS,
-			SkinOptions::TOOLBAR_SUBMENU,
-			SkinOptions::TABS_ON_SPECIALS
-		];
-		$includeAMCStyles = array_reduce( $keys, function ( $val, $key ) {
-			return $val || $this->skinOptions->get( $key );
-		}, false );
-		if ( $includeAMCStyles ) {
+		if ( $this->skinOptions->isAnyAMCOptionEnabled() ) {
 			$styles[] = 'skins.minerva.amc.styles';
 			$styles[] = 'wikimedia.ui';
 		}
+
 		if ( $this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
 			// ToolbarBuilder is reusing the Contributions icon in toolbar @see T224735
 			$styles[] = 'skins.minerva.mainMenu.icons';
