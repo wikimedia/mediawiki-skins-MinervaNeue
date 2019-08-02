@@ -479,6 +479,10 @@ class SkinMinerva extends SkinTemplate {
 	 * Prepare the content for the 'last edited' message, e.g. 'Last edited on 30 August
 	 * 2013, at 23:31'. This message is different for the main page since main page
 	 * content is typically transcluded rather than edited directly.
+	 *
+	 * The relative time is only rendered on the latest revision.
+	 * For older revisions the last modified information will not render with a relative time
+	 * nor will it show the name of the editor.
 	 * @param Title $title The Title object of the page being viewed
 	 * @return array
 	 */
@@ -614,15 +618,8 @@ class SkinMinerva extends SkinTemplate {
 			$out->setPageTitle( $pageTitle );
 		}
 
-		if ( $this->canUseWikiPage() ) {
-			// If it's a page that exists, add last edited timestamp
-			// The relative time is only rendered on the latest revision.
-			// For older revisions the last modified
-			// information will not render with a relative time
-			// nor will it show the name of the editor.
-			if ( $this->getWikiPage()->exists() ) {
-				$tpl->set( 'historyLink', $this->getHistoryLink( $title ) );
-			}
+		if ( $this->canUseWikiPage() && $this->getWikiPage()->exists() ) {
+			$tpl->set( 'historyLink', $this->getHistoryLink( $title ) );
 		}
 		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
 
