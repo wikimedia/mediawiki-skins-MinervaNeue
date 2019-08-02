@@ -34,7 +34,7 @@ use MediaWiki\Minerva\Menu\Group;
  *
  * @package MediaWiki\Minerva\Menu\Main
  */
-final class AdvancedBuilder implements IBuilder {
+final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	/**
 	 * @var bool
 	 */

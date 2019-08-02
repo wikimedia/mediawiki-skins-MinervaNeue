@@ -22,7 +22,9 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
-use MediaWiki\Minerva\Menu\Main as MainMenu;
+use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
+use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
+use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
 use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
@@ -55,7 +57,7 @@ return [
 			$context->getSkin()
 		);
 	},
-	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ): MainMenu\Director {
+	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ): MainMenuDirector {
 		$context = RequestContext::getMain();
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
@@ -63,10 +65,10 @@ return [
 		$showMobileOptions = $options->get( SkinOptions::MOBILE_OPTIONS );
 		$user = $context->getUser();
 		$builder = $options->get( SkinOptions::AMC_MODE ) ?
-			new MainMenu\AdvancedBuilder( $showMobileOptions, $user, $definitions ) :
-			new MainMenu\DefaultBuilder( $showMobileOptions, $user, $definitions );
+			new AdvancedMainMenuBuilder( $showMobileOptions, $user, $definitions ) :
+			new DefaultMainMenuBuilder( $showMobileOptions, $user, $definitions );
 
-		return new MainMenu\Director( $builder, $context, $services->getSpecialPageFactory() );
+		return new MainMenuDirector( $builder, $context, $services->getSpecialPageFactory() );
 	},
 	'Minerva.Menu.PageActionsDirector' =>
 		function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
