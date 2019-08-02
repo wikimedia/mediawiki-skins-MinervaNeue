@@ -55,7 +55,7 @@ class MinervaTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	protected function getPageActions() {
-		return $this->isFallbackEditor() ? [] : $this->data['page_actions'];
+		return $this->isFallbackEditor() ? [] : $this->data['pageActionsMenu'];
 	}
 
 	/**
@@ -233,7 +233,7 @@ class MinervaTemplate extends BaseTemplate {
 
 		$internalBanner = $data[ 'internalBanner' ];
 		$preBodyHtml = $data['prebodyhtml'] ?? '';
-		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['page_actions'] );
+		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['pageActionsMenu'] );
 		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
 		// prepare template data

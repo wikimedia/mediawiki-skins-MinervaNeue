@@ -90,17 +90,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * @param BaseTemplate $tpl
-	 * @return string|null
-	*/
-	private function getUserMenuHTML( BaseTemplate $tpl ) {
-		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $director */
-		$director = MediaWikiServices::getInstance()
-			->getService( 'Minerva.Menu.UserMenuDirector' );
-		return $director->renderMenuData( $tpl->getPersonalTools() );
-	}
-
-	/**
 	 * Returns the site name for the footer, either as a text or <img> tag
 	 * @return string
 	 * @throws ConfigException
@@ -164,24 +153,35 @@ class SkinMinerva extends SkinTemplate {
 		// example, on a special page)
 		$tpl->set( 'unstyledContent', $out->getProperty( 'unstyledContent' ) );
 
-		// Set the links for the main menu
-		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
-
-		// Set the links for page secondary actions
-		$tpl->set( 'userMenuHTML', $this->getUserMenuHTML( $tpl ) );
-
 		// Set the links for page secondary actions
 		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
 
 		// Construct various Minerva-specific interface elements
+		$this->prepareMenus( $tpl );
 		$this->preparePageContent( $tpl );
 		$this->prepareHeaderAndFooter( $tpl );
 		$this->prepareBanners( $tpl );
-		$this->preparePageActions( $tpl );
 		$this->prepareUserNotificationsButton( $tpl, $tpl->get( 'newtalk' ) );
 		$this->prepareLanguages( $tpl );
 
 		return $tpl;
+	}
+
+	/**
+	 * Prepare all Minerva menus
+	 * @param BaseTemplate $tpl
+	 * @throws MWException
+	 */
+	private function prepareMenus( BaseTemplate $tpl ) {
+		$services = MediaWikiServices::getInstance();
+		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
+		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
+		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $userMenuDirector */
+		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
+
+		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
+		$tpl->set( 'pageActionsMenu', $pageActionsDirector->buildMenu( $tpl->getToolbox() ) );
+		$tpl->set( 'userMenuHTML', $userMenuDirector->renderMenuData( $tpl->getPersonalTools() ) );
 	}
 
 	/**
@@ -762,23 +762,6 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		return $buttons;
-	}
-
-	/**
-	 * Prepare configured and available page actions
-	 *
-	 * If a page action should display a placeholder element
-	 * (i.e. it will be hydrated on the client with JS) add the 'jsonly' CSS class to
-	 * the 'class' key of its array.
-	 *
-	 * @param BaseTemplate $tpl
-	 */
-	protected function preparePageActions( BaseTemplate $tpl ) {
-		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $director */
-		$director = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.PageActionsDirector' );
-		$tpl->set( 'page_actions',
-			$director->buildMenu( $tpl->getToolbox() )
-		);
 	}
 
 	/**
