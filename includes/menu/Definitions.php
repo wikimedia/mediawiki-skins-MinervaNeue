@@ -30,6 +30,7 @@ use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use Message;
 use MinervaUI;
 use MWException;
+use MWHttpRequest;
 use SpecialMobileWatchlist;
 use SpecialPage;
 use Title;
@@ -302,7 +303,7 @@ final class Definitions {
 		}
 		$inContentLang = $message->inContentLanguage();
 		$titleName = $inContentLang->plain();
-		if ( $inContentLang->isDisabled() || \Http::isValidURI( $titleName ) ) {
+		if ( $inContentLang->isDisabled() || MWHttpRequest::isValidURI( $titleName ) ) {
 			return;
 		}
 		$title = Title::newFromText( $titleName );
