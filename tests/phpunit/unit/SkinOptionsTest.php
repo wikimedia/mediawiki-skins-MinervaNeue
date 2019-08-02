@@ -41,6 +41,9 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 		$options->setMultiple( [ SkinOptions::BACK_TO_TOP => true ] );
 		$this->assertTrue( $options->hasSkinOptions() );
 		$options->setMultiple( [
+			SkinOptions::TALK_AT_TOP => false,
+			SkinOptions::HISTORY_IN_PAGE_ACTIONS => false,
+			SkinOptions::TOOLBAR_SUBMENU => false,
 			SkinOptions::AMC_MODE => false,
 			SkinOptions::BACK_TO_TOP => false
 		] );
