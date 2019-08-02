@@ -40,10 +40,16 @@
 	list-style: none;
 	position: relative;
 	min-height: 80px;
+	width: 100%;
 	/* !important to override the too-specific rule .content ol li, .content ul li */
 	margin: 0 !important;
 	padding: 12px 0;
 	border-bottom: 1px solid @colorGray14;
+
+	&:before,
+	&:after {
+		.clearfix();
+	}
 }
 
 .changeslist-row-item() {

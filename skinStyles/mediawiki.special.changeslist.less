@@ -18,9 +18,15 @@
 	padding: 1em 0 0 0 !important; // overriding .content h4
 }
 
+ul.mw-contributions-list,
 ul.special {
 	padding-left: 0 !important; // overriding `.content ul`
 	margin-left: 0 !important; // overriding `.client-js .mw-changeslist ul`
+
+	li {
+		list-style-type: none;
+		.changeslist-row();
+	}
 
 	// the following selector are nested due to their
 	// generic names.
@@ -29,6 +35,7 @@ ul.special {
 	}
 
 	.comment {
+		float: left;
 		clear: both;
 		font-style: italic;
 		line-height: 1.4em;
@@ -44,7 +51,8 @@ ul.special {
 	display: block;
 }
 
-.mw-changeslist-line-inner > * {
+.mw-changeslist-line-inner > *,
+ul.mw-contributions-list li > * {
 	float: left;
 	margin-right: 0.5em;
 }
@@ -108,11 +116,17 @@ ul.special {
 	white-space: nowrap;
 }
 
+.mw-revdelundel-link,
+.mw-tag-markers {
+	display: block;
+}
+
 /**
  * Button style rollback link, visible to admins.
  */
 .mw-rollback-link {
 	.mw-ui-button();
-	float: right;
 	font-size: @taglineFontSize;
+	float: left;
+	clear: both;
 }
