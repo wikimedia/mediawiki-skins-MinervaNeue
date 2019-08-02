@@ -190,6 +190,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @param QuickTemplate $tpl
 	 */
 	protected function preparePageContent( QuickTemplate $tpl ) {
+		$services = MediaWikiServices::getInstance();
 		$title = $this->getTitle();
 
 		// If it's a talk page, add a link to the main namespace page
@@ -210,8 +211,10 @@ class SkinMinerva extends SkinTemplate {
 				default: // generic (all other NS)
 					$msg = 'mobile-frontend-talk-back-to-page';
 			}
+			$subjectPage = $services->getNamespaceInfo()->getSubjectPage( $title );
+
 			$tpl->set( 'subject-page', MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
-				$title->getSubjectPage(),
+				$subjectPage,
 				$this->msg( $msg, $title->getText() )->text(),
 				[ 'class' => 'return-link' ]
 			) );
@@ -719,15 +722,16 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	protected function getSecondaryActions( BaseTemplate $tpl ) {
+		$services = MediaWikiServices::getInstance();
+		$namespaceInfo = $services->getNamespaceInfo();
 		/** @var \MediaWiki\Minerva\LanguagesHelper $languagesHelper */
-		$languagesHelper = MediaWikiServices::getInstance()
-			->getService( 'Minerva.LanguagesHelper' );
+		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 		$buttons = [];
 		// always add a button to link to the talk page
 		// in beta it will be the entry point for the talk overlay feature,
 		// in stable it will link to the wikitext talk page
 		$title = $this->getTitle();
-		$subjectPage = $title->getSubjectPage();
+		$subjectPage = Title::newFromLinkTarget( $namespaceInfo->getSubjectPage( $title ) );
 		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
@@ -740,7 +744,8 @@ class SkinMinerva extends SkinTemplate {
 
 			if ( isset( $namespaces[$talkId] ) ) {
 				$talkButton = $namespaces[$talkId];
-				$talkTitle = $title->getTalkPage();
+				$talkTitle = Title::newFromLinkTarget( $namespaceInfo->getTalkPage( $title ) );
+
 				if ( $title->isTalkPage() ) {
 					$talkButton['text'] = wfMessage( 'minerva-talk-add-topic' );
 					$buttons['talk'] = $this->getTalkButton( $title, $talkButton, true );
@@ -793,7 +798,8 @@ class SkinMinerva extends SkinTemplate {
 	protected function isWikiTextTalkPage() {
 		$title = $this->getTitle();
 		if ( !$title->isTalkPage() ) {
-			$title = $title->getTalkPage();
+			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+			$title = Title::newFromLinkTarget( $namespaceInfo->getTalkPage( $title ) );
 		}
 		return $title->isWikitextPage();
 	}
@@ -804,7 +810,6 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function getContextSpecificModules() {
 		$modules = [];
-		$user = $this->getUser();
 		$title = $this->getTitle();
 
 		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ) ) {
