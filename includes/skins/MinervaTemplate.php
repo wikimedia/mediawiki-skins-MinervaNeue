@@ -45,7 +45,10 @@ class MinervaTemplate extends BaseTemplate {
 		$this->isSpecialMobileMenuPage = $this->isSpecialPage &&
 			$title->isSpecial( 'MobileMenu' );
 		$this->isMainPage = $title->isMainPage();
-		$this->isMainPageTalk = $title->getSubjectPage()->isMainPage();
+		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
+			->getSubjectPage( $title );
+
+		$this->isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
 		Hooks::run( 'MinervaPreRender', [ $this ] );
 		$this->render( $this->data );
 	}
