@@ -28,10 +28,10 @@ use \MediaWiki\Special\SpecialPageFactory;
 /**
  * Director responsible for building Main Menu
  */
-final class Director {
+final class MainMenuDirector {
 
 	/**
-	 * @var IBuilder
+	 * @var IMainMenuBuilder
 	 */
 	private $builder;
 
@@ -53,13 +53,13 @@ final class Director {
 	/**
 	 * Director responsible for Main Menu building
 	 *
-	 * @param IBuilder $builder
+	 * @param IMainMenuBuilder $builder
 	 * @param MessageLocalizer $messageLocalizer Used for translating texts in menu toggle
 	 * @param SpecialPageFactory $specialPageFactory Used to check for MobileMenu special page
 	 * existence
 	 */
 	public function __construct(
-		IBuilder $builder,
+		IMainMenuBuilder $builder,
 		MessageLocalizer $messageLocalizer,
 		SpecialPageFactory $specialPageFactory
 	) {

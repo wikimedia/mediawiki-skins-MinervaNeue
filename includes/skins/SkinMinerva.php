@@ -19,7 +19,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Minerva\Menu\Main\Director as MainMenuDirector;
+use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;

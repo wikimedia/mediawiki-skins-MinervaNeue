@@ -30,7 +30,7 @@ use MediaWiki\Minerva\Menu\Group;
 /**
  * Used to build default (available for everyone by default) main menu
  */
-final class DefaultBuilder implements IBuilder {
+final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 	/**
 	 * @var bool

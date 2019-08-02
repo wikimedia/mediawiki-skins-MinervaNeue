@@ -22,7 +22,7 @@ namespace MediaWiki\Minerva\Menu\Main;
 
 use MediaWiki\Minerva\Menu\Group;
 
-interface IBuilder {
+interface IMainMenuBuilder {
 
 	/**
 	 * @return Group[]
