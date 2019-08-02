@@ -68,15 +68,17 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 	public function getGroup( array $personalTools ): Group {
 		$group = new Group();
 		$group->insertEntry( new ProfileMenuEntry( $this->user ) );
-		$group->insertEntry( new SingleMenuEntry(
-			'userTalk',
-			$this->messageLocalizer->msg( 'mobile-frontend-user-page-talk' )->escaped(),
-			$this->user->getUserPage()->getTalkPage()->getLocalURL(),
-			true,
-			null,
-			'before',
-			'wikimedia-ui-userTalk-base20'
-		) );
+		$talkPage = $this->user->getUserPage()->getTalkPageIfDefined();
+		if ( $talkPage ) {
+			$group->insertEntry( new SingleMenuEntry( 'userTalk',
+				$this->messageLocalizer->msg( 'mobile-frontend-user-page-talk' )->escaped(),
+				$talkPage->getLocalURL(),
+				true,
+				null,
+				'before',
+				'wikimedia-ui-userTalk-base20'
+			) );
+		}
 		$sandbox = $personalTools['sandbox']['links'][0] ?? false;
 
 		if ( $sandbox ) {
