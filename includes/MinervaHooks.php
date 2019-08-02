@@ -309,8 +309,6 @@ class MinervaHooks {
 			$config = MediaWikiServices::getInstance()->getConfigFactory()
 				->makeConfig( 'minerva' );
 			$vars += [
-				'wgMinervaSchemaMainMenuClickTrackingSampleRate' =>
-					$config->get( 'MinervaSchemaMainMenuClickTrackingSampleRate' ),
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
 				'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
 				'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
