@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geopoet"
+			"Geopoet",
+			"Brazal.dang"
 		]
 	},
 	"mobile-frontend-editor-edit": "Liwaton",
@@ -15,10 +16,11 @@
 	"mobile-frontend-main-menu-settings": "Mga Panuytoy",
 	"mobile-frontend-main-menu-watchlist": "Bantay-listahan",
 	"mobile-frontend-meta-data-issues": "Mga isyu sa pahina",
-	"mobile-frontend-meta-data-issues-header": "Mga isyu",
+	"mobile-frontend-meta-data-issues-header": "Mga isyu sa Pahina",
 	"mobile-frontend-pageaction-edit-tooltip": "Liwata an pangenot na seksyon kaining pahina.",
 	"mobile-frontend-placeholder": "Hanápon an {{SITENAME}}",
 	"mobile-frontend-random-button": "Purak",
 	"mobile-frontend-user-button-tooltip": "Ipahiling an sakuyang mga notipikasyon",
-	"mobile-frontend-user-newmessages": "Ika igwa nin baguhong mga mensahe sa saimong pahina nin orolayan."
+	"mobile-frontend-user-newmessages": "Ika igwa nin baguhong mga mensahe sa saimong pahina nin orolayan.",
+	"minerva-user-menu-button": "Menu kan paragamit"
 }

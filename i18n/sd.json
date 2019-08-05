@@ -26,6 +26,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "ھن صفحي جي نمائنده سيڪشن کي سنواريو",
 	"mobile-frontend-placeholder": "{{SITENAME}} ڳوليو",
 	"mobile-frontend-random-button": "بلاترتيب",
+	"mobile-frontend-talk-back-to-page": "صفحي \"$1\" ڏانھن واپس ٿيو.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" جا واپرائيندڙ صفحي تي واپس وڃن.",
 	"mobile-frontend-user-page-contributions": "ڀاڱيداريون",
 	"mobile-frontend-user-page-talk": "بحث",

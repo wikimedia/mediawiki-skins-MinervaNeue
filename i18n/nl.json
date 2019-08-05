@@ -10,7 +10,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Southparkfan",
-			"Mar(c)"
+			"Mar(c)",
+			"Romaine"
 		]
 	},
 	"minerva-last-modified-date": "Laatst bewerkt op $1, om $2",
@@ -64,6 +65,7 @@
 	"minerva-page-actions-user-rights": "Gebruikersrechten",
 	"minerva-page-actions-logs": "Logboeken",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-item",
+	"minerva-page-actions-language-switcher": "Talen",
 	"skin-minerva-issue-learn-more": "Meer leren",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorieën",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Toon paginacategorieën",

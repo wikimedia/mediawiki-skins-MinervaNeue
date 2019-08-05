@@ -77,5 +77,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "اقفز للأعلى",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "اقفز لأعلى الصفحة الحالية باستخدام زر عائم",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "تم تحسين معالجة مشاكل الصفحة",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "سيتم تضمين موضوعات الصفحة (قالب:صندوق رسالة مقالة) في المقالة."
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "سيتم تضمين موضوعات الصفحة (قالب:صندوق رسالة مقالة) في المقالة.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "لسوء الحظ، تجميع النتائج حسب الصفحة غير متاح على الجوال، إذا كنت ترغب في استخدام ميزة المجموعة حسب الصفحة فتُرجَى زيارة موقع سطح المكتب."
 }

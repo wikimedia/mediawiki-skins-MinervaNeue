@@ -3,7 +3,8 @@
 		"authors": [
 			"Anakmalaysia",
 			"Aviator",
-			"SNN95"
+			"SNN95",
+			"Tofeiku"
 		]
 	},
 	"minerva-last-modified-date": "Kali terakhir disunting pada $1, $2",
@@ -59,6 +60,7 @@
 	"minerva-page-actions-user-rights": "Hak pengguna",
 	"minerva-page-actions-logs": "Log",
 	"minerva-page-actions-wikibase": "Item {{WBREPONAME}}",
+	"minerva-page-actions-language-switcher": "Bahasa",
 	"minerva-skin-desc": "Kulit pertama mudah alih yang responsif",
 	"skin-minerva-issue-learn-more": "Ketahui lebih lanjut",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategori",
