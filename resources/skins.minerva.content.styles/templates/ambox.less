@@ -119,7 +119,7 @@ table.ambox {
 		&:before {
 			content: '';
 			position: absolute;
-			z-index: @z-indexBase - 1; // set z-index 1 below the parent element.
+			z-index: @z-indexOccluded;
 			bottom: 0;
 			right: 0;
 			width: 100%; // width & height defined by length of "learn more".
