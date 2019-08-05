@@ -1,5 +1,28 @@
 var MainMenu = require( './menu/MainMenu.js' ),
+	util = mw.mobileFrontend.require( 'mobile.startup' ).util,
 	mainMenu = createMainMenu();
+
+/**
+ * Update body tag with appropriate classes for a closed drawer.
+ */
+function onClose() {
+	$( document.body ).removeClass(
+		[ 'navigation-enabled', 'secondary-navigation-enabled',
+			'primary-navigation-enabled' ].join( ' ' )
+	);
+}
+
+/**
+ * Update body tag with appropriate classes for an open drawer.
+ * @param {string} drawerType A name that identifies the navigation drawer that
+ *  should be opened. Either primary or secondary.
+ */
+function onOpen( drawerType ) {
+	// FIXME: We should be moving away from applying classes to the body
+	$( document.body ).addClass(
+		[ 'navigation-enabled', drawerType + '-navigation-enabled' ].join( ' ' )
+	);
+}
 
 /**
  * Creates an instance of the `MainMenu`, using the `wgMinervaMenuData` for configuration.
@@ -16,7 +39,14 @@ function createMainMenu() {
 
 	options.activator = '.header .main-menu-button';
 
-	return new MainMenu( options );
+	return new MainMenu(
+		util.extend( options, {
+			onClose: onClose,
+			onOpen: function () {
+				onOpen( 'primary' );
+			}
+		} )
+	);
 }
 
 $( function () {
