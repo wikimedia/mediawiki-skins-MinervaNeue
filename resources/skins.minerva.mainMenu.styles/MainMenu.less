@@ -7,125 +7,58 @@
 
 // .menu
 #mw-mf-page-left {
-	background-color: @primaryNavBackgroundColor;
-	float: left;
-	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	min-width: 275px;
+
+	@media screen and ( min-width: @width-breakpoint-tablet ) {
+		min-width: @width-breakpoint-mobile;
+	}
+	// It should always be possible to dismiss the menu by tapping outside of it.
+	max-width: 80%;
+	z-index: @z-indexDrawer;
 	// Add vertical scrollbar as needed.
 	overflow-y: auto;
+	background-color: @primaryNavBackgroundColor;
+	.transform( translate( -100%, 0 ) );
 
 	ul {
 		padding-bottom: 22px;
 	}
 }
 
-.navigation-enabled {
-	#mw-mf-viewport {
-		// disable horizontal scrolling
-		overflow: hidden;
-		// the two following properties are needed to override the height set
-		// by position: fixed fallback on scroll event
-		min-height: 100%;
-	}
-
-	#mw-mf-page-center {
-		// Since we change the color of the body tag above we need to ensure the content has a white background
-		background: #fff;
-		position: absolute;
-		height: 100%;
-		// Overriden in mainmenuAnimation
-		left: @menuWidth;
-	}
-
-	// .menu
-	#mw-mf-page-left,
-	.transparent-shield {
-		visibility: visible;
-	}
-
-	.transparent-shield {
-		opacity: 0.5;
-	}
-}
-// FIXME: overrides the .has-drawer background color when a drawer is open.
-// Should be removed when T214045 is resolved.
-.primary-navigation-enabled.has-drawer {
-	background-color: @primaryNavBackgroundColor;
-}
-
 .primary-navigation-enabled {
-	background-color: @primaryNavBackgroundColor;
-
-	// .menu
-	#mw-mf-page-left {
-		width: @menuWidth;
-	}
-
-	// FIXME: Menu shouldn't need to know about drawers but a cta drawer might be open
-	.drawer .position-fixed {
-		left: @menuWidth !important;
-	}
+	overflow: hidden;
+	// Necessary to disable scrolling on Android and iOS devices.
+	touch-action: none;
 }
 
-// FIXME: Cleanup animation css
 .animations {
-	#mw-mf-page-center {
-		min-height: 100%;
-
-		// *2 to avoid weird glitch of left nav flickering after closing
-		@transition: @menu-animation-duration @menu-animation-easing, height 0s ( @menu-animation-duration * 2 );
-		.transition-transform( @transition );
-	}
-
 	// .menu
 	#mw-mf-page-left {
-		width: @menuWidth;
-
-		.transition( visibility 0s @menu-animation-duration );
-	}
-}
-
-.primary-navigation-enabled.animations {
-	// FIXME: Menu shouldn't need to know about drawers
-	.drawer .position-fixed,
-	#mw-mf-page-center {
-		// override non-animated version
-		left: 0 !important;
-		.transform( translate( @menuWidth, 0 ) );
+		.transition( transform @menu-animation-duration @menu-animation-easing; );
 	}
 
-	// .menu
-	#mw-mf-page-left {
-		// make menu scrollable when open (on small screens)
-		position: static;
-		.transition( none );
-	}
-}
-
-@media all and ( min-width: @width-breakpoint-tablet ) {
-	.navigation-enabled {
-		// .menu
-		#mw-mf-page-center {
-			left: @menuWidthTablet;
-		}
-	}
-
-	.primary-navigation-enabled {
-		&.animations {
-			// FIXME: Menu shouldn't need to know about drawers
-			.drawer .position-fixed,
-			#mw-mf-page-center {
-				.transform( translate( @menuWidthTablet, 0 ) );
-			}
-		}
-
+	&.primary-navigation-enabled {
 		// .menu
 		#mw-mf-page-left {
-			width: @menuWidthTablet;
+			.transform( translate( 0, 0 ) );
 		}
 
-		// FIXME: Menu shouldn't need to know about drawers but a cta drawer might be open
-		.drawer .position-fixed {
-			left: @menuWidthTablet !important;
+		.transparent-shield {
+			visibility: visible;
+			opacity: 0.5;
 		}
+	}
+}
+
+// Special:MobileMenu
+.navigation-full-screen {
+	// .menu
+	#mw-mf-page-left {
+		max-width: none;
+		transform: none;
 	}
 }

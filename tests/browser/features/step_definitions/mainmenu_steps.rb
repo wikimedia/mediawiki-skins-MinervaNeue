@@ -20,7 +20,7 @@ Then(/^I should see a link to the about page$/) do
 end
 
 Then(/^I should see a link to the disclaimer$/) do
-  expect(on(ArticlePage).disclaimer_link_element).to be_visible
+  expect(on(ArticlePage).disclaimer_link_element.when_visible).to be_visible
 end
 
 Then(/^I should see a link to my user page in the main navigation menu$/) do

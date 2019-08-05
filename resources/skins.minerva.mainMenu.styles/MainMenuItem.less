@@ -46,6 +46,11 @@
 				color: @colorGray5;
 				display: block;
 				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
+				// Overflowing text is ellipsized.
+				max-width: 100%;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
 
 				&:hover {
 					box-shadow: inset 4px 0 0 0 @colorProgressive;

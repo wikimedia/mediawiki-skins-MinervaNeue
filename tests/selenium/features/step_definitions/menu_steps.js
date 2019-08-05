@@ -19,6 +19,7 @@ const iShouldSeeALinkInMenu = ( text ) => {
 };
 
 const iShouldSeeALinkToDisclaimer = () => {
+	ArticlePage.menu_element.element( '=Disclaimers' ).waitForVisible();
 	assert.strictEqual( ArticlePage.menu_element.element( '=Disclaimers' ).isVisible(), true );
 };
 

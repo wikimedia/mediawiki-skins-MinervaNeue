@@ -9,8 +9,9 @@
 
 // needs to be more specific than .overlay rules
 .notifications-overlay.navigation-drawer {
-	right: 0;
+	display: block;
 	width: auto;
+	right: 0;
 	box-shadow: -5px 0 0 0 rgba( 0, 0, 0, 0.3 );
 }
 
@@ -36,11 +37,8 @@
 
 .animations {	// FIXME: Make animations a conditional class on the drawer itself
 	.notifications-overlay.navigation-drawer {
-		display: block;
-
-		// +2% to accommodate for the border/box-shadow
-		.transform( translate( 102%, 0 ) );
-		.transition-transform( @menu-animation-duration @menu-animation-easing; );
+		.transform( translate( 100%, 0 ) );
+		.transition( transform @menu-animation-duration @menu-animation-easing; );
 
 		&.visible {
 			.transform( translate( 0, 0 ) );
@@ -48,9 +46,9 @@
 	}
 }
 
-.secondary-navigation-enabled.animations {
-	#mw-mf-page-center {
-		// override non-animated version
-		left: 0 !important;
+.secondary-navigation-enabled {
+	.transparent-shield {
+		visibility: visible;
+		opacity: 0.5;
 	}
 }
