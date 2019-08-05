@@ -3,16 +3,13 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.navigation-enabled {
-	.notifications-overlay {
-		visibility: visible;
-	}
+.notifications-overlay {
+	visibility: visible;
 }
 
 // needs to be more specific than .overlay rules
 .notifications-overlay.navigation-drawer {
 	right: 0;
-	height: 100%;
 	width: auto;
 	box-shadow: -5px 0 0 0 rgba( 0, 0, 0, 0.3 );
 }
@@ -24,8 +21,6 @@
 		left: @rightDrawerLeftOffset;
 
 		.overlay-header {
-			padding-left: 0;
-			padding-right: 0;
 			margin: 0; // T210191
 			width: 100%; // T218731
 			// T170903
@@ -39,24 +34,13 @@
 	}
 }
 
-@media all and ( min-width: @width-breakpoint-tablet ) {
-	.secondary-navigation-enabled {
-		#mw-mf-page-center {
-			left: -@rightDrawerWidth !important;
-			right: @rightDrawerWidth !important;
-			width: auto;
-		}
-	}
-}
-
-.animations {
-	// FIXME: Make animations a conditional class on the drawer itself
+.animations {	// FIXME: Make animations a conditional class on the drawer itself
 	.notifications-overlay.navigation-drawer {
 		display: block;
 
 		// +2% to accommodate for the border/box-shadow
 		.transform( translate( 102%, 0 ) );
-		.transition-transform( @menu-animation-duration @menu-animation-easing, visibility 0s @menu-animation-duration; );
+		.transition-transform( @menu-animation-duration @menu-animation-easing; );
 
 		&.visible {
 			.transform( translate( 0, 0 ) );
@@ -64,19 +48,9 @@
 	}
 }
 
-.navigation-enabled.animations {
-	// FIXME: Menu shouldn't need to know about drawers but a cta drawer might be open
-	.drawer .position-fixed,
-	#mw-mf-page-center {
-		.transition-transform( @menu-animation-duration @menu-animation-easing );
-	}
-}
-
 .secondary-navigation-enabled.animations {
 	#mw-mf-page-center {
 		// override non-animated version
 		left: 0 !important;
-		.transform( translate( -@rightDrawerWidth, 0 ) );
-		width: 100%;
 	}
 }
