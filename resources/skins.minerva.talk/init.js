@@ -65,14 +65,21 @@
 				title: title,
 				onSaveComplete: function () {
 					gateway.invalidatePage( title );
-					overlayManager.replaceCurrent(
-						mobile.talk.overlay( title, gateway )
-					);
-					overlayManager.router.navigateTo( null, {
-						// This should be defined in Minerva.
-						path: '#/talk',
-						useReplaceState: true
-					} );
+					// navigate back. the overlay is done with so close it
+					overlayManager.router.back();
+					try {
+						overlayManager.replaceCurrent(
+							mobile.talk.overlay( title, gateway )
+						);
+						overlayManager.router.navigateTo( null, {
+							// This should be defined in Minerva.
+							path: '#/talk',
+							useReplaceState: true
+						} );
+					} catch ( e ) {
+						// the user came directly - there is no overlay to replace
+						// so no overlay to refresh
+					}
 					mw.notify( mw.msg( 'mobile-frontend-talk-topic-feedback' ) );
 				},
 				// T184273 using `currentPage` because 'wgPageName'
