@@ -897,10 +897,15 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Get the needed styles for this skin
+	 * Provide styles required to present the server rendered page in this skin. Additional styles
+	 * may be loaded dynamically by the client.
+	 *
+	 * Any styles returned by this method are loaded on the critical rendering path as linked
+	 * stylesheets. I.e., they are required to load on the client before first paint.
+	 *
 	 * @return array
 	 */
-	protected function getSkinStyles() {
+	protected function getSkinStyles(): array {
 		$title = $this->getTitle();
 		$styles = [
 			'skins.minerva.base.styles',
