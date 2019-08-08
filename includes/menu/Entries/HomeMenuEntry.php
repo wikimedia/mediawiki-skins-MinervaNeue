@@ -73,7 +73,9 @@ final class HomeMenuEntry implements IMenuEntry {
 			'class' => trim( MinervaUI::iconClass( $name, 'before' ) )
 		];
 		if ( $trackClicks !== false ) {
-			$this->component['data-event-name'] = $trackClicks === true ? $name : $trackClicks;
+			$eventName = $trackClicks === true ? $name : $trackClicks;
+			$this->component['data-event-name'] = 'menu.' . $eventName;
+
 		}
 	}
 

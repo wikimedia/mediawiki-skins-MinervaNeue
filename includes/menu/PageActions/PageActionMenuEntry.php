@@ -43,13 +43,15 @@ class PageActionMenuEntry implements IMenuEntry {
 	 * @param string $href And URL menu entry points to
 	 * @param string $componentClass A CSS class injected to component
 	 * @param Message $message Message
+	 * @param string $trackingCode Analytics tracking code
 	 */
-	public function __construct( $name, $href, $componentClass, Message $message ) {
+	public function __construct( $name, $href, $componentClass, Message $message, $trackingCode ) {
 		$this->name = $name;
 		$this->component = [
 			'href' => $href,
 			'class' => $componentClass,
-			'text' => $message->escaped()
+			'text' => $message->escaped(),
+			'data-event-name' => 'menu.' . $trackingCode,
 		];
 	}
 
@@ -60,10 +62,12 @@ class PageActionMenuEntry implements IMenuEntry {
 	 * @param string $href And URL menu entry points to
 	 * @param string $componentClass A CSS class injected to component
 	 * @param Message $message Message
+	 * @param string $trackingCode Analytics tracking code
 	 * @return self
 	 */
-	public static function create( $name, $href, $componentClass, Message $message ): self {
-		return new PageActionMenuEntry( $name, $href, $componentClass, $message );
+	public static function create( $name, $href, $componentClass, Message $message, $trackingCode
+	) {
+		return new PageActionMenuEntry( $name, $href, $componentClass, $message, $trackingCode );
 	}
 
 	/**

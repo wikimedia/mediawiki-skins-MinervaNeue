@@ -20,11 +20,14 @@ namespace MediaWiki\Minerva\Menu\Entries;
 interface IProfileMenuEntry extends IMenuEntry {
 	/**
 	 * Default tracking code for clicks on profile menu link
+	 *
+	 * This tracking code will be prefixed with `menu.`
 	 */
 	const DEFAULT_PROFILE_TRACKING_CODE = 'profile';
 
 	/**
 	 * Override the href for the profile component for logged in users
+	 * Note: the tracking code will be prefixed with `menu.` once it gets rendered
 	 * @param string $customURL A new href for profile entry
 	 * @param string|null $customLabel A new label for profile entry. Null if you don't want to
 	 * override it

@@ -83,6 +83,7 @@ final class PageActionsDirector {
 				'toggleClass' => MinervaUI::iconClass( 'page-actions-overflow' ),
 				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',
 				'text' => $this->messageLocalizer->msg( 'minerva-page-actions-overflow' ),
+				'analyticsEventName' => 'ui.overflowmenu',
 				'items' => $overflowMenu->getEntries()
 			];
 		}

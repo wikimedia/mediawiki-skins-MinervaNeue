@@ -107,7 +107,8 @@ class LanguageSelectorEntry implements IMenuEntry {
 				'href' => $switcherLink,
 				'class' => $this->iconClass . $switcherClasses,
 				'text' => $msg,
-				'title' => $msg
+				'title' => $msg,
+				'data-event-name' => 'menu.languages'
 			]
 
 		];

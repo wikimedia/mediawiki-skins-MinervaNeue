@@ -164,7 +164,9 @@ class ToolbarBuilder {
 			'page-actions-contributions',
 			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL(),
 			MinervaUI::iconClass( 'contributions' ),
-			$label
+			$label,
+			'contributions'
+
 		)->setTitle( $label );
 	}
 
@@ -203,7 +205,8 @@ class ToolbarBuilder {
 			$title->getLocalURL( $editArgs ),
 			'edit-page '
 			. MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
-			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' )
+			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' ),
+			'edit'
 		);
 		return $entry
 			->setTitle( $this->messageLocalizer->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
@@ -243,7 +246,8 @@ class ToolbarBuilder {
 			'page-actions-watch',
 			$href,
 			$iconClass,
-			$msg
+			$msg,
+			$newModeToSet
 		);
 		return $entry
 			->setTitle( $msg )
@@ -262,7 +266,8 @@ class ToolbarBuilder {
 			'page-actions-history',
 			$this->getHistoryUrl( $this->title ),
 			MinervaUI::iconClass( 'clock' ),
-			$this->messageLocalizer->msg( 'mobile-frontend-history' )
+			$this->messageLocalizer->msg( 'mobile-frontend-history' ),
+			'history'
 		);
 	}
 
