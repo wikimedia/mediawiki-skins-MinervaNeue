@@ -3,7 +3,6 @@
 		mobile = M.require( 'mobile.startup' ),
 		mfExtend = mobile.mfExtend,
 		browser = mobile.Browser.getSingleton(),
-		util = mobile.util,
 		View = mobile.View;
 
 	/**
@@ -12,17 +11,10 @@
 	 * @class MainMenu
 	 * @extends View
 	 * @param {Object} options Configuration options
-	 * @param {Function} options.onOpen executed when the menu opens
-	 * @param {Function} options.onClose executed when the menu closes
 	 */
 	function MainMenu( options ) {
 		this.activator = options.activator;
-		View.call( this,
-			util.extend( {
-				onOpen: function () {},
-				onClose: function () {}
-			}, options )
-		);
+		View.call( this, options );
 	}
 
 	mfExtend( MainMenu, View, {
@@ -83,34 +75,41 @@
 		 * @memberof MainMenu
 		 * @instance
 		 * @return {boolean}
-		 * @private
 		 */
 		isOpen: function () {
-			return this.$el.hasClass( 'menu--open' );
+			// FIXME: We should be moving away from applying classes to the body
+			return $( document.body ).hasClass( 'navigation-enabled' );
 		},
 
 		/**
 		 * Close all open navigation drawers
 		 * @memberof MainMenu
 		 * @instance
-		 * @private
 		 */
 		closeNavigationDrawers: function () {
-			this.$el.removeClass( 'menu--open' );
-			this.options.onClose();
+			// FIXME: We should be moving away from applying classes to the body
+			$( document.body ).removeClass( 'navigation-enabled' )
+				.removeClass( 'secondary-navigation-enabled' )
+				.removeClass( 'primary-navigation-enabled' );
 		},
 
 		/**
 		 * Toggle open navigation drawer
+		 * @param {string} [drawerType] A name that identifies the navigation drawer that
+		 *     should be toggled open. Defaults to 'primary'.
+		 * @fires MainMenu#open
 		 * @memberof MainMenu
 		 * @instance
-		 * @private
 		 */
-		openNavigationDrawer: function () {
+		openNavigationDrawer: function ( drawerType ) {
 			// close any existing ones first.
 			this.closeNavigationDrawers();
-			this.$el.addClass( 'menu--open' );
-			this.options.onOpen();
+			drawerType = drawerType || 'primary';
+			// FIXME: We should be moving away from applying classes to the body
+			$( document.body ).toggleClass( 'navigation-enabled' )
+				.toggleClass( drawerType + '-navigation-enabled' );
+
+			this.emit( 'open' );
 		}
 	} );
 
