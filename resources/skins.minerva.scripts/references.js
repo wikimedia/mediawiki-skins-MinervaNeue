@@ -1,37 +1,19 @@
 module.exports = function () {
-	var drawer,
-		M = mw.mobileFrontend,
-		router = require( 'mediawiki.router' ),
+	var M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
+		references = mobile.references,
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
-		ReferencesGateway = mobile.ReferencesGateway,
 		ReferencesHtmlScraperGateway = mobile.ReferencesHtmlScraperGateway,
-		ReferencesDrawer = mobile.ReferencesDrawer;
-
-	/**
-	 * Creates a ReferenceDrawer based on the currently available
-	 * ReferenceGateway
-	 *
-	 * @ignore
-	 * @return {ReferencesDrawer}
-	 */
-	function referenceDrawerFactory() {
-		var gateway = new ReferencesHtmlScraperGateway( new mw.Api() );
-
-		return new ReferencesDrawer( {
-			gateway: gateway
-		} );
-	}
+		gateway = new ReferencesHtmlScraperGateway( new mw.Api() );
 
 	/**
 	 * Event handler to show reference when a reference link is clicked
 	 * @ignore
 	 * @param {JQuery.Event} ev Click event of the reference element
-	 * @param {ReferencesDrawer} drawer to show the reference in
 	 */
-	function showReference( ev, drawer ) {
-		var urlComponents, result,
+	function showReference( ev ) {
+		var urlComponents,
 			$dest = $( ev.currentTarget ),
 			href = $dest.attr( 'href' );
 
@@ -43,27 +25,8 @@ module.exports = function () {
 		if ( urlComponents.length > 1 ) {
 			href = '#' + urlComponents[ 1 ];
 		}
-		result = drawer.showReference( href, currentPage, $dest.text(), currentPageHTMLParser );
-		// Previously showReference method returns nothing so we check its truthy
-		// Can be removed when I5a7b23f60722eb5017a85c68f38844dd460f8b63 is merged.
-		if ( result ) {
-			result.then( function () {}, function ( err ) {
-				if ( err === ReferencesGateway.ERROR_NOT_EXIST ) {
-					router.navigate( href );
-				}
-			} );
-		}
-
-		// don't hide drawer (stop propagation of click) if it is already shown
-		// (e.g. click another reference)
-		if ( drawer.isVisible() ) {
-			ev.stopPropagation();
-		} else {
-			// flush any existing reference information
-			drawer.render( {
-				text: undefined
-			} );
-		}
+		references.showReference( href, currentPage, $dest.text(),
+			currentPageHTMLParser, gateway );
 	}
 
 	/**
@@ -74,10 +37,7 @@ module.exports = function () {
 	 * @param {JQuery.Event} ev Click event of the reference element
 	 */
 	function onClickReference( ev ) {
-		if ( !drawer ) {
-			drawer = referenceDrawerFactory();
-		}
-		showReference( ev, drawer );
+		showReference( ev );
 	}
 
 	function init() {
