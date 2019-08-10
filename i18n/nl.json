@@ -57,6 +57,7 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|lid geworden}}",
 	"mobile-frontend-user-page-talk": "Overleg",
 	"mobile-frontend-user-page-uploads": "Uploads",
+	"minerva-user-menu-button": "Gebruikersmenu",
 	"minerva-page-actions-info": "Paginagegevens",
 	"minerva-page-actions-permalink": "Permanente koppeling",
 	"minerva-page-actions-backlinks": "Koppelingen naar deze pagina",
