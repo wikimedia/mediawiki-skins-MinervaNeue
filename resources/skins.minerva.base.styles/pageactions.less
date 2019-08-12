@@ -50,13 +50,14 @@
 		// The page actions menu icons are ever so slightly larger
 		// than standard icons.
 		@pageActionsIconSize: @iconSize + 0.15;
+		@pageActionsIconTarget: 2.75em; // 44px minimum touch target
 		// explicitly added to ensure this element (which is an anchor) receives width/height
 		// when it's viewed in services that manipulate DOM such as Google Translate.
 		display: block;
 		position: relative;
-		min-width: @pageActionsIconSize;
-		width: @pageActionsIconSize;
-		height: @pageActionsIconSize;
+		min-width: @pageActionsIconTarget;
+		width: @pageActionsIconTarget;
+		height: @pageActionsIconTarget;
 
 		&:hover {
 			box-shadow: none;
@@ -69,6 +70,7 @@
 			// stretches the entire height of its parent element.
 			top: 0;
 			bottom: 0;
+			background-size: @pageActionsIconSize;
 		}
 	}
 }
