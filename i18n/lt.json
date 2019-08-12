@@ -52,6 +52,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Prisijungė}} $1",
 	"mobile-frontend-user-page-talk": "Aptarimas",
 	"mobile-frontend-user-page-uploads": "Įkėlimai",
+	"minerva-user-menu-button": "Vartotojo meniu",
 	"skin-minerva-issue-learn-more": "Sužinoti daugiau",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorijos",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Rodyti puslapių kategorijas",
