@@ -60,12 +60,17 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Присоединился|Присоединилась}} $1",
 	"mobile-frontend-user-page-talk": "Обсуждение",
 	"mobile-frontend-user-page-uploads": "Загрузки",
+	"minerva-user-menu-button": "Пользовательское меню",
+	"minerva-page-actions-overflow": "Подменю дополнительных действий страницы",
 	"minerva-page-actions-info": "Сведения о странице",
 	"minerva-page-actions-permalink": "Постоянная ссылка",
 	"minerva-page-actions-backlinks": "Ссылки сюда",
+	"minerva-page-actions-cite": "Цитировать страницу",
 	"minerva-page-actions-uploads": "Загрузки",
 	"minerva-page-actions-user-rights": "Права участника",
 	"minerva-page-actions-logs": "Журналы",
+	"minerva-page-actions-wikibase": "Элемент {{grammar:genitive|{{WBREPONAME}}}}",
+	"minerva-page-actions-language-switcher": "Языки",
 	"minerva-skin-desc": "Первая адаптивная мобильная тема оформления.",
 	"skin-minerva-issue-learn-more": "Узнать больше",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
@@ -73,5 +78,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Перейти наверх",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Улучшенное обнаружение проблем страницы",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемы со страницей (Шаблон:ambox) будут вписаны в статью."
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемы со страницей (Шаблон:ambox) будут вписаны в статью.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию."
 }
