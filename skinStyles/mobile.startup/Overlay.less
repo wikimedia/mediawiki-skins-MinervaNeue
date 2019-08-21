@@ -1,5 +1,5 @@
-@import '../../minerva.less/minerva.variables';
-@import '../../minerva.less/minerva.mixins';
+@import '../../minerva.less/minerva.variables.less';
+@import '../../minerva.less/minerva.mixins.less';
 
 .overlay {
 	padding-top: @headerHeight;
@@ -15,12 +15,12 @@
 	.license {
 		.secondary-text();
 	}
+}
 
-	.header-action {
-		> a,
-		> button {
-			height: @headerHeight;
-		}
+.overlay-header .header-action {
+	> a,
+	> button {
+		height: @headerHeight;
 	}
 }
 
