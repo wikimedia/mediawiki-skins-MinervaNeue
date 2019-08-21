@@ -42,7 +42,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Redakti la unuan sekcion de ĉi tiu paĝo.",
 	"mobile-frontend-placeholder": "Serĉi tra {{SITENAME}}",
 	"mobile-frontend-random-button": "Hazarde",
-	"mobile-frontend-redirected-from": "Alidirektita el \"$1\"",
+	"mobile-frontend-redirected-from": "Alidirektita el \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Reiri al la dosiero \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Reiri al la paĝo \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Reiri al la projektpaĝo \"$1\".",

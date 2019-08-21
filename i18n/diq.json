@@ -41,7 +41,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Qısımê serêniya ena pele bıvurne",
 	"mobile-frontend-placeholder": "{{SITENAME}} de cı geyre",
 	"mobile-frontend-random-button": "Raştameye",
-	"mobile-frontend-redirected-from": "$1 ra kırışıyê",
+	"mobile-frontend-redirected-from": "[[$1]] ra kırışıyê",
 	"mobile-frontend-talk-back-to-filepage": "Ravêre be dosya \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Ravêre be pela \"$1\"",
 	"mobile-frontend-talk-back-to-projectpage": "Ravêre be pela proceyê \"$1\".",

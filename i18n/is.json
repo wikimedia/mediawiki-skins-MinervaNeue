@@ -36,7 +36,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Breyta innganginum að þessari síðu.",
 	"mobile-frontend-placeholder": "Leita á {{SITENAME}}",
 	"mobile-frontend-random-button": "Handahófsvalið",
-	"mobile-frontend-redirected-from": "Endurbeint frá: $1",
+	"mobile-frontend-redirected-from": "Endurbeint frá: [[$1]]",
 	"mobile-frontend-talk-back-to-filepage": "Fara aftur á skrána „$1“.",
 	"mobile-frontend-talk-back-to-page": "Fara aftur á síðuna „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Fara aftur á verkefnissíðuna „$1“.",

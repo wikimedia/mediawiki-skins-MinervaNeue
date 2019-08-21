@@ -11,6 +11,7 @@
 			"Senpremì"
 		]
 	},
+	"minerva-last-modified-date": "Ultima modifica il $1 alle $2",
 	"minerva-talk-add-topic": "Aggiungi discussione",
 	"mobile-frontend-cookies-required": "I cookie sono necessari per cambiare la modalità di visualizzazione. Si prega di abilitarli e riprovare.",
 	"mobile-frontend-editor-edit": "Modifica",
@@ -41,7 +42,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Modifica la sezione iniziale di questa pagina",
 	"mobile-frontend-placeholder": "Cerca in {{SITENAME}}",
 	"mobile-frontend-random-button": "Una pagina a caso",
-	"mobile-frontend-redirected-from": "Reindirizzamento da \"$1\"",
+	"mobile-frontend-redirected-from": "Reindirizzamento da \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Ritorna al file \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Ritorna alla pagina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Ritorna alla pagina di progetto \"$1\".",
@@ -54,6 +55,7 @@
 	"mobile-frontend-user-page-uploads": "Caricamenti",
 	"minerva-user-menu-button": "Menu utente",
 	"minerva-page-actions-info": "Informazioni pagina",
+	"minerva-page-actions-permalink": "Link permanente",
 	"minerva-page-actions-backlinks": "Puntano qui",
 	"minerva-page-actions-cite": "Cita la pagina",
 	"minerva-page-actions-uploads": "Caricamenti",

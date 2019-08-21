@@ -37,7 +37,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "แก้ไขส่วนนำของหน้านี้",
 	"mobile-frontend-placeholder": "ค้นหา {{SITENAME}}",
 	"mobile-frontend-random-button": "สุ่ม",
-	"mobile-frontend-redirected-from": "เปลี่ยนทางจาก \"$1\"",
+	"mobile-frontend-redirected-from": "เปลี่ยนทางจาก \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "กลับไปที่ไฟล์ \"$1\"",
 	"mobile-frontend-talk-back-to-page": "กลับไปที่หน้า \"$1\"",
 	"mobile-frontend-talk-back-to-projectpage": "กลับไปที่หน้าโครงการ \"$1\"",

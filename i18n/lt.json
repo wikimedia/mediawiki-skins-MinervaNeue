@@ -41,7 +41,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Taisyti pagrindinį puslapio skyrių",
 	"mobile-frontend-placeholder": "{{SITENAME}} paieška",
 	"mobile-frontend-random-button": "Atsitiktinis",
-	"mobile-frontend-redirected-from": "Nukreipta iš „$1“",
+	"mobile-frontend-redirected-from": "Nukreipta iš „[[$1]]“",
 	"mobile-frontend-talk-back-to-filepage": "Grįžti į failą \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Grįžti į \"$1\" puslapį.",
 	"mobile-frontend-talk-back-to-projectpage": "Grįžti į projekto \"$1\" puslapį.",

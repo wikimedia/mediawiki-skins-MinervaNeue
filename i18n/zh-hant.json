@@ -47,7 +47,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "編輯此頁面的導言章節",
 	"mobile-frontend-placeholder": "搜尋{{SITENAME}}",
 	"mobile-frontend-random-button": "隨機",
-	"mobile-frontend-redirected-from": "重新導向自 \"$1\"",
+	"mobile-frontend-redirected-from": "重新導向自 \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "返回到檔案 \"$1\" 。",
 	"mobile-frontend-talk-back-to-page": "返回 \"$1\" 頁面。",
 	"mobile-frontend-talk-back-to-projectpage": "返回到計畫頁面 \"$1\"。",

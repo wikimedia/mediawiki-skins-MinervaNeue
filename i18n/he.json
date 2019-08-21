@@ -40,7 +40,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "עריכת פסקה הפתיחה של דף",
 	"mobile-frontend-placeholder": "חיפוש באתר {{SITENAME}}",
 	"mobile-frontend-random-button": "אקראי",
-	"mobile-frontend-redirected-from": "הופנה מהדף \"$1\"",
+	"mobile-frontend-redirected-from": "הופנה מהדף \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "חזרה לקובץ \"$1\".",
 	"mobile-frontend-talk-back-to-page": "חזרה לדף \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "חזרה לדף המיזם \"$1\".",

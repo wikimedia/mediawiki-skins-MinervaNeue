@@ -31,7 +31,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Édit bagéan munggaran ieu kaca",
 	"mobile-frontend-placeholder": "Paluruh {{SITENAME}}",
 	"mobile-frontend-random-button": "Acak",
-	"mobile-frontend-redirected-from": "Dialihkeun ti \"$1\"",
+	"mobile-frontend-redirected-from": "Dialihkeun ti \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Balik deui ka berkas \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Balik deui ka kaca \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Balik deui ka kaca proyék \"$1\".",

@@ -34,7 +34,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "ᱱᱚᱣᱟ ᱥᱟᱦᱴᱟ ᱨᱮᱱᱟᱜ ᱪᱮᱛᱟᱱ ᱦᱟᱹᱴᱤᱧ ᱥᱟᱯᱲᱟᱣ ᱢᱮ",
 	"mobile-frontend-placeholder": "ᱥᱮᱸᱫᱽᱨᱟ {{SITENAME}}",
 	"mobile-frontend-random-button": "ᱟᱹᱛᱷᱟᱹᱣᱲᱤ",
-	"mobile-frontend-redirected-from": "\"$1\" ᱠᱷᱚᱱ ᱧᱟᱢ ᱟᱹᱜᱩᱭ",
+	"mobile-frontend-redirected-from": "\"[[$1]]\" ᱠᱷᱚᱱ ᱧᱟᱢ ᱟᱹᱜᱩᱭ",
 	"mobile-frontend-user-newmessages": "ᱟᱢᱟᱜ ᱨᱚᱲ ᱥᱟᱦᱴᱟᱨᱮ ᱱᱟᱣᱟ ᱠᱷᱚᱵᱚᱨ ᱦᱮᱡ ᱟᱠᱟᱱᱟ",
 	"mobile-frontend-user-page-contributions": "ᱮᱱᱮᱢᱠᱩ",
 	"mobile-frontend-user-page-talk": "ᱨᱚᱲ",

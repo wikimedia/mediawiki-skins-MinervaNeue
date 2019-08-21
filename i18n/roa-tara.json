@@ -37,7 +37,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Cange 'a sezione prengepàle de sta pàgene",
 	"mobile-frontend-placeholder": "Cirche {{SITENAME}}",
 	"mobile-frontend-random-button": "A uecchije",
-	"mobile-frontend-redirected-from": "(Riderette da $1)",
+	"mobile-frontend-redirected-from": "(Riderette da [[$1]])",
 	"mobile-frontend-talk-back-to-filepage": "Tuèrne a 'u file \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Tuerne 'a pàgena \"$1\"",
 	"mobile-frontend-talk-back-to-projectpage": "Tuèrne 'a pàgene d'u proggette \"$1\".",

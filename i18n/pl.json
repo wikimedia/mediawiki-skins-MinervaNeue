@@ -44,7 +44,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Edycja głównej sekcji tej strony",
 	"mobile-frontend-placeholder": "Przeszukaj {{GRAMMAR:B.lp|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Losuj",
-	"mobile-frontend-redirected-from": "Przekierowano z „$1”",
+	"mobile-frontend-redirected-from": "Przekierowano z „[[$1]]”",
 	"mobile-frontend-talk-back-to-filepage": "Powrót do pliku „$1”.",
 	"mobile-frontend-talk-back-to-page": "Powrót do strony „$1”.",
 	"mobile-frontend-talk-back-to-projectpage": "Powrót do strony projektu „$1”.",

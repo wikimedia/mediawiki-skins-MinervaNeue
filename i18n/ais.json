@@ -32,7 +32,7 @@
 	"mobile-frontend-notifications-filter": "kilim",
 	"mobile-frontend-placeholder": "kilim {{SITENAME}}",
 	"mobile-frontend-random-button": "kakibalucu’",
-	"mobile-frontend-redirected-from": "miliyaw tazuma tu $1",
+	"mobile-frontend-redirected-from": "miliyaw tazuma tu [[$1]]",
 	"mobile-frontend-talk-back-to-filepage": "tatiku tu tangan \"$1\".",
 	"mobile-frontend-talk-back-to-page": "tatiku \"$1\" kasabelih.",
 	"mobile-frontend-talk-back-to-projectpage": "tatiku tayza pabalucu’ kasabelih \"$1\".",

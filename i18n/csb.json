@@ -23,7 +23,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Editëjë przédny dzél ti starnë",
 	"mobile-frontend-placeholder": "Szëkba {{SITENAME}}",
 	"mobile-frontend-random-button": "Kawlowò",
-	"mobile-frontend-redirected-from": "Przeczerowóné z \"$1\"",
+	"mobile-frontend-redirected-from": "Przeczerowóné z \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Nazôd do lopka \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Nazôd do starnë \"$1\"",
 	"mobile-frontend-talk-back-to-projectpage": "Nazôd do starnë ùdbë \"$1\".",

@@ -40,7 +40,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Uredite uvodni odeljak ove stranice",
 	"mobile-frontend-placeholder": "Pretražite {{GRAMMAR:akuzativ|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Slučajna",
-	"mobile-frontend-redirected-from": "Preusmereno sa „$1“",
+	"mobile-frontend-redirected-from": "Preusmereno sa „[[$1]]“",
 	"mobile-frontend-talk-back-to-filepage": "Vrati me na datoteku „$1”.",
 	"mobile-frontend-talk-back-to-page": "Vrati me na stranicu „$1”.",
 	"mobile-frontend-talk-back-to-projectpage": "Vrati me na stranicu projekta „$1”.",

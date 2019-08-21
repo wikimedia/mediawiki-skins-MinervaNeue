@@ -39,7 +39,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Bearbeite den Einführungsabschnitt für diese Seite",
 	"mobile-frontend-placeholder": "{{SITENAME}} durchsuchen",
 	"mobile-frontend-random-button": "Zufall",
-	"mobile-frontend-redirected-from": "Weitergeleitet von „$1“",
+	"mobile-frontend-redirected-from": "Weitergeleitet von „[[$1]]“",
 	"mobile-frontend-talk-back-to-filepage": "Zurück zur Datei „$1“.",
 	"mobile-frontend-talk-back-to-page": "Zurück zur Seite „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Zurück zur Projektseite „$1“.",

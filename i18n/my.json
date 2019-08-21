@@ -39,7 +39,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "ဤစာမျက်နှာ၏ နိဒါန်းအပိုဒ်ကို တည်းဖြတ်ရန်",
 	"mobile-frontend-placeholder": "{{SITENAME}} တွင် ရှာဖွေရန်",
 	"mobile-frontend-random-button": "ကျပန်း",
-	"mobile-frontend-redirected-from": "$1 မှ ပြန်ညွှန်းထားသည်",
+	"mobile-frontend-redirected-from": "[[$1]] မှ ပြန်ညွှန်းထားသည်",
 	"mobile-frontend-talk-back-to-filepage": "ဖိုင် \"$1\" သို့ ပြန်သွားရန်။",
 	"mobile-frontend-talk-back-to-page": "စာမျက်နှာ \"$1\" သို့ ပြန်သွားရန်။",
 	"mobile-frontend-talk-back-to-projectpage": "ပရောဂျက်စာမျက်နှာ \"$1\" သို့ ပြန်သွားရန်။",

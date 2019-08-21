@@ -35,7 +35,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Modifică secțiunea de început a acestei pagini.",
 	"mobile-frontend-placeholder": "Căutare în {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatoriu",
-	"mobile-frontend-redirected-from": "Redirecționat de la „$1”",
+	"mobile-frontend-redirected-from": "Redirecționat de la „[[$1]]”",
 	"mobile-frontend-talk-back-to-filepage": "Înapoi la fișierul „$1”.",
 	"mobile-frontend-talk-back-to-page": "Înapoi la pagina „$1”.",
 	"mobile-frontend-talk-back-to-projectpage": "Înapoi la pagina de proiect „$1”.",

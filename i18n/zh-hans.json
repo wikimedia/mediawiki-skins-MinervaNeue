@@ -47,7 +47,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "编辑此页面的序言章节",
 	"mobile-frontend-placeholder": "搜索{{SITENAME}}",
 	"mobile-frontend-random-button": "随机",
-	"mobile-frontend-redirected-from": "重定向自“$1”",
+	"mobile-frontend-redirected-from": "重定向自“[[$1]]”",
 	"mobile-frontend-talk-back-to-filepage": "回到文件“$1”。",
 	"mobile-frontend-talk-back-to-page": "返回“$1”页面。",
 	"mobile-frontend-talk-back-to-projectpage": "回到项目页面“$1”。",

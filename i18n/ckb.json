@@ -37,7 +37,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "بەشی پێشەکیی ئەم پەڕەیە دەستکاری بکە.",
 	"mobile-frontend-placeholder": "لە {{SITENAME}}دا بگەڕێ",
 	"mobile-frontend-random-button": "بە ھەڵکەوت",
-	"mobile-frontend-redirected-from": "ڕەوانەکرا لە «$1»",
+	"mobile-frontend-redirected-from": "ڕەوانەکرا لە «[[$1]]»",
 	"mobile-frontend-user-button-tooltip": "پیشاندانی وریاکردنەوەکانم",
 	"mobile-frontend-user-newmessages": "چەند پەیامێکی نوێت لەسەر پەڕەی وتووێژەکەت ھەیە",
 	"mobile-frontend-user-page-contributions": "بەشدارییەکان",

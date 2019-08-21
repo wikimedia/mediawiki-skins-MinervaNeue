@@ -35,7 +35,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Uredi uvodni odlomak ove stranice",
 	"mobile-frontend-placeholder": "Pretraži {{GRAMMAR:akuzativ|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Slučajna",
-	"mobile-frontend-redirected-from": "Preusmjereno sa \"$1\"",
+	"mobile-frontend-redirected-from": "Preusmjereno sa \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Nazad na datoteku \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Nazad na stranicu \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Nazad na projektnu stranicu \"$1\".",

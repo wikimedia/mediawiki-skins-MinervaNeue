@@ -36,7 +36,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Redigeeri selle lehekülje sissejuhatavat alaosa.",
 	"mobile-frontend-placeholder": "Otsi {{GRAMMAR:elative|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Juhuslik",
-	"mobile-frontend-redirected-from": "Ümber suunatud leheküljelt \"$1\"",
+	"mobile-frontend-redirected-from": "Ümber suunatud leheküljelt \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Naase faili \"$1\" juurde.",
 	"mobile-frontend-talk-back-to-page": "Naase leheküljele \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Naase projektileheküljele \"$1\".",

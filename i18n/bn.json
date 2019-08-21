@@ -40,7 +40,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "এই পাতার শীর্ষ অনুচ্ছেদ সম্পাদনা করুন",
 	"mobile-frontend-placeholder": "{{SITENAME}} অনুসন্ধান",
 	"mobile-frontend-random-button": "অজানা পাতা",
-	"mobile-frontend-redirected-from": "\"$1\" থেকে পুনর্নির্দেশিত",
+	"mobile-frontend-redirected-from": "\"[[$1]]\" থেকে পুনর্নির্দেশিত",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" ফাইলে ফিরুন।",
 	"mobile-frontend-talk-back-to-page": "\"$1\" পাতায় ফেরত যান।",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" প্রকল্প পাতায় ফিরুন।",

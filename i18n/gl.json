@@ -39,7 +39,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Editar a introdución desta páxina",
 	"mobile-frontend-placeholder": "Procurar en {{SITENAME}}",
 	"mobile-frontend-random-button": "Ao chou",
-	"mobile-frontend-redirected-from": "Redirixido desde \"$1\"",
+	"mobile-frontend-redirected-from": "Redirixido desde \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Volver ó ficheiro \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Volver á páxina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Volver á páxina do proxecto \"$1\".",

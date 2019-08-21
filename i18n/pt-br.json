@@ -45,7 +45,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Editar a introdução desta página",
 	"mobile-frontend-placeholder": "Pesquisar {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatório",
-	"mobile-frontend-redirected-from": "Redirecionado de \"$1\"",
+	"mobile-frontend-redirected-from": "Redirecionado de \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Retornar para o arquivo \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Retornar a página \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Retorne à página do projeto \"$1\".",

@@ -32,7 +32,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": " reg tigezmi n tezwart n usebter-agi",
 	"mobile-frontend-placeholder": "Nadi {{SITENAME}}",
 	"mobile-frontend-random-button": "Agacuran",
-	"mobile-frontend-redirected-from": "Awelleh si \"$1\"",
+	"mobile-frontend-redirected-from": "Awelleh si \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Uɣal ar ufaylu \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Uɣal ar usebter \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Uɣal ar usebter n usenfaṛ \"$1\".",
