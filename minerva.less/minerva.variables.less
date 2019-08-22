@@ -43,7 +43,6 @@
 @menuButtonIconSize: 3.5em;
 
 // Headings
-@firstHeadingFontSize: 2.6525em; // 42px
 @fontSizeH1: 1.7em;
 @fontSizeH2: 1.5em;
 @fontSizeH3: 1.2em;
@@ -57,12 +56,10 @@
 @headerVerticalPadding: 0.15em;
 @headerMarginTop: -1px; // used to hide the header border top when a banner is not present
 @searchBoxWidth: 375/16em;
-@iconSizeTotal: @iconSize + @iconGutterWidth + @iconGutterWidth;
 @deviceWidthTabletEms: unit( @width-breakpoint-tablet / @font-size-browser, em );
 @brandingBoxWidth: @deviceWidthTabletEms - (3 * @menuButtonIconSize + @iconGutterWidth) - @searchBoxWidth;
 
 @titleSectionSpacingTop: 20px;
-@titleSectionSpacingBottom: 25px;
 
 // Page actions
 @taglineFontSize: 0.85em;
@@ -77,9 +74,6 @@
 @redLinkColor: @colorError;
 @lastModifiedBarActiveBackgroundColor: #00af89;
 @toastNotificationColor: @colorGray2;
-
-// Use when an element is selected. FIXME: This should be in mediawiki ui.
-@selectedBackgroundColor: #e6eeff;
 
 // typography
 @fontFamilyHeading: 'Linux Libertine', 'Georgia', 'Times', serif;
@@ -96,7 +90,6 @@
 @contentLineHeight: 1.65;
 
 @headingMargin: 0.5em;
-@sectionIconWidth: 30px;
 
 // blockquote
 @blockquotePaddingRight: 25px;
@@ -107,13 +100,11 @@
 
 // note since content does not use view border box we have to include padding.
 @contentMaxWidthTablet: @width-breakpoint-desktop - ( 2 * @contentPaddingTablet );
-@contentTopPadding: 1.6em;
 
 // Wiki specific variables
 @infoboxWidth: 320px;
 
 @lastModifiedBarBgColor: @chromeColor;
-@lastModifiedBarActiveBgColor: @lastModifiedBarActiveBackgroundColor;
 @lastModifiedBarTextColor: @colorTextLight;
 
 @footerBorderColor: @grayLight;
