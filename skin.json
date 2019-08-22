@@ -411,7 +411,12 @@
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#4A4F53",
 			"images": {
-				"login": "resources/skins.minerva.mainMenu.icons/login.svg",
+				"login": {
+					"file": {
+						"ltr": "resources/skins.minerva.mainMenu.icons/logIn-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.icons/logIn-rtl.svg"
+					}
+				},
 				"logout": {
 					"file": {
 						"ltr": "resources/skins.minerva.mainMenu.icons/logOut-ltr.svg",
@@ -458,7 +463,12 @@
 						"rtl":  "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
 					}
 				},
-				"login": "resources/skins.minerva.mainMenu.icons/login.svg",
+				"login": {
+					"file": {
+						"ltr": "resources/skins.minerva.mainMenu.icons/logIn-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.icons/logIn-rtl.svg"
+					}
+				},
 				"home": "resources/skins.minerva.mainMenu.icons/home.svg",
 				"logout": {
 					"file": {
