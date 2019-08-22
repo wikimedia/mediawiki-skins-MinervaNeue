@@ -119,6 +119,31 @@ This will work for all pages except the main page.
 ```
 Controls whether the history link appears in the page actions menu.
 
+#### $wgMinervaAdvancedMainMenu
+* Type: `Array`
+* Default:
+```php
+  [
+    'beta' => false,
+    'base' => false,
+    'amc' => true,
+  ]
+```
+Controls whether the main menu is expanded to contain recent changes and various options
+that require login are removed. Note, should be enabled alongside `$wgMinervaPersonalMenu` to avoid losing access to features (in particular logout button).
+
+#### $wgMinervaPersonalMenu
+* Type: `Array`
+* Default:
+```php
+  [
+    'beta' => false,
+    'base' => false,
+    'amc' => true,
+  ]
+```
+Controls whether a personal menu appears in the header chrome. This menu contains pages such as Special:Watchlist. Note, should be enabled alongside `$wgMinervaAdvancedMainMenu` to avoid duplicating links to functionality as many of the links duplicate links in the standard main menu. Note a sandbox link will be present if the extension `SandboxLink` is enabled.
+
 #### $wgMinervaOverflowInPageActions
 
 * Type: `Array`

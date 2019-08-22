@@ -75,20 +75,11 @@
 	}
 }
 
-.minerva--amc-enabled .page-actions-menu__list-item {
-	flex-basis: auto;
-}
-
 // Layout for less than 5 items - one item at the beginning, rest at the end.
 // |1-----2--3--4|
 .page-actions-menu__list-item:first-child {
 	flex-grow: 1;
 	justify-content: flex-start;
-}
-
-// When AMC is enabled, space all items equally.
-.minerva--amc-enabled .page-actions-menu__list-item:first-child {
-	flex-grow: 0;
 }
 
 .page-actions-overflow-list {

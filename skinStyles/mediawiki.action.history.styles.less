@@ -8,104 +8,6 @@
 		margin: 0;
 	}
 
-	#pagehistory {
-		padding: 0;
-
-		li {
-			.changeslist-row();
-		}
-	}
-}
-
-/**
- * Non-AMC mode styling for the action=history page.
- * Meant to mimic the look of the mobile Special:History page.
- */
-.minerva--amc-disabled {
-	.mw-rollback-link,
-	.mw-tag-markers,
-	.mw-usertoollinks,
-	.mw-changeslist-line-inner-historyLink .mw-changeslist-links,
-	abbr,
-	.mw-contributions-user-tools .mw-changeslist-links,
-	.mw-htmlform-ooui-wrapper + .mw-pager-navigation-bar,
-	.changedby,
-	#mw-watchlist-resetbutton,
-	.watchlistDetails,
-	.mw-htmlform-ooui-wrapper {
-		display: none;
-	}
-
-	&.action-history {
-		.mw-changeslist-date-time,
-		.mw-diff-bytes {
-			.changeslist-meta();
-		}
-
-		.mw-diff-bytes {
-			top: 3.2em;
-		}
-
-		// entire link covers row
-		.mw-history-histlinks span a {
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			text-indent: -999px;
-		}
-
-		.mw-userlink,
-		.comment {
-			display: block;
-		}
-
-		.mw-changeslist-date {
-			.changeslist-header();
-		}
-
-		.mw-userlink {
-			padding-top: 0.3em;
-		}
-
-		.comment,
-		.history-user {
-			.changeslist-row-item();
-		}
-
-		.history-user {
-			display: inline-block;
-			// -4px to compensate for &lrm; invisible character
-			margin-left: -4px;
-		}
-
-		.history-size,
-		input[ type='radio' ],
-		.mw-history-revisionactions,
-		.mw-checkbox-toggle-controls,
-		.mw-history-compareselectedversions-button,
-		.mw-history-legend,
-		.mw-history-subtitle,
-		.mw-thanks-thank-link,
-		.mw-thanks-thank-confirmation,
-		.mw-history-undo,
-		.mw-changeslist-separator,
-		.updatedmarker,
-		.mw-history-histlinks > span,
-		.mw-history-histlinks span:first-child,
-		input[ type='checkbox' ],
-		#mw-history-searchform {
-			display: none;
-		}
-	}
-}
-
-/**
- * AMC-mode styling for action=history page.
- * Meant to make the page resemble the desktop version.
- */
-.minerva--amc-enabled.action-history {
 	// the margin value used to create a "faux" column after the
 	// radio buttons.
 	@revision-selectors-width: 50px;
@@ -168,8 +70,10 @@
 
 	#pagehistory {
 		margin-bottom: 24px;
+		padding: 0;
 
 		li {
+			.changeslist-row();
 			min-height: inherit;
 			padding: 12px 0;
 		}

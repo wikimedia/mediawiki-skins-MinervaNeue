@@ -44,7 +44,7 @@ return [
 		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
 
 		$context = RequestContext::getMain();
-		$builder = $options->get( SkinOptions::AMC_MODE ) ?
+		$builder = $options->get( SkinOptions::PERSONAL_MENU ) ?
 			new AdvancedUserMenuBuilder(
 				$context,
 				$context->getUser(),
@@ -64,7 +64,7 @@ return [
 		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
 		$showMobileOptions = $options->get( SkinOptions::MOBILE_OPTIONS );
 		$user = $context->getUser();
-		$builder = $options->get( SkinOptions::AMC_MODE ) ?
+		$builder = $options->get( SkinOptions::MAIN_MENU_EXPANDED ) ?
 			new AdvancedMainMenuBuilder( $showMobileOptions, $user, $definitions ) :
 			new DefaultMainMenuBuilder( $showMobileOptions, $user, $definitions );
 

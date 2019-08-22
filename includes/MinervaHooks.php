@@ -110,6 +110,20 @@ class MinervaHooks {
 					$config->get( self::FEATURE_OVERFLOW_PAGE_ACTIONS )
 				)
 			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaAdvancedMainMenu',
+					'skin-minerva',
+					$config->get( 'MinervaAdvancedMainMenu' )
+				)
+			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
+					'MinervaPersonalMenu',
+					'skin-minerva',
+					$config->get( 'MinervaPersonalMenu' )
+				)
+			);
 		} catch ( RuntimeException $e ) {
 			// features already registered...
 			// due to a bug it's possible for this to run twice
@@ -234,12 +248,10 @@ class MinervaHooks {
 			$services = MediaWikiServices::getInstance();
 			$featureManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
-			$userMode = $services->getService( 'MobileFrontend.AMC.UserMode' );
 			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$skinOptions->setMultiple( [
-				SkinOptions::AMC_MODE => $userMode->isEnabled(),
 				SkinOptions::TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaTalkAtTop'
 				),
@@ -255,6 +267,12 @@ class MinervaHooks {
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShareButton' ),
 				SkinOptions::TOGGLING => true,
 				SkinOptions::MOBILE_OPTIONS => true,
+				SkinOptions::PERSONAL_MENU => $featureManager->isFeatureAvailableForCurrentUser(
+					'MinervaPersonalMenu'
+				),
+				SkinOptions::MAIN_MENU_EXPANDED => $featureManager->isFeatureAvailableForCurrentUser(
+					'MinervaAdvancedMainMenu'
+				),
 				SkinOptions::HISTORY_IN_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaHistoryInPageActions'
 				),

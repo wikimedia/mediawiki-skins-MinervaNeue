@@ -25,7 +25,6 @@ namespace MediaWiki\Minerva;
 final class SkinOptions {
 
 	const MOBILE_OPTIONS = 'mobileOptionsLink';
-	const AMC_MODE = 'amc';
 	const CATEGORIES = 'categories';
 	const BACK_TO_TOP = 'backToTop';
 	const PAGE_ISSUES = 'pageIssues';
@@ -36,11 +35,13 @@ final class SkinOptions {
 	const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
 	const TOOLBAR_SUBMENU = 'overflowSubmenu';
 	const TABS_ON_SPECIALS = 'tabsOnSpecials';
+	const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
+	const PERSONAL_MENU = 'personalMenu';
 
 	/** @var array skin specific options, initialized with default values */
+	// Note stable skin options default to true for desktop-Minerva and are expected to be
+	// overridden on mobile.
 	private $skinOptions = [
-		// Defaults to true for desktop mode.
-		self::AMC_MODE => true,
 		self::BETA_MODE => false,
 		/**
 		 * Whether the main menu should include a link to
@@ -65,6 +66,10 @@ final class SkinOptions {
 		self::TOOLBAR_SUBMENU => true,
 		/** Whether to show tabs on special pages */
 		self::TABS_ON_SPECIALS => false,
+		/** whether to show a personal menu */
+		self::PERSONAL_MENU => true,
+		/** whether to show a main menu with additional items */
+		self::MAIN_MENU_EXPANDED => true,
 	];
 
 	/**
@@ -107,29 +112,6 @@ final class SkinOptions {
 	public function hasSkinOptions() {
 		foreach ( $this->skinOptions as $key => $val ) {
 			if ( $val ) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Check if user enabled any of the options bundled in the AMC mode
-	 *
-	 * @todo this shouldn't exist, each option should provide it's own logic/styles/js modules
-	 *
-	 * @return bool
-	 */
-	public function isAnyAMCOptionEnabled() {
-		$keys = [
-			self::AMC_MODE,
-			self::TALK_AT_TOP,
-			self::HISTORY_IN_PAGE_ACTIONS,
-			self::TOOLBAR_SUBMENU,
-			self::TABS_ON_SPECIALS
-		];
-		foreach ( $keys as $key ) {
-			if ( $this->skinOptions[$key] ) {
 				return true;
 			}
 		}

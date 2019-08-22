@@ -196,7 +196,7 @@ class SkinMinerva extends SkinTemplate {
 		// If it's a talk page, add a link to the main namespace page
 		// In AMC we do not need to do this as there is an easy way back to the article page
 		// via the talk/article tabs.
-		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
+		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ) {
 			// if it's a talk page for which we have a special message, use it
 			switch ( $title->getNamespace() ) {
 				case NS_USER_TALK:
@@ -887,10 +887,11 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function addToBodyAttributes( $out, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
-		if ( $this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
-			$classes .= ' minerva--amc-enabled';
-		} else {
-			$classes .= ' minerva--amc-disabled';
+		if (
+			// Class is used when page actions is modified to contain more elements
+			$this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS )
+		) {
+			$classes .= ' minerva--history-page-action-enabled';
 		}
 
 		$bodyAttrs[ 'class' ] .= ' ' . $classes;
@@ -928,13 +929,40 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
-		if ( $this->skinOptions->isAnyAMCOptionEnabled() ) {
+		// When any of these features are enabled in production
+		// remove the if condition
+		// and move the associated LESS file inside `skins.minerva.amc.styles`
+		// into a more appropriate module.
+		if (
+			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
+			$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
+			$this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ||
+			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+		) {
+			// SkinOptions::PERSONAL_MENU + SkinOptions::TOOLBAR_SUBMENU uses components/ToggleList
+			// SkinOptions::TALK_AT_TOP uses tabs.less
+			// SkinOptions::HISTORY_IN_PAGE_ACTIONS + SkinOptions::TOOLBAR_SUBMENU uses pageactions.less
 			$styles[] = 'skins.minerva.amc.styles';
+		}
+
+		if (
+			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
+			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+		) {
+			// SkinOptions::PERSONAL_MENU requires the `userTalk` icon.
+			// SkinOptions::TOOLBAR_SUBMENU requires the rest of the icons.
+			// Note wikimedia.ui is pulled down by skins.minerva.scripts but the menu can
+			// work without JS.
 			$styles[] = 'wikimedia.ui';
 		}
 
-		if ( $this->skinOptions->get( SkinOptions::AMC_MODE ) ) {
-			// ToolbarBuilder is reusing the Contributions icon in toolbar @see T224735
+		if (
+			$this->skinOptions->get( SkinOptions::PERSONAL_MENU )
+		) {
+			// additional icons needed for non-JS experience..
+			// watchlist, contributions, login
+			// If this is ever a default, please consider performance and
+			// whether it makes sense to not use dataURIs.
 			$styles[] = 'skins.minerva.mainMenu.icons';
 		}
 

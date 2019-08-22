@@ -40,6 +40,16 @@
 			"beta": false,
 			"amc": true
 		},
+		"MinervaAdvancedMainMenu": {
+			"base": false,
+			"beta": false,
+			"amc": true
+		},
+		"MinervaPersonalMenu": {
+			"base": false,
+			"beta": false,
+			"amc": true
+		},
 		"MinervaHistoryInPageActions": {
 			"base": false,
 			"beta": false,
@@ -268,11 +278,7 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.amc.styles/index.less",
-				"components/ToggleList/ToggleList.less",
-				"components/ToggleList/DropDownList.less",
-				"components/ToggleList/MenuListItem.less",
-				"resources/skins.minerva.amc.styles/userMenu.less"
+				"resources/skins.minerva.amc.styles/index.less"
 			]
 		},
 		"wikimedia.ui": {
