@@ -406,6 +406,53 @@
 				"resources/skins.minerva.userpage.styles/userpage.less"
 			]
 		},
+		"skins.minerva.personalMenu.icons": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"defaultColor": "#4A4F53",
+			"images": {
+				"login": "resources/skins.minerva.mainMenu.icons/login.svg",
+				"logout": {
+					"file": {
+						"ltr": "resources/skins.minerva.mainMenu.icons/logOut-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.icons/logOut-rtl.svg"
+					}
+				},
+				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
+				"userSandbox": "resources/resources/skins.minerva.personalMenu.icons/userSandbox.svg"
+			}
+		},
+		"skins.minerva.mainMenu.advanced.icons": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"defaultColor": "#4A4F53",
+			"images": {
+				"contributions": {
+					"file": {
+						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/contributions-ltr.svg",
+						"rtl":  "resources/skins.minerva.mainMenu.advanced.icons/contributions-rtl.svg"
+					}
+				},
+				"recentchanges": {
+					"file": {
+						"ltr":"resources/skins.minerva.mainMenu.advanced.icons/recentChanges-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/recentChanges-rtl.svg"
+					}
+				},
+				"specialpages": {
+					"file": {
+						"ltr":"resources/skins.minerva.mainMenu.advanced.icons/specialpages-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/specialpages-rtl.svg"
+					}
+				},
+				"communityportal": {
+					"file": {
+						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/communityportal-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/communityportal-rtl.svg"
+					}
+				}
+			}
+		},
 		"skins.minerva.mainMenu.icons": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
@@ -422,32 +469,7 @@
 				"nearby": "resources/skins.minerva.mainMenu.icons/nearby.svg",
 				"random": "resources/skins.minerva.mainMenu.icons/random.svg",
 				"settings": "resources/skins.minerva.mainMenu.icons/settings.svg",
-				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
-				"contributions": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/contributions-ltr.svg",
-						"rtl":  "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
-					}
-				},
-				"recentchanges": {
-					"file": {
-						"ltr":"resources/skins.minerva.mainMenu.icons/recentChanges-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/recentChanges-rtl.svg"
-					}
-				},
-				"specialpages": {
-					"file": {
-						"ltr":"resources/skins.minerva.mainMenu.icons/specialpages-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/specialpages-rtl.svg"
-					}
-				},
-				"communityportal": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/communityportal-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/communityportal-rtl.svg"
-					}
-				},
-				"userSandbox": "resources/skins.minerva.mainMenu.icons/userSandbox.svg"
+				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg"
 			}
 		},
 		"skins.minerva.mainMenu.styles": {

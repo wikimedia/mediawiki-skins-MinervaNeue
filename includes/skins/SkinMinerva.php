@@ -945,6 +945,17 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.amc.styles';
 		}
 
+		if ( $this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ) {
+			// If ever enabled as the default, please remove the duplicate icons
+			// inside skins.minerva.mainMenu.icons. See comment for MAIN_MENU_EXPANDED
+			$styles[] = 'skins.minerva.personalMenu.icons';
+		}
+
+		if ( $this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED ) ) {
+			// If ever enabled as the default, please review skins.minerva.mainMenu.icons
+			// and remove any unneeded icons
+			$styles[] = 'skins.minerva.mainMenu.advanced.icons';
+		}
 		if (
 			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
 			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
@@ -954,16 +965,6 @@ class SkinMinerva extends SkinTemplate {
 			// Note wikimedia.ui is pulled down by skins.minerva.scripts but the menu can
 			// work without JS.
 			$styles[] = 'wikimedia.ui';
-		}
-
-		if (
-			$this->skinOptions->get( SkinOptions::PERSONAL_MENU )
-		) {
-			// additional icons needed for non-JS experience..
-			// watchlist, contributions, login
-			// If this is ever a default, please consider performance and
-			// whether it makes sense to not use dataURIs.
-			$styles[] = 'skins.minerva.mainMenu.icons';
 		}
 
 		return $styles;
