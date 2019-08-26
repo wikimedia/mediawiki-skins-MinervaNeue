@@ -34,12 +34,11 @@ module.exports = function () {
 	// than linking to Special:Notifications.
 	util.docReady( function () {
 		badge = new NotificationBadge( {
-			onClick: function () {
+			onClick: function ( ev ) {
 				router.navigate( '#/notifications' );
-				// Important that we also prevent propagation to avoid interference
-				// with events that may
-				// be binded on #mw-mf-page-center that close overlay
-				return false;
+				// prevent navigation to original Special:Notifications URL
+				// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
+				ev.preventDefault();
 			},
 			// eslint-disable-next-line no-jquery/no-global-selector
 			el: $( '#user-notifications.user-button' ).parent()

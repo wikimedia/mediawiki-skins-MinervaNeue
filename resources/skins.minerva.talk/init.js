@@ -111,13 +111,15 @@
 	 * @ignore
 	 */
 	function init() {
-		$talk.on( 'click', function () {
+		$talk.on( 'click', function ( ev ) {
 			if ( $talk.hasClass( 'add' ) ) {
 				window.location.hash = '#/talk/new';
 			} else {
 				window.location.hash = '#/talk';
 			}
-			return false;
+			// avoiding navigating to original URL
+			// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
+			ev.preventDefault();
 		} );
 	}
 

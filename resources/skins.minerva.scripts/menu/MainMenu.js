@@ -64,9 +64,7 @@
 						self.openNavigationDrawer();
 					}
 					ev.preventDefault();
-					// Stop propagation, otherwise the Skin will close the open menus on page center
-					// click
-					ev.stopPropagation();
+					// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
 				} );
 		},
 
