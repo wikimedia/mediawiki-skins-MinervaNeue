@@ -419,7 +419,7 @@
 					}
 				},
 				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
-				"userSandbox": "resources/resources/skins.minerva.personalMenu.icons/userSandbox.svg"
+				"userSandbox": "resources/skins.minerva.personalMenu.icons/userSandbox.svg"
 			}
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
