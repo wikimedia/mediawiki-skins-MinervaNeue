@@ -29,7 +29,6 @@ use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
-use MediaWiki\Permissions\PermissionManager;
 use MessageLocalizer;
 use MinervaUI;
 use MWException;
@@ -59,11 +58,6 @@ class ToolbarBuilder {
 	private $permissions;
 
 	/**
-	 * @var PermissionManager
-	 */
-	private $permissionsManager;
-
-	/**
 	 * @var SkinOptions
 	 */
 	private $skinOptions;
@@ -82,7 +76,6 @@ class ToolbarBuilder {
 	 * @param Title $title Article title user is currently browsing
 	 * @param User $user Currently logged in user
 	 * @param MessageLocalizer $msgLocalizer Message localizer to generate localized texts
-	 * @param PermissionManager $permissionManager Mediawiki Permissions Manager
 	 * @param IMinervaPagePermissions $permissions Minerva permissions system
 	 * @param SkinOptions $skinOptions Skin options
 	 * @param SkinUserPageHelper $userPageHelper User Page helper
@@ -92,7 +85,6 @@ class ToolbarBuilder {
 		Title $title,
 		User $user,
 		MessageLocalizer $msgLocalizer,
-		PermissionManager $permissionManager,
 		IMinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
 		SkinUserPageHelper $userPageHelper,
@@ -101,7 +93,6 @@ class ToolbarBuilder {
 		$this->title = $title;
 		$this->user = $user;
 		$this->messageLocalizer = $msgLocalizer;
-		$this->permissionsManager = $permissionManager;
 		$this->permissions = $permissions;
 		$this->skinOptions = $skinOptions;
 		$this->userPageHelper = $userPageHelper;
@@ -180,8 +171,6 @@ class ToolbarBuilder {
 	 */
 	protected function createEditPageAction(): IMenuEntry {
 		$title = $this->title;
-		$user = $this->user;
-		$pm = $this->permissionsManager;
 
 		$editArgs = [ 'action' => 'edit' ];
 		if ( $title->isWikitextPage() ) {
@@ -190,21 +179,13 @@ class ToolbarBuilder {
 			$editArgs['section'] = SkinMinerva::LEAD_SECTION_NUMBER;
 		}
 
-		$userQuickEditCheck =
-			$pm->userCan( 'edit', $user, $title, PermissionManager::RIGOR_QUICK ) &&
-			(
-				$title->exists() ||
-				$pm->userCan( 'create', $user, $title, PermissionManager::RIGOR_QUICK )
-			);
-
-		$userBlockInfo = $user->isAnon() ? false : $pm->isBlockedFrom( $user, $title, true );
-		$userCanEdit = $userQuickEditCheck && !$userBlockInfo;
+		$editOrCreate = $this->permissions->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE );
 
 		$entry = new PageActionMenuEntry(
 			'page-actions-edit',
 			$title->getLocalURL( $editArgs ),
 			'edit-page '
-			. MinervaUI::iconClass( $userCanEdit ? 'edit-enabled' : 'edit', 'element' ),
+			. MinervaUI::iconClass( $editOrCreate ? 'edit-enabled' : 'edit', 'element' ),
 			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' ),
 			'edit'
 		);

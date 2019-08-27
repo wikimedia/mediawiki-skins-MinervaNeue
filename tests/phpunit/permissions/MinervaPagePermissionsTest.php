@@ -7,6 +7,7 @@ use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWikiTestCase;
 use Title;
 use User;
@@ -60,7 +61,10 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 			$user,
 			$skinOptions,
 			$contentHandler,
-			$languageHelper
+			$languageHelper,
+			$this->getMockBuilder( PermissionManager::class )
+				->disableOriginalConstructor()
+				->getMock()
 		);
 	}
 
