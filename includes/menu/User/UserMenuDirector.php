@@ -72,6 +72,7 @@ final class UserMenuDirector {
 				),
 				'listClass' => 'minerva-user-menu-list toggle-list__list--drop-down', // See ToggleList/*.less.
 				'text' => $this->localizer->msg( 'minerva-user-menu-button' )->escaped(),
+				'analyticsEventName' => 'ui.usermenu',
 				'items' => $entries
 			] );
 	}

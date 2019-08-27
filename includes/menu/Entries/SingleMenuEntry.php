@@ -54,7 +54,10 @@ class SingleMenuEntry implements IMenuEntry {
 			'class' => MinervaUI::iconClass( $iconName ?? $name, $iconType, $classes ),
 		];
 		if ( $trackClicks !== false ) {
-			$this->component['data-event-name'] = $trackClicks === true ? $name : $trackClicks;
+			$eventName = $trackClicks === true ? $name : $trackClicks;
+			if ( $eventName ) {
+				$this->component['data-event-name'] = 'menu.' . $eventName;
+			}
 		}
 	}
 

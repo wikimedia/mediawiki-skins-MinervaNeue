@@ -27,7 +27,7 @@ class HomeMenuEntryTest extends \MediaWikiUnitTestCase {
 			'text' => $text,
 			'href' => $url,
 			'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-minerva-foo',
-			'data-event-name' => 'foo'
+			'data-event-name' => 'menu.foo'
 		] ], $entry->getComponents() );
 	}
 

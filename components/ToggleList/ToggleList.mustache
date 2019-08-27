@@ -4,6 +4,7 @@
 	string checkboxID CSS identifier unique to the page needed to connect label and input.
 	string|null toggleID Optional toggle button CSS identifier to connect label and toggle aria.
 	string|null toggleClass Optional toggle button CSS class.
+	string|null analyticsEventName Optional analytics event, sent element is clicked
 	string|null listClass Optional list CSS class.
 	string|null text Optional text and aria label for the toggle button.
 	array|null items Optional array of drop down list items for the unordered list.
@@ -16,7 +17,11 @@
 		role="button"
 		aria-labelledby="{{toggleID}}"
 		aria-expanded="false">
-	<label id="{{toggleID}}" class="toggle-list__toggle {{toggleClass}}" for="{{checkboxID}}">
+	<label
+		id="{{toggleID}}"
+		class="toggle-list__toggle {{toggleClass}}"
+		for="{{checkboxID}}"
+		data-event-name="{{analyticsEventName}}">
 		{{text}}
 	</label>
 	<ul class="toggle-list__list {{listClass}}">

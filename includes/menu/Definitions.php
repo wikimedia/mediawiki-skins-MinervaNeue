@@ -178,7 +178,7 @@ final class Definitions {
 				Title::newFromText( $pageMsg->escaped() )->getLocalURL() . '#/random',
 				MinervaUI::iconClass( 'random', 'before' ), [
 					'id' => 'randomButton',
-					'data-event-name' => 'random',
+					'data-event-name' => 'menu.random',
 				] );
 	}
 
@@ -195,7 +195,7 @@ final class Definitions {
 					$this->context->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
 					MinervaUI::iconClass( 'nearby', 'before', 'nearby' ),
-					[ 'data-event-name' => 'nearby' ]
+					[ 'data-event-name' => 'menu.nearby' ]
 				);
 		}
 	}
@@ -272,7 +272,7 @@ final class Definitions {
 				$this->context->msg( 'recentchanges' )->escaped(),
 				$title->getLocalURL(),
 				MinervaUI::iconClass( 'recentchanges', 'before' ),
-				[ 'data-event-name' => 'recentchanges' ]
+				[ 'data-event-name' => 'menu.recentchanges' ]
 			);
 	}
 
