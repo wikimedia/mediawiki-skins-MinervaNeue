@@ -265,7 +265,6 @@ class MinervaHooks {
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
 				SkinOptions::SHARE_BUTTON
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShareButton' ),
-				SkinOptions::TOGGLING => true,
 				SkinOptions::MOBILE_OPTIONS => true,
 				SkinOptions::PERSONAL_MENU => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaPersonalMenu'

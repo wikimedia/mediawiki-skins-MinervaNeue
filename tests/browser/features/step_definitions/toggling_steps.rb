@@ -1,6 +1,6 @@
 When(/^I click on the first collapsible section heading$/) do
   on(ArticlePage) do |page|
-    page.wait_until_rl_module_ready('skins.minerva.toggling')
+    page.wait_until_rl_module_ready('mobile.init')
     page.first_section_element.when_present.click
   end
 end
