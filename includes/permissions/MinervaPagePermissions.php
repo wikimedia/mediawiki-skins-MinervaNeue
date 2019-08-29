@@ -147,7 +147,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			return false;
 		}
 
-		if ( $action === self::EDIT ) {
+		if ( $action === self::CONTENT_EDIT ) {
 			return $this->isCurrentPageContentModelEditable();
 		}
 

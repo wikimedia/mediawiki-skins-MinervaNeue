@@ -26,8 +26,8 @@ interface IMinervaPagePermissions {
 
 	const WATCH = 'watch';
 	const SWITCH_LANGUAGE = 'switch-language';
-	/** Given permission, the page is editable. */
-	const EDIT = 'edit';
+	/** Given user permission, the page content is editable. */
+	const CONTENT_EDIT = 'edit';
 	/** The existing page is editable or nonexisting page is creatable by the active user. */
 	const EDIT_OR_CREATE = 'edit-or-create';
 	const TALK = 'talk';

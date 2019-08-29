@@ -40,7 +40,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 
 		$user = $user ?? $this->getTestUser()->getUser();
 		$actions = $actions ?? [
-				IMinervaPagePermissions::EDIT,
+				IMinervaPagePermissions::CONTENT_EDIT,
 				IMinervaPagePermissions::WATCH,
 				IMinervaPagePermissions::TALK,
 				IMinervaPagePermissions::SWITCH_LANGUAGE,
@@ -75,7 +75,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$perms = $this->buildPermissionsObject( Title::newMainPage() );
 
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
-		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::EDIT ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::CONTENT_EDIT ) );
 
 		// Check to make sure 'talk' and 'switch-language' are enabled on the Main page.
 		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
@@ -134,7 +134,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), null, [],
 			$contentHandler );
 
-		$this->assertEquals( $expected, $perms->isAllowed( IMinervaPagePermissions::EDIT ) );
+		$this->assertEquals( $expected, $perms->isAllowed( IMinervaPagePermissions::CONTENT_EDIT ) );
 	}
 
 	/**
