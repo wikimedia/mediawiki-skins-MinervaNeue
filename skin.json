@@ -286,7 +286,7 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"icons": [ "articleRedirect", "info", "link", "listBullet",
+			"icons": [ "articleRedirect", "infoFilled", "link", "listBullet",
 				"logoWikidata", "logoWikimedia", "quotes", "upload", "userAvatarOutline", "userTalk", "userAvatar" ]
 		},
 		"skins.minerva.icons.wikimedia": {
