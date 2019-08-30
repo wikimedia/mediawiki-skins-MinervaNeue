@@ -7,7 +7,7 @@
 	// Fill empty space left / start so the buttons can stay right / end.
 	width: 100%;
 	// Keep space for at least two buttons.
-	min-width: 2 * @menuButtonIconSize;
+	min-width: 2 * 43px;
 	// Center vertically.
 	align-items: center;
 	// Layout from right / end.
@@ -17,10 +17,16 @@
 
 	.mw-ui-icon-element {
 		display: block;
+		width: 43px;
+		min-width: 43px;
+
+		&:before {
+			margin: 0 11.5px;
+		}
 	}
 
 	.toggle-list {
-		width: @menuButtonIconSize;
+		width: 43px;
 		display: inline-block;
 	}
 }
