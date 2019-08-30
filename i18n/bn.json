@@ -51,6 +51,7 @@
 	"mobile-frontend-user-page-member-since": "$1 তারিখে {{GENDER:$2|যোগ দিয়েছেন}}",
 	"mobile-frontend-user-page-talk": "আলাপ",
 	"mobile-frontend-user-page-uploads": "আপলোড",
+	"minerva-user-menu-button": "ব্যবহারকারী মেনু",
 	"minerva-page-actions-info": "পাতার তথ্য",
 	"minerva-page-actions-permalink": "স্থায়ী সংযোগ",
 	"minerva-page-actions-backlinks": "সংযোগকারী পৃষ্ঠাসমূহ",
@@ -58,11 +59,14 @@
 	"minerva-page-actions-uploads": "আপলোডসমূহ",
 	"minerva-page-actions-user-rights": "ব্যবহারকারী অধিকার",
 	"minerva-page-actions-logs": "লগসমূহ",
+	"minerva-page-actions-wikibase": "{{WBREPONAME}} আইটেম",
+	"minerva-page-actions-language-switcher": "ভাষা",
 	"skinname-minerva": "মিনের্ভা",
 	"minerva-skin-desc": "একটি প্রতিক্রিয়াশীল মোবাইল আবরণ",
 	"skin-minerva-issue-learn-more": "আরও জানুন",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "পাতাগুলির বিষয়শ্রেণী দেখুন",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "শীর্ষে ঝাঁপ দিন",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "একটি ভাসমান বোতাম ব্যবহার করে বর্তমান পাতার শীর্ষে ঝাঁপ দেয়",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "দুর্ভাগ্যক্রমে, পাতা অনুযায়ী দলবদ্ধ ফলাফল মোবাইলে উপলব্ধ নয়। আপনি যদি পাতা অনুযায়ী দল বৈশিষ্ট্যটি ব্যবহার করতে চান তবে দয়া করে ডেস্কটপ সাইটটি দেখুন।"
 }
