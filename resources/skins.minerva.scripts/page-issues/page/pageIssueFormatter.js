@@ -20,7 +20,9 @@
 				issue.$el.find( '.mbox-text' ),
 			$clickContainer = multiple ? issue.$el.parents( '.mbox-text' ) : issue.$el;
 
-		$issueContainer.prepend( issue.iconString );
+		$issueContainer.prepend(
+			issue.issue.icon.$el.clone().addClass( 'mw-ui-icon-small' )
+		);
 		$issueContainer.prepend( $learnMoreEl );
 
 		$clickContainer.on( 'click', function () {

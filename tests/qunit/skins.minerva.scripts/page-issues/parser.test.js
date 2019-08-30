@@ -27,7 +27,6 @@
 						grouped: true,
 						icon: icon
 					},
-					iconString: this.sandbox.match.typeOf( 'string' ),
 					text: '<p>Smelly</p>'
 				},
 				'When the box is a child of mw-collapsible-content it grouped'
@@ -42,7 +41,6 @@
 						grouped: false,
 						icon: icon
 					},
-					iconString: this.sandbox.match.typeOf( 'string' ),
 					text: '<p>Dirty</p>'
 				},
 				'When the box is not child of mw-collapsible-content it !grouped'

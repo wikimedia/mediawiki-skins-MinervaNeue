@@ -154,7 +154,9 @@
 				$bar.find( '.mw-ui-icon-minerva-clock' ).addClass( 'mw-ui-icon-minerva-clock-invert' );
 				$bar.find( '.mw-ui-icon-mf-expand-gray' ).addClass( 'mw-ui-icon-mf-expand-invert' );
 			}
-			msg = time.getLastModifiedMessage( ts, username, gender, historyUrl );
+			msg = $( '<span>' ).html(
+				time.getLastModifiedMessage( ts, username, gender, historyUrl )
+			);
 			$lastModifiedLink.replaceWith( msg );
 		}
 	}

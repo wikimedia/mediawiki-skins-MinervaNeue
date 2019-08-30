@@ -218,7 +218,7 @@ class ToolbarBuilder {
 			$msg = $this->messageLocalizer->msg( 'watchthispage' );
 			$icon = 'watch';
 		}
-		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article' ) . ' jsonly';
+		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article', 'mf' ) . ' jsonly';
 		if ( $isWatched ) {
 			$iconClass .= ' watched';
 		}

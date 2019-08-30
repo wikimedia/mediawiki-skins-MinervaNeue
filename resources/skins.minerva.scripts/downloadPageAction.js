@@ -126,7 +126,7 @@
 	 */
 	function downloadPageAction( page, supportedNamespaces, windowObj, hasText ) {
 		var
-			modifier = hasText ? 'toggle-list-item__anchor--menu' : 'mw-ui-icon-element',
+			modifier = hasText ? 'toggle-list-item__anchor toggle-list-item__label' : 'mw-ui-icon-element',
 			icon,
 			spinner = icons.spinner( {
 				hasText: hasText,
@@ -149,11 +149,11 @@
 					click: getOnClickHandler( spinner )
 				},
 				hasText: hasText,
-				label: hasText ? mw.msg( 'minerva-download' ) : '',
+				label: mw.msg( 'minerva-download' ),
 				modifier: modifier
 			} );
 
-			return $( '<li>' ).addClass( 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
+			return $( '<li>' ).addClass( hasText ? 'toggle-list-item' : 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
 		} else {
 			return null;
 		}

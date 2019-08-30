@@ -208,8 +208,6 @@
 		return {
 			issue: pageIssue,
 			$el: $box,
-			// For template compatibility with PageIssuesOverlay
-			iconString: pageIssue.icon.toHtmlString(),
 			text: $container.html()
 		};
 	}

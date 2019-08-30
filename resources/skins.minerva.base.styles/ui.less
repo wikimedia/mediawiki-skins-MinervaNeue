@@ -184,30 +184,14 @@ input.search {
 }
 
 .content {
-	// Correct icon sizes of edit icon when using mw-ui-icon.
-	h1 {
-		.edit-page {
-			font-size: 1 / @fontSizeH1;
-		}
-	}
-
 	h2 {
 		// Clear table of contents and any other floated elements in desktop Minerva.
 		clear: left;
-
-		.edit-page {
-			font-size: 1 / @fontSizeH2;
-		}
-	}
-
-	h3 {
-		.edit-page {
-			font-size: 1 / @fontSizeH3;
-		}
 	}
 
 	.edit-page {
 		display: block;
+		font-size: initial;
 	}
 
 	.collapsible-heading .edit-page {
@@ -227,7 +211,7 @@ input.search {
 		margin-bottom: @headingMargin;
 
 		.indicator {
-			font-size: @indicatorFontSize;
+			font-size: initial;
 			margin-left: -@iconGutterWidth;
 		}
 	}

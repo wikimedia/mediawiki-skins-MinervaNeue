@@ -10,11 +10,15 @@ const iClickOnTheMainNavigationButton = () => {
 };
 
 const iShouldSeeAUserPageLinkInMenu = () => {
-	ArticlePage.menu_element.element( '.mw-ui-icon-minerva-profile' );
+	ArticlePage.menu_element.element( '.primary-action' );
+};
+
+const iShouldSeeLogoutLinkInMenu = () => {
+	ArticlePage.menu_element.element( '.secondary-action' );
 };
 
 const iShouldSeeALinkInMenu = ( text ) => {
-	assert.strictEqual( ArticlePage.menu_element.element( `=${text}` ).isVisible(),
+	assert.strictEqual( ArticlePage.menu_element.element( `span=${text}` ).isVisible(),
 		true, `Link to ${text} is visible.` );
 };
 
@@ -26,5 +30,6 @@ const iShouldSeeALinkToDisclaimer = () => {
 module.exports = {
 	iClickOnTheMainNavigationButton,
 	iSeeALinkToAboutPage, iShouldSeeAUserPageLinkInMenu,
+	iShouldSeeLogoutLinkInMenu,
 	iShouldSeeALinkInMenu, iShouldSeeALinkToDisclaimer
 };
