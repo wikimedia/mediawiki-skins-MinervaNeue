@@ -1,0 +1,78 @@
+@import '../../minerva.less/minerva.variables.less';
+
+// FIXME: While we transition to the new table of contents hide the old mobile one
+// which would appear unstyled on mobile.
+// This can be removed when cache has cleared for patch
+// I720e62a578f0c7a14f4b5a698004471c85e54bc8
+#toc.toc-mobile {
+	display: none;
+}
+
+#toc {
+	display: none;
+	position: relative;
+	margin: 1em 0;
+	background-color: @colorGray15;
+	border: solid 1px @grayLightest;
+	box-sizing: border-box;
+}
+
+.toctogglecheckbox ~ ul {
+	display: none;
+}
+
+.toctogglecheckbox:checked ~ ul {
+	display: block;
+}
+
+.toctogglelabel {
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 50px;
+	z-index: @z-indexAboveContent;
+}
+
+.client-js .content .toc {
+	.toctitle {
+		@toctitle-vertical-padding: 1.4em / 2;
+		visibility: hidden;
+		background-position: right center;
+		font-weight: bold;
+		border-bottom: 0;
+		padding: @toctitle-vertical-padding 3.5em @toctitle-vertical-padding 3.5em;
+
+		h2 {
+			font-family: @fontFamilyBase;
+			font-size: unit( 18/16, em );
+		}
+	}
+
+	.tocnumber {
+		display: none;
+	}
+
+	> ul {
+		font-size: @font-size-minerva-small;
+		margin-left: 52px;
+		margin-right: 24px;
+		padding: 0 0 20px;
+	}
+
+	ul {
+		list-style: none;
+	}
+}
+
+@media screen and ( min-width: @width-breakpoint-tablet ) {
+	#toc {
+		// Reset the rule for mobile mode (but not for .client-nojs)
+		display: table;
+
+		.toctitle {
+			visibility: visible;
+		}
+	}
+}

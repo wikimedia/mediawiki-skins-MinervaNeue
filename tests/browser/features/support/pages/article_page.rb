@@ -98,7 +98,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   div(:wikidata_description, css: '.tagline')
 
   # toc
-  div(:toc, css: '.toc-mobile')
+  div(:toc, css: '.toc')
 
   # editor (common)
   span(:overlay_editor_mode_switcher, css: '.editor-switcher .oo-ui-indicatorElement-indicator')
