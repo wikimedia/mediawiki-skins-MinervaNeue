@@ -136,6 +136,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.rcfilters.filters.ui": [
+				"skinStyles/mediawiki.rcfilters.filters.ui.less"
+			],
 			"mediawiki.action.history.styles": [
 				"skinStyles/mediawiki.action.history.styles.less"
 			],
