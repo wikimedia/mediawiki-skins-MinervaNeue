@@ -3,8 +3,8 @@
 		mobile = M.require( 'mobile.startup' ),
 		PageGateway = mobile.PageGateway,
 		toast = mobile.toast,
+		Icon = mobile.Icon,
 		time = mobile.time,
-		toc = require( './toc.js' ),
 		errorLogging = require( './errorLogging.js' ),
 		notifications = require( './notifications.js' ),
 		preInit = require( './preInit.js' ),
@@ -304,7 +304,7 @@
 	}
 
 	$( function () {
-		var $toc,
+		var
 			toolbarElement = document.querySelector( Toolbar.selector ),
 			userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
 		// Init:
@@ -342,16 +342,20 @@
 			notifications();
 		}
 
-		// add a ToC only for "view" action (user is reading a page)
-		// provided a table of contents placeholder has been rendered
-		// eslint-disable-next-line no-jquery/no-global-selector
-		$toc = $( '#toc' );
-		if ( mw.config.get( 'wgAction' ) === 'view' && $toc.length > 0 ) {
-			toc( currentPage, $toc );
-		}
 		mw.requestIdleCallback( errorLogging );
 		// deprecation notices
 		mw.log.deprecate( router, 'navigate', router.navigate, 'use navigateTo instead' );
+
+		// setup toc icons
+		new Icon( {
+			glyphPrefix: 'mf',
+			name: 'toc'
+		} ).$el.prependTo( '.toctitle' );
+		new Icon( {
+			glyphPrefix: 'mf',
+			name: 'arrow',
+			isSmall: true
+		} ).$el.appendTo( '.toctitle' );
 	} );
 	module.exports = {
 		overlayManager: overlayManager

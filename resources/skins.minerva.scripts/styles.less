@@ -4,6 +4,29 @@
 
 @animationDuration: 0.3s;
 
+// Table of contents icons
+.toctitle {
+	.mw-ui-icon {
+		position: absolute;
+		top: 1.2em;
+
+		&:first-child {
+			left: 0;
+		}
+
+		&:last-child {
+			right: 0;
+		}
+	}
+}
+
+// flip the arrow in table of contents when toggled
+.toctogglecheckbox:checked ~ .toctitle .mw-ui-icon:last-child {
+	&:before {
+		transform: rotate( -180deg );
+	}
+}
+
 // Last modified bar styles
 .last-modified-bar {
 	&.active {

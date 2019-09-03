@@ -580,8 +580,7 @@
 				"resources/skins.minerva.scripts/Toolbar.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
-				"resources/skins.minerva.scripts/references.js",
-				"resources/skins.minerva.scripts/toc.js"
+				"resources/skins.minerva.scripts/references.js"
 			]
 		},
 		"skins.minerva.options.share.icon": {
