@@ -3,7 +3,7 @@
 @import '../../minerva.less/minerva.mixins.less';
 
 .toggle-list__list--drop-down {
-	transform: translateY( -8px );
+	.transform( translateY( -8px ) );
 
 	// When cursor is pointer and -webkit-tap-highlight-color is set, the color does not seem to
 	// transition. Clear it.
@@ -20,5 +20,5 @@
 }
 
 .toggle-list__checkbox:checked ~ .toggle-list__list--drop-down {
-	transform: translateY( 0 );
+	.transform( translateY( 0 ) );
 }
