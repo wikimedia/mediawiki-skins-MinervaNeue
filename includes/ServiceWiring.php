@@ -87,7 +87,6 @@ return [
 			$title,
 			$user,
 			$context,
-			$services->getPermissionManager(),
 			$services->getService( 'Minerva.Permissions' ),
 			$skinOptions,
 			$userPageHelper,
@@ -140,7 +139,8 @@ return [
 				$context->getUser(),
 				$services->getService( 'Minerva.SkinOptions' ),
 				$contentHandler,
-				$services->getService( 'Minerva.LanguagesHelper' )
+				$services->getService( 'Minerva.LanguagesHelper' ),
+				$services->getPermissionManager()
 			);
 		} else {
 			return new MinervaNoPagePermissions();

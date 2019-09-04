@@ -23,6 +23,7 @@ use Config;
 use ConfigException;
 use ContentHandler;
 use MediaWiki\Minerva\LanguagesHelper;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Minerva\SkinOptions;
 use Title;
 use User;
@@ -61,6 +62,11 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 */
 	private $languagesHelper;
 
+  /**
+   * @var PermissionManager MediaWiki Core PermissionManager
+   */
+  private $permissionManager;
+
 	/**
 	 * Initialize internal Minerva Permissions system
 	 * @param Title $title Current page title
@@ -69,6 +75,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @param SkinOptions $skinOptions Skin options`
 	 * @param ContentHandler $contentHandler
 	 * @param LanguagesHelper $languagesHelper
+	 * @param PermissionManager $permissionManager
 	 */
 	public function __construct(
 		Title $title,
@@ -76,7 +83,8 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		User $user,
 		SkinOptions $skinOptions,
 		ContentHandler $contentHandler,
-		LanguagesHelper $languagesHelper
+		LanguagesHelper $languagesHelper,
+		PermissionManager $permissionManager
 	) {
 		$this->title = $title;
 		$this->config = $config;
@@ -84,6 +92,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		$this->skinOptions = $skinOptions;
 		$this->contentHandler = $contentHandler;
 		$this->languagesHelper = $languagesHelper;
+		$this->permissionManager = $permissionManager;
 	}
 
 	/**
@@ -130,6 +139,10 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			return $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU );
 		}
 
+		if ( $action === self::EDIT_OR_CREATE ) {
+			return $this->canEditOrCreate();
+		}
+
 		if ( !in_array( $action, $this->config->get( 'MinervaPageActions' ) ) ) {
 			return false;
 		}
@@ -170,7 +183,27 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 */
 	protected function isCurrentPageContentModelEditable() {
 		return $this->contentHandler->supportsDirectEditing()
-			   && $this->contentHandler->supportsDirectApiEditing();
+			&& $this->contentHandler->supportsDirectApiEditing();
 	}
 
+	/**
+	 * Returns true if $title page exists and is editable or is creatable by $user as determined by
+	 * quick checks.
+	 * @return bool
+	 */
+	private function canEditOrCreate() {
+		$userQuickEditCheck =
+			$this->permissionManager->userCan(
+				'edit', $this->user, $this->title, PermissionManager::RIGOR_QUICK
+			) && (
+				$this->title->exists() ||
+				$this->permissionManager->userCan(
+					'create', $this->user, $this->title, PermissionManager::RIGOR_QUICK
+				)
+			);
+		$blocked = $this->user->isAnon() ? false : $this->permissionManager->isBlockedFrom(
+			$this->user, $this->title, true
+		);
+		return $this->isCurrentPageContentModelEditable() && $userQuickEditCheck && !$blocked;
+	}
 }

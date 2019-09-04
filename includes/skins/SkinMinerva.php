@@ -230,7 +230,7 @@ class SkinMinerva extends SkinTemplate {
 	 * @return string
 	 */
 	public function doEditSectionLink( Title $nt, $section, $tooltip, Language $lang ) {
-		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::EDIT ) &&
+		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE ) &&
 			 !$nt->isMainPage() ) {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
