@@ -294,7 +294,7 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"icons": [ "search" ]
+			"icons": [ "search", "userAvatar" ]
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
@@ -323,7 +323,6 @@
 					"file": "resources/skins.minerva.icons.images/languageSwitcher.svg",
 					"variants": [ "base20" ]
 				},
-				"profile": "resources/skins.minerva.icons.images/profile.svg",
 				"clock": {
 					"file": "resources/skins.minerva.icons.images/clock.svg",
 					"variants": [ "invert" ]
