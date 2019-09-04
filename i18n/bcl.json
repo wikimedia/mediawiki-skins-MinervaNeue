@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Geopoet",
-			"Brazal.dang"
+			"Brazal.dang",
+			"ShimunUfesoj"
 		]
 	},
 	"mobile-frontend-editor-edit": "Liwaton",
 	"mobile-frontend-home-button": "Ginikanan",
 	"mobile-frontend-language-article-heading": "Basahon sa ibang lengguwahe",
-	"mobile-frontend-logged-in-homepage-notification": "Marhayong pag-abot, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "Maugmang pag-abot, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Bukasan an pangenot na hùyagan",
 	"mobile-frontend-main-menu-login": "Maglaog",
 	"mobile-frontend-main-menu-logout": "Magluwas",

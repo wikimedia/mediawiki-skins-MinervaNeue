@@ -5,7 +5,8 @@
 			"Kareyac",
 			"Pandukht",
 			"Xelgen",
-			"Սահակ"
+			"Սահակ",
+			"Fitoschido"
 		]
 	},
 	"mobile-frontend-cookies-required": "Դիտման ռեժիմը փոխելու համար անհրաժեշտ է ակտիվացնել թխուկները (քուքիները)։ Խնդրում ենք միացնել դրանք։",
@@ -23,6 +24,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Խմբագրել էջի ներածական մասը։",
 	"mobile-frontend-placeholder": "Որոնել {{SITENAME}} կայքում",
 	"mobile-frontend-random-button": "Պատահական",
-	"mobile-frontend-redirected-from": "Վերահղված է \"[[$1]]\"-ից",
+	"mobile-frontend-redirected-from": "Վերահղված է «[[$1]]»-ից",
 	"mobile-frontend-user-page-contributions": "Ներդրում"
 }

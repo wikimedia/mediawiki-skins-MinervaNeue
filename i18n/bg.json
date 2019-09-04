@@ -8,7 +8,8 @@
 			"StanProg",
 			"Stanqo",
 			"Termininja",
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"Vlad5250"
 		]
 	},
 	"minerva-last-modified-date": "Последна промяна: в $2, на $1",
@@ -16,6 +17,8 @@
 	"mobile-frontend-cookies-required": "Необходимо е бисквитките да са включени за смяна на режима на преглед. Моля, включете ги и опитайте отново.",
 	"mobile-frontend-editor-edit": "Редактиране",
 	"minerva-download": "Изтегляне на PDF",
+	"skin-minerva-share": "Споделяне",
+	"skin-minerva-mobile-option-MinervaShareButton": "Споделяне",
 	"mobile-frontend-editor-redlink-create": "Създаване на страница",
 	"mobile-frontend-editor-redlink-explain": "Тази страница все още не е създадена.",
 	"mobile-frontend-editor-redlink-leave": "Не, благодаря.",
@@ -52,6 +55,14 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Член}} от $1",
 	"mobile-frontend-user-page-talk": "Беседа",
 	"mobile-frontend-user-page-uploads": "Качвания",
+	"minerva-page-actions-info": "Информация за страницата",
+	"minerva-page-actions-permalink": "Постоянна препратка",
+	"minerva-page-actions-backlinks": "Какво сочи насам",
+	"minerva-page-actions-uploads": "Качвания",
+	"minerva-page-actions-user-rights": "Потребителски права",
+	"minerva-page-actions-logs": "Дневници",
+	"minerva-page-actions-wikibase": "Обект в {{WBREPONAME}}",
+	"minerva-page-actions-language-switcher": "Езици",
 	"minerva-skin-desc": "Адаптивен облик преди всичко за мобилна употреба",
 	"skin-minerva-issue-learn-more": "Научете повече",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",

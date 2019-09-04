@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"minerva-last-modified-date": "Viimeksi mookattu $1, $2",
+	"minerva-talk-add-topic": "Lissää keskustelu",
+	"mobile-frontend-editor-edit": "Mookkaa",
+	"mobile-frontend-home-button": "Alkusivu",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Tervetuloa}}, $1!",
+	"mobile-frontend-main-menu-contributions": "Mookkaukset",
+	"mobile-frontend-main-menu-login": "Lokkaa sisäle",
+	"mobile-frontend-main-menu-logout": "Lokkaa ulos",
+	"mobile-frontend-main-menu-settings": "Inställninkit",
+	"mobile-frontend-main-menu-watchlist": "Valvontalista",
+	"mobile-frontend-user-page-contributions": "Mookkaukset",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Katekuurit"
+}
