@@ -12,6 +12,7 @@
 	left: 0;
 	bottom: 0;
 	min-width: 275px;
+	.transition( transform @menu-animation-duration @menu-animation-easing; );
 
 	@media screen and ( min-width: @width-breakpoint-tablet ) {
 		min-width: @width-breakpoint-mobile;
@@ -33,24 +34,10 @@
 	overflow: hidden;
 	// Necessary to disable scrolling on Android and iOS devices.
 	touch-action: none;
-}
 
-.animations {
 	// .menu
 	#mw-mf-page-left {
-		.transition( transform @menu-animation-duration @menu-animation-easing; );
-	}
-
-	&.primary-navigation-enabled {
-		// .menu
-		#mw-mf-page-left {
-			.transform( translate( 0, 0 ) );
-		}
-
-		.transparent-shield {
-			visibility: visible;
-			opacity: 0.5;
-		}
+		.transform( translate( 0, 0 ) );
 	}
 }
 
