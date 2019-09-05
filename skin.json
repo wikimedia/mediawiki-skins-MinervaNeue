@@ -287,7 +287,15 @@
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [ "articleRedirect", "infoFilled", "link", "listBullet",
-				"logoWikidata", "logoWikimedia", "quotes", "upload", "userAvatarOutline", "userTalk", "userAvatar" ]
+				"logoWikidata",
+				"logoWikimedia",
+				"quotes",
+				"upload",
+				"userAvatarOutline",
+				"userTalk",
+				"userAvatar",
+				"userGroup"
+			]
 		},
 		"skins.minerva.icons.wikimedia": {
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-background-icon-{name}",

@@ -103,7 +103,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 		) );
 
 		$possibleEntries = array_filter( [
-			$this->buildFromToolbox( 'user-rights', 'userAvatar', 'userrights', $toolbox ),
+			$this->buildFromToolbox( 'user-groups', 'userGroup', 'userrights', $toolbox ),
 			$this->buildFromToolbox( 'logs', 'listBullet', 'log', $toolbox ),
 			$this->buildFromToolbox( 'info', 'infoFilled', 'info', $toolbox ),
 			$this->buildFromToolbox( 'permalink', 'link', 'permalink', $toolbox ),
