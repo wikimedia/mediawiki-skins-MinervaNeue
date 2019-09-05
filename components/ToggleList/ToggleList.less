@@ -21,6 +21,12 @@
 	outline: auto @colorProgressiveHighlight; /* Webkit style for focus */
 }
 
+.toggle-list__checkbox:checked + .toggle-list__toggle {
+	// show background when the toggle list is open
+	outline: 0;
+	background: rgba( 1, 1, 1, 0.1 );
+}
+
 .touch-events .toggle-list__checkbox:focus + .toggle-list__toggle {
 	// Buttons have no focus outline on mobile.
 	outline: 0;
