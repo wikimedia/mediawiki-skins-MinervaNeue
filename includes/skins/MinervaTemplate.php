@@ -217,7 +217,7 @@ class MinervaTemplate extends BaseTemplate {
 	 * @return string
 	 */
 	protected function getMainMenuHtml( $data ) {
-		$templateParser = new TemplateParser( __DIR__ . '/../../resources/skins.minerva.scripts/menu/' );
+		$templateParser = new TemplateParser( __DIR__ );
 
 		return $templateParser->processTemplate( 'menu', $data['mainMenu']['items'] );
 	}

@@ -12,6 +12,7 @@
 	left: 0;
 	bottom: 0;
 	min-width: 275px;
+	.transition( transform @transition-duration-medium @transition-timing-function-menu; );
 
 	@media screen and ( min-width: @width-breakpoint-tablet ) {
 		min-width: @width-breakpoint-mobile;
@@ -27,11 +28,6 @@
 	ul {
 		padding-bottom: 22px;
 	}
-}
-
-// Animations are delayed to avoid an initial -100% transition animation
-.navigation-drawer--enabled {
-	.transition( transform @transition-duration-medium @transition-timing-function-menu; );
 }
 
 .primary-navigation-enabled {

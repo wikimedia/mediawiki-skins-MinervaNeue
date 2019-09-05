@@ -1,54 +1,21 @@
-( function ( M ) {
-	var
-		mobile = M.require( 'mobile.startup' ),
-		mfExtend = mobile.mfExtend,
-		browser = mobile.Browser.getSingleton(),
-		View = mobile.View;
-
+( function () {
 	/**
 	 * Representation of the main menu
 	 *
 	 * @class MainMenu
 	 * @extends View
-	 * @param {Object} options Configuration options
+	 * @param {string} activator selector for element that when clicked can open or
+	 *                                  close the menu
 	 */
-	function MainMenu( options ) {
+	function MainMenu( activator ) {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mw-mf-page-left' ).removeClass( 'navigation-drawer--loading' )
-			.addClass( 'navigation-drawer--enabled' );
-		this.activator = options.activator;
-		View.call( this, options );
+			.addClass( '.navigation-drawer--enabled' );
+		this.activator = activator;
+		this.registerClickEvents();
 	}
 
-	mfExtend( MainMenu, View, {
-		isTemplateMode: true,
-		template: mw.template.get( 'skins.minerva.scripts', 'menu.mustache' ),
-		templatePartials: {
-			menuGroup: mw.template.get( 'skins.minerva.scripts', 'menuGroup.mustache' )
-		},
-
-		/**
-		 * @cfg {object} defaults Default options hash.
-		 * @cfg {string} defaults.activator selector for element that when clicked can open or
-		 *                                  close the menu
-		 */
-		defaults: {
-			activator: undefined
-		},
-
-		/**
-		 * Remove the nearby menu entry if the browser doesn't support geo location
-		 * @memberof MainMenu
-		 * @instance
-		 */
-		postRender: function () {
-			if ( !browser.supportsGeoLocation() ) {
-				this.$el.find( '.nearby' ).parent().remove();
-			}
-
-			this.registerClickEvents();
-		},
-
+	MainMenu.prototype = {
 		/**
 		 * Registers events for opening and closing the main menu
 		 * @memberof MainMenu
@@ -108,12 +75,9 @@
 			$( document.body )
 				.toggleClass( 'navigation-enabled' )
 				.toggleClass( drawerType + '-navigation-enabled' );
-
-			this.emit( 'open' );
 		}
-	} );
+	};
 
 	module.exports = MainMenu;
 
-// eslint-disable-next-line no-restricted-properties
-}( mw.mobileFrontend ) );
+}() );

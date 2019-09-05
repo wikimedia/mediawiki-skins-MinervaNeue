@@ -709,8 +709,6 @@ class SkinMinerva extends SkinTemplate {
 			],
 			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
-			// hamburger icon is already rendered, pass only menu items
-			'wgMinervaMenuData' => $menuData['items']
 		];
 
 		return $vars;
