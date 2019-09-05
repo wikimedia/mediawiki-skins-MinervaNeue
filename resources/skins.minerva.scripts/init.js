@@ -357,7 +357,4 @@
 			isSmall: true
 		} ).$el.appendTo( '.toctitle' );
 	} );
-	module.exports = {
-		overlayManager: overlayManager
-	};
 }( mw.mobileFrontend ) );

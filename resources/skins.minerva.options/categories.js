@@ -4,7 +4,8 @@ module.exports = function () {
 		mobile = M.require( 'mobile.startup' ),
 		loader = mobile.rlModuleLoader,
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
-		overlayManager = require( 'skins.minerva.scripts' ).overlayManager,
+		OverlayManager = mobile.OverlayManager,
+		overlayManager = OverlayManager.getSingleton(),
 		eventBus = mobile.eventBusSingleton,
 		isAnon = mw.user.isAnon();
 
