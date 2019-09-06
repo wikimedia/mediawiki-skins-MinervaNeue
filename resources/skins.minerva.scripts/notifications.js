@@ -10,7 +10,7 @@ module.exports = function () {
 		mobile = M.require( 'mobile.startup' ),
 		util = mobile.util,
 		NotificationBadge = require( './NotificationBadge.js' ),
-		overlayManager = require( './overlayManager.js' ),
+		overlayManager = mobile.OverlayManager.getSingleton(),
 		initialized = false;
 
 	function showNotificationOverlay() {

@@ -21,7 +21,7 @@
 		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
 		Button = mobile.Button,
 		Anchor = mobile.Anchor,
-		overlayManager = require( './overlayManager.js' ),
+		overlayManager = mobile.OverlayManager.getSingleton(),
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
 		$redLinks = currentPageHTMLParser.getRedLinks(),

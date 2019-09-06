@@ -4,7 +4,7 @@ module.exports = function () {
 		mobile = M.require( 'mobile.startup' ),
 		SearchOverlay = mobile.search.SearchOverlay,
 		SearchGateway = mobile.search.SearchGateway,
-		overlayManager = require( './overlayManager.js' ),
+		overlayManager = mobile.OverlayManager.getSingleton(),
 		searchLogger = mobile.search.MobileWebSearchLogger,
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
