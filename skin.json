@@ -638,16 +638,10 @@
 			]
 		},
 		"skins.minerva.toggling": {
+			"deprecated" : "This module is empty and functionality is now in `mobile.init`. It can be removed when cached HTML stops referring to it",
 			"targets": [
 				"mobile",
 				"desktop"
-			],
-			"dependencies": [
-				"mobile.startup",
-				"skins.minerva.scripts"
-			],
-			"scripts": [
-				"resources/skins.minerva.toggling/init.js"
 			]
 		},
 		"skins.minerva.watchstar": {

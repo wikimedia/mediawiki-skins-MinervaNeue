@@ -29,7 +29,6 @@ final class SkinOptions {
 	const BACK_TO_TOP = 'backToTop';
 	const PAGE_ISSUES = 'pageIssues';
 	const SHARE_BUTTON = 'shareButton';
-	const TOGGLING = 'toggling';
 	const BETA_MODE = 'beta';
 	const TALK_AT_TOP = 'talkAtTop';
 	const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
@@ -54,8 +53,6 @@ final class SkinOptions {
 		self::BACK_TO_TOP => false,
 		/** Whether a share button should appear in icons section */
 		self::SHARE_BUTTON => false,
-		/** Whether sections can be collapsed (requires MobileFrontend and MobileFormatter) */
-		self::TOGGLING => false,
 		/** requires a wiki using Template:Ambox */
 		self::PAGE_ISSUES => false,
 		/** no extension requirements */

@@ -866,11 +866,6 @@ class SkinMinerva extends SkinTemplate {
 			]
 		);
 
-		if ( $this->skinOptions->get( SkinOptions::TOGGLING ) ) {
-			// Extension can unload "toggling" modules via the hook
-			$modules['toggling'] = [ 'skins.minerva.toggling' ];
-		}
-
 		Hooks::run( 'SkinMinervaDefaultModules', [ $this, &$modules ] );
 
 		return $modules;
