@@ -70,7 +70,7 @@
 
 		if ( mwUri.query.title ) {
 			// True if input starts with wgScriptPath.
-			regExp = new RegExp( '^' + mw.RegExp.escape( mw.config.get( 'wgScriptPath' ) ) + '/' );
+			regExp = new RegExp( '^' + mw.util.escapeRegExp( mw.config.get( 'wgScriptPath' ) ) + '/' );
 
 			// URL has a nonempty `title` query parameter like `/w/index.php?title=Foo`. The script
 			// path should match.
@@ -84,7 +84,7 @@
 		} else {
 			// True if input starts with wgArticlePath and ends with a nonempty page title. The
 			// first matching group (index 1) is the page title.
-			regExp = new RegExp( '^' + mw.RegExp.escape( mw.config.get( 'wgArticlePath' ) ).replace( '\\$1', '(.+)' ) );
+			regExp = new RegExp( '^' + mw.util.escapeRegExp( mw.config.get( 'wgArticlePath' ) ).replace( '\\$1', '(.+)' ) );
 
 			// No title query parameter is present so the URL may be "pretty" like `/wiki/Foo`.
 			// `Uri.path` should not contain query parameters or a fragment, as is assumed in
