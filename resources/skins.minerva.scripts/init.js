@@ -152,7 +152,7 @@
 				$bar = $lastModifiedLink.closest( '.last-modified-bar' );
 				$bar.addClass( 'active' );
 				$bar.find( '.mw-ui-icon-minerva-clock' ).addClass( 'mw-ui-icon-minerva-clock-invert' );
-				$bar.find( '.mw-ui-icon-mf-arrow-gray' ).addClass( 'mw-ui-icon-mf-arrow-invert' );
+				$bar.find( '.mw-ui-icon-mf-expand-gray' ).addClass( 'mw-ui-icon-mf-expand-invert' );
 			}
 			msg = time.getLastModifiedMessage( ts, username, gender, historyUrl );
 			$lastModifiedLink.replaceWith( msg );
@@ -348,12 +348,15 @@
 
 		// setup toc icons
 		new Icon( {
-			glyphPrefix: 'mf',
+			glyphPrefix: 'minerva',
 			name: 'toc'
 		} ).$el.prependTo( '.toctitle' );
 		new Icon( {
 			glyphPrefix: 'mf',
-			name: 'arrow',
+			name: 'expand',
+			// FIXME: `additionalClassNames` for backwards compatibility.
+			// Can be removed when  Ibbc706146710a9e31a72b3c2cd4e247d7a227488 lands.
+			additionalClassNames: 'mw-ui-icon-mf-arrow',
 			isSmall: true
 		} ).$el.appendTo( '.toctitle' );
 	} );

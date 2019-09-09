@@ -316,6 +316,12 @@
 				}
 			},
 			"images": {
+				"toc": {
+					"file": {
+						"ltr": "resources/skins.minerva.icons.images/toc-ltr.svg",
+						"rtl": "resources/skins.minerva.icons.images/toc-rtl.svg"
+					}
+				},
 				"watch": "resources/skins.minerva.icons.images/watch.svg",
 				"watched": "resources/skins.minerva.icons.images/watched.svg",
 				"warning": "resources/skins.minerva.icons.images/warning.svg",
