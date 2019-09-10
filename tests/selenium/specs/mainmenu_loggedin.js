@@ -3,6 +3,7 @@ const {
 		iAmOnPage
 	} = require( '../features/step_definitions/common_steps' ),
 	{ iSeeALinkToAboutPage, iShouldSeeAUserPageLinkInMenu,
+		iShouldSeeLogoutLinkInMenu,
 		iClickOnTheMainNavigationButton,
 		iShouldSeeALinkInMenu, iShouldSeeALinkToDisclaimer
 	} = require( '../features/step_definitions/menu_steps' );
@@ -20,10 +21,11 @@ describe( 'Menus open correct page for anonymous users', () => {
 		iShouldSeeALinkToDisclaimer();
 		iShouldSeeAUserPageLinkInMenu();
 		iSeeALinkToAboutPage();
-		[ 'Log out', 'Home', 'Random', 'Settings', 'Contributions',
+		[ 'Home', 'Random', 'Settings', 'Contributions',
 			'Watchlist' ].forEach( ( label ) => {
 			iShouldSeeALinkInMenu( label );
 		} );
+		iShouldSeeLogoutLinkInMenu();
 		try {
 			iShouldSeeALinkInMenu( 'Nearby' );
 		} catch ( e ) {

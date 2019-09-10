@@ -35,43 +35,18 @@
 
 .page-actions-menu__list {
 	display: flex;
+	height: @iconSize * 2;
 	justify-content: space-between;
-	height: @pageActionToolbarHeight;
 }
 
 .page-actions-menu__list-item {
 	display: flex;
 	flex-basis: 4em;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: center;
 
-	// overriding default icon styles
-	.mw-ui-icon-element {
-		// The page actions menu icons are ever so slightly larger
-		// than standard icons.
-		@pageActionsIconSize: @iconSize + 0.15;
-		@pageActionsIconTarget: 2.75em; // 44px minimum touch target
-		// explicitly added to ensure this element (which is an anchor) receives width/height
-		// when it's viewed in services that manipulate DOM such as Google Translate.
-		display: block;
-		position: relative;
-		min-width: @pageActionsIconTarget;
-		width: @pageActionsIconTarget;
-		height: @pageActionsIconTarget;
-
-		&:hover {
-			box-shadow: none;
-		}
-
-		&:before {
-			margin: 0;
-			// `.mw-ui-icon` absolutely positions this pseudo-element but only
-			// positions right & left. This ensures icon stretches 100% height and
-			// stretches the entire height of its parent element.
-			top: 0;
-			bottom: 0;
-			background-size: @pageActionsIconSize;
-		}
+	li > *:hover {
+		box-shadow: none;
 	}
 }
 

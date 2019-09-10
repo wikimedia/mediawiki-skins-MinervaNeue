@@ -36,7 +36,6 @@
 			border-top: 1px solid @colorGray14;
 			// offset the border for the icon by 1px
 			margin-top: -1px;
-			font-size: 0.875em;
 
 			&:first-child {
 				border-top: 0;
@@ -45,12 +44,12 @@
 			a {
 				color: @colorGray5;
 				display: block;
-				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
 				// Overflowing text is ellipsized.
 				max-width: 100%;
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				overflow: hidden;
+				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
 
 				&:hover {
 					box-shadow: inset 4px 0 0 0 @colorProgressive;
@@ -62,13 +61,9 @@
 					color: @colorGray5;
 				}
 
-				&.mw-ui-icon {
+				span {
+					font-size: @font-size-minerva-small;
 					font-weight: bold;
-					line-height: 1.857; // equals `26px` at `font-size: 14px` above
-
-					&:before {
-						font-size: 16px;
-					}
 				}
 			}
 		}

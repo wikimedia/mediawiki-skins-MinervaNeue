@@ -22,15 +22,22 @@ footer {
 		background-color: @lastModifiedBarBgColor;
 		display: block;
 		color: @lastModifiedBarTextColor;
-		line-height: 1.5em;
 		transition: background-color 0.2s ease, color 0.2s ease;
 	}
 
 	.last-modifier-tagline {
+		@end-padding: @iconGutterWidth + @iconGutterWidth + @iconSize;
 		display: block;
 		width: 100%;
-		font-size: @font-size-minerva-small;
-		padding: 7px 2em 7px 0;
+		padding: 7px @end-padding 7px 0;
+		.truncated-text();
+
+		> a,
+		> span > span,
+		> span:last-child {
+			display: inline-block;
+			font-size: @font-size-minerva-small;
+		}
 	}
 
 	.indicator {

@@ -122,7 +122,7 @@ class MinervaTemplate extends BaseTemplate {
 		$action = Action::getActionName( RequestContext::getMain() );
 		if ( isset( $data['historyLink'] ) && $action === 'view' ) {
 			$args = [
-				'clockIconClass' => MinervaUI::iconClass( 'clock', 'before' ),
+				'clockIconClass' => MinervaUI::iconClass( 'clock', 'before', 'mw-ui-icon-small' ),
 				'arrowIconClass' => MinervaUI::iconClass(
 					'expand-gray', 'element',
 					// FIXME: `mw-ui-icon-mf-arrow-gray` can be removed from list of classes

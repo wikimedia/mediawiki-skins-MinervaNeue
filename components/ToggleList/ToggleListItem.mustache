@@ -7,6 +7,9 @@
 }}
 {{#components}}
 	<li class="toggle-list-item">
-		<a class="toggle-list-item__anchor {{class}}" href="{{href}}" data-event-name="{{data-event-name}}">{{text}}</a>
+		<a class="toggle-list-item__anchor" href="{{href}}" data-event-name="{{data-event-name}}">
+			<span class="toggle-list-item__icon {{class}}"></span>
+			<span class="toggle-list-item__label">{{text}}</span>
+		</a>
 	</li>
 {{/components}}

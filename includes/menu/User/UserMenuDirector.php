@@ -54,12 +54,6 @@ final class UserMenuDirector {
 	public function renderMenuData( array $personalTools ) {
 		$entries = $this->builder->getGroup( $personalTools )->getEntries();
 
-		foreach ( $entries as &$entry ) {
-			foreach ( $entry['components'] as &$component ) {
-				$component['class'] .= ' toggle-list-item__anchor--menu';
-			}
-		}
-
 		$templateParser = new TemplateParser( __DIR__ . '/../../../components' );
 		return empty( $entries )
 			? null

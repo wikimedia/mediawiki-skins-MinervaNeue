@@ -78,7 +78,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 				'page-actions-overflow-' . $name,
 				$href,
 				MinervaUI::iconClass(
-					'', 'before', 'wikimedia-ui-' . $icon . '-base20 toggle-list-item__anchor--menu'
+					'', 'before', 'wikimedia-ui-' . $icon . '-base20'
 				),
 				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name ),
 				$name
