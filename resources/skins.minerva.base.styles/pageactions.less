@@ -55,6 +55,12 @@
 .page-actions-menu__list-item:first-child {
 	flex-grow: 1;
 	justify-content: flex-start;
+	margin-left: @contentPadding/-2;
+}
+
+// position the last icon with the edge of the content container
+.page-actions-menu__list-item:last-child {
+	margin-right: @contentPadding/-2;
 }
 
 .page-actions-overflow-list {

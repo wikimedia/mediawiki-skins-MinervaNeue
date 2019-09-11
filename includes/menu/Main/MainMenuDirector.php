@@ -113,7 +113,9 @@ final class MainMenuDirector {
 		return Html::element( 'a', [
 				'title' => $title,
 				'href' => $url,
-				'class' => MinervaUI::iconClass( 'mainmenu', 'element', 'main-menu-button' ),
+				'class' => MinervaUI::iconClass(
+					'mainmenu', 'element', 'main-menu-button mw-ui-icon-flush-left'
+				),
 				'data-event-name' => 'ui.mainmenu',
 				'id' => 'mw-mf-main-menu-button',
 			], $tooltip );
