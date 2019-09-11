@@ -12,6 +12,7 @@
 	display: none;
 	position: relative;
 	margin: 1em 0;
+	padding: 0.2em 0.5em;
 	background-color: @colorGray15;
 	border: solid 1px @grayLightest;
 	box-sizing: border-box;
@@ -42,11 +43,12 @@
 		background-position: right center;
 		font-weight: bold;
 		border-bottom: 0;
-		padding: @toctitle-vertical-padding 3.5em @toctitle-vertical-padding 3.5em;
 
 		h2 {
+			display: inline-block;
 			font-family: @fontFamilyBase;
 			font-size: unit( 18/16, em );
+			vertical-align: middle;
 		}
 	}
 

@@ -28,8 +28,6 @@ footer {
 	.last-modifier-tagline {
 		@end-padding: @iconGutterWidth + @iconGutterWidth + @iconSize;
 		display: block;
-		width: 100%;
-		padding: 7px @end-padding 7px 0;
 		.truncated-text();
 
 		> a,
@@ -42,7 +40,8 @@ footer {
 
 	.indicator {
 		position: absolute;
-		right: -1em;
+		top: 0;
+		right: 0;
 
 		.client-nojs & {
 			// Certain browsers e.g. Opera Mini do not support css transforms

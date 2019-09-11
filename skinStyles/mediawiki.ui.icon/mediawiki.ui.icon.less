@@ -1,5 +1,11 @@
 // IN RTL languages in Chrome, a failure to set top: 0 will make the icon disappear
 // more context: https://phabricator.wikimedia.org/T232260#5476625
+.mw-ui-icon {
+	display: inline-block;
+	font-size: initial;
+	vertical-align: middle;
+}
+
 .mw-ui-icon:before {
 	top: 0;
 	bottom: 0;
