@@ -65,7 +65,6 @@
 	vertical-align: middle;
 	line-height: 0;
 	overflow: hidden;
-	white-space: nowrap;
 
 	// resetting styles for <button> elements
 	-moz-appearance: none;
@@ -94,6 +93,7 @@
 
 	// screen-reader text. Not using `text-indent: -999px` because
 	// the inner :before element is `display: block` so text-indent has no effect.
+	line-height: 999px;
 	color: transparent;
 
 	&:focus, &:active, &:visited {
@@ -122,6 +122,7 @@
 
 .mw-ui-icon-before {
 	width: auto;
+	max-width: 100%;
 
 	&:before {
 		.mixin-background-square();

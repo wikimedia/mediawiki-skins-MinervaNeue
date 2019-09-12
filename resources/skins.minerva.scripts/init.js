@@ -323,7 +323,7 @@
 		initModifiedInfo();
 		initRegistrationInfo();
 		// eslint-disable-next-line no-jquery/no-global-selector
-		initHistoryLink( $( '.last-modifier-tagline a' ) );
+		initHistoryLink( $( '.last-modified-bar__text a' ) );
 		if ( toolbarElement ) {
 			Toolbar.bind( window, toolbarElement );
 			Toolbar.render( window, toolbarElement );
