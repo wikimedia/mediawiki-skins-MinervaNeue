@@ -26,15 +26,28 @@ footer {
 		padding: 0 @contentPadding;
 	}
 
+	// for compatibility with cached HTML. Can be returned 2 weeks after
+	// I53fa45058dbc81c91089840073e03113ff1a4b9c lands.
 	.last-modifier-tagline {
+		height: 40px;
+		line-height: 40px;
+		font-size: @font-size-minerva-small;
+	}
+
+	.last-modified-bar__text {
 		@end-padding: @iconGutterWidth + @iconGutterWidth + @iconSize;
 		display: block;
+		height: auto;
+		padding-right: 40px;
 		.truncated-text();
+
+		&:before {
+			float: left;
+		}
 
 		> a,
 		> span > span,
 		> span:last-child {
-			display: inline-block;
 			font-size: @font-size-minerva-small;
 		}
 	}
