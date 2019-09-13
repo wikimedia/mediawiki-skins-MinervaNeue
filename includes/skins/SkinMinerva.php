@@ -240,7 +240,9 @@ class SkinMinerva extends SkinTemplate {
 				'data-section' => $section,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
 				// we default to enabled even though this may not be true.
-				'class' => MinervaUI::iconClass( 'edit-enabled', 'element', 'edit-page' ),
+				'class' => MinervaUI::iconClass(
+					'edit-enabled', 'element', 'edit-page mw-ui-icon-flush-right'
+				),
 			], $message );
 			$html .= Html::closeElement( 'span' );
 			return $html;

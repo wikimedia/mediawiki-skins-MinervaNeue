@@ -115,7 +115,7 @@ class ToolbarBuilder {
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
-				MinervaUI::iconClass( 'language-switcher', 'element', '' ) )
+				MinervaUI::iconClass( 'language-switcher', 'element' ) )
 			);
 		}
 
