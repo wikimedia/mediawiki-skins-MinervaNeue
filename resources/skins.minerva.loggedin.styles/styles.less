@@ -15,21 +15,20 @@
 }
 
 .notification-count {
-	@circleSize: 24px;
-	@borderSize: 2px;
 	display: inline-block;
 	margin: auto;
-	height: @circleSize;
 	background: @notificationBackgroundRead;
 	color: @notificationColorRead;
+	// same as mw-ui-icon-flush-right
+	margin-right: -@icon-padding-md;
 	cursor: pointer;
 
 	.circle {
 		border-radius: 50%;
-		border: @borderSize solid @notificationColorRead;
+		border: 2px solid @notificationColorRead;
 		margin: auto;
-		height: @circleSize - @borderSize;
-		width: @circleSize - @borderSize;
+		height: @icon-size-md;
+		width: @icon-size-md;
 
 		/* stylelint-disable declaration-block-no-duplicate-properties */
 		// Center the text number inside the circle
@@ -52,6 +51,7 @@
 
 	&.notification-unseen {
 		color: @notificationColorUnread;
+		padding: @icon-padding-md;
 
 		.circle {
 			background: @notificationBackgroundUnread;
