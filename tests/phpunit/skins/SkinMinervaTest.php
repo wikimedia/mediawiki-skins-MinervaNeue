@@ -272,7 +272,8 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	) {
 		return [
 			'notificationIconClass' =>
-				MinervaUI::iconClass( 'bellOutline-base20', 'element', '', 'wikimedia' ),
+				MinervaUI::iconClass( 'bellOutline-base20', 'element',
+					'mw-ui-icon-flush-right', 'wikimedia' ),
 			'title' => $notificationsMsg,
 			'url' => SpecialPage::getTitleFor( $notificationsTitle )
 				->getLocalURL(
