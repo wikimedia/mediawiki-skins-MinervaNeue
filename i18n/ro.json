@@ -4,7 +4,8 @@
 			"Minisarm",
 			"Strainu",
 			"Adrianbblk",
-			"Andrei Stroe"
+			"Andrei Stroe",
+			"GabiBil"
 		]
 	},
 	"minerva-last-modified-date": "Ultima modificare pe $1, la $2",
@@ -45,5 +46,6 @@
 	"mobile-frontend-user-page-contributions": "Contribuții",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|S-a înscris}} în $1",
 	"mobile-frontend-user-page-talk": "Discuție",
-	"mobile-frontend-user-page-uploads": "Încărcări"
+	"mobile-frontend-user-page-uploads": "Încărcări",
+	"minerva-page-actions-user-groups": "Grupuri de utilizatori"
 }
