@@ -2,8 +2,6 @@
 @import '../../minerva.less/minerva.mixins.less';
 
 .overlay {
-	padding-top: @overlayHeaderHeight;
-
 	textarea {
 		.editor-textarea();
 	}
@@ -40,6 +38,10 @@
 			padding-right: @iconGutterWidth;
 		}
 	}
+}
+
+.overlay-header-container + .overlay-content {
+	padding-top: @overlayHeaderHeight;
 }
 
 @media all and ( min-width: @width-breakpoint-desktop ) {
