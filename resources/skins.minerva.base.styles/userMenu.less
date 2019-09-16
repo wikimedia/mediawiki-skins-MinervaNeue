@@ -14,4 +14,9 @@
 	justify-content: flex-end;
 	// Show the list relative the button.
 	position: relative;
+
+	// align the last icon (i.e. notification or use menu) with the container edge.
+	& > *:last-child {
+		margin-right: -@icon-padding-md;
+	}
 }

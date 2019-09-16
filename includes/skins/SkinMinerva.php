@@ -405,7 +405,7 @@ class SkinMinerva extends SkinTemplate {
 
 			$tpl->set( 'userNotificationsData', [
 				'notificationIconClass' => MinervaUI::iconClass( 'bellOutline-base20',
-					'element', 'mw-ui-icon-flush-right', 'wikimedia' ),
+					'element', 'wikimedia' ),
 				'title' => $notificationsMsg,
 				'url' => $url,
 				'notificationCountRaw' => $count,

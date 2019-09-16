@@ -7,7 +7,6 @@
 		Icon = mobile.Icon,
 		notificationIcon = new Icon( {
 			name: 'bellOutline-base20',
-			additionalClassNames: 'mw-ui-icon-flush-right',
 			glyphPrefix: 'wikimedia'
 		} );
 
