@@ -8,7 +8,8 @@
 			"Robby",
 			"Shirayuki",
 			"Siebrand",
-			"Umherirrender"
+			"Umherirrender",
+			"A2093064"
 		]
 	},
 	"minerva-last-modified-date": "Text that displays the date the page was last modified. Parameters:\n* $1 - date\n* $2 - time\n{{Related|Mobile-frontend-last-modified}}",
@@ -59,9 +60,9 @@
 	"minerva-user-menu-button": "Text describing the user menu",
 	"minerva-page-actions-overflow": "Text describing the secondary page menu button's action",
 	"minerva-page-actions-info": "In the secondary page menu, the page information button label",
-	"minerva-page-actions-permalink": "In the secondary page menu, the permanent link button label",
-	"minerva-page-actions-backlinks": "In the secondary page menu, the 'what links here' incoming links button label",
-	"minerva-page-actions-cite": "In the secondary page menu, the cite this page button label",
+	"minerva-page-actions-permalink": "In the secondary page menu, the permanent link button label\n\nSee also:\n* {{msg-mw|permalink}}",
+	"minerva-page-actions-backlinks": "In the secondary page menu, the 'what links here' incoming links button label\n\nSee also:\n* {{msg-mw|whatlinkshere}}",
+	"minerva-page-actions-cite": "In the secondary page menu, the cite this page button label\n\nSee also:\n* {{msg-mw|citethispage-link}}",
 	"minerva-page-actions-uploads": "In the secondary page menu for user pages, the user uploads button label",
 	"minerva-page-actions-user-groups": "In the secondary page menu for user pages, the user groups button label",
 	"minerva-page-actions-logs": "In the secondary page menu for user pages, the user logs button label",
