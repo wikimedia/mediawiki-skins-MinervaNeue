@@ -213,12 +213,12 @@ class ToolbarBuilder {
 
 		if ( $isWatched ) {
 			$msg = $this->messageLocalizer->msg( 'unwatchthispage' );
-			$icon = 'watched';
+			$icon = 'unStar-progressive';
 		} else {
 			$msg = $this->messageLocalizer->msg( 'watchthispage' );
-			$icon = 'watch';
+			$icon = 'star-base20';
 		}
-		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article', 'mf' ) . ' jsonly';
+		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article', 'wikimedia' );
 		if ( $isWatched ) {
 			$iconClass .= ' watched';
 		}

@@ -304,11 +304,12 @@
 			]
 		},
 		"skins.minerva.icons.wikimedia": {
+			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-background-icon-{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"icons": [ "search", "userAvatar" ]
+			"icons": [ "search", "userAvatar", "star", "unStar" ]
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
@@ -333,8 +334,6 @@
 						"rtl": "resources/skins.minerva.icons.images/toc-rtl.svg"
 					}
 				},
-				"watch": "resources/skins.minerva.icons.images/watch.svg",
-				"watched": "resources/skins.minerva.icons.images/watched.svg",
 				"warning": "resources/skins.minerva.icons.images/warning.svg",
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
