@@ -112,6 +112,7 @@
 	 */
 	function init() {
 		$talk.on( 'click', function ( ev ) {
+			// eslint-disable-next-line no-jquery/no-class-state
 			if ( $talk.hasClass( 'add' ) ) {
 				window.location.hash = '#/talk/new';
 			} else {

@@ -76,6 +76,7 @@
 		 */
 		isOpen: function () {
 			// FIXME: We should be moving away from applying classes to the body
+			// eslint-disable-next-line no-jquery/no-class-state
 			return $( document.body ).hasClass( 'navigation-enabled' );
 		},
 
@@ -104,7 +105,9 @@
 			this.closeNavigationDrawers();
 			drawerType = drawerType || 'primary';
 			// FIXME: We should be moving away from applying classes to the body
-			$( document.body ).toggleClass( 'navigation-enabled' )
+			// eslint-disable-next-line no-jquery/no-class-state
+			$( document.body )
+				.toggleClass( 'navigation-enabled' )
 				.toggleClass( drawerType + '-navigation-enabled' );
 
 			this.emit( 'open' );

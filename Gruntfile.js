@@ -17,7 +17,7 @@ module.exports = function ( grunt ) {
 				reportUnusedDisableDirectives: true
 			},
 			all: [
-				'**/*.js{,on}',
+				'**/*.{js,json}',
 				'!docs/**',
 				'!libs/**',
 				'!node_modules/**',
@@ -25,12 +25,8 @@ module.exports = function ( grunt ) {
 			]
 		},
 		stylelint: {
-			options: {
-				syntax: 'less'
-			},
 			all: [
-				'**/*.css',
-				'**/*.less',
+				'**/*.{css,less}',
 				// TODO: Nested imports cause stylelint to crash
 				'!resources/skins.minerva.base.styles/print/styles.less',
 				'!docs/**',
@@ -39,7 +35,9 @@ module.exports = function ( grunt ) {
 				'!vendor/**'
 			]
 		},
-		banana: conf.MessagesDirs,
+		banana: Object.assign( {
+			options: { requireLowerCase: false }
+		}, conf.MessagesDirs ),
 		watch: {
 			lint: {
 				files: [ '{resources,tests/qunit}/**/*.{js,less}' ],

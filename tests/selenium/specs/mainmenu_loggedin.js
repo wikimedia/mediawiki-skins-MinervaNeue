@@ -29,7 +29,6 @@ describe( 'Menus open correct page for anonymous users', () => {
 		try {
 			iShouldSeeALinkInMenu( 'Nearby' );
 		} catch ( e ) {
-			// eslint-disable-next-line no-console
 			console.warn( 'Nearby item will only appear in main menu if $wgMFNearby is configured' );
 		}
 	} );

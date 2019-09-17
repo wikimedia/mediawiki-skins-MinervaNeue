@@ -13,6 +13,7 @@
 	},
 	"rules": {
 		"camelcase": "off",
+		"prefer-template": "off",
 		"no-restricted-syntax": "off"
 	}
 }

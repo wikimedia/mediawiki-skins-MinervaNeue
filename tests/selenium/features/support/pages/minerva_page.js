@@ -34,12 +34,11 @@ class MinervaPage extends Page {
 	 */
 	setCookie( name, value ) {
 		const currentPage = browser.getUrl();
-		let cookie;
 		if ( !currentPage.includes( browser.options.baseUrl ) ) {
 			this.open();
 		}
 
-		cookie = browser.getCookie( name );
+		const cookie = browser.getCookie( name );
 
 		if ( !cookie || cookie.value !== value ) {
 			browser.setCookie( {

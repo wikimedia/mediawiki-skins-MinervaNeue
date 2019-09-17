@@ -23,6 +23,7 @@ module.exports = function () {
 		if (
 			mainMenu &&
 			mainMenu.isOpen() &&
+			// eslint-disable-next-line no-jquery/no-class-state
 			!$target.hasClass( 'main-menu-button' )
 		) {
 			mainMenu.closeNavigationDrawers();
