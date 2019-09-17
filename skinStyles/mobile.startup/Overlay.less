@@ -22,9 +22,17 @@
 .overlay-header {
 	height: @overlayHeaderHeight;
 
+	.header-chrome & {
+		height: @siteHeaderHeight;
+	}
+
 	.mw-ui-anchor,
 	.mw-ui-button {
 		height: @overlayHeaderHeight;
+
+		.header-chrome & {
+			height: @siteHeaderHeight;
+		}
 	}
 
 	.overlay-title {
@@ -42,6 +50,10 @@
 
 .overlay-header-container + .overlay-content {
 	padding-top: @overlayHeaderHeight;
+
+	.header-chrome& {
+		padding-top: @siteHeaderHeight;
+	}
 }
 
 @media all and ( min-width: @width-breakpoint-desktop ) {
