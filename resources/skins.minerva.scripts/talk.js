@@ -3,6 +3,8 @@
  */
 module.exports = function ( mobile ) {
 	var
+		toast = mobile.toast,
+		currentPage = mobile.currentPage(),
 		loader = mobile.rlModuleLoader,
 		loadingOverlay = mobile.loadingOverlay,
 		eventBus = mobile.eventBusSingleton,
@@ -88,7 +90,7 @@ module.exports = function ( mobile ) {
 				},
 				// T184273 using `currentPage` because 'wgPageName'
 				// contains underscores instead of spaces.
-				currentPageTitle: mobile.currentPage().title,
+				currentPageTitle: currentPage.title,
 				licenseMsg: skin.getLicenseMsg(),
 				eventBus: eventBus,
 				id: id
@@ -110,22 +112,46 @@ module.exports = function ( mobile ) {
 		}
 	} );
 
+	function changeHash() {
+		// eslint-disable-next-line no-jquery/no-class-state
+		if ( $talk.hasClass( 'add' ) ) {
+			window.location.hash = '#/talk/new';
+		} else {
+			window.location.hash = '#/talk';
+		}
+	}
+
+	/**
+	 * @method
+	 * @param {JQuery.Event} ev
+	 * @return {undefined}
+	 */
+	function amcTalkClickHandler( ev ) {
+		var
+			amcOutreach = mobile.amcOutreach,
+			amcCampaign = amcOutreach.loadCampaign(),
+			onDismiss = function () {
+				changeHash();
+				toast.show( mw.message( 'mobile-frontend-amc-outreach-dismissed-message' ).text() );
+			};
+
+		// avoiding navigating to original URL
+		// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
+		ev.preventDefault();
+
+		if ( amcCampaign.showIfEligible( amcOutreach.ACTIONS.onTalkLink, onDismiss, currentPage.title, '#/talk' ) ) {
+			return;
+		}
+
+		changeHash();
+	}
+
 	/**
 	 * Create route '#/talk'
 	 * @ignore
 	 */
 	function init() {
-		$talk.on( 'click', function ( ev ) {
-			// eslint-disable-next-line no-jquery/no-class-state
-			if ( $talk.hasClass( 'add' ) ) {
-				window.location.hash = '#/talk/new';
-			} else {
-				window.location.hash = '#/talk';
-			}
-			// avoiding navigating to original URL
-			// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
-			ev.preventDefault();
-		} );
+		$talk.on( 'click', amcTalkClickHandler );
 	}
 
 	init();

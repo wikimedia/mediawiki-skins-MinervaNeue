@@ -136,7 +136,7 @@
 	 * to show a human friendly date in seconds, minutes, hours, days
 	 * months or years
 	 * @ignore
-	 * @param {JQuery.Object} [$lastModifiedLink]
+	 * @param {JQuery.Object} $lastModifiedLink
 	 */
 	function initHistoryLink( $lastModifiedLink ) {
 		var delta, historyUrl, msg, $bar,
@@ -160,6 +160,34 @@
 			);
 			$lastModifiedLink.replaceWith( msg );
 		}
+	}
+
+	/**
+	 * @method
+	 * @param {JQuery.Event} ev
+	 */
+	function amcHistoryClickHandler( ev ) {
+		var
+			self = this,
+			amcOutreach = mobile.amcOutreach,
+			amcCampaign = amcOutreach.loadCampaign(),
+			onDismiss = function () {
+				toast.showOnPageReload( mw.message( 'mobile-frontend-amc-outreach-dismissed-message' ).text() );
+				window.location = self.href;
+			};
+
+		if ( amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' ) ) {
+			ev.preventDefault();
+		}
+	}
+
+	/**
+	 * @method
+	 * @param {JQuery.Object} $lastModifiedLink
+	 * @ignore
+	 */
+	function initAmcHistoryLink( $lastModifiedLink ) {
+		$lastModifiedLink.one( 'click', amcHistoryClickHandler );
 	}
 
 	/**
@@ -319,12 +347,14 @@
 		// - search
 		search();
 		// - mobile redirect
-		mobileRedirect();
+		mobileRedirect( mobile.amcOutreach, currentPage );
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
 		initRegistrationInfo();
 		// eslint-disable-next-line no-jquery/no-global-selector
 		initHistoryLink( $( 'a.last-modified-bar__text' ) );
+		// eslint-disable-next-line no-jquery/no-global-selector
+		initAmcHistoryLink( $( '.last-modified-bar__text a' ) );
 		if ( toolbarElement ) {
 			Toolbar.bind( window, toolbarElement );
 			Toolbar.render( window, toolbarElement );

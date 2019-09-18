@@ -1,7 +1,7 @@
 /*
  * Warn people if they're trying to switch to desktop but have cookies disabled.
  */
-module.exports = function () {
+module.exports = function ( amcOutreach, currentPage ) {
 	/**
 	 * Checks whether cookies are enabled
 	 * @method
@@ -41,6 +41,35 @@ module.exports = function () {
 		}
 	}
 
+	/**
+	 * @method
+	 * @ignore
+	 * @return {boolean|undefined}
+	 */
+	function amcDesktopClickHandler() {
+		var
+			self = this,
+			executeWrappedEvent = function () {
+				if ( desktopViewClick() === false ) {
+					return false;
+				}
+
+				window.location = self.href;
+			},
+			amcCampaign = amcOutreach.loadCampaign(),
+			onDismiss = function () {
+				executeWrappedEvent();
+			};
+
+		if ( amcCampaign.showIfEligible( amcOutreach.ACTIONS.onDesktopLink,
+			onDismiss, currentPage.title ) ) {
+			// prevent default/stop propagation
+			return false;
+		}
+
+		return executeWrappedEvent();
+	}
+
 	// eslint-disable-next-line no-jquery/no-global-selector
-	$( '#mw-mf-display-toggle' ).on( 'click', desktopViewClick );
+	$( '#mw-mf-display-toggle' ).on( 'click', amcDesktopClickHandler );
 };
