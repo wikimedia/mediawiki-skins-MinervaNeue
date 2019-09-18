@@ -1,6 +1,8 @@
-( function ( M ) {
+/**
+ * @param {Object} mobile mobileFrontend component library
+ */
+module.exports = function ( mobile ) {
 	var
-		mobile = M.require( 'mobile.startup' ),
 		loader = mobile.rlModuleLoader,
 		loadingOverlay = mobile.loadingOverlay,
 		eventBus = mobile.eventBusSingleton,
@@ -52,6 +54,7 @@
 	 * @return {Overlay}
 	 */
 	function talkSectionOverlay( id, talkOptions ) {
+		var M = mw.mobileFrontend;
 		if ( id === 'new' ) {
 			return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );
 		}
@@ -139,4 +142,4 @@
 			}, 10 );
 		} );
 	}
-}( mw.mobileFrontend ) );
+};

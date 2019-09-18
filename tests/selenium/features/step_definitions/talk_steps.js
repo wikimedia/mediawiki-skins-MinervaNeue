@@ -4,7 +4,7 @@ const ArticlePageWithEditorOverlay = require( '../support/pages/article_page_wit
 const { ArticlePage } = require( '../support/world.js' );
 
 const iClickTheTalkButton = () => {
-	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.talk' );
+	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
 	ArticlePage.talk_element.waitForVisible();
 	ArticlePage.talk_element.click();
 };

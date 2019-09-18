@@ -593,7 +593,9 @@
 				"resources/skins.minerva.scripts/Toolbar.js",
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
-				"resources/skins.minerva.scripts/references.js"
+				"resources/skins.minerva.scripts/references.js",
+				"resources/skins.minerva.scripts/talk.js",
+				"resources/skins.minerva.scripts/watchstar.js"
 			]
 		},
 		"skins.minerva.options.share.icon": {
@@ -631,42 +633,6 @@
 				"resources/skins.minerva.options/trackShare.js",
 				"resources/skins.minerva.options/shareIcon.js",
 				"resources/skins.minerva.options/share.js"
-			]
-		},
-		"skins.minerva.talk": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"skins.minerva.icons.images.scripts",
-				"skins.minerva.scripts",
-				"mobile.startup",
-				"mediawiki.Title"
-			],
-			"scripts": [
-				"resources/skins.minerva.talk/init.js"
-			]
-		},
-		"skins.minerva.toggling": {
-			"deprecated" : "This module is empty and functionality is now in `mobile.init`. It can be removed when cached HTML stops referring to it",
-			"targets": [
-				"mobile",
-				"desktop"
-			]
-		},
-		"skins.minerva.watchstar": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"skins.minerva.icons.images.scripts",
-				"mobile.startup",
-				"skins.minerva.scripts"
-			],
-			"scripts": [
-				"resources/skins.minerva.watchstar/init.js"
 			]
 		}
 	},

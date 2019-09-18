@@ -782,8 +782,16 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	public function getSkinConfigVariables() {
+		$title = $this->getTitle();
+
 		$menuData = $this->getMainMenu()->getMenuData();
 		$vars = [
+			'wgMinervaPermissions' => [
+				'watch' => $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ),
+				'talk' => $this->getUserPageHelper()->isUserPage() ||
+					( $this->getPermissions()->isTalkAllowed() || $title->isTalkPage() ) &&
+					$this->isWikiTextTalkPage()
+			],
 			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 			// hamburger icon is already rendered, pass only menu items
@@ -812,22 +820,6 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function getContextSpecificModules() {
 		$modules = [];
-		$title = $this->getTitle();
-
-		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ) ) {
-			// Explicitly add the mobile watchstar code.
-			$modules[] = 'skins.minerva.watchstar';
-		}
-
-		// TalkOverlay feature
-		if (
-			$this->getUserPageHelper()->isUserPage() ||
-			( $this->getPermissions()->isTalkAllowed() || $title->isTalkPage() ) &&
-			$this->isWikiTextTalkPage()
-		) {
-			$modules[] = 'skins.minerva.talk';
-		}
-
 		if ( $this->skinOptions->hasSkinOptions() ) {
 			$modules[] = 'skins.minerva.options';
 		}

@@ -1,6 +1,6 @@
 When(/^I click the talk button$/) do
   on(ArticlePage) do |page|
-    page.wait_until_rl_module_ready('skins.minerva.talk')
+    page.wait_until_rl_module_ready('skins.minerva.scripts')
     page.talk_element.when_present.click
   end
 end

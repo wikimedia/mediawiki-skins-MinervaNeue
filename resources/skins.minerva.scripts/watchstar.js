@@ -1,7 +1,9 @@
-( function ( M ) {
+/**
+ * @param {Object} mobile mobileFrontend component library
+ */
+module.exports = function ( mobile ) {
 
 	var
-		mobile = M.require( 'mobile.startup' ),
 		currentPage = mobile.currentPage(),
 		Watchstar = mobile.Watchstar,
 		user = mw.user;
@@ -28,5 +30,4 @@
 		}
 	}
 	init( currentPage );
-
-}( mw.mobileFrontend ) );
+};

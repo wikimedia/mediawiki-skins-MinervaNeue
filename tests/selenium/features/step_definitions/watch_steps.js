@@ -14,13 +14,13 @@ const theWatchstarShouldBeSelected = () => {
 };
 
 const iClickTheWatchstar = () => {
-	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.watchstar' );
+	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
 	ArticlePage.watch_element.waitForExist();
 	ArticlePage.watch_element.click();
 };
 
 const iClickTheUnwatchStar = () => {
-	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.watchstar' );
+	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
 	ArticlePage.watch_element.waitForExist();
 	ArticlePage.watch_element.click();
 };

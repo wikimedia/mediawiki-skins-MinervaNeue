@@ -2,6 +2,7 @@
 	var
 		mobile = M.require( 'mobile.startup' ),
 		PageGateway = mobile.PageGateway,
+		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		toast = mobile.toast,
 		Icon = mobile.Icon,
 		time = mobile.time,
@@ -361,5 +362,15 @@
 			additionalClassNames: 'mw-ui-icon-mf-arrow',
 			isSmall: true
 		} ).$el.appendTo( '.toctitle' );
+
+		// wire up talk icon if necessary
+		if ( permissions.talk ) {
+			require( './talk.js' )( mobile );
+		}
+
+		// wire up watch icon if necessary
+		if ( permissions.watch ) {
+			require( './watchstar.js' )( mobile );
+		}
 	} );
 }( mw.mobileFrontend ) );
