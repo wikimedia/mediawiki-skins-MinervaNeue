@@ -226,7 +226,7 @@ class ToolbarBuilder {
 		$entry = new PageActionMenuEntry(
 			'page-actions-watch',
 			$href,
-			$iconClass,
+			$iconClass . ' mw-watchlink',
 			$msg,
 			$newModeToSet
 		);
