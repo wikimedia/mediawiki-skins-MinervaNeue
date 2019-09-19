@@ -42,16 +42,6 @@ See <https://www.mediawiki.org/wiki/Manual:$wgSiteNotice>.
 
 Whether to count client side errors in statsv.
 
-#### $wgMinervaErrorLogSamplingRate
-* Type: `Integer`
-* Default: `0`
-
-Whether to log client side errors to EventLogging. If 0, error logging is disabled.
-If 0.5, 50% of all client side errors will be logged to the EventLogging client.
-If 1, all errors will be logged to the EventLogging client, thus when enabling this
-care should be taken that your setup is bug free in order to not overwhelm the EventLogging
-server.
-
 #### $wgMinervaShowCategoriesButton
 
 * Type: `Array`
