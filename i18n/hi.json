@@ -10,7 +10,8 @@
 			"Smtchahal",
 			"Sachinkatiyar",
 			"Innocentbunny",
-			"Nitin1485"
+			"Nitin1485",
+			"Nilesh shukla"
 		]
 	},
 	"minerva-last-modified-date": "अंतिम बार $1 को $2 बजे संपादित किया गया",
@@ -53,6 +54,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|$2}} $1 से सदस्य हैं",
 	"mobile-frontend-user-page-talk": "वार्ता",
 	"mobile-frontend-user-page-uploads": "अपलोड",
+	"minerva-page-actions-user-groups": "सदस्य समूह",
 	"minerva-skin-desc": "मोबाइल के लिए एक तैयारशूदा विशेष आवरण",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "श्रेणियाँ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "पृष्ठों की श्रेणियां देखें",

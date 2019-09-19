@@ -13,7 +13,8 @@
 			"OlegCinema",
 			"Stjn",
 			"Vlad5250",
-			"DmitTrix"
+			"DmitTrix",
+			"Movses"
 		]
 	},
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
@@ -39,7 +40,7 @@
 	"mobile-frontend-main-menu-nearby": "Поблизости",
 	"mobile-frontend-main-menu-settings": "Настройки",
 	"mobile-frontend-main-menu-watchlist": "Список наблюдения",
-	"mobile-frontend-meta-data-issues": "Вопросы по странице",
+	"mobile-frontend-meta-data-issues": "Проблемы страницы",
 	"mobile-frontend-meta-data-issues-categories": "Об этой категории",
 	"mobile-frontend-meta-data-issues-header": "Проблемы страницы",
 	"minerva-meta-data-issues-section-header": "Проблемы с подразделом",
@@ -67,6 +68,7 @@
 	"minerva-page-actions-backlinks": "Ссылки сюда",
 	"minerva-page-actions-cite": "Цитировать страницу",
 	"minerva-page-actions-uploads": "Загрузки",
+	"minerva-page-actions-user-groups": "Группы пользователя",
 	"minerva-page-actions-logs": "Журналы",
 	"minerva-page-actions-wikibase": "Элемент {{grammar:genitive|{{WBREPONAME}}}}",
 	"minerva-page-actions-language-switcher": "Языки",
@@ -78,5 +80,5 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Перейти наверх на текущей странице с помощью плавающей кнопки",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Улучшенное обнаружение проблем страницы",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемы со страницей (Шаблон:ambox) будут вписаны в статью.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных устройствах. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию."
 }
