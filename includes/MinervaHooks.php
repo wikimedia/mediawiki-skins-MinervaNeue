@@ -325,11 +325,14 @@ class MinervaHooks {
 		if ( $skin === 'minerva' ) {
 			$config = MediaWikiServices::getInstance()->getConfigFactory()
 				->makeConfig( 'minerva' );
+			// This is to let the UI adjust itself to a wiki that is always read-only.
+			// Ignore temporary read-only on live wikis, requires heavy DB check (T233458).
+			$roConf = MediaWikiServices::getInstance()->getConfiguredReadOnlyMode();
 			$vars += [
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
 				'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
 				'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
-				'wgMinervaReadOnly' => wfReadOnly()
+				'wgMinervaReadOnly' => $roConf->isReadOnly(),
 			];
 		}
 	}
