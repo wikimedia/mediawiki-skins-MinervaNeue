@@ -3,7 +3,7 @@
 // we have to stub certain templates to make it appear like its been loaded.
 mw.template.add( 'skins.minerva.scripts', 'IssueNotice.mustache', '' );
 mw.template.add( 'skins.minerva.scripts', 'badge.mustache',
-	mw.template.get( 'tests.skins.minerva', 'badge.mustache' ).getSource() );
+	mw.template.get( 'test.MinervaNeue', 'badge.mustache' ).getSource() );
 module.exports = [
 	require( './NotificationBadge.test.js' ),
 	require( './downloadPageAction.test.js' ),

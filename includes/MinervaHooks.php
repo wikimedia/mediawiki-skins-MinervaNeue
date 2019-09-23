@@ -132,59 +132,6 @@ class MinervaHooks {
 	}
 
 	/**
-	 * ResourceLoaderTestModules hook handler
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
-	 *
-	 * @param array &$testModules
-	 * @param ResourceLoader $resourceLoader
-	 */
-	public static function onResourceLoaderTestModules( array &$testModules,
-		ResourceLoader $resourceLoader
-	) {
-		$testModule = [
-			'dependencies' => [
-				'mobile.startup',
-				'mediawiki.user',
-				'mediawiki.experiments'
-			],
-			'templates' => [
-				"badge.mustache" => "includes/skins/userNotifications.mustache",
-			],
-			'localBasePath' => dirname( __DIR__ ),
-			'remoteSkinPath' => 'MinervaNeue',
-			'targets' => [ 'mobile', 'desktop' ],
-			'packageFiles' => [
-				// additional scaffolding (minus initialisation scripts)
-				'tests/qunit/skins.minerva.scripts/index.js',
-				'resources/skins.minerva.scripts/NotificationBadge.js',
-				'resources/skins.minerva.scripts/page-issues/parser.js',
-				'resources/skins.minerva.scripts/downloadPageAction.js',
-				'resources/skins.minerva.scripts/AB.js',
-				'resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.js',
-				'resources/skins.minerva.scripts/page-issues/overlay/IssueList.js',
-				'resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.js',
-				'resources/skins.minerva.scripts/page-issues/page/PageIssueLearnMoreLink.js',
-				'resources/skins.minerva.scripts/page-issues/page/PageIssueLink.js',
-				'resources/skins.minerva.scripts/page-issues/page/pageIssueFormatter.js',
-				'resources/skins.minerva.scripts/page-issues/index.js',
-				'resources/skins.minerva.scripts/UriUtil.js',
-				'resources/skins.minerva.scripts/TitleUtil.js',
-				// test files
-				'tests/qunit/skins.minerva.scripts/downloadPageAction.test.js',
-				'tests/qunit/skins.minerva.scripts/page-issues/parser.test.js',
-				'tests/qunit/skins.minerva.scripts/AB.test.js',
-				'tests/qunit/skins.minerva.scripts/page-issues/index.test.js',
-				'tests/qunit/skins.minerva.scripts/UriUtil.test.js',
-				'tests/qunit/skins.minerva.scripts/TitleUtil.test.js',
-				'tests/qunit/skins.minerva.scripts/NotificationBadge.test.js'
-			],
-		];
-
-		// Expose templates module
-		$testModules['qunit']['tests.skins.minerva'] = $testModule;
-	}
-
-	/**
 	 * Invocation of hook SpecialPageBeforeExecute
 	 *
 	 * We use this hook to ensure that login/account creation pages
