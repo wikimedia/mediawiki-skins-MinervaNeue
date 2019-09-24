@@ -50,6 +50,11 @@
 				overflow: hidden;
 				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
 
+				// T233166
+				&.secondary-action {
+					padding-left: 10px;
+				}
+
 				&:hover {
 					box-shadow: inset 4px 0 0 0 @colorProgressive;
 					text-decoration: none;
