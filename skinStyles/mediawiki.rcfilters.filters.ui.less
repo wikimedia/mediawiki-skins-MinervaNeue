@@ -1,11 +1,5 @@
 @import '../minerva.less/minerva.variables.less';
 
-// decrease the font-size of the advanced filters module T229360
-.mw-rcfilters-container,
-.mw-rcfilters-ui-overlay {
-	font-size: @taglineFontSize;
-}
-
 .mw-rcfilters-ui-overlay {
 	// T231049: Override OOUI's text input font-size of `inherit` so that we can
 	// make the font-size compute to `16px` to prevent iOS input text zoom on focus.
@@ -13,4 +7,9 @@
 	.oo-ui-textInputWidget .oo-ui-inputWidget-input {
 		font-size: initial;
 	}
+}
+
+.mw-rcfilters-ui-watchlistTopSectionWidget-watchlistDetails,
+.mw-rcfilters-ui-watchlistTopSectionWidget-editWatchlistButton {
+	display: block;
 }

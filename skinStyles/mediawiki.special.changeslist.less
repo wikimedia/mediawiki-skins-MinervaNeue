@@ -8,6 +8,13 @@
 @import 'mediawiki.ui/mixins.buttons';
 @import 'mediawiki.ui/variables';
 
+// Decrease the font-size of the advanced filters module (see T229360).
+.mw-rcfilters-container,
+.mw-rcfilters-ui-overlay,
+.watchlistDetails {
+	font-size: @taglineFontSize;
+}
+
 .mw-changeslist h4 {
 	font-size: @fontSizeH3;
 	padding: 1em 0 0 0 !important; // overriding .content h4
