@@ -24,6 +24,8 @@ footer {
 		display: block;
 		color: @lastModifiedBarTextColor;
 		transition: background-color 0.2s ease, color 0.2s ease;
+		padding-top: @icon-padding-md;
+		padding-bottom: @icon-padding-md;
 	}
 
 	// for compatibility with cached HTML. Can be returned 2 weeks after
@@ -39,6 +41,7 @@ footer {
 		display: block;
 		padding-right: 40px;
 		padding-left: 0;
+		height: auto;
 		.truncated-text();
 
 		&:before {
@@ -54,7 +57,7 @@ footer {
 
 	.indicator {
 		position: absolute;
-		top: 0;
+		top: -@icon-padding-md;
 		right: 0;
 
 		.client-nojs & {
