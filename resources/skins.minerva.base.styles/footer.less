@@ -8,8 +8,33 @@
 	padding-bottom: 6px;
 }
 
+.last-modified-bar__content {
+	align-items: center;
+	.flex-display();
+}
+
 // styles that apply to nested footer components
 footer {
+	.indicator {
+		.client-nojs & {
+			// Certain browsers e.g. Opera Mini do not support css transforms
+			// We assume that we do not run JS on these browsers so hide the chevron
+			display: none;
+		}
+	}
+
+	// FIXME: cached HTML for T233172. Can be removed 2 weeks after deployment.
+	.content:not( .last-modified-bar__content ) {
+		> div {
+			height: 20px;
+		}
+
+		.indicator {
+			float: right;
+			padding: 0 8px 0 0;
+		}
+	}
+
 	// links should be separated by same color
 	.hlist {
 		li:after {
@@ -18,53 +43,22 @@ footer {
 	}
 
 	.last-modified-bar {
-		margin: 0;
 		border-bottom: solid 1px @footerBorderColor;
 		background-color: @lastModifiedBarBgColor;
-		display: block;
 		color: @lastModifiedBarTextColor;
 		transition: background-color 0.2s ease, color 0.2s ease;
 		padding-top: @icon-padding-md;
 		padding-bottom: @icon-padding-md;
-	}
-
-	// for compatibility with cached HTML. Can be returned 2 weeks after
-	// I53fa45058dbc81c91089840073e03113ff1a4b9c lands.
-	.last-modifier-tagline {
-		height: 40px;
-		line-height: 40px;
 		font-size: @font-size-minerva-small;
 	}
 
 	.last-modified-bar__text {
 		@end-padding: @iconGutterWidth + @iconGutterWidth + @iconSize;
-		display: block;
-		padding-right: 40px;
-		padding-left: 0;
-		height: auto;
+		padding-right: @end-padding;
+		padding-left: @icon-padding-md;
+		vertical-align: middle;
+		flex-grow: 1;
 		.truncated-text();
-
-		&:before {
-			float: left;
-		}
-
-		> a,
-		> span > span,
-		> span:last-child {
-			font-size: @font-size-minerva-small;
-		}
-	}
-
-	.indicator {
-		position: absolute;
-		top: -@icon-padding-md;
-		right: 0;
-
-		.client-nojs & {
-			// Certain browsers e.g. Opera Mini do not support css transforms
-			// We assume that we do not run JS on these browsers so hide the chevron
-			display: none;
-		}
 	}
 
 	> .post-content {
@@ -94,12 +88,10 @@ footer {
 	}
 }
 
-@media ( min-width: @width-breakpoint-tablet ) {
+@media ( max-width: @width-breakpoint-tablet ) {
 	footer {
-		.last-modified-bar {
-			padding-left: 0;
-			padding-right: 0;
-			font-size: 1em;
+		.last-modified-bar__text {
+			padding-right: 1em;
 		}
 	}
 }

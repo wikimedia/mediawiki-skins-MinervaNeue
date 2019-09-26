@@ -122,12 +122,12 @@ class MinervaTemplate extends BaseTemplate {
 		$action = Action::getActionName( RequestContext::getMain() );
 		if ( isset( $data['historyLink'] ) && $action === 'view' ) {
 			$args = [
-				'clockIconClass' => MinervaUI::iconClass( 'clock', 'before', 'mw-ui-icon-small' ),
+				'clockIconClass' => MinervaUI::iconClass( 'clock', 'mw-ui-icon-small' ),
 				'arrowIconClass' => MinervaUI::iconClass(
-					'expand-gray', 'element',
+					'expand-gray', 'small',
 					// FIXME: `mw-ui-icon-mf-arrow-gray` can be removed from list of classes
 					// when Ibbc706146710a9e31a72b3c2cd4e247d7a227488 lands.
-					'mw-ui-icon-small mf-mw-ui-icon-rotate-anti-clockwise indicator mw-ui-icon-mf-arrow-gray',
+					'mf-mw-ui-icon-rotate-anti-clockwise indicator mw-ui-icon-mf-arrow-gray',
 					// Uses icon in MobileFrontend so must be prefixed mf.
 					// Without MobileFrontend it will not render.
 					// Rather than maintain 2 versions (and variants) of the arrow icon which can conflict

@@ -155,7 +155,7 @@
 				$bar.find( '.mw-ui-icon-minerva-clock' ).addClass( 'mw-ui-icon-minerva-clock-invert' );
 				$bar.find( '.mw-ui-icon-mf-expand-gray' ).addClass( 'mw-ui-icon-mf-expand-invert' );
 			}
-			msg = $( '<span>' ).html(
+			msg = $( '<span>' ).addClass( 'last-modified-bar__text' ).html(
 				time.getLastModifiedMessage( ts, username, gender, historyUrl )
 			);
 			$lastModifiedLink.replaceWith( msg );
@@ -324,7 +324,7 @@
 		initModifiedInfo();
 		initRegistrationInfo();
 		// eslint-disable-next-line no-jquery/no-global-selector
-		initHistoryLink( $( '.last-modified-bar__text a' ) );
+		initHistoryLink( $( 'a.last-modified-bar__text' ) );
 		if ( toolbarElement ) {
 			Toolbar.bind( window, toolbarElement );
 			Toolbar.render( window, toolbarElement );

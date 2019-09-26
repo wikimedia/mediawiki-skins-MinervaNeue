@@ -26,7 +26,7 @@ class ArticlePage extends MinervaPage {
 	get overlay_category_topic_item_element() { return $( '.topic-title-list li' ); }
 	get red_link_element() { return $( 'a.new' ); }
 	get is_authenticated_element() { return $( 'body.is-authenticated' ); }
-	get last_modified_bar_history_link_element() { return $( '.last-modified-bar__text a[href*=\'Special:History\']' ); }
+	get last_modified_bar_history_link_element() { return $( 'a.last-modified-bar__text[href*=\'Special:History\']' ); }
 }
 
 module.exports = new ArticlePage();
