@@ -67,6 +67,11 @@ ul.mw-contributions-list li > * {
 	margin-right: 0.5em;
 }
 
+ul.mw-contributions-list li .mw-rollback-link {
+	float: right;
+	font-size: @font-size-minerva-small;
+}
+
 .mw-changeslist-line-inner:before,
 .mw-changeslist-line-inner:after {
 	.clearfix();
@@ -124,6 +129,16 @@ ul.mw-contributions-list li > * {
 	padding: 0 0.6em;
 	vertical-align: middle;
 	white-space: nowrap;
+}
+
+// undo link, styled as button
+.mw-history-undo a, .mw-rollback-link a {
+	float: right;
+	background-color: @colorGray15;
+	color: @colorText;
+	text-decoration: none;
+	.mw-ui-button();
+	.mw-ui-button-states();
 }
 
 .mw-revdelundel-link,

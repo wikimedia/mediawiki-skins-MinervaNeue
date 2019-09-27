@@ -138,7 +138,7 @@
 		// container for rollback, undo buttons
 		.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
 			float: right;
-			font-size: 0.85em;
+			font-size: @font-size-minerva-small;
 
 			&:after {
 				.clearfix();
@@ -158,16 +158,6 @@
 				// separating rollback link from undo link.
 				margin-left: 1em;
 			}
-
-			// undo link, styled as button
-			.mw-history-undo a, .mw-rollback-link a {
-				float: right;
-				background-color: @colorGray15;
-				color: @colorText;
-				text-decoration: none;
-				.mw-ui-button();
-				.mw-ui-button-states();
-			}
 		}
 
 		// edit summary
@@ -179,6 +169,7 @@
 
 		// edit summary, +/- bytes changed, tags
 		.comment,
+		.updatedmarker,
 		.mw-diff-bytes,
 		.mw-tag-markers {
 			float: left;
@@ -188,6 +179,7 @@
 		// add left margin to create a faux column after the radio buttons
 		.history-user,
 		.comment,
+		.updatedmarker,
 		.mw-diff-bytes,
 		.mw-history-tools,
 		.mw-tag-markers {
