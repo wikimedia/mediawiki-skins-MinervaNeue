@@ -89,4 +89,6 @@
 	} );
 
 	module.exports = NotificationBadge;
+
+// eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend ) );

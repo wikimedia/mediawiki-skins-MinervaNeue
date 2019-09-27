@@ -4,7 +4,7 @@
  * Given a test name, sampling rate, and session ID, provides a class that buckets a user into
  * a predefined bucket ("unsampled", "control", or "treatment") and starts an AB-test.
  */
-( function ( M, mwExperiments ) {
+( function ( mwExperiments ) {
 	var bucket = {
 		UNSAMPLED: 'unsampled', // Old treatment: not sampled and not instrumented.
 		CONTROL: 'control', // Old treatment: sampled and instrumented.
@@ -74,4 +74,5 @@
 	}
 
 	module.exports = AB;
-}( mw.mobileFrontend, mw.experiments ) );
+
+}( mw.experiments ) );

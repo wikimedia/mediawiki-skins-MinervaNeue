@@ -1,4 +1,5 @@
 module.exports = function () {
+	// eslint-disable-next-line no-restricted-properties
 	var M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
 		references = mobile.references,

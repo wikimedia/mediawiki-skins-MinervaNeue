@@ -43,4 +43,6 @@
 	}
 
 	module.exports = shareIcon;
+
+// eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend, mw.msg, mw.config ) );

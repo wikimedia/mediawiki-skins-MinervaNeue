@@ -2,6 +2,7 @@ module.exports = function () {
 	var BackToTopOverlay = require( './BackToTopOverlay.js' ),
 		backtotop = new BackToTopOverlay(),
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
+		// eslint-disable-next-line no-restricted-properties
 		M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
 		browser = mobile.Browser.getSingleton(),

@@ -55,4 +55,5 @@
 
 	module.exports = BackToTopOverlay;
 
+// eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend ) );

@@ -54,4 +54,6 @@
 	}
 
 	module.exports = pageIssuesOverlay;
+
+// eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend, mw.msg ) );
