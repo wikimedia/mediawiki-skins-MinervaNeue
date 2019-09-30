@@ -11,6 +11,11 @@
 .last-modified-bar__content {
 	align-items: center;
 	.flex-display();
+	// FIXME: This element should not have the .content class.
+	// Conversation will continue in https://gerrit.wikimedia.org/r/539928.
+	&.content {
+		line-height: 1;
+	}
 }
 
 // styles that apply to nested footer components
