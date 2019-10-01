@@ -197,8 +197,11 @@
 			"mobile.special.mobilemenu.styles": [
 				"skinStyles/mobile.special.mobilemenu.styles/minerva.less"
 			],
+			"ext.echo.mobile": [
+				"skinStyles/ext.echo.mobile/minerva.less"
+			],
 			"mobile.notifications.overlay": [
-				"skinStyles/mobile.notifications.overlay/minerva.less"
+				"skinStyles/ext.echo.mobile/minerva.less"
 			],
 			"mediawiki.content.json": [
 				"skinStyles/mediawiki.content-json/minerva.less"
@@ -565,15 +568,12 @@
 				"resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.less"
 			],
 			"templates": {
-				"badge.mustache": "includes/skins/userNotifications.mustache",
 				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache",
 				"menu.mustache": "resources/skins.minerva.scripts/menu/menu.mustache",
 				"menuGroup.mustache": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/init.js",
-				"resources/skins.minerva.scripts/NotificationBadge.js",
-				"resources/skins.minerva.scripts/notifications.js",
 				"resources/skins.minerva.scripts/menu/MainMenu.js",
 				"resources/skins.minerva.scripts/menu.js",
 				"resources/skins.minerva.scripts/errorLogging.js",
@@ -646,12 +646,8 @@
 			"mediawiki.user",
 			"mediawiki.experiments"
 		],
-		"templates": {
-			"badge.mustache": "includes/skins/userNotifications.mustache"
-		},
 		"packageFiles": [
 			"tests/qunit/skins.minerva.scripts/index.js",
-			"resources/skins.minerva.scripts/NotificationBadge.js",
 			"resources/skins.minerva.scripts/page-issues/parser.js",
 			"resources/skins.minerva.scripts/downloadPageAction.js",
 			"resources/skins.minerva.scripts/AB.js",
@@ -669,8 +665,7 @@
 			"tests/qunit/skins.minerva.scripts/AB.test.js",
 			"tests/qunit/skins.minerva.scripts/page-issues/index.test.js",
 			"tests/qunit/skins.minerva.scripts/UriUtil.test.js",
-			"tests/qunit/skins.minerva.scripts/TitleUtil.test.js",
-			"tests/qunit/skins.minerva.scripts/NotificationBadge.test.js"
+			"tests/qunit/skins.minerva.scripts/TitleUtil.test.js"
 		]
 	},
 	"ServiceWiringFiles": [

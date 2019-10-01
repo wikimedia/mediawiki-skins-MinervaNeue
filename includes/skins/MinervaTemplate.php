@@ -258,7 +258,7 @@ class MinervaTemplate extends BaseTemplate {
 					'search-base20', 'element', 'skin-minerva-search-trigger', 'wikimedia'
 				)
 			], wfMessage( 'searchbutton' ) ),
-			'userNotificationsData' => $data['userNotificationsData'],
+			'userNotificationsHTML' => $data['userNotificationsHTML'] ?? '',
 			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
 			'hasheadingholder' => $hasHeadingHolder,
 			'taglinehtml' => $data['taglinehtml'],
