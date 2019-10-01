@@ -55,10 +55,14 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Член}} от $1",
 	"mobile-frontend-user-page-talk": "Беседа",
 	"mobile-frontend-user-page-uploads": "Качвания",
+	"minerva-user-menu-button": "Потребителско меню",
+	"minerva-page-actions-overflow": "Подменю за допълнителни действия на страницата",
 	"minerva-page-actions-info": "Информация за страницата",
 	"minerva-page-actions-permalink": "Постоянна препратка",
 	"minerva-page-actions-backlinks": "Какво сочи насам",
+	"minerva-page-actions-cite": "Цитиране на страница",
 	"minerva-page-actions-uploads": "Качвания",
+	"minerva-page-actions-user-groups": "Потребителски групи",
 	"minerva-page-actions-logs": "Дневници",
 	"minerva-page-actions-wikibase": "Обект в {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "Езици",
@@ -67,5 +71,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Преглед на категории на страници",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Най-горе",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Отиване най-горе на страницата, използвайки плаващ бутон"
+	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Отиване най-горе на страницата, използвайки плаващ бутон",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Подобрено справяне с проблеми на страницата"
 }
