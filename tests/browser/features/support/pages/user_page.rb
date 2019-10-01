@@ -11,7 +11,4 @@ class UserPage < ArticlePage
   a(:contributions_link) do |page|
     page.user_links_element.element.a(href: /Special:Contributions\//)
   end
-  a(:uploads_link) do |page|
-    page.user_links_element.element.a(href: /Special:Uploads\//)
-  end
 end

@@ -604,10 +604,6 @@ class SkinMinerva extends SkinTemplate {
 					'Contributions', $pageUser )->getLocalURL(),
 				'contributionsPageTitle' => $this->msg(
 					'mobile-frontend-user-page-contributions' )->escaped(),
-				'uploadsPageLink' => SpecialPage::getTitleFor(
-					'Uploads', $pageUser )->getLocalURL(),
-				'uploadsPageTitle' => $this->msg(
-					'mobile-frontend-user-page-uploads' )->escaped(),
 			];
 			$templateParser = new TemplateParser( __DIR__ );
 			$tpl->set( 'postheadinghtml',

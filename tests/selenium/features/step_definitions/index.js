@@ -28,8 +28,8 @@ const { defineSupportCode } = require( 'cucumber' ),
 	{
 		theWatchstarShouldNotBeSelected, theWatchstarShouldBeSelected,
 		iClickTheWatchstar, iClickTheUnwatchStar } = require( './watch_steps' ),
-	{ iVisitMyUserPage, iShouldBeOnMyUserPage, thereShouldBeALinkToMyUploads,
-		thereShouldBeALinkToMyContributions, thereShouldBeALinkToMyTalkPage
+	{ iVisitMyUserPage, iShouldBeOnMyUserPage, thereShouldBeALinkToMyContributions,
+		thereShouldBeALinkToMyTalkPage
 	} = require( './user_page_steps' ),
 	{
 		iClickTheSearchIcon,
@@ -130,7 +130,6 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	// user page
 	Given( /^I visit my user page$/, iVisitMyUserPage );
 	When( /^I should be on my user page$/, iShouldBeOnMyUserPage );
-	Then( /^there should be a link to my uploads$/, thereShouldBeALinkToMyUploads );
 	Then( /^there should be a link to my contributions$/, thereShouldBeALinkToMyContributions );
 	Then( /^there should be a link to my talk page$/, thereShouldBeALinkToMyTalkPage );
 
