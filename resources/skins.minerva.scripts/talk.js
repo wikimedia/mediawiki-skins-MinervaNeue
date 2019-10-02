@@ -54,6 +54,7 @@ module.exports = function ( mobile ) {
 	 * @return {Overlay}
 	 */
 	function talkSectionOverlay( id, talkOptions ) {
+		// eslint-disable-next-line no-restricted-properties
 		var M = mw.mobileFrontend;
 		if ( id === 'new' ) {
 			return new ( M.require( 'mobile.talk.overlays/TalkSectionAddOverlay' ) )( talkOptions );

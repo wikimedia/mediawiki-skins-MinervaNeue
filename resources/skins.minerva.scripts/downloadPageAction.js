@@ -166,4 +166,6 @@
 			getOnClickHandler: getOnClickHandler
 		}
 	};
+
+// eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend, mw.track, mw.msg ) );

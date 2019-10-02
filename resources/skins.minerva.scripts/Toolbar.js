@@ -104,4 +104,6 @@
 		bind: bind,
 		render: render
 	};
+
+// eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend ) );
