@@ -9,7 +9,8 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"A2093064"
+			"A2093064",
+			"Xiplus"
 		]
 	},
 	"minerva-last-modified-date": "Text that displays the date the page was last modified. Parameters:\n* $1 - date\n* $2 - time\n{{Related|Mobile-frontend-last-modified}}",

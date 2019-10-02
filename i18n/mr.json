@@ -32,6 +32,5 @@
 	"mobile-frontend-user-button-tooltip": "माझ्या अधिसूचना दाखवा",
 	"mobile-frontend-user-page-contributions": "योगदाने",
 	"mobile-frontend-user-page-member-since": "$1 पासूनचा {{GENDER:$2|सदस्य}}",
-	"mobile-frontend-user-page-talk": "चर्चा करा",
-	"mobile-frontend-user-page-uploads": "अपभारणे"
+	"mobile-frontend-user-page-talk": "चर्चा करा"
 }

@@ -29,6 +29,5 @@
 	"mobile-frontend-placeholder": "Iskanje po {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Naključno",
 	"mobile-frontend-talk-back-to-page": "Vrnitev na stran »$1«.",
-	"mobile-frontend-user-button-tooltip": "Prikaži moja obvestila",
-	"mobile-frontend-user-page-uploads": "Nalaganja"
+	"mobile-frontend-user-button-tooltip": "Prikaži moja obvestila"
 }

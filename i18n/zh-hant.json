@@ -11,7 +11,8 @@
 			"一個正常人",
 			"Kly",
 			"A2093064",
-			"Winston Sung"
+			"Winston Sung",
+			"Xiplus"
 		]
 	},
 	"minerva-last-modified-date": "最後編輯於 $1 $2",
@@ -57,14 +58,12 @@
 	"mobile-frontend-user-page-contributions": "貢獻",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2| 加入}}於 $1",
 	"mobile-frontend-user-page-talk": "討論",
-	"mobile-frontend-user-page-uploads": "上傳",
 	"minerva-user-menu-button": "使用者選單",
 	"minerva-page-actions-overflow": "操作子選單的輔助頁面",
 	"minerva-page-actions-info": "頁面資訊",
 	"minerva-page-actions-permalink": "固定連結",
 	"minerva-page-actions-backlinks": "連結至此的頁面",
 	"minerva-page-actions-cite": "引用此頁面",
-	"minerva-page-actions-uploads": "上傳",
 	"minerva-page-actions-user-groups": "使用者群組",
 	"minerva-page-actions-logs": "日誌",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}項目",

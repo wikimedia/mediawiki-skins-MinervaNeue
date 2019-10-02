@@ -29,6 +29,5 @@
 	"mobile-frontend-talk-back-to-projectpage": "Nazôd do starnë ùdbë \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "Nazôd do starnë brëkòwnika òd \"{{GENDER:$1|$1}}\".",
 	"mobile-frontend-user-page-contributions": "Mój wkłôd",
-	"mobile-frontend-user-page-talk": "Diskùsëjô",
-	"mobile-frontend-user-page-uploads": "Wladowóné lopczi"
+	"mobile-frontend-user-page-talk": "Diskùsëjô"
 }

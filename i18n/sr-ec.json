@@ -53,7 +53,6 @@
 	"mobile-frontend-user-page-contributions": "Доприноси",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Придружио|Придружила|Придружио/ла}} се на датум $1",
 	"mobile-frontend-user-page-talk": "Разговор",
-	"mobile-frontend-user-page-uploads": "Отпремања",
 	"skinname-minerva": "Минерва (ново)",
 	"minerva-skin-desc": "Осетљива тема првенствено за мобилну употребу",
 	"skin-minerva-issue-learn-more": "Сазнајте више",

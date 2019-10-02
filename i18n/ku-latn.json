@@ -31,6 +31,5 @@
 	"mobile-frontend-user-button-tooltip": "Agahdariyên min nîşan bide",
 	"mobile-frontend-user-page-contributions": "Beşdarî",
 	"mobile-frontend-user-page-member-since": "Ji $1an ve {{GENDER:$2|endam e}}",
-	"mobile-frontend-user-page-talk": "Gotûbêj",
-	"mobile-frontend-user-page-uploads": "Barkirin"
+	"mobile-frontend-user-page-talk": "Gotûbêj"
 }

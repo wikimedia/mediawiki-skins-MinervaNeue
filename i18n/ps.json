@@ -34,6 +34,5 @@
 	"mobile-frontend-talk-back-to-page": "و \"$1\" مخ ته وروګرځي.",
 	"mobile-frontend-talk-back-to-userpage": "بيرته د «{{GENDER:$1|$1}}» مخ ته وروګرځي.",
 	"mobile-frontend-user-page-contributions": "ونډې",
-	"mobile-frontend-user-page-talk": "خبرې اترې",
-	"mobile-frontend-user-page-uploads": "پورته کېدنې"
+	"mobile-frontend-user-page-talk": "خبرې اترې"
 }

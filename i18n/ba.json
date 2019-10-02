@@ -44,6 +44,5 @@
 	"mobile-frontend-user-newmessages": "Һеҙҙең фекерләшеү битендә яңы хәбәрҙәр бар",
 	"mobile-frontend-user-page-contributions": "Башҡарған эштәр",
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|ҡушылған}}",
-	"mobile-frontend-user-page-talk": "Әңгәмә",
-	"mobile-frontend-user-page-uploads": "Тейәүҙәр"
+	"mobile-frontend-user-page-talk": "Әңгәмә"
 }

@@ -40,6 +40,5 @@
 	"mobile-frontend-user-newmessages": "Panjenengan antuk layang anyar ing kaca parembugané panjenengan",
 	"mobile-frontend-user-page-contributions": "Pasumbang",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Gabung}} $1",
-	"mobile-frontend-user-page-talk": "Parembugan",
-	"mobile-frontend-user-page-uploads": "Unggahan"
+	"mobile-frontend-user-page-talk": "Parembugan"
 }

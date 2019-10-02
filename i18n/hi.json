@@ -53,7 +53,6 @@
 	"mobile-frontend-user-page-contributions": "योगदान",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|$2}} $1 से सदस्य हैं",
 	"mobile-frontend-user-page-talk": "वार्ता",
-	"mobile-frontend-user-page-uploads": "अपलोड",
 	"minerva-page-actions-user-groups": "सदस्य समूह",
 	"minerva-skin-desc": "मोबाइल के लिए एक तैयारशूदा विशेष आवरण",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "श्रेणियाँ",
