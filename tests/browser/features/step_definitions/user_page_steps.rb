@@ -18,7 +18,3 @@ end
 Then(/^there should be a link to my talk page$/) do
   expect(on(UserPage).talk_link_element).to be_visible
 end
-
-Then(/^there should be a link to my uploads$/) do
-  expect(on(UserPage).uploads_link_element).to be_visible
-end

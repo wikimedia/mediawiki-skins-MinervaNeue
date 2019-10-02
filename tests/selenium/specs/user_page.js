@@ -1,5 +1,5 @@
 const { iAmLoggedIntoTheMobileWebsite } = require( '../features/step_definitions/common_steps' ),
-	{ iVisitMyUserPage, iShouldBeOnMyUserPage, thereShouldBeALinkToMyUploads,
+	{ iVisitMyUserPage, iShouldBeOnMyUserPage,
 		thereShouldBeALinkToMyContributions, thereShouldBeALinkToMyTalkPage
 	} = require( '../features/step_definitions/user_page_steps' );
 
@@ -16,6 +16,5 @@ describe( 'User:<username>', () => {
 		iShouldBeOnMyUserPage();
 		thereShouldBeALinkToMyTalkPage();
 		thereShouldBeALinkToMyContributions();
-		thereShouldBeALinkToMyUploads();
 	} );
 } );

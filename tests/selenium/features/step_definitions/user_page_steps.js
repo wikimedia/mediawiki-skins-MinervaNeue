@@ -13,10 +13,6 @@ const iShouldBeOnMyUserPage = () => {
 	theTextOfTheFirstHeadingShouldBe( username );
 };
 
-const thereShouldBeALinkToMyUploads = () => {
-	assert.strictEqual( ArticlePage.user_links_element.element( '=Uploads' ).isVisible(), true );
-};
-
 const thereShouldBeALinkToMyContributions = () => {
 	assert.strictEqual( ArticlePage.user_links_element.element( '=Contributions' ).isVisible(), true );
 };
@@ -24,5 +20,5 @@ const thereShouldBeALinkToMyTalkPage = () => {
 	assert.strictEqual( ArticlePage.user_links_element.element( '=Talk' ).isVisible(), true );
 };
 
-module.exports = { iVisitMyUserPage, iShouldBeOnMyUserPage, thereShouldBeALinkToMyUploads,
+module.exports = { iVisitMyUserPage, iShouldBeOnMyUserPage,
 	thereShouldBeALinkToMyContributions, thereShouldBeALinkToMyTalkPage };
