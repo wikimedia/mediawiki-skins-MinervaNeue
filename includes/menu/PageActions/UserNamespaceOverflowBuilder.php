@@ -30,7 +30,6 @@ use MessageLocalizer;
 use MinervaUI;
 use MWException;
 use Title;
-use SpecialPage;
 use User;
 
 class UserNamespaceOverflowBuilder implements IOverflowBuilder {
@@ -98,9 +97,6 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 				'minerva-page-actions-language-switcher'
 			) );
 		}
-		$group->insertEntry( $this->build(
-			'uploads', 'upload', SpecialPage::getTitleFor( 'Uploads', $this->pageUser )->getLocalURL()
-		) );
 
 		$possibleEntries = array_filter( [
 			$this->buildFromToolbox( 'user-groups', 'userGroup', 'userrights', $toolbox ),
