@@ -1,73 +1,25 @@
-( function ( M, track, config, trackSubscribe, user, experiments ) {
+( function ( track, config, trackSubscribe, user ) {
 	module.exports = function () {
-		/**
-		 * Handle an error and log it if necessary
-		 * @param {string} errorMessage to be logged
-		 * @param {number} [lineNumber] of error
-		 * @param {number} [columnNumber] of error
-		 * @param {string} [errorUrl] to be logged
-		 */
-		function handleError( errorMessage, lineNumber, columnNumber, errorUrl ) {
-			var suffix,
-				errorSamplingRate = config.get( 'wgMinervaErrorLogSamplingRate', 0 ),
-				sessionToken = user.sessionId(),
-				EVENT_CLIENT_ERROR_LOG = 'wikimedia.event.WebClientError',
-				mobile = M.require( 'mobile.startup' ),
-				currentPage = mobile.currentPage(),
-				util = mobile.util,
-				errorExperiment = {
-					name: 'WebClientError',
-					enabled: errorSamplingRate > 0,
-					buckets: {
-						on: errorSamplingRate,
-						off: 1 - errorSamplingRate
-					}
-				},
-				isErrorLoggingEnabled = experiments.getBucket( errorExperiment, sessionToken ) === 'on',
-				DEFAULT_ERROR_DATA = {
-					sessionToken: sessionToken,
-					skin: config.get( 'skin' ),
-					wgVersion: config.get( 'wgVersion' ),
-					mobileMode: config.get( 'wgMFMode', 'desktop' ),
-					isAnon: user.isAnon(),
-					revision: currentPage.getRevisionId()
-				};
+		var suffix = user.isAnon() ? '.anon' : '.loggedin',
+			COUNTER_NAME = 'counter.MediaWiki.minerva.WebClientError' + suffix;
 
-			if ( isErrorLoggingEnabled ) {
-				track( EVENT_CLIENT_ERROR_LOG,
-					util.extend( {
-						userUrl: window.location.href,
-						errorUrl: errorUrl,
-						errorMessage: errorMessage,
-						// Due to concerns for the length of the stack trace and going over the
-						// limit for URI length this is currently set to empty string.
-						errorStackTrace: '',
-						errorLineNumber: lineNumber || 0,
-						errorColumnNumber: columnNumber || 0
-					}, DEFAULT_ERROR_DATA )
-				);
-			}
-			if ( config.get( 'wgMinervaCountErrors' ) ) {
-				suffix = user.isAnon() ? '.anon' : '.loggedin';
-				mw.track( 'counter.MediaWiki.minerva.WebClientError' + suffix, 1 );
-			}
+		/**
+		 * Count javascript error
+		 */
+		function countError() {
+			track( COUNTER_NAME, 1 );
 		}
-		// track RL exceptions
-		trackSubscribe( 'resourceloader.exception', function ( topic, data ) {
-			var error = data.exception;
-			handleError( error.message, error.lineNumber, error.columnNumber );
-		} );
-		// setup the global error handler
-		trackSubscribe( 'global.error', function ( topic, error ) {
-			handleError( error.errorMessage, error.lineNumber, error.columnNumber, error.url );
-		} );
+
+		if ( config.get( 'wgMinervaCountErrors' ) ) {
+			// track RL exceptions
+			trackSubscribe( 'resourceloader.exception', countError );
+			// setup the global error handler
+			trackSubscribe( 'global.error', countError );
+		}
 	};
 }(
-	// eslint-disable-next-line no-restricted-properties
-	mw.mobileFrontend,
 	mw.track,
 	mw.config,
 	mw.trackSubscribe,
-	mw.user,
-	mw.experiments
+	mw.user
 ) );

@@ -278,7 +278,6 @@ class MinervaHooks {
 			$vars += [
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
 				'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
-				'wgMinervaErrorLogSamplingRate' => $config->get( 'MinervaErrorLogSamplingRate' ),
 				'wgMinervaReadOnly' => $roConf->isReadOnly(),
 			];
 		}
