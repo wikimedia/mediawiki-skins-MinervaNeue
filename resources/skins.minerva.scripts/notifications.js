@@ -6,7 +6,8 @@ module.exports = function () {
 	var badge,
 		// eslint-disable-next-line no-restricted-properties
 		M = mw.mobileFrontend,
-		mainMenu = require( './menu.js' ),
+		menu = require( './menu.js' ),
+		mainMenu = menu.mainMenu,
 		router = require( 'mediawiki.router' ),
 		mobile = M.require( 'mobile.startup' ),
 		util = mobile.util,

@@ -1,51 +1,23 @@
-( function ( M ) {
-	var
-		mobile = M.require( 'mobile.startup' ),
-		mfExtend = mobile.mfExtend,
-		browser = mobile.Browser.getSingleton(),
-		View = mobile.View;
-
+( function () {
 	/**
 	 * Representation of the main menu
 	 *
 	 * @class MainMenu
 	 * @extends View
 	 * @param {Object} options Configuration options
+	 * @param {string} options.activator selector for element that when clicked can open or
+	 *                                  close the menu
 	 */
 	function MainMenu( options ) {
+		// Remove `mw-mf-viewport__nav-placeholder` to signal the menu has been loaded
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$( '#mw-mf-page-left' ).removeClass( 'mw-mf-viewport__nav-placeholder' );
 		this.activator = options.activator;
-		View.call( this, options );
+
+		this.registerClickEvents();
 	}
 
-	mfExtend( MainMenu, View, {
-		isTemplateMode: true,
-		template: mw.template.get( 'skins.minerva.scripts', 'menu.mustache' ),
-		templatePartials: {
-			menuGroup: mw.template.get( 'skins.minerva.scripts', 'menuGroup.mustache' )
-		},
-
-		/**
-		 * @cfg {object} defaults Default options hash.
-		 * @cfg {string} defaults.activator selector for element that when clicked can open or
-		 *                                  close the menu
-		 */
-		defaults: {
-			activator: undefined
-		},
-
-		/**
-		 * Remove the nearby menu entry if the browser doesn't support geo location
-		 * @memberof MainMenu
-		 * @instance
-		 */
-		postRender: function () {
-			if ( !browser.supportsGeoLocation() ) {
-				this.$el.find( '.nearby' ).parent().remove();
-			}
-
-			this.registerClickEvents();
-		},
-
+	MainMenu.prototype = {
 		/**
 		 * Registers events for opening and closing the main menu
 		 * @memberof MainMenu
@@ -58,11 +30,7 @@
 			$( this.activator )
 				.off( 'click' )
 				.on( 'click', function ( ev ) {
-					if ( self.isOpen() ) {
-						self.closeNavigationDrawers();
-					} else {
-						self.openNavigationDrawer();
-					}
+					self.openNavigationDrawer();
 					ev.preventDefault();
 					// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
 				} );
@@ -109,12 +77,9 @@
 			$( document.body )
 				.toggleClass( 'navigation-enabled' )
 				.toggleClass( drawerType + '-navigation-enabled' );
-
-			this.emit( 'open' );
 		}
-	} );
+	};
 
 	module.exports = MainMenu;
 
-// eslint-disable-next-line no-restricted-properties
-}( mw.mobileFrontend ) );
+}() );
