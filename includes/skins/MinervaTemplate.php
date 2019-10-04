@@ -212,20 +212,14 @@ class MinervaTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Gets the main menu only on Special:MobileMenu.
-	 * On other pages the menu is rendered via JS.
+	 * Gets the main menu HTML.
 	 * @param array $data Data used to build the page
 	 * @return string
 	 */
 	protected function getMainMenuHtml( $data ) {
-		if ( $this->isSpecialMobileMenuPage ) {
-			$templateParser = new TemplateParser(
-				__DIR__ . '/../../resources/skins.minerva.scripts/menu/' );
+		$templateParser = new TemplateParser( __DIR__ . '/../../resources/skins.minerva.scripts/menu/' );
 
-			return $templateParser->processTemplate( 'menu', $data['mainMenu']['items'] );
-		}
-
-		return '';
+		return $templateParser->processTemplate( 'menu', $data['mainMenu']['items'] );
 	}
 
 	/**

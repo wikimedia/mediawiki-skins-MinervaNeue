@@ -13,6 +13,9 @@
 	 * @param {Object} options Configuration options
 	 */
 	function MainMenu( options ) {
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$( '#mw-mf-page-left' ).removeClass( 'navigation-drawer--loading' )
+			.addClass( 'navigation-drawer--enabled' );
 		this.activator = options.activator;
 		View.call( this, options );
 	}
@@ -58,11 +61,7 @@
 			$( this.activator )
 				.off( 'click' )
 				.on( 'click', function ( ev ) {
-					if ( self.isOpen() ) {
-						self.closeNavigationDrawers();
-					} else {
-						self.openNavigationDrawer();
-					}
+					self.openNavigationDrawer();
 					ev.preventDefault();
 					// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
 				} );
