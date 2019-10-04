@@ -9,17 +9,29 @@ module.exports = function () {
 	// eslint-disable-next-line no-restricted-properties
 	var M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
-		menus = require( './menu.js' );
+		skin = mobile.Skin.getSingleton(),
+		mainMenu = require( './menu.js' );
 
-	// loads lazy loading images
-	mobile.Skin.getSingleton();
-	// remove transparent-shield
-	// FIXME: Remove when transparent-shield has been removed from Mobilefrontend Skin.js
-	// eslint-disable-next-line no-jquery/no-global-selector
-	$( '.transparent-shield:not( .mw-mf-page-center__mask )' ).remove();
+	/**
+	 * Close navigation if skin is tapped
+	 * @param {JQuery.Event} ev
+	 * @private
+	 */
+	function onSkinClick( ev ) {
+		var $target = $( ev.target );
 
-	// setup main menu
-	menus.init();
+		// Make sure the menu is open and we are not clicking on the menu button
+		if (
+			mainMenu &&
+			mainMenu.isOpen() &&
+			// eslint-disable-next-line no-jquery/no-class-state
+			!$target.hasClass( 'main-menu-button' )
+		) {
+			mainMenu.closeNavigationDrawers();
+			ev.preventDefault();
+		}
+	}
+	skin.on( 'click', onSkinClick.bind( skin ) );
 
 	( function ( wgRedirectedFrom ) {
 		// If the user has been redirected, then show them a toast message (see
