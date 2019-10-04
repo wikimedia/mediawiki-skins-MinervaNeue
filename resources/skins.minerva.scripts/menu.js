@@ -12,36 +12,20 @@ var MainMenu = require( './menu/MainMenu.js' ),
  * @ignore
  */
 function createMainMenu() {
-	return new MainMenu( {
-		activator: '.header .main-menu-button'
-	} );
+	var options = mw.config.get( 'wgMinervaMenuData', {} );
+
+	options.activator = '.header .main-menu-button';
+
+	return new MainMenu( options );
 }
 
-/**
- * Wire up the main menu
- */
-function init() {
-	mainMenu.registerClickEvents();
-	/**
-	 * Close navigation if skin is tapped
-	 * @param {JQuery.Event} ev
-	 * @private
-	 */
-	function onSkinClick( ev ) {
-		mainMenu.closeNavigationDrawers();
-		ev.preventDefault();
-	}
-	// FIXME: This is for cached HTML and can be removed shortly.
-	// Ref: I3892afb5ed3df628e2845043cf3bbc22a9928921.
+$( function () {
 	// eslint-disable-next-line no-jquery/no-global-selector
-	if ( $( '.mw-mf-page-center__mask' ).length === 0 ) {
-		$( '<a>' ).addClass( 'mw-mf-page-center__mask' ).prependTo( '#mw-mf-page-center' );
+	if ( !$( '#mw-mf-page-left' ).find( '.menu' ).length ) {
+		// Now we have a main menu button register it.
+		mainMenu.registerClickEvents();
+		mainMenu.appendTo( '#mw-mf-page-left' );
 	}
-	// eslint-disable-next-line no-jquery/no-global-selector
-	$( '.mw-mf-page-center__mask' ).on( 'click', onSkinClick );
-}
+} );
 
-module.exports = {
-	mainMenu: mainMenu,
-	init: init
-};
+module.exports = mainMenu;

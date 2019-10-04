@@ -567,7 +567,9 @@
 			],
 			"templates": {
 				"badge.mustache": "includes/skins/userNotifications.mustache",
-				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache"
+				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache",
+				"menu.mustache": "resources/skins.minerva.scripts/menu/menu.mustache",
+				"menuGroup.mustache": "resources/skins.minerva.scripts/menu/menuGroup.mustache"
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/init.js",

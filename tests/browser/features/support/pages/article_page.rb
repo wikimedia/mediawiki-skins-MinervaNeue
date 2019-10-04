@@ -148,7 +148,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   # loader
   element(:content_wrapper, 'main')
   div(:content, id: 'bodyContent')
-  a(:transparent_shield, css: '.mw-mf-page-center__mask')
+  div(:transparent_shield, css: '.transparent-shield')
   # secondary menu
   ## languages
   a(:switch_language_page_action, css: '#page-actions .language-selector')
