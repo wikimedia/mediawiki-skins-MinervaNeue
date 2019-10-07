@@ -67,11 +67,6 @@ ul.mw-contributions-list li > * {
 	margin-right: 0.5em;
 }
 
-ul.mw-contributions-list li .mw-rollback-link {
-	float: right;
-	font-size: @font-size-minerva-small;
-}
-
 .mw-changeslist-line-inner:before,
 .mw-changeslist-line-inner:after {
 	.clearfix();
@@ -132,26 +127,36 @@ ul.mw-contributions-list li .mw-rollback-link {
 }
 
 // undo link, styled as button
-.mw-history-undo a, .mw-rollback-link a {
+.mw-history-undo, .mw-rollback-link {
+	font-size: initial;
+
+	a {
+		float: right;
+		background-color: @colorGray15;
+		color: @colorText;
+		text-decoration: none;
+		.mw-ui-button();
+		.mw-ui-button-states();
+		font-size: @font-size-minerva-smallest;
+
+		&:after {
+			.clearfix();
+		}
+	}
+}
+
+ul.mw-contributions-list li .mw-rollback-link {
 	float: right;
-	background-color: @colorGray15;
-	color: @colorText;
-	text-decoration: none;
-	.mw-ui-button();
-	.mw-ui-button-states();
+	font-size: initial;
+}
+
+// rollback edit link
+.mw-rollback-link a {
+	// separating rollback link from undo link.
+	margin-left: 1em;
 }
 
 .mw-revdelundel-link,
 .mw-tag-markers {
 	display: block;
-}
-
-/**
- * Button style rollback link, visible to admins.
- */
-a.mw-rollback-link {
-	.mw-ui-button();
-	font-size: @taglineFontSize;
-	float: left;
-	clear: both;
 }

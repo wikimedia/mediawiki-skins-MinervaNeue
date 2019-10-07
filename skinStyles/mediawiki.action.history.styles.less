@@ -137,13 +137,6 @@
 
 		// container for rollback, undo buttons
 		.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
-			float: right;
-			font-size: @font-size-minerva-small;
-
-			&:after {
-				.clearfix();
-			}
-
 			// removing parentheses around undo button
 			& > span:before {
 				content: '';
@@ -151,12 +144,6 @@
 
 			& > span:after {
 				content: '';
-			}
-
-			// rollback edit link
-			.mw-rollback-link a {
-				// separating rollback link from undo link.
-				margin-left: 1em;
 			}
 		}
 
