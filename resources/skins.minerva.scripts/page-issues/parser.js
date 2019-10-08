@@ -175,6 +175,8 @@
 			grouped: parseGroup( box ),
 			icon: new Icon( {
 				glyphPrefix: 'minerva',
+				// Only applies to the page issues overlay
+				additionalClassNames: 'mw-ui-icon-flush-top',
 				name: iconName( box, severity )
 			} )
 		};
