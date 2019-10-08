@@ -22,6 +22,7 @@ namespace MediaWiki\Minerva\Permissions;
 use Config;
 use ConfigException;
 use ContentHandler;
+use IContextSource;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\PermissionManager;
@@ -69,30 +70,35 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 
 	/**
 	 * Initialize internal Minerva Permissions system
-	 * @param Title $title Current page title
-	 * @param Config $config Minerva config
-	 * @param User $user Currently logged in user
 	 * @param SkinOptions $skinOptions Skin options`
-	 * @param ContentHandler $contentHandler
 	 * @param LanguagesHelper $languagesHelper
 	 * @param PermissionManager $permissionManager
 	 */
 	public function __construct(
-		Title $title,
-		Config $config,
-		User $user,
 		SkinOptions $skinOptions,
-		ContentHandler $contentHandler,
 		LanguagesHelper $languagesHelper,
 		PermissionManager $permissionManager
 	) {
-		$this->title = $title;
-		$this->config = $config;
-		$this->user = $user;
 		$this->skinOptions = $skinOptions;
-		$this->contentHandler = $contentHandler;
 		$this->languagesHelper = $languagesHelper;
 		$this->permissionManager = $permissionManager;
+	}
+
+	/**
+	 * @param IContextSource $context
+	 * @param ContentHandler|null $contentHandler (for unit tests only)
+	 * @return $this
+	 */
+	public function setContext( IContextSource $context, ContentHandler $contentHandler = null ) {
+		$this->title = $context->getTitle();
+		$this->config = $context->getConfig();
+		$this->user = $context->getUser();
+		// Title may be undefined in certain contexts (T179833)
+		// TODO: Check if this is still true if we always pass a context instead of using global one
+		if ( $this->title ) {
+			$this->contentHandler = $contentHandler ?: ContentHandler::getForTitle( $this->title );
+		}
+		return $this;
 	}
 
 	/**
@@ -118,6 +124,10 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 */
 	public function isAllowed( $action ) {
 		global $wgHideInterlanguageLinks;
+
+		if ( !$this->title ) {
+			return false;
+		}
 
 		// T206406: Enable "Talk" or "Discussion" button on Main page, also, not forgetting
 		// the "switch-language" button. But disable "edit" and "watch" actions.
@@ -171,6 +181,10 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @inheritDoc
 	 */
 	public function isTalkAllowed() {
+		if ( !$this->title ) {
+			return false;
+		}
+
 		return $this->isAllowed( self::TALK ) &&
 			   ( $this->title->isTalkPage() || $this->title->canHaveTalkPage() ) &&
 			   $this->user->isLoggedIn();
@@ -182,7 +196,8 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @return bool
 	 */
 	protected function isCurrentPageContentModelEditable() {
-		return $this->contentHandler->supportsDirectEditing()
+		return $this->contentHandler
+			&& $this->contentHandler->supportsDirectEditing()
 			&& $this->contentHandler->supportsDirectApiEditing();
 	}
 
@@ -192,6 +207,10 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @return bool
 	 */
 	private function canEditOrCreate() {
+		if ( !$this->title ) {
+			return false;
+		}
+
 		$userQuickEditCheck =
 			$this->permissionManager->userCan(
 				'edit', $this->user, $this->title, PermissionManager::RIGOR_QUICK

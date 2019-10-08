@@ -67,7 +67,8 @@ class SkinMinerva extends SkinTemplate {
 	private function getPermissions(): IMinervaPagePermissions {
 		if ( $this->permissions === null ) {
 			$this->permissions = MediaWikiServices::getInstance()
-				->getService( 'Minerva.Permissions' );
+				->getService( 'Minerva.Permissions' )
+				->setContext( $this->getContext() );
 		}
 		return $this->permissions;
 	}

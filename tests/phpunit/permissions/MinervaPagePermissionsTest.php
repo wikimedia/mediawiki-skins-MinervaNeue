@@ -9,6 +9,7 @@ use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWikiTestCase;
+use RequestContext;
 use Title;
 use User;
 
@@ -46,20 +47,21 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 			$skinOptions->setMultiple( $options );
 		}
 
-		return new MinervaPagePermissions(
-			$title,
-			new \HashConfig( [
-				'MinervaPageActions' => $actions,
-				'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton
-			] ),
-			$user,
+		$context = new RequestContext();
+		$context->setTitle( $title );
+		$context->setConfig( new \HashConfig( [
+			'MinervaPageActions' => $actions,
+			'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton
+		] ) );
+		$context->setUser( $user );
+
+		return ( new MinervaPagePermissions(
 			$skinOptions,
-			$contentHandler,
 			$languageHelper,
 			$this->getMockBuilder( PermissionManager::class )
 				->disableOriginalConstructor()
 				->getMock()
-		);
+		) )->setContext( $context, $contentHandler );
 	}
 
 	/**

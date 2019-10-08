@@ -30,7 +30,6 @@ use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
-use MediaWiki\Minerva\Permissions\MinervaNoPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
@@ -132,24 +131,13 @@ return [
 		return new SkinOptions();
 	},
 	'Minerva.Permissions' => function ( MediaWikiServices $services ): IMinervaPagePermissions {
-		$context = RequestContext::getMain();
-		$title = $context->getTitle();
-
-		// Title may be undefined in certain contexts (T179833)
-		if ( $title ) {
-			$contentHandler = ContentHandler::getForTitle( $title );
-
-			return new MinervaPagePermissions(
-				$context->getTitle(),
-				$context->getConfig(),
-				$context->getUser(),
-				$services->getService( 'Minerva.SkinOptions' ),
-				$contentHandler,
-				$services->getService( 'Minerva.LanguagesHelper' ),
-				$services->getPermissionManager()
-			);
-		} else {
-			return new MinervaNoPagePermissions();
-		}
+		$permissions = new MinervaPagePermissions(
+			$services->getService( 'Minerva.SkinOptions' ),
+			$services->getService( 'Minerva.LanguagesHelper' ),
+			$services->getPermissionManager()
+		);
+		// TODO: This should not be allowed, this is basically global $wgTitle and $wgUser.
+		$permissions->setContext( RequestContext::getMain() );
+		return $permissions;
 	}
 ];
