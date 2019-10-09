@@ -310,110 +310,27 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Returns, if Extension:Echo should be used.
-	 * @return bool
-	 */
-	protected function useEcho() {
-		return ExtensionRegistry::getInstance()->isLoaded( 'Echo' );
-	}
-
-	/**
-	 * Get Echo notification target user
-	 * @param User $user
-	 * @return MWEchoNotifUser
-	 */
-	protected function getEchoNotifUser( User $user ) {
-		return MWEchoNotifUser::newFromUser( $user );
-	}
-
-	/**
-	 * Get the last time user has seen particular type of notifications.
-	 * @param User $user
-	 * @param string $type Type of seen time to get
-	 * @return string|bool Timestamp in TS_ISO_8601 format, or false if no stored time
-	 */
-	protected function getEchoSeenTime( User $user, $type = 'all' ) {
-		return EchoSeenTime::newFromUser( $user )->getTime( $type, TS_ISO_8601 );
-	}
-
-	/**
-	 * Get formatted Echo notification count
-	 * @param int $count
-	 * @return string
-	 */
-	protected function getFormattedEchoNotificationCount( $count ) {
-		return EchoNotificationController::formatNotificationCount( $count );
-	}
-
-	/**
 	 * Prepares the user button.
 	 * @param QuickTemplate $tpl
 	 * @param string $newTalks New talk page messages for the current user
 	 */
 	protected function prepareUserNotificationsButton( QuickTemplate $tpl, $newTalks ) {
-		// Set user button to empty string by default
-		$tpl->set( 'userNotificationsData', '' );
-		$notificationsTitle = '';
-		$count = 0;
-		$countLabel = '';
-		$isZero = true;
-		$hasUnseen = false;
-
 		$user = $this->getUser();
 		$currentTitle = $this->getTitle();
+		$notificationsMsg = $this->msg( 'mobile-frontend-user-button-tooltip' )->text();
+		$notificationIconClass = MinervaUI::iconClass( 'bellOutline-base20',
+			'element', '', 'wikimedia' );
 
-		// If Echo is available, the user is logged in, and they are not already on the
-		// notifications archive, show the notifications icon in the header.
-		if ( $this->useEcho() && $user->isLoggedIn() ) {
-			$notificationsTitle = SpecialPage::getTitleFor( 'Notifications' );
-			if ( $currentTitle->equals( $notificationsTitle ) ) {
-				// Don't show the secondary button at all
-				$notificationsTitle = null;
-			} else {
-				$notificationsMsg = $this->msg( 'mobile-frontend-user-button-tooltip' )->text();
-
-				$notifUser = $this->getEchoNotifUser( $user );
-				$count = $notifUser->getNotificationCount();
-
-				$seenAlertTime = $this->getEchoSeenTime( $user, 'alert' );
-				$seenMsgTime = $this->getEchoSeenTime( $user, 'message' );
-
-				$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
-				$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
-
-				$isZero = $count === 0;
-				$hasUnseen = $count > 0 &&
-					(
-						$seenMsgTime !== false && $msgNotificationTimestamp !== false &&
-						$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 )
-					) ||
-					(
-						$seenAlertTime !== false && $alertNotificationTimestamp !== false &&
-						$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 )
-					);
-
-				$countLabel = $this->getFormattedEchoNotificationCount( $count );
-			}
-		} elseif ( !empty( $newTalks ) ) {
-			$notificationsTitle = SpecialPage::getTitleFor( 'Mytalk' );
-			$notificationsMsg = $this->msg( 'mobile-frontend-user-newmessages' )->text();
-		}
-
-		if ( $notificationsTitle ) {
-			$url = $notificationsTitle->getLocalURL(
-				[ 'returnto' => $currentTitle->getPrefixedText() ] );
-
-			$tpl->set( 'userNotificationsData', [
-				'notificationIconClass' => MinervaUI::iconClass( 'bellOutline-base20',
-					'element', '', 'wikimedia' ),
-				'title' => $notificationsMsg,
-				'url' => $url,
-				'notificationCountRaw' => $count,
-				'notificationCountString' => $countLabel,
-				'isNotificationCountZero' => $isZero,
-				'hasNotifications' => $hasUnseen,
-				'hasUnseenNotifications' => $hasUnseen
-			] );
+		if ( $user->isLoggedIn() ) {
+			$badge = Html::element( 'a', [
+				'class' => $notificationIconClass,
+				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalUrl(
+					[ 'returnto' => $currentTitle->getPrefixedText() ]
+				),
+			], $notificationsMsg );
+			Hooks::run( 'SkinMinervaReplaceNotificationsBadge',
+				[ $user, $currentTitle, &$badge ] );
+			$tpl->set( 'userNotificationsHTML', $badge );
 		}
 	}
 	/**

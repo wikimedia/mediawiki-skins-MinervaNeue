@@ -23,8 +23,8 @@
 				<nav class="minerva-user-navigation" aria-labelledby="minerva-user-menu-toggle"> {{! See ToggleList's toggleID. }}
 					<div>{{{searchButton}}}</div>
 					{{^isAnon}}
-							<div class="minerva-user-notifications">
-								{{#userNotificationsData}}{{>userNotifications}}{{/userNotificationsData}}
+							<div class="minerva-user-notifications" id="pt-notifications-alert">
+								{{{userNotificationsHTML}}}
 							</div>
 					{{/isAnon}}
 					{{#userMenuHTML}}{{{userMenuHTML}}}{{/userMenuHTML}}

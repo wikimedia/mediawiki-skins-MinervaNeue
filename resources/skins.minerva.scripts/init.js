@@ -7,7 +7,6 @@
 		Icon = mobile.Icon,
 		time = mobile.time,
 		errorLogging = require( './errorLogging.js' ),
-		notifications = require( './notifications.js' ),
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
 		search = require( './search.js' ),
@@ -370,10 +369,6 @@
 		if ( !currentPage.isMissing ) {
 			issues.init( overlayManager, currentPageHTMLParser );
 		}
-		// If Echo is installed (using config as a proxy) and user is logged in init notifications
-		if ( !mw.user.isAnon() && mw.config.get( 'wgEchoMaxNotificationCount' ) !== undefined ) {
-			notifications();
-		}
 
 		mw.requestIdleCallback( errorLogging );
 		// deprecation notices
@@ -406,3 +401,8 @@
 
 // eslint-disable-next-line no-restricted-properties
 }( mw.mobileFrontend ) );
+
+module.exports = {
+	// Version number allows breaking changes to be detected by other extensions
+	VERSION: 1
+};
