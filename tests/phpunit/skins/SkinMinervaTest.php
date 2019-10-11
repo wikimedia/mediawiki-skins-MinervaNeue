@@ -19,12 +19,15 @@ class EchoNotifUser {
 		$this->lastUnreadMessageTime = $lastUnreadMessageTime;
 		$this->echoNotificationCount = $echoNotificationCount;
 	}
+
 	public function getLastUnreadAlertTime() {
 		return $this->lastUnreadAlertTime;
 	}
+
 	public function getLastUnreadMessageTime() {
 		return $this->lastUnreadMessageTime;
 	}
+
 	public function getNotificationCount() {
 		return $this->echoNotificationCount;
 	}

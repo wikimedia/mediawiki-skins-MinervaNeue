@@ -23,7 +23,7 @@ use Html;
 use MessageLocalizer;
 use MinervaUI;
 use SpecialPage;
-use \MediaWiki\Special\SpecialPageFactory;
+use MediaWiki\Special\SpecialPageFactory;
 
 /**
  * Director responsible for building Main Menu

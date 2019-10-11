@@ -71,6 +71,7 @@ class ToolbarBuilder {
 	 * @var LanguagesHelper
 	 */
 	private $languagesHelper;
+
 	/**
 	 * Build Group containing icons for toolbar
 	 * @param Title $title Article title user is currently browsing

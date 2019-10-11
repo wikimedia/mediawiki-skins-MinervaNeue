@@ -333,6 +333,7 @@ class SkinMinerva extends SkinTemplate {
 			$tpl->set( 'userNotificationsHTML', $badge );
 		}
 	}
+
 	/**
 	 * Rewrites the language list so that it cannot be contaminated by other extensions with things
 	 * other than languages
@@ -481,6 +482,7 @@ class SkinMinerva extends SkinTemplate {
 		$attrs[ 'class' ] = 'tagline';
 		return Html::element( 'div', $attrs, $tagline );
 	}
+
 	/**
 	 * Returns the HTML representing the heading.
 	 * @return string HTML for header
