@@ -763,8 +763,6 @@ class SkinMinerva extends SkinTemplate {
 			$modules['styles']['content'] = [];
 		}
 		$modules['styles']['core'] = $this->getSkinStyles();
-		// dequeue default watch module (not needed, no watchstar in this skin)
-		$modules['watch'] = [];
 		// disable default skin search modules
 		$modules['search'] = [];
 

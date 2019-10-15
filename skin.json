@@ -561,6 +561,7 @@
 				"mobile-frontend-editor-redlink-leave",
 				"mobile-frontend-editor-redlink-explain",
 				"minerva-download",
+				"minerva-watchlist-cta",
 				"mobile-frontend-redirected-from"
 			],
 			"styles": [
@@ -574,6 +575,7 @@
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/init.js",
+				"resources/skins.minerva.scripts/ctaDrawers.js",
 				"resources/skins.minerva.scripts/menu/MainMenu.js",
 				"resources/skins.minerva.scripts/menu.js",
 				"resources/skins.minerva.scripts/errorLogging.js",

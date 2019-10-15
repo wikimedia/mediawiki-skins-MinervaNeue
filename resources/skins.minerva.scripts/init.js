@@ -17,10 +17,8 @@
 		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
 		TabScroll = require( './TabScroll.js' ),
 		router = require( 'mediawiki.router' ),
-		CtaDrawer = mobile.CtaDrawer,
+		ctaDrawers = require( './ctaDrawers.js' ),
 		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
-		Button = mobile.Button,
-		Anchor = mobile.Anchor,
 		overlayManager = mobile.OverlayManager.getSingleton(),
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
@@ -288,53 +286,10 @@
 		} );
 	}
 
-	/**
-	 * Initialize red links call-to-action
-	 *
-	 * Upon clicking a red link, show an interstitial CTA explaining that the page doesn't exist
-	 * with a button to create it, rather than directly navigate to the edit form.
-	 *
-	 * Special case T201339: following a red link to a user or user talk page should not prompt for
-	 * its creation. The reasoning is that user pages should be created by their owners and it's far
-	 * more common that non-owners follow a user's red linked user page to consider their
-	 * contributions, account age, or other activity.
-	 *
-	 * For example, a user adds a section to a Talk page and signs their contribution (which creates
-	 * a link to their user page whether exists or not). If the user page does not exist, that link
-	 * will be red. In both cases, another user follows this link, not to edit create a page for
-	 * that user but to obtain information on them.
-	 *
-	 * @ignore
-	 */
-	function initRedlinksCta() {
-		$redLinks.filter( function ( _, element ) {
-			// Filter out local User namespace pages.
-			return !isUserUri( element.href );
-		} ).on( 'click', function ( ev ) {
-			var drawerOptions = {
-					progressiveButton: new Button( {
-						progressive: true,
-						label: mw.msg( 'mobile-frontend-editor-redlink-create' ),
-						href: $( this ).attr( 'href' )
-					} ).options,
-					actionAnchor: new Anchor( {
-						progressive: true,
-						label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
-						additionalClassNames: 'cancel'
-					} ).options,
-					content: mw.msg( 'mobile-frontend-editor-redlink-explain' )
-				},
-				drawer = new CtaDrawer( drawerOptions );
-
-			// use preventDefault() and not return false to close other open
-			// drawers or anything else.
-			ev.preventDefault();
-			drawer.show();
-		} );
-	}
-
 	$( function () {
 		var
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$watch = $( '#page-actions-watch' ),
 			toolbarElement = document.querySelector( Toolbar.selector ),
 			userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
 		// Init:
@@ -361,8 +316,6 @@
 		if ( userMenu ) {
 			ToggleList.bind( window, userMenu );
 		}
-		initRedlinksCta();
-		initUserRedLinks();
 		TabScroll.initTabsScrollPosition();
 		// Setup the issues banner on the page
 		// Pages which dont exist (id 0) cannot have issues
@@ -395,8 +348,19 @@
 
 		// wire up watch icon if necessary
 		if ( permissions.watch ) {
-			require( './watchstar.js' )( mobile );
+			if ( mw.user.isAnon() ) {
+				ctaDrawers.initWatchstarCta( $watch );
+			} else {
+				require( './watchstar.js' )( $watch );
+			}
 		}
+		ctaDrawers.initRedlinksCta(
+			$redLinks.filter( function ( _, element ) {
+				// Filter out local User namespace pages.
+				return !isUserUri( element.href );
+			} )
+		);
+		initUserRedLinks();
 	} );
 
 // eslint-disable-next-line no-restricted-properties

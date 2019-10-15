@@ -17,7 +17,7 @@ describe( 'Manage Watchlist', () => {
 	it( 'Add an article to the watchlist', () => {
 		iAmViewingAnUnwatchedPage();
 		iClickTheWatchstar();
-		iShouldSeeAToastNotificationWithMessage( 'Added' );
+		iShouldSeeAToastNotificationWithMessage( 'added' );
 		theWatchstarShouldBeSelected();
 	} );
 } );
