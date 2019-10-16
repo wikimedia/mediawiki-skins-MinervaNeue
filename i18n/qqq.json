@@ -13,8 +13,8 @@
 			"Xiplus"
 		]
 	},
-	"minerva-watchlist-cta": "Appears when you click watchlist icon when not logged in. First link is to login form, 2nd to sign up form. Links are created in JavaScript.",
 	"minerva-last-modified-date": "Text that displays the date the page was last modified. Parameters:\n* $1 - date\n* $2 - time\n{{Related|Mobile-frontend-last-modified}}",
+	"minerva-watchlist-cta": "Appears when you click watchlist icon when not logged in. First link is to login form, 2nd to sign up form. Links are created in JavaScript.",
 	"minerva-talk-add-topic": "Label for button which shows at bottom of talk pages in mobile view prompting addition of topic",
 	"mobile-frontend-cookies-required": "Error message shown when user attempts to switch site modes and cookies are not enabled.",
 	"mobile-frontend-editor-edit": "Caption for the link showing edit form. (In the imperative mood)\n{{Identical|Edit}}",
