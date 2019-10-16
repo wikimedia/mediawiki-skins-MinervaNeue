@@ -21,8 +21,8 @@ const iClickTheWatchstar = () => {
 
 const iClickTheUnwatchStar = () => {
 	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
-	ArticlePage.watch_element.waitForExist();
-	ArticlePage.watch_element.click();
+	ArticlePage.watched_element.waitForExist();
+	ArticlePage.watched_element.click();
 };
 
 module.exports = {
