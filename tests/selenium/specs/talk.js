@@ -1,4 +1,4 @@
-const { iAmOnAPageWithNoTalkTopics } = require( '../features/step_definitions/create_page_api_steps' ),
+const { iAmOnATalkPageWithNoTalkTopics } = require( '../features/step_definitions/create_page_api_steps' ),
 	{
 		pageExists, iAmOnAPageThatDoesNotExist,
 		iAmUsingTheMobileSite,
@@ -6,12 +6,13 @@ const { iAmOnAPageWithNoTalkTopics } = require( '../features/step_definitions/cr
 		iAmOnPage
 	} = require( '../features/step_definitions/common_steps' ),
 	{
-		iClickTheTalkButton,
+		iClickTheAddTalkButton,
 		iAddATopic,
 		iSeeTheTalkOverlay,
 		thereShouldBeASaveDiscussionButton,
 		noTopicIsPresent,
 		thereShouldBeAnAddDiscussionButton,
+		thereShouldBeATalkButton,
 		thereShouldBeNoTalkButton,
 		iShouldSeeTheTopicInTheListOfTopics
 	} = require( '../features/step_definitions/talk_steps' );
@@ -28,50 +29,46 @@ describe( 'Talk', () => {
 		iAmUsingTheMobileSite();
 	} );
 
-	it( 'Add discussion on talk page not possible as logged out user', () => {
+	it( 'Talk button not visible as logged out user', () => {
 		iAmOnPage( 'Selenium talk test' );
 		thereShouldBeNoTalkButton();
 	} );
 
 	// @login
-	it( 'Talk on a page that does exist', () => {
+	it( 'Talk button visible as logged in user', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnPage( 'Selenium talk test' );
-		iClickTheTalkButton();
-		iSeeTheTalkOverlay();
+		thereShouldBeATalkButton();
 	} );
 
 	// @login
 	it( 'Talk on a page that doesn\'t exist (bug 64268)', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnAPageThatDoesNotExist();
-		iClickTheTalkButton();
-		iSeeTheTalkOverlay();
+		thereShouldBeATalkButton();
+	} );
+
+	// @smoke @login
+	it( 'Add discussion button shows on talk pages for logged in users', () => {
+		iAmLoggedIntoTheMobileWebsite();
+		iAmOnPage( 'Talk:Selenium talk test' );
+		thereShouldBeAnAddDiscussionButton();
 	} );
 
 	// @smoke @login
 	it( 'Add discussion for talk page possible as logged in user', () => {
 		iAmLoggedIntoTheMobileWebsite();
-		iAmOnPage( 'Selenium talk test' );
-		iClickTheTalkButton();
-		thereShouldBeAnAddDiscussionButton();
-	} );
-
-	// @smoke @login
-	it( 'Add topic button shows on talk pages for logged in users', () => {
-		iAmLoggedIntoTheMobileWebsite();
-		iAmOnAPageThatDoesNotExist();
 		iAmOnPage( 'Talk:Selenium talk test' );
-		iClickTheTalkButton();
+		iClickTheAddTalkButton();
 		thereShouldBeASaveDiscussionButton();
 	} );
 
-	it( 'A newly created topic appears in the list of topics immediately', () => {
+	it( 'A newly created topic appears in the list of topics', () => {
 		iAmLoggedIntoTheMobileWebsite();
-		iAmOnAPageWithNoTalkTopics();
-		iClickTheTalkButton();
-		iSeeTheTalkOverlay();
+		iAmOnATalkPageWithNoTalkTopics();
 		noTopicIsPresent();
+		iClickTheAddTalkButton();
+		iSeeTheTalkOverlay();
 		iAddATopic( 'New topic' );
 		iShouldSeeTheTopicInTheListOfTopics( 'New topic' );
 	} );

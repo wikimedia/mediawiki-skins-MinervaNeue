@@ -438,6 +438,15 @@
 				"resources/skins.minerva.userpage.styles/userpage.less"
 			]
 		},
+		"skins.minerva.talk.styles": {
+			"targets": [
+				"mobile",
+				"desktop"
+			],
+			"styles": [
+				"resources/skins.minerva.talk.styles/talkpage.less"
+			]
+		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
@@ -574,7 +583,10 @@
 				"mobile-frontend-editor-redlink-explain",
 				"minerva-download",
 				"minerva-watchlist-cta",
-				"mobile-frontend-redirected-from"
+				"mobile-frontend-redirected-from",
+				"minerva-talk-full-page",
+				"minerva-talk-topic-feedback",
+				"minerva-talk-reply-success"
 			],
 			"styles": [
 				"resources/skins.minerva.scripts/styles.less",

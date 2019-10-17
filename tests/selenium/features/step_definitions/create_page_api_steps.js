@@ -107,17 +107,17 @@ const iAmViewingAnUnwatchedPage = () => {
 	iAmOnPage( title );
 };
 
-const iAmOnAPageWithNoTalkTopics = () => {
+const iAmOnATalkPageWithNoTalkTopics = () => {
 	const title = `Selenium talk test ${new Date()}`;
 
 	createPage( title, 'Selenium' );
-	iAmOnPage( title );
+	iAmOnPage( `Talk:${title}` );
 };
 
 module.exports = {
 	waitForPropagation,
 	iAmOnAPageThatHasTheFollowingEdits,
-	iAmOnAPageWithNoTalkTopics,
+	iAmOnATalkPageWithNoTalkTopics,
 	iAmViewingAWatchedPage,
 	iAmViewingAnUnwatchedPage,
 	iAmInAWikiThatHasCategories,

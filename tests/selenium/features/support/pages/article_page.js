@@ -12,6 +12,10 @@ class ArticlePage extends MinervaPage {
 
 	get watch_element() { return $( '#ca-watch' ); }
 	get talk_element() { return $( '.talk ' ); }
+	get talk_add_element() { return $( '.minerva-talk-add-button' ); }
+	get first_section_element() {
+		return $( '.section-heading' );
+	}
 	get watched_element() { return $( '.mw-ui-icon-wikimedia-unStar-progressive, .mw-ui-icon-mf-watched' ); }
 	get menu_button_element() { return $( '#mw-mf-main-menu-button' ); }
 	get search_icon_element() { return $( '#searchIcon' ); }

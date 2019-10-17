@@ -484,6 +484,16 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * @return bool Whether or not current title is a Talk page with the default
+	 * action ('view')
+	 */
+	private function isTalkPageWithViewAction() {
+		$title = $this->getTitle();
+
+		return $title->isTalkPage() && Action::getActionName( $this->getContext() ) === "view";
+	}
+
+	/**
 	 * Returns the HTML representing the heading.
 	 * @return string HTML for header
 	 */
@@ -497,6 +507,30 @@ class SkinMinerva extends SkinTemplate {
 		return Html::rawElement( 'h1', [ 'id' => 'section_0' ], $heading );
 	}
 
+	private function getTalkPagePostHeadingHtml() {
+		$sectionCount = 0;
+		$title = $this->getTitle();
+
+		if ( $this->canUseWikiPage() ) {
+			$wikiPage = $this->getWikiPage();
+			$parserOptions = $wikiPage->makeParserOptions( $this->getContext() );
+			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
+			$sectionCount = $parserOutput ? count( $parserOutput->getSections() ) : 0;
+		}
+
+		$message = $sectionCount > 0 ? wfMessage( 'minerva-talk-explained' )
+			: wfMessage( 'minerva-talk-explained-empty' );
+		$html = Html::element( 'div', [ 'class' => 'minerva-talk-content-explained' ], $message->text() );
+
+		$addTopicButton = $this->getTalkButton( $title, wfMessage(
+			'minerva-talk-add-topic' )->text(), true );
+		if ( $this->getPermissions()->isTalkAllowed() ) {
+			$html = Html::element( 'a', $addTopicButton['attributes'], $addTopicButton['label'] ) . $html;
+		}
+
+		return $html;
+	}
+
 	/**
 	 * Create and prepare header and footer content
 	 * @param BaseTemplate $tpl
@@ -506,6 +540,7 @@ class SkinMinerva extends SkinTemplate {
 		$user = $this->getUser();
 		$out = $this->getOutput();
 		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
+
 		if ( $this->getUserPageHelper()->isUserPage() &&
 			 // when overflow menu is visible, we don't need to build secondary options
 			 // as most of options are visible on Toolbar/Overflow menu
@@ -536,6 +571,10 @@ class SkinMinerva extends SkinTemplate {
 				$pageTitle = '';
 			}
 			$out->setPageTitle( $pageTitle );
+		} elseif ( $this->isTalkPageWithViewAction() ) {
+			// We only want the simplified talk page to show for the view action of the
+			// talk (e.g. not history action)
+			$tpl->set( 'postheadinghtml', $this->getTalkPagePostHeadingHtml() );
 		}
 
 		if ( $this->canUseWikiPage() && $this->getWikiPage()->exists() ) {
@@ -593,15 +632,15 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Returns an array with details for a talk button.
 	 * @param Title $talkTitle Title object of the talk page
-	 * @param array $talkButton Array with data of desktop talk button
+	 * @param string $label Button label
 	 * @param bool $addSection (optional) when added the talk button will render
 	 *  as an add topic button. Defaults to false.
 	 * @return array
 	 */
-	protected function getTalkButton( $talkTitle, $talkButton, $addSection = false ) {
+	protected function getTalkButton( $talkTitle, $label, $addSection = false ) {
 		if ( $addSection ) {
 			$params = [ 'action' => 'edit', 'section' => 'new' ];
-			$className = 'talk continue add';
+			$className = 'minerva-talk-add-button ' . MinervaUI::buttonClass( 'progressive', 'button' );
 		} else {
 			$params = [];
 			$className = 'talk';
@@ -613,7 +652,7 @@ class SkinMinerva extends SkinTemplate {
 				'data-title' => $talkTitle->getFullText(),
 				'class' => $className,
 			],
-			'label' => $talkButton['text'],
+			'label' => $label,
 		];
 	}
 
@@ -645,16 +684,16 @@ class SkinMinerva extends SkinTemplate {
 		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 		$buttons = [];
 		// always add a button to link to the talk page
-		// in beta it will be the entry point for the talk overlay feature,
-		// in stable it will link to the wikitext talk page
+		// it will link to the wikitext talk page
 		$title = $this->getTitle();
 		$subjectPage = Title::newFromLinkTarget( $namespaceInfo->getSubjectPage( $title ) );
 		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
-			$subjectPage->isMainPage() || $title->isTalkPage();
-		$namespaces = $tpl->data['content_navigation']['namespaces'];
-		if ( !$this->getUserPageHelper()->isUserPage()
-			 && $this->getPermissions()->isTalkAllowed() && $talkAtBottom
+			$subjectPage->isMainPage();
+		if ( !$this->getUserPageHelper()->isUserPage() &&
+			$this->getPermissions()->isTalkAllowed() && $talkAtBottom &&
+			!$this->isTalkPageWithViewAction()
 		) {
+			$namespaces = $tpl->data['content_navigation']['namespaces'];
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
 			$talkId = $subjectId === 'main' ? 'talk' : "{$subjectId}_talk";
@@ -663,12 +702,7 @@ class SkinMinerva extends SkinTemplate {
 				$talkButton = $namespaces[$talkId];
 				$talkTitle = Title::newFromLinkTarget( $namespaceInfo->getTalkPage( $title ) );
 
-				if ( $title->isTalkPage() ) {
-					$talkButton['text'] = wfMessage( 'minerva-talk-add-topic' );
-					$buttons['talk'] = $this->getTalkButton( $title, $talkButton, true );
-				} else {
-					$buttons['talk'] = $this->getTalkButton( $talkTitle, $talkButton );
-				}
+				$buttons['talk'] = $this->getTalkButton( $talkTitle, $talkButton['text'] );
 			}
 		}
 
@@ -794,6 +828,13 @@ class SkinMinerva extends SkinTemplate {
 			$classes .= ' minerva--history-page-action-enabled';
 		}
 
+		if (
+			// Class is used when page actions is modified to contain more elements
+			$this->isTalkPageWithViewAction()
+		) {
+			$classes .= ' skin-minerva--talk-simplified';
+		}
+
 		$bodyAttrs[ 'class' ] .= ' ' . $classes;
 	}
 
@@ -823,7 +864,10 @@ class SkinMinerva extends SkinTemplate {
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
 			$styles[] = 'skins.minerva.userpage.icons';
+		} elseif ( $this->isTalkPageWithViewAction() ) {
+			$styles[] = 'skins.minerva.talk.styles';
 		}
+
 		if ( $this->getUser()->isLoggedIn() ) {
 			$styles[] = 'skins.minerva.loggedin.styles';
 			$styles[] = 'skins.minerva.icons.loggedin';
