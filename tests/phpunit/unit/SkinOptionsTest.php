@@ -3,6 +3,7 @@
 namespace Tests\MediaWiki\Minerva;
 
 use MediaWiki\Minerva\SkinOptions;
+use OutOfBoundsException;
 
 /**
  * Class SkinMinervaTest
@@ -50,19 +51,19 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::get
-	 * @expectedException \OutOfBoundsException
 	 */
 	public function testGettingUnknownKeyShouldThrowException() {
 		$options = new SkinOptions();
+		$this->expectException( OutOfBoundsException::class );
 		$options->get( 'non_existing_key' );
 	}
 
 	/**
 	 * @covers ::get
-	 * @expectedException \OutOfBoundsException
 	*/
 	public function testSettingUnknownKeyShouldThrowException() {
 		$options = new SkinOptions();
+		$this->expectException( OutOfBoundsException::class );
 		$options->setMultiple( [
 			'non_existing_key' => 1
 		] );

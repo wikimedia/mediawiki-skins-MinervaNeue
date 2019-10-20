@@ -2,6 +2,7 @@
 
 namespace Tests\MediaWiki\Minerva\Menu;
 
+use DomainException;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 
@@ -112,14 +113,14 @@ class GroupTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @expectedException \DomainException
-	 * @expectedExceptionMessage The "home" entry doesn't exist.
 	 * @covers ::insertAfter
 	 * @covers ::search
 	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertAfterWhenTargetEntryDoesntExist() {
 		$menu = new Group();
+		$this->expectException( DomainException::class );
+		$this->expectExceptionMessage( 'The "home" entry doesn\'t exist.' );
 		$menu->insertAfter( 'home', 'nearby' )
 			->addComponent(
 				$this->nearbyComponent['text'],
@@ -129,25 +130,25 @@ class GroupTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @expectedException \DomainException
-	 * @expectedExceptionMessage The "car" entry already exists.
 	 * @covers ::insertAfter
 	 */
 	public function testInsertAfterWithAnEntryWithAnExistingName() {
 		$menu = new Group();
 		$menu->insert( 'home' );
 		$menu->insert( 'car' );
+		$this->expectException( DomainException::class );
+		$this->expectExceptionMessage( 'The "car" entry already exists.' );
 		$menu->insertAfter( 'home', 'car' );
 	}
 
 	/**
-	 * @expectedException \DomainException
-	 * @expectedExceptionMessage The "home" entry already exists.
 	 * @covers ::insert
 	 */
 	public function testInsertingAnEntryWithAnExistingName() {
 		$menu = new Group();
 		$menu->insert( 'home' );
+		$this->expectException( DomainException::class );
+		$this->expectExceptionMessage( 'The "home" entry already exists.' );
 		$menu->insert( 'home' );
 	}
 
@@ -254,10 +255,10 @@ class GroupTest extends \MediaWikiTestCase {
 	/**
 	 * @covers ::getEntryByName
 	 * @covers ::search
-	 * @expectedException \DomainException
 	 */
 	public function testGetEntryByNameException() {
 		$menu = new Group();
+		$this->expectException( DomainException::class );
 		$menu->getEntryByName( 'home' );
 	}
 
