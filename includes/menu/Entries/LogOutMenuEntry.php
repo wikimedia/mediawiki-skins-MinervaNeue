@@ -36,4 +36,5 @@ final class LogOutMenuEntry extends SingleMenuEntry {
 		$this->trackClicks( 'logout' );
 		$this->setIcon( 'logout', $iconType );
 	}
+
 }

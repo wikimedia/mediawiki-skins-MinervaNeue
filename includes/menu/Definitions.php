@@ -325,13 +325,10 @@ final class Definitions {
 	private function newLogInOutQuery( array $returnToQuery ): array {
 		$ret = [];
 		$title = $this->context->getTitle();
-		$user = $this->user;
 		if ( $title && !$title->isSpecial( 'Userlogin' ) ) {
 			$ret[ 'returnto' ] = $title->getPrefixedText();
 		}
-		if ( $user && $user->isLoggedIn() ) {
-			$ret['logoutToken'] = $user->getEditToken( 'logoutToken', $this->context->getRequest() );
-		} else {
+		if ( $this->user && $this->user->isAnon() ) {
 			// unset campaign on login link so as not to interfere with A/B tests
 			unset( $returnToQuery['campaign'] );
 		}

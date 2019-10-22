@@ -590,7 +590,9 @@
 				"mobile-frontend-redirected-from",
 				"minerva-talk-full-page",
 				"minerva-talk-topic-feedback",
-				"minerva-talk-reply-success"
+				"minerva-talk-reply-success",
+				"logging-out-notify",
+				"logout-failed"
 			],
 			"styles": [
 				"resources/skins.minerva.scripts/styles.less",

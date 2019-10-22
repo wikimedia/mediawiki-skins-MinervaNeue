@@ -43,6 +43,10 @@ class SingleMenuEntry implements IMenuEntry {
 	 */
 	public function __construct( $name, $text, $url, $className = '' ) {
 		$this->name = $name;
+		if ( $className ) {
+			$className .= ' ';
+		}
+		$className .= 'menu__item--' . $name;
 
 		$this->attributes = [
 			'text' => $text,

@@ -223,6 +223,37 @@
 	}
 
 	/**
+	 * For logout links do the API logout first so system do not show interstitial step,
+	 * and then redirect to LogoutPage (when user is already logged out) to show information
+	 * about successful logout and information about caching.
+	 *
+	 * @param {string} selector Logout links selector
+	 */
+	function initSmartLogout( selector ) {
+		// Turn logout to a POST action
+		$( selector ).on( 'click', function ( e ) {
+			toast.show(
+				mw.message( 'logging-out-notify' ).text(), {
+					tag: 'logout',
+					autoHide: false
+				}
+			);
+			api.postWithToken( 'csrf', {
+				action: 'logout'
+			} ).then(
+				function () {
+					location.reload();
+				},
+				function () {
+					toast.showOnPageReload( mw.message( 'logout-failed' ).text() );
+					location.reload();
+				}
+			);
+			e.preventDefault();
+		} );
+	}
+
+	/**
 	 * Initialisation function for registration date on user page
 	 *
 	 * Enhances .tagline-userpage element
@@ -370,6 +401,7 @@
 				return !isUserUri( element.href );
 			} )
 		);
+		initSmartLogout( '.menu__item--logout' );
 		initUserRedLinks();
 	} );
 
