@@ -27,13 +27,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$hasOtherLanguagesOrVariants = false,
 		$alwaysShowLanguageButton = true
 	) {
-		$languageHelper = $this->getMock(
-			LanguagesHelper::class,
-			[ 'doesTitleHasLanguagesOrVariants' ],
-			[],
-			'',
-			false
-		);
+		$languageHelper = $this->createMock( LanguagesHelper::class );
 		$languageHelper->expects( $this->any() )
 			->method( 'doesTitleHasLanguagesOrVariants' )
 			->willReturn( $hasOtherLanguagesOrVariants );
@@ -196,7 +190,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$minervaAlwaysShowLanguageButton,
 		$expected
 	) {
-		$title = $this->getMock( Title::class, [ 'isMainPage' ] );
+		$title = $this->createMock( Title::class );
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
@@ -243,7 +237,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 	 * @covers ::isAllowed
 	 */
 	public function testCannotWatchNotWatchableTitle() {
-		$title = $this->getMock( Title::class, [ 'isMainPage', 'isWatchable' ] );
+		$title = $this->createMock( Title::class );
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );

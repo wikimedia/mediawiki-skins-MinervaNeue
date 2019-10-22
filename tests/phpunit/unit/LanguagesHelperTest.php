@@ -19,13 +19,7 @@ class LanguagesHelperTest extends \MediaWikiUnitTestCase {
 	 * @return \OutputPage
 	 */
 	private function getOutput( array $langLinks ) {
-		$out = $this->getMock(
-			\OutputPage::class,
-			[ 'getLanguageLinks' ],
-			[],
-			'',
-			false
-			);
+		$out = $this->createMock( \OutputPage::class );
 		$out->expects( $this->once() )
 			->method( 'getLanguageLinks' )
 			->willReturn( $langLinks );
@@ -40,12 +34,12 @@ class LanguagesHelperTest extends \MediaWikiUnitTestCase {
 	 * @return \Title
 	 */
 	private function getTitle( $hasVariants, Invocation $matcher = null ) {
-		$languageMock = $this->getMock( \Language::class, [ 'hasVariants' ], [], '', false );
+		$languageMock = $this->createMock( \Language::class );
 		$languageMock->expects( $matcher ?? $this->any() )
 			->method( 'hasVariants' )
 			->willReturn( $hasVariants );
 
-		$title = $this->getMock( \Title::class, [ 'getPageLanguage' ] );
+		$title = $this->createMock( \Title::class );
 		$title->expects( $matcher ?? $this->any() )
 			->method( 'getPageLanguage' )
 			->willReturn( $languageMock );
