@@ -10,29 +10,6 @@ use SkinMinerva;
 use Title;
 use Wikimedia\TestingAccessWrapper;
 
-// phpcs:ignore MediaWiki.Files.ClassMatchesFilename.NotMatch
-class EchoNotifUser {
-	public function __construct(
-		$lastUnreadAlertTime, $lastUnreadMessageTime, $echoNotificationCount
-	) {
-		$this->lastUnreadAlertTime = $lastUnreadAlertTime;
-		$this->lastUnreadMessageTime = $lastUnreadMessageTime;
-		$this->echoNotificationCount = $echoNotificationCount;
-	}
-
-	public function getLastUnreadAlertTime() {
-		return $this->lastUnreadAlertTime;
-	}
-
-	public function getLastUnreadMessageTime() {
-		return $this->lastUnreadMessageTime;
-	}
-
-	public function getNotificationCount() {
-		return $this->echoNotificationCount;
-	}
-}
-
 /**
  * @coversDefaultClass SkinMinerva
  * @group MinervaNeue
