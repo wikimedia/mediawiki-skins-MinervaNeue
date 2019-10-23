@@ -52,7 +52,6 @@
 .animations {
 	.mw-notification,
 	.drawer {
-		@duration: 0.25s;
 		display: block;
 		visibility: hidden;
 		/* we can't determine the actual size of the drawer in CSS, so this is
@@ -68,18 +67,14 @@
 		&.animated, &.mw-notification-tag-toast {
 			// delay visibility transition to make other transitions visible
 			// http://fvsch.com/code/transition-fade/test5.html
-			// need to assign to a temporary variable to preserve commas
-			// https://github.com/leafo/lessphp/issues/105#issuecomment-2872598
-			@transition: @duration, opacity @duration, visibility 0s @duration, bottom 0s @duration;
-			.transition-transform( @transition );
+			// Use semi-colon if multiple arguments are needed.
+			// See https://stackoverflow.com/questions/11419741/less-css-mixins-with-variable-number-of-arguments
+			.transition-transform( @transition-duration-medium, opacity @transition-duration-medium, visibility 0s @transition-duration-medium, bottom 0s @transition-duration-medium; );
 		}
 
 		&.visible, &.mw-notification-visible {
 			bottom: 0;
-			// need to assign to a temporary variable to preserve commas
-			// https://github.com/leafo/lessphp/issues/105#issuecomment-2872598
-			@transition: @duration, opacity @duration;
-			.transition-transform( @transition );
+			.transition-transform( @transition-duration-medium, opacity @transition-duration-medium; );
 			visibility: visible;
 			opacity: 1;
 			.transform( translate( 0, 0 ) );

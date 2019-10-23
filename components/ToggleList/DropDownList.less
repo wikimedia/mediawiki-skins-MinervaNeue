@@ -15,7 +15,7 @@
 		// Animate menu visibility, opacity, and translation changes in and out. Visibility duration
 		// cannot be animated initially as it causes a flash on page load in Chromium due to
 		// https://bugs.chromium.org/p/chromium/issues/detail?id=332189.
-		.transition( opacity .1s ease-in-out, -webkit-tap-highlight-color 0s ease-in-out, transform .1s ease-in-out, visibility .1s ease-in-out; );
+		.transition( opacity @transition-duration-base ease-in-out, -webkit-tap-highlight-color 0s ease-in-out, transform @transition-duration-base ease-in-out, visibility @transition-duration-base ease-in-out; );
 	}
 }
 
