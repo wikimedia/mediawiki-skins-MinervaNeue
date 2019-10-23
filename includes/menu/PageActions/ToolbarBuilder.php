@@ -116,7 +116,7 @@ class ToolbarBuilder {
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
-				MinervaUI::iconClass( 'language-switcher', 'element' ) )
+				MinervaUI::iconClass( 'language-switcher', 'element', 'mw-ui-icon-with-label-desktop' ) )
 			);
 		}
 
@@ -155,7 +155,7 @@ class ToolbarBuilder {
 		return PageActionMenuEntry::create(
 			'page-actions-contributions',
 			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL(),
-			MinervaUI::iconClass( 'contributions' ),
+			MinervaUI::iconClass( 'contributions', 'with-label-desktop' ),
 			$label,
 			'contributions'
 
@@ -186,7 +186,11 @@ class ToolbarBuilder {
 			'page-actions-edit',
 			$title->getLocalURL( $editArgs ),
 			'edit-page '
-			. MinervaUI::iconClass( $editOrCreate ? 'edit-enabled' : 'edit', 'element' ),
+			. MinervaUI::iconClass(
+				$editOrCreate ? 'edit-enabled' : 'edit',
+				'element',
+				'mw-ui-icon-with-label-desktop'
+			),
 			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' ),
 			'edit'
 		);
@@ -213,13 +217,20 @@ class ToolbarBuilder {
 			: $title->getLocalURL( [ 'action' => $newModeToSet ] );
 
 		if ( $isWatched ) {
-			$msg = $this->messageLocalizer->msg( 'unwatchthispage' );
+			$msg = $this->messageLocalizer->msg( 'unwatch' );
 			$icon = 'unStar-progressive';
 		} else {
-			$msg = $this->messageLocalizer->msg( 'watchthispage' );
+			$msg = $this->messageLocalizer->msg( 'watch' );
 			$icon = 'star-base20';
 		}
-		$iconClass = MinervaUI::iconClass( $icon, 'element', 'watch-this-article', 'wikimedia' );
+
+		$iconClass = MinervaUI::iconClass(
+			$icon,
+			'element',
+			'mw-ui-icon-with-label-desktop watch-this-article',
+			'wikimedia'
+		);
+
 		if ( $isWatched ) {
 			$iconClass .= ' watched';
 		}
@@ -247,8 +258,8 @@ class ToolbarBuilder {
 		return new PageActionMenuEntry(
 			'page-actions-history',
 			$this->getHistoryUrl( $this->title ),
-			MinervaUI::iconClass( 'clock' ),
-			$this->messageLocalizer->msg( 'mobile-frontend-history' ),
+			MinervaUI::iconClass( 'clock', 'element', 'mw-ui-icon-with-label-desktop' ),
+			$this->messageLocalizer->msg( 'minerva-page-actions-history' ),
 			'history'
 		);
 	}

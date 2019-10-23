@@ -81,7 +81,10 @@ final class PageActionsDirector {
 				'checkboxID' => 'page-actions-overflow-checkbox',
 				'toggleID' => 'page-actions-overflow-toggle',
 				'listID' => $overflowMenu->getId(),
-				'toggleClass' => MinervaUI::iconClass( 'page-actions-overflow', 'element' ),
+				'toggleClass' => MinervaUI::iconClass(
+					'page-actions-overflow',
+					'element',
+					'mw-ui-icon-with-label-desktop' ),
 				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',
 				'text' => $this->messageLocalizer->msg( 'minerva-page-actions-overflow' ),
 				'analyticsEventName' => 'ui.overflowmenu',
