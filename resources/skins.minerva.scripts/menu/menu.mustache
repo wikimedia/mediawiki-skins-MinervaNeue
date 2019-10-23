@@ -1,10 +1,12 @@
 <div class="menu view-border-box">
 	{{#groups}}
-	<ul>
+	<ul id="{{id}}">
 		{{! "." means "current context", which allows us to iterate over Plain Old PHP Arrays™. }}
-		{{#.}}
+		{{#entries}}
+			{{#.}}
 			{{> menuGroup}}
-		{{/.}}
+			{{/.}}
+		{{/entries}}
 	</ul>
 	{{/groups}}
 	<ul class="hlist">

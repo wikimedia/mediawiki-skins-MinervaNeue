@@ -93,7 +93,7 @@ final class MainMenuDirector {
 		];
 		foreach ( $this->builder->getGroups() as $group ) {
 			if ( $group->hasEntries() ) {
-				$menuData['items']['groups'][] = $group->getEntries();
+				$menuData['items']['groups'][] = $group->serialize();
 			}
 		}
 		return $menuData;

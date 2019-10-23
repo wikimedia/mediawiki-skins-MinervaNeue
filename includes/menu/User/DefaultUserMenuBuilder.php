@@ -30,6 +30,6 @@ final class DefaultUserMenuBuilder implements IUserMenuBuilder {
 	 * @return Group
 	 */
 	public function getGroup( array $personalTools ): Group {
-		return new Group();
+		return new Group( 'p-personal' );
 	}
 }

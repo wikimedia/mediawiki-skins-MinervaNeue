@@ -34,6 +34,27 @@ final class Group {
 	private $entries = [];
 
 	/**
+	 * @var string
+	 */
+	private $id = '';
+
+	/**
+	 * @param string $id of the menu defaults to null (optional)
+	 */
+	public function __construct( $id ) {
+		$this->id = $id;
+	}
+
+	/**
+	 * Get the identifier for the group
+	 *
+	 * @return string
+	 */
+	public function getId() {
+		return $this->id;
+	}
+
+	/**
 	 * Return entries count
 	 *
 	 * @return bool
@@ -150,6 +171,17 @@ final class Group {
 	public function getEntryByName( $targetName ): IMenuEntry {
 		$index = $this->search( $targetName );
 		return $this->entries[$index];
+	}
+
+	/**
+	 * Serialize the group for use in a template
+	 * @return array{entries:array,id:string}
+	 */
+	public function serialize() {
+		return [
+			'entries' => $this->getEntries(),
+			'id' => $this->getId(),
+		];
 	}
 }
 

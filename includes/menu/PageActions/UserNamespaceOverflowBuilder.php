@@ -86,7 +86,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * @throws MWException
 	 */
 	public function getGroup( array $toolbox ): Group {
-		$group = new Group();
+		$group = new Group( 'p-tb' );
 		if ( $this->permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->insertEntry( new LanguageSelectorEntry(
 				$this->title,
