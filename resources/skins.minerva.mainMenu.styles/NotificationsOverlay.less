@@ -38,7 +38,7 @@
 .animations {	// FIXME: Make animations a conditional class on the drawer itself
 	.notifications-overlay.navigation-drawer {
 		.transform( translate( 100%, 0 ) );
-		.transition( transform @menu-animation-duration @menu-animation-easing; );
+		.transition( transform @transition-duration-medium @transition-timing-function-menu; );
 
 		&.visible {
 			.transform( translate( 0, 0 ) );
