@@ -77,13 +77,6 @@ class MinervaHooks {
 			);
 			$featureManager->registerFeature(
 				new MobileFrontend\Features\Feature(
-					'MinervaShareButton',
-					'skin-minerva',
-					$config->get( 'MinervaShowShareButton' )
-				)
-			);
-			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
 					'MinervaPageIssuesNewTreatment',
 					'skin-minerva',
 					$config->get( 'MinervaPageIssuesNewTreatment' )
@@ -210,8 +203,6 @@ class MinervaHooks {
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaEnableBackToTop' ),
 				SkinOptions::PAGE_ISSUES
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
-				SkinOptions::SHARE_BUTTON
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShareButton' ),
 				SkinOptions::MOBILE_OPTIONS => true,
 				SkinOptions::PERSONAL_MENU => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaPersonalMenu'

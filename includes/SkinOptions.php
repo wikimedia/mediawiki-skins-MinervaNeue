@@ -28,7 +28,6 @@ final class SkinOptions {
 	const CATEGORIES = 'categories';
 	const BACK_TO_TOP = 'backToTop';
 	const PAGE_ISSUES = 'pageIssues';
-	const SHARE_BUTTON = 'shareButton';
 	const BETA_MODE = 'beta';
 	const TALK_AT_TOP = 'talkAtTop';
 	const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
@@ -51,8 +50,6 @@ final class SkinOptions {
 		self::CATEGORIES => false,
 		/** Whether a back to top button appears at the bottom of the view page */
 		self::BACK_TO_TOP => false,
-		/** Whether a share button should appear in icons section */
-		self::SHARE_BUTTON => false,
 		/** requires a wiki using Template:Ambox */
 		self::PAGE_ISSUES => false,
 		/** no extension requirements */

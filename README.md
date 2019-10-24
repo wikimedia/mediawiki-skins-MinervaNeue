@@ -147,15 +147,6 @@ Controls whether a personal menu appears in the header chrome. This menu contain
 ```
 Controls whether the overflow link appears in the page actions menu.
 
-#### $wgMinervaShowShareButton
-
-* Type: `Array`
-* Default:
-```php
-  [
-    'beta' => false,
-    'base' => false,
-  ]
 ```
 Controls whether the share feature should be added to the page actions menu.
 
