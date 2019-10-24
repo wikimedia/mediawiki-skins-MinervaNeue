@@ -7,7 +7,6 @@ module.exports = function ( mobile ) {
 		toast = mobile.toast,
 		currentPage = mobile.currentPage(),
 		loader = mobile.rlModuleLoader,
-		eventBus = mobile.eventBusSingleton,
 		api = new mw.Api(),
 		overlayManager = mobile.OverlayManager.getSingleton(),
 		// FIXME: This dependency shouldn't exist
@@ -119,11 +118,6 @@ module.exports = function ( mobile ) {
 		} );
 	}
 
-	function talkSectionAddSaveHandler() {
-		toast.showOnPageReload( mw.message( 'minerva-talk-topic-feedback' ).text() );
-		window.location = currentPage.titleObj.getTalkPage().getUrl();
-	}
-
 	/**
 	 * Initializes code needed to display the TalkSectionAddOverlay
 	 */
@@ -136,18 +130,12 @@ module.exports = function ( mobile ) {
 				// contains underscores instead of spaces.
 				licenseMsg: skin.getLicenseMsg(),
 
-				eventBus: eventBus,
 				currentPageTitle: currentPage.title,
 				onSaveComplete: function () {
-					talkSectionAddSaveHandler();
+					toast.showOnPageReload( mw.message( 'minerva-talk-topic-feedback' ).text() );
+					window.location = currentPage.titleObj.getTalkPage().getUrl();
 				}
 			} );
-		} );
-
-		// This will be removed after TalkSectionaddOverlay.js is refactored to
-		// exclusively use the passed in `onSaveComplete` callback
-		eventBus.on( 'talk-added-wo-overlay', function () {
-			talkSectionAddSaveHandler();
 		} );
 	}
 
