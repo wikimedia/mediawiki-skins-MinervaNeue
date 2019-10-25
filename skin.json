@@ -23,7 +23,9 @@
 	},
 	"config": {
 		"MinervaCountErrors": false,
-		"MinervaDownloadNamespaces": [ 0 ],
+		"MinervaDownloadNamespaces": [
+			0
+		],
 		"MinervaEnableSiteNotice": false,
 		"MinervaCustomLogos": [],
 		"MinervaApplyKnownTemplateHacks": false,
@@ -278,7 +280,9 @@
 			"defaultColor": "#54595d",
 			"variants": [],
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before",
-			"icons": [ "bellOutline" ]
+			"icons": [
+				"bellOutline"
+			]
 		},
 		"skins.minerva.amc.styles": {
 			"targets": [
@@ -294,7 +298,11 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"icons": [ "articleRedirect", "infoFilled", "link", "listBullet",
+			"icons": [
+				"articleRedirect",
+				"infoFilled",
+				"link",
+				"listBullet",
 				"logoWikidata",
 				"logoWikimedia",
 				"quotes",
@@ -311,7 +319,12 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"icons": [ "search", "userAvatar", "star", "unStar" ]
+			"icons": [
+				"search",
+				"userAvatar",
+				"star",
+				"unStar"
+			]
 		},
 		"skins.minerva.icons.images": {
 			"class": "ResourceLoaderImageModule",
@@ -342,11 +355,15 @@
 				"edit-enabled": "resources/skins.minerva.icons.images/edit.svg",
 				"language-switcher": {
 					"file": "resources/skins.minerva.icons.images/languageSwitcher.svg",
-					"variants": [ "base20" ]
+					"variants": [
+						"base20"
+					]
 				},
 				"clock": {
 					"file": "resources/skins.minerva.icons.images/clock.svg",
-					"variants": [ "invert" ]
+					"variants": [
+						"invert"
+					]
 				},
 				"page-actions-overflow": "resources/skins.minerva.icons.images/page-actions-overflow.svg"
 			}
