@@ -650,7 +650,7 @@ class SkinMinerva extends SkinTemplate {
 		$title = $this->getTitle();
 		$subjectPage = Title::newFromLinkTarget( $namespaceInfo->getSubjectPage( $title ) );
 		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
-			$subjectPage->isMainPage();
+			$subjectPage->isMainPage() || $title->isTalkPage();
 		$namespaces = $tpl->data['content_navigation']['namespaces'];
 		if ( !$this->getUserPageHelper()->isUserPage()
 			 && $this->getPermissions()->isTalkAllowed() && $talkAtBottom
