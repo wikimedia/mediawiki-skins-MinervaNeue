@@ -28,7 +28,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::getEntries
 	 */
 	public function testItShouldntHaveEntriesByDefault() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 
 		$this->assertEmpty( $menu->getEntries() );
 	}
@@ -40,7 +40,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertingAnEntry() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'home' )
 			->addComponent(
 				$this->homeComponent['text'],
@@ -68,7 +68,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertingAnEntryAfterAnother() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'home' )
 			->addComponent(
 				$this->homeComponent['text'],
@@ -118,7 +118,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertAfterWhenTargetEntryDoesntExist() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$this->expectException( DomainException::class );
 		$this->expectExceptionMessage( 'The "home" entry doesn\'t exist.' );
 		$menu->insertAfter( 'home', 'nearby' )
@@ -133,7 +133,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::insertAfter
 	 */
 	public function testInsertAfterWithAnEntryWithAnExistingName() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'home' );
 		$menu->insert( 'car' );
 		$this->expectException( DomainException::class );
@@ -145,7 +145,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::insert
 	 */
 	public function testInsertingAnEntryWithAnExistingName() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'home' );
 		$this->expectException( DomainException::class );
 		$this->expectExceptionMessage( 'The "home" entry already exists.' );
@@ -157,7 +157,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::insertAfter
 	 */
 	public function testInsertingAnEntryAfterAnotherOne() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'first' );
 		$menu->insert( 'last' );
 		$menu->insertAfter( 'first', 'middle' );
@@ -187,7 +187,7 @@ class GroupTest extends \MediaWikiTestCase {
 				'mw-ui-icon mw-ui-icon-element secondary-logout secondary-action truncated-text',
 		];
 
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'auth' )
 			->addComponent(
 				$authLoginComponent['text'],
@@ -219,7 +219,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers \MediaWiki\Minerva\Menu\Entries\MenuEntry::addComponent
 	 */
 	public function testInsertingAJavascriptOnlyEntry() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'nearby', $isJSOnly = true )
 			->addComponent(
 				$this->nearbyComponent['text'],
@@ -243,7 +243,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::search
 	 */
 	public function testGetEntryByName() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$menu->insert( 'home' )
 			->addComponent(
 				$this->homeComponent['text'],
@@ -257,7 +257,7 @@ class GroupTest extends \MediaWikiTestCase {
 	 * @covers ::search
 	 */
 	public function testGetEntryByNameException() {
-		$menu = new Group();
+		$menu = new Group( 'p-test' );
 		$this->expectException( DomainException::class );
 		$menu->getEntryByName( 'home' );
 	}

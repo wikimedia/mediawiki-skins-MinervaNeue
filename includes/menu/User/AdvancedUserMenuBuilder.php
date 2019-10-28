@@ -66,7 +66,7 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 	 * @return Group
 	 */
 	public function getGroup( array $personalTools ): Group {
-		$group = new Group();
+		$group = new Group( 'p-personal' );
 		$group->insertEntry( new ProfileMenuEntry( $this->user ) );
 		$talkPage = $this->user->getUserPage()->getTalkPageIfDefined();
 		if ( $talkPage ) {

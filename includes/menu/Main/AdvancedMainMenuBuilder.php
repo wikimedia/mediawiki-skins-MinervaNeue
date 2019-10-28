@@ -94,7 +94,7 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	 * @throws MWException
 	 */
 	private function getSiteTools(): Group {
-		$group = new Group();
+		$group = new Group( 'p-interaction' );
 
 		$this->definitions->insertRecentChanges( $group );
 		$this->definitions->insertSpecialPages( $group );

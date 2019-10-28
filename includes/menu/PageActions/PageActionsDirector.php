@@ -80,6 +80,7 @@ final class PageActionsDirector {
 				'item-id' => 'page-actions-overflow',
 				'checkboxID' => 'page-actions-overflow-checkbox',
 				'toggleID' => 'page-actions-overflow-toggle',
+				'listID' => $overflowMenu->getId(),
 				'toggleClass' => MinervaUI::iconClass( 'page-actions-overflow', 'element' ),
 				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',
 				'text' => $this->messageLocalizer->msg( 'minerva-page-actions-overflow' ),

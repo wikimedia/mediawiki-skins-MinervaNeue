@@ -92,7 +92,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 * @throws MWException
 	 */
 	private function getPersonalTools(): Group {
-		$group = new Group();
+		$group = new Group( 'p-personal' );
 
 		$this->definitions->insertAuthMenuItem( $group );
 

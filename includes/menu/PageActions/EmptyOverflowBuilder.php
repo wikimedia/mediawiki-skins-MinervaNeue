@@ -28,6 +28,6 @@ class EmptyOverflowBuilder implements IOverflowBuilder {
 	 * @inheritDoc
 	 */
 	public function getGroup( array $toolbox ): Group {
-		return new Group();
+		return new Group( 'p-tb' );
 	}
 }

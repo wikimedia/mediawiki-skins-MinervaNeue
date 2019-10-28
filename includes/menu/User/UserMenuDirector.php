@@ -52,7 +52,8 @@ final class UserMenuDirector {
 	 * @return string|null
 	 */
 	public function renderMenuData( array $personalTools ) {
-		$entries = $this->builder->getGroup( $personalTools )->getEntries();
+		$group = $this->builder->getGroup( $personalTools );
+		$entries = $group->getEntries();
 
 		$templateParser = new TemplateParser( __DIR__ . '/../../../components' );
 		return empty( $entries )
@@ -64,6 +65,7 @@ final class UserMenuDirector {
 				'toggleClass' => MinervaUI::iconClass(
 					'page-actions-overflow', 'element', 'wikimedia-ui-' . 'userAvatarOutline' . '-base20'
 				),
+				'listID' => $group->getId(),
 				'listClass' => 'minerva-user-menu-list toggle-list__list--drop-down', // See ToggleList/*.less.
 				'text' => $this->localizer->msg( 'minerva-user-menu-button' )->escaped(),
 				'analyticsEventName' => 'ui.usermenu',

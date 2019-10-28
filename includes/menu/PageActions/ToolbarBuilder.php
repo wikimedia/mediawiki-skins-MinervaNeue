@@ -105,7 +105,7 @@ class ToolbarBuilder {
 	 * @throws MWException
 	 */
 	public function getGroup(): Group {
-		$group = new Group();
+		$group = new Group( 'p-views' );
 		$permissions = $this->permissions;
 		$userPageWithOveflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) &&
 			$this->userPageHelper->isUserPage();

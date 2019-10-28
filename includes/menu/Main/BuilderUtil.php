@@ -40,7 +40,7 @@ final class BuilderUtil {
 	 * @throws MWException
 	 */
 	public static function getDiscoveryTools( Definitions $definitions ): Group {
-		$group = new Group();
+		$group = new Group( 'p-navigation' );
 
 		$definitions->insertHomeItem( $group );
 		$definitions->insertRandomItem( $group );
@@ -63,7 +63,7 @@ final class BuilderUtil {
 	public static function getConfigurationTools(
 		Definitions $definitions, $showMobileOptions
 	): Group {
-		$group = new Group();
+		$group = new Group( 'pt-preferences' );
 
 		$showMobileOptions ?
 			$definitions->insertMobileOptionsItem( $group ) :
@@ -79,7 +79,7 @@ final class BuilderUtil {
 	 * @throws MWException
 	 */
 	public static function getSiteLinks( Definitions $definitions ): Group {
-		$group = new Group();
+		$group = new Group( 'p-minerva-sitelinks' );
 
 		$definitions->insertAboutItem( $group );
 		$definitions->insertDisclaimersItem( $group );
