@@ -11,6 +11,7 @@
 		]
 	},
 	"minerva-last-modified-date": "Sist redigert den $1, kl. $2",
+	"minerva-watchlist-cta": "Følg med på denne siden og alle endringer som blir gjort på den.",
 	"minerva-talk-add-topic": "Legg til diskusjon",
 	"mobile-frontend-cookies-required": "Informasjonskapsler kreves for å bytte visningstilstand. Aktiver dem og prøv igjen.",
 	"mobile-frontend-editor-edit": "Rediger",
@@ -71,5 +72,6 @@
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Gå til toppen",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Gå til toppen av siden med en flytende knapp",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Forbedret behandling av sideproblemer",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sideproblemer (Mal:ambox) vises i artikkelteksten."
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sideproblemer (Mal:ambox) vises i artikkelteksten.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Dessverre er ikke gruppering av resultater tilgjengelig på mobil. Om du ønsker å bruke denne funksjonen, besøk datamaskinversjonen av nettstedet."
 }
