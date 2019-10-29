@@ -53,7 +53,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   end
 
   ## watch star
-  a(:watch_star, text: 'Watch this page')
+  a(:watch_star, text: 'Watch')
   a(:unwatch_star, text: 'Unwatch')
   button(:watch_confirm, class: 'mw-htmlform-submit')
 
