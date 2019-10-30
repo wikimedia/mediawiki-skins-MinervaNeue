@@ -4,7 +4,8 @@
 			"Amire80",
 			"Guycn2",
 			"YaronSh",
-			"Steeve815"
+			"Steeve815",
+			"דגש חזק"
 		]
 	},
 	"minerva-last-modified-date": "נערך לאחרונה ב־$1, בשעה $2",
@@ -18,7 +19,7 @@
 	"mobile-frontend-editor-redlink-leave": "לא, תודה.",
 	"mobile-frontend-history": "הצגת היסטוריית העריכה של הדף הזה.",
 	"mobile-frontend-home-button": "דף הבית",
-	"mobile-frontend-language-article-heading": "לקרוא בשפה אחרת",
+	"mobile-frontend-language-article-heading": "שפה",
 	"mobile-frontend-languages-not-available": "הדף הזה אינו זמין בשפות אחרות.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ברוך הבא|ברוכה הבאה}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "פתיחת התפריט הראשי",
@@ -49,7 +50,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|הצטרף|הצטרפה}} ב־$1",
 	"mobile-frontend-user-page-talk": "שיחה",
 	"minerva-user-menu-button": "תפריט משתשמ",
-	"minerva-page-actions-overflow": "תת־תפריט משני של פעולות דף",
+	"minerva-page-actions-overflow": "עוד",
 	"minerva-page-actions-info": "מידע על הדף",
 	"minerva-page-actions-permalink": "קישור קבוע",
 	"minerva-page-actions-backlinks": "מה מקשר לכאן",
@@ -58,6 +59,7 @@
 	"minerva-page-actions-logs": "יומנים",
 	"minerva-page-actions-wikibase": "פריט {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "שפות",
+	"minerva-page-actions-history": "היסטוריה",
 	"skinname-minerva": "מינרווה נויה",
 	"minerva-skin-desc": "ערכת עיצוב שמתאימה את עצמה לסוג המכשיר ומפותחת ראשית למכשירים מיידים",
 	"skin-minerva-issue-learn-more": "מידע נוסף",

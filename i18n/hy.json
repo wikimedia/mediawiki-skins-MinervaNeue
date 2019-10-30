@@ -25,5 +25,6 @@
 	"mobile-frontend-placeholder": "Որոնել {{SITENAME}} կայքում",
 	"mobile-frontend-random-button": "Պատահական",
 	"mobile-frontend-redirected-from": "Վերահղված է «[[$1]]»-ից",
-	"mobile-frontend-user-page-contributions": "Ներդրում"
+	"mobile-frontend-user-page-contributions": "Ներդրում",
+	"minerva-page-actions-history": "Պատմություն"
 }
