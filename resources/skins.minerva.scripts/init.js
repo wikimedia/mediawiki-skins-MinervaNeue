@@ -136,7 +136,7 @@
 	 * @param {JQuery.Object} $lastModifiedLink
 	 */
 	function initHistoryLink( $lastModifiedLink ) {
-		var delta, historyUrl, msg, $bar,
+		var delta, historyUrl, $msg, $bar,
 			ts, username, gender;
 
 		historyUrl = $lastModifiedLink.attr( 'href' );
@@ -152,10 +152,10 @@
 				$bar.find( '.mw-ui-icon-minerva-clock' ).addClass( 'mw-ui-icon-minerva-clock-invert' );
 				$bar.find( '.mw-ui-icon-mf-expand-gray' ).addClass( 'mw-ui-icon-mf-expand-invert' );
 			}
-			msg = $( '<span>' ).addClass( 'last-modified-bar__text' ).html(
+			$msg = $( '<span>' ).addClass( 'last-modified-bar__text' ).html(
 				time.getLastModifiedMessage( ts, username, gender, historyUrl )
 			);
-			$lastModifiedLink.replaceWith( msg );
+			$lastModifiedLink.replaceWith( $msg );
 		}
 	}
 
