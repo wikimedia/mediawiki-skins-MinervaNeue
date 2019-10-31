@@ -13,6 +13,7 @@
 		]
 	},
 	"minerva-last-modified-date": "Последна промяна: в $2, на $1",
+	"minerva-watchlist-cta": "Следете тази страница и всички промени на нея.",
 	"minerva-talk-add-topic": "Добавяне на дискусия",
 	"mobile-frontend-cookies-required": "Необходимо е бисквитките да са включени за смяна на режима на преглед. Моля, включете ги и опитайте отново.",
 	"mobile-frontend-editor-edit": "Редактиране",
@@ -22,7 +23,7 @@
 	"mobile-frontend-editor-redlink-leave": "Не, благодаря.",
 	"mobile-frontend-history": "Вижте историята на тази страница.",
 	"mobile-frontend-home-button": "Начало",
-	"mobile-frontend-language-article-heading": "Прочитане на друг език",
+	"mobile-frontend-language-article-heading": "Език",
 	"mobile-frontend-languages-not-available": "Тази страница не е налична на други езици.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Добре дошъл|Добре дошла}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Отваря главното меню",
@@ -53,7 +54,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Член}} от $1",
 	"mobile-frontend-user-page-talk": "Беседа",
 	"minerva-user-menu-button": "Потребителско меню",
-	"minerva-page-actions-overflow": "Подменю за допълнителни действия на страницата",
+	"minerva-page-actions-overflow": "Още",
 	"minerva-page-actions-info": "Информация за страницата",
 	"minerva-page-actions-permalink": "Постоянна препратка",
 	"minerva-page-actions-backlinks": "Какво сочи насам",
@@ -62,11 +63,14 @@
 	"minerva-page-actions-logs": "Дневници",
 	"minerva-page-actions-wikibase": "Обект в {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "Езици",
+	"minerva-page-actions-history": "История",
 	"minerva-skin-desc": "Адаптивен облик преди всичко за мобилна употреба",
 	"skin-minerva-issue-learn-more": "Научете повече",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Преглед на категории на страници",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Най-горе",
 	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Отиване най-горе на страницата, използвайки плаващ бутон",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Подобрено справяне с проблеми на страницата"
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Подобрено справяне с проблеми на страницата",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемите със страницата (Шаблон:ambox) ще бъдат посочени в статията.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "За съжаление, групирането на резултатите по страница не е достъпно на мобилни устройства. Ако искате да използвате функцията за група по страница, моля, посетете сайта на настолната версия."
 }

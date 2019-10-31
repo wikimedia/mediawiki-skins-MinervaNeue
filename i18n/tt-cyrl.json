@@ -7,14 +7,14 @@
 			"Ерней"
 		]
 	},
-	"minerva-talk-add-topic": "Бәхәс өстәү",
+	"minerva-talk-add-topic": "Фикер алышуны өстәү",
 	"mobile-frontend-editor-edit": "Үзгәртү",
 	"minerva-download": "PDF күчереп алу",
 	"mobile-frontend-editor-redlink-create": "Мәкалә ясау",
 	"mobile-frontend-editor-redlink-leave": "Юк, рәхмәт.",
 	"mobile-frontend-history": "Әлеге битнең үзгәртүләр тарихын карау.",
 	"mobile-frontend-home-button": "Баш",
-	"mobile-frontend-language-article-heading": "Башка телдә уку",
+	"mobile-frontend-language-article-heading": "Тел",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Рәхим итегез}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Төп менюны ачу",
 	"mobile-frontend-main-menu-contributions": "Кертем",
