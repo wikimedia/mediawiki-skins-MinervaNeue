@@ -4,7 +4,8 @@
 			"Gaddi00",
 			"Maxí",
 			"Snævar",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Fitoschido"
 		]
 	},
 	"minerva-last-modified-date": "Síðast breytt $1, kl. $2",
@@ -17,7 +18,7 @@
 	"mobile-frontend-editor-redlink-leave": "Nei, takk.",
 	"mobile-frontend-history": "Skoða breytingaskrá síðunnar.",
 	"mobile-frontend-home-button": "Forsíða",
-	"mobile-frontend-language-article-heading": "Lesa á öðru tungumáli",
+	"mobile-frontend-language-article-heading": "Tungumál",
 	"mobile-frontend-languages-not-available": "Þessi síða er ekki tiltæk á öðrum tungumálum.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Velkominn|Velkomin|Velkomin(n)}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Opna aðalvalmynd",

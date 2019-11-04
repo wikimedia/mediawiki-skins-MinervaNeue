@@ -14,7 +14,8 @@
 			"Omotecho",
 			"神樂坂秀吉",
 			"Abijeet Patro",
-			"Kkairri"
+			"Kkairri",
+			"そらたこ"
 		]
 	},
 	"minerva-last-modified-date": "最終更新: $1 $2",
@@ -27,7 +28,7 @@
 	"mobile-frontend-editor-redlink-leave": "いいえ、不要です。",
 	"mobile-frontend-history": "このページの編集履歴を閲覧",
 	"mobile-frontend-home-button": "ホーム",
-	"mobile-frontend-language-article-heading": "別の言語で閲覧",
+	"mobile-frontend-language-article-heading": "言語",
 	"mobile-frontend-languages-not-available": "このページに他の言語版はありません。",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ようこそ}}、$1さん!",
 	"mobile-frontend-main-menu-button-tooltip": "メインメニューを開く",

@@ -5,7 +5,8 @@
 			"Strainu",
 			"Adrianbblk",
 			"Andrei Stroe",
-			"GabiBil"
+			"GabiBil",
+			"Fitoschido"
 		]
 	},
 	"minerva-last-modified-date": "Ultima modificare pe $1, la $2",
@@ -17,7 +18,7 @@
 	"mobile-frontend-editor-redlink-leave": "Nu, mulțumesc.",
 	"mobile-frontend-history": "Vezi istoricul modificărilor aceastei pagini.",
 	"mobile-frontend-home-button": "Acasă",
-	"mobile-frontend-language-article-heading": "Lecturare în altă limbă",
+	"mobile-frontend-language-article-heading": "Limbă",
 	"mobile-frontend-languages-not-available": "Această pagină nu este disponibilă în alte limbi.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bun venit}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Deschide meniul principal",
@@ -46,5 +47,6 @@
 	"mobile-frontend-user-page-contributions": "Contribuții",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|S-a înscris}} în $1",
 	"mobile-frontend-user-page-talk": "Discuție",
+	"minerva-page-actions-overflow": "Mai mult",
 	"minerva-page-actions-user-groups": "Grupuri de utilizatori"
 }

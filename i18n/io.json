@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joao Xavier"
+			"Joao Xavier",
+			"Fitoschido"
 		]
 	},
 	"mobile-frontend-editor-edit": "Redaktar",
 	"mobile-frontend-home-button": "Frontispico",
-	"mobile-frontend-language-article-heading": "Lektar en altra linguo.",
+	"mobile-frontend-language-article-heading": "Linguo",
 	"mobile-frontend-main-menu-button-tooltip": "Apertar la precipua menuo",
 	"mobile-frontend-main-menu-login": "Enirar",
 	"mobile-frontend-main-menu-logout": "Ekirar",

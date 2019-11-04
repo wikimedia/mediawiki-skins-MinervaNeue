@@ -6,7 +6,8 @@
 			"Fisterraeomar",
 			"Toliño",
 			"Navhy",
-			"Iváns"
+			"Iváns",
+			"Fitoschido"
 		]
 	},
 	"minerva-last-modified-date": "Última edición o $1 ás $2",
@@ -19,7 +20,7 @@
 	"mobile-frontend-editor-redlink-leave": "Non, grazas",
 	"mobile-frontend-history": "Amosar o historial de edicións desta páxina.",
 	"mobile-frontend-home-button": "Portada",
-	"mobile-frontend-language-article-heading": "Ler noutra lingua",
+	"mobile-frontend-language-article-heading": "Lingua",
 	"mobile-frontend-languages-not-available": "Esta páxina non está dispoñible noutras linguas.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvido|Benvida}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Abrir o menú principal",

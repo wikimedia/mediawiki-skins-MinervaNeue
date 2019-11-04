@@ -6,7 +6,8 @@
 			"Robin van der Vliet",
 			"Yekrats",
 			"YvesNevelsteen",
-			"Mirin"
+			"Mirin",
+			"Fitoschido"
 		]
 	},
 	"minerva-last-modified-date": "Laste redaktita je $1, $2",
@@ -19,7 +20,7 @@
 	"mobile-frontend-editor-redlink-leave": "Ne, dankon",
 	"mobile-frontend-history": "Vidi la redaktan historion de ĉi tiu paĝo.",
 	"mobile-frontend-home-button": "Ĉefpaĝo",
-	"mobile-frontend-language-article-heading": "Legi en alia lingvo",
+	"mobile-frontend-language-article-heading": "Lingvo",
 	"mobile-frontend-languages-not-available": "Ĉi tiu paĝo ne disponeblas en aliaj lingvoj",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bonvenon}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Malfermi la ĉefan menuon",
@@ -50,7 +51,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Aliĝis}} $1",
 	"mobile-frontend-user-page-talk": "Diskuto",
 	"minerva-user-menu-button": "Menuo de uzanto",
-	"minerva-page-actions-overflow": "Submenuo de sekundaraj paĝaj agoj",
+	"minerva-page-actions-overflow": "Pli",
 	"minerva-page-actions-info": "Informo pri paĝo",
 	"minerva-page-actions-permalink": "Konstanta ligilo",
 	"minerva-page-actions-backlinks": "Kio enhavas ligilojn ĉi tien",

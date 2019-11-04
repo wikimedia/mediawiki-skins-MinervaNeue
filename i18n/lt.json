@@ -8,7 +8,8 @@
 			"Robotukas11",
 			"Vogone",
 			"Zygimantus",
-			"Manvydasz"
+			"Manvydasz",
+			"Tomasdd"
 		]
 	},
 	"minerva-last-modified-date": "Paskutinį kartą keista $1 $2",
@@ -52,6 +53,8 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Prisijungė}} $1",
 	"mobile-frontend-user-page-talk": "Aptarimas",
 	"minerva-user-menu-button": "Vartotojo meniu",
+	"minerva-page-actions-overflow": "Daugiau",
+	"minerva-page-actions-history": "Istorija",
 	"skin-minerva-issue-learn-more": "Sužinoti daugiau",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorijos",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Rodyti puslapių kategorijas",

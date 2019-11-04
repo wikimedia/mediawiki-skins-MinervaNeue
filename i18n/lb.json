@@ -43,6 +43,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Bäigetrueden}} $1",
 	"mobile-frontend-user-page-talk": "Diskussioun",
 	"minerva-user-menu-button": "Benotzermenü",
+	"minerva-page-actions-overflow": "Méi",
 	"minerva-page-actions-info": "Informatiounen iwwer d'Säit",
 	"minerva-page-actions-permalink": "Permanente Link",
 	"minerva-page-actions-backlinks": "Linken op dës Säit",
@@ -50,6 +51,7 @@
 	"minerva-page-actions-user-groups": "Benotzergruppen",
 	"minerva-page-actions-logs": "Logbicher",
 	"minerva-page-actions-language-switcher": "Sproochen",
+	"minerva-page-actions-history": "Versiounen",
 	"skin-minerva-issue-learn-more": "Fir méi ze wëssen",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen"

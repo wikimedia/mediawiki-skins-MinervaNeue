@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31"
+			"Cedric31",
+			"Fitoschido"
 		]
 	},
 	"mobile-frontend-editor-edit": "Modificar",
 	"mobile-frontend-editor-redlink-explain": "Aquesta pagina es pas encara estada creada.",
 	"mobile-frontend-home-button": "Acuèlh",
-	"mobile-frontend-language-article-heading": "Legir dins una autra lenga",
+	"mobile-frontend-language-article-heading": "Lenga",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvengut|Benvenguda}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Dobrir lo menú principal",
 	"mobile-frontend-main-menu-login": "Connexion",

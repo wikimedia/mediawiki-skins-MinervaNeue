@@ -3,12 +3,13 @@
 		"authors": [
 			"Anomie",
 			"Chase me ladies, I'm the Cavalry",
-			"Jagwar"
+			"Jagwar",
+			"Fitoschido"
 		]
 	},
 	"mobile-frontend-editor-edit": "Edit",
 	"mobile-frontend-home-button": "Home",
-	"mobile-frontend-language-article-heading": "Read in another language",
+	"mobile-frontend-language-article-heading": "Language",
 	"mobile-frontend-main-menu-button-tooltip": "Open main menu",
 	"mobile-frontend-main-menu-login": "Log in",
 	"mobile-frontend-main-menu-nearby": "Nearby",

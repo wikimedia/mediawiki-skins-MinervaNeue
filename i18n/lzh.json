@@ -6,7 +6,8 @@
 			"SolidBlock",
 			"StephDC",
 			"Suchichi02",
-			"逆襲的天邪鬼"
+			"逆襲的天邪鬼",
+			"Rowingbohe"
 		]
 	},
 	"mobile-frontend-editor-edit": "纂",
@@ -24,5 +25,7 @@
 	"mobile-frontend-placeholder": "尋 {{SITENAME}}",
 	"mobile-frontend-random-button": "清風翻書",
 	"mobile-frontend-talk-back-to-page": "返「$1」。",
-	"mobile-frontend-user-page-talk": "議"
+	"mobile-frontend-user-page-talk": "議",
+	"minerva-page-actions-overflow": "餘",
+	"minerva-page-actions-history": "誌"
 }

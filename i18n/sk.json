@@ -36,6 +36,7 @@
 	"mobile-frontend-user-button-tooltip": "Zobraziť moje upozornenia",
 	"mobile-frontend-user-newmessages": "Vo svojej diskusii máte nové správy",
 	"mobile-frontend-user-page-contributions": "Príspevky",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pripojil|Pripojila}} sa dňa $1",
 	"mobile-frontend-user-page-talk": "Diskusia",
 	"minerva-page-actions-overflow": "Viac",
 	"minerva-page-actions-info": "Informácie o stránke",
