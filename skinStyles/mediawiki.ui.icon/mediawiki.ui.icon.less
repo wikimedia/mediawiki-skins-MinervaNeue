@@ -17,6 +17,9 @@
 
 @import '../../minerva.less/minerva.variables.less';
 @import 'mediawiki.mixins.less';
+
+@icon-background-color--selected:  rgba( 0, 0, 0, 0.03 );
+
 /**
  * Mixin for a pseudo-element with a background image.
  */
@@ -110,8 +113,19 @@
 		color: transparent;
 	}
 
-	&:hover {
-		background-color: rgba( 0, 0, 0, 0.03 );
+	// Assume a mobile device - and avoid tap state remaining after click (T233046).
+	&:active {
+		background-color: @icon-background-color--selected;
+	}
+}
+
+// When the user's device primary input is capable of hover, like a mouse,
+// use hover (T233046).
+@media ( hover: hover ) {
+	.mw-ui-icon-element {
+		&:hover {
+			background-color: @icon-background-color--selected;
+		}
 	}
 }
 
