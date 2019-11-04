@@ -160,3 +160,14 @@ ul.mw-contributions-list li .mw-rollback-link {
 .mw-tag-markers {
 	display: block;
 }
+
+// On Watchlist and RecentChanges the user is on a separate line per T236328.
+// This does not apply to the history page.
+// It is unnecessary on Special:Contributions since all contributions are by the same user.
+.mw-special-Watchlist,
+.mw-special-Recentchanges {
+	.mw-userlink {
+		display: block;
+		clear: both;
+	}
+}
