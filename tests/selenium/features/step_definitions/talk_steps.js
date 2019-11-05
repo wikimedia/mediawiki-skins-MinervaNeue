@@ -3,13 +3,16 @@ const { iSeeAnOverlay, waitForPropagation } = require( './common_steps' );
 const ArticlePageWithEditorOverlay = require( '../support/pages/article_page_with_editor_overlay' );
 const { ArticlePage } = require( '../support/world.js' );
 
-const iClickTheAddTalkButton = () => {
+const iClickTheTalkButton = () => {
 	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
-	ArticlePage.talk_add_element.waitForVisible();
-	ArticlePage.talk_add_element.click();
+	ArticlePage.talk_element.waitForVisible();
+	ArticlePage.talk_element.click();
 };
 
 const iAddATopic = ( subject ) => {
+	ArticlePageWithEditorOverlay.continue_element.waitForVisible();
+	ArticlePageWithEditorOverlay.continue_element.click();
+	ArticlePageWithEditorOverlay.editor_overlay_element.waitForExist();
 	const overlay = ArticlePageWithEditorOverlay.editor_overlay_element;
 	overlay.element( '.overlay input' ).waitForExist();
 	overlay.element( '.overlay input' ).setValue( subject );
@@ -32,15 +35,17 @@ const thereShouldBeASaveDiscussionButton = () => {
 };
 
 const noTopicIsPresent = () => {
-	assert.strictEqual( ArticlePage.first_section_element.isExisting(), false );
+	ArticlePageWithEditorOverlay.editor_overlay_element.waitForExist();
+	const overlay = ArticlePageWithEditorOverlay.editor_overlay_element;
+	overlay.element( '.content-header' ).waitForExist();
+	assert.strictEqual(
+		overlay.element( '.content-header' ).getText(),
+		'There are no conversations about this page.'
+	);
 };
 
 const thereShouldBeAnAddDiscussionButton = () => {
-	assert.strictEqual( ArticlePage.talk_add_element.isVisible(), true );
-};
-
-const thereShouldBeATalkButton = () => {
-	assert.strictEqual( ArticlePage.talk_element.isVisible(), true );
+	ArticlePageWithEditorOverlay.continue_element.waitForVisible();
 };
 
 const thereShouldBeNoTalkButton = () => {
@@ -48,8 +53,11 @@ const thereShouldBeNoTalkButton = () => {
 };
 
 const iShouldSeeTheTopicInTheListOfTopics = ( subject ) => {
+	ArticlePageWithEditorOverlay.editor_overlay_element.waitForExist();
+	ArticlePageWithEditorOverlay.editor_overlay_element.element( '.topic-title-list li' ).waitForExist();
+	const firstItem = ArticlePageWithEditorOverlay.editor_overlay_element.element( '.topic-title-list li' );
 	assert.strictEqual(
-		ArticlePage.first_section_element.getText().indexOf( subject ) > -1,
+		firstItem.getText().indexOf( subject ) > -1,
 		true
 	);
 };
@@ -60,8 +68,7 @@ module.exports = {
 	thereShouldBeASaveDiscussionButton,
 	noTopicIsPresent,
 	thereShouldBeAnAddDiscussionButton,
-	thereShouldBeATalkButton,
 	thereShouldBeNoTalkButton,
 	iShouldSeeTheTopicInTheListOfTopics,
-	iClickTheAddTalkButton
+	iClickTheTalkButton
 };
