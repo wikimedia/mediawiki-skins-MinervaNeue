@@ -126,7 +126,7 @@
 	 */
 	function downloadPageAction( page, supportedNamespaces, windowObj, hasText ) {
 		var
-			modifier = hasText ? 'toggle-list-item__anchor toggle-list-item__label' : 'mw-ui-icon-element',
+			modifier = hasText ? 'toggle-list-item__anchor toggle-list-item__label' : 'mw-ui-icon-element mw-ui-icon-with-label-desktop',
 			icon,
 			spinner = icons.spinner( {
 				hasText: hasText,
