@@ -33,6 +33,7 @@
 	"mobile-frontend-random-button": "Náhodná",
 	"mobile-frontend-redirected-from": "Presmerované z „[[$1]]“",
 	"mobile-frontend-talk-back-to-page": "Späť na stránku „$1“.",
+	"mobile-frontend-talk-back-to-userpage": "Vrátiť sa na používateľskú stránku {{GENDER:$1|používateľa|používateľky}} „$1“.",
 	"mobile-frontend-user-button-tooltip": "Zobraziť moje upozornenia",
 	"mobile-frontend-user-newmessages": "Vo svojej diskusii máte nové správy",
 	"mobile-frontend-user-page-contributions": "Príspevky",

@@ -25,7 +25,7 @@
 	"mobile-frontend-footer-sitename": "Name of site",
 	"mobile-frontend-history": "Used as label for the link which points to the \"Edit history\" page.\n\nThis is shown on the Main Page in place of a last modified label to avoid confusion caused by transclusions.\n\nIf not the Main Page, the following message is used:\n* {{msg-mw|Mobile-frontend-last-modified-date}}",
 	"mobile-frontend-home-button": "This is the label of one of the buttons that appear if you click the wiki logo near the search box.\n\nThis buttons takes the user to the home page.\n{{Identical|Home}}",
-	"mobile-frontend-language-article-heading": "In the secondary page menu, a short label that describes the button that displays a list of available languages",
+	"mobile-frontend-language-article-heading": "In the secondary page menu, a short label that describes the button that displays a list of available languages\n{{Identical|Language}}",
 	"mobile-frontend-languages-not-available": "A toast message that is shown when the user taps on the language button on an article which is not available in other languages.",
 	"mobile-frontend-logged-in-homepage-notification": "Heading at top of homepage telling user they are logged in. Parameters:\n* $1 - username\n{{Identical|Welcome}}",
 	"mobile-frontend-main-menu-button-tooltip": "Tooltip for menu button",
