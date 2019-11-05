@@ -292,6 +292,16 @@
 			$watch = $( '#page-actions-watch' ),
 			toolbarElement = document.querySelector( Toolbar.selector ),
 			userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
+
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$( '.mw-mf-page-center__mask' ).on( 'click', function ( ev ) {
+			var path = router.getPath();
+			// avoid jumping to the top of the page and polluting history by avoiding the
+			// resetting of the hash unless the hash is being utilised (T237015).
+			if ( !path ) {
+				ev.preventDefault();
+			}
+		} );
 		// Init:
 		// - main menu closes when you click outside of it
 		// - redirects show a toast.
