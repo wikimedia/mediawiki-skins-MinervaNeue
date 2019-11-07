@@ -13,7 +13,8 @@
 			"Violetanka",
 			"Vito Genovese",
 			"Hedda",
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"Grkn gll"
 		]
 	},
 	"minerva-last-modified-date": "Son düzenleme $1, $2",
@@ -68,6 +69,9 @@
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} öğesi",
 	"minerva-page-actions-language-switcher": "Diller",
 	"minerva-page-actions-history": "Geçmiş",
+	"minerva-talk-explained": "Aktif tartışmalar",
+	"minerva-talk-explained-empty": "Bu sayfada tartışma yok.",
+	"minerva-talk-topic-feedback": "Tartışma sayfasına yeni konu eklendi!",
 	"minerva-skin-desc": "Duyarlı bir mobil ilk görünümü",
 	"skin-minerva-issue-learn-more": "Daha fazla bilgi",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoriler",

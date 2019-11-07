@@ -52,6 +52,11 @@
 	"minerva-page-actions-logs": "Logbicher",
 	"minerva-page-actions-language-switcher": "Sproochen",
 	"minerva-page-actions-history": "Versiounen",
+	"minerva-talk-explained": "Aktiv Diskussiounen",
+	"minerva-talk-explained-empty": "Et gëtt keng Diskussiounen op dëser Säit.",
+	"minerva-talk-full-page": "Als Wiki-Säit liesen",
+	"minerva-talk-topic-feedback": "Neie Sujet op d'Diskussiounssäit dobäigesat!",
+	"minerva-talk-reply-success": "Är Äntwert gouf op der Diskussiounssäit gespäichert.",
 	"skin-minerva-issue-learn-more": "Fir méi ze wëssen",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Kategorie vu Säite weisen"
