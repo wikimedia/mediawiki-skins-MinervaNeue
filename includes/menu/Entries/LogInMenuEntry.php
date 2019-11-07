@@ -29,5 +29,7 @@ final class LogInMenuEntry extends SingleMenuEntry {
 		$text = $messageLocalizer->msg( 'mobile-frontend-main-menu-login' )->escaped();
 		$url = SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $authLinksQuery );
 		parent::__construct( 'login', $text, $url );
+		$this->trackClicks( 'login' );
+		$this->setIcon( 'login' );
 	}
 }

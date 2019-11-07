@@ -37,7 +37,7 @@ interface IMenuEntry {
 	/**
 	 * Returns the list of components of the menu entry
 	 *
-	 * Each component is an array with:
+	 * Each component is an array of HTML attributes with at least:
 	 *  - text  -> text to show
 	 *  - href  -> href attribute
 	 *  - class -> css class applied to it

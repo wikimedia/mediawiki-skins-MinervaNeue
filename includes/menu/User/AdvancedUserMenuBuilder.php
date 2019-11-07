@@ -70,19 +70,19 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 		$group->insertEntry( new ProfileMenuEntry( $this->user ) );
 		$talkPage = $this->user->getUserPage()->getTalkPageIfDefined();
 		if ( $talkPage ) {
-			$group->insertEntry( new SingleMenuEntry( 'userTalk',
+			$entry = SingleMenuEntry::create(
+				'userTalk',
 				$this->messageLocalizer->msg( 'mobile-frontend-user-page-talk' )->escaped(),
 				$talkPage->getLocalURL(),
-				true,
-				null,
-				'before',
 				'wikimedia-ui-userTalk-base20'
-			) );
+			);
+			$entry->setIcon( null, 'before' );
+			$group->insertEntry( $entry );
 		}
 		$sandbox = $personalTools['sandbox']['links'][0] ?? false;
 
 		if ( $sandbox ) {
-			$group->insertEntry( new SingleMenuEntry(
+			$group->insertEntry( SingleMenuEntry::create(
 				'userSandbox',
 				$sandbox['text'],
 				$sandbox['href']

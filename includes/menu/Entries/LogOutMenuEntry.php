@@ -32,6 +32,8 @@ final class LogOutMenuEntry extends SingleMenuEntry {
 	) {
 		$text = $messageLocalizer->msg( 'mobile-frontend-main-menu-logout' )->escaped();
 		$url = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $authLinksQuery );
-		parent::__construct( 'logout', $text, $url, true, null, $iconType, $classes );
+		parent::__construct( 'logout', $text, $url, $classes );
+		$this->trackClicks( 'logout' );
+		$this->setIcon( 'logout', $iconType );
 	}
 }
