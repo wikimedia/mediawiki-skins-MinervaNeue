@@ -22,6 +22,8 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use Hooks;
 use MediaWiki\Minerva\LanguagesHelper;
+use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
@@ -120,7 +122,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * @param string $icon Icon CSS class name.
 	 * @param string $toolboxIdx
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
-	 * @return PageActionMenuEntry|null
+	 * @return IMenuEntry|null
 	 */
 	private function buildFromToolbox( $name, $icon, $toolboxIdx, array $toolbox ) {
 		return $this->build( $name, $icon, $toolbox[$toolboxIdx]['href'] ?? null );
@@ -132,18 +134,16 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * @param string $name
 	 * @param string $icon Wikimedia UI icon name.
 	 * @param string|null $href
-	 * @return PageActionMenuEntry|null
+	 * @return IMenuEntry|null
 	 */
 	private function build( $name, $icon, $href ) {
 		return $href ?
-			new PageActionMenuEntry(
+			SingleMenuEntry::create(
 				'page-actions-overflow-' . $name,
-				$href,
-				MinervaUI::iconClass( '', 'before',
-					'wikimedia-ui-' . $icon . '-base20'
-				),
 				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name ),
-				$name
-			) : null;
+				$href,
+				'wikimedia-ui-' . $icon . '-base20'
+			)->setIcon( '', 'before' )
+			->trackClicks( $name ) : null;
 	}
 }

@@ -25,6 +25,7 @@ use Hooks;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
+use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
@@ -152,21 +153,21 @@ class ToolbarBuilder {
 		$pageUser = $this->userPageHelper->getPageUser();
 		$label = $this->messageLocalizer->msg( 'mobile-frontend-user-page-contributions' );
 
-		return PageActionMenuEntry::create(
+		$entry = SingleMenuEntry::create(
 			'page-actions-contributions',
-			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL(),
-			MinervaUI::iconClass( 'contributions', 'with-label-desktop' ),
 			$label,
-			'contributions'
-
-		)->setTitle( $label );
+			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL() );
+		$entry->setTitle( $label )
+			->trackClicks( 'contributions' )
+			->setIcon( 'contributions', 'with-label-desktop' );
+		return $entry;
 	}
 
 	/**
 	 * Creates the "edit" page action: the well-known pencil icon that, when tapped, will open an
 	 * editor with the lead section loaded.
 	 *
-	 * @return PageActionMenuEntry An edit page actions menu entry
+	 * @return IMenuEntry An edit page actions menu entry
 	 * @throws MWException
 	 * @throws \Exception
 	 */
@@ -182,21 +183,18 @@ class ToolbarBuilder {
 
 		$editOrCreate = $this->permissions->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE );
 
-		$entry = new PageActionMenuEntry(
+		$entry = new SingleMenuEntry(
 			'page-actions-edit',
-			$title->getLocalURL( $editArgs ),
-			'edit-page '
-			. MinervaUI::iconClass(
-				$editOrCreate ? 'edit-enabled' : 'edit',
-				'element',
-				'mw-ui-icon-with-label-desktop'
-			),
 			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' ),
-			'edit'
+			$title->getLocalURL( $editArgs ),
+			'edit-page'
 		);
-		return $entry
+		$entry->setIcon( $editOrCreate ? 'edit-enabled' : 'edit',
+			'element', 'mw-ui-icon-with-label-desktop' )
+			->trackClicks( 'edit' )
 			->setTitle( $this->messageLocalizer->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
 			->setNodeID( 'ca-edit' );
+		return $entry;
 	}
 
 	/**
@@ -204,7 +202,7 @@ class ToolbarBuilder {
 	 * add the page to or remove the page from the user's watchlist; or, if the user is logged out,
 	 * will direct the user's UA to Special:Login.
 	 *
-	 * @return PageActionMenuEntry An watch/unwatch page actions menu entry
+	 * @return IMenuEntry An watch/unwatch page actions menu entry
 	 * @throws MWException
 	 */
 	protected function createWatchPageAction(): IMenuEntry {
@@ -235,14 +233,13 @@ class ToolbarBuilder {
 			$iconClass .= ' watched';
 		}
 
-		$entry = new PageActionMenuEntry(
+		$entry = new SingleMenuEntry(
 			'page-actions-watch',
+			$msg->text(),
 			$href,
-			$iconClass . ' mw-watchlink',
-			$msg,
-			$newModeToSet
+			$iconClass . ' mw-watchlink'
 		);
-		return $entry
+		return $entry->trackClicks( $newModeToSet )
 			->setTitle( $msg )
 			->setNodeID( 'ca-watch' );
 	}
@@ -250,18 +247,18 @@ class ToolbarBuilder {
 	/**
 	 * Creates a history action: An icon that links to the mobile history page.
 	 *
-	 * @return PageActionMenuEntry A menu entry object that represents a map of HTML attributes
+	 * @return IMenuEntry A menu entry object that represents a map of HTML attributes
 	 * and a 'text' property to be used with the pageActionMenu.mustache template.
 	 * @throws MWException
 	 */
 	protected function getHistoryPageAction(): IMenuEntry {
-		return new PageActionMenuEntry(
+		return SingleMenuEntry::create(
 			'page-actions-history',
-			$this->getHistoryUrl( $this->title ),
-			MinervaUI::iconClass( 'clock', 'element', 'mw-ui-icon-with-label-desktop' ),
-			$this->messageLocalizer->msg( 'minerva-page-actions-history' ),
-			'history'
-		);
+			$this->messageLocalizer->msg( 'minerva-page-actions-history' )->escaped(),
+			$this->getHistoryUrl( $this->title )
+		)
+			->setIcon( 'clock', 'element', 'mw-ui-icon-with-label-desktop' )
+			->trackClicks( 'history' );
 	}
 
 	/**

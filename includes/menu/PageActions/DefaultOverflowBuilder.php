@@ -21,9 +21,10 @@
 namespace MediaWiki\Minerva\Menu\PageActions;
 
 use Hooks;
+use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
+use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MessageLocalizer;
-use MinervaUI;
 
 class DefaultOverflowBuilder implements IOverflowBuilder {
 
@@ -68,20 +69,18 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	 * @param string $icon Wikimedia UI icon name.
 	 * @param string $toolboxIdx
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
-	 * @return PageActionMenuEntry|null
+	 * @return IMenuEntry|null
 	 */
 	private function build( $name, $icon, $toolboxIdx, array $toolbox ) {
 		$href = $toolbox[$toolboxIdx]['href'] ?? null;
 
 		return $href ?
-			new PageActionMenuEntry(
+			SingleMenuEntry::create(
 				'page-actions-overflow-' . $name,
-				$href,
-				MinervaUI::iconClass(
-					'', 'before', 'wikimedia-ui-' . $icon . '-base20'
-				),
 				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name ),
-				$name
-			) : null;
+				$href,
+				'wikimedia-ui-' . $icon . '-base20'
+			)->setIcon( '', 'before' )
+			->trackClicks( $name ) : null;
 	}
 }

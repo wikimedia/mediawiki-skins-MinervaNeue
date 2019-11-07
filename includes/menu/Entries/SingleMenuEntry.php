@@ -17,6 +17,7 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use Message;
 use MinervaUI;
 
 /**
@@ -67,23 +68,6 @@ class SingleMenuEntry implements IMenuEntry {
 	}
 
 	/**
-	 * @param string $eventName Should clicks be tracked. To override the tracking code
-	 * pass the tracking code as string
-	 */
-	public function trackClicks( $eventName ) {
-		$this->attributes['data-event-name'] = 'menu.' . $eventName;
-	}
-
-	/**
-	 * Set the Menu entry icon
-	 * @param string $iconName Icon name
-	 * @param string $iconType Icon type
-	 */
-	public function setIcon( $iconName, $iconType = 'before' ) {
-		$this->attributes['class'] .= ' ' . MinervaUI::iconClass( $iconName, $iconType, '' );
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function getName() {
@@ -102,6 +86,49 @@ class SingleMenuEntry implements IMenuEntry {
 	 */
 	public function getComponents(): array {
 		return [ $this->attributes ];
+	}
+
+	/**
+	 * @param string $eventName Should clicks be tracked. To override the tracking code
+	 * pass the tracking code as string
+	 * @return $this
+	 */
+	public function trackClicks( $eventName ) {
+		$this->attributes['data-event-name'] = 'menu.' . $eventName;
+		return $this;
+	}
+
+	/**
+	 * Set the Menu entry icon
+	 * @param string $iconName Icon name
+	 * @param string $iconType Icon type
+	 * @param string $additionalClassNames Additional classes
+	 * @return $this
+	 */
+	public function setIcon( $iconName, $iconType = 'before', $additionalClassNames = '' ) {
+		$this->attributes['class'] .= ' '
+			. MinervaUI::iconClass( $iconName, $iconType, $additionalClassNames );
+		return $this;
+	}
+
+	/**
+	 * Set the menu entry title
+	 * @param Message $message Title message
+	 * @return $this
+	 */
+	public function setTitle( Message $message ): self {
+		$this->attributes['title'] = $message->escaped();
+		return $this;
+	}
+
+	/**
+	 * Set the Menu entry ID html attribute
+	 * @param string $nodeID
+	 * @return $this
+	 */
+	public function setNodeID( $nodeID ): self {
+		$this->attributes['id'] = $nodeID;
+		return $this;
 	}
 
 }
