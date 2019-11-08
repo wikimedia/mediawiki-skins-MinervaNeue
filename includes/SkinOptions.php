@@ -26,7 +26,6 @@ final class SkinOptions {
 
 	const MOBILE_OPTIONS = 'mobileOptionsLink';
 	const CATEGORIES = 'categories';
-	const BACK_TO_TOP = 'backToTop';
 	const PAGE_ISSUES = 'pageIssues';
 	const BETA_MODE = 'beta';
 	const TALK_AT_TOP = 'talkAtTop';
@@ -49,8 +48,6 @@ final class SkinOptions {
 		self::MOBILE_OPTIONS => false,
 		/** Whether a categories button should appear at the bottom of the skin. */
 		self::CATEGORIES => false,
-		/** Whether a back to top button appears at the bottom of the view page */
-		self::BACK_TO_TOP => false,
 		/** requires a wiki using Template:Ambox */
 		self::PAGE_ISSUES => false,
 		/** no extension requirements */

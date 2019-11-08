@@ -111,18 +111,18 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	 *
 	 * @covers       ::getContextSpecificModules
 	 * @dataProvider provideGetContextSpecificModules
-	 * @param mixed  $backToTopValue whether back to top feature is enabled
+	 * @param mixed  $categoryLinks whether category link feature is enabled
 	 * @param string $moduleName Module name that is being tested
 	 * @param bool $expected Whether the module is expected to be returned by the function being tested
 	 */
-	public function testGetContextSpecificModules( $backToTopValue, $moduleName, $expected ) {
+	public function testGetContextSpecificModules( $categoryLinks, $moduleName, $expected ) {
 		$this->overrideSkinOptions( [
 			SkinOptions::TALK_AT_TOP => false,
 			SkinOptions::HISTORY_IN_PAGE_ACTIONS => false,
 			SkinOptions::TOOLBAR_SUBMENU => false,
 			SkinOptions::MAIN_MENU_EXPANDED => false,
 			SkinOptions::PERSONAL_MENU => false,
-			'backToTop' => $backToTopValue,
+			SkinOptions::CATEGORIES => $categoryLinks,
 		] );
 
 		$skin = new SkinMinerva();
