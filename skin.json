@@ -63,7 +63,8 @@
 		},
 		"MinervaShowCategoriesButton": {
 			"base": false,
-			"beta": true
+			"beta": true,
+			"amc": true
 		},
 		"MinervaPageIssuesNewTreatment": {
 			"base": false,
