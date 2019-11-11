@@ -13,7 +13,8 @@
 			"神樂坂秀吉",
 			"A2B4C",
 			"予弦",
-			"A Retired User"
+			"A Retired User",
+			"Ywang"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -62,6 +63,7 @@
 	"minerva-page-actions-backlinks": "链入页面",
 	"minerva-page-actions-cite": "引用本页",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}项",
+	"minerva-talk-topic-feedback": "新的主题已加入讨论页！",
 	"minerva-skin-desc": "有响应特性的移动优先皮肤。",
 	"skin-minerva-issue-learn-more": "了解更多",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分类",

@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
-	"mobile-frontend-home-button": "Sṫiqbal",
-	"mobile-frontend-random-button": "Ĝel l-lah"
+	"@metadata": {
+		"authors": [
+			"SADIQUI"
+		]
+	},
+	"mobile-frontend-home-button": "الصفحة الرئيسية",
+	"mobile-frontend-random-button": "عشوائي"
 }
