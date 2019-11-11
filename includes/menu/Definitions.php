@@ -75,7 +75,7 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertContributionsMenuItem( Group $group ) {
-		$group->insertEntry( new SingleMenuEntry(
+		$group->insertEntry( SingleMenuEntry::create(
 			'contributions',
 			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
 			SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL()
@@ -104,7 +104,7 @@ final class Definitions {
 				$watchlistQuery['filter'] = $filter;
 			}
 		}
-		$group->insertEntry( new SingleMenuEntry(
+		$group->insertEntry( SingleMenuEntry::create(
 			'watchlist',
 			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
 			$watchTitle->getLocalURL( $watchlistQuery )
@@ -209,7 +209,7 @@ final class Definitions {
 		$title = $this->context->getTitle();
 		$returnToTitle = $title->getPrefixedText();
 
-		$group->insertEntry( new SingleMenuEntry(
+		$group->insertEntry( SingleMenuEntry::create(
 			'settings',
 			$this->context->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
 			SpecialPage::getTitleFor( 'MobileOptions' )
@@ -223,13 +223,13 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertPreferencesItem( Group $group ) {
-		$group->insertEntry( new SingleMenuEntry(
+		$entry = SingleMenuEntry::create(
 			'preferences',
 			$this->context->msg( 'preferences' )->escaped(),
-			SpecialPage::getTitleFor( 'Preferences' )->getLocalURL(),
-			true,
-			'settings'
-		) );
+			SpecialPage::getTitleFor( 'Preferences' )->getLocalURL()
+		);
+		$entry->setIcon( 'settings' );
+		$group->insertEntry( $entry );
 	}
 
 	/**
@@ -283,7 +283,7 @@ final class Definitions {
 	 */
 	public function insertSpecialPages( Group $group ) {
 		$group->insertEntry(
-			new SingleMenuEntry(
+			SingleMenuEntry::create(
 				'specialpages',
 				$this->context->msg( 'specialpages' )->escaped(),
 				SpecialPage::getTitleFor( 'Specialpages' )->getLocalURL()
@@ -311,7 +311,7 @@ final class Definitions {
 			return;
 		}
 
-		$group->insertEntry( new SingleMenuEntry(
+		$group->insertEntry( SingleMenuEntry::create(
 			'communityportal',
 			$title->getText(),
 			$title->getLocalURL()

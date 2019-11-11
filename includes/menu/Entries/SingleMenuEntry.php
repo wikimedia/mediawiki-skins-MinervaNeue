@@ -30,7 +30,7 @@ class SingleMenuEntry implements IMenuEntry {
 	/**
 	 * @var array
 	 */
-	private $component;
+	private $attributes;
 
 	/**
 	 * Create a simple menu element with one component
@@ -38,27 +38,49 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param string $name An unique menu element identifier
 	 * @param string $text Text to show on menu element
 	 * @param string $url URL menu element points to
-	 * @param bool|string $trackClicks Should clicks be tracked. To override the tracking code
-	 * pass the tracking code as string
-	 * @param string|null $iconName The Icon name, if not defined, the $name will be used
-	 * @param string $iconType 'before' or 'element'
-	 * @param string $classes Additional CSS class names.
+	 * @param string $className Additional CSS class names.
 	 */
-	public function __construct(
-		$name, $text, $url, $trackClicks = true, $iconName = null, $iconType = 'before', $classes = ''
-	) {
+	public function __construct( $name, $text, $url, $className = '' ) {
 		$this->name = $name;
-		$this->component = [
+
+		$this->attributes = [
 			'text' => $text,
 			'href' => $url,
-			'class' => MinervaUI::iconClass( $iconName ?? $name, $iconType, $classes ),
+			'class' => $className
 		];
-		if ( $trackClicks !== false ) {
-			$eventName = $trackClicks === true ? $name : $trackClicks;
-			if ( $eventName ) {
-				$this->component['data-event-name'] = 'menu.' . $eventName;
-			}
-		}
+	}
+
+	/**
+	 * Create a Single Menu entry with text, icon and active click tracking
+	 *
+	 * @param string $name Entry identifier
+	 * @param string $text Entry label
+	 * @param string $url The URL entry points to
+	 * @param string $className Optional HTML classes
+	 * @return static
+	 */
+	public static function create( $name, $text, $url, $className = '' ) {
+		$entry = new static( $name, $text, $url, $className );
+		$entry->trackClicks( $name );
+		$entry->setIcon( $name );
+		return $entry;
+	}
+
+	/**
+	 * @param string $eventName Should clicks be tracked. To override the tracking code
+	 * pass the tracking code as string
+	 */
+	public function trackClicks( $eventName ) {
+		$this->attributes['data-event-name'] = 'menu.' . $eventName;
+	}
+
+	/**
+	 * Set the Menu entry icon
+	 * @param string $iconName Icon name
+	 * @param string $iconType Icon type
+	 */
+	public function setIcon( $iconName, $iconType = 'before' ) {
+		$this->attributes['class'] .= ' ' . MinervaUI::iconClass( $iconName, $iconType, '' );
 	}
 
 	/**
@@ -79,6 +101,7 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @inheritDoc
 	 */
 	public function getComponents(): array {
-		return [ $this->component ];
+		return [ $this->attributes ];
 	}
+
 }
