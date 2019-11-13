@@ -35,6 +35,7 @@ final class SkinOptions {
 	const TABS_ON_SPECIALS = 'tabsOnSpecials';
 	const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
 	const PERSONAL_MENU = 'personalMenu';
+	const SIMPLIFIED_TALK = 'simplifiedTalk';
 
 	/** @var array skin specific options, initialized with default values */
 	// Note stable skin options default to true for desktop-Minerva and are expected to be
@@ -64,6 +65,8 @@ final class SkinOptions {
 		self::PERSONAL_MENU => true,
 		/** whether to show a main menu with additional items */
 		self::MAIN_MENU_EXPANDED => true,
+		/** whether the simplified talk page is eligible to be shown */
+		self::SIMPLIFIED_TALK => false,
 	];
 
 	/**

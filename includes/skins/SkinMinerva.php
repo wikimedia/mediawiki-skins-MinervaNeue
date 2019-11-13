@@ -484,16 +484,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * @return bool Whether or not current title is a Talk page with the default
-	 * action ('view')
-	 */
-	private function isTalkPageWithViewAction() {
-		$title = $this->getTitle();
-
-		return $title->isTalkPage() && Action::getActionName( $this->getContext() ) === "view";
-	}
-
-	/**
 	 * Returns the HTML representing the heading.
 	 * @return string HTML for header
 	 */
@@ -507,25 +497,54 @@ class SkinMinerva extends SkinTemplate {
 		return Html::rawElement( 'h1', [ 'id' => 'section_0' ], $heading );
 	}
 
-	private function getTalkPagePostHeadingHtml() {
-		$sectionCount = 0;
+	/**
+	 * @return bool Whether or not current title is a Talk page with the default
+	 * action ('view')
+	 */
+	private function isTalkPageWithViewAction() {
 		$title = $this->getTitle();
 
-		if ( $this->canUseWikiPage() ) {
+		return $title->isTalkPage() && Action::getActionName( $this->getContext() ) === "view";
+	}
+
+	/**
+	 * @return bool Whether or not the simplified talk page is enabled
+	 * action ('view')
+	 */
+	private function isSimplifiedTalkPageEnabled() {
+		return $this->isTalkPageWithViewAction() &&
+			$this->skinOptions->get( SkinOptions::SIMPLIFIED_TALK );
+	}
+
+	/**
+	 * Returns the postheadinghtml for the talk page with view action
+	 *
+	 * @return string HTML for postheadinghtml
+	 */
+	private function getTalkPagePostHeadingHtml() {
+		$title = $this->getTitle();
+		$html = '';
+
+		// T237589: We don't want to show the add discussion button on Flow pages,
+		// only wikitext pages
+		if ( $this->getPermissions()->isTalkAllowed() &&
+			$title->getContentModel() === CONTENT_MODEL_WIKITEXT
+		) {
+			$addTopicButton = $this->getTalkButton( $title, wfMessage(
+				'minerva-talk-add-topic' )->text(), true );
+			$html = Html::element( 'a', $addTopicButton['attributes'], $addTopicButton['label'] );
+		}
+
+		if ( $this->isSimplifiedTalkPageEnabled() && $this->canUseWikiPage() ) {
 			$wikiPage = $this->getWikiPage();
 			$parserOptions = $wikiPage->makeParserOptions( $this->getContext() );
 			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
 			$sectionCount = $parserOutput ? count( $parserOutput->getSections() ) : 0;
-		}
 
-		$message = $sectionCount > 0 ? wfMessage( 'minerva-talk-explained' )
-			: wfMessage( 'minerva-talk-explained-empty' );
-		$html = Html::element( 'div', [ 'class' => 'minerva-talk-content-explained' ], $message->text() );
-
-		$addTopicButton = $this->getTalkButton( $title, wfMessage(
-			'minerva-talk-add-topic' )->text(), true );
-		if ( $this->getPermissions()->isTalkAllowed() ) {
-			$html = Html::element( 'a', $addTopicButton['attributes'], $addTopicButton['label'] ) . $html;
+			$message = $sectionCount > 0 ? wfMessage( 'minerva-talk-explained' )
+				: wfMessage( 'minerva-talk-explained-empty' );
+			$html = $html . Html::element( 'div', [ 'class' =>
+				'minerva-talk-content-explained' ], $message->text() );
 		}
 
 		return $html;
@@ -829,8 +848,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if (
-			// Class is used when page actions is modified to contain more elements
-			$this->isTalkPageWithViewAction()
+			$this->isSimplifiedTalkPageEnabled()
 		) {
 			$classes .= ' skin-minerva--talk-simplified';
 		}

@@ -106,6 +106,9 @@
 		"FetchChangesList": [
 			"MinervaHooks::onFetchChangesList"
 		],
+		"MobileFrontendBeforeDOM": [
+			"MinervaHooks::onMobileFrontendBeforeDOM"
+		],
 		"MobileFrontendFeaturesRegistration": [
 			"MinervaHooks::onMobileFrontendFeaturesRegistration"
 		],

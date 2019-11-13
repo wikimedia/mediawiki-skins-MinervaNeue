@@ -223,6 +223,26 @@ class MinervaHooks {
 	}
 
 	/**
+	 * MobileFrontendBeforeDOM hook handler that runs before the MobileFormatter
+	 * executes. We use it to determine whether or not the talk page is eligible
+	 * to be simplified (we want it only to be simplified when the MobileFormatter
+	 * makes expandable sections).
+	 *
+	 * @param MobileContext $mobileContext
+	 * @param MobileFormatter $formatter
+	 */
+	public static function onMobileFrontendBeforeDOM(
+		MobileContext $mobileContext,
+		MobileFormatter $formatter
+	) {
+		$services = MediaWikiServices::getInstance();
+		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
+		$skinOptions->setMultiple( [
+			SkinOptions::SIMPLIFIED_TALK => true
+		] );
+	}
+
+	/**
 	 * UserLogoutComplete hook handler.
 	 * Resets skin options if a user logout occurs - this is necessary as the
 	 * RequestContextCreateSkinMobile hook runs before the UserLogout hook.
