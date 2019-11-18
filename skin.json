@@ -30,9 +30,6 @@
 		"MinervaEnableSiteNotice": {
 			"value": false
 		},
-		"MinervaCustomLogos": {
-			"value": []
-		},
 		"MinervaApplyKnownTemplateHacks": {
 			"value": false
 		},
