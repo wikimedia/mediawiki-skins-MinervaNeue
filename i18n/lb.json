@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Les Meloures"
 		]
 	},
 	"minerva-last-modified-date": "Fir d'lescht geännert den $1 ëm $2",
@@ -55,7 +56,7 @@
 	"minerva-talk-explained": "Aktiv Diskussiounen",
 	"minerva-talk-explained-empty": "Et gëtt keng Diskussiounen op dëser Säit.",
 	"minerva-talk-full-page": "Als Wiki-Säit liesen",
-	"minerva-talk-topic-feedback": "Neie Sujet op d'Diskussiounssäit dobäigesat!",
+	"minerva-talk-topic-feedback": "Neie Sujet op d'Diskussiounssäit derbäigesat!",
 	"minerva-talk-reply-success": "Är Äntwert gouf op der Diskussiounssäit gespäichert.",
 	"skin-minerva-issue-learn-more": "Fir méi ze wëssen",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
