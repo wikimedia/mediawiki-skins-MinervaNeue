@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Red Winged Duck",
-			"Wizardist"
+			"Wizardist",
+			"Renessaince"
 		]
 	},
 	"minerva-last-modified-date": "Апошняя праўка ў $2 $1",
@@ -15,7 +16,7 @@
 	"mobile-frontend-editor-redlink-leave": "Не, дзякуй.",
 	"mobile-frontend-history": "Праглядзець гісторыю зьменаў гэтай старонкі.",
 	"mobile-frontend-home-button": "Дадому",
-	"mobile-frontend-language-article-heading": "Чытаць на іншай мове",
+	"mobile-frontend-language-article-heading": "Мова",
 	"mobile-frontend-languages-not-available": "Гэтая старонка не даступная на іншых мовах.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Вітаем}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Адкрыць галоўнае мэню",
@@ -45,7 +46,7 @@
 	"mobile-frontend-user-page-contributions": "Унёсак",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Далучыўся|Далучылася}} $1",
 	"mobile-frontend-user-page-talk": "Гутаркі",
-	"minerva-page-actions-overflow": "Падмэню дзеяньняў другаснай старонкі",
+	"minerva-page-actions-overflow": "Болей",
 	"minerva-page-actions-info": "Зьвесткі пра старонку",
 	"minerva-page-actions-permalink": "Сталая спасылка",
 	"minerva-page-actions-backlinks": "Спасылкі на старонку",
