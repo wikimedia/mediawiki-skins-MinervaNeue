@@ -6,7 +6,6 @@ module.exports = function ( mobile ) {
 		SKIN_MINERVA_TALK_SIMPLIFIED_CLASS = 'skin-minerva--talk-simplified',
 		toast = mobile.toast,
 		currentPage = mobile.currentPage(),
-		loader = mobile.rlModuleLoader,
 		api = new mw.Api(),
 		overlayManager = mobile.OverlayManager.getSingleton(),
 		// FIXME: This dependency shouldn't exist
@@ -25,19 +24,23 @@ module.exports = function ( mobile ) {
 		// eslint-disable-next-line no-restricted-properties
 		var M = mw.mobileFrontend;
 
-		return mw.loader.getState( 'mobile.talk.overlays' ) === 'ready' ?
-			new ( M.require( 'mobile.talk.overlays/' + className ) )( talkOptions ) :
-			// otherwise pull it from ResourceLoader async
-			loader.loadModule( 'mobile.talk.overlays' ).then( function () {
-				return new ( M.require( 'mobile.talk.overlays/' + className ) )( talkOptions );
-			} );
+		return new ( M.require( 'mobile.talk.overlays/' + className ) )( talkOptions );
 	}
 
-	function removeTalkSectionListeners() {
+	/**
+	 * Cleanup the listeners previously added in initTalkSection
+	 * so that events like clicking on a section) won't cause
+	 * scroll changes/things only needed for the simplified view.
+	 * Also restore ids for table of contents.
+	 */
+	function restoreSectionHeadings() {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.section-heading' ).each( function () {
-			var $heading = $( this );
+			var $heading = $( this ),
+				$headline = $heading.find( '.mw-headline' );
 			$heading.off( 'click.talkSectionOverlay' );
+			// restore for table of contents:
+			$headline.attr( 'id', $headline.data( 'id' ) );
 		} );
 	}
 
@@ -56,36 +59,23 @@ module.exports = function ( mobile ) {
 			return mobile.util.Deferred().reject();
 		}
 
-		// FIXME: Yes, this is hacky. Async code is needed to deal with the
-		// overlay opening in a scroll position that is not at the top. What
-		// causes this scroll to occur is code from Toggler.js which also
-		// listens to hash changes and causes the window to scroll to the top of
-		// the clicked on section after the overlay is open. We should probably
-		// stop the Toggler code from executing at all when the simplified view
-		// is enabled to prevent this code from happening, but MobileFrontend
-		// currently initializes the toggler code in mobile.init.js.
-		//
-		// https://github.com/wikimedia/mediawiki-extensions-MobileFrontend/blob/5c646a9881a787215b7d77c1d8b6b9126f302697/src/mobile.startup/Toggler.js#L216
-		return mobile.util.Deferred().resolve().then(
-			function () {
-				return createOverlay( 'TalkSectionOverlay', {
-					id: sectionId,
-					section: new mobile.Section( {
-						line: $headline.text(),
-						text: $heading.next().html()
-					} ),
-					// FIXME: Replace this api param with onSaveComplete
-					api: api,
-					title: talkTitle,
-					// T184273 using `currentPage` because 'wgPageName'
-					// contains underscores instead of spaces.
-					licenseMsg: skin.getLicenseMsg(),
-					onSaveComplete: function () {
-						toast.showOnPageReload( mw.message( 'minerva-talk-reply-success' ).text() );
-						window.location.reload();
-					}
-				} );
-			} );
+		return createOverlay( 'TalkSectionOverlay', {
+			id: sectionId,
+			section: new mobile.Section( {
+				line: $headline.text(),
+				text: $heading.next().html()
+			} ),
+			// FIXME: Replace this api param with onSaveComplete
+			api: api,
+			title: talkTitle,
+			// T184273 using `currentPage` because 'wgPageName'
+			// contains underscores instead of spaces.
+			licenseMsg: skin.getLicenseMsg(),
+			onSaveComplete: function () {
+				toast.showOnPageReload( mw.message( 'minerva-talk-reply-success' ).text() );
+				window.location.reload();
+			}
+		} );
 	}
 
 	/**
@@ -113,6 +103,12 @@ module.exports = function ( mobile ) {
 				window.location.hash = '#' + headlineId;
 
 			} );
+
+			// remove the `id` to avoid conflicts with the overlay route.
+			// Without JS the id will still be present. With JS the overlay will open.
+			$headline.removeAttr( 'id' );
+			// however cache it to data for cooperation with the 'read as wiki page' button.
+			$headline.data( 'id', headlineId );
 
 			overlayManager.add( headlineId, function () {
 				return createTalkSectionOverlay( $heading, $headline, sectionId );
@@ -152,10 +148,7 @@ module.exports = function ( mobile ) {
 			.addClass( 'minerva-talk-full-page-button' )
 			.text( mw.message( 'minerva-talk-full-page' ).text() )
 			.on( 'click', function () {
-				// We need to cleanup the listeners previously added in initTalkSection
-				// so that events like clicking on a section) won't cause
-				// scroll changes/things only needed for the simplified view
-				removeTalkSectionListeners();
+				restoreSectionHeadings();
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$( 'body' ).removeClass( 'skin-minerva--talk-simplified' );
 				$( this ).remove();
@@ -250,8 +243,9 @@ module.exports = function ( mobile ) {
 	 * (T230695).
 	 */
 	function init() {
-		// eslint-disable-next-line no-jquery/no-global-selector
-		var $talk = $( '.talk' ),
+		var promise,
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$talk = $( '.talk' ),
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$addTalk = $( '.minerva-talk-add-button' );
 
@@ -262,13 +256,17 @@ module.exports = function ( mobile ) {
 		// view action (default action) of the talk page and not when the user is on
 		// other actions of the talk page (e.g. like the history action)
 		if ( currentPage.titleObj.isTalkPage() && mw.config.get( 'wgAction' ) === 'view' ) {
-			initTalkSectionAdd();
+			promise = mw.loader.using( 'mobile.talk.overlays' )
+				.then( initTalkSectionAdd );
+		} else {
+			return;
 		}
+
 		// SkinMinerva sets a class on the body which effectively controls when this
 		// mode is on
 		if ( isSimplifiedViewEnabled() ) {
-			initTalkSection();
-			renderReadAsWikiPageButton();
+			promise.then( initTalkSection )
+				.then( renderReadAsWikiPageButton );
 		}
 	}
 
