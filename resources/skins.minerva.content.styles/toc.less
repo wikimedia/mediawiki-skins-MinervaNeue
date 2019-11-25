@@ -1,6 +1,6 @@
 @import '../../minerva.less/minerva.variables.less';
 
-#toc {
+.toc {
 	display: none;
 	position: relative;
 	margin: 1em 0;
@@ -28,7 +28,7 @@
 	z-index: @z-indexAboveContent;
 }
 
-.client-js .content .toc {
+.client-js .toc {
 	.toctitle {
 		@toctitle-vertical-padding: 1.4em / 2;
 		visibility: hidden;
@@ -61,7 +61,7 @@
 }
 
 @media screen and ( min-width: @width-breakpoint-tablet ) {
-	#toc {
+	.client-js .toc {
 		// Reset the rule for mobile mode (but not for .client-nojs)
 		display: table;
 
