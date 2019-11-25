@@ -11,7 +11,9 @@ module.exports = function ( mobile ) {
 		overlayManager = mobile.OverlayManager.getSingleton(),
 		// FIXME: This dependency shouldn't exist
 		skin = mobile.Skin.getSingleton(),
-		talkTitle = currentPage.titleObj.getTalkPage().getPrefixedText();
+		talkTitle = currentPage.titleObj.getTalkPage() ?
+			currentPage.titleObj.getTalkPage().getPrefixedText() :
+			undefined;
 
 	/**
 	 * Render a type of talk overlay
@@ -270,5 +272,7 @@ module.exports = function ( mobile ) {
 		}
 	}
 
-	init();
+	if ( talkTitle ) {
+		init();
+	}
 };
