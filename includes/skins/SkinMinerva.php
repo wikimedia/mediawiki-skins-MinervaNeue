@@ -512,8 +512,11 @@ class SkinMinerva extends SkinTemplate {
 	 * action ('view')
 	 */
 	private function isSimplifiedTalkPageEnabled() {
+		$title = $this->getTitle();
+
 		return $this->isTalkPageWithViewAction() &&
-			$this->skinOptions->get( SkinOptions::SIMPLIFIED_TALK );
+			$this->skinOptions->get( SkinOptions::SIMPLIFIED_TALK ) &&
+			$title->getContentModel() === CONTENT_MODEL_WIKITEXT;
 	}
 
 	/**
