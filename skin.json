@@ -501,6 +501,7 @@
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#4A4F53",
+			"useDataURI": false,
 			"images": {
 				"contributions": {
 					"file": {
