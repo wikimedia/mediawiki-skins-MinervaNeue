@@ -79,8 +79,9 @@
 	font-size: 28px;
 }
 
-// stylelint-disable selector-max-id
-#mw-content-text {
+// `#mw-content-text` doesn't feature universal class selector.
+// `class|='mw-content'` catches `.mw-content`, but also `.mw-content-rtl`.
+[ class|='mw-content' ] {
 	font-size: 36px;
 
 	a {
@@ -122,4 +123,3 @@
 		font-size: 30px;
 	}
 }
-// stylelint-enable selector-max-id
