@@ -10,7 +10,7 @@
 		display: none;
 	}
 
-	> #wpTextbox1 {
+	> #wpTextbox1 { // stylelint-disable-line selector-max-id
 		border: 1px solid @colorGray12;
 		max-height: 70vh;
 	}
@@ -18,6 +18,7 @@
 
 .action-submit,
 .action-edit {
+	// stylelint-disable selector-max-id
 	#page-secondary-actions,
 	#page-actions {
 		display: none;
@@ -76,4 +77,5 @@
 			text-align: left;
 		}
 	}
+	// stylelint-enable selector-max-id
 }

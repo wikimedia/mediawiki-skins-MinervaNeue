@@ -22,7 +22,7 @@
 	opacity: 0.25;
 }
 
-#page-actions {
+#page-actions { // stylelint-disable-line selector-max-id
 	position: relative;
 }
 
@@ -92,11 +92,11 @@
 // On small devices that don't support Javascript, hide the page actions bar
 @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
 	.client-nojs {
-		#page-actions {
+		#page-actions { // stylelint-disable-line selector-max-id
 			display: none;
 		}
 
-		#section_0 {
+		#section_0 { // stylelint-disable-line selector-max-id
 			border: 0;
 		}
 	}

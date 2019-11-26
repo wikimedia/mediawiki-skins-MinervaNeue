@@ -6,10 +6,8 @@ A file for css that optimises the Minerva skin on larger devices.
 @import '../../../minerva.less/minerva.mixins.less';
 
 @media screen and ( min-width: @width-breakpoint-tablet ) {
-	.client-js {
-		#searchIcon {
-			display: none;
-		}
+	.client-js #searchIcon { // stylelint-disable-line selector-max-id
+		display: none;
 	}
 
 	.header {
@@ -27,6 +25,7 @@ A file for css that optimises the Minerva skin on larger devices.
 		}
 	}
 
+	// stylelint-disable selector-max-id
 	// FIXME: Have a class that identifies all of these selectors
 	.pre-content,
 	/* Form only pages e.g. Special:MobileOptions */
@@ -36,6 +35,7 @@ A file for css that optimises the Minerva skin on larger devices.
 		max-width: @contentMaxWidthTablet;
 		margin: 0 @contentPaddingTablet;
 	}
+	// stylelint-enable selector-max-id
 
 	.content {
 		// Classes added by thumbnails
@@ -88,6 +88,7 @@ A file for css that optimises the Minerva skin on larger devices.
 }
 
 @media screen and ( min-width: @width-breakpoint-desktop ) {
+	// stylelint-disable-next-line selector-max-id
 	.banner-container,
 	/* FIXME: Generic header class needed me-thinks! */
 	.header,

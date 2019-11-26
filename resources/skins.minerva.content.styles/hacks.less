@@ -24,6 +24,7 @@ FIXME: Review all of these hacks to see if they still apply.
 		display: none;
 	}
 
+	// stylelint-disable selector-max-id
 	/* Hide cleanup templates by default to non-javascript users as these stop them from reading the article itself
 	 * Edit page notices */
 	.action-edit .fmbox,
@@ -35,6 +36,7 @@ FIXME: Review all of these hacks to see if they still apply.
 		// It's important as some of these are tables which become display: table on larger screens
 		display: none !important;
 	}
+	// stylelint-enable selector-max-id
 
 	table {
 		// A lot of templates introduce floating and horizontal margins inline styles
@@ -107,7 +109,7 @@ FIXME: Review all of these hacks to see if they still apply.
 }
 
 // FIXME: Remove when filetoc is stripped from file pages a la table of contents (toc)
-#filetoc {
+#filetoc { // stylelint-disable-line selector-max-id
 	display: none;
 }
 
