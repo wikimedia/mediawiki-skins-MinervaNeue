@@ -1,6 +1,7 @@
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
 
+// stylelint-disable selector-max-id
 /* fancycaptcha reload button */
 .confirmedit-captcha-reload,
 #mf-captcha-reload-container {
@@ -13,6 +14,7 @@
 		color: @colorProgressive;
 	}
 }
+// stylelint-enable selector-max-id
 
 .mw-createacct-captcha-assisted {
 	display: block;
@@ -38,6 +40,7 @@
 			margin: 0;
 		}
 
+		// stylelint-disable selector-max-id
 		input:not( [ type='submit' ] ),
 		img,
 		#wpCaptchaWord {
@@ -48,6 +51,7 @@
 				border-top: 0;
 			}
 		}
+		// stylelint-enable selector-max-id
 
 		// CAPTCHA's are well known by internet users, save the space of the explanation
 		> p,

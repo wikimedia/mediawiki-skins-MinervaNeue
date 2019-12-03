@@ -31,6 +31,7 @@ main {
 }
 
 // FIXME: should we use .mw-body here instead?
+// stylelint-disable selector-max-id
 #content {
 	// avoid margin collapsing (see T147956)
 	border-top: 1px solid transparent;
@@ -41,6 +42,7 @@ main {
 #content {
 	background-color: @skinContentBgColor;
 }
+// stylelint-enable selector-max-id
 
 .header-container {
 	border-bottom: 1px solid @colorGray12;
@@ -53,6 +55,7 @@ main {
 	}
 }
 
+// stylelint-disable-next-line selector-max-id
 .navigation-drawer--loading,
 // if footer has last modified line hide it (T173545)
 #footer-info-lastmod {
@@ -132,7 +135,7 @@ main {
 	}
 }
 
-#searchInput {
+#searchInput { // stylelint-disable-line selector-max-id
 	cursor: text;
 }
 
@@ -236,6 +239,7 @@ input.search {
 	}
 }
 
+// stylelint-disable selector-max-id
 #page-secondary-actions {
 	// Clears floating on table of contents on stub pages.
 	clear: both;
@@ -279,6 +283,7 @@ input.search {
 .post-content {
 	margin: 0 @contentMargin;
 }
+// stylelint-enable selector-max-id
 
 // T217197
 .minerva__subtitle {
