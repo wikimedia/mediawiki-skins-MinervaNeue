@@ -1,6 +1,5 @@
 @import '../../minerva.less/minerva.variables.less';
 
-// stylelint-disable selector-max-id
 @media all and ( min-width: @width-breakpoint-tablet ) {
 	.ns-special .pre-content {
 		background: #fff;
@@ -12,7 +11,7 @@
 		}
 	}
 
-	.ns-special #content {
+	.ns-special .mw-body {
 		background: @colorGray14;
 
 		form {
@@ -21,6 +20,7 @@
 	}
 }
 
+// stylelint-disable selector-max-id
 #mobile-options &.indicator-circle {
 	overflow: initial;
 
