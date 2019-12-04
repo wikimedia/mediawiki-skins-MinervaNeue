@@ -51,6 +51,8 @@
 	// reset font-size so the "em" value is relative to the more
 	// predictable rem font size ...and no rems because we can't have nice things.
 	font-size: initial;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 
 	// sizing
 	position: relative;
@@ -104,9 +106,7 @@
 	// See https://stackoverflow.com/questions/11419741/less-css-mixins-with-variable-number-of-arguments
 	.transition( background-color @transition-duration-base; );
 
-	// screen-reader text. Not using `text-indent: -999px` because
-	// the inner :before element is `display: block` so text-indent has no effect.
-	line-height: 999px;
+	// Combined with nowrap & ellipsis from .mw-ui-icon, forms safe "screen-reader" text.
 	color: transparent;
 
 	&:focus, &:active, &:visited {
@@ -186,9 +186,6 @@
 		width: auto;
 		line-height: inherit;
 		flex-basis: auto;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 
 		&:hover, &:focus, &:active, &:visited {
 			color: @icon-color;
