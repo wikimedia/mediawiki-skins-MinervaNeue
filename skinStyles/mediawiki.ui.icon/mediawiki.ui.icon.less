@@ -60,6 +60,10 @@
 	box-sizing: content-box !important;
 	width: @icon-size-md;
 	height: @icon-size-md;
+
+	// Guarding against flex-box variability.
+	min-width: @icon-size-md;
+	min-height: @icon-size-md;
 	flex-basis: @icon-size-md;
 
 	// alignment
@@ -132,6 +136,8 @@
 .mw-ui-icon-small {
 	width: @icon-size-sm;
 	height: @icon-size-sm;
+	min-width: @icon-size-sm;
+	min-height: @icon-size-sm;
 	flex-basis: @icon-size-sm;
 	line-height: @icon-size-sm;
 
