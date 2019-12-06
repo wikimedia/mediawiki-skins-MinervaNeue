@@ -42,10 +42,10 @@ table.ambox {
 	.mbox-text-div,
 	.mbox-text-span {
 		display: block;
-		max-height: @contentLineHeight * 2em;
+		max-height: @line-height-content * 2em;
 		// All will have this height (approx 2 lines) even if a single line e.g. {{dictdef}} when on mobile.
 		// Overriden later in tablet styles.
-		height: @contentLineHeight * 2em;
+		height: @line-height-content * 2em;
 		overflow: hidden;
 	}
 
@@ -114,7 +114,7 @@ table.ambox {
 		right: @amboxPadding;
 		bottom: @amboxPadding;
 		z-index: @z-indexBase;
-		line-height: @contentLineHeight; // sets height for fade & aligns "learn more" to ambox text.
+		line-height: @line-height-content; // sets height for fade & aligns "learn more" to ambox text.
 
 		/* creates a fade under the "learn more" button to avoid overlapping text. */
 		&:before {
@@ -148,7 +148,7 @@ table.ambox {
 			// Move blur to far right last line
 			// https://phabricator.wikimedia.org/T197931#4475197
 			&:before {
-				top: unit( -@contentLineHeight, em );
+				top: unit( -@line-height-content, em );
 				width: 10px;
 			}
 		}
