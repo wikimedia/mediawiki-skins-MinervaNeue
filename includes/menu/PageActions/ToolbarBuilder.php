@@ -153,7 +153,7 @@ class ToolbarBuilder {
 		$pageUser = $this->userPageHelper->getPageUser();
 		$label = $this->messageLocalizer->msg( 'mobile-frontend-user-page-contributions' );
 
-		$entry = SingleMenuEntry::create(
+		$entry = new SingleMenuEntry(
 			'page-actions-contributions',
 			$label,
 			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL() );
