@@ -252,13 +252,14 @@ class ToolbarBuilder {
 	 * @throws MWException
 	 */
 	protected function getHistoryPageAction(): IMenuEntry {
-		return SingleMenuEntry::create(
+		$entry = new SingleMenuEntry(
 			'page-actions-history',
 			$this->messageLocalizer->msg( 'minerva-page-actions-history' )->escaped(),
 			$this->getHistoryUrl( $this->title )
-		)
-			->setIcon( 'clock', 'element', 'mw-ui-icon-with-label-desktop' )
+		);
+		$entry->setIcon( 'clock', 'element', 'mw-ui-icon-with-label-desktop' )
 			->trackClicks( 'history' );
+		return $entry;
 	}
 
 	/**
