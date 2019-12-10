@@ -3,7 +3,8 @@
 		"authors": [
 			"ChrisiPK",
 			"Kghbln",
-			"Metalhead64"
+			"Metalhead64",
+			"Tobi 406"
 		]
 	},
 	"minerva-last-modified-date": "Zuletzt bearbeitet am $1 um $2",
@@ -46,12 +47,19 @@
 	"mobile-frontend-user-page-contributions": "Beiträge",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Beigetreten}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
-	"minerva-page-actions-overflow": "Sekundäres Seitenaktionen-Untermenü",
+	"minerva-user-menu-button": "Benutzermenü",
+	"minerva-page-actions-overflow": "Mehr",
 	"minerva-page-actions-info": "Seiteninformationen",
 	"minerva-page-actions-permalink": "Permanentlink",
 	"minerva-page-actions-backlinks": "Links auf diese Seite",
 	"minerva-page-actions-cite": "Seite zitieren",
+	"minerva-page-actions-user-groups": "Benutzergruppen",
 	"minerva-page-actions-logs": "Logbücher",
+	"minerva-page-actions-language-switcher": "Sprachen",
+	"minerva-page-actions-history": "Versionsgeschichte",
+	"minerva-talk-explained": "Aktive Diskussionen",
+	"minerva-talk-explained-empty": "Es gibt keine Diskussionen auf dieser Seite.",
+	"minerva-talk-full-page": "Als Wikiseite lesen",
 	"minerva-skin-desc": "Stellt eine responsive und für mobile Endgeräte geeignete Benutzeroberfläche bereit",
 	"skin-minerva-issue-learn-more": "Mehr erfahren",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorien",
