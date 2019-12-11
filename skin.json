@@ -70,10 +70,6 @@
 			"base": false,
 			"beta": true
 		},
-		"MinervaEnableBackToTop": {
-			"base": false,
-			"beta": true
-		},
 		"MinervaABSamplingRate": 0
 	},
 	"ValidSkinNames": {
@@ -641,16 +637,9 @@
 				"mediawiki.language",
 				"mobile.startup"
 			],
-			"templates": {
-				"BackToTopOverlay.mustache": "resources/skins.minerva.options/BackToTopOverlay.mustache"
-			},
-			"styles": [
-				"resources/skins.minerva.options/backtotop.less"
-			],
 			"packageFiles": [
 				"resources/skins.minerva.options/index.js",
-				"resources/skins.minerva.options/BackToTopOverlay.js",
-				"resources/skins.minerva.options/backtotop.js",
+
 				"resources/skins.minerva.options/categories.js"
 			]
 		}

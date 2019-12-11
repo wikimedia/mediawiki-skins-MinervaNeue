@@ -150,17 +150,6 @@ Controls whether the overflow link appears in the page actions menu.
 ```
 Controls whether the share feature should be added to the page actions menu.
 
-#### $wgMinervaEnableBackToTop
-
-* Type: `Array`
-* Default:
-```php
-  [
-    'base' => false,
-    'beta' => true,
-  ]
-```
-Controls whether the a back to top button should appear in the bottom right of the screen when scrolling.
 
 #### $wgMinervaCustomLogos
 

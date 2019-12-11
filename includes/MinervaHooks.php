@@ -70,13 +70,6 @@ class MinervaHooks {
 			);
 			$featureManager->registerFeature(
 				new MobileFrontend\Features\Feature(
-					'MinervaEnableBackToTop',
-					'skin-minerva',
-					$config->get( 'MinervaEnableBackToTop' )
-				)
-			);
-			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
 					'MinervaPageIssuesNewTreatment',
 					'skin-minerva',
 					$config->get( 'MinervaPageIssuesNewTreatment' )
@@ -199,8 +192,6 @@ class MinervaHooks {
 					=> $isBeta,
 				SkinOptions::CATEGORIES
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategoriesButton' ),
-				SkinOptions::BACK_TO_TOP
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaEnableBackToTop' ),
 				SkinOptions::PAGE_ISSUES
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
 				SkinOptions::MOBILE_OPTIONS => true,

@@ -36,13 +36,10 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 	public function testHasSkinOptions() {
 		$options = new SkinOptions();
 		$this->assertTrue( $options->hasSkinOptions() );
-		$options->setMultiple( [ SkinOptions::BACK_TO_TOP => true ] );
-		$this->assertTrue( $options->hasSkinOptions() );
 		$options->setMultiple( [
 			SkinOptions::TALK_AT_TOP => false,
 			SkinOptions::HISTORY_IN_PAGE_ACTIONS => false,
 			SkinOptions::TOOLBAR_SUBMENU => false,
-			SkinOptions::BACK_TO_TOP => false,
 			SkinOptions::MAIN_MENU_EXPANDED => false,
 			SkinOptions::PERSONAL_MENU => false,
 		] );

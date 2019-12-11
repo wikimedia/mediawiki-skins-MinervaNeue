@@ -65,8 +65,6 @@
 	"skin-minerva-issue-learn-more": "Learn more",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categories",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "View categories of pages",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Jump to top",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Jump to top of the current page using a floating button",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Improved page issues treatment",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Page issues (Template:ambox) will be inlined in the article.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Unfortunately, grouping results by page is not available on mobile. If you would like to use the group by page feature please visit the desktop site."
