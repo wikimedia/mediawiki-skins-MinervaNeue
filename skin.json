@@ -67,7 +67,7 @@
 			"amc": true
 		},
 		"MinervaPageIssuesNewTreatment": {
-			"base": false,
+			"base": true,
 			"beta": true
 		},
 		"MinervaABSamplingRate": 0
