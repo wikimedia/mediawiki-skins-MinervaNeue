@@ -14,10 +14,10 @@ const iShouldBeOnMyUserPage = () => {
 };
 
 const thereShouldBeALinkToMyContributions = () => {
-	assert.strictEqual( ArticlePage.user_links_element.element( '=Contributions' ).isVisible(), true );
+	assert.strictEqual( ArticlePage.contributions_link_element.isVisible(), true );
 };
 const thereShouldBeALinkToMyTalkPage = () => {
-	assert.strictEqual( ArticlePage.user_links_element.element( '=Talk' ).isVisible(), true );
+	assert.strictEqual( ArticlePage.talk_tab_element.isVisible(), true );
 };
 
 module.exports = { iVisitMyUserPage, iShouldBeOnMyUserPage,

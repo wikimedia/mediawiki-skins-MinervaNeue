@@ -30,6 +30,7 @@ use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\User\UserIdentity;
 use MessageLocalizer;
 use MinervaUI;
 use MWException;
@@ -66,7 +67,7 @@ class ToolbarBuilder {
 	/**
 	 * @var SkinUserPageHelper
 	 */
-	private $userPageHelper;
+	private $relevantUserPageHelper;
 
 	/**
 	 * @var LanguagesHelper
@@ -80,7 +81,10 @@ class ToolbarBuilder {
 	 * @param MessageLocalizer $msgLocalizer Message localizer to generate localized texts
 	 * @param IMinervaPagePermissions $permissions Minerva permissions system
 	 * @param SkinOptions $skinOptions Skin options
-	 * @param SkinUserPageHelper $userPageHelper User Page helper
+	 * @param SkinUserPageHelper $relevantUserPageHelper User Page helper. The
+	 * UserPageHelper passed should always be specific to the user page Title. If on a
+	 * user talk page, UserPageHelper should be instantiated with the user page
+	 * Title and NOT with the user talk page Title.
 	 * @param LanguagesHelper $languagesHelper Helper to check title languages/variants
 	 */
 	public function __construct(
@@ -89,7 +93,7 @@ class ToolbarBuilder {
 		MessageLocalizer $msgLocalizer,
 		IMinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
-		SkinUserPageHelper $userPageHelper,
+		SkinUserPageHelper $relevantUserPageHelper,
 		LanguagesHelper $languagesHelper
 	) {
 		$this->title = $title;
@@ -97,7 +101,7 @@ class ToolbarBuilder {
 		$this->messageLocalizer = $msgLocalizer;
 		$this->permissions = $permissions;
 		$this->skinOptions = $skinOptions;
-		$this->userPageHelper = $userPageHelper;
+		$this->relevantUserPageHelper = $relevantUserPageHelper;
 		$this->languagesHelper = $languagesHelper;
 	}
 
@@ -108,10 +112,10 @@ class ToolbarBuilder {
 	public function getGroup(): Group {
 		$group = new Group( 'p-views' );
 		$permissions = $this->permissions;
-		$userPageWithOveflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) &&
-			$this->userPageHelper->isUserPage();
+		$userPageOrUserTalkPageWithOveflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+			&& $this->relevantUserPageHelper->isUserPage();
 
-		if ( !$userPageWithOveflowMode && $permissions->isAllowed(
+		if ( !$userPageOrUserTalkPageWithOveflowMode && $permissions->isAllowed(
 			IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->insertEntry( new LanguageSelectorEntry(
 				$this->title,
@@ -129,10 +133,11 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->getHistoryPageAction() );
 		}
 
-		if ( $userPageWithOveflowMode ) {
-			// User links are hidden when Overflow menu is visible. We want to show Contributions
-			// link on toolbar only when overflow is visible
-			$group->insertEntry( $this->createContributionsPageAction() );
+		if ( $this->relevantUserPageHelper->isUserPage() ) {
+			// T235681: Contributions icon should be added to toolbar on user pages
+			// and user talk pages for all users
+			$user = $this->relevantUserPageHelper->getPageUser();
+			$group->insertEntry( $this->createContributionsPageAction( $user ) );
 		}
 
 		Hooks::run( 'MobileMenu', [ 'pageactions.toolbar', &$group ] );
@@ -145,18 +150,19 @@ class ToolbarBuilder {
 	}
 
 	/**
-	 * Create Contributions page action visible on user pages
+	 * Create Contributions page action visible on user pages or user talk pages
+	 * for given $user
 	 *
+	 * @param User $user Determines what the contribution page action will link to
 	 * @return IMenuEntry
 	 */
-	protected function createContributionsPageAction(): IMenuEntry {
-		$pageUser = $this->userPageHelper->getPageUser();
+	protected function createContributionsPageAction( UserIdentity $user ): IMenuEntry {
 		$label = $this->messageLocalizer->msg( 'mobile-frontend-user-page-contributions' );
 
 		$entry = new SingleMenuEntry(
 			'page-actions-contributions',
 			$label,
-			SpecialPage::getTitleFor( 'Contributions', $pageUser )->getLocalURL() );
+			SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalURL() );
 		$entry->setTitle( $label )
 			->trackClicks( 'contributions' )
 			->setIcon( 'contributions', 'with-label-desktop' );

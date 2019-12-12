@@ -83,21 +83,27 @@ return [
 		$user = $context->getUser();
 		$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
 		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
+
+		$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
+			new SkinUserPageHelper(
+				$context->getSkin()->getRelevantTitle()->getSubjectPage()
+			) :
+			$userPageHelper;
+
 		$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
 			$title,
 			$user,
 			$context,
 			$services->getService( 'Minerva.Permissions' ),
 			$skinOptions,
-			$userPageHelper,
+			$relevantUserPageHelper,
 			$languagesHelper
 		);
 		if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
-			 $overflowBuilder = $userPageHelper->isUserPage() ?
+			 $overflowBuilder = $relevantUserPageHelper->isUserPage() ?
 				 new PageActionsMenu\UserNamespaceOverflowBuilder(
 					 $title,
 					 $context,
-					 $userPageHelper,
 					 $services->getService( 'Minerva.Permissions' ),
 					 $languagesHelper
 				 ) :

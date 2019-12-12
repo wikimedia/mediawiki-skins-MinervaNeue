@@ -20,6 +20,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Minerva\SkinUserPageHelper;
 
 /**
  * Hook handlers for Minerva skin.
@@ -182,12 +183,22 @@ class MinervaHooks {
 			$featureManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
 			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
+			$title = $skin->getTitle();
+			// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
+			// be true on user pages and user talk pages for all users
+			//
+			// For some reason using $services->getService( 'SkinUserPageHelper' )
+			// here results in a circular dependency error which is why
+			// SkinUserPageHelper is being instantiated instead.
+			$relevantUserPageHelper = new SkinUserPageHelper(
+				$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
+			);
+			$isUserPageOrUserTalkPage = $relevantUserPageHelper->isUserPage();
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$skinOptions->setMultiple( [
-				SkinOptions::TALK_AT_TOP => $featureManager->isFeatureAvailableForCurrentUser(
-					'MinervaTalkAtTop'
-				),
+				SkinOptions::TALK_AT_TOP => $isUserPageOrUserTalkPage ?
+					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
 				SkinOptions::BETA_MODE
 					=> $isBeta,
 				SkinOptions::CATEGORIES
@@ -201,12 +212,12 @@ class MinervaHooks {
 				SkinOptions::MAIN_MENU_EXPANDED => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaAdvancedMainMenu'
 				),
-				SkinOptions::HISTORY_IN_PAGE_ACTIONS => $featureManager->isFeatureAvailableForCurrentUser(
-					'MinervaHistoryInPageActions'
-				),
-				SkinOptions::TOOLBAR_SUBMENU => $featureManager->isFeatureAvailableForCurrentUser(
-					self::FEATURE_OVERFLOW_PAGE_ACTIONS
-				),
+				SkinOptions::HISTORY_IN_PAGE_ACTIONS => $isUserPageOrUserTalkPage ?
+					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
+				SkinOptions::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
+					true : $featureManager->isFeatureAvailableForCurrentUser(
+						self::FEATURE_OVERFLOW_PAGE_ACTIONS
+					),
 				SkinOptions::TABS_ON_SPECIALS => false,
 			] );
 			Hooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );

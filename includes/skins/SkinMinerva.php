@@ -563,29 +563,7 @@ class SkinMinerva extends SkinTemplate {
 		$out = $this->getOutput();
 		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
 
-		if ( $this->getUserPageHelper()->isUserPage() &&
-			 // when overflow menu is visible, we don't need to build secondary options
-			 // as most of options are visible on Toolbar/Overflow menu
-			 !$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
-			$pageUser = $this->getUserPageHelper()->getPageUser();
-			$talkPage = $pageUser->getTalkPage();
-			$data = [
-				// Talk page icon is provided by mobile.userpage.icons for time being
-				'userPageIconClass' => MinervaUI::iconClass( 'talk', 'before', 'talk', 'mf' ),
-				'talkPageTitle' => $talkPage->getPrefixedURL(),
-				'talkPageLink' => $talkPage->getLocalURL(),
-				'talkPageLinkTitle' => $this->msg(
-					'mobile-frontend-user-page-talk' )->escaped(),
-				'contributionsPageLink' => SpecialPage::getTitleFor(
-					'Contributions', $pageUser )->getLocalURL(),
-				'contributionsPageTitle' => $this->msg(
-					'mobile-frontend-user-page-contributions' )->escaped(),
-			];
-			$templateParser = new TemplateParser( __DIR__ );
-			$tpl->set( 'postheadinghtml',
-				$templateParser->processTemplate( 'user_page_links', $data )
-			);
-		} elseif ( $title->isMainPage() ) {
+		if ( $title->isMainPage() ) {
 			if ( $user->isLoggedIn() ) {
 				$pageTitle = $this->msg(
 					'mobile-frontend-logged-in-homepage-notification', $user->getName() )->text();

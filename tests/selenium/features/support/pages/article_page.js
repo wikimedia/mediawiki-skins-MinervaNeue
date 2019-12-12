@@ -9,6 +9,9 @@
 const MinervaPage = require( './minerva_page' );
 
 class ArticlePage extends MinervaPage {
+	get contributions_link_element() {
+		return $( '.page-actions-menu .menu__item--page-actions-contributions' );
+	}
 	get watch_element() { return $( '#ca-watch' ); }
 	get talk_tab_element() { return $( '.minerva__tab-container a[rel="discussion"]' ); }
 	get talk_element() { return $( '.talk ' ); }
