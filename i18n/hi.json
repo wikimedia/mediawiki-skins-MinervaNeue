@@ -56,7 +56,5 @@
 	"minerva-page-actions-user-groups": "सदस्य समूह",
 	"minerva-skin-desc": "मोबाइल के लिए एक तैयारशूदा विशेष आवरण",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "श्रेणियाँ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "पृष्ठों की श्रेणियां देखें",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "शीर्ष पर जाएं",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "फ़्लोटिंग बटन का उपयोग करके वर्तमान पृष्ठ के शीर्ष पर जाएं"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "पृष्ठों की श्रेणियां देखें"
 }

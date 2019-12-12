@@ -73,7 +73,5 @@
 	"skin-minerva-issue-learn-more": "了解更多",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分类",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "查看页面分类",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "跳转至顶部",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "使用浮动按钮跳转至当前页面的顶部",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "遗憾的是，无法在移动设备上按页面分组结果。如果您想使用“按页面分组”功能，请访问桌面版站点。"
 }

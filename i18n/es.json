@@ -68,7 +68,5 @@
 	"minerva-talk-reply-success": "Se guardó tu respuesta en la página de discusión.",
 	"skin-minerva-issue-learn-more": "Más información",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "Ir al principio",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "Saltar al inicio de la página actual mediante un botón flotante"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas"
 }

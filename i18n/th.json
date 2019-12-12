@@ -50,7 +50,5 @@
 	"minerva-skin-desc": "สกินดั้งเดิมสำหรับอุปกรณ์เคลื่อนที่",
 	"skin-minerva-issue-learn-more": "เรียนรู้เพิ่มเติม",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "หมวดหมู่",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ดูหมวดหมู่ของหน้า",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "ข้ามไปด้านบน",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "ข้ามไปด้านบนของหน้านี้โดยใช้ปุ่มลอย"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ดูหมวดหมู่ของหน้า"
 }

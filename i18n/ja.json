@@ -73,7 +73,5 @@
 	"minerva-skin-desc": "最初のモバイル機器用外装",
 	"skin-minerva-issue-learn-more": "詳細",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "トップへ移動",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "フローティングボタンを使用して現在のページの先頭にジャンプする"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示"
 }

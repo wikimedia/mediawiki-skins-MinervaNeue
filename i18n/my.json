@@ -58,7 +58,5 @@
 	"minerva-page-actions-history": "သမိုင်း",
 	"skin-minerva-issue-learn-more": "ပိုမို လေ့လာရန်",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "ကဏ္ဍများ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "စာမျက်နှာများ၏ ကဏ္ဍများကိုကြည့်ရန်",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop": "အပေါ်သို့ခုန်ကူးရန်",
-	"skin-minerva-mobile-option-MinervaEnableBackToTop-description": "လွင့်မျောခလုတ်ကိုသုံး၍ လက်ရှိစာမျက်နှာအပေါ်သို့ ခုန်ကူးရန်"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "စာမျက်နှာများ၏ ကဏ္ဍများကိုကြည့်ရန်"
 }
