@@ -39,7 +39,7 @@
 		"MinervaTalkAtTop": {
 			"base": false,
 			"beta": false,
-			"amc": true
+			"loggedin": true
 		},
 		"MinervaAdvancedMainMenu": {
 			"base": false,
@@ -54,7 +54,7 @@
 		"MinervaHistoryInPageActions": {
 			"base": false,
 			"beta": false,
-			"amc": true
+			"loggedin": true
 		},
 		"MinervaOverflowInPageActions": {
 			"base": false,

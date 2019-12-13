@@ -54,12 +54,17 @@ const iShouldSeeTheTopicInTheListOfTopics = ( subject ) => {
 	);
 };
 
+const thereShouldBeATalkTab = () => {
+	assert.strictEqual( ArticlePage.talk_tab_element.isVisible(), true );
+};
+
 module.exports = {
 	iAddATopic,
 	iSeeTheTalkOverlay,
 	thereShouldBeASaveDiscussionButton,
 	noTopicIsPresent,
 	thereShouldBeAnAddDiscussionButton,
+	thereShouldBeATalkTab,
 	thereShouldBeATalkButton,
 	thereShouldBeNoTalkButton,
 	iShouldSeeTheTopicInTheListOfTopics,
