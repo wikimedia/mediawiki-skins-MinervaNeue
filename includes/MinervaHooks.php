@@ -143,7 +143,7 @@ class MinervaHooks {
 					] );
 					break;
 				case 'Recentchanges':
-					$isEnhancedDefaultForUser = $special->getUser()->getOption( 'usenewrc' );
+					$isEnhancedDefaultForUser = $special->getUser()->getBoolOption( 'usenewrc' );
 					$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
 					if ( $enhanced ) {
 						$out->addHTML( Html::warningBox(
