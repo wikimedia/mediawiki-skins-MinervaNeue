@@ -12,7 +12,7 @@ const { iAmOnATalkPageWithNoTalkTopics } = require( '../features/step_definition
 		thereShouldBeASaveDiscussionButton,
 		noTopicIsPresent,
 		thereShouldBeAnAddDiscussionButton,
-		thereShouldBeATalkButton,
+		thereShouldBeATalkTab,
 		thereShouldBeNoTalkButton,
 		iShouldSeeTheTopicInTheListOfTopics
 	} = require( '../features/step_definitions/talk_steps' );
@@ -35,17 +35,17 @@ describe( 'Talk', () => {
 	} );
 
 	// @login
-	it( 'Talk button visible as logged in user', () => {
+	it( 'Talk tab visible as logged in user', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnPage( 'Selenium talk test' );
-		thereShouldBeATalkButton();
+		thereShouldBeATalkTab();
 	} );
 
 	// @login
 	it( 'Talk on a page that doesn\'t exist (bug 64268)', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnAPageThatDoesNotExist();
-		thereShouldBeATalkButton();
+		thereShouldBeATalkTab();
 	} );
 
 	// @smoke @login
