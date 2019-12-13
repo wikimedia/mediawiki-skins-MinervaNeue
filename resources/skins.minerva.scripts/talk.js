@@ -62,7 +62,7 @@ module.exports = function ( mobile ) {
 		return createOverlay( 'TalkSectionOverlay', {
 			id: sectionId,
 			section: new mobile.Section( {
-				line: $headline.text(),
+				line: $headline.html(),
 				text: $heading.next().html()
 			} ),
 			// FIXME: Replace this api param with onSaveComplete
