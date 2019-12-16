@@ -14,7 +14,8 @@
 			"Stjn",
 			"Vlad5250",
 			"DmitTrix",
-			"Movses"
+			"Movses",
+			"OlegVeliky"
 		]
 	},
 	"minerva-last-modified-date": "Последний раз редактировалась $1 в $2",
@@ -68,6 +69,8 @@
 	"minerva-page-actions-wikibase": "Элемент {{grammar:genitive|{{WBREPONAME}}}}",
 	"minerva-page-actions-language-switcher": "Языки",
 	"minerva-page-actions-history": "История",
+	"minerva-talk-explained": "Активные обсуждения",
+	"minerva-talk-full-page": "Открыть, как вики-страницу",
 	"minerva-skin-desc": "Первая адаптивная мобильная тема оформления.",
 	"skin-minerva-issue-learn-more": "Узнать больше",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категории",
