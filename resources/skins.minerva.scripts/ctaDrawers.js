@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-restricted-properties
 var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
+	drawers = require( './drawers.js' ),
 	CtaDrawer = mobile.CtaDrawer,
 	Button = mobile.Button,
 	Anchor = mobile.Anchor;
@@ -36,6 +37,10 @@ function initRedlinksCta( $redLinks ) {
 					label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
 					additionalClassNames: 'cancel'
 				} ).options,
+				onShow: function () {
+					drawers.onShow();
+				},
+				onBeforeHide: drawers.discardDrawer,
 				content: mw.msg( 'mobile-frontend-editor-redlink-explain' )
 			},
 			drawer = CtaDrawer( drawerOptions );
@@ -43,7 +48,8 @@ function initRedlinksCta( $redLinks ) {
 		// use preventDefault() and not return false to close other open
 		// drawers or anything else.
 		ev.preventDefault();
-		drawer.show();
+		ev.stopPropagation();
+		drawers.displayDrawer( drawer, { hideOnScroll: true } );
 	} );
 }
 
@@ -63,15 +69,21 @@ function initWatchstarCta( $watchstar ) {
 					campaign: 'mobile_watchPageActionCta',
 					returntoquery: 'article_action=watch'
 				},
+				onShow: function () {
+					drawers.onShow();
+				},
+				onBeforeHide: drawers.discardDrawer,
 				signupQueryParams: {
 					warning: 'mobile-frontend-watchlist-signup-action'
 				}
 			} );
 		}
 		watchCtaDrawer.show();
+		drawers.displayDrawer( watchCtaDrawer, { hideOnScroll: true } );
 		// prevent default to stop the user
 		// being navigated to Special:UserLogin
 		ev.preventDefault();
+		ev.stopPropagation();
 	} );
 }
 
