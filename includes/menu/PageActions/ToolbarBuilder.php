@@ -165,7 +165,7 @@ class ToolbarBuilder {
 			SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalURL() );
 		$entry->setTitle( $label )
 			->trackClicks( 'contributions' )
-			->setIcon( 'contributions', 'with-label-desktop' );
+			->setIcon( 'contributions', 'element', 'mw-ui-icon-with-label-desktop' );
 		return $entry;
 	}
 
