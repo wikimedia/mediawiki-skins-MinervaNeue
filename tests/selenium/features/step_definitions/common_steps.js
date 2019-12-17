@@ -70,6 +70,14 @@ const pageExists = ( title ) => {
 	waitForPropagation( 2000 );
 };
 
+const pageExistsWithText = ( title, text ) => {
+	browser.call( () =>
+		createPage( title, text )
+	);
+	// wait 2 seconds so the change can propogate.
+	waitForPropagation( 2000 );
+};
+
 const iAmOnAPageThatDoesNotExist = () => {
 	return iAmOnPage( `NewPage ${new Date()}` );
 };
@@ -115,6 +123,7 @@ module.exports = {
 	iClickTheOverlayCloseButton,
 	iClickTheBrowserBackButton,
 	createPage, createPages,
+	pageExistsWithText,
 	pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
 	iShouldSeeAToastNotificationWithMessage,
 	iAmLoggedIntoTheMobileWebsite,

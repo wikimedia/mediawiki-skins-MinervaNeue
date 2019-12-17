@@ -13,8 +13,11 @@ class ArticlePage extends MinervaPage {
 		return $( '.page-actions-menu .menu__item--page-actions-contributions' );
 	}
 	get watch_element() { return $( '#ca-watch' ); }
+	get reference_element() { return $( 'sup a' ); }
+	get drawer_reference_element() { return $( '.drawer sup a' ); }
 	get talk_tab_element() { return $( '.minerva__tab-container a[rel="discussion"]' ); }
 	get talk_element() { return $( '.talk ' ); }
+	get mask_element() { return $( '.mw-mf-page-center__mask' ); }
 	get talk_add_element() { return $( '.minerva-talk-add-button' ); }
 	get first_section_element() {
 		return $( '.section-heading' );
@@ -26,6 +29,7 @@ class ArticlePage extends MinervaPage {
 	get user_links_element() { return $( '.user-links' ); }
 	get notifications_button_element() { return $( '#pt-notifications-alert' ); }
 	get category_element() { return $( '.category-button' ); }
+	get drawer_element() { return $( '.drawer' ); }
 	get edit_link_element() { return $( '#ca-edit' ); }
 	get first_heading_element() { return $( '#section_0' ); }
 	get notification_element() { return $( '.mw-notification-area .mw-notification' ); }
