@@ -10,7 +10,7 @@
 	function MainMenu( activator ) {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mw-mf-page-left' ).removeClass( 'navigation-drawer--loading' )
-			.addClass( '.navigation-drawer--enabled' );
+			.addClass( 'navigation-drawer--enabled' );
 		this.activator = activator;
 		this.registerClickEvents();
 	}
