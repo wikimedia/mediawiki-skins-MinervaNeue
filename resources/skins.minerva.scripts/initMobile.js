@@ -1,6 +1,14 @@
-( function ( M ) {
+/**
+ * Initialise code that requires MobileFrontend.
+ * @todo anything that doesn't require MobileFrontend should be moved into ./setup.js
+ * @todo anything that can be rewritten without MobileFrontend (possibly using new frontend
+ * framework or upstreamed from MobileFrotend to core) should be and moved into ./setup.js
+ * @todo anything left should be moved to MobileFrontend extension and removed from here.
+ */
+module.exports = function () {
 	var
-		mobile = M.require( 'mobile.startup' ),
+		// eslint-disable-next-line no-restricted-properties
+		mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 		PageGateway = mobile.PageGateway,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		toast = mobile.toast,
@@ -360,6 +368,8 @@
 		search();
 		// - mobile redirect
 		mobileRedirect( mobile.amcOutreach, currentPage );
+
+		// Enhance timestamps to show relative time.
 		// Update anything else that needs enhancing (e.g. watchlist)
 		initModifiedInfo();
 		initRegistrationInfo();
@@ -367,8 +377,10 @@
 		initHistoryLink( $( 'a.last-modified-bar__text' ) );
 		// eslint-disable-next-line no-jquery/no-global-selector
 		initAmcHistoryLink( $( '.last-modified-bar__text a' ) );
+
 		if ( toolbarElement ) {
 			Toolbar.bind( window, toolbarElement );
+			// Update the edit icon and add a download icon.
 			Toolbar.render( window, toolbarElement );
 		}
 		if ( userMenu ) {
@@ -385,6 +397,8 @@
 		// deprecation notices
 		mw.log.deprecate( router, 'navigate', router.navigate, 'use navigateTo instead' );
 
+		// If MobileFrontend installed we add a table of contents icon to the table of contents.
+		// This should probably be done in the parser.
 		// setup toc icons
 		new Icon( {
 			glyphPrefix: 'minerva',
@@ -393,9 +407,6 @@
 		new Icon( {
 			glyphPrefix: 'mf',
 			name: 'expand',
-			// FIXME: `additionalClassNames` for backwards compatibility.
-			// Can be removed when  Ibbc706146710a9e31a72b3c2cd4e247d7a227488 lands.
-			additionalClassNames: 'mw-ui-icon-mf-arrow',
 			isSmall: true
 		} ).$el.appendTo( '.toctitle' );
 
@@ -405,12 +416,8 @@
 		}
 
 		// wire up watch icon if necessary
-		if ( permissions.watch ) {
-			if ( mw.user.isAnon() ) {
-				ctaDrawers.initWatchstarCta( $watch );
-			} else {
-				require( './watchstar.js' )( $watch );
-			}
+		if ( permissions.watch && mw.user.isAnon() ) {
+			ctaDrawers.initWatchstarCta( $watch );
 		}
 		ctaDrawers.initRedlinksCta(
 			$redLinks.filter( function ( _, element ) {
@@ -421,11 +428,4 @@
 		initSmartLogout( '.menu__item--logout' );
 		initUserRedLinks();
 	} );
-
-// eslint-disable-next-line no-restricted-properties
-}( mw.mobileFrontend ) );
-
-module.exports = {
-	// Version number allows breaking changes to be detected by other extensions
-	VERSION: 1
 };

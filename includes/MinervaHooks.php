@@ -32,6 +32,33 @@ class MinervaHooks {
 	const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
 	/**
+	 * ResourceLoaderRegisterModules hook handler.
+	 *
+	 * Registers:
+	 *
+	 * * EventLogging schema modules, if the EventLogging extension is loaded;
+	 * * Modules for the Visual Editor overlay, if the VisualEditor extension is loaded; and
+	 * * Modules for the notifications overlay, if the Echo extension is loaded.
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
+	 *
+	 * @param ResourceLoader &$resourceLoader
+	 */
+	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$resourceLoader->register( [
+				'mobile.startup' => [
+					'dependencies' => [ 'mediawiki.searchSuggest' ],
+					'localBasePath' => dirname( __DIR__ ),
+					'remoteExtPath' => 'Minerva',
+					'scripts' => 'resources/mobile.startup.stub.js',
+					'targets' => [ 'desktop', 'mobile' ],
+				]
+			] );
+		}
+	}
+
+	/**
 	 * Disable recent changes enhanced mode (table mode)
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FetchChangesList
 	 *
