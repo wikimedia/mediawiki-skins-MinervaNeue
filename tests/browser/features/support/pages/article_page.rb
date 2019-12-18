@@ -4,7 +4,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   page_url '<%=params[:article_name]%><%=params[:hash]%>'
 
   # UI elements
-  a(:mainmenu_button, id: 'mw-mf-main-menu-button')
+  label(:mainmenu_button, id: 'mw-mf-main-menu-button')
   body(:is_authenticated, css: '.is-authenticated')
 
   # pre-content
@@ -15,7 +15,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   a(:beta_mode_indicator, css: '.branding-box sup')
 
   # left nav
-  nav(:navigation, css: '#mw-mf-page-left')
+  div(:navigation, css: '#mw-mf-page-left')
   a(:about_link) { |page| page.navigation_element.link_element(text: /^About/) }
   a(:disclaimer_link) { |page| page.navigation_element.link_element(text: 'Disclaimers') }
 

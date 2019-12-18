@@ -110,14 +110,14 @@ final class MainMenuDirector {
 		$tooltip = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )
 			->text();
 
-		return Html::element( 'a', [
-				'title' => $title,
-				'href' => $url,
-				'class' => MinervaUI::iconClass(
-					'mainmenu', 'element', 'main-menu-button mw-ui-icon-flush-left'
-				),
-				'data-event-name' => 'ui.mainmenu',
+		return Html::element( 'label', [
+				'for' => 'main-menu-input',
 				'id' => 'mw-mf-main-menu-button',
+				'title' => $title,
+				'class' => MinervaUI::iconClass(
+					'mainmenu', 'element', 'toggle-list__toggle mw-ui-icon-flush-left'
+				),
+				'data-event-name' => 'ui.mainmenu'
 			], $tooltip );
 	}
 

@@ -1,14 +1,16 @@
 {{{headelement}}}
 <div id="mw-mf-viewport">
-	<nav id="mw-mf-page-left" class="navigation-drawer navigation-drawer--loading view-border-box">
-		{{{mainmenuhtml}}}
-	</nav>
 	<div id="mw-mf-page-center">
 		<!-- transparent-shield can be removed when Drawer updated -->
 		<a class="mw-mf-page-center__mask transparent-shield" href="#"></a>
 		<header class="header-container header-chrome">
 			<form class="header" action="{{wgScript}}" method="get">
-				<div>{{{menuButton}}}</div>
+				<nav class="navigation-drawer toggle-list view-border-box">
+					<input type="checkbox" id="main-menu-input" class="toggle-list__checkbox" role="button" aria-labelledby="mw-mf-main-menu-button">
+					{{{menuButton}}}
+					{{{mainmenuhtml}}}
+					<label class="main-menu-mask" for="main-menu-input"></label>
+				</nav>
 				<div class="branding-box">
 					<a href="{{mainPageURL}}">
 						<span>{{{siteheading}}}</span>
@@ -65,4 +67,4 @@
 	</div>
 </div>
 <div class="mw-notification-area" data-mw="interface"></div>
-<!-- v:8.1.14 -->
+<!-- v:8.3.0 -->

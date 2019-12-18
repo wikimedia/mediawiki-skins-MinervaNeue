@@ -533,7 +533,8 @@
 				"resources/skins.minerva.mainMenu.styles/MainMenu.less",
 				"resources/skins.minerva.mainMenu.styles/MainMenuItem.less",
 				"resources/skins.minerva.mainMenu.styles/MainMenuFooter.less",
-				"resources/skins.minerva.mainMenu.styles/NotificationsOverlay.less"
+				"resources/skins.minerva.mainMenu.styles/NotificationsOverlay.less",
+				"components/ToggleList/ToggleList.less"
 			]
 		},
 		"skins.minerva.loggedin.styles": {

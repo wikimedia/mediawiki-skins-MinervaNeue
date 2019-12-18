@@ -12,7 +12,7 @@
 	left: 0;
 	bottom: 0;
 	min-width: 275px;
-	.transition( transform @transition-duration-medium @transition-timing-function-menu; );
+	visibility: hidden;
 
 	@media screen and ( min-width: @width-breakpoint-tablet ) {
 		min-width: @width-breakpoint-mobile;
@@ -37,7 +37,55 @@
 
 	// .menu
 	#mw-mf-page-left {
+		visibility: visible;
 		.transform( translate( 0, 0 ) );
+	}
+}
+
+// TODO: combined with `.mw-mf-page-center__mask` & create a separate "masks" module.
+.main-menu-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	bottom: 0;
+	background: @semiTransparent;
+	z-index: @z-indexAboveContent;
+	// don't use display: none because it's not animatable
+	visibility: hidden;
+}
+
+#main-menu-input:checked ~ .main-menu-mask {
+	visibility: visible;
+	opacity: 0.5;
+}
+
+#main-menu-input:checked ~ #mw-mf-page-left {
+	visibility: visible;
+	.transform( translate( 0, 0 ) );
+}
+
+.animations {
+	#mw-mf-page-left {
+		.transition(
+			// Animate menu visibility, opacity, and translation changes in and out. Visibility duration
+			// cannot be animated initially as it causes a flash on page load in Chromium due to
+			// https://bugs.chromium.org/p/chromium/issues/detail?id=332189.
+			opacity @transition-duration-medium @transition-timing-function-menu,
+			visibility @transition-duration-medium @transition-timing-function-menu,
+			transform @transition-duration-medium @transition-timing-function-menu; );
+	}
+
+	.main-menu-mask {
+		.transition(
+			opacity @transition-duration-base @transition-timing-function-menu,
+			visibility 0ms linear @transition-duration-base;
+		);
+	}
+
+	#main-menu-input:checked ~ .main-menu-mask {
+		.transition( opacity @transition-duration-base @transition-timing-function-menu;);
 	}
 }
 

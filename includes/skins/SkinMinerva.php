@@ -852,6 +852,8 @@ class SkinMinerva extends SkinTemplate {
 			'mediawiki.ui.button',
 			'skins.minerva.icons.wikimedia',
 			'skins.minerva.icons.images',
+			'skins.minerva.mainMenu.icons',
+			'skins.minerva.mainMenu.styles',
 		];
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
