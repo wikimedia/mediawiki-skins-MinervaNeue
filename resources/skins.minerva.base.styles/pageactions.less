@@ -46,6 +46,12 @@
 	min-width: 0;
 	overflow: hidden;
 
+	> a {
+		// Special case outside of standard buttons styling due to surrounding
+		// interface elements, see T237019.
+		font-weight: 500;
+	}
+
 	li > *:hover {
 		box-shadow: none;
 	}
