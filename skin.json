@@ -603,7 +603,6 @@
 				"resources/skins.minerva.scripts/init.js",
 				"resources/skins.minerva.scripts/drawers.js",
 				"resources/skins.minerva.scripts/ctaDrawers.js",
-				"resources/skins.minerva.scripts/menu/MainMenu.js",
 				"resources/skins.minerva.scripts/menu.js",
 				"resources/skins.minerva.scripts/errorLogging.js",
 				"resources/skins.minerva.scripts/preInit.js",
