@@ -178,10 +178,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   h2(:third_section, css: '.collapsible-block', index: 2)
 
   # issues
-  # We use 2 selectors here - the first relates to the old treatment (A) and
-  # the 2nd relates to the new treatment (.issues-group-B .ambox)
-  # see https://phabricator.wikimedia.org/T206647
-  a(:issues_stamp, css: '.mw-mf-cleanup, .issues-group-B .ambox')
+  span(:issues_stamp, css: '.ambox-learn-more')
 
   # page info (action=info)
   td(:edit_count, css: '#mw-pageinfo-edits td', index: 1)

@@ -601,6 +601,7 @@
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/init.js",
+				"resources/skins.minerva.scripts/drawers.js",
 				"resources/skins.minerva.scripts/ctaDrawers.js",
 				"resources/skins.minerva.scripts/menu/MainMenu.js",
 				"resources/skins.minerva.scripts/menu.js",
