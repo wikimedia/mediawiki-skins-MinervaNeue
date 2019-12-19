@@ -174,7 +174,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
 
   # sections
   h2(:first_section, css: '.section-heading', index: 0)
-  div(:first_section_content, id: 'content-collapsible-block-0')
+  section(:first_section_content, id: 'content-collapsible-block-0')
   h2(:third_section, css: '.collapsible-block', index: 2)
 
   # issues
