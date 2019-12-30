@@ -104,7 +104,7 @@ class SingleMenuEntry implements IMenuEntry {
 
 	/**
 	 * Set the Menu entry icon
-	 * @param string $iconName Icon name
+	 * @param string|null $iconName Icon name
 	 * @param string $iconType Icon type
 	 * @param string $additionalClassNames Additional classes
 	 * @return $this
