@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"SADIQUI"
+			"SADIQUI",
+			"Reda Benkhadra"
 		]
 	},
-	"mobile-frontend-home-button": "الصفحة الرئيسية",
+	"mobile-frontend-home-button": "الصفحة اللّولا",
 	"mobile-frontend-random-button": "عشوائي"
 }
