@@ -167,8 +167,6 @@ class MinervaTemplate extends BaseTemplate {
 	/**
 	 * Get HTML representing secondary page actions like language selector
 	 * @return string
-	 * @suppress PhanTypeArraySuspiciousNullable,PhanTypeMismatchArgument The array shape of
-	 *  $el is too complicated, and not inferred correctly
 	 */
 	protected function getSecondaryActionsHtml() {
 		$baseClass = MinervaUI::buttonClass( '', 'button' );
