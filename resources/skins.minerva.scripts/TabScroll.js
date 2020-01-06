@@ -13,7 +13,7 @@ function testScrollLeftStyle() {
 		dir: 'rtl',
 		style: 'font-size: 14px; width: 4px; height: 1px; position: absolute; top: -1000px; overflow: scroll;'
 	} ).text( 'ABCD' );
-	$definer.appendTo( 'body' );
+	$definer.appendTo( document.body );
 	definer = $definer[ 0 ];
 	if ( definer.scrollLeft > 0 ) {
 		// Safari, Chrome

@@ -135,8 +135,7 @@
 		// set A-B test class.
 		// When wgMinervaPageIssuesNewTreatment is the default this can be removed.
 		if ( newTreatmentEnabled ) {
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$( 'html' ).addClass( 'issues-group-B' );
+			$( document.documentElement ).addClass( 'issues-group-B' );
 		}
 
 		if ( CURRENT_NS === NS_TALK || CURRENT_NS === NS_CATEGORY ) {

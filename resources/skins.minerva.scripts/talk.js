@@ -149,8 +149,7 @@ module.exports = function ( mobile ) {
 			.text( mw.message( 'minerva-talk-full-page' ).text() )
 			.on( 'click', function () {
 				restoreSectionHeadings();
-				// eslint-disable-next-line no-jquery/no-global-selector
-				$( 'body' ).removeClass( 'skin-minerva--talk-simplified' );
+				$( document.body ).removeClass( 'skin-minerva--talk-simplified' );
 				$( this ).remove();
 				// send user back up to top of page so they don't land awkwardly in
 				// middle of page when it expands
@@ -233,8 +232,8 @@ module.exports = function ( mobile ) {
 	 * @return {boolean}
 	 */
 	function isSimplifiedViewEnabled() {
-		// eslint-disable-next-line no-jquery/no-class-state, no-jquery/no-global-selector
-		return $( 'body' ).hasClass( SKIN_MINERVA_TALK_SIMPLIFIED_CLASS );
+		// eslint-disable-next-line no-jquery/no-class-state
+		return $( document.body ).hasClass( SKIN_MINERVA_TALK_SIMPLIFIED_CLASS );
 	}
 
 	/**
