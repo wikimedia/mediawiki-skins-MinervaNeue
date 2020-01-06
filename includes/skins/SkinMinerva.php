@@ -349,7 +349,7 @@ class SkinMinerva extends SkinTemplate {
 	/**
 	 * Get a history link which describes author and relative time of last edit
 	 * @param Title $title The Title object of the page being viewed
-	 * @param int $timestamp
+	 * @param string $timestamp
 	 * @return array
 	 */
 	protected function getRelativeHistoryLink( Title $title, $timestamp ) {
