@@ -166,8 +166,15 @@ ul.mw-contributions-list li .mw-rollback-link {
 // It is unnecessary on Special:Contributions since all contributions are by the same user.
 .mw-special-Watchlist,
 .mw-special-Recentchanges {
-	.mw-userlink {
-		display: block;
-		clear: both;
+	.mw-userlink,
+	.mw-usertoollinks {
+		float: none;
+	}
+
+	.mw-userlink:before,
+	.mw-usertoollinks:after {
+		content: '';
+		display: table;
+		width: 100%;
 	}
 }
