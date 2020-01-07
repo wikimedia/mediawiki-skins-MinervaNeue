@@ -32,6 +32,10 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @var array
 	 */
 	private $attributes;
+	/**
+	 * @var bool
+	 */
+	private $isJSOnly;
 
 	/**
 	 * Create a simple menu element with one component
@@ -82,7 +86,7 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @inheritDoc
 	 */
 	public function getCSSClasses(): array {
-		return [];
+		return $this->isJSOnly ? [ 'jsonly' ] : [];
 	}
 
 	/**
@@ -133,6 +137,13 @@ class SingleMenuEntry implements IMenuEntry {
 	public function setNodeID( $nodeID ): self {
 		$this->attributes['id'] = $nodeID;
 		return $this;
+	}
+
+	/**
+	 * Mark entry as JS only.
+	 */
+	public function setJSOnly() {
+		$this->isJSOnly = true;
 	}
 
 }
