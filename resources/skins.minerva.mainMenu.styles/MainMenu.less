@@ -55,7 +55,11 @@
 	.transform( translate( 0, 0 ) );
 }
 
-.animations {
+// Without the minerva-animations-ready class, the main menu can appear and
+// perform its exit animation when the page loads in chrome (and possibly
+// others).
+// https://bugs.chromium.org/p/chromium/issues/detail?id=332189
+.minerva-animations-ready {
 	#mw-mf-page-left {
 		.transition(
 			// Animate menu visibility, opacity, and translation changes in and out. Visibility duration

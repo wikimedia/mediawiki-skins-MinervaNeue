@@ -324,6 +324,14 @@
 			toolbarElement = document.querySelector( Toolbar.selector ),
 			userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
 
+		// The `minerva-animations-ready` class can be used by clients to prevent unwanted
+		// CSS transitions from firing on page load in some browsers (see
+		// https://bugs.chromium.org/p/chromium/issues/detail?id=332189 as well as
+		// https://phabricator.wikimedia.org/T234570#5779890). Since JS adds this
+		// class after the CSS transitions loads, this issue is circumvented. See
+		// MainMenu.less for an example of how this is used.
+		$( document.body ).addClass( 'minerva-animations-ready' );
+
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.mw-mf-page-center__mask' ).on( 'click', function ( ev ) {
 			var path = router.getPath();

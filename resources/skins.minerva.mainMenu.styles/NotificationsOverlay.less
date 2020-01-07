@@ -13,6 +13,12 @@
 	width: auto;
 	right: 0;
 	box-shadow: -5px 0 0 0 @grayDrawerShadow;
+	.transform( translate( 100%, 0 ) );
+	.transition( transform @transition-duration-medium @transition-timing-function-menu; );
+
+	&.visible {
+		.transform( translate( 0, 0 ) );
+	}
 }
 
 @media all and ( min-width: @width-breakpoint-tablet ) {
@@ -31,17 +37,6 @@
 				// 0 because we want to have some tappable area to the left of the icon
 				left: 0;
 			}
-		}
-	}
-}
-
-.animations {	// FIXME: Make animations a conditional class on the drawer itself
-	.notifications-overlay.navigation-drawer {
-		.transform( translate( 100%, 0 ) );
-		.transition( transform @transition-duration-medium @transition-timing-function-menu; );
-
-		&.visible {
-			.transform( translate( 0, 0 ) );
 		}
 	}
 }
