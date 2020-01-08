@@ -207,14 +207,31 @@ final class Definitions {
 	 */
 	public function insertMobileOptionsItem( Group $group ) {
 		$title = $this->context->getTitle();
+		$config = $this->context->getConfig();
 		$returnToTitle = $title->getPrefixedText();
+		$user = $this->user;
+		$betaEnabled = $config->get( 'MFEnableBeta' );
+		/*
+		 * to avoid linking to an empty settings page we make this jsonly when:
+		 * - AMC and beta is disabled (if logged in there is nothing to show)
+		 * - user is logged out and beta is disabled (beta is the only thing a non-js user can do)
+		 * In future we might want to make this a static function on Special:MobileOptions.
+		 */
+		$jsonly = ( $user->isAnon() && !$betaEnabled ) ||
+			( !$user->isAnon() && !$config->get( 'MFAdvancedMobileContributions' ) &&
+				!$betaEnabled
+			);
 
-		$group->insertEntry( SingleMenuEntry::create(
+		$item = SingleMenuEntry::create(
 			'settings',
 			$this->context->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
 			SpecialPage::getTitleFor( 'MobileOptions' )
 				->getLocalURL( [ 'returnto' => $returnToTitle ] )
-		) );
+		);
+		if ( $jsonly ) {
+			$item->setJSOnly();
+		}
+		$group->insertEntry( $item );
 	}
 
 	/**
