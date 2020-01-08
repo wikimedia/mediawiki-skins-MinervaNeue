@@ -14,7 +14,7 @@
 	"mobile-frontend-main-menu-nearby": "Yn de buert",
 	"mobile-frontend-main-menu-settings": "Ynstellingen",
 	"mobile-frontend-main-menu-watchlist": "Folchlist",
-	"mobile-frontend-placeholder": "{{SITENAME}} trochsykje",
+	"mobile-frontend-placeholder": "{{GRAMMAR:Lidw|{{SITENAME}}}} trochsykje",
 	"mobile-frontend-random-button": "Samar wat",
 	"skinname-minerva": "MinervaNij"
 }
