@@ -56,6 +56,7 @@
 	"mobile-frontend-user-page-member-since": "Message below the heading. $1 is the user registration date. $2 is the gender associated with the user account.",
 	"mobile-frontend-user-page-talk": "Text of the link to the user's talk page\n{{Identical|Talk}}",
 	"minerva-user-menu-button": "Text describing the user menu",
+	"minerva-user-navigation": "Text describing the navigation menus available in the top header.",
 	"minerva-page-actions-overflow": "In the secondary page menu, short text describing the button that triggers the drop-down menu\n{{Identical|More}}",
 	"minerva-page-actions-info": "In the secondary page menu, the page information button label",
 	"minerva-page-actions-permalink": "In the secondary page menu, the permanent link button label\n\nSee also:\n* {{msg-mw|permalink}}",
