@@ -22,55 +22,85 @@
 		}
 	},
 	"config": {
-		"MinervaCountErrors": false,
-		"MinervaDownloadNamespaces": [
-			0
-		],
-		"MinervaEnableSiteNotice": false,
-		"MinervaCustomLogos": [],
-		"MinervaApplyKnownTemplateHacks": false,
-		"MinervaPageActions": [
-			"edit",
-			"talk",
-			"watch",
-			"switch-language"
-		],
-		"MinervaAlwaysShowLanguageButton": true,
+		"MinervaCountErrors": {
+			"value": false
+		},
+		"MinervaDownloadNamespaces": {
+			"value": [
+				0
+			]
+		},
+		"MinervaEnableSiteNotice": {
+			"value": false
+		},
+		"MinervaCustomLogos": {
+			"value": []
+		},
+		"MinervaApplyKnownTemplateHacks": {
+			"value": false
+		},
+		"MinervaPageActions": {
+			"value": [
+				"edit",
+				"talk",
+				"watch",
+				"switch-language"
+			]
+		},
+		"MinervaAlwaysShowLanguageButton": {
+			"value": true
+		},
 		"MinervaTalkAtTop": {
-			"base": false,
-			"beta": false,
-			"loggedin": true
+			"value": {
+				"base": false,
+				"beta": false,
+				"loggedin": true
+			}
 		},
 		"MinervaAdvancedMainMenu": {
-			"base": false,
-			"beta": false,
-			"amc": true
+			"value": {
+				"base": false,
+				"beta": false,
+				"amc": true
+			}
 		},
 		"MinervaPersonalMenu": {
-			"base": false,
-			"beta": false,
-			"amc": true
+			"value": {
+				"base": false,
+				"beta": false,
+				"amc": true
+			}
 		},
 		"MinervaHistoryInPageActions": {
-			"base": false,
-			"beta": false,
-			"loggedin": true
+			"value": {
+				"base": false,
+				"beta": false,
+				"loggedin": true
+			}
 		},
 		"MinervaOverflowInPageActions": {
-			"base": false,
-			"beta": false,
-			"amc": true
+			"value": {
+				"base": false,
+				"beta": false,
+				"amc": true
+			}
 		},
 		"MinervaShowCategoriesButton": {
-			"base": false,
-			"beta": true,
-			"amc": true
+			"value": {
+				"base": false,
+				"beta": true,
+				"amc": true
+			}
 		},
 		"MinervaPageIssuesNewTreatment": {
-			"base": true,
-			"beta": true
+			"value": {
+				"base": true,
+				"beta": true
+			}
 		},
-		"MinervaABSamplingRate": 0
+		"MinervaABSamplingRate": {
+			"value": 0
+		}
 	},
 	"ValidSkinNames": {
 		"minerva": "MinervaNeue"
@@ -117,7 +147,6 @@
 		"ResourceLoaderGetConfigVars": [
 			"MinervaHooks::onResourceLoaderGetConfigVars"
 		]
-
 	},
 	"MessagesDirs": {
 		"MinervaNeue": [
@@ -212,8 +241,12 @@
 			]
 		}
 	},
-	"EventLoggingSchemas": {
-		"WebClientError": 18340282
+	"attributes": {
+		"EventLogging": {
+			"Schemas": {
+				"WebClientError": 18340282
+			}
+		}
 	},
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
@@ -396,9 +429,18 @@
 			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}:before",
 			"defaultColor": "#54595d",
 			"variants": {
-				"lowColor": { "color": "#fc3", "global": true },
-				"mediumColor": { "color": "#ff5d01", "global": true },
-				"highColor": { "color": "#d33", "global": true }
+				"lowColor": {
+					"color": "#fc3",
+					"global": true
+				},
+				"mediumColor": {
+					"color": "#ff5d01",
+					"global": true
+				},
+				"highColor": {
+					"color": "#d33",
+					"global": true
+				}
 			},
 			"images": {
 				"issue-generic": "resources/skins.minerva.icons.page.issues.default.color/issue-generic.svg"
@@ -475,13 +517,13 @@
 			"images": {
 				"recentchanges": {
 					"file": {
-						"ltr":"resources/skins.minerva.mainMenu.advanced.icons/recentChanges-ltr.svg",
+						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/recentChanges-ltr.svg",
 						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/recentChanges-rtl.svg"
 					}
 				},
 				"specialpages": {
 					"file": {
-						"ltr":"resources/skins.minerva.mainMenu.advanced.icons/specialpages-ltr.svg",
+						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/specialpages-ltr.svg",
 						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/specialpages-rtl.svg"
 					}
 				},
@@ -502,7 +544,7 @@
 				"contributions": {
 					"file": {
 						"ltr": "resources/skins.minerva.mainMenu.icons/contributions-ltr.svg",
-						"rtl":  "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
+						"rtl": "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
 					}
 				},
 				"login": {
@@ -640,7 +682,6 @@
 			],
 			"packageFiles": [
 				"resources/skins.minerva.options/index.js",
-
 				"resources/skins.minerva.options/categories.js"
 			]
 		}
@@ -678,5 +719,5 @@
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
-	"manifest_version": 1
+	"manifest_version": 2
 }
