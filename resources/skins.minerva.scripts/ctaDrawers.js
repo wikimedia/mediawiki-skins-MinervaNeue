@@ -37,9 +37,6 @@ function initRedlinksCta( $redLinks ) {
 					label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
 					additionalClassNames: 'cancel'
 				} ).options,
-				onShow: function () {
-					drawers.onShow();
-				},
 				onBeforeHide: drawers.discardDrawer,
 				content: mw.msg( 'mobile-frontend-editor-redlink-explain' )
 			},
@@ -68,9 +65,6 @@ function initWatchstarCta( $watchstar ) {
 					warning: 'mobile-frontend-watchlist-purpose',
 					campaign: 'mobile_watchPageActionCta',
 					returntoquery: 'article_action=watch'
-				},
-				onShow: function () {
-					drawers.onShow();
 				},
 				onBeforeHide: drawers.discardDrawer,
 				signupQueryParams: {

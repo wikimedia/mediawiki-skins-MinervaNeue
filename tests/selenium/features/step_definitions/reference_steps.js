@@ -1,8 +1,8 @@
 const { ArticlePage } = require( './../support/world' );
 
 const iClickOnTheMask = () => {
-	ArticlePage.mask_element.waitForVisible();
-	ArticlePage.mask_element.click();
+	ArticlePage.drawer_mask_element.waitForVisible();
+	ArticlePage.drawer_mask_element.click();
 };
 
 const iShouldSeeNotTheReferenceDrawer = () => {

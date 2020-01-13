@@ -1,6 +1,5 @@
 var $drawerContainer = $( document.body ),
-	BODY_CLASS_SCROLL_LOCKED = 'has-drawer--with-scroll-locked',
-	BODY_CLASSES_DRAWER_OPEN = 'navigation-enabled';
+	BODY_CLASS_SCROLL_LOCKED = 'has-drawer--with-scroll-locked';
 
 /**
  * Discard a drawer from display on the page.
@@ -9,7 +8,7 @@ var $drawerContainer = $( document.body ),
  */
 function discardDrawer( drawer ) {
 	// remove the class
-	$drawerContainer.removeClass( [ BODY_CLASSES_DRAWER_OPEN, BODY_CLASS_SCROLL_LOCKED ] );
+	$drawerContainer.removeClass( [ BODY_CLASS_SCROLL_LOCKED ] );
 	// FIXME: queue removal from DOM (using setTimeout so that any animations have time to run)
 	// This works around an issue in MobileFrontend that the Drawer onBeforeHide method is
 	// called /before/ the animation for closing has completed. This needs to be accounted
@@ -18,13 +17,6 @@ function discardDrawer( drawer ) {
 		// remove the node from the DOM.
 		drawer.$el.remove();
 	}, 1000 );
-}
-
-/**
- * Reveal a drawer.
- */
-function onShow() {
-	$drawerContainer.addClass( BODY_CLASSES_DRAWER_OPEN );
 }
 
 /**
@@ -54,7 +46,6 @@ function displayDrawer( drawer, options ) {
 }
 module.exports = {
 	displayDrawer: displayDrawer,
-	onShow: onShow,
 	lockScroll: lockScroll,
 	discardDrawer: discardDrawer
 };

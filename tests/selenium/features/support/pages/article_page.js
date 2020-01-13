@@ -18,6 +18,7 @@ class ArticlePage extends MinervaPage {
 	get talk_tab_element() { return $( '.minerva__tab-container a[rel="discussion"]' ); }
 	get talk_element() { return $( '.talk ' ); }
 	get mask_element() { return $( '.mw-mf-page-center__mask' ); }
+	get drawer_mask_element() { return $( '.drawer-container__mask--visible' ); }
 	get talk_add_element() { return $( '.minerva-talk-add-button' ); }
 	get first_section_element() {
 		return $( '.section-heading' );

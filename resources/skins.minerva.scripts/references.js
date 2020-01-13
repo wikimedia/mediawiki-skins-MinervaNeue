@@ -32,7 +32,6 @@ module.exports = function () {
 		references.showReference( href, currentPage, $dest.text(),
 			currentPageHTMLParser, gateway, {
 				onShow: function () {
-					drawers.onShow();
 					drawers.lockScroll();
 				},
 				onBeforeHide: drawers.discardDrawer
