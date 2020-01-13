@@ -1,3 +1,5 @@
+var drawers = require( './drawers.js' );
+
 /**
  * @param {Object} mobile mobileFrontend component library
  */
@@ -168,20 +170,26 @@ module.exports = function ( mobile ) {
 	function showDrawerIfEligible( ev, onDismiss, onFollowRoute, returnToQuery ) {
 		var
 			amcOutreach = mobile.amcOutreach,
-			amcCampaign = amcOutreach.loadCampaign();
-
-		// avoiding navigating to original URL
-		// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
-		ev.preventDefault();
-
-		if (
-			amcCampaign.showIfEligible(
+			amcCampaign = amcOutreach.loadCampaign(),
+			drawer = amcCampaign.showIfEligible(
 				amcOutreach.ACTIONS.onTalkLink,
 				onDismiss,
 				talkTitle,
 				returnToQuery
-			)
-		) {
+			);
+
+		// avoiding navigating to original URL
+		ev.preventDefault();
+
+		if ( drawer ) {
+			// stopPropagation is needed to prevent drawer from immediately closing
+			// when shown (drawers.js adds a click event to window when drawer is
+			// shown
+			ev.stopPropagation();
+
+			drawers.displayDrawer( drawer, {} );
+			drawers.lockScroll();
+
 			return;
 		}
 
@@ -209,26 +217,6 @@ module.exports = function ( mobile ) {
 	}
 
 	/**
-	 * Called when user clicks on a talk button that links to the talk page
-	 *
-	 * @param {JQuery.Event} ev
-	 */
-	function amcTalkClickHandler( ev ) {
-		var
-			$button = $( ev.target ),
-			onFollowRoute = function () {
-				window.location = $button.attr( 'href' );
-			},
-			onDismiss = function () {
-				onFollowRoute();
-
-				toast.showOnPageReload( mw.message( 'mobile-frontend-amc-outreach-dismissed-message' ).text() );
-			};
-
-		showDrawerIfEligible( ev, onDismiss, onFollowRoute, '' );
-	}
-
-	/**
 	 * @return {boolean}
 	 */
 	function isSimplifiedViewEnabled() {
@@ -244,11 +232,8 @@ module.exports = function ( mobile ) {
 	function init() {
 		var promise,
 			// eslint-disable-next-line no-jquery/no-global-selector
-			$talk = $( '.talk' ),
-			// eslint-disable-next-line no-jquery/no-global-selector
 			$addTalk = $( '.minerva-talk-add-button' );
 
-		$talk.on( 'click', amcTalkClickHandler );
 		$addTalk.on( 'click', amcAddTalkClickHandler );
 
 		// We only want the talk section add overlay to show when the user is on the

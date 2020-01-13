@@ -18,6 +18,7 @@
 		TabScroll = require( './TabScroll.js' ),
 		router = require( 'mediawiki.router' ),
 		ctaDrawers = require( './ctaDrawers.js' ),
+		drawers = require( './drawers.js' ),
 		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
 		overlayManager = mobile.OverlayManager.getSingleton(),
 		currentPage = mobile.currentPage(),
@@ -171,10 +172,18 @@
 			onDismiss = function () {
 				toast.showOnPageReload( mw.message( 'mobile-frontend-amc-outreach-dismissed-message' ).text() );
 				window.location = self.href;
-			};
+			},
+			drawer = amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' );
 
-		if ( amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' ) ) {
+		if ( drawer ) {
 			ev.preventDefault();
+			// stopPropagation is needed to prevent drawer from immediately closing
+			// when shown (drawers.js adds a click event to window when drawer is
+			// shown
+			ev.stopPropagation();
+
+			drawers.displayDrawer( drawer, {} );
+			drawers.lockScroll();
 		}
 	}
 
