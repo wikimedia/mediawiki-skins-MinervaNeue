@@ -57,6 +57,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2| 加入}}於 $1",
 	"mobile-frontend-user-page-talk": "討論",
 	"minerva-user-menu-button": "使用者選單",
+	"minerva-user-navigation": "使用者導覽",
 	"minerva-page-actions-overflow": "更多",
 	"minerva-page-actions-info": "頁面資訊",
 	"minerva-page-actions-permalink": "固定連結",
