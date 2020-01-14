@@ -1,5 +1,3 @@
-var drawers = require( './drawers.js' );
-
 /**
  * @param {Object} mobile mobileFrontend component library
  */
@@ -161,62 +159,6 @@ module.exports = function ( mobile ) {
 	}
 
 	/**
-	 * @param {JQuery.Event} ev
-	 * @param {Function} onDismiss
-	 * @param {Function} onFollowRoute
-	 * @param {string} returnToQuery
-	 * @return {undefined}
-	 */
-	function showDrawerIfEligible( ev, onDismiss, onFollowRoute, returnToQuery ) {
-		var
-			amcOutreach = mobile.amcOutreach,
-			amcCampaign = amcOutreach.loadCampaign(),
-			drawer = amcCampaign.showIfEligible(
-				amcOutreach.ACTIONS.onTalkLink,
-				onDismiss,
-				talkTitle,
-				returnToQuery
-			);
-
-		// avoiding navigating to original URL
-		ev.preventDefault();
-
-		if ( drawer ) {
-			// stopPropagation is needed to prevent drawer from immediately closing
-			// when shown (drawers.js adds a click event to window when drawer is
-			// shown
-			ev.stopPropagation();
-
-			drawers.displayDrawer( drawer, {} );
-			drawers.lockScroll();
-
-			return;
-		}
-
-		onFollowRoute();
-	}
-
-	/**
-	 * Called when user clicks on the add dicussion button located on a talk
-	 * page
-	 *
-	 * @param {JQuery.Event} ev
-	 */
-	function amcAddTalkClickHandler( ev ) {
-		var
-			onFollowRoute = function () {
-				window.location.hash = '#/talk/new';
-			},
-			onDismiss = function () {
-				onFollowRoute();
-
-				toast.show( mw.message( 'mobile-frontend-amc-outreach-dismissed-message' ).text() );
-			};
-
-		showDrawerIfEligible( ev, onDismiss, onFollowRoute, '#/talk/new' );
-	}
-
-	/**
 	 * @return {boolean}
 	 */
 	function isSimplifiedViewEnabled() {
@@ -234,7 +176,11 @@ module.exports = function ( mobile ) {
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$addTalk = $( '.minerva-talk-add-button' );
 
-		$addTalk.on( 'click', amcAddTalkClickHandler );
+		$addTalk.on( 'click', function ( ev ) {
+			// avoid navigating to original URL in anchor element
+			ev.preventDefault();
+			window.location.hash = '#/talk/new';
+		} );
 
 		// We only want the talk section add overlay to show when the user is on the
 		// view action (default action) of the talk page and not when the user is on
