@@ -14,9 +14,10 @@ function discardDrawer( drawer ) {
 	// called /before/ the animation for closing has completed. This needs to be accounted
 	// for in Drawer so this function can be synchronous.
 	setTimeout( function () {
-		// remove the node from the DOM.
-		drawer.$el.remove();
-	}, 1000 );
+		// detach the node from the DOM. Use detach rather than remove to allow reuse without
+		// losing any existing events.
+		drawer.$el.detach();
+	}, 100 );
 }
 
 /**
@@ -34,10 +35,6 @@ function lockScroll() {
 function displayDrawer( drawer, options ) {
 	$drawerContainer.append( drawer.$el );
 	drawer.show();
-	// A click outside the drawer should close it.
-	$( window ).one( 'click', function () {
-		drawer.hide();
-	} );
 	if ( options.hideOnScroll ) {
 		$( window ).one( 'scroll.drawer', function () {
 			drawer.hide();

@@ -72,8 +72,12 @@ function initWatchstarCta( $watchstar ) {
 				}
 			} );
 		}
-		watchCtaDrawer.show();
-		drawers.displayDrawer( watchCtaDrawer, { hideOnScroll: true } );
+		// If it's already shown dont display again
+		// (if user is clicking fast since we are reusing the drawer
+		// this might result in the drawer opening and closing)
+		if ( !watchCtaDrawer.$el[ 0 ].parentNode ) {
+			drawers.displayDrawer( watchCtaDrawer, { hideOnScroll: true } );
+		}
 		// prevent default to stop the user
 		// being navigated to Special:UserLogin
 		ev.preventDefault();
