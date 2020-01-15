@@ -54,6 +54,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Entrou}} em $1",
 	"mobile-frontend-user-page-talk": "Discussão",
 	"minerva-user-menu-button": "Menu do usuário",
+	"minerva-user-navigation": "Navegação do usuário",
 	"minerva-page-actions-overflow": "Mais",
 	"minerva-page-actions-info": "Informações da página",
 	"minerva-page-actions-permalink": "Ligação permanente",

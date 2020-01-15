@@ -59,6 +59,7 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|katıldı}}",
 	"mobile-frontend-user-page-talk": "Tartışma",
 	"minerva-user-menu-button": "Kullanıcı menüsü",
+	"minerva-user-navigation": "Kullanıcı navigasyonu",
 	"minerva-page-actions-overflow": "Daha fazla",
 	"minerva-page-actions-info": "Sayfa bilgisi",
 	"minerva-page-actions-permalink": "Kalıcı bağlantı",

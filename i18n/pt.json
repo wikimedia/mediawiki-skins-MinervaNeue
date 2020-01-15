@@ -5,7 +5,8 @@
 			"Hamilton Abreu",
 			"Macofe",
 			"Vitorvicentevalente",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Mansil alfalb"
 		]
 	},
 	"minerva-last-modified-date": "Última edição a $1, às $2",
@@ -50,6 +51,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Juntou-se a}} $1",
 	"mobile-frontend-user-page-talk": "Discussão",
 	"minerva-user-menu-button": "Menu do utilizador",
+	"minerva-user-navigation": "Navegação do utilizador",
 	"minerva-page-actions-overflow": "Mais",
 	"minerva-page-actions-info": "Informações da página",
 	"minerva-page-actions-permalink": "Hiperligação permanente",

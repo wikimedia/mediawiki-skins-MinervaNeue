@@ -47,6 +47,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Членува од}} $1",
 	"mobile-frontend-user-page-talk": "Разговор",
 	"minerva-user-menu-button": "Корисничко мени",
+	"minerva-user-navigation": "Кориснички прегледник",
 	"minerva-page-actions-overflow": "Повеќе",
 	"minerva-page-actions-info": "Информации за страницата",
 	"minerva-page-actions-permalink": "Постојана врска",

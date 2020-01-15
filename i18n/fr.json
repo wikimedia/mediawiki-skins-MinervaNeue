@@ -62,6 +62,7 @@
 	"mobile-frontend-user-page-member-since": "Inscrit{{GENDER:$2||e}} depuis le $1",
 	"mobile-frontend-user-page-talk": "Discussion",
 	"minerva-user-menu-button": "Menu utilisateur",
+	"minerva-user-navigation": "Navigation utilisateur",
 	"minerva-page-actions-overflow": "Plus",
 	"minerva-page-actions-info": "Information sur la page",
 	"minerva-page-actions-permalink": "Lien permanent",
