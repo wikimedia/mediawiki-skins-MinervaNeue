@@ -90,7 +90,13 @@ module.exports = function ( mobile ) {
 				$heading = $( this ),
 				$headline = $heading.find( '.mw-headline' ),
 				sectionIdMatch = $heading.next().attr( 'class' ).match( /mf-section-(\d+)/ ),
-				headlineId = $headline.attr( 'id' );
+				headlineId = $headline.attr( 'id' ),
+				// T238364: Before registering a route with OverlayManager, we need to
+				// encode the id first to ensure it forms a valid URI in case the id
+				// contains illegal URI characters as defined by RFC3986. This avoids
+				// inconsistencies with how different browsers encode illegal URI
+				// characters.
+				encodedHeadlineId = encodeURIComponent( headlineId );
 
 			if ( sectionIdMatch === null || sectionIdMatch.length !== 2 ) {
 				// If section id couldn't be parsed, there is no point in continuing
@@ -100,7 +106,7 @@ module.exports = function ( mobile ) {
 
 			$heading.on( 'click.talkSectionOverlay', function ( ev ) {
 				ev.preventDefault();
-				window.location.hash = '#' + headlineId;
+				window.location.hash = '#' + encodedHeadlineId;
 
 			} );
 
@@ -110,7 +116,7 @@ module.exports = function ( mobile ) {
 			// however cache it to data for cooperation with the 'read as wiki page' button.
 			$headline.data( 'id', headlineId );
 
-			overlayManager.add( headlineId, function () {
+			overlayManager.add( encodedHeadlineId, function () {
 				return createTalkSectionOverlay( $heading, $headline, sectionId );
 			} );
 		} );
