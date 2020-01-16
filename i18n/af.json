@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fwolff",
-			"Naudefj"
+			"Naudefj",
+			"Joris Darlington Quarshie"
 		]
 	},
 	"mobile-frontend-editor-edit": "Wysig",
@@ -31,5 +32,6 @@
 	"mobile-frontend-talk-back-to-userpage": "Terug na die gebruikerblad van \"{{GENDER:$1|$1}}\".",
 	"mobile-frontend-user-page-contributions": "Bydraes",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Aangesluit}} op $1",
-	"mobile-frontend-user-page-talk": "Bespreking"
+	"mobile-frontend-user-page-talk": "Bespreking",
+	"minerva-user-navigation": "Gebruikersnavigasie"
 }
