@@ -762,7 +762,8 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	public function getContextSpecificModules() {
 		$modules = [];
-		if ( $this->skinOptions->hasSkinOptions() ) {
+		$mobileFrontend = ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' );
+		if ( $this->skinOptions->hasSkinOptions() && $mobileFrontend ) {
 			$modules[] = 'skins.minerva.options';
 		}
 
@@ -790,8 +791,6 @@ class SkinMinerva extends SkinTemplate {
 			$modules['styles']['content'] = [];
 		}
 		$modules['styles']['core'] = $this->getSkinStyles();
-		// disable default skin search modules
-		$modules['search'] = [];
 
 		$modules['minerva'] = array_merge(
 			$this->getContextSpecificModules(),

@@ -2,7 +2,6 @@
 	var
 		mobile = M.require( 'mobile.startup' ),
 		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
-		downloadPageAction = require( './downloadPageAction.js' ).downloadPageAction,
 		Icon = mobile.Icon,
 		page = mobile.currentPage(),
 		/** The top level menu. */
@@ -83,8 +82,9 @@
 	 * @return {void}
 	 */
 	function renderDownloadButton( window, overflowList ) {
-		var $downloadAction = downloadPageAction( page,
-			mw.config.get( 'wgMinervaDownloadNamespaces', [] ), window, !!overflowList );
+		var downloadPageAction = require( './downloadPageAction.js' ).downloadPageAction,
+			$downloadAction = downloadPageAction( page,
+				mw.config.get( 'wgMinervaDownloadNamespaces', [] ), window, !!overflowList );
 
 		if ( $downloadAction ) {
 			if ( overflowList ) {
