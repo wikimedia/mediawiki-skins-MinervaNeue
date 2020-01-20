@@ -7,3 +7,5 @@
 .DS_Store
 /.eslintcache
 /tests/selenium/log
+/tmp
+/.resolve-less-imports

@@ -1,6 +1,9 @@
 {
 	"private": true,
 	"scripts": {
+		"storybook:setup": "./dev-scripts/setup-storybook.sh",
+		"storybook": "npm run storybook:setup && start-storybook -p 6006",
+		"build-storybook": "npm run storybook:setup && build-storybook -o docs/",
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
 		"doc": "jsdoc -c jsdoc.json",
 		"test:bundle": "./dev-scripts/bundlesize.sh",
@@ -10,6 +13,9 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
+		"@babel/core": "7.7.7",
+		"@storybook/html": "5.2.8",
+		"babel-loader": "8.0.6",
 		"bundlesize": "0.18.0",
 		"eslint-config-wikimedia": "0.15.0",
 		"grunt": "1.0.4",
@@ -20,6 +26,8 @@
 		"grunt-stylelint": "0.11.1",
 		"jsdoc": "3.5.5",
 		"less": "3.8.1",
+		"less-loader": "4.1.0",
+		"mustache": "3.0.1",
 		"mwbot": "1.0.10",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.5.0",
