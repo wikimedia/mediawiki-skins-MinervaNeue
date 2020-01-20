@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"1AnuraagPandey"
+			"1AnuraagPandey",
+			"Ajeetsinghawadhi"
 		]
 	},
 	"mobile-frontend-editor-edit": "सम्पादन",
@@ -14,5 +15,6 @@
 	"mobile-frontend-main-menu-watchlist": "अवलोकन सुची",
 	"mobile-frontend-pageaction-edit-tooltip": "इ पन्ना कय भूमिका सम्पादित करा जाय।",
 	"mobile-frontend-placeholder": "{{SITENAME}} में खोजा जाय",
-	"mobile-frontend-random-button": "कवनो भी एक"
+	"mobile-frontend-random-button": "कवनो भी एक",
+	"mobile-frontend-user-newmessages": "आपके बातचीत पन्ना पय नवा संदेश अहै"
 }

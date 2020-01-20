@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Poiuyt",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"MirrorWuu"
 		]
 	},
 	"mobile-frontend-editor-edit": "编辑",
 	"mobile-frontend-history": "望本页个编辑历史。",
 	"mobile-frontend-home-button": "首页",
-	"mobile-frontend-language-article-heading": "用别样闲话阅读",
+	"mobile-frontend-language-article-heading": "言话",
 	"mobile-frontend-main-menu-button-tooltip": "打开主菜单",
 	"mobile-frontend-main-menu-login": "登录",
 	"mobile-frontend-main-menu-nearby": "附近",
