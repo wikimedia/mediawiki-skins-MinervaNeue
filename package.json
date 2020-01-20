@@ -3,12 +3,14 @@
 	"scripts": {
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
 		"doc": "jsdoc -c jsdoc.json",
+		"test:bundle": "./dev-scripts/bundlesize.sh",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
 		"selenium-daily": "MW_SERVER=https://en.m.wikipedia.beta.wmflabs.org npm run selenium-test",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js"
 	},
 	"dependencies": {},
 	"devDependencies": {
+		"bundlesize": "0.18.0",
 		"eslint-config-wikimedia": "0.15.0",
 		"grunt": "1.0.4",
 		"grunt-banana-checker": "0.8.1",
@@ -17,6 +19,7 @@
 		"grunt-notify": "0.4.5",
 		"grunt-stylelint": "0.11.1",
 		"jsdoc": "3.5.5",
+		"less": "3.8.1",
 		"mwbot": "1.0.10",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.5.0",
@@ -26,5 +29,23 @@
 		"wdio-mocha-framework": "0.6.4",
 		"wdio-spec-reporter": "0.1.4",
 		"webdriverio": "4.14.4"
-	}
+	},
+	"bundlesize": [
+		{
+			"path": "tmp/skins.minerva.content.styles.css",
+			"maxSize": "5.3KB"
+		},
+		{
+			"path": "tmp/skins.minerva.base.styles.css",
+			"maxSize": "4.3KB"
+		},
+		{
+			"path": "tmp/skins.minerva.amc.styles.css",
+			"maxSize": "1.4KB"
+		},
+		{
+			"path": "tmp/skins.minerva.mainMenu.styles.css",
+			"maxSize": "2.0KB"
+		}
+	]
 }
