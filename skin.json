@@ -258,14 +258,7 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.base.styles/reset.less",
-				"resources/skins.minerva.base.styles/ui.less",
-				"resources/skins.minerva.base.styles/pageactions.less",
-				"resources/skins.minerva.base.styles/userMenu.less",
-				"resources/skins.minerva.base.styles/common.less",
-				"resources/skins.minerva.base.styles/images.less",
-				"resources/skins.minerva.base.styles/footer.less",
-				"resources/skins.minerva.base.styles/print/styles.less"
+				"resources/skins.minerva.base.styles/index.less"
 			]
 		},
 		"skins.minerva.content.styles": {
@@ -275,8 +268,7 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.content.styles/styles.less",
-				"resources/skins.minerva.content.styles/tablet/styles.less"
+				"resources/skins.minerva.content.styles/index.less"
 			]
 		},
 		"skins.minerva.content.styles.images": {
@@ -575,11 +567,7 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.mainMenu.styles/MainMenu.less",
-				"resources/skins.minerva.mainMenu.styles/MainMenuItem.less",
-				"resources/skins.minerva.mainMenu.styles/MainMenuFooter.less",
-				"resources/skins.minerva.mainMenu.styles/NotificationsOverlay.less",
-				"components/ToggleList/ToggleList.less"
+				"resources/skins.minerva.mainMenu.styles/index.less"
 			]
 		},
 		"skins.minerva.loggedin.styles": {
