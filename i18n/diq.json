@@ -7,7 +7,8 @@
 			"Gırd",
 			"Kumkumuk",
 			"Mirzali",
-			"Orbot707"
+			"Orbot707",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"minerva-last-modified-date": "Vurnayışo peyên tarixê $1 de saeta $2 de bi.",
@@ -52,6 +53,7 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|kewt cı}}",
 	"mobile-frontend-user-page-talk": "Werênayış",
 	"minerva-user-menu-button": "Menuy karberi",
+	"minerva-user-navigation": "Navigasyonê karberi",
 	"minerva-page-actions-overflow": "Zêde",
 	"minerva-page-actions-info": "Melumatê pele",
 	"minerva-page-actions-permalink": "Gıreyo daimi",
@@ -70,5 +72,6 @@
 	"minerva-skin-desc": "Hassas yew asayışê mobiliyo",
 	"skin-minerva-issue-learn-more": "Tayêna bımuse",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoriyi",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Pela kategoriyan bıvêne"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Pela kategoriyan bıvêne",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Ravêrşıyayê problemê pelan weşnayış"
 }
