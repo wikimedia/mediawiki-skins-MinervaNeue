@@ -52,6 +52,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Ble}} med $1",
 	"mobile-frontend-user-page-talk": "Diskusjon",
 	"minerva-user-menu-button": "Brukermeny",
+	"minerva-user-navigation": "Brukernavigasjon",
 	"minerva-page-actions-overflow": "Mer",
 	"minerva-page-actions-info": "Sideinformasjon",
 	"minerva-page-actions-permalink": "Permanent lenke",
