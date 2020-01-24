@@ -77,7 +77,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 		return $href ?
 			SingleMenuEntry::create(
 				'page-actions-overflow-' . $name,
-				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name ),
+				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name )->text(),
 				$href,
 				'wikimedia-ui-' . $icon . '-base20'
 			)->setIcon( '', 'before' )
