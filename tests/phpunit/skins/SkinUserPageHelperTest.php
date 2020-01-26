@@ -21,7 +21,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = Title::newFromText( 'Test Page' );
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( false, $helper->isUserPage() );
+		$this->assertFalse( $helper->isUserPage() );
 	}
 
 	/**
@@ -33,8 +33,8 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = null;
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( null, $helper->getPageUser() );
-		$this->assertEquals( false, $helper->isUserPage() );
+		$this->assertNull( $helper->getPageUser() );
+		$this->assertFalse( $helper->isUserPage() );
 	}
 
 	/**
@@ -45,7 +45,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = Title::newFromText( 'User:TestUser/subpage' );
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( false, $helper->isUserPage() );
+		$this->assertFalse( $helper->isUserPage() );
 	}
 
 	/**
@@ -57,7 +57,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = Title::newFromText( 'User:127.0.0.1' );
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( true, $helper->isUserPage() );
+		$this->assertTrue( $helper->isUserPage() );
 	}
 
 	/**
@@ -69,7 +69,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = Title::newFromText( 'User:127.0.0.1/24' );
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( false, $helper->isUserPage() );
+		$this->assertFalse( $helper->isUserPage() );
 	}
 
 	/**
@@ -81,7 +81,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = Title::newFromText( 'User:Fake user' );
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( false, $helper->isUserPage() );
+		$this->assertFalse( $helper->isUserPage() );
 	}
 
 	/**
@@ -120,7 +120,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = $testUser->getUserPage();
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertEquals( true, $helper->isUserPage() );
+		$this->assertTrue( $helper->isUserPage() );
 		$this->assertEquals( $testUser->getId(), $helper->getPageUser()->getId() );
 	}
 
@@ -137,7 +137,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$secondTestUserTitle = $secondTestUser->getUserPage();
 
 		$helper = new SkinUserPageHelper( $secondTestUserTitle );
-		$this->assertEquals( true, $helper->isUserPage() );
+		$this->assertTrue( $helper->isUserPage() );
 		$this->assertNotEquals( $testUser->getId(), $helper->getPageUser()->getId() );
 		$this->assertNotEquals( $helper->getPageUser()->getUserPage(), $testUserTitle );
 	}

@@ -22,16 +22,16 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
-use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
-use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
+use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
+use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
 use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
-use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaNoPagePermissions;
+use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\SkinUserPageHelper;
 

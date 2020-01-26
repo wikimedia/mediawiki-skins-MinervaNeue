@@ -23,8 +23,8 @@ use Config;
 use ConfigException;
 use ContentHandler;
 use MediaWiki\Minerva\LanguagesHelper;
-use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Permissions\PermissionManager;
 use Title;
 use User;
 

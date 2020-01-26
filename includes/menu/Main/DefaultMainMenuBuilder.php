@@ -22,10 +22,10 @@ namespace MediaWiki\Minerva\Menu\Main;
 
 use FatalError;
 use Hooks;
-use MWException;
-use User;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
+use MWException;
+use User;
 
 /**
  * Used to build default (available for everyone by default) main menu

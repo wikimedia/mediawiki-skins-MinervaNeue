@@ -246,7 +246,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 			->willReturn( false );
 
 		$permissions = $this->buildPermissionsObject( $title );
-		$this->assertEquals( false, $permissions->isAllowed( IMinervaPagePermissions::WATCH ) );
+		$this->assertFalse( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) );
 	}
 
 }

@@ -22,9 +22,9 @@ namespace MediaWiki\Minerva\Menu\Main;
 
 use FatalError;
 use Hooks;
-use MWException;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
+use MWException;
 
 /**
  * Group generators shared between menu builders.

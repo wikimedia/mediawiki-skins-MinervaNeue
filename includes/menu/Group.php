@@ -129,7 +129,7 @@ final class Group {
 	 * Searches for a menu entry by name.
 	 *
 	 * @param string $name
-	 * @return integer If the menu entry exists, then the 0-based index of the entry; otherwise, -1
+	 * @return int If the menu entry exists, then the 0-based index of the entry; otherwise, -1
 	 * @throws DomainException
 	 */
 	private function search( $name ) {

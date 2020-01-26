@@ -31,7 +31,8 @@ use MediaWiki\Minerva\SkinUserPageHelper;
  */
 class SkinMinerva extends SkinTemplate {
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
-	  in editing mode */
+	 * in editing mode
+	 */
 	const LEAD_SECTION_NUMBER = 0;
 
 	/** @var string $skinname Name of this skin */
@@ -39,7 +40,7 @@ class SkinMinerva extends SkinTemplate {
 	/** @var string $template Name of this used template */
 	public $template = 'MinervaTemplate';
 
-	/** @var SkinOptions  */
+	/** @var SkinOptions */
 	private $skinOptions;
 
 	/**

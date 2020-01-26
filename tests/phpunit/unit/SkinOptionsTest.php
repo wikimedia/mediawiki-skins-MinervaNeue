@@ -57,7 +57,7 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::get
-	*/
+	 */
 	public function testSettingUnknownKeyShouldThrowException() {
 		$options = new SkinOptions();
 		$this->expectException( OutOfBoundsException::class );

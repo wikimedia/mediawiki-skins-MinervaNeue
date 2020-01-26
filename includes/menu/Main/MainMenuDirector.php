@@ -20,10 +20,10 @@
 namespace MediaWiki\Minerva\Menu\Main;
 
 use Html;
+use MediaWiki\Special\SpecialPageFactory;
 use MessageLocalizer;
 use MinervaUI;
 use SpecialPage;
-use MediaWiki\Special\SpecialPageFactory;
 
 /**
  * Director responsible for building Main Menu

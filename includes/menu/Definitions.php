@@ -21,12 +21,12 @@
 namespace MediaWiki\Minerva\Menu;
 
 use IContextSource;
-use MediaWiki\Special\SpecialPageFactory;
 use MediaWiki\Minerva\Menu\Entries\AuthMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\HomeMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LogInMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LogOutMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
+use MediaWiki\Special\SpecialPageFactory;
 use Message;
 use MinervaUI;
 use MWException;
