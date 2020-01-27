@@ -39,15 +39,14 @@
 	}
 
 	// Parsing information doesn't need to be so big
+	// neither to headers for diffs (.diff-otitle),
+	// the page title (#section_0) or all the warnings (#editpage-copywarn, #mw-anon-edit-warning)
 	.mw-editnotice,
 	.mw-editTools,
 	.preview-limit-report-wrapper,
-	// neither to headers for diffs
 	.diff-otitle,
 	.diff-ntitle,
-	// neither does the page title
 	#section_0,
-	// neither do all the warnings
 	#editpage-copywarn,
 	#mw-anon-edit-warning {
 		.secondary-text();

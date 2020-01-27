@@ -91,13 +91,12 @@
 	@margin: 12px;
 
 	#userloginForm {
-		// tips are not useful
-		.prefsectiontip, .htmlform-tip,
-		// hide help link
-		#mw-userlogin-help, .mw-userlogin-help,
-		// benefits are obvious through the workflows
-		#wpReason,
+		// tips are not useful, hide help link, benefits (#wpReason)
+		// are obvious through the workflows,
 		// real name in account creation is not so important on mobile
+		.prefsectiontip, .htmlform-tip,
+		#mw-userlogin-help, .mw-userlogin-help,
+		#wpReason,
 		#wpRealName {
 			display: none !important;
 		}

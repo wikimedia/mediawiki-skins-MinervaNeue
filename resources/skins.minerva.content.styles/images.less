@@ -48,9 +48,9 @@
 	// Prevent inline styles on images in wikitext
 	// Note we restrict to img's to avoid conflicts with VisualEditor shields
 	// See bug T64460
+	// due to lazy loading images we also must consider imgs inside noscript tags (T191893)
 	a > img,
 	a > .lazy-image-placeholder,
-	// due to lazy loading images we also must consider imgs inside noscript tags (T191893)
 	noscript > img {
 		// make sure that images in articles don't cause a horizontal scrollbar
 		// on small screens
