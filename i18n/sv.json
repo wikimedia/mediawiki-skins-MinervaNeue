@@ -50,6 +50,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Registrerade sig}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"minerva-user-menu-button": "Användarmeny",
+	"minerva-user-navigation": "Användarnavigering",
 	"minerva-page-actions-overflow": "Mer",
 	"minerva-page-actions-info": "Sidinformation",
 	"minerva-page-actions-permalink": "Permanent länk",
