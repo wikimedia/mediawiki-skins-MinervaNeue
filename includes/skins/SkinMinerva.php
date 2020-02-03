@@ -730,7 +730,6 @@ class SkinMinerva extends SkinTemplate {
 	public function getSkinConfigVariables() {
 		$title = $this->getTitle();
 
-		$menuData = $this->getMainMenu()->getMenuData();
 		$vars = [
 			'wgMinervaPermissions' => [
 				'watch' => $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ),
