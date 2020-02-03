@@ -77,7 +77,7 @@ final class Definitions {
 	public function insertContributionsMenuItem( Group $group ) {
 		$group->insertEntry( SingleMenuEntry::create(
 			'contributions',
-			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->escaped(),
+			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->text(),
 			SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL()
 		) );
 	}
@@ -106,7 +106,7 @@ final class Definitions {
 		}
 		$group->insertEntry( SingleMenuEntry::create(
 			'watchlist',
-			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->escaped(),
+			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->text(),
 			$watchTitle->getLocalURL( $watchlistQuery )
 		) );
 	}
@@ -158,7 +158,7 @@ final class Definitions {
 	public function insertHomeItem( Group $group ) {
 		$group->insertEntry( new HomeMenuEntry(
 			'home',
-			$this->context->msg( 'mobile-frontend-home-button' )->escaped(),
+			$this->context->msg( 'mobile-frontend-home-button' )->text(),
 			Title::newMainPage()->getLocalURL()
 		) );
 	}
@@ -174,7 +174,7 @@ final class Definitions {
 			return;
 		}
 		$group->insert( 'random' )
-			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->escaped(),
+			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->text(),
 				Title::newFromText( $pageMsg->escaped() )->getLocalURL() . '#/random',
 				MinervaUI::iconClass( 'random', 'before' ), [
 					'id' => 'randomButton',
@@ -192,7 +192,7 @@ final class Definitions {
 		if ( $this->specialPageFactory->exists( 'Nearby' ) ) {
 			$group->insert( 'nearby', $isJSOnly = true )
 				->addComponent(
-					$this->context->msg( 'mobile-frontend-main-menu-nearby' )->escaped(),
+					$this->context->msg( 'mobile-frontend-main-menu-nearby' )->text(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
 					MinervaUI::iconClass( 'nearby', 'before', 'nearby' ),
 					[ 'data-event-name' => 'menu.nearby' ]
@@ -224,7 +224,7 @@ final class Definitions {
 
 		$item = SingleMenuEntry::create(
 			'settings',
-			$this->context->msg( 'mobile-frontend-main-menu-settings' )->escaped(),
+			$this->context->msg( 'mobile-frontend-main-menu-settings' )->text(),
 			SpecialPage::getTitleFor( 'MobileOptions' )
 				->getLocalURL( [ 'returnto' => $returnToTitle ] )
 		);
@@ -242,7 +242,7 @@ final class Definitions {
 	public function insertPreferencesItem( Group $group ) {
 		$entry = SingleMenuEntry::create(
 			'preferences',
-			$this->context->msg( 'preferences' )->escaped(),
+			$this->context->msg( 'preferences' )->text(),
 			SpecialPage::getTitleFor( 'Preferences' )->getLocalURL()
 		);
 		$entry->setIcon( 'settings' );
@@ -302,7 +302,7 @@ final class Definitions {
 		$group->insertEntry(
 			SingleMenuEntry::create(
 				'specialpages',
-				$this->context->msg( 'specialpages' )->escaped(),
+				$this->context->msg( 'specialpages' )->text(),
 				SpecialPage::getTitleFor( 'Specialpages' )->getLocalURL()
 			)
 		);
