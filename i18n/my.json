@@ -48,6 +48,7 @@
 	"mobile-frontend-user-page-member-since": "$1 အချိန်တွင် {{GENDER:$2|ချိတ်ဆက်ခဲ့သည်}}",
 	"mobile-frontend-user-page-talk": "ဆွေးနွေး",
 	"minerva-user-menu-button": "အသုံးပြုသူ မီနူး",
+	"minerva-user-navigation": "အသုံးပြုသူ အညွှန်း",
 	"minerva-page-actions-info": "စာမျက်နှာ အချက်အလက်များ",
 	"minerva-page-actions-permalink": "ပုံ​သေ​လိပ်​စာ​",
 	"minerva-page-actions-backlinks": "ဘယ်ကလင့်ခ်ထားလဲ",
