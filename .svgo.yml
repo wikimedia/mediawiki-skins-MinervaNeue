@@ -10,3 +10,11 @@ plugins:
   - cleanupIDs: false
   - collapseGroups: false
   - mergePaths: false
+
+  # Additional options recommended from
+  # https://www.mediawiki.org/wiki/Manual:Coding_conventions/SVG#Exemplified_safe_configuration:
+  - cleanupIDs: false
+  - convertPathData: false
+  - removeDesc: false
+  - removeTitle: false
+  - removeViewBox: false
