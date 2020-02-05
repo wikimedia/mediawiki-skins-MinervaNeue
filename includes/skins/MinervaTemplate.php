@@ -125,9 +125,7 @@ class MinervaTemplate extends BaseTemplate {
 				'clockIconClass' => MinervaUI::iconClass( 'clock', 'mw-ui-icon-small' ),
 				'arrowIconClass' => MinervaUI::iconClass(
 					'expand-gray', 'small',
-					// FIXME: `mw-ui-icon-mf-arrow-gray` can be removed from list of classes
-					// when Ibbc706146710a9e31a72b3c2cd4e247d7a227488 lands.
-					'mf-mw-ui-icon-rotate-anti-clockwise indicator mw-ui-icon-mf-arrow-gray',
+					'mf-mw-ui-icon-rotate-anti-clockwise indicator',
 					// Uses icon in MobileFrontend so must be prefixed mf.
 					// Without MobileFrontend it will not render.
 					// Rather than maintain 2 versions (and variants) of the arrow icon which can conflict

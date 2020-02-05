@@ -13,10 +13,6 @@ module.exports = function () {
 
 	// loads lazy loading images
 	mobile.Skin.getSingleton();
-	// remove transparent-shield
-	// FIXME: Remove when transparent-shield has been removed from Mobilefrontend Skin.js
-	// eslint-disable-next-line no-jquery/no-global-selector
-	$( '.transparent-shield:not( .mw-mf-page-center__mask )' ).remove();
 
 	// setup main menu
 	menus.init();
