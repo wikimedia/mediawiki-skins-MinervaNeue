@@ -3,7 +3,9 @@ module.exports = function () {
 		// eslint-disable-next-line no-restricted-properties
 		M = mw.mobileFrontend,
 		mobile = M.require( 'mobile.startup' ),
-		loader = mobile.rlModuleLoader,
+		headers = mobile.headers,
+		icons = mobile.icons,
+		Overlay = mobile.Overlay,
 		features = mw.config.get( 'wgMinervaFeatures', {} ),
 		OverlayManager = mobile.OverlayManager,
 		overlayManager = OverlayManager.getSingleton(),
@@ -17,35 +19,41 @@ module.exports = function () {
 
 	// categories overlay
 	overlayManager.add( /^\/categories$/, function () {
-		return loader.loadModule( 'mobile.categories.overlays', true ).then( function ( loadingOverlay ) {
-			var categoryOverlay = M.require( 'mobile.categories.overlays/categoryOverlay' );
-			eventBus.on( 'category-added', function () {
-				window.location.hash = '#/categories';
-			} );
 
-			loadingOverlay.hide();
-			return categoryOverlay( {
-				api: new mw.Api(),
-				isAnon: isAnon,
-				title: mobile.currentPage().title,
-				eventBus: eventBus
-			} );
+		return mobile.categoryOverlay( {
+			api: new mw.Api(),
+			isAnon: isAnon,
+			title: mobile.currentPage().title,
+			eventBus: eventBus
 		} );
 	} );
 
-	// add categories overlay
 	overlayManager.add( /^\/categories\/add$/, function () {
-		return loader.loadModule( 'mobile.categories.overlays' ).then( function ( loadingOverlay ) {
-			var CategoryAddOverlay = M.require( 'mobile.categories.overlays/CategoryAddOverlay' );
+		// A transitional overlay that loads instantly that will be replaced with a
+		// CategoryAddOverlay as soon as it is available.
+		var spinnerOverlay = Overlay.make(
+			{
+				headers: [
+					headers.header( '', [
+						icons.spinner()
+					], icons.back() )
+				],
+				heading: ''
+			}, icons.spinner()
+		);
 
-			loadingOverlay.hide();
-			return new CategoryAddOverlay( {
-				api: new mw.Api(),
-				isAnon: isAnon,
-				title: mobile.currentPage().title,
-				eventBus: eventBus
-			} );
+		// Load the additional code and replace the temporary overlay with the new overlay.
+		mw.loader.using( 'mobile.categories.overlays' ).then( function () {
+			var CategoryAddOverlay = M.require( 'mobile.categories.overlays' ).CategoryAddOverlay;
+			overlayManager.replaceCurrent(
+				new CategoryAddOverlay( {
+					api: new mw.Api(),
+					isAnon: isAnon,
+					title: mobile.currentPage().title
+				} )
+			);
 		} );
+		return spinnerOverlay;
 	} );
 
 	/**
