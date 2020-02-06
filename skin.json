@@ -540,10 +540,10 @@
 			"defaultColor": "#4A4F53",
 			"useDataURI": false,
 			"images": {
-				"userContributions": {
+				"contributions": {
 					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/userContributions-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/userContributions-rtl.svg"
+						"ltr": "resources/skins.minerva.mainMenu.icons/contributions-ltr.svg",
+						"rtl": "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
 					}
 				},
 				"login": {
