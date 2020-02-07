@@ -106,7 +106,7 @@
 	 * Expects to be run in the context of an icon using `Function.bind`
 	 *
 	 * @param {Icon} spinner
-	 * @returns {function}
+	 * @return {Function}
 	 */
 	function getOnClickHandler( spinner ) {
 		return function () {
@@ -122,7 +122,7 @@
 	 * @param {number[]} supportedNamespaces
 	 * @param {Window} [windowObj] window object
 	 * @param {boolean} [hasText] Use icon + button style.
-	 * @returns {jQuery.Object|null}
+	 * @return {jQuery.Object|null}
 	 */
 	function downloadPageAction( page, supportedNamespaces, windowObj, hasText ) {
 		var

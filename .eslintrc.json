@@ -36,20 +36,6 @@
 				"message": "The method `always` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
 			}
 		],
-		"valid-jsdoc": [
-			"error",
-			{
-				"requireParamDescription": false,
-				"requireReturnDescription": false,
-				"requireReturn": false,
-				"preferType": {
-					"Boolean": "boolean",
-					"Number": "number",
-					"object": "Object",
-					"String": "string"
-				}
-			}
-		],
 		"object-property-newline": "error",
 		"no-use-before-define": "off",
 		"no-underscore-dangle": "off"
