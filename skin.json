@@ -489,12 +489,11 @@
 			]
 		},
 		"skins.minerva.personalMenu.icons": {
-			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#4A4F53",
-			"images": {
-				"userSandbox": "resources/skins.minerva.personalMenu.icons/userSandbox.svg"
-			}
+			"icons": [ "markup" ],
+			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "ResourceLoaderImageModule",

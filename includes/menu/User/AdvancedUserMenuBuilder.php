@@ -83,7 +83,7 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 
 		if ( $sandbox ) {
 			$group->insertEntry( SingleMenuEntry::create(
-				'userSandbox',
+				'markup',
 				$sandbox['text'],
 				$sandbox['href']
 			) );
