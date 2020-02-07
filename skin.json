@@ -493,19 +493,6 @@
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#4A4F53",
 			"images": {
-				"login": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/logIn-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/logIn-rtl.svg"
-					}
-				},
-				"logout": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/logOut-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/logOut-rtl.svg"
-					}
-				},
-				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg",
 				"userSandbox": "resources/skins.minerva.personalMenu.icons/userSandbox.svg"
 			}
 		},
