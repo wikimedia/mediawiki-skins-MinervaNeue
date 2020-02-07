@@ -76,10 +76,10 @@ final class Definitions {
 	 */
 	public function insertContributionsMenuItem( Group $group ) {
 		$group->insertEntry( SingleMenuEntry::create(
-			'contributions',
+			'userContributions',
 			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->text(),
 			SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL()
-		) );
+		)->trackClicks( 'contributions' ) );
 	}
 
 	/**
@@ -105,7 +105,7 @@ final class Definitions {
 			}
 		}
 		$group->insertEntry( SingleMenuEntry::create(
-			'watchlist',
+			'unStar',
 			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->text(),
 			$watchTitle->getLocalURL( $watchlistQuery )
 		) );
@@ -176,7 +176,7 @@ final class Definitions {
 		$group->insert( 'random' )
 			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->text(),
 				Title::newFromText( $pageMsg->escaped() )->getLocalURL() . '#/random',
-				MinervaUI::iconClass( 'random', 'before' ), [
+				MinervaUI::iconClass( 'die', 'before' ), [
 					'id' => 'randomButton',
 					'data-event-name' => 'menu.random',
 				] );
@@ -194,7 +194,7 @@ final class Definitions {
 				->addComponent(
 					$this->context->msg( 'mobile-frontend-main-menu-nearby' )->text(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
-					MinervaUI::iconClass( 'nearby', 'before', 'nearby' ),
+					MinervaUI::iconClass( 'mapPin', 'before', 'nearby' ),
 					[ 'data-event-name' => 'menu.nearby' ]
 				);
 		}

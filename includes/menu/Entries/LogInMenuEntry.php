@@ -30,6 +30,6 @@ final class LogInMenuEntry extends SingleMenuEntry {
 		$url = SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $authLinksQuery );
 		parent::__construct( 'login', $text, $url );
 		$this->trackClicks( 'login' );
-		$this->setIcon( 'login' );
+		$this->setIcon( 'logIn' );
 	}
 }

@@ -34,7 +34,7 @@ final class LogOutMenuEntry extends SingleMenuEntry {
 		$url = SpecialPage::getTitleFor( 'Userlogout' )->getLocalURL( $authLinksQuery );
 		parent::__construct( 'logout', $text, $url, $classes );
 		$this->trackClicks( 'logout' );
-		$this->setIcon( 'logout', $iconType );
+		$this->setIcon( 'logOut', $iconType );
 	}
 
 }

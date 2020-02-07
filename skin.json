@@ -521,35 +521,21 @@
 			}
 		},
 		"skins.minerva.mainMenu.icons": {
-			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"variants": [],
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#4A4F53",
 			"useDataURI": false,
-			"images": {
-				"contributions": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/contributions-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/contributions-rtl.svg"
-					}
-				},
-				"login": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/logIn-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/logIn-rtl.svg"
-					}
-				},
-				"home": "resources/skins.minerva.mainMenu.icons/home.svg",
-				"logout": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.icons/logOut-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.icons/logOut-rtl.svg"
-					}
-				},
-				"nearby": "resources/skins.minerva.mainMenu.icons/nearby.svg",
-				"random": "resources/skins.minerva.mainMenu.icons/random.svg",
-				"settings": "resources/skins.minerva.mainMenu.icons/settings.svg",
-				"watchlist": "resources/skins.minerva.mainMenu.icons/watchlist.svg"
-			}
+			"icons": [
+				"die",
+				"home",
+				"logIn",
+				"logOut",
+				"mapPin",
+				"settings",
+				"userContributions",
+				"unStar"
+			]
 		},
 		"skins.minerva.mainMenu.styles": {
 			"targets": [
