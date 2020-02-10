@@ -606,6 +606,7 @@
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/setup.js",
+				"resources/skins.minerva.scripts/addPortletLink.js",
 				"resources/skins.minerva.scripts/initMobile.js",
 				"resources/skins.minerva.scripts/searchSuggestReveal.js",
 				"resources/skins.minerva.scripts/drawers.js",

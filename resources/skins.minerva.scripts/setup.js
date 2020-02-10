@@ -21,6 +21,7 @@ function init() {
 		// setup search for desktop Minerva at mobile resolution without MobileFrontend.
 		require( './searchSuggestReveal.js' )();
 	}
+	mw.hook( 'util.addPortletLink' ).add( require( './addPortletLink.js' ) );
 }
 
 init();
