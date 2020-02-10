@@ -9,6 +9,7 @@
 		]
 	},
 	"minerva-last-modified-date": "Posljednja izmjena dana $1 u $2",
+	"minerva-talk-add-topic": "Ostavi poruku",
 	"mobile-frontend-cookies-required": "Kolačići moraju biti uključeni za mijenjanje načina pregleda. Uključite ih i pokušate ponovo.",
 	"mobile-frontend-editor-edit": "Uredi",
 	"minerva-download": "Preuzmi PDF",
@@ -56,8 +57,10 @@
 	"minerva-page-actions-wikibase": "Stavka na {{GRAMMAR:dativ|{{WBREPONAME}}}}",
 	"minerva-page-actions-language-switcher": "Jezici",
 	"minerva-page-actions-history": "Historija",
+	"minerva-talk-explained": "Aktivne rasprave",
 	"minerva-talk-full-page": "Prikaži kao wikistranicu",
 	"skinname-minerva": "Minerva",
+	"skin-minerva-issue-learn-more": "Detaljnije",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Prikaži kategorije na stranicama"
 }
