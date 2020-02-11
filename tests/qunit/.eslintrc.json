@@ -1,7 +1,7 @@
 {
 	"extends": [
 		"wikimedia/qunit",
-		"../../.eslintrc.json"
+		"../../.eslintrc.js"
 	],
 	"rules": {
 		"no-restricted-properties": "off",
