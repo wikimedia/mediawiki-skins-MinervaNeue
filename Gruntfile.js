@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable no-restricted-properties */
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'skin.json' );
 
