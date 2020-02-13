@@ -124,12 +124,10 @@
 }
 
 // When the user's device primary input is capable of hover, like a mouse,
-// use hover (T233046).
+// use hover (T233046). Only on active elements.
 @media ( hover: hover ) {
-	.mw-ui-icon-element {
-		&:hover {
-			background-color: @icon-background-color--selected;
-		}
+	.mw-ui-icon-element:not( .disabled ):hover {
+		background-color: @icon-background-color--selected;
 	}
 }
 
