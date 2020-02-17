@@ -205,22 +205,33 @@ class MinervaHooks {
 		MobileContext $mobileContext, Skin $skin
 	) {
 		// setSkinOptions is not available
-		if ( $skin instanceof SkinMinerva ) {
+		if ( $skin instanceof SkinMinerva
+		) {
 			$services = MediaWikiServices::getInstance();
 			$featureManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
 			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
 			$title = $skin->getTitle();
-			// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
-			// be true on user pages and user talk pages for all users
-			//
-			// For some reason using $services->getService( 'SkinUserPageHelper' )
-			// here results in a circular dependency error which is why
-			// SkinUserPageHelper is being instantiated instead.
-			$relevantUserPageHelper = new SkinUserPageHelper(
-				$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
-			);
-			$isUserPageOrUserTalkPage = $relevantUserPageHelper->isUserPage();
+
+			// T245162 - this should only apply if the context relates to a page view.
+			// Examples:
+			// - parsing wikitext during an REST response
+			// - a ResourceLoader response
+			if ( $title !== null ) {
+				// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
+				// be true on user pages and user talk pages for all users
+				//
+				// For some reason using $services->getService( 'SkinUserPageHelper' )
+				// here results in a circular dependency error which is why
+				// SkinUserPageHelper is being instantiated instead.
+				$relevantUserPageHelper = new SkinUserPageHelper(
+					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
+				);
+				$isUserPageOrUserTalkPage = $relevantUserPageHelper->isUserPage();
+			} else {
+				// If no title this must be false
+				$isUserPageOrUserTalkPage = false;
+			}
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$skinOptions->setMultiple( [
