@@ -62,7 +62,8 @@ module.exports = function ( mobile ) {
 		return createOverlay( 'TalkSectionOverlay', {
 			id: sectionId,
 			section: new mobile.Section( {
-				line: $headline.html(),
+				// Strip out any HTML from the headline to avoid links in T243650.
+				line: $( '<span>' ).text( $( $headline ).text() )[ 0 ].outerHTML,
 				text: $heading.next().html()
 			} ),
 			// FIXME: Replace this api param with onSaveComplete
