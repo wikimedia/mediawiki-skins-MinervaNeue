@@ -1,45 +1,31 @@
 # Selenium tests
 
-Please see tests/selenium/README.md file in mediawiki/core repository, usually at mediawiki/vagrant/mediawiki folder.
+For more information see https://www.mediawiki.org/wiki/Selenium.
 
 ## Setup
 
-Set up MediaWiki-Vagrant:
+Follow instructions from
+https://www.mediawiki.org/wiki/MediaWiki-Docker/MinervaNeue
 
-    cd mediawiki/vagrant
-    vagrant up
-    vagrant roles enable minerva
-    vagrant provision
-    cd mediawiki
-    npm install
-
-## Start Chromedriver and run all tests
-
-Run both mediawiki/core and extension tests from mediawiki/core repository (usually at mediawiki/vagrant/mediawiki folder):
-
-    npm run selenium
-
-## Start Chromedriver
-
-To run only some tests, you first have to start Chromedriver in one terminal tab (or window):
+Chromedriver has to run in one terminal window:
 
     chromedriver --url-base=wd/hub --port=4444
 
-## Run test(s) from one file
+## Run all specs
 
-Then, in another terminal tab (or window) run this from mediawiki/core repository (usually at mediawiki/vagrant/mediawiki folder):
+In another terminal window:
 
-    npm run selenium-test -- --spec tests/selenium/specs/FILE-NAME.js
+    npm run selenium-test
 
-`wdio` is a dependency of mediawiki/core that you have installed with `npm install`.
+## Run specific tests
 
-## Run specific test(s)
+Filter by file name:
 
-To run only test(s) which name contains string TEST-NAME, run this from mediawiki/core repository (usually at mediawiki/vagrant/mediawiki folder):
+    npm run selenium-test -- --spec tests/selenium/specs/[FILE-NAME]
 
-    ./node_modules/.bin/wdio tests/selenium/wdio.conf.js --spec extensions/EXTENSION-NAME/tests/selenium/specs/FILE-NAME.js --mochaOpts.grep TEST-NAME
+Filter by file name and test name:
 
-Make sure Chromedriver is running when executing the above command.
+    npm run selenium-test -- --spec tests/selenium/specs/[FILE-NAME] --mochaOpts.grep [TEST-NAME]
 
 # Migrating a test from Ruby to Node.js
 
@@ -70,9 +56,9 @@ For each missing step define them as one liners inside selenium/features/step_de
 
 Create functions with empty bodies for each step.
 
-Function anmes should be camel case without space, for example, `I go to a page that has languages` becomes `iGoToAPageThatHasLanguages`. Each function should be imported from a step file inside the features/step_definitions folder.
+Function names should be camel case without space, for example, `I go to a page that has languages` becomes `iGoToAPageThatHasLanguages`. Each function should be imported from a step file inside the features/step_definitions folder.
 
-Re-reun the test. If done correctly this should now pass.
+Rerun the test. If done correctly this should now pass.
 
 Example: https://gerrit.wikimedia.org/r/#/c/mediawiki/skins/MinervaNeue/+/501792/1..2
 
@@ -109,7 +95,7 @@ cp tests/selenium/features/editor_wikitext_saving.feature tests/selenium/specs/e
 5) Add closing braces for all scenarios: `  } );`
 6) Replace `Feature: <feature>` with `describe('<feature>)', () => {` and add closing brace.
 7) Replace `Background:` with `beforeEach( () => {` and add closing brace.
-8) Find and replace `Given `, `When `, `And `, `Then ` with empy strings.
+8) Find and replace `Given `, `When `, `And `, `Then ` with empty strings.
 9) At top of file copy and paste imports from `selenium/features/step_definitions/index.js` to top of your new file and rewrite their paths.
 10) Relying on autocomplete (VisualStudio Code works great) replace all the lines with the imports
 11) Drop unused imports from the file.
