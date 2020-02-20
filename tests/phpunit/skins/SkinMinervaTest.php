@@ -155,7 +155,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 					'Logo' => '/logo.svg',
 				],
 				'(mobile-frontend-footer-sitename)',
-				'No wgLogos or wgMinervaCustomLogos defined.'
+				'No wgLogos defined.'
 			],
 			[
 				[
@@ -186,22 +186,6 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				'<img src="/wordmark.png" width="10" height="10" '
 					. 'alt="(mobile-frontend-footer-sitename)" srcset="/wordmark.svg 1x"/>',
 				'wgLogos used with `png` and `svg`.'
-			],
-			[
-				[
-					'DevelopmentWarnings' => false,
-					'MinervaCustomLogos' => [
-						'copyright' => '/wordmark.svg',
-						'copyright-width' => '10',
-						'copyright-height' => '10',
-					],
-					'Logos' => [
-						'1x' => '/logo.svg',
-					],
-				],
-				'<img src="/wordmark.png" width="10" height="10" '
-					. 'alt="(mobile-frontend-footer-sitename)" srcset="/wordmark.svg 1x"/>',
-				'wgMinervaCustomLogos used.'
 			]
 		];
 	}
