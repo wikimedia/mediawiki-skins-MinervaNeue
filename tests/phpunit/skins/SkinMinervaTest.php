@@ -2,6 +2,7 @@
 
 namespace Tests\MediaWiki\Minerva;
 
+use HashConfig;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWikiTestCase;
 use OutputPage;
@@ -107,7 +108,7 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Test whether the font changer module is correctly added to the list context modules
+	 * Test whether the font changer module is correctly added to the list context modules.
 	 *
 	 * @covers       ::getContextSpecificModules
 	 * @dataProvider provideGetContextSpecificModules
@@ -144,5 +145,87 @@ class SkinMinervaTest extends MediaWikiTestCase {
 			[ true, self::OPTIONS_MODULE, true ],
 			[ false, self::OPTIONS_MODULE, false ],
 		];
+	}
+
+	public function provideGetSitename() {
+		return [
+			[
+				[
+					'Logos' => false,
+					'Logo' => '/logo.svg',
+				],
+				'(mobile-frontend-footer-sitename)',
+				'No wgLogos or wgMinervaCustomLogos defined.'
+			],
+			[
+				[
+					'Logos' => [
+						'1x' => '/logo.svg',
+						'wordmark' => [
+							'src' => '/wordmark.svg',
+							'width' => '10',
+							'height' => '10',
+						],
+					],
+				],
+				'<img src="/wordmark.svg" width="10" height="10" alt="(mobile-frontend-footer-sitename)"/>',
+				'wgLogos used.'
+			],
+			[
+				[
+					'Logos' => [
+						'1x' => '/logo.svg',
+						'wordmark' => [
+							'src' => '/wordmark.png',
+							'1x' => '/wordmark.svg',
+							'width' => '10',
+							'height' => '10',
+						],
+					],
+				],
+				'<img src="/wordmark.png" width="10" height="10" '
+					. 'alt="(mobile-frontend-footer-sitename)" srcset="/wordmark.svg 1x"/>',
+				'wgLogos used with `png` and `svg`.'
+			],
+			[
+				[
+					'DevelopmentWarnings' => false,
+					'MinervaCustomLogos' => [
+						'copyright' => '/wordmark.svg',
+						'copyright-width' => '10',
+						'copyright-height' => '10',
+					],
+					'Logos' => [
+						'1x' => '/logo.svg',
+					],
+				],
+				'<img src="/wordmark.png" width="10" height="10" '
+					. 'alt="(mobile-frontend-footer-sitename)" srcset="/wordmark.svg 1x"/>',
+				'wgMinervaCustomLogos used.'
+			]
+		];
+	}
+
+	/**
+	 * Test whether the font changer module is correctly added to the list context modules
+	 *
+	 * @covers       ::getSitename
+	 * @dataProvider provideGetSitename
+	 */
+	public function testGetSitename( $configData, $expected, $msg ) {
+		$skin = new SkinMinerva();
+		$config = new HashConfig( $configData );
+		$context = new RequestContext();
+		$context->setLanguage( 'qqx' );
+		$context->setConfig( $config );
+		$skin->setContext( $context );
+
+		// See T236778
+		$this->setMwGlobals( [
+			'wgDevelopmentWarnings' => false
+		] );
+
+		$sitename = $skin->getSitename();
+		$this->assertEquals( $sitename, $expected, $msg );
 	}
 }

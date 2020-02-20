@@ -92,35 +92,78 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
+	 * Consults the deprecated $wgMinervaCustomLogos for a $wgLogo compatible logo.
+	 * @deprecated since 1.35
+	 * @param Config $config
+	 * @return array|false either an array representing a wordmark or false if no wordmark exists.
+	 */
+	private function getSitenameFromLegacyCode( Config $config ) {
+		try {
+			/**
+			 * Before 1.35 this config variable defined an array with the keys
+			 * `copyright`, `copyright-width`, and `copyright-height`.
+			 * These equate to keys of wgLogos['wordmark'] - `src`, `width` and `height`
+			 * respectfully. The array also had a key `copyright-fallback`, which is not
+			 * supported in the new logos but can be replicated using a PNG for `1x` and
+			 * an SVG for `2x`.
+			 */
+			$customLogos = $config->get( 'MinervaCustomLogos' );
+			wfDeprecated( 'MinervaCustomLogos', '1.35' );
+			if ( isset( $customLogos['copyright'] ) ) {
+				$src = $customLogos['copyright'];
+				$logo1x = null;
+				if ( pathinfo( $src, PATHINFO_EXTENSION ) === 'svg' ) {
+					$logo1x = $src;
+					if ( isset( $customLogos['copyright-fallback'] ) ) {
+						$src = $customLogos['copyright-fallback'];
+					} else {
+						$src = preg_replace( '/\.svg$/i', '.png', $src );
+					}
+				}
+
+				return [
+					'src' => $src,
+					'1x' => $logo1x,
+					'height' => $customLogos['copyright-height'] ?? null,
+					'width' => $customLogos['copyright-width'] ?? null,
+				];
+			}
+		} catch ( ConfigException $e ) {
+			// Do nothing.
+		}
+		return false;
+	}
+
+	/**
 	 * Returns the site name for the footer, either as a text or <img> tag
 	 * @return string
-	 * @throws ConfigException
 	 */
 	public function getSitename() {
 		$config = $this->getConfig();
-		$customLogos = $config->get( 'MinervaCustomLogos' );
+		$logos = ResourceLoaderSkinModule::getAvailableLogos( $config );
+		$wordmark = false;
+		if ( isset( $logos['wordmark'] ) ) {
+			$wordmark = $logos['wordmark'];
+		} else {
+			$wordmark = $this->getSitenameFromLegacyCode( $config );
+		}
 
 		$footerSitename = $this->msg( 'mobile-frontend-footer-sitename' )->text();
 
-		// If there's a custom site logo, use that instead of text
-		if ( isset( $customLogos['copyright'] ) ) {
-			$attributes = [
-				'src' => $customLogos['copyright'],
-				'alt' => $footerSitename,
-			];
-			if ( pathinfo( $customLogos['copyright'], PATHINFO_EXTENSION ) === 'svg' ) {
-				$attributes['srcset'] = $customLogos['copyright'] . ' 1x';
-				if ( isset( $customLogos['copyright-fallback'] ) ) {
-					$attributes['src'] = $customLogos['copyright-fallback'];
-				} else {
-					$attributes['src'] = preg_replace( '/\.svg$/i', '.png', $customLogos['copyright'] );
+		// If there's a custom site logo, use that instead of text.
+		if ( $wordmark ) {
+			$wordmarkAttrs = [];
+
+			foreach ( [ 'src', 'width', 'height' ] as $key ) {
+				if ( isset( $wordmark[ $key ] ) ) {
+					$wordmarkAttrs[ $key ] = $wordmark[ $key ];
 				}
 			}
-			if ( isset( $customLogos['copyright-height'] ) ) {
-				$attributes['height'] = $customLogos['copyright-height'];
-			}
-			if ( isset( $customLogos['copyright-width'] ) ) {
-				$attributes['width'] = $customLogos['copyright-width'];
+			$attributes = $wordmarkAttrs + [
+				'alt' => $footerSitename,
+			];
+			if ( isset( $wordmark[ '1x' ] ) ) {
+				$attributes['srcset'] = $wordmark['1x'] . ' 1x';
 			}
 			$sitename = Html::element( 'img', $attributes );
 		} else {
