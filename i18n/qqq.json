@@ -74,6 +74,8 @@
 	"minerva-talk-reply-success": "Toast message when you have saved a reply successfully.",
 	"skinname-minerva": "{{name}}",
 	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}",
+	"minerva.css": "{{optional}}\nAll CSS here will be loaded for users of the MinervaNeue skin.",
+	"minerva.js": "{{optional}}\nAll JavaScript here will be loaded for users of the MinervaNeue skin.",
 	"skin-minerva-issue-learn-more": "Label for link that allows expanding of ambox issue templates.",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Label for categories mobile web beta feature.\n{{Identical|Category}}",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Description label for categories mobile web beta feature.",
