@@ -108,7 +108,7 @@ class SkinMinerva extends SkinTemplate {
 			 * an SVG for `2x`.
 			 */
 			$customLogos = $config->get( 'MinervaCustomLogos' );
-			wfDeprecated( 'MinervaCustomLogos', '1.35' );
+			// wfDeprecated( 'MinervaCustomLogos', '1.35' );
 			if ( isset( $customLogos['copyright'] ) ) {
 				$src = $customLogos['copyright'];
 				$logo1x = null;
