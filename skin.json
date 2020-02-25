@@ -373,7 +373,6 @@
 						"rtl": "resources/skins.minerva.icons.images/toc-rtl.svg"
 					}
 				},
-				"warning": "resources/skins.minerva.icons.images/warning.svg",
 				"mainmenu": "resources/skins.minerva.icons.images/hamburger.svg",
 				"edit": "resources/skins.minerva.icons.images/editLocked.svg",
 				"edit-enabled": "resources/skins.minerva.icons.images/edit.svg",
