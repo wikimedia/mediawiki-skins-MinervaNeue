@@ -68,6 +68,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "View categories of pages",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Improved page issues treatment",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Page issues (Template:ambox) will be inlined in the article.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Unfortunately, grouping results by page is not available on mobile. If you would like to use the group by page feature please visit the desktop site."
-
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Unfortunately, grouping results by page is not available on mobile. If you would like to use the group by page feature please visit the desktop site.",
+	"minerva.css": "/* All CSS here will be loaded for users of the MinervaNeue skin */",
+	"minerva.js": "/* All JavaScript here will be loaded for users of the MinervaNeue skin */"
 }
