@@ -197,10 +197,10 @@
 		}
 
 		&:before {
-			// Hard-coded value to separate icon and proceeding text.
-			margin-right: @icon-padding-md;
 			width: auto;
 			display: inline-block;
+			// Don't use `@icon-padding-md` as we are adjacent to text.
+			margin-right: 8px;
 			// Seems to be more visually centered than `middle`.
 			vertical-align: text-bottom;
 		}
