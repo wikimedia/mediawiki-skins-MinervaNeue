@@ -17,12 +17,12 @@
 			"Grkn gll"
 		]
 	},
-	"minerva-last-modified-date": "Son düzenleme $1, $2",
+	"minerva-last-modified-date": "Son düzenleme $1, $2 tarihinde yapıldı",
 	"minerva-watchlist-cta": "Bu sayfayı ve tüm değişiklikleri takip et.",
 	"minerva-talk-add-topic": "Tartışma ekle",
 	"mobile-frontend-cookies-required": "Çerezler görünüm modlarını değiştirmek için gereklidir. Lütfen bunları etkinleştirin ve tekrar deneyin.",
 	"mobile-frontend-editor-edit": "Düzenle",
-	"minerva-download": "PDF İndir",
+	"minerva-download": "PDF indir",
 	"mobile-frontend-editor-redlink-create": "Sayfa oluştur",
 	"mobile-frontend-editor-redlink-explain": "Bu sayfa henüz oluşturulmadı.",
 	"mobile-frontend-editor-redlink-leave": "Hayır teşekkürler.",
@@ -72,14 +72,14 @@
 	"minerva-page-actions-history": "Geçmiş",
 	"minerva-talk-explained": "Aktif tartışmalar",
 	"minerva-talk-explained-empty": "Bu sayfada tartışma yok.",
-	"minerva-talk-full-page": "Wiki sayfası olarak oku",
+	"minerva-talk-full-page": "Viki sayfası olarak oku",
 	"minerva-talk-topic-feedback": "Tartışma sayfasına yeni konu eklendi!",
-	"minerva-talk-reply-success": "Cevabınız ktartışma sayfasına kaydedildi.",
+	"minerva-talk-reply-success": "Cevabınız tartışma sayfasına kaydedildi.",
 	"minerva-skin-desc": "Duyarlı bir mobil ilk görünümü",
 	"skin-minerva-issue-learn-more": "Daha fazla bilgi",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoriler",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Sayfa kategorilerini görüntüle",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Geliştirilmiş sayfa sorunları iyileştirmesi",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sayfa sorunları (Şablon:ambox) makalede belirtilmiş olacaktır.",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sayfa sorunları (Şablon:ambox) maddede belirtilmiş olacaktır.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Maalesef, sonuçları sayfaya göre gruplandırma mobil cihazda mevcut değil. Grup olarak sayfa özelliğini kullanmak istiyorsanız, lütfen masaüstü sitesini ziyaret edin."
 }
