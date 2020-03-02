@@ -41,7 +41,7 @@ module.exports = function ( link, data ) {
 			'mw-ui-icon-portletlink-' + id
 		].concat( classes.a ) );
 		label = document.createElement( 'span' );
-		label.setAttribute( 'class', classes.span );
+		label.setAttribute( 'class', classes.span.join( ' ' ) );
 		label.textContent = $item.text();
 		$a.empty().append( label );
 	}
