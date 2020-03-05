@@ -68,6 +68,22 @@
 		margin-bottom: 1em;
 	}
 
+	// User name
+	.history-user {
+		float: left;
+		// margin separates the entire username (talk | contrib) block
+		// from the (cur|prev) links on the right. Approximates a &nbsp;
+		margin-right: 0.5em;
+
+		.mw-userlink {
+			// margin separates the username
+			// from the (talk | contrib) links. Approximates a &nbsp;
+			margin-right: 0.5em;
+			// Word-break overlong usernames, see T237230.
+			.hyphens( auto );
+		}
+	}
+
 	// stylelint-disable selector-max-id
 	#pagehistory {
 		margin-bottom: 24px;
@@ -119,20 +135,6 @@
 			float: left;
 			font-weight: bold;
 			clear: none;
-		}
-
-		// user name
-		.history-user {
-			float: left;
-			// margin separates the entire username (talk | contrib) block
-			// from the (cur|prev) links on the right. Approximates a &nbsp;
-			margin-right: 0.5em;
-
-			.mw-userlink {
-				// margin separates the username
-				// from the (talk | contrib) links. Approximates a &nbsp;
-				margin-right: 0.5em;
-			}
 		}
 
 		// container for rollback, undo buttons
