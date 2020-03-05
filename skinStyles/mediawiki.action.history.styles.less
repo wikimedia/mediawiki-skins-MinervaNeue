@@ -68,6 +68,18 @@
 		margin-bottom: 1em;
 	}
 
+	// (cur|prev) links
+	.mw-history-histlinks {
+		float: right;
+	}
+
+	// Date
+	.mw-changeslist-date {
+		float: left;
+		font-weight: bold;
+		clear: none;
+	}
+
 	// User name
 	.history-user {
 		float: left;
@@ -84,7 +96,46 @@
 		}
 	}
 
+	// Container for rollback, undo buttons
+	.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
+		// removing parentheses around undo button
+		& > span:before {
+			content: '';
+		}
+
+		& > span:after {
+			content: '';
+		}
+	}
+
+	// edit summary
+	.comment {
+		// meant to give space for the undo button to the right of
+		// the revision description.
+		width: 65%;
+	}
+
+	// edit summary, +/- bytes changed, tags
+	.comment,
+	.updatedmarker,
+	.mw-diff-bytes,
+	.mw-tag-markers {
+		float: left;
+		clear: left;
+	}
+
+	// add left margin to create a faux column after the radio buttons
+	.history-user,
+	.comment,
+	.updatedmarker,
+	.mw-diff-bytes,
+	.mw-history-tools,
+	.mw-tag-markers {
+		margin-left: @revision-selectors-width;
+	}
+
 	// stylelint-disable selector-max-id
+	// `#pagehistory` needs to come last due to id specificity best-practice.
 	#pagehistory {
 		margin-bottom: 24px;
 		padding: 0;
@@ -123,56 +174,6 @@
 		// moving down 6px to vertically center.
 		input[ type='checkbox' ] {
 			top: 6px;
-		}
-
-		// (cur|prev) links
-		.mw-history-histlinks {
-			float: right;
-		}
-
-		// date
-		.mw-changeslist-date {
-			float: left;
-			font-weight: bold;
-			clear: none;
-		}
-
-		// container for rollback, undo buttons
-		.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
-			// removing parentheses around undo button
-			& > span:before {
-				content: '';
-			}
-
-			& > span:after {
-				content: '';
-			}
-		}
-
-		// edit summary
-		.comment {
-			// meant to give space for the undo button to the right of
-			// the revision description.
-			width: 65%;
-		}
-
-		// edit summary, +/- bytes changed, tags
-		.comment,
-		.updatedmarker,
-		.mw-diff-bytes,
-		.mw-tag-markers {
-			float: left;
-			clear: left;
-		}
-
-		// add left margin to create a faux column after the radio buttons
-		.history-user,
-		.comment,
-		.updatedmarker,
-		.mw-diff-bytes,
-		.mw-history-tools,
-		.mw-tag-markers {
-			margin-left: @revision-selectors-width;
 		}
 	}
 	// stylelint-enable selector-max-id
