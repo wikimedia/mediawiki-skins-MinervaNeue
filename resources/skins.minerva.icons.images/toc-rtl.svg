@@ -3,5 +3,5 @@
 	<title>
 		table of contents
 	</title>
-	<path d="M1 3h18v2H1V3zm0 14h18v-2H1v2zm4-6h14V9H5v2z" fill-rule="evenodd" clip-rule="evenodd"/>
+	<path fill-rule="evenodd" d="M1 3h18v2H1V3zm0 14h18v-2H1v2zm4-6h14V9H5v2z" clip-rule="evenodd"/>
 </svg>
