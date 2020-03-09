@@ -455,7 +455,9 @@ class SkinMinerva extends SkinTemplate {
 		$timestamp = $this->getOutput()->getRevisionTimestamp();
 		# No cached timestamp, load it from the database
 		if ( $timestamp === null ) {
-			$timestamp = Revision::getTimestampFromId( $this->getTitle(), $this->getRevisionId() );
+			$timestamp = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getTimestampFromId( $this->getOutput()->getRevisionId() );
 		}
 
 		return !$isLatestRevision || $title->isMainPage() ?
