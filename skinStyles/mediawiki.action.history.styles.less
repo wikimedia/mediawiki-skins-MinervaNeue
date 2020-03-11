@@ -4,7 +4,8 @@
 @import 'mediawiki.ui/mixins.buttons.less';
 
 .action-history {
-	#mw-content-text > form { // stylelint-disable-line selector-max-id
+	// stylelint-disable-next-line selector-max-id
+	#mw-content-text > form {
 		margin: 0;
 	}
 
@@ -14,7 +15,8 @@
 
 	// form element wrapping history page content. Overrides #mw-content-text > form
 	// for tablet widths.
-	#mw-history-compare { // stylelint-disable-line selector-max-id
+	// stylelint-disable-next-line selector-max-id
+	#mw-history-compare {
 		width: 100%;
 		max-width: 100%;
 	}
@@ -68,74 +70,7 @@
 		margin-bottom: 1em;
 	}
 
-	// (cur|prev) links
-	.mw-history-histlinks {
-		float: right;
-	}
-
-	// Date
-	.mw-changeslist-date {
-		float: left;
-		font-weight: bold;
-		clear: none;
-	}
-
-	// User name
-	.history-user {
-		float: left;
-		// margin separates the entire username (talk | contrib) block
-		// from the (cur|prev) links on the right. Approximates a &nbsp;
-		margin-right: 0.5em;
-
-		.mw-userlink {
-			// margin separates the username
-			// from the (talk | contrib) links. Approximates a &nbsp;
-			margin-right: 0.5em;
-			// Word-break overlong usernames, see T237230.
-			.hyphens( auto );
-		}
-	}
-
-	// Container for rollback, undo buttons
-	.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
-		// removing parentheses around undo button
-		& > span:before {
-			content: '';
-		}
-
-		& > span:after {
-			content: '';
-		}
-	}
-
-	// edit summary
-	.comment {
-		// meant to give space for the undo button to the right of
-		// the revision description.
-		width: 65%;
-	}
-
-	// edit summary, +/- bytes changed, tags
-	.comment,
-	.updatedmarker,
-	.mw-diff-bytes,
-	.mw-tag-markers {
-		float: left;
-		clear: left;
-	}
-
-	// add left margin to create a faux column after the radio buttons
-	.history-user,
-	.comment,
-	.updatedmarker,
-	.mw-diff-bytes,
-	.mw-history-tools,
-	.mw-tag-markers {
-		margin-left: @revision-selectors-width;
-	}
-
 	// stylelint-disable selector-max-id
-	// `#pagehistory` needs to come last due to id specificity best-practice.
 	#pagehistory {
 		margin-bottom: 24px;
 		padding: 0;
