@@ -18,6 +18,7 @@
  * @file
  */
 
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
@@ -419,18 +420,19 @@ class SkinMinerva extends SkinTemplate {
 
 	/**
 	 * Returns data attributes representing the editor for the current revision.
-	 * @param Title $title The Title object of the page being viewed
+	 * @param LinkTarget $title The Title object of the page being viewed
 	 * @return array representing user with name and gender fields. Empty if the editor no longer
 	 *   exists in the database or is hidden from public view.
 	 */
-	private function getRevisionEditorData( Title $title ) {
-		$rev = Revision::newFromTitle( $title );
+	private function getRevisionEditorData( LinkTarget $title ) {
+		$rev = MediaWikiServices::getInstance()->getRevisionLookup()
+			->getRevisionByTitle( $title );
 		$result = [];
 		if ( $rev ) {
-			$revUserId = $rev->getUser();
+			$revUser = $rev->getUser();
 			// Note the user will only be returned if that information is public
-			if ( $revUserId ) {
-				$revUser = User::newFromId( $revUserId );
+			if ( $revUser ) {
+				$revUser = User::newFromIdentity( $revUser );
 				$editorName = $revUser->getName();
 				$editorGender = $revUser->getOption( 'gender' );
 				$result += [
