@@ -1,8 +1,22 @@
 /**
  * See also: http://webdriver.io/guide/testrunner/configurationfile.html
  */
-const fs = require( 'fs' ),
-	saveScreenshot = require( 'wdio-mediawiki' ).saveScreenshot;
+
+const fs = require( 'fs' );
+const path = require( 'path' );
+const logPath = process.env.LOG_DIR || path.join( __dirname, '/log' );
+
+let ffmpeg;
+
+// get current test title and clean it, to use it as file name
+function fileName( title ) {
+	return encodeURIComponent( title.replace( /\s+/g, '-' ) );
+}
+
+// build file path
+function filePath( test, screenshotPath, extension ) {
+	return path.join( screenshotPath, `${fileName( test.parent )}-${fileName( test.title )}.${extension}` );
+}
 
 exports.config = {
 	// ======
@@ -76,18 +90,68 @@ exports.config = {
 	// =====
 	// Hooks
 	// =====
-
 	/**
-	 * Save a screenshot when test fails.
-	 *
+	 * Executed before a Mocha test starts.
+	 * @param {Object} test Mocha Test object
+	 */
+	beforeTest: function ( test ) {
+		if ( process.env.DISPLAY && process.env.DISPLAY.startsWith( ':' ) ) {
+			const videoPath = filePath( test, logPath, 'mp4' );
+			const { spawn } = require( 'child_process' );
+			ffmpeg = spawn( 'ffmpeg', [
+				'-f', 'x11grab', //  grab the X11 display
+				'-video_size', '1280x1024', // video size
+				'-i', process.env.DISPLAY, // input file url
+				'-loglevel', 'error', // log only errors
+				'-y', // overwrite output files without asking
+				'-pix_fmt', 'yuv420p', // QuickTime Player support, "Use -pix_fmt yuv420p for compatibility with outdated media players"
+				videoPath // output file
+			] );
+
+			const logBuffer = function ( buffer, prefix ) {
+				const lines = buffer.toString().trim().split( '\n' );
+				lines.forEach( function ( line ) {
+					console.log( prefix + line );
+				} );
+			};
+
+			ffmpeg.stdout.on( 'data', ( data ) => {
+				logBuffer( data, 'ffmpeg stdout: ' );
+			} );
+
+			ffmpeg.stderr.on( 'data', ( data ) => {
+				logBuffer( data, 'ffmpeg stderr: ' );
+			} );
+
+			ffmpeg.on( 'close', ( code, signal ) => {
+				console.log( '\n\tVideo location:', videoPath, '\n' );
+				if ( code !== null ) {
+					console.log( `\tffmpeg exited with code ${code} ${videoPath}` );
+				}
+				if ( signal !== null ) {
+					console.log( `\tffmpeg received signal ${signal} ${videoPath}` );
+				}
+			} );
+		}
+	},
+	/**
+	 * Executed after a Mocha test ends.
 	 * @param {Object} test Mocha Test object
 	 */
 	afterTest: function ( test ) {
-		var filePath;
-		if ( !test.passed ) {
-			filePath = saveScreenshot( test.title );
-			console.log( '\n\tScreenshot: ' + filePath + '\n' );
+		if ( ffmpeg ) {
+			// stop video recording
+			ffmpeg.kill( 'SIGINT' );
 		}
+
+		// if test passed, ignore, else take and save screenshot
+		if ( test.passed ) {
+			return;
+		}
+		// save screenshot
+		const screenshotfile = filePath( test, logPath, 'png' );
+		browser.saveScreenshot( screenshotfile );
+		console.log( '\n\tScreenshot location:', screenshotfile, '\n' );
 	}
 };
 
