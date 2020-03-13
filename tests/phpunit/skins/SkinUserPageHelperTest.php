@@ -89,6 +89,7 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 	 */
 	public function testTitleProcessingIsCached() {
 		$titleMock = $this->getMockBuilder( Title::class )
+			->disableOriginalConstructor()
 			->getMock();
 		$titleMock->expects( $this->once() )
 			->method( 'inNamespace' )
