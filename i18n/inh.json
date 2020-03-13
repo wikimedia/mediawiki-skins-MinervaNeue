@@ -8,6 +8,7 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Тоаде",
+	"minerva-download": "Хьаэца PDF",
 	"mobile-frontend-editor-redlink-create": "Хьакхолла оагIув",
 	"mobile-frontend-editor-redlink-explain": "Ер оагӀув кхы а хьакхеллаяц.",
 	"mobile-frontend-editor-redlink-leave": "А, баркал",
@@ -21,10 +22,16 @@
 	"mobile-frontend-main-menu-nearby": "Гаьна доаццаш",
 	"mobile-frontend-main-menu-settings": "Оттамаш",
 	"mobile-frontend-main-menu-watchlist": "Зема хьаязъяьр",
+	"mobile-frontend-meta-data-issues-header-talk": "ОагIонах бола хоам",
+	"mobile-frontend-meta-data-issues-talk": "Къамаьла оагIонах бола хоам",
 	"mobile-frontend-pageaction-edit-tooltip": "Нийсде укх оагIон хьалхе латта дакъа",
 	"mobile-frontend-placeholder": "Лаха Википеде чу",
 	"mobile-frontend-random-button": "Цаховш нийсъеннар",
 	"mobile-frontend-redirected-from": "Хьахьожадаьд «[[$1]]» яха оагIона тIара",
 	"mobile-frontend-user-page-contributions": "Къахьегам",
-	"mobile-frontend-user-page-talk": "Дувцар"
+	"mobile-frontend-user-page-talk": "Дувцар",
+	"minerva-page-actions-overflow": "Кхы а",
+	"minerva-page-actions-permalink": "Даим бола тӏатовжам",
+	"minerva-page-actions-backlinks": "Тӏатовжамаш укхазахьа",
+	"minerva-page-actions-cite": "ОагIув белгалъяр"
 }
