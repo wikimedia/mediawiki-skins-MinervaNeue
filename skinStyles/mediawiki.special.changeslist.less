@@ -34,6 +34,8 @@ ul.special {
 	// generic names.
 	.mw-title {
 		font-weight: bold;
+		// Word-break overlong user names, see T237230.
+		.hyphens( auto );
 	}
 
 	.comment {
