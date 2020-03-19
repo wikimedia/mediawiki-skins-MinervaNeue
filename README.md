@@ -210,8 +210,7 @@ components/ToggleList.mustache, are designed to be rendered as root templates no
 // 🆗
 
 $templatesDir = __DIR__ . '/../../components';
-$invalidateTemplateCache = false;
-$templateParser = new TemplateParser( $templatesDir, $invalidateTemplateCache );
+$templateParser = new TemplateParser( $templatesDir );
 
 // Render components/ToggleList.mustache not components/ToggleList/ToggleList.mustache.
 $html = $templateParser->processTemplate( 'ToggleList',  $data );
@@ -224,8 +223,7 @@ assumptions:
 // 🚫
 
 $templatesDir = __DIR__ . '/../../components/ToggleList';
-$invalidateTemplateCache = false;
-$templateParser = new TemplateParser( $templatesDir, $invalidateTemplateCache );
+$templateParser = new TemplateParser( $templatesDir );
 
 // Error: components/ToggleList/ToggleList.mustache references
 // components/ToggleList/ToggleList/ToggleListItem.mustache which does not exist.
