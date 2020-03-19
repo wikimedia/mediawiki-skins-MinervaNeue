@@ -23,7 +23,6 @@ use Html;
 use MediaWiki\Special\SpecialPageFactory;
 use MessageLocalizer;
 use MinervaUI;
-use SpecialPage;
 
 /**
  * Director responsible for building Main Menu
@@ -103,9 +102,7 @@ final class MainMenuDirector {
 	 * Prepare the button opens the main side menu
 	 * @return string Rendered Menu button as HTML
 	 */
-	protected function prepareToggle() {
-		$url = $this->specialPageFactory->exists( 'MobileMenu' ) ?
-			SpecialPage::getTitleFor( 'MobileMenu' )->getLocalURL() : '#';
+	protected function prepareToggle() : string {
 		$title = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )->text();
 		$tooltip = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )
 			->text();
