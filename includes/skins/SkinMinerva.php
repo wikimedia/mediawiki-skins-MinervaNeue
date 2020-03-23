@@ -216,7 +216,8 @@ class SkinMinerva extends SkinTemplate {
 
 	/**
 	 * Overrides Skin::doEditSectionLink
-	 * @param Title $nt
+	 * @param Title $nt The title being linked to (may not be the same as
+	 *   the current page, if the section is included from a template)
 	 * @param string $section
 	 * @param string|null $tooltip
 	 * @param Language $lang
@@ -228,7 +229,7 @@ class SkinMinerva extends SkinTemplate {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
 			$html .= Html::element( 'a', [
-				'href' => $this->getTitle()->getLocalURL( [ 'action' => 'edit', 'section' => $section ] ),
+				'href' => $nt->getLocalURL( [ 'action' => 'edit', 'section' => $section ] ),
 				'title' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
 				'data-section' => $section,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
