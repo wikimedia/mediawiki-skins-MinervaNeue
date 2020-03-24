@@ -15,7 +15,7 @@
 	"mobile-frontend-history": "Укх оагIона тIа даьча хувцамашка хьажа",
 	"mobile-frontend-home-button": "Кертера",
 	"mobile-frontend-language-article-heading": "Дéша кхыболча меттала",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Моаршал да хьога}}, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Моаршал да шуга!}}",
 	"mobile-frontend-main-menu-button-tooltip": "Хьаела кертера меню",
 	"mobile-frontend-main-menu-contributions": "Къахьегам",
 	"mobile-frontend-main-menu-login": "Чувáла/яла",
@@ -31,6 +31,7 @@
 	"mobile-frontend-user-page-contributions": "Къахьегам",
 	"mobile-frontend-user-page-talk": "Дувцар",
 	"minerva-page-actions-overflow": "Кхы а",
+	"minerva-page-actions-info": "ОагIонах бола хоам",
 	"minerva-page-actions-permalink": "Даим бола тӏатовжам",
 	"minerva-page-actions-backlinks": "Тӏатовжамаш укхазахьа",
 	"minerva-page-actions-cite": "ОагIув белгалъяр"
