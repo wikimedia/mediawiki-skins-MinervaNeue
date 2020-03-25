@@ -61,7 +61,7 @@
 
 // Hide keep me logged in checkbox on mobile. It will be marked as checked by default.
 #userloginForm {
-	.mw-htmlform-field-HTMLCheckField {
+	.mw-userlogin-rememberme {
 		display: none;
 	}
 }
@@ -70,7 +70,7 @@
 	// Show keep me logged in checkbox for grade C users on mobile so that they can
 	// check the checkbox (we use JS to check this and that won't run on grade C bmode)
 	#userloginForm {
-		.mw-htmlform-field-HTMLCheckField {
+		.mw-userlogin-rememberme {
 			display: block;
 			margin: 10px 0 11px;
 		}
@@ -80,7 +80,7 @@
 @media all and ( min-width: @width-breakpoint-tablet ) {
 	// If tablet mode, show the keep me logged in checkbox
 	#userloginForm {
-		.mw-htmlform-field-HTMLCheckField {
+		.mw-userlogin-rememberme {
 			display: block;
 		}
 	}
