@@ -48,6 +48,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pridružio|Pridružila|Pridružili ste}} se $1",
 	"mobile-frontend-user-page-talk": "Razgovor",
 	"minerva-user-menu-button": "Korisnički izbornik",
+	"minerva-user-navigation": "Navigacija suradnika",
 	"minerva-page-actions-overflow": "Više",
 	"minerva-page-actions-info": "Podatci o stranici",
 	"minerva-page-actions-permalink": "Trajna poveznica",
