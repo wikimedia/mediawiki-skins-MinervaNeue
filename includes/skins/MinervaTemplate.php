@@ -122,7 +122,9 @@ class MinervaTemplate extends BaseTemplate {
 		$action = Action::getActionName( RequestContext::getMain() );
 		if ( isset( $data['historyLink'] ) && $action === 'view' ) {
 			$args = [
-				'clockIconClass' => MinervaUI::iconClass( 'clock', 'mw-ui-icon-small' ),
+				'historyIconClass' => MinervaUI::iconClass(
+					'history-base20', 'mw-ui-icon-small', '', 'wikimedia'
+				),
 				'arrowIconClass' => MinervaUI::iconClass(
 					'expand-gray', 'small',
 					'mf-mw-ui-icon-rotate-anti-clockwise indicator',

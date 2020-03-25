@@ -344,6 +344,11 @@
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
+				"edit",
+				"editLock",
+				"history",
+				"language",
+				"menu",
 				"search",
 				"userAvatar",
 				"star",
@@ -387,8 +392,7 @@
 					"variants": [
 						"invert"
 					]
-				},
-				"page-actions-overflow": "resources/skins.minerva.icons.images/page-actions-overflow.svg"
+				}
 			}
 		},
 		"skins.minerva.icons.images.scripts": {
@@ -489,6 +493,7 @@
 			"selector": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#4A4F53",
 			"images": {
+				"page-actions-overflow": "resources/skins.minerva.mainMenu.advanced.icons/page-actions-overflow.svg",
 				"recentchanges": {
 					"file": {
 						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/recentChanges-ltr.svg",
