@@ -32,6 +32,7 @@ ul.special {
 
 	// the following selector are nested due to their
 	// generic names.
+	.mw-contributions-title,
 	.mw-title {
 		font-weight: bold;
 		// Word-break overlong user names, see T237230.
@@ -45,6 +46,10 @@ ul.special {
 		line-height: 1.4em;
 		padding: 0.5em 0;
 	}
+}
+
+.mw-title a {
+	word-break: break-word;
 }
 
 // T232955: Properly align deletion comments
