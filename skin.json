@@ -404,11 +404,11 @@
 			]
 		},
 		"skins.minerva.icons.images.scripts.misc": {
-			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before",
-			"images": {
-				"download": "resources/skins.minerva.icons.images.scripts.misc/download.svg"
-			}
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
+			"defaultColor": "#54595d",
+			"icons": [ "download" ],
+			"variants": []
 		},
 		"skins.minerva.icons.page.issues.uncolored": {
 			"class": "ResourceLoaderImageModule",
