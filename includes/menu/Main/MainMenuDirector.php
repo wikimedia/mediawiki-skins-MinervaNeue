@@ -19,10 +19,8 @@
  */
 namespace MediaWiki\Minerva\Menu\Main;
 
-use Html;
 use MediaWiki\Special\SpecialPageFactory;
 use MessageLocalizer;
-use MinervaUI;
 
 /**
  * Director responsible for building Main Menu
@@ -84,7 +82,6 @@ final class MainMenuDirector {
 	 */
 	private function buildMenu(): array {
 		$menuData = [
-			'buttonHTML' => $this->prepareToggle(),
 			'items' => [
 				'groups' => [],
 				'sitelinks' => $this->builder->getSiteLinks()->getEntries()
@@ -97,25 +94,4 @@ final class MainMenuDirector {
 		}
 		return $menuData;
 	}
-
-	/**
-	 * Prepare the button opens the main side menu
-	 * @return string Rendered Menu button as HTML
-	 */
-	protected function prepareToggle() : string {
-		$title = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )->text();
-		$tooltip = $this->msgLocalizer->msg( 'mobile-frontend-main-menu-button-tooltip' )
-			->text();
-
-		return Html::element( 'label', [
-				'for' => 'main-menu-input',
-				'id' => 'mw-mf-main-menu-button',
-				'title' => $title,
-				'class' => MinervaUI::iconClass(
-					'mainmenu', 'element', 'toggle-list__toggle mw-ui-icon-flush-left'
-				),
-				'data-event-name' => 'ui.mainmenu'
-			], $tooltip );
-	}
-
 }

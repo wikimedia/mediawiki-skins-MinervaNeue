@@ -212,10 +212,8 @@ class MinervaTemplate extends BaseTemplate {
 	 * @param array $data Data used to build the page
 	 * @return string
 	 */
-	protected function getMainMenuHtml( $data ) {
-		$templateParser = new TemplateParser( __DIR__ );
-
-		return $templateParser->processTemplate( 'menu', $data['mainMenu']['items'] );
+	protected function getMainMenuData( $data ) {
+		return $data['mainMenu']['items'];
 	}
 
 	/**
@@ -240,7 +238,7 @@ class MinervaTemplate extends BaseTemplate {
 			'search' => $data['search'],
 			'placeholder' => wfMessage( 'mobile-frontend-placeholder' ),
 			'headelement' => $data[ 'headelement' ],
-			'menuButton' => $data['mainMenu']['buttonHTML'],
+			'main-menu-tooltip' => $this->getMsg( 'mobile-frontend-main-menu-button-tooltip' ),
 			'siteheading' => $data['footer-site-heading-html'],
 			'mainPageURL' => Title::newMainPage()->getLocalURL(),
 			'userNavigationLabel' => wfMessage( 'minerva-user-navigation' ),
@@ -256,7 +254,7 @@ class MinervaTemplate extends BaseTemplate {
 				)
 			], wfMessage( 'searchbutton' ) ),
 			'userNotificationsHTML' => $data['userNotificationsHTML'] ?? '',
-			'mainmenuhtml' => $this->getMainMenuHtml( $data ),
+			'data-main-menu' => $this->getMainMenuData( $data ),
 			'hasheadingholder' => $hasHeadingHolder,
 			'taglinehtml' => $data['taglinehtml'],
 			'internalBanner' => $internalBanner,
