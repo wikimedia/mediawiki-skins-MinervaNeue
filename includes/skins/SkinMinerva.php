@@ -859,7 +859,6 @@ class SkinMinerva extends SkinTemplate {
 			$styles[] = 'skins.minerva.mainPage.styles';
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
-			$styles[] = 'skins.minerva.userpage.icons';
 		} elseif ( $this->isTalkPageWithViewAction() ) {
 			$styles[] = 'skins.minerva.talk.styles';
 		}
