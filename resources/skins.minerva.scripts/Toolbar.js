@@ -53,12 +53,12 @@
 			//       enabledEditIcon, enabledEditIcon, and disabledClass and
 			//       a number of other places in the code base.
 			disabledEditIcon = new Icon( {
-				name: 'edit',
-				glyphPrefix: 'minerva'
+				name: 'editLock-base20',
+				glyphPrefix: 'wikimedia'
 			} ),
 			enabledEditIcon = new Icon( {
-				name: 'edit-enabled',
-				glyphPrefix: 'minerva'
+				name: 'edit-base20',
+				glyphPrefix: 'wikimedia'
 			} ),
 			enabledClass = enabledEditIcon.getGlyphClassName(),
 			disabledClass = disabledEditIcon.getGlyphClassName();

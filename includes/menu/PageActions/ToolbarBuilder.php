@@ -121,8 +121,10 @@ class ToolbarBuilder {
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
-				MinervaUI::iconClass( 'language-switcher', 'element', 'mw-ui-icon-with-label-desktop' ) )
-			);
+				MinervaUI::iconClass(
+					'language-base20', 'element', 'mw-ui-icon-with-label-desktop', 'wikimedia'
+				)
+			) );
 		}
 
 		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) ) {
@@ -201,8 +203,8 @@ class ToolbarBuilder {
 			$title->getLocalURL( $editArgs ),
 			'edit-page'
 		);
-		$entry->setIcon( $editOrCreate ? 'edit-enabled' : 'edit',
-			'element', 'mw-ui-icon-with-label-desktop' )
+		$entry->setIcon( $editOrCreate ? 'edit-base20' : 'editLock-base20',
+			'element', 'mw-ui-icon-with-label-desktop', 'wikimedia' )
 			->trackClicks( 'edit' )
 			->setTitle( $this->messageLocalizer->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
 			->setNodeID( 'ca-edit' );
@@ -269,7 +271,7 @@ class ToolbarBuilder {
 			$this->messageLocalizer->msg( 'minerva-page-actions-history' )->escaped(),
 			$this->getHistoryUrl( $this->title )
 		);
-		$entry->setIcon( 'clock', 'element', 'mw-ui-icon-with-label-desktop' )
+		$entry->setIcon( 'history', 'element', 'mw-ui-icon-with-label-desktop' )
 			->trackClicks( 'history' );
 		return $entry;
 	}
