@@ -317,8 +317,8 @@
 				"resources/skins.minerva.amc.styles/index.less"
 			]
 		},
-		"wikimedia.ui": {
-			"selectorWithoutVariant": ".wikimedia-ui-{name}-base20:before",
+		"skins.minerva.overflow.icons": {
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
@@ -411,7 +411,10 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#54595d",
-			"icons": [ "download" ],
+			"icons": [
+				"download",
+				"listBullet"
+			],
 			"variants": []
 		},
 		"skins.minerva.icons.page.issues.uncolored": {
@@ -555,9 +558,7 @@
 				"desktop"
 			],
 			"dependencies": [
-				"skins.minerva.icons.wikimedia",
 				"mediawiki.ui.anchor",
-				"wikimedia.ui",
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"jquery.cookie",

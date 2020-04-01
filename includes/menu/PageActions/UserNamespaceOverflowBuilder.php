@@ -84,8 +84,8 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
-				MinervaUI::iconClass( 'language-switcher-base20',  'before',
-					'minerva-page-actions-language-switcher' ),
+				MinervaUI::iconClass( 'language-base20', 'before',
+					'minerva-page-actions-language-switcher', 'wikimedia' ),
 				'minerva-page-actions-language-switcher'
 			) );
 		}
@@ -131,9 +131,8 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 			SingleMenuEntry::create(
 				'page-actions-overflow-' . $name,
 				$this->messageLocalizer->msg( 'minerva-page-actions-' . $name )->text(),
-				$href,
-				'wikimedia-ui-' . $icon . '-base20'
-			)->setIcon( '', 'before' )
+				$href
+			)->setIcon( $icon, 'before' )
 			->trackClicks( $name ) : null;
 	}
 }

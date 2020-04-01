@@ -271,7 +271,7 @@ class ToolbarBuilder {
 			$this->messageLocalizer->msg( 'minerva-page-actions-history' )->escaped(),
 			$this->getHistoryUrl( $this->title )
 		);
-		$entry->setIcon( 'history', 'element', 'mw-ui-icon-with-label-desktop' )
+		$entry->setIcon( 'history-base20', 'element', 'mw-ui-icon-with-label-desktop', 'wikimedia' )
 			->trackClicks( 'history' );
 		return $entry;
 	}

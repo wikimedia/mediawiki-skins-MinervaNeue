@@ -73,10 +73,9 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 			$entry = SingleMenuEntry::create(
 				'userTalk',
 				$this->messageLocalizer->msg( 'mobile-frontend-user-page-talk' )->escaped(),
-				$talkPage->getLocalURL(),
-				'wikimedia-ui-userTalk-base20'
+				$talkPage->getLocalURL()
 			);
-			$entry->setIcon( null, 'before' );
+			$entry->setIcon( 'userTalk', 'before' );
 			$group->insertEntry( $entry );
 		}
 		$sandbox = $personalTools['sandbox']['links'][0] ?? false;

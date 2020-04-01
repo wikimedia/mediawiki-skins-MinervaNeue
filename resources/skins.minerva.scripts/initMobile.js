@@ -403,8 +403,8 @@ module.exports = function () {
 		// This should probably be done in the parser.
 		// setup toc icons
 		new Icon( {
-			glyphPrefix: 'wikimedia',
-			name: 'listBullet-base20'
+			glyphPrefix: 'minerva',
+			name: 'listBullet'
 		} ).$el.prependTo( '.toctitle' );
 		new Icon( {
 			glyphPrefix: 'mf',

@@ -63,7 +63,7 @@ final class UserMenuDirector {
 				'checkboxID' => 'minerva-user-menu-checkbox',
 				'toggleID' => 'minerva-user-menu-toggle', // See minerva.mustache too.
 				'toggleClass' => MinervaUI::iconClass(
-					'page-actions-overflow', 'element', 'wikimedia-ui-' . 'userAvatarOutline' . '-base20'
+					'userAvatarOutline', 'element'
 				),
 				'listID' => $group->getId(),
 				'listClass' => 'minerva-user-menu-list toggle-list__list--drop-down', // See ToggleList/*.less.

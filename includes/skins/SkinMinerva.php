@@ -892,7 +892,8 @@ class SkinMinerva extends SkinTemplate {
 		if (
 			$this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED ) ||
 			// This condition can be dropped when the icon `page-actions-overflow`
-			// has been upstreamed to an icon pack and the icon has been added to `wikimedia.ui`.
+			// has been upstreamed to an icon pack and the icon has been added to
+			// `skins.minerva.overflow.icons`.
 			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 		) {
 			// If ever enabled as the default, please review skins.minerva.mainMenu.icons
@@ -905,9 +906,9 @@ class SkinMinerva extends SkinTemplate {
 		) {
 			// SkinOptions::PERSONAL_MENU requires the `userTalk` icon.
 			// SkinOptions::TOOLBAR_SUBMENU requires the rest of the icons including `overflow`.
-			// Note wikimedia.ui is pulled down by skins.minerva.scripts but the menu can
+			// Note `skins.minerva.overflow.icons` is pulled down by skins.minerva.scripts but the menu can
 			// work without JS.
-			$styles[] = 'wikimedia.ui';
+			$styles[] = 'skins.minerva.overflow.icons';
 		}
 
 		return $styles;
