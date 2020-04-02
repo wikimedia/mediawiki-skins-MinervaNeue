@@ -77,23 +77,25 @@
 
 		li {
 			.changeslist-row();
+			.box-sizing( border-box );
+			position: relative;
 			min-height: inherit;
-			padding: 12px 0;
+			padding: 12px 0 10px 60px;
 		}
 
 		li:after {
 			.clearfix();
 		}
 
-		// diff radio buttons, admin revision-delete checkbox
+		.mw-history-histlinks {
+			display: block;
+		}
+
+		// Diff radio buttons, admin revision-delete checkbox.
 		input[ type='radio' ],
 		input[ type='checkbox' ] {
-			float: left;
-			position: relative;
-			display: inline-block;
-			// aligning checkboxes with text
+			// Align checkboxes with text.
 			top: 5px;
-			margin-right: 10px;
 			// FIXME: Overrides the border: 0 in reset.less
 			// When that reset rule doesn't exist, neither should this.
 			border: 1px solid @grayLight;
@@ -103,22 +105,65 @@
 		// When that reset rule doesn't exist, neither should this.
 		input[ type='radio' ] {
 			background: @grayMediumDark;
+			position: absolute;
+			top: 16px;
+		}
+
+		input[ name='oldid' ] {
+			left: 8px;
+		}
+
+		input[ name='diff' ] {
+			left: 32px;
 		}
 
 		// checkbox appears slightly smaller than radio buttons,
 		// moving down 6px to vertically center.
 		input[ type='checkbox' ] {
-			top: 6px;
+			position: absolute;
+			top: 46px;
+			left: 32px;
 		}
 	}
 	// stylelint-enable selector-max-id
 
+	.mw-diff-bytes,
+	.comment,
+	.mw-changeslist-date {
+		display: block;
+	}
+
 	// hide page instructions, article size, double dot separator, thank link
 	.mw-history-legend,
-	.history-size,
+	.history-size.mw-diff-bytes,
 	.mw-changeslist-separator,
 	.mw-thanks-thank-link,
 	abbr {
 		display: none;
+	}
+
+	// Disable the parentheseses around the undo and rollback link.
+	.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
+		& > span:after,
+		& > span:before {
+			content: '';
+		}
+	}
+
+	// Disable the core margins of tags.
+	.mw-tag-markers {
+		margin: 0;
+	}
+
+	.history-user {
+		// (hack) - the history page injects unstyleable whitespace. to keep user aligned with other elements
+		// it most be moved to the left.
+		margin-left: -5px;
+	}
+
+	.mw-history-undo {
+		// Push the tags down to bottom so undo and tags do not overlay.
+		display: block;
+		padding-bottom: 30px;
 	}
 }
