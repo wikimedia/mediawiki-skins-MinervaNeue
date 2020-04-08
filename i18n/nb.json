@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Danmichaelo",
+			"Event",
 			"Haakon K",
 			"Jeblad",
 			"Jon Harald Søby",
 			"Njardarlogar",
-			"Pmt",
-			"Event"
+			"Pmt"
 		]
 	},
 	"minerva-last-modified-date": "Sist redigert den $1, kl. $2",

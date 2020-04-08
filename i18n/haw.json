@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"mobile-frontend-home-button": "Home",
 	"mobile-frontend-random-button": "ʻOhi Kaulele"
 }
