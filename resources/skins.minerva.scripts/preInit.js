@@ -6,13 +6,7 @@
  * @singleton
  */
 module.exports = function () {
-	// eslint-disable-next-line no-restricted-properties
-	var M = mw.mobileFrontend,
-		mobile = M.require( 'mobile.startup' ),
-		menus = require( './menu.js' );
-
-	// loads lazy loading images
-	mobile.Skin.getSingleton();
+	var menus = require( './menu.js' );
 
 	// setup main menu
 	menus.init();
