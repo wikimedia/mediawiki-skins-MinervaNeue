@@ -158,8 +158,6 @@ module.exports = function () {
 			if ( time.isRecent( delta ) ) {
 				$bar = $lastModifiedLink.closest( '.last-modified-bar' );
 				$bar.addClass( 'active' );
-				// FIXME: Next line is for cached HTML but can be removed 2 weeks from commit date.
-				$bar.find( '.mw-ui-icon-minerva-clock' ).addClass( 'mw-ui-icon-minerva-clock-invert' );
 				$bar.find( '.mw-ui-icon-wikimedia-history-base20' ).addClass( 'mw-ui-icon-wikimedia-history-invert' );
 				$bar.find( '.mw-ui-icon-mf-expand-gray' ).addClass( 'mw-ui-icon-mf-expand-invert' );
 			}
