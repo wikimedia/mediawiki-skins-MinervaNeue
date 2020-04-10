@@ -235,7 +235,7 @@ class SkinMinerva extends SkinTemplate {
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
 				// we default to enabled even though this may not be true.
 				'class' => MinervaUI::iconClass(
-					'edit-enabled', 'element', 'edit-page mw-ui-icon-flush-right'
+					'edit-base20', 'element', 'edit-page mw-ui-icon-flush-right', 'wikimedia'
 				),
 			], $message );
 			$html .= Html::closeElement( 'span' );
