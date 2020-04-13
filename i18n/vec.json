@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
+			"Conky77",
 			"Fitoschido",
 			"GatoSelvadego",
 			"Saraiki"
 		]
 	},
 	"mobile-frontend-editor-edit": "Modìfega",
+	"mobile-frontend-history": "Varda el istorego de sta pàjina",
 	"mobile-frontend-home-button": "Inissio",
 	"mobile-frontend-language-article-heading": "Léngua",
 	"mobile-frontend-logged-in-homepage-notification": "Benvegnù, $1!",
