@@ -44,12 +44,10 @@
 			a {
 				color: @colorGray5;
 				display: block;
-				// Overflowing text is ellipsized.
 				max-width: 100%;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
 				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
+				// Overflow text is ellipsized in one line.
+				.text-overflow( @visible: false );
 
 				// T233166
 				&.secondary-action {

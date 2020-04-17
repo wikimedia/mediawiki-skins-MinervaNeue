@@ -51,8 +51,6 @@
 	// reset font-size so the "em" value is relative to the more
 	// predictable rem font size ...and no rems because we can't have nice things.
 	font-size: initial;
-	white-space: nowrap;
-	text-overflow: ellipsis;
 
 	// sizing
 	position: relative;
@@ -71,7 +69,9 @@
 	// alignment
 	vertical-align: middle;
 	line-height: 0;
-	overflow: hidden;
+
+	// Overflow ellipsis.
+	.text-overflow( @visible: false );
 
 	// resetting styles for <button> elements
 	-moz-appearance: none;
