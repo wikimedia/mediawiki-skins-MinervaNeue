@@ -108,8 +108,6 @@
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/skins/SkinMinerva.php",
 		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",
-		"MediaWiki\\Minerva\\Menu\\Group": "includes/Menu/Group.php",
-		"MediaWiki\\Minerva\\MenuBuilder": "includes/Menu/Group.php",
 		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
 	},
 	"ConfigRegistry": {

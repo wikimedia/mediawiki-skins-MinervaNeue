@@ -184,9 +184,3 @@ final class Group {
 		];
 	}
 }
-
-/**
- * make sure BlueSpiceMultiUpload and GrowthExperiments use the new class
- * @TODO remove after updating all extensions that still depend upon MenuBuilder
- */
-class_alias( 'MediaWiki\Minerva\Menu\Group', 'MediaWiki\Minerva\MenuBuilder' );
