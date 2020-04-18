@@ -100,8 +100,7 @@
 		"minerva": "MinervaNeue"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Minerva\\Menu\\": "includes/menu/",
-		"MediaWiki\\Minerva\\Permissions\\": "includes/permissions/"
+		"MediaWiki\\Minerva\\": "includes/"
 	},
 	"AutoloadClasses": {
 		"MinervaUI": "includes/MinervaUI.php",
@@ -109,11 +108,8 @@
 		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/skins/SkinMinerva.php",
 		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",
-		"MediaWiki\\Minerva\\Menu\\Group": "includes/menu/Group.php",
-		"MediaWiki\\Minerva\\MenuBuilder": "includes/menu/Group.php",
-		"MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule": "includes/ResourceLoaderLessVarFileModule.php",
-		"MediaWiki\\Minerva\\SkinOptions": "includes/SkinOptions.php",
-		"MediaWiki\\Minerva\\LanguagesHelper": "includes/LanguagesHelper.php",
+		"MediaWiki\\Minerva\\Menu\\Group": "includes/Menu/Group.php",
+		"MediaWiki\\Minerva\\MenuBuilder": "includes/Menu/Group.php",
 		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
 	},
 	"ConfigRegistry": {
