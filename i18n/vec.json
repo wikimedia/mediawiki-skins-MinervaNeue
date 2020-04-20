@@ -25,5 +25,6 @@
 	"mobile-frontend-meta-data-issues-header": "Anomałie",
 	"mobile-frontend-pageaction-edit-tooltip": "Modifica la prima sezion de sta pagina.",
 	"mobile-frontend-placeholder": "Serca drento de {{SITENAME}}",
-	"mobile-frontend-random-button": "A caso"
+	"mobile-frontend-random-button": "A caso",
+	"minerva-page-actions-info": "Informasion so sta pàjina"
 }
