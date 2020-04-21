@@ -439,14 +439,14 @@
 		"skins.minerva.personalMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
-			"defaultColor": "#4A4F53",
+			"defaultColor": "#54595d",
 			"icons": [ "markup" ],
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "ResourceLoaderImageModule",
 			"selector": ".mw-ui-icon-minerva-{name}:before",
-			"defaultColor": "#4A4F53",
+			"defaultColor": "#54595d",
 			"images": {
 				"page-actions-overflow": "resources/skins.minerva.mainMenu.advanced.icons/page-actions-overflow.svg",
 				"recentchanges": {
@@ -473,7 +473,7 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
-			"defaultColor": "#4A4F53",
+			"defaultColor": "#54595d",
 			"useDataURI": false,
 			"icons": [
 				"die",
