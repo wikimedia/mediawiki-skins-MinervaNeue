@@ -295,15 +295,6 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Initializes output page and sets up skin-specific parameters
-	 * @param OutputPage $out object to initialize
-	 */
-	public function initPage( OutputPage $out ) {
-		parent::initPage( $out );
-		$out->addJsConfigVars( $this->getSkinConfigVariables() );
-	}
-
-	/**
 	 * Prepares the user button.
 	 * @param QuickTemplate $tpl
 	 * @param string $newTalks New talk page messages for the current user
@@ -723,14 +714,13 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * Returns array of config variables that should be added only to this skin
-	 * for use in JavaScript.
+	 * @inheritDoc
 	 * @return array
 	 */
-	public function getSkinConfigVariables() {
+	protected function getJsConfigVars() : array {
 		$title = $this->getTitle();
 
-		$vars = [
+		return array_merge( parent::getJsConfigVars(), [
 			'wgMinervaPermissions' => [
 				'watch' => $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ),
 				'talk' => $this->getUserPageHelper()->isUserPage() ||
@@ -739,9 +729,7 @@ class SkinMinerva extends SkinTemplate {
 			],
 			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
-		];
-
-		return $vars;
+		] );
 	}
 
 	/**

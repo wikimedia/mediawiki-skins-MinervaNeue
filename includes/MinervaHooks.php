@@ -314,7 +314,7 @@ class MinervaHooks {
 	 * ResourceLoaderGetConfigVars hook handler.
 	 * Used for setting JS variables which are pulled in dynamically with RL
 	 * instead of embedded directly on the page with a script tag.
-	 * These vars have a shorter cache-life than those in `getSkinConfigVariables`.
+	 * These vars have a shorter cache-life than those in `getJsConfigVars`.
 	 *
 	 * @param array &$vars Array of variables to be added into the output of the RL startup module.
 	 * @param string $skin
