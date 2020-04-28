@@ -8,13 +8,10 @@
 	padding-bottom: 6px;
 }
 
-.last-modified-bar__content {
-	align-items: center;
-	.flex-display();
-}
-
 // styles that apply to nested footer components
-footer {
+// FIXME: Remove `footer` after cache has expired (~14d) after I6b9caa42c1907 has been deployed.
+footer,
+.mw-footer {
 	.indicator {
 		.client-nojs & {
 			// Certain browsers e.g. Opera Mini do not support css transforms
@@ -28,26 +25,6 @@ footer {
 		li:after {
 			color: @linkColor;
 		}
-	}
-
-	.last-modified-bar {
-		border-bottom: solid 1px @footerBorderColor;
-		background-color: @lastModifiedBarBgColor;
-		color: @lastModifiedBarTextColor;
-		padding-top: @icon-padding-md;
-		padding-bottom: @icon-padding-md;
-		font-size: @font-size-minerva-small;
-		.transition( background-color @transition-duration-medium, color @transition-duration-medium; );
-	}
-
-	.last-modified-bar__text {
-		@end-padding: @iconGutterWidth + @iconGutterWidth + @iconSize;
-		padding-right: @end-padding;
-		padding-left: @icon-padding-md;
-		line-height: @line-height-content;
-		vertical-align: middle;
-		flex-grow: 1;
-		.text-overflow( @visible: false );
 	}
 
 	> .post-content {
@@ -77,10 +54,33 @@ footer {
 	}
 }
 
+.last-modified-bar {
+	border-bottom: solid 1px @footerBorderColor;
+	background-color: @lastModifiedBarBgColor;
+	color: @lastModifiedBarTextColor;
+	padding-top: @icon-padding-md;
+	padding-bottom: @icon-padding-md;
+	font-size: @font-size-minerva-small;
+	.transition( background-color @transition-duration-medium, color @transition-duration-medium; );
+}
+
+.last-modified-bar__content {
+	align-items: center;
+	.flex-display();
+}
+
+.last-modified-bar__text {
+	@end-padding: @iconGutterWidth + @iconGutterWidth + @iconSize;
+	padding-right: @end-padding;
+	padding-left: @icon-padding-md;
+	line-height: @line-height-content;
+	vertical-align: middle;
+	flex-grow: 1;
+	.text-overflow( @visible: false );
+}
+
 @media ( max-width: @width-breakpoint-tablet ) {
-	footer {
-		.last-modified-bar__text {
-			padding-right: 1em;
-		}
+	.last-modified-bar__text {
+		padding-right: 1em;
 	}
 }
