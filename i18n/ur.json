@@ -3,6 +3,7 @@
 		"authors": [
 			"BukhariSaeed",
 			"Jdlrobson",
+			"KaleemBhatti",
 			"Muhammad Shuaib",
 			"Obaid Raza",
 			"عثمان خان شاہ",
@@ -50,6 +51,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|رکن}} از $1",
 	"mobile-frontend-user-page-talk": "تبادلۂ خیال",
 	"minerva-user-menu-button": "گوشہ صارف",
+	"minerva-page-actions-overflow": "مزید",
 	"minerva-page-actions-info": "معلومات صفحہ",
 	"minerva-page-actions-permalink": "مستقل ربط",
 	"minerva-page-actions-backlinks": "مربوط صفحات",
@@ -57,6 +59,7 @@
 	"minerva-page-actions-logs": "نوشتہ جات",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} آئٹم",
 	"minerva-page-actions-language-switcher": "زبانیں",
+	"minerva-page-actions-history": "تاریخچہ",
 	"minerva-talk-explained": "جاری گفتگو",
 	"minerva-talk-explained-empty": "اس صفحہ پر اب تک کوئی گفتگو نہیں ہوئی۔",
 	"minerva-talk-full-page": "ویکی صفحہ کی شکل میں دیکھیں",

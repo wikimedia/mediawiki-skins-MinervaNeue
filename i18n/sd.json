@@ -18,6 +18,7 @@
 	"mobile-frontend-language-article-heading": "ٻولي",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ڀليڪار}}، $1!",
 	"mobile-frontend-main-menu-button-tooltip": "مک مينيو کوليو",
+	"mobile-frontend-main-menu-contributions": "ڀاڱيداريون",
 	"mobile-frontend-main-menu-login": "داخل ٿيو",
 	"mobile-frontend-main-menu-nearby": "ويجھا",
 	"mobile-frontend-main-menu-settings": "ترتيبون",
@@ -31,6 +32,13 @@
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" جا واپرائيندڙ صفحي تي واپس وڃن.",
 	"mobile-frontend-user-page-contributions": "ڀاڱيداريون",
 	"mobile-frontend-user-page-talk": "بحث",
+	"minerva-page-actions-overflow": "وڌيڪ",
+	"minerva-page-actions-info": "صفحي جي معلومات",
+	"minerva-page-actions-permalink": "مسقتل ڳنڍڻو",
+	"minerva-page-actions-backlinks": "هتان ڳنڍيل صفحا",
+	"minerva-page-actions-logs": "لاگس",
+	"minerva-page-actions-language-switcher": "ٻوليون",
+	"minerva-page-actions-history": "تاريخ",
 	"skin-minerva-issue-learn-more": "وڌيڪ سکو",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "صفحي جا زمرا ڏسو"
 }
