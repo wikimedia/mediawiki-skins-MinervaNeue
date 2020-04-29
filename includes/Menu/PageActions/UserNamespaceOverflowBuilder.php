@@ -122,7 +122,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 	 * Build single Menu entry
 	 *
 	 * @param string $name
-	 * @param string $icon Wikimedia UI icon name.
+	 * @param string $icon WikimediaUI icon name.
 	 * @param string|null $href
 	 * @return IMenuEntry|null
 	 */

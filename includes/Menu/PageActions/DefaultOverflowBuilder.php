@@ -66,7 +66,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	 * Build the single menu entry
 	 *
 	 * @param string $name
-	 * @param string $icon Wikimedia UI icon name.
+	 * @param string $icon WikimediaUI icon name.
 	 * @param string $toolboxIdx
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @return IMenuEntry|null
