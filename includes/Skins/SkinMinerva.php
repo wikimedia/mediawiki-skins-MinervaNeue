@@ -878,11 +878,7 @@ class SkinMinerva extends SkinTemplate {
 		}
 
 		if (
-			$this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED ) ||
-			// This condition can be dropped when the icon `page-actions-overflow`
-			// has been upstreamed to an icon pack and the icon has been added to
-			// `skins.minerva.overflow.icons`.
-			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+			$this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED )
 		) {
 			// If ever enabled as the default, please review skins.minerva.mainMenu.icons
 			// and remove any unneeded icons

@@ -316,6 +316,7 @@
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
+				"ellipsis",
 				"articleRedirect",
 				"infoFilled",
 				"link",
@@ -443,30 +444,15 @@
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
-			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#54595d",
-			"images": {
-				"page-actions-overflow": "resources/skins.minerva.mainMenu.advanced.icons/page-actions-overflow.svg",
-				"recentchanges": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/recentChanges-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/recentChanges-rtl.svg"
-					}
-				},
-				"specialpages": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/specialpages-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/specialpages-rtl.svg"
-					}
-				},
-				"communityportal": {
-					"file": {
-						"ltr": "resources/skins.minerva.mainMenu.advanced.icons/communityportal-ltr.svg",
-						"rtl": "resources/skins.minerva.mainMenu.advanced.icons/communityportal-rtl.svg"
-					}
-				}
-			}
+			"icons": [
+				"recentChanges",
+				"specialPages",
+				"speechBubbles"
+			],
+			"variants": []
 		},
 		"skins.minerva.mainMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",

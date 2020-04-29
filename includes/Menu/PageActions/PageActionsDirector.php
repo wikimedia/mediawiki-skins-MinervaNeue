@@ -82,7 +82,7 @@ final class PageActionsDirector {
 				'toggleID' => 'page-actions-overflow-toggle',
 				'listID' => $overflowMenu->getId(),
 				'toggleClass' => MinervaUI::iconClass(
-					'page-actions-overflow',
+					'ellipsis',
 					'element',
 					'mw-ui-icon-with-label-desktop' ),
 				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',

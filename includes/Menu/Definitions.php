@@ -288,7 +288,7 @@ final class Definitions {
 			->addComponent(
 				$this->context->msg( 'recentchanges' )->escaped(),
 				$title->getLocalURL(),
-				MinervaUI::iconClass( 'recentchanges', 'before' ),
+				MinervaUI::iconClass( 'recentChanges', 'before' ),
 				[ 'data-event-name' => 'menu.recentchanges' ]
 			);
 	}
@@ -301,7 +301,7 @@ final class Definitions {
 	public function insertSpecialPages( Group $group ) {
 		$group->insertEntry(
 			SingleMenuEntry::create(
-				'specialpages',
+				'specialPages',
 				$this->context->msg( 'specialpages' )->text(),
 				SpecialPage::getTitleFor( 'Specialpages' )->getLocalURL()
 			)
@@ -329,7 +329,7 @@ final class Definitions {
 		}
 
 		$group->insertEntry( SingleMenuEntry::create(
-			'communityportal',
+			'speechBubbles',
 			$title->getText(),
 			$title->getLocalURL()
 		) );
