@@ -49,6 +49,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Csatlakozott}} ekkor: $1",
 	"mobile-frontend-user-page-talk": "Vitalap",
 	"minerva-user-menu-button": "Felhasználói menü",
+	"minerva-user-navigation": "Felhasználói navigáció",
 	"minerva-page-actions-overflow": "Több",
 	"minerva-page-actions-info": "Lapinformációk",
 	"minerva-page-actions-permalink": "Hivatkozás erre a változatra",
