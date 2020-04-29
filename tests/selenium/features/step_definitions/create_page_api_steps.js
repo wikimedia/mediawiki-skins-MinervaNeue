@@ -82,23 +82,21 @@ const watch = ( title ) => {
 	page.openTitle( title, { action: 'watch' } );
 	browser.element( '#mw-content-text button[type="submit"]' ).click();
 	waitForPropagation( 10000 );
+	page.openTitle( title );
 };
 
 const iAmViewingAWatchedPage = () => {
 	const title = `I am on the "Selenium mobile watched page test ${new Date().getTime()}`;
-
 	browser.call( () => {
-		createPage( title, 'watch test' );
+		return createPage( title, 'watch test' );
 	} );
-	browser.call( () => {
-		watch( title );
-		// navigate away from page
-		iAmOnPage( 'Main Page' );
-		waitForPropagation( 5000 );
-		// and back to page
-		iAmOnPage( title );
-		waitForPropagation( 5000 );
-	} );
+	watch( title );
+	// navigate away from page
+	iAmOnPage( 'Main Page' );
+	waitForPropagation( 5000 );
+	// and back to page
+	iAmOnPage( title );
+	waitForPropagation( 5000 );
 };
 
 const iAmViewingAnUnwatchedPage = () => {

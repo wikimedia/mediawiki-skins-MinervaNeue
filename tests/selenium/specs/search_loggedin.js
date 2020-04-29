@@ -13,8 +13,7 @@ const {
 	} = require( '../features/step_definitions/search_steps' );
 
 // @test2.m.wikipedia.org @vagrant @login
-describe.skip( 'Search', () => {
-
+describe( 'Search', () => {
 	it( 'Clicking on a watchstar toggles the watchstar', () => {
 		iAmUsingTheMobileSite();
 		pageExists( 'Selenium search test' );
@@ -24,6 +23,8 @@ describe.skip( 'Search', () => {
 		iClickTheSearchIcon();
 		iSeeTheSearchOverlay();
 		iTypeIntoTheSearchBox( 'Selenium search tes' );
+		// This pause statement is a temporary bandaid until we figure a bettery dynamic sync
+		browser.pause( 1000 );
 		iClickASearchWatchstar();
 		iShouldSeeAToastNotification();
 	} );
