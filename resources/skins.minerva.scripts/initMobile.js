@@ -161,9 +161,13 @@ module.exports = function () {
 				$bar.find( '.mw-ui-icon-wikimedia-history-base20' ).addClass( 'mw-ui-icon-wikimedia-history-invert' );
 				$bar.find( '.mw-ui-icon-mf-expand-gray' ).addClass( 'mw-ui-icon-mf-expand-invert' );
 			}
-			$msg = $( '<span>' ).addClass( 'last-modified-bar__text' ).html(
-				time.getLastModifiedMessage( ts, username, gender, historyUrl )
-			);
+
+			$msg = $( '<span>' )
+				// The new element should maintain the non-js element's CSS classes.
+				.attr( 'class', $lastModifiedLink.attr( 'class' ) )
+				.html(
+					time.getLastModifiedMessage( ts, username, gender, historyUrl )
+				);
 			$lastModifiedLink.replaceWith( $msg );
 		}
 	}
@@ -369,12 +373,10 @@ module.exports = function () {
 		// - mobile redirect
 		mobileRedirect( mobile.amcOutreach, currentPage );
 
-		// Enhance timestamps to show relative time.
-		// Update anything else that needs enhancing (e.g. watchlist)
+		// Enhance timestamps on last-modified bar and watchlist
+		// to show relative time.
 		initModifiedInfo();
 		initRegistrationInfo();
-		// eslint-disable-next-line no-jquery/no-global-selector
-		initHistoryLink( $( 'a.last-modified-bar__text' ) );
 		// eslint-disable-next-line no-jquery/no-global-selector
 		initAmcHistoryLink( $( '.last-modified-bar__text a' ) );
 
