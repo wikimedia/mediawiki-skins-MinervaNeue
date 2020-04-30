@@ -111,14 +111,14 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param string|null $iconName Icon name
 	 * @param string $iconType Icon type
 	 * @param string $additionalClassNames Additional classes
-	 * @param string $glyphPrefix either `wikimedia` or `minerva`
+	 * @param string $iconPrefix either `wikimedia` or `minerva`
 	 * @return $this
 	 */
 	public function setIcon( $iconName, $iconType = 'before',
-		$additionalClassNames = '', $glyphPrefix = 'minerva'
+		$additionalClassNames = '', $iconPrefix = 'minerva'
 	) {
 		$this->attributes['class'] .= ' '
-			. MinervaUI::iconClass( $iconName, $iconType, $additionalClassNames, $glyphPrefix );
+			. MinervaUI::iconClass( $iconName, $iconType, $additionalClassNames, $iconPrefix );
 		return $this;
 	}
 
