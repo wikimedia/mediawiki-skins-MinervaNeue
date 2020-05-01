@@ -29,7 +29,7 @@ use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\User\UserIdentity;
 use MessageLocalizer;
 use MinervaUI;

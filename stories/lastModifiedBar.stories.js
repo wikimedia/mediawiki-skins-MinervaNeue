@@ -1,5 +1,5 @@
 import mustache from 'mustache';
-import template from '!!raw-loader!../includes/skins/history.mustache';
+import template from '!!raw-loader!../includes/Skins/history.mustache';
 
 import { withAnnotation } from './utils';
 

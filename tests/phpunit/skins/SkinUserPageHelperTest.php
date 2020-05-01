@@ -2,13 +2,13 @@
 
 namespace Tests\MediaWiki\Minerva;
 
-use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWikiTestCase;
 use Title;
 
 /**
  * @group MinervaNeue
- * @coversDefaultClass \MediaWiki\Minerva\SkinUserPageHelper
+ * @coversDefaultClass \MediaWiki\Minerva\Skins\SkinUserPageHelper
  */
 class SkinUserPageHelperTest extends MediaWikiTestCase {
 

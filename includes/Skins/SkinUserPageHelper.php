@@ -18,7 +18,7 @@
  * @file
  */
 
-namespace MediaWiki\Minerva;
+namespace MediaWiki\Minerva\Skins;
 
 use Title;
 use User;

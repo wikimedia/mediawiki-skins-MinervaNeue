@@ -32,7 +32,7 @@ use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 
 return [
 	'Minerva.Menu.Definitions' => function ( MediaWikiServices $services ): Definitions {

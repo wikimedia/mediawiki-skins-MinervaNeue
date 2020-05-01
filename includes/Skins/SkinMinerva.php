@@ -23,7 +23,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!

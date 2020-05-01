@@ -105,10 +105,9 @@
 	"AutoloadClasses": {
 		"MinervaUI": "includes/MinervaUI.php",
 		"MinervaHooks": "includes/MinervaHooks.php",
-		"MinervaTemplate": "includes/skins/MinervaTemplate.php",
-		"SkinMinerva": "includes/skins/SkinMinerva.php",
-		"SkinMinervaNeue": "includes/skins/SkinMinerva.php",
-		"MediaWiki\\Minerva\\SkinUserPageHelper": "includes/skins/SkinUserPageHelper.php"
+		"MinervaTemplate": "includes/Skins/MinervaTemplate.php",
+		"SkinMinerva": "includes/Skins/SkinMinerva.php",
+		"SkinMinervaNeue": "includes/Skins/SkinMinerva.php"
 	},
 	"ConfigRegistry": {
 		"minerva": "GlobalVarConfig::newInstance"

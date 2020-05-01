@@ -20,7 +20,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Minerva\SkinUserPageHelper;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 
 /**
  * Hook handlers for Minerva skin.
