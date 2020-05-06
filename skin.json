@@ -4,13 +4,19 @@
 	"descriptionmsg": "minerva-skin-desc",
 	"author": [
 		"[https://www.mediawiki.org/wiki/Reading/Web/Team Readers Web Team]",
+		"Alex Hollender",
 		"Bahodir Mansurov",
+		"Florian Schmidt",
+		"Jan Drewniak",
 		"Joaquin Hernandez",
 		"Jon Robson",
 		"Juliusz Gonera",
+		"Piotr Miazga",
 		"Ryan Kaldari",
-		"Florian Schmidt",
-		"Sam Smith"
+		"Nick Ray",
+		"Sam Smith",
+		"Stephen Niedzielski",
+		"Volker E."
 	],
 	"type": "skin",
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
