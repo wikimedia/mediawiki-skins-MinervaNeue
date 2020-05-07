@@ -87,7 +87,7 @@
 		}
 
 		.mw-history-histlinks {
-			display: block;
+			float: right;
 		}
 
 		// Diff radio buttons, admin revision-delete checkbox.
@@ -151,6 +151,7 @@
 	// Disable the core margins of tags.
 	.mw-tag-markers {
 		margin: 0;
+		clear: both;
 	}
 
 	.history-user {
@@ -160,8 +161,8 @@
 	}
 
 	.mw-history-undo {
+		float: right;
 		// Push the tags down to bottom so undo and tags do not overlay.
-		display: block;
-		padding-bottom: 30px;
+		padding-bottom: 10px;
 	}
 }
