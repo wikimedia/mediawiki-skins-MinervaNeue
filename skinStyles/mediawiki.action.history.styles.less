@@ -126,9 +126,15 @@
 	}
 
 	.mw-diff-bytes,
-	.comment,
 	.mw-changeslist-date {
 		display: block;
+	}
+
+	// removes space between the .mw-diff-bytes and comments.
+	.comment {
+		float: left;
+		width: 100%;
+		margin-bottom: 6px;
 	}
 
 	// hide page instructions, article size, double dot separator, thank link
@@ -148,10 +154,11 @@
 		}
 	}
 
-	// Disable the core margins of tags.
 	.mw-tag-markers {
+		// Disable the core margins of tags.
 		margin: 0;
-		clear: both;
+		// places the tags on the same line as the float-right undo button.
+		display: inline;
 	}
 
 	.history-user {
