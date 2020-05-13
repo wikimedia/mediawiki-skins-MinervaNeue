@@ -26,5 +26,12 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Modifica la prima sezion de sta pagina.",
 	"mobile-frontend-placeholder": "Serca drento de {{SITENAME}}",
 	"mobile-frontend-random-button": "A caso",
-	"minerva-page-actions-info": "Informasion so sta pàjina"
+	"mobile-frontend-user-page-contributions": "Contribusion",
+	"mobile-frontend-user-page-talk": "Discusion",
+	"minerva-page-actions-info": "Informasion so sta pàjina",
+	"minerva-page-actions-backlinks": "Łe ponta cuà",
+	"minerva-page-actions-cite": "Çita sta pàjina",
+	"minerva-page-actions-user-groups": "Grupi utente",
+	"minerva-page-actions-logs": "Rejistri",
+	"minerva-talk-full-page": "Lexi cofà ła fuse na pàjina desktop"
 }
