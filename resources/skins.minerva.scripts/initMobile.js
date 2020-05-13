@@ -90,7 +90,7 @@ module.exports = function () {
 				if ( $primaryBtn.attr( 'href' ) || $primaryBtn.find( 'a' ).length ) {
 					router.navigate( '/languages' );
 				} else {
-					toast.show( mw.msg( 'mobile-frontend-languages-not-available' ) );
+					mw.notify( mw.msg( 'mobile-frontend-languages-not-available' ) );
 				}
 			} );
 		}
@@ -253,7 +253,7 @@ module.exports = function () {
 	function initSmartLogout( selector ) {
 		// Turn logout to a POST action
 		$( selector ).on( 'click', function ( e ) {
-			toast.show(
+			mw.notify(
 				mw.message( 'logging-out-notify' ).text(), {
 					tag: 'logout',
 					autoHide: false
