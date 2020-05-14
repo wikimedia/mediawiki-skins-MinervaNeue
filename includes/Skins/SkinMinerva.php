@@ -504,6 +504,9 @@ class SkinMinerva extends SkinTemplate {
 
 		return $this->isTalkPageWithViewAction() &&
 			$this->skinOptions->get( SkinOptions::SIMPLIFIED_TALK ) &&
+			// Only if viewing the latest revision, as we can't get the section numbers otherwise
+			// (and even if we could, they would be useless, because edits often add and remove sections).
+			$this->getRevisionId() === $title->getLatestRevID() &&
 			$title->getContentModel() === CONTENT_MODEL_WIKITEXT;
 	}
 

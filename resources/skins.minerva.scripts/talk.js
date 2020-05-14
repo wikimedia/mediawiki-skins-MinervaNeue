@@ -90,7 +90,7 @@ module.exports = function ( mobile ) {
 				sectionId,
 				$heading = $( this ),
 				$headline = $heading.find( '.mw-headline' ),
-				sectionIdMatch = $heading.next().attr( 'class' ).match( /mf-section-(\d+)/ ),
+				$editLink = $heading.find( '.mw-editsection a' ),
 				headlineId = $headline.attr( 'id' ),
 				// T238364: Before registering a route with OverlayManager, we need to
 				// encode the id first to ensure it forms a valid URI in case the id
@@ -99,11 +99,11 @@ module.exports = function ( mobile ) {
 				// characters.
 				encodedHeadlineId = encodeURIComponent( headlineId );
 
-			if ( sectionIdMatch === null || sectionIdMatch.length !== 2 ) {
+			if ( !$editLink.length ) {
 				// If section id couldn't be parsed, there is no point in continuing
 				return;
 			}
-			sectionId = sectionIdMatch[ 1 ];
+			sectionId = mw.util.getParamValue( 'section', $editLink[ 0 ].href );
 
 			$heading.on( 'click.talkSectionOverlay', function ( ev ) {
 				ev.preventDefault();
