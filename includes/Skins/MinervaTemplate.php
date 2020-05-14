@@ -88,12 +88,14 @@ class MinervaTemplate extends BaseTemplate {
 		}
 
 		// This turns off the footer id and allows us to distinguish the old footer with the new design
+
 		return [
 			'lastmodified' => $this->getHistoryLinkHtml( $data ),
 			'headinghtml' => $data['footer-site-heading-html'],
 			// Note mobile-license is only available on the mobile skin. It is outputted as part of
 			// footer-info on desktop hence the conditional check.
-			'licensehtml' => $data['mobile-license'] ?? '',
+			'licensehtml' => ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ?
+				MobileFrontendSkinHooks::getLicenseText( $this->getSkin() ) : '',
 			'lists' => $groups,
 		];
 	}
