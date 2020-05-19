@@ -16,7 +16,7 @@ use Wikimedia\TestingAccessWrapper;
  * @group MinervaNeue
  */
 class SkinMinervaTest extends MediaWikiTestCase {
-	const OPTIONS_MODULE = 'skins.minerva.options';
+	private const OPTIONS_MODULE = 'skins.minerva.options';
 
 	private function overrideSkinOptions( $options ) {
 		$mockOptions = new SkinOptions();

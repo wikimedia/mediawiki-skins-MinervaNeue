@@ -24,14 +24,14 @@ namespace MediaWiki\Minerva\Permissions;
  */
 interface IMinervaPagePermissions {
 
-	const WATCH = 'watch';
-	const SWITCH_LANGUAGE = 'switch-language';
+	public const WATCH = 'watch';
+	public const SWITCH_LANGUAGE = 'switch-language';
 	/** Given user permission, the page content is editable. */
-	const CONTENT_EDIT = 'edit';
+	public const CONTENT_EDIT = 'edit';
 	/** The existing page is editable or nonexisting page is creatable by the active user. */
-	const EDIT_OR_CREATE = 'edit-or-create';
-	const TALK = 'talk';
-	const HISTORY = 'history';
+	public const EDIT_OR_CREATE = 'edit-or-create';
+	public const TALK = 'talk';
+	public const HISTORY = 'history';
 
 	/**
 	 * Gets whether or not the action is allowed.

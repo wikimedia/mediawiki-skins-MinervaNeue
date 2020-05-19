@@ -29,7 +29,7 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
  *	on<HookName>()
  */
 class MinervaHooks {
-	const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
+	private const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.

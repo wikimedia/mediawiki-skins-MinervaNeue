@@ -23,7 +23,7 @@ interface IProfileMenuEntry extends IMenuEntry {
 	 *
 	 * This tracking code will be prefixed with `menu.`
 	 */
-	const DEFAULT_PROFILE_TRACKING_CODE = 'profile';
+	public const DEFAULT_PROFILE_TRACKING_CODE = 'profile';
 
 	/**
 	 * Override the href for the profile component for logged in users

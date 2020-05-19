@@ -24,17 +24,17 @@ namespace MediaWiki\Minerva;
  */
 final class SkinOptions {
 
-	const MOBILE_OPTIONS = 'mobileOptionsLink';
-	const CATEGORIES = 'categories';
-	const PAGE_ISSUES = 'pageIssues';
-	const BETA_MODE = 'beta';
-	const TALK_AT_TOP = 'talkAtTop';
-	const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
-	const TOOLBAR_SUBMENU = 'overflowSubmenu';
-	const TABS_ON_SPECIALS = 'tabsOnSpecials';
-	const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
-	const PERSONAL_MENU = 'personalMenu';
-	const SIMPLIFIED_TALK = 'simplifiedTalk';
+	public const MOBILE_OPTIONS = 'mobileOptionsLink';
+	public const CATEGORIES = 'categories';
+	public const PAGE_ISSUES = 'pageIssues';
+	public const BETA_MODE = 'beta';
+	public const TALK_AT_TOP = 'talkAtTop';
+	public const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
+	public const TOOLBAR_SUBMENU = 'overflowSubmenu';
+	public const TABS_ON_SPECIALS = 'tabsOnSpecials';
+	public const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
+	public const PERSONAL_MENU = 'personalMenu';
+	public const SIMPLIFIED_TALK = 'simplifiedTalk';
 
 	/** @var array skin specific options, initialized with default values */
 	// Note stable skin options default to true for desktop-Minerva and are expected to be

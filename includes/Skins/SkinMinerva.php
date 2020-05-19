@@ -34,7 +34,7 @@ class SkinMinerva extends SkinTemplate {
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	 * in editing mode
 	 */
-	const LEAD_SECTION_NUMBER = 0;
+	public const LEAD_SECTION_NUMBER = 0;
 
 	/** @var string $skinname Name of this skin */
 	public $skinname = 'minerva';
