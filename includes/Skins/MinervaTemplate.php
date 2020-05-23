@@ -257,7 +257,7 @@ class MinervaTemplate extends BaseTemplate {
 				'class' => MinervaUI::iconClass(
 					'search-base20', 'element', 'skin-minerva-search-trigger', 'wikimedia'
 				)
-			], wfMessage( 'searchbutton' ) ),
+			], wfMessage( 'searchbutton' )->escaped() ),
 			'userNotificationsHTML' => $data['userNotificationsHTML'] ?? '',
 			'data-main-menu' => $this->getMainMenuData( $data ),
 			'hasheadingholder' => $hasHeadingHolder,

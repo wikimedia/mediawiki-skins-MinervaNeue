@@ -163,7 +163,7 @@ class ToolbarBuilder {
 
 		$entry = new SingleMenuEntry(
 			'page-actions-contributions',
-			$label,
+			$label->escaped(),
 			SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getLocalURL() );
 		$entry->setTitle( $label )
 			->trackClicks( 'contributions' )
@@ -199,7 +199,7 @@ class ToolbarBuilder {
 
 		$entry = new SingleMenuEntry(
 			'page-actions-edit',
-			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' ),
+			$this->messageLocalizer->msg( 'mobile-frontend-editor-edit' )->escaped(),
 			$title->getLocalURL( $editArgs ),
 			'edit-page'
 		);

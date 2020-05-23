@@ -175,7 +175,7 @@ class MinervaHooks {
 					$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
 					if ( $enhanced ) {
 						$out->addHTML( Html::warningBox(
-							$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )
+							$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )->parse()
 						) );
 					}
 					break;
