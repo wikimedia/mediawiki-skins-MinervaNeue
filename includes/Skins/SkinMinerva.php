@@ -309,7 +309,7 @@ class SkinMinerva extends SkinTemplate {
 		if ( $user->isLoggedIn() ) {
 			$badge = Html::element( 'a', [
 				'class' => $notificationIconClass,
-				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalUrl(
+				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
 					[ 'returnto' => $currentTitle->getPrefixedText() ]
 				),
 			], $notificationsMsg );
