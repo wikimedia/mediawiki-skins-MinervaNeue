@@ -256,7 +256,7 @@
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.base.styles/index.less"
+				"resources/skins.minerva.base.styles/skin.less"
 			]
 		},
 		"skins.minerva.content.styles": {

@@ -23,7 +23,7 @@ curl "https://phabricator.wikimedia.org/source/mediawiki/browse/master/resources
 echo "@wgMinervaApplyKnownTemplateHacks: 1;"  >> .resolve-less-imports/mediawiki.ui/variables.less
 
 # Build the render blocking bundles for testing
-npx lessc resources/skins.minerva.base.styles/index.less tmp/skins.minerva.base.styles.css  --include-path=".resolve-less-imports"
+npx lessc resources/skins.minerva.base.styles/skin.less tmp/skins.minerva.base.styles.css  --include-path=".resolve-less-imports"
 npx lessc resources/skins.minerva.content.styles/index.less tmp/skins.minerva.content.styles.css --include-path=".resolve-less-imports"
 npx lessc resources/skins.minerva.amc.styles/index.less tmp/skins.minerva.amc.styles.css  --include-path=".resolve-less-imports"
 npx lessc resources/skins.minerva.mainMenu.styles/index.less tmp/skins.minerva.mainMenu.styles.css   --include-path=".resolve-less-imports"

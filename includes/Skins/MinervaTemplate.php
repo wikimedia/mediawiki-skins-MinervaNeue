@@ -279,7 +279,7 @@ class MinervaTemplate extends BaseTemplate {
 			] : false,
 		];
 		// begin rendering
-		echo $templateParser->processTemplate( 'minerva', $templateData );
+		echo $templateParser->processTemplate( 'skin', $templateData );
 		$this->printTrail();
 		?>
 		</body>

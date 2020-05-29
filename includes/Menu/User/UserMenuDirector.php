@@ -61,7 +61,7 @@ final class UserMenuDirector {
 			: $templateParser->processTemplate( 'ToggleList', [
 				'class' => 'minerva-user-menu',
 				'checkboxID' => 'minerva-user-menu-checkbox',
-				'toggleID' => 'minerva-user-menu-toggle', // See minerva.mustache too.
+				'toggleID' => 'minerva-user-menu-toggle', // See skin.mustache too.
 				'toggleClass' => MinervaUI::iconClass(
 					'userAvatarOutline', 'element'
 				),
