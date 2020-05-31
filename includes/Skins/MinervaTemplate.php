@@ -183,6 +183,7 @@ class MinervaTemplate extends BaseTemplate {
 				} else {
 					$el['attributes']['class'] = $baseClass;
 				}
+				// @phan-suppress-next-line PhanTypeMismatchArgument
 				$html .= Html::element( 'a', $el['attributes'], $el['label'] );
 			}
 		}
