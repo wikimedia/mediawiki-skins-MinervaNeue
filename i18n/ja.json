@@ -10,6 +10,7 @@
 			"Otokoume",
 			"S2KTS",
 			"Shirayuki",
+			"Siglite3",
 			"Sujiniku",
 			"Whym",
 			"Yusuke1109",
@@ -77,5 +78,5 @@
 	"skin-minerva-issue-learn-more": "詳細",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、結果をページごとにまとめて表示することはモバイルでは利用できません。 ページごとにまとめて表示する機能を使用する場合は、デスクトップサイトにアクセスしてください。"
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、モバイルビューでは複数の変更をページごとにまとめて表示することはできません。ページごとにまとめて表示する機能を利用したい場合はデスクトップサイトにアクセスしてください。"
 }

@@ -59,6 +59,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Liittyi}} $1",
 	"mobile-frontend-user-page-talk": "Keskustelu",
 	"minerva-user-menu-button": "Käyttäjävalikko",
+	"minerva-user-navigation": "Käyttäjänavigaatio",
 	"minerva-page-actions-overflow": "Lisää",
 	"minerva-page-actions-info": "Sivun tiedot",
 	"minerva-page-actions-permalink": "Ikilinkki",
@@ -72,6 +73,8 @@
 	"minerva-talk-explained": "Aktiiviset keskustelut",
 	"minerva-talk-explained-empty": "Tällä sivulla ei ole keskusteluja.",
 	"minerva-talk-full-page": "Lue wikisivuna",
+	"minerva-talk-topic-feedback": "Uusi aihe lisätty keskustelusivulle!",
+	"minerva-talk-reply-success": "Vastauksesi tallennettiin keskustelusivulle.",
 	"skin-minerva-issue-learn-more": "Lisätietoja",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näytä sivun luokat"
