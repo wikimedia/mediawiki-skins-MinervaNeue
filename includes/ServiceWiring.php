@@ -71,54 +71,54 @@ return [
 	},
 	'Minerva.Menu.PageActionsDirector' =>
 		function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
-		/**
-		 * @var SkinOptions $skinOptions
-		 * @var SkinMinerva $skin
-		 * @var SkinUserPageHelper $userPageHelper
-		 */
-		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
-		$context = RequestContext::getMain();
-		$title = $context->getTitle();
-		$user = $context->getUser();
-		$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
-		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
+			/**
+			 * @var SkinOptions $skinOptions
+			 * @var SkinMinerva $skin
+			 * @var SkinUserPageHelper $userPageHelper
+			 */
+			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
+			$context = RequestContext::getMain();
+			$title = $context->getTitle();
+			$user = $context->getUser();
+			$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
+			$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 
-		$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
-			new SkinUserPageHelper(
-				$context->getSkin()->getRelevantTitle()->getSubjectPage()
-			) :
-			$userPageHelper;
+			$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
+				new SkinUserPageHelper(
+					$context->getSkin()->getRelevantTitle()->getSubjectPage()
+				) :
+				$userPageHelper;
 
-		$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
-			$title,
-			$user,
-			$context,
-			$services->getService( 'Minerva.Permissions' ),
-			$skinOptions,
-			$relevantUserPageHelper,
-			$languagesHelper
-		);
-		if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
-			 $overflowBuilder = $relevantUserPageHelper->isUserPage() ?
-				 new PageActionsMenu\UserNamespaceOverflowBuilder(
-					 $title,
-					 $context,
-					 $services->getService( 'Minerva.Permissions' ),
-					 $languagesHelper
-				 ) :
-				 new PageActionsMenu\DefaultOverflowBuilder(
-					 $context
-				 );
-		} else {
-			$overflowBuilder = new PageActionsMenu\EmptyOverflowBuilder();
-		}
+			$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
+				$title,
+				$user,
+				$context,
+				$services->getService( 'Minerva.Permissions' ),
+				$skinOptions,
+				$relevantUserPageHelper,
+				$languagesHelper
+			);
+			if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
+				 $overflowBuilder = $relevantUserPageHelper->isUserPage() ?
+					 new PageActionsMenu\UserNamespaceOverflowBuilder(
+						 $title,
+						 $context,
+						 $services->getService( 'Minerva.Permissions' ),
+						 $languagesHelper
+					 ) :
+					 new PageActionsMenu\DefaultOverflowBuilder(
+						 $context
+					 );
+			} else {
+				$overflowBuilder = new PageActionsMenu\EmptyOverflowBuilder();
+			}
 
-		return new PageActionsMenu\PageActionsDirector(
-			$toolbarBuilder,
-			$overflowBuilder,
-			$context
-		);
-	 },
+			return new PageActionsMenu\PageActionsDirector(
+				$toolbarBuilder,
+				$overflowBuilder,
+				$context
+			);
+		},
 	'Minerva.SkinUserPageHelper' => function (): SkinUserPageHelper {
 		return new SkinUserPageHelper(
 			RequestContext::getMain()->getSkin()->getRelevantTitle()
