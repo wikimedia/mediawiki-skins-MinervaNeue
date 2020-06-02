@@ -1,3 +1,5 @@
+'use strict';
+
 const assert = require( 'assert' );
 const { ArticlePageWithEditorOverlay, ArticlePage } = require( '../support/world.js' );
 

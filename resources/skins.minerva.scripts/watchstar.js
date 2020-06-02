@@ -3,6 +3,7 @@ var WATCHED_CLASS = 'mw-ui-icon-wikimedia-unStar-progressive',
 
 /**
  * Tweaks the global watchstar handler in core to use the correct classes for Minerva.
+ *
  * @param {jQuery.Object} $icon
  */
 module.exports = function init( $icon ) {

@@ -1,3 +1,5 @@
+'use strict';
+
 const { iAmUsingTheMobileSite } = require( '../features/step_definitions/common_steps' ),
 	{ iVisitMyUserPage, iShouldBeOnMyUserPage,
 		thereShouldBeALinkToMyContributions, thereShouldBeALinkToMyTalkPage

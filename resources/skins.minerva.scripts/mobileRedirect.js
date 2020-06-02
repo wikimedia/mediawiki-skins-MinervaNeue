@@ -6,6 +6,7 @@ var drawers = require( './drawers.js' );
 module.exports = function ( amcOutreach, currentPage ) {
 	/**
 	 * Checks whether cookies are enabled
+	 *
 	 * @method
 	 * @ignore
 	 * @return {boolean} Whether cookies are enabled
@@ -28,6 +29,7 @@ module.exports = function ( amcOutreach, currentPage ) {
 	 * If cookies are enabled it will redirect you to desktop site as described in
 	 * the link href associated with the handler.
 	 * If cookies are not enabled, show a toast and die.
+	 *
 	 * @method
 	 * @ignore
 	 * @return {boolean|undefined}
@@ -46,7 +48,7 @@ module.exports = function ( amcOutreach, currentPage ) {
 	/**
 	 * @method
 	 * @ignore
-	 * @param {JQuery.Event} ev
+	 * @param {jQuery.Event} ev
 	 * @return {boolean|undefined}
 	 */
 	function amcDesktopClickHandler( ev ) {

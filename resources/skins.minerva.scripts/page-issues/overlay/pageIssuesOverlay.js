@@ -37,6 +37,7 @@
 
 	/**
 	 * Obtain a suitable heading for the issues overlay based on the namespace
+	 *
 	 * @param {number} namespaceID is the namespace to generate heading for
 	 * @return {string} heading for overlay
 	 */

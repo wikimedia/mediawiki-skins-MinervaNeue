@@ -3,6 +3,7 @@ var $drawerContainer = $( document.body ),
 
 /**
  * Discard a drawer from display on the page.
+ *
  * @ignore
  * @param {Drawer} drawer
  */

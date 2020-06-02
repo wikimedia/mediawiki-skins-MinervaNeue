@@ -1,3 +1,5 @@
+'use strict';
+
 const { iAmOnATalkPageWithNoTalkTopics } = require( '../features/step_definitions/create_page_api_steps' ),
 	{
 		pageExists, iAmOnAPageThatDoesNotExist,

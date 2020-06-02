@@ -7,6 +7,7 @@
 
 	/**
 	 * IssueList
+	 *
 	 * @class IssueList
 	 * @extends View
 	 *

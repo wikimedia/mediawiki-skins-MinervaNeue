@@ -7,6 +7,8 @@
  * https://en.m.wikipedia.org/wiki/Barack_Obama#/editor/0
  */
 
+'use strict';
+
 const MinervaPage = require( './minerva_page' );
 
 class ArticlePageWithEditorOverlay extends MinervaPage {

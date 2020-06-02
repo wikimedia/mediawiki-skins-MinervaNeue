@@ -34,6 +34,7 @@ function testScrollLeftStyle() {
 
 /**
  * When tabs are present and one is selected, scroll the selected tab into view.
+ *
  * @return {void}
  */
 function initTabsScrollPosition() {
@@ -44,6 +45,7 @@ function initTabsScrollPosition() {
 
 	/**
 	 * Set tabContainer.scrollLeft, with adjustments for browser inconsistencies in RTL
+	 *
 	 * @param {number} sl New .scrollLeft value, in 'default' (WebKit) style
 	 */
 	function setScrollLeft( sl ) {

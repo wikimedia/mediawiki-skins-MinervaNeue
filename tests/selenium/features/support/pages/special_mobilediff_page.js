@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Represents the mobile-first Special:MobileDiff page
  *

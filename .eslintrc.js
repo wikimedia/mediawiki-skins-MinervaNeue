@@ -45,7 +45,8 @@ const config = {
 		"object-property-newline": "error",
 		"mediawiki/class-doc": "off",
 		"no-use-before-define": "off",
-		"no-underscore-dangle": "off"
+		"no-underscore-dangle": "off",
+		"jsdoc/no-undefined-types": "off"
 	}
 };
 

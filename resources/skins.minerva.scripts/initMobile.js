@@ -1,5 +1,6 @@
 /**
  * Initialise code that requires MobileFrontend.
+ *
  * @todo anything that doesn't require MobileFrontend should be moved into ./setup.js
  * @todo anything that can be rewritten without MobileFrontend (possibly using new frontend
  * framework or upstreamed from MobileFrotend to core) should be and moved into ./setup.js
@@ -38,7 +39,8 @@ module.exports = function () {
 
 	/**
 	 * Event handler for clicking on an image thumbnail
-	 * @param {JQuery.Event} ev
+	 *
+	 * @param {jQuery.Event} ev
 	 * @ignore
 	 */
 	function onClickImage( ev ) {
@@ -53,7 +55,7 @@ module.exports = function () {
 	}
 
 	/**
-	 * @param {JQuery.Element} thumbnail
+	 * @param {jQuery.Element} thumbnail
 	 * @ignore
 	 */
 	function routeThumbnail( thumbnail ) {
@@ -62,9 +64,10 @@ module.exports = function () {
 
 	/**
 	 * Add routes to images and handle clicks
+	 *
 	 * @method
 	 * @ignore
-	 * @param {JQuery.Object} [$container] Optional container to search within
+	 * @param {jQuery.Object} [$container] Optional container to search within
 	 */
 	function initMediaViewer( $container ) {
 		currentPageHTMLParser.getThumbnails( $container ).forEach( function ( thumb ) {
@@ -75,6 +78,7 @@ module.exports = function () {
 	/**
 	 * Hijack the Special:Languages link and replace it with a trigger to a languageOverlay
 	 * that displays the same data
+	 *
 	 * @ignore
 	 */
 	function initButton() {
@@ -99,10 +103,11 @@ module.exports = function () {
 	/**
 	 * Returns a rejected promise if MultimediaViewer is available. Otherwise
 	 * returns the mediaViewerOverlay
+	 *
 	 * @method
 	 * @ignore
 	 * @param {string} title the title of the image
-	 * @return {JQuery.Deferred|Overlay}
+	 * @return {jQuery.Deferred|Overlay}
 	 */
 	function makeMediaViewerOverlayIfNeeded( title ) {
 		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {
@@ -141,8 +146,9 @@ module.exports = function () {
 	 * Enhances an element representing a time
 	 * to show a human friendly date in seconds, minutes, hours, days
 	 * months or years
+	 *
 	 * @ignore
-	 * @param {JQuery.Object} $lastModifiedLink
+	 * @param {jQuery.Object} $lastModifiedLink
 	 */
 	function initHistoryLink( $lastModifiedLink ) {
 		var delta, historyUrl, $msg, $bar,
@@ -174,7 +180,7 @@ module.exports = function () {
 
 	/**
 	 * @method
-	 * @param {JQuery.Event} ev
+	 * @param {jQuery.Event} ev
 	 */
 	function amcHistoryClickHandler( ev ) {
 		var
@@ -201,7 +207,7 @@ module.exports = function () {
 
 	/**
 	 * @method
-	 * @param {JQuery.Object} $lastModifiedLink
+	 * @param {jQuery.Object} $lastModifiedLink
 	 * @ignore
 	 */
 	function initAmcHistoryLink( $lastModifiedLink ) {
@@ -214,6 +220,7 @@ module.exports = function () {
 	 * Enhances .modified-enhancement element
 	 * to show a human friendly date in seconds, minutes, hours, days
 	 * months or years
+	 *
 	 * @ignore
 	 */
 	function initModifiedInfo() {
@@ -229,8 +236,9 @@ module.exports = function () {
 	 * Enhances an element representing a time
 	 + to show a human friendly date in seconds, minutes, hours, days
 	 * months or years
+	 *
 	 * @ignore
-	 * @param {JQuery.Object} [$tagline]
+	 * @param {jQuery.Object} [$tagline]
 	 */
 	function initRegistrationDate( $tagline ) {
 		var msg, ts;
@@ -280,6 +288,7 @@ module.exports = function () {
 	 * Enhances .tagline-userpage element
 	 * to show human friendly date in seconds, minutes, hours, days
 	 * months or years
+	 *
 	 * @ignore
 	 */
 	function initRegistrationInfo() {
@@ -317,6 +326,7 @@ module.exports = function () {
 
 	/**
 	 * Strip the edit action from red links to nonexistent User namespace pages.
+	 *
 	 * @return {void}
 	 */
 	function initUserRedLinks() {

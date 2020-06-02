@@ -16,9 +16,10 @@ module.exports = function ( mobile ) {
 
 	/**
 	 * Render a type of talk overlay
+	 *
 	 * @param {string} className name of talk overlay to create
 	 * @param {Object} talkOptions
-	 * @return {Overlay|JQuery.Promise}
+	 * @return {Overlay|jQuery.Promise}
 	 */
 	function createOverlay( className, talkOptions ) {
 		// eslint-disable-next-line no-restricted-properties
@@ -45,10 +46,10 @@ module.exports = function ( mobile ) {
 	}
 
 	/**
-	 * @param {JQuery.Element} $heading
-	 * @param {JQuery.Element} $headline
+	 * @param {jQuery.Element} $heading
+	 * @param {jQuery.Element} $headline
 	 * @param {string} sectionId
-	 * @return {JQuery.Promise} A promise that rejects if simplified mode is off.
+	 * @return {jQuery.Promise} A promise that rejects if simplified mode is off.
 	 * A promise that resolves to the TalkSectionOverlay otherwise (unless a
 	 * network error occurs).
 	 */

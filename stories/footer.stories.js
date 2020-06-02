@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-properties */
 import mustache from 'mustache';
 import template from '!!raw-loader!../includes/Skins/footer.mustache';
 import { lastModifiedBar, lastModifiedBarActive } from './lastModifiedBar.stories';

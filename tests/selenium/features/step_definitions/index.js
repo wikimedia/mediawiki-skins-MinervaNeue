@@ -1,3 +1,5 @@
+'use strict';
+
 const { defineSupportCode } = require( 'cucumber' ),
 	{ iClickOnTheCategoryButton,
 		iShouldSeeTheCategoriesOverlay, iShouldSeeAListOfCategories

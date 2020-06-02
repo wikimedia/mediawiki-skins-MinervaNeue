@@ -1,3 +1,5 @@
+'use strict';
+
 const { ArticlePage } = require( './../support/world' );
 
 const iClickOnTheMask = () => {

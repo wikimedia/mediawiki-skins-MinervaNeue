@@ -2,6 +2,7 @@
 // (see https://bugzilla.wikimedia.org/show_bug.cgi?id=44264)
 /**
  * mobileFrontend namespace
+ *
  * @class mw.mobileFrontend
  * @singleton
  */

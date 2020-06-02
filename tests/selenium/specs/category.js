@@ -1,3 +1,5 @@
+'use strict';
+
 const { iClickOnTheCategoryButton,
 		iShouldSeeTheCategoriesOverlay,
 		iShouldSeeAListOfCategories

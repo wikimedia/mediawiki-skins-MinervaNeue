@@ -1,8 +1,9 @@
 ( function () {
 	/**
 	 * Creates a "read more" button with given text.
+	 *
 	 * @param {string} msg
-	 * @return {JQuery}
+	 * @return {jQuery}
 	 */
 	function newPageIssueLearnMoreLink( msg ) {
 		return $( '<span>' )

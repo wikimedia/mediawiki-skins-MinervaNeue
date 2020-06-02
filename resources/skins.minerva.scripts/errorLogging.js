@@ -6,6 +6,7 @@
 		/**
 		 * Count javascript errors, except for those associated with localStorage
 		 * being full or unavailable.
+		 *
 		 * @param {string} topic name of the event being tracked
 		 * @param {Object} data event payload
 		 */

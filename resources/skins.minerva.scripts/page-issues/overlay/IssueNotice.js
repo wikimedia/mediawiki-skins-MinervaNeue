@@ -6,6 +6,7 @@
 
 	/**
 	 * IssueNotice
+	 *
 	 * @class IssueNotice
 	 * @extends View
 	 *

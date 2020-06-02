@@ -1,3 +1,5 @@
+'use strict';
+
 const ArticlePage = require( '../support/pages/article_page' );
 const { iClickTheOverlayCloseButton, iSeeAnOverlay, iDoNotSeeAnOverlay } = require( './common_steps' );
 
