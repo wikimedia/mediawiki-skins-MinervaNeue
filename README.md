@@ -28,14 +28,6 @@ The following configuration options will apply only to the default mobile skin -
 Whether to show the language switcher button even if no languages are available
 for the page.
 
-#### $wgMinervaEnableSiteNotice
-
-* Type: `Boolean`
-* Default: `false`
-
-Controls whether site notices should be shown.
-See <https://www.mediawiki.org/wiki/Manual:$wgSiteNotice>.
-
 #### $wgMinervaCountErrors
 * Type: `Boolean`
 * Default: `false`
