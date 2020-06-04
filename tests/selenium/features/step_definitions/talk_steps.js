@@ -1,3 +1,5 @@
+'use strict';
+
 const assert = require( 'assert' );
 const { iSeeAnOverlay, waitForPropagation } = require( './common_steps' );
 const ArticlePageWithEditorOverlay = require( '../support/pages/article_page_with_editor_overlay' );

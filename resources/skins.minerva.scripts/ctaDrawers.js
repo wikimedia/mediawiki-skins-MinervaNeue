@@ -52,6 +52,7 @@ function initRedlinksCta( $redLinks ) {
 
 /**
  * A CtaDrawer should show for anonymous users.
+ *
  * @param {jQuery.Object} $watchstar
  */
 function initWatchstarCta( $watchstar ) {

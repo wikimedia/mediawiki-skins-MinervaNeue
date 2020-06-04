@@ -15,6 +15,8 @@
  * allowing us to use the dependencies across scenarios.
  */
 
+'use strict';
+
 const mwCorePages = require( '../support/pages/mw_core_pages' ),
 	minervaPages = require( '../support/pages/minerva_pages' );
 

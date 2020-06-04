@@ -1,3 +1,5 @@
+'use strict';
+
 const assert = require( 'assert' ),
 	MWBot = require( 'mwbot' ),
 	Api = require( 'wdio-mediawiki/Api' ),

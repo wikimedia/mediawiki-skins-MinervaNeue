@@ -24,6 +24,7 @@
 	 * will be rendered above the heading.
 	 * This function comes with side effects. It will populate a global "allIssues" object which
 	 * will link section numbers to issues.
+	 *
 	 * @param {PageHTMLParser} pageHTMLParser parser to search for page issues
 	 * @param {string} labelText what the label of the page issues banner should say
 	 * @param {string} section that the banner and its issues belong to.
@@ -34,7 +35,7 @@
 	 * @param {OverlayManager} overlayManager
 	 * @ignore
 	 *
-	 * @return {{ambox: JQuery.Object, issueSummaries: IssueSummary[]}}
+	 * @return {{ambox: jQuery.Object, issueSummaries: IssueSummary[]}}
 	 */
 	function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, overlayManager ) {
 		var
@@ -93,6 +94,7 @@
 
 	/**
 	 * Obtains the list of issues for the current page and provided section
+	 *
 	 * @param {IssueSummaryMap} allIssues mapping section {number} to {IssueSummary}
 	 * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the
 	 *                                section the issues belong to
@@ -116,6 +118,7 @@
 	/**
 	 * Scan an element for any known cleanup templates and replace them with a button
 	 * that opens them in a mobile friendly overlay.
+	 *
 	 * @ignore
 	 * @param {OverlayManager} overlayManager
 	 * @param {PageHTMLParser} pageHTMLParser

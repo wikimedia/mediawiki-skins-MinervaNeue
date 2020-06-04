@@ -58,6 +58,7 @@ module.exports = function () {
 
 	/**
 	 * Enable the categories button
+	 *
 	 * @ignore
 	 */
 	function initButton() {

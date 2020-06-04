@@ -77,6 +77,7 @@
 	 * There are many restrictions when we can show the download button, this function should handle
 	 * all device/os/operating system related checks and if device supports printing it will inject
 	 * the Download icon
+	 *
 	 * @param {Window} window
 	 * @param {Element|null} overflowList
 	 * @return {void}

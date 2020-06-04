@@ -13,6 +13,7 @@
 
 	/**
 	 * Buckets users based on params and exposes an `isSampled` and `getBucket` method.
+	 *
 	 * @param {Object} config Configuration object for AB test.
 	 * @param {string} config.testName
 	 * @param {number} config.samplingRate Sampling rate for the AB-test.
@@ -60,6 +61,7 @@
 
 		/**
 		 * Checks whether or not a user is in the AB-test,
+		 *
 		 * @return {boolean}
 		 */
 		function isSampled() {

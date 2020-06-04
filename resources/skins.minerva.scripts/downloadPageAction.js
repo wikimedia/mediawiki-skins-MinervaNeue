@@ -9,6 +9,7 @@
 
 	/**
 	 * Helper function to retrieve the Android version
+	 *
 	 * @ignore
 	 * @param {string} userAgent User Agent
 	 * @return {number|false} An integer.
@@ -20,6 +21,7 @@
 
 	/**
 	 * Helper function to retrieve the Chrome/Chromium version
+	 *
 	 * @ignore
 	 * @param {string} userAgent User Agent
 	 * @return {number|false} An integer.
@@ -39,7 +41,7 @@
 	 * @param {string} userAgent User agent
 	 * @param {number[]} supportedNamespaces where printing is possible
 	 * @return {boolean}
-	*/
+	 */
 	function isAvailable( windowObj, page, userAgent, supportedNamespaces ) {
 		var androidVersion = getAndroidVersion( userAgent ),
 			chromeVersion = getChromeVersion( userAgent );
@@ -66,6 +68,7 @@
 	}
 	/**
 	 * onClick handler for button that invokes print function
+	 *
 	 * @param {Icon} icon
 	 * @param {Icon} spinner
 	 */

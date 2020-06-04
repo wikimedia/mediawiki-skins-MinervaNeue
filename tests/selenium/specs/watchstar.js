@@ -1,3 +1,5 @@
+'use strict';
+
 const { iAmViewingAnUnwatchedPage } = require( '../features/step_definitions/create_page_api_steps' ),
 	{
 		iShouldSeeAToastNotificationWithMessage,

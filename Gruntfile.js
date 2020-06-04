@@ -1,5 +1,4 @@
 /* eslint-env node */
-/* eslint-disable no-restricted-properties */
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'skin.json' );
 
@@ -36,6 +35,7 @@ module.exports = function ( grunt ) {
 				'!vendor/**'
 			]
 		},
+		// eslint-disable-next-line es/no-object-assign
 		banana: Object.assign( {
 			options: { requireLowerCase: false }
 		}, conf.MessagesDirs ),

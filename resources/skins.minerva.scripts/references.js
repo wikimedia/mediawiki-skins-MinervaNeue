@@ -12,8 +12,9 @@ module.exports = function () {
 
 	/**
 	 * Event handler to show reference when a reference link is clicked
+	 *
 	 * @ignore
-	 * @param {JQuery.Event} ev Click event of the reference element
+	 * @param {jQuery.Event} ev Click event of the reference element
 	 */
 	function showReference( ev ) {
 		var urlComponents,
@@ -46,7 +47,7 @@ module.exports = function () {
 	 * Delegates to `showReference` once the references drawer is ready.
 	 *
 	 * @ignore
-	 * @param {JQuery.Event} ev Click event of the reference element
+	 * @param {jQuery.Event} ev Click event of the reference element
 	 */
 	function onClickReference( ev ) {
 		showReference( ev );

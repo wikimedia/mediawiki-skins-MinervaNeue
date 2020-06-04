@@ -10,6 +10,7 @@
 	/**
 	 * Automatically dismiss the list when clicking or focusing elsewhere and update the
 	 * aria-expanded attribute based on list visibility.
+	 *
 	 * @param {Window} window
 	 * @param {HTMLElement} component
 	 * @return {void}
@@ -42,6 +43,7 @@
 
 	/**
 	 * Hides the list.
+	 *
 	 * @param {HTMLInputElement} checkbox
 	 * @return {void}
 	 */
@@ -52,6 +54,7 @@
 
 	/**
 	 * Revise the aria-expanded state to match the checked state.
+	 *
 	 * @param {HTMLInputElement} checkbox
 	 * @return {void}
 	 */

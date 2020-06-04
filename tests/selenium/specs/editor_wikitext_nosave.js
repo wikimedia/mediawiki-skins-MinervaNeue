@@ -1,3 +1,5 @@
+'use strict';
+
 const {
 		iAmOnAPageThatDoesNotExist, iClickTheBrowserBackButton,
 		iClickTheOverlayCloseButton, iDoNotSeeAnOverlay,

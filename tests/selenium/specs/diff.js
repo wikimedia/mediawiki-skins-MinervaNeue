@@ -1,3 +1,5 @@
+'use strict';
+
 const { iAmOnAPageThatHasTheFollowingEdits
 	} = require( '../features/step_definitions/create_page_api_steps' ),
 	{

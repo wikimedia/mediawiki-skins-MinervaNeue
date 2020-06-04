@@ -1,3 +1,5 @@
+'use strict';
+
 const { ArticlePage } = require( '../support/world' ),
 	RunJobs = require( 'wdio-mediawiki/RunJobs' ),
 	Api = require( 'wdio-mediawiki/Api' ),
