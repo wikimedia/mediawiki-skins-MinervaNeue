@@ -162,7 +162,7 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   a(:desktop_link, text: 'Desktop')
   a(:terms_link, css: '#footer-places-terms-use')
   a(:license_link, css: 'footer .license a')
-  a(:privacy_link, text: 'Privacy')
+  a(:privacy_link, text: 'Privacy policy')
 
   # pagelist
   ul(:page_list, css: '.page-list')
