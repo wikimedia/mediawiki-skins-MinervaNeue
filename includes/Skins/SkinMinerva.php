@@ -589,9 +589,11 @@ class SkinMinerva extends SkinTemplate {
 	protected function prepareBanners( BaseTemplate $tpl ) {
 		// Make sure Zero banner are always on top
 		$banners = [ '<div id="siteNotice"></div>' ];
-		$siteNotice = $this->getSiteNotice();
-		if ( $siteNotice ) {
-			$banners[] = $siteNotice;
+		if ( $this->getConfig()->get( 'MinervaEnableSiteNotice' ) ) {
+			$siteNotice = $this->getSiteNotice();
+			if ( $siteNotice ) {
+				$banners[] = $siteNotice;
+			}
 		}
 		$tpl->set( 'banners', $banners );
 		// These banners unlike 'banners' show inside the main content chrome underneath the

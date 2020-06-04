@@ -33,6 +33,9 @@
 				0
 			]
 		},
+		"MinervaEnableSiteNotice": {
+			"value": false
+		},
 		"MinervaApplyKnownTemplateHacks": {
 			"value": false
 		},
