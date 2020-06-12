@@ -145,7 +145,6 @@ main {
 
 /* Search */
 .search-box .search {
-	@border-width-base: 1px;
 	@searchIconSize: 18px;
 	@searchIconGutter: 6px;
 	@padding-vertical-search: 8px - @border-width-base;
@@ -160,7 +159,7 @@ main {
 	margin-top: 0;
 	height: 2.25em;
 	border: @border-width-base solid #fff;
-	border-radius: @borderRadius;
+	border-radius: @border-radius-base;
 	padding: @padding-vertical-search 0 @padding-vertical-search @padding-start-search-icon;
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
 	// Keyboard focus is taken care of below at `.search-box .search:focus`.
