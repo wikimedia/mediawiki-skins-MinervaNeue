@@ -13,8 +13,7 @@ module.exports = function ( grunt ) {
 			options: {
 				cache: true,
 				extensions: [ '.js', '.json' ],
-				maxWarnings: 0,
-				reportUnusedDisableDirectives: true
+				maxWarnings: 0
 			},
 			all: [
 				'**/*.{js,json}',
