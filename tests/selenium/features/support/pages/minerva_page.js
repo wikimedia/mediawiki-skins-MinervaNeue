@@ -42,10 +42,10 @@ class MinervaPage extends Page {
 			this.open();
 		}
 
-		const cookie = browser.getCookie( name );
+		const cookie = browser.getCookies( [ name ] );
 
 		if ( !cookie || cookie.value !== value ) {
-			browser.setCookie( {
+			browser.setCookies( {
 				name: name,
 				value: value } );
 		}
@@ -70,7 +70,7 @@ class MinervaPage extends Page {
 			const state = browser.execute( ( m ) => {
 				return mw.loader.getState( m );
 			}, moduleName );
-			return state.value === 'ready';
+			return state === 'ready';
 		} );
 	}
 }

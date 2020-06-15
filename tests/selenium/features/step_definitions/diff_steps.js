@@ -4,7 +4,7 @@ const assert = require( 'assert' ),
 	{ SpecialMobileDiffPage } = require( '../support/world.js' );
 
 const iShouldSeeAddedContent = ( text ) => {
-	SpecialMobileDiffPage.inserted_content_element.waitForVisible();
+	SpecialMobileDiffPage.inserted_content_element.waitForDisplayed();
 	assert.strictEqual( SpecialMobileDiffPage.inserted_content_element.getText(), text );
 };
 const iShouldSeeRemovedContent = ( text ) => {

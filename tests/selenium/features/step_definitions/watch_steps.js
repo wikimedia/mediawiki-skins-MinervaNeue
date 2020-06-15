@@ -12,7 +12,7 @@ const theWatchstarShouldNotBeSelected = () => {
 const theWatchstarShouldBeSelected = () => {
 	ArticlePage.watched_element.waitForExist();
 	const watchstar = ArticlePage.watched_element;
-	assert.strictEqual( watchstar.isVisible(), true );
+	assert.strictEqual( watchstar.isDisplayed(), true );
 };
 
 const iClickTheWatchstar = () => {

@@ -7,15 +7,15 @@ const { ArticlePage } = require( '../support/world.js' );
 
 const iClickTheAddTalkButton = () => {
 	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
-	ArticlePage.talk_add_element.waitForVisible();
+	ArticlePage.talk_add_element.waitForDisplayed();
 	ArticlePage.talk_add_element.click();
 };
 
 const iAddATopic = ( subject ) => {
 	const overlay = ArticlePageWithEditorOverlay.editor_overlay_element;
-	overlay.element( '.overlay input' ).waitForExist();
-	overlay.element( '.overlay input' ).setValue( subject );
-	overlay.element( '.overlay textarea' ).setValue( 'Topic body is a really long text.' );
+	overlay.$( '.overlay input' ).waitForExist();
+	overlay.$( '.overlay input' ).setValue( subject );
+	overlay.$( '.overlay textarea' ).setValue( 'Topic body is a really long text.' );
 	browser.waitUntil( () =>
 		!ArticlePageWithEditorOverlay.submit_element.getAttribute( 'disabled' )
 	);
@@ -30,7 +30,7 @@ const iSeeTheTalkOverlay = () => {
 const thereShouldBeASaveDiscussionButton = () => {
 	const submit = ArticlePageWithEditorOverlay.submit_element;
 	submit.waitForExist();
-	assert.strictEqual( submit.isVisible(), true );
+	assert.strictEqual( submit.isDisplayed(), true );
 };
 
 const noTopicIsPresent = () => {
@@ -38,15 +38,15 @@ const noTopicIsPresent = () => {
 };
 
 const thereShouldBeAnAddDiscussionButton = () => {
-	assert.strictEqual( ArticlePage.talk_add_element.isVisible(), true );
+	assert.strictEqual( ArticlePage.talk_add_element.isDisplayed(), true );
 };
 
 const thereShouldBeATalkButton = () => {
-	assert.strictEqual( ArticlePage.talk_element.isVisible(), true );
+	assert.strictEqual( ArticlePage.talk_element.isDisplayed(), true );
 };
 
 const thereShouldBeNoTalkButton = () => {
-	assert.strictEqual( ArticlePage.talk_element.isVisible(), false );
+	assert.strictEqual( ArticlePage.talk_element.isDisplayed(), false );
 };
 
 const iShouldSeeTheTopicInTheListOfTopics = ( subject ) => {
@@ -57,7 +57,7 @@ const iShouldSeeTheTopicInTheListOfTopics = ( subject ) => {
 };
 
 const thereShouldBeATalkTab = () => {
-	assert.strictEqual( ArticlePage.talk_tab_element.isVisible(), true );
+	assert.strictEqual( ArticlePage.talk_tab_element.isDisplayed(), true );
 };
 
 module.exports = {

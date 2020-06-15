@@ -15,7 +15,7 @@ const iShouldSeeTheCategoriesOverlay = () => {
 };
 
 const iShouldSeeAListOfCategories = () => {
-	const el = ArticlePage.overlay_category_topic_item_element.waitForVisible();
+	const el = ArticlePage.overlay_category_topic_item_element.waitForDisplayed();
 	assert.strictEqual( el, true );
 };
 

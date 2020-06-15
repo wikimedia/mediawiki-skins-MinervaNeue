@@ -4,7 +4,7 @@ const ArticlePage = require( '../support/pages/article_page' );
 const { iClickTheOverlayCloseButton, iSeeAnOverlay, iDoNotSeeAnOverlay } = require( './common_steps' );
 
 const iHaveNoNotifications = () => {
-	ArticlePage.notifications_button_element.waitForVisible();
+	ArticlePage.notifications_button_element.waitForDisplayed();
 	// This is somewhat hacky, but we don't want this test making use of
 	// Echo's APIs which may change
 	browser.execute( '$( function () { $( ".notification-count span" ).hide(); } );' );

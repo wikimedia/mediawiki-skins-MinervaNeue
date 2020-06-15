@@ -4,11 +4,11 @@ const assert = require( 'assert' );
 const { ArticlePageWithEditorOverlay, ArticlePage } = require( '../support/world.js' );
 
 const iClickTheEditButton = () => {
-	ArticlePage.edit_link_element.waitForVisible();
+	ArticlePage.edit_link_element.waitForDisplayed();
 	ArticlePage.edit_link_element.click();
 };
 const iSeeTheWikitextEditorOverlay = () => {
-	ArticlePageWithEditorOverlay.editor_overlay_element.waitForVisible();
+	ArticlePageWithEditorOverlay.editor_overlay_element.waitForDisplayed();
 	ArticlePageWithEditorOverlay.editor_textarea_element.waitForExist();
 };
 const iClearTheEditor = () => {
@@ -16,13 +16,13 @@ const iClearTheEditor = () => {
 };
 const iDoNotSeeTheWikitextEditorOverlay = () => {
 	browser.waitUntil( () => {
-		return ArticlePageWithEditorOverlay.editor_overlay_element.isVisible() === false;
+		return ArticlePageWithEditorOverlay.editor_overlay_element.isDisplayed() === false;
 	}, 10000 );
 };
 const iTypeIntoTheEditor = ( text ) => {
 	ArticlePageWithEditorOverlay.editor_overlay_element.waitForExist();
 	ArticlePageWithEditorOverlay.editor_textarea_element.waitForExist();
-	ArticlePageWithEditorOverlay.editor_textarea_element.waitForVisible();
+	ArticlePageWithEditorOverlay.editor_textarea_element.waitForDisplayed();
 	ArticlePageWithEditorOverlay.editor_textarea_element.addValue( text );
 	browser.waitUntil( () => {
 		return !ArticlePageWithEditorOverlay
@@ -40,16 +40,16 @@ const iClickSubmit = () => {
 const iSayOkayInTheConfirmDialog = () => {
 	browser.waitUntil( () => {
 		try {
-			const text = browser.alertText;
+			const text = browser.getAlertText();
 			return text && true;
 		} catch ( e ) {
 			return false;
 		}
 	}, 2000 );
-	browser.alertAccept();
+	browser.acceptAlert();
 };
 const theTextOfTheFirstHeadingShouldBe = ( title ) => {
-	ArticlePage.first_heading_element.waitForVisible();
+	ArticlePage.first_heading_element.waitForDisplayed();
 	assert.strictEqual(
 		ArticlePage.first_heading_element.getText(),
 		title

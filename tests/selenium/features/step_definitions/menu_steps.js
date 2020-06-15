@@ -4,7 +4,7 @@ const assert = require( 'assert' );
 const { ArticlePage } = require( '../support/world.js' );
 
 const iSeeALinkToAboutPage = () => {
-	assert.strictEqual( ArticlePage.menu_element.element( '*=About' ).isVisible(), true );
+	assert.strictEqual( ArticlePage.menu_element.$( '*=About' ).isDisplayed(), true );
 };
 
 const iClickOnTheMainNavigationButton = () => {
@@ -12,21 +12,21 @@ const iClickOnTheMainNavigationButton = () => {
 };
 
 const iShouldSeeAUserPageLinkInMenu = () => {
-	ArticlePage.menu_element.element( '.primary-action' );
+	ArticlePage.menu_element.$( '.primary-action' );
 };
 
 const iShouldSeeLogoutLinkInMenu = () => {
-	ArticlePage.menu_element.element( '.secondary-action' );
+	ArticlePage.menu_element.$( '.secondary-action' );
 };
 
 const iShouldSeeALinkInMenu = ( text ) => {
-	assert.strictEqual( ArticlePage.menu_element.element( `span=${text}` ).isVisible(),
+	assert.strictEqual( ArticlePage.menu_element.$( `span=${text}` ).isDisplayed(),
 		true, `Link to ${text} is visible.` );
 };
 
 const iShouldSeeALinkToDisclaimer = () => {
-	ArticlePage.menu_element.element( '=Disclaimers' ).waitForVisible();
-	assert.strictEqual( ArticlePage.menu_element.element( '=Disclaimers' ).isVisible(), true );
+	ArticlePage.menu_element.$( '=Disclaimers' ).waitForDisplayed();
+	assert.strictEqual( ArticlePage.menu_element.$( '=Disclaimers' ).isDisplayed(), true );
 };
 
 module.exports = {

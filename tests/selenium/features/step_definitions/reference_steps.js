@@ -3,12 +3,12 @@
 const { ArticlePage } = require( './../support/world' );
 
 const iClickOnTheMask = () => {
-	ArticlePage.drawer_mask_element.waitForVisible();
+	ArticlePage.drawer_mask_element.waitForDisplayed();
 	ArticlePage.drawer_mask_element.click();
 };
 
 const iShouldSeeNotTheReferenceDrawer = () => {
-	browser.waitUntil( () => !ArticlePage.drawer_element.isVisible() );
+	browser.waitUntil( () => !ArticlePage.drawer_element.isDisplayed() );
 };
 
 const iClickOnAReference = () => {
@@ -16,12 +16,12 @@ const iClickOnAReference = () => {
 };
 
 const iClickOnANestedReference = () => {
-	ArticlePage.drawer_reference_element.waitForVisible();
+	ArticlePage.drawer_reference_element.waitForDisplayed();
 	ArticlePage.drawer_reference_element.click();
 };
 
 const iShouldSeeDrawerWithText = ( text ) => {
-	ArticlePage.drawer_element.waitForVisible();
+	ArticlePage.drawer_element.waitForDisplayed();
 	browser.waitUntil( () => ArticlePage.drawer_element.getText().indexOf( text ) > -1 );
 };
 

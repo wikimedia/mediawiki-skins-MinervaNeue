@@ -31,9 +31,11 @@ const iAmInAWikiThatHasCategories = ( title ) => {
 	// A pause is necessary to let the categories register with database before trying to use
 	// them in an article
 	waitForPropagation( 5000 );
-	browser.call( () => {
-		return Api.edit( title, wikitext );
+	browser.call( async () => {
+		const bot = await Api.bot();
+		await bot.edit( title, wikitext );
 	} );
+
 	browser.call( () => {
 		// The category overlay uses the category API
 		// which will only return results if the job queue has completed.
@@ -82,7 +84,7 @@ const watch = ( title ) => {
 	// So we run the non-js workflow.
 	const page = new Page();
 	page.openTitle( title, { action: 'watch' } );
-	browser.element( '#mw-content-text button[type="submit"]' ).click();
+	$( '#mw-content-text button[type="submit"]' ).click();
 	waitForPropagation( 10000 );
 	page.openTitle( title );
 };
