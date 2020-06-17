@@ -372,4 +372,32 @@ final class Definitions {
 		}
 		return $returnToQuery;
 	}
+
+	/**
+	 * Insert the Donate Link in the Mobile Menu.
+	 *
+	 * @param Group $group
+	 * @throws MWException
+	 */
+	 public function insertDonateItem( Group $group ) {
+		 $ctx = $this->context;
+		 if ( !$ctx->msg( 'sitesupport-url' )->exists() ||
+			$ctx->msg( 'sitesupport' )->isDisabled()
+		) {
+			return;
+		 }
+		 $url = wfAppendQuery( $ctx->msg( 'sitesupport-url' )->text(),
+		 [ 'utm_medium' => 'mobileSidebar' ] );
+
+		 $group->insert( 'donate' )->addComponent(
+			$ctx->msg( 'sitesupport' )->text(),
+			$url,
+			MinervaUI::iconClass( 'heart', 'before' ),
+			[
+				// for consistency with desktop
+				'id' => 'n-sitesupport',
+				'data-event-name' => 'menu.donate',
+			]
+		 );
+	 }
 }
