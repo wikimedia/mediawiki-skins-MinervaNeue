@@ -142,6 +142,9 @@
 		],
 		"ResourceLoaderGetConfigVars": [
 			"MinervaHooks::onResourceLoaderGetConfigVars"
+		],
+		"OutputPageBodyAttributes": [
+			"MinervaHooks::onOutputPageBodyAttributes"
 		]
 	},
 	"MessagesDirs": {

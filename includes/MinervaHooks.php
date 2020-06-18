@@ -333,4 +333,36 @@ class MinervaHooks {
 			];
 		}
 	}
+
+	/**
+	 * Modifies the `<body>` element's attributes.
+	 *
+	 * By default, the `class` attribute is set to the output's "bodyClassName"
+	 * property.
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 * @param string[] &$bodyAttrs
+	 */
+	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $skin, &$bodyAttrs ) {
+		$classes = $out->getProperty( 'bodyClassName' );
+		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+
+		if ( $skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ) {
+			// Class is used when page actions is modified to contain more elements
+			$classes .= ' minerva--history-page-action-enabled';
+
+		}
+
+		$isSimplifiedTalk = false;
+		if ( $skin instanceof SkinMinerva ) {
+			$isSimplifiedTalk = $skin->isSimplifiedTalkPageEnabled();
+		}
+
+		if ( $isSimplifiedTalk ) {
+			$classes .= ' skin-minerva--talk-simplified';
+		}
+
+		$bodyAttrs[ 'class' ] .= ' ' . $classes;
+	}
 }

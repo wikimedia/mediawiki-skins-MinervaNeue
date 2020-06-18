@@ -496,10 +496,12 @@ class SkinMinerva extends SkinTemplate {
 	}
 
 	/**
-	 * @return bool Whether or not the simplified talk page is enabled
-	 * action ('view')
+	 * @internal Should not be used outside Minerva.
+	 * @todo Find better place for this.
+	 *
+	 * @return bool Whether or not the simplified talk page is enabled and action is 'view'
 	 */
-	private function isSimplifiedTalkPageEnabled() {
+	public function isSimplifiedTalkPageEnabled(): bool {
 		$title = $this->getTitle();
 
 		return $this->isTalkPageWithViewAction() &&
@@ -794,33 +796,6 @@ class SkinMinerva extends SkinTemplate {
 		Hooks::run( 'SkinMinervaDefaultModules', [ $this, &$modules ] );
 
 		return $modules;
-	}
-
-	/**
-	 * Modifies the `<body>` element's attributes.
-	 *
-	 * By default, the `class` attribute is set to the output's "bodyClassName"
-	 * property.
-	 *
-	 * @param OutputPage $out
-	 * @param array &$bodyAttrs
-	 */
-	public function addToBodyAttributes( $out, &$bodyAttrs ) {
-		$classes = $out->getProperty( 'bodyClassName' );
-		if (
-			// Class is used when page actions is modified to contain more elements
-			$this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS )
-		) {
-			$classes .= ' minerva--history-page-action-enabled';
-		}
-
-		if (
-			$this->isSimplifiedTalkPageEnabled()
-		) {
-			$classes .= ' skin-minerva--talk-simplified';
-		}
-
-		$bodyAttrs[ 'class' ] .= ' ' . $classes;
 	}
 
 	/**
