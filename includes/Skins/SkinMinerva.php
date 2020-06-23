@@ -557,12 +557,13 @@ class SkinMinerva extends SkinTemplate {
 		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
 
 		if ( $title->isMainPage() ) {
-			if ( $user->isLoggedIn() ) {
-				$pageTitle = $this->msg(
-					'mobile-frontend-logged-in-homepage-notification', $user->getName() )->text();
-			} else {
-				$pageTitle = '';
+			$pageTitle = '';
+			$msg = $this->msg( 'mobile-frontend-logged-in-homepage-notification', $user->getName() );
+
+			if ( $user->isLoggedIn() && !$msg->isDisabled() ) {
+				$pageTitle = $msg->text();
 			}
+
 			$out->setPageTitle( $pageTitle );
 		} elseif ( $this->isTalkPageWithViewAction() ) {
 			// We only want the simplified talk page to show for the view action of the
