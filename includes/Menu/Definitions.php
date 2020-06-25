@@ -386,8 +386,12 @@ final class Definitions {
 		) {
 			return;
 		 }
-		 $url = wfAppendQuery( $ctx->msg( 'sitesupport-url' )->text(),
-		 [ 'utm_medium' => 'mobileSidebar' ] );
+		 // Add term field to allow distinguishing from other sidebars.
+		 // https://www.mediawiki.org/wiki/Wikimedia_Product/Analytics_Infrastructure/Schema_fragments#Campaign_Attribution
+		 $url = wfAppendQuery(
+			$ctx->msg( 'sitesupport-url' )->text(),
+			[ 'utm_key' => 'minerva' ]
+		);
 
 		 $group->insert( 'donate' )->addComponent(
 			$ctx->msg( 'sitesupport' )->text(),

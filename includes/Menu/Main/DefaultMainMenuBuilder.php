@@ -38,6 +38,11 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	private $showMobileOptions;
 
 	/**
+	 * @var bool
+	 */
+	private $showDonateLink;
+
+	/**
 	 * Currently logged in user
 	 * @var User
 	 */
@@ -52,11 +57,13 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 * Initialize the Default Main Menu builder
 	 *
 	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
+	 * @param bool $showDonateLink whether to show the donate link
 	 * @param User $user The current user
 	 * @param Definitions $definitions A menu items definitions set
 	 */
-	public function __construct( $showMobileOptions, User $user, Definitions $definitions ) {
+	public function __construct( $showMobileOptions, $showDonateLink, User $user, Definitions $definitions ) {
 		$this->showMobileOptions = $showMobileOptions;
+		$this->showDonateLink = $showDonateLink;
 		$this->user = $user;
 		$this->definitions = $definitions;
 	}
@@ -67,11 +74,18 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 * @throws MWException
 	 */
 	public function getGroups(): array {
-		return [
+		$donate = $this->showDonateLink ?
+			BuilderUtil::getDonateGroup( $this->definitions ) : null;
+
+		$groups = [
 			BuilderUtil::getDiscoveryTools( $this->definitions ),
 			$this->getPersonalTools(),
 			BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions ),
 		];
+		if ( $donate ) {
+			$groups[] = $donate;
+		}
+		return $groups;
 	}
 
 	/**

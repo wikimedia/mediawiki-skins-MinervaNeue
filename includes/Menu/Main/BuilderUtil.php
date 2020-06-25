@@ -22,7 +22,6 @@ namespace MediaWiki\Minerva\Menu\Main;
 
 use FatalError;
 use Hooks;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
 use MWException;
@@ -33,6 +32,19 @@ use MWException;
  * @package MediaWiki\Minerva\Menu\Main
  */
 final class BuilderUtil {
+	/**
+	 * Prepares donate group if available
+	 * @param Definitions $definitions A menu items definitions set
+	 * @return Group|null if not available
+	 * @throws FatalError
+	 * @throws MWException
+	 */
+	public static function getDonateGroup( Definitions $definitions ) {
+		$group = new Group( 'p-donation' );
+		$definitions->insertDonateItem( $group );
+		return $group->hasEntries() ? $group : null;
+	}
+
 	/**
 	 * Prepares a list of links that have the purpose of discovery in the main navigation menu
 	 * @param Definitions $definitions A menu items definitions set
@@ -46,13 +58,6 @@ final class BuilderUtil {
 		$definitions->insertHomeItem( $group );
 		$definitions->insertRandomItem( $group );
 		$definitions->insertNearbyIfSupported( $group );
-
-		// Add a donate link (see https://phabricator.wikimedia.org/T219793)
-		$config = MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'minerva' );
-		if ( $config->get( 'MinervaDonateLink' ) ) {
-			$definitions->insertDonateItem( $group );
-		}
 
 		// Allow other extensions to add or override tools
 		Hooks::run( 'MobileMenu', [ 'discovery', &$group ] );

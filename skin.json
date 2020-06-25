@@ -29,7 +29,9 @@
 			"value": false
 		},
 		"MinervaDonateLink": {
-			"value": false
+			"value": {
+				"base": true
+			}
 		},
 		"MinervaDownloadNamespaces": {
 			"value": [

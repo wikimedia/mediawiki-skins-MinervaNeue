@@ -112,6 +112,13 @@ class MinervaHooks {
 			);
 			$featureManager->registerFeature(
 				new MobileFrontend\Features\Feature(
+					'MinervaDonateLink',
+					'skin-minerva',
+					$config->get( 'MinervaDonateLink' )
+				)
+			);
+			$featureManager->registerFeature(
+				new MobileFrontend\Features\Feature(
 					'MinervaHistoryInPageActions',
 					'skin-minerva',
 					$config->get( 'MinervaHistoryInPageActions' )
@@ -235,6 +242,7 @@ class MinervaHooks {
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$skinOptions->setMultiple( [
+				SkinOptions::SHOW_DONATE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
 				SkinOptions::TALK_AT_TOP => $isUserPageOrUserTalkPage ?
 					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
 				SkinOptions::BETA_MODE

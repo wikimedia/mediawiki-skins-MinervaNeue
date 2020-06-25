@@ -63,8 +63,13 @@ When enabled and hacks.less exists, hacks.less workarounds are included in style
 
 #### $wgMinervaDonateLink
 
-* Type: `Boolean`
-* Default: `true`
+* Type: `Array`
+* Default:
+```php
+  [
+    'base' => true,
+  ]
+```
 
 When enabled a donate link will be added to the main menu. The donate link uses the `sitesupport` and `sitesupport-url` mediawiki messages.
 

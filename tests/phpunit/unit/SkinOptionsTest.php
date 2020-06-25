@@ -37,6 +37,7 @@ class SkinOptionsTest extends \MediaWikiUnitTestCase {
 		$options = new SkinOptions();
 		$this->assertTrue( $options->hasSkinOptions() );
 		$options->setMultiple( [
+			SkinOptions::SHOW_DONATE => false,
 			SkinOptions::TALK_AT_TOP => false,
 			SkinOptions::HISTORY_IN_PAGE_ACTIONS => false,
 			SkinOptions::TOOLBAR_SUBMENU => false,

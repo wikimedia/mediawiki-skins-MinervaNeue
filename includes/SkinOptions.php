@@ -29,6 +29,7 @@ final class SkinOptions {
 	public const PAGE_ISSUES = 'pageIssues';
 	public const BETA_MODE = 'beta';
 	public const TALK_AT_TOP = 'talkAtTop';
+	public const SHOW_DONATE = 'donate';
 	public const HISTORY_IN_PAGE_ACTIONS = 'historyInPageActions';
 	public const TOOLBAR_SUBMENU = 'overflowSubmenu';
 	public const TABS_ON_SPECIALS = 'tabsOnSpecials';
@@ -41,6 +42,7 @@ final class SkinOptions {
 	// overridden on mobile.
 	private $skinOptions = [
 		self::BETA_MODE => false,
+		self::SHOW_DONATE => true,
 		/**
 		 * Whether the main menu should include a link to
 		 * Special:Preferences of Special:MobileOptions
