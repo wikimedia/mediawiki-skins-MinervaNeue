@@ -28,6 +28,9 @@
 		"MinervaCountErrors": {
 			"value": false
 		},
+		"MinervaDonateLink": {
+			"value": true
+		},
 		"MinervaDownloadNamespaces": {
 			"value": [
 				0
@@ -471,6 +474,7 @@
 			"useDataURI": false,
 			"icons": [
 				"die",
+				"heart",
 				"home",
 				"logIn",
 				"logOut",

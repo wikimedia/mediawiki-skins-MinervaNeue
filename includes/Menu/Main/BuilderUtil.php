@@ -22,6 +22,7 @@ namespace MediaWiki\Minerva\Menu\Main;
 
 use FatalError;
 use Hooks;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
 use MWException;
@@ -45,6 +46,13 @@ final class BuilderUtil {
 		$definitions->insertHomeItem( $group );
 		$definitions->insertRandomItem( $group );
 		$definitions->insertNearbyIfSupported( $group );
+
+		// Add a donate link (see https://phabricator.wikimedia.org/T219793)
+		$config = MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'minerva' );
+		if ( $config->get( 'MinervaDonateLink' ) ) {
+			$definitions->insertDonateItem( $group );
+		}
 
 		// Allow other extensions to add or override tools
 		Hooks::run( 'MobileMenu', [ 'discovery', &$group ] );

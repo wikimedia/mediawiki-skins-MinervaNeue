@@ -61,6 +61,13 @@ Controls whether the category button should be displayed.
 
 When enabled and hacks.less exists, hacks.less workarounds are included in stylesheet. These should only be needed for Wikimedia based wikis or wikis using common templates such as Template:Infobox on those wikis.
 
+#### $wgMinervaDonateLink
+
+* Type: `Boolean`
+* Default: `true`
+
+When enabled a donate link will be added to the main menu. The donate link uses the `sitesupport` and `sitesupport-url` mediawiki messages.
+
 #### $wgMinervaPageActions
 
 * Type: `Array`
