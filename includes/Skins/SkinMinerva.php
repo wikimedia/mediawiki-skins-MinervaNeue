@@ -172,9 +172,13 @@ class SkinMinerva extends SkinTemplate {
 		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $userMenuDirector */
 		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
 
+		$sidebar = parent::buildSidebar();
+		$personalUrls = $tpl->get( 'personal_urls' );
+		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
+
 		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
-		$tpl->set( 'pageActionsMenu', $pageActionsDirector->buildMenu( $tpl->getToolbox() ) );
-		$tpl->set( 'userMenuHTML', $userMenuDirector->renderMenuData( $tpl->getPersonalTools() ) );
+		$tpl->set( 'pageActionsMenu', $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'] ) );
+		$tpl->set( 'userMenuHTML', $userMenuDirector->renderMenuData( $personalTools ) );
 	}
 
 	/**
