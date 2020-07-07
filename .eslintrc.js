@@ -15,7 +15,6 @@ const config = {
 		"commonjs": true
 	},
 	"globals": {
-		"OO": "readonly",
 		"require": "readonly"
 	},
 	"rules": {
