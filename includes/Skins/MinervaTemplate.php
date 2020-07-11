@@ -49,7 +49,7 @@ class MinervaTemplate extends BaseTemplate {
 			->getSubjectPage( $title );
 
 		$this->isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
-		Hooks::run( 'MinervaPreRender', [ $this ] );
+		Hooks::run( 'MinervaPreRender', [ $this ], '1.35' );
 		$this->render( $this->data );
 	}
 
