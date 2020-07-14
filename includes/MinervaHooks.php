@@ -367,4 +367,24 @@ class MinervaHooks {
 
 		$bodyAttrs[ 'class' ] .= ' ' . $classes;
 	}
+
+	/**
+	 * SkinPageReadyConfig hook handler
+	 *
+	 * Disable collapsible and sortable on page load
+	 *
+	 * @param ResourceLoaderContext $context
+	 * @param mixed[] &$config Associative array of configurable options
+	 * @return void This hook must not abort, it must return no value
+	 */
+	public static function onSkinPageReadyConfig(
+		ResourceLoaderContext $context,
+		array &$config
+	) {
+		if ( $context->getSkin() === 'minerva' ) {
+			$config['search'] = false;
+			$config['collapsible'] = false;
+			$config['sortable'] = false;
+		}
+	}
 }

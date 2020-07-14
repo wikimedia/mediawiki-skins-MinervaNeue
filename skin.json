@@ -127,6 +127,9 @@
 		"ResourceLoaderRegisterModules": [
 			"MinervaHooks::onResourceLoaderRegisterModules"
 		],
+		"SkinPageReadyConfig": [
+			"MinervaHooks::onSkinPageReadyConfig"
+		],
 		"UserLogoutComplete": [
 			"MinervaHooks::onUserLogoutComplete"
 		],

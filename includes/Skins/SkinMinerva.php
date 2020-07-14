@@ -780,15 +780,28 @@ class SkinMinerva extends SkinTemplate {
 
 		// FIXME: T223204: Dequeue default content modules except for the history
 		// action. Allow default history action content modules
-		// (mediawiki.page.ready, jquery.makeCollapsible,
-		// jquery.makeCollapsible.styles, etc) in order to enable toggling of the
+		// in order to enable toggling of the
 		// filters. Long term this won't be necessary when T111565 is resolved and a
 		// more general solution can be used.
 		if ( Action::getActionName( $this->getContext() ) !== 'history' ) {
 			// dequeue default content modules (toc, sortable, collapsible, etc.)
-			$modules['content'] = [];
+			$modules['content'] = array_diff( $modules['content'], [
+				// T233340
+				'jquery.tablesorter',
+				// T111565
+				'jquery.makeCollapsible',
+				// Minerva provides its own implementation. Loading this will break display.
+				'mediawiki.toc'
+			] );
 			// dequeue styles associated with `content` key.
-			$modules['styles']['content'] = [];
+			$modules['styles']['content'] = array_diff( $modules['styles']['content'], [
+				// T233340
+				'jquery.tablesorter.styles',
+				// T111565
+				'jquery.makeCollapsible.styles',
+				// Minerva provides its own implementation
+				'mediawiki.toc.styles'
+			] );
 		}
 		$modules['styles']['core'] = $this->getSkinStyles();
 
