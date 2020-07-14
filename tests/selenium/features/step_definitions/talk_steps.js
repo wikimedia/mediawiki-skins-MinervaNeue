@@ -16,9 +16,7 @@ const iAddATopic = ( subject ) => {
 	overlay.$( '.overlay input' ).waitForExist();
 	overlay.$( '.overlay input' ).setValue( subject );
 	overlay.$( '.overlay textarea' ).setValue( 'Topic body is a really long text.' );
-	browser.waitUntil( () =>
-		!ArticlePageWithEditorOverlay.submit_element.getAttribute( 'disabled' )
-	);
+	ArticlePageWithEditorOverlay.submit_element.waitForEnabled();
 	ArticlePageWithEditorOverlay.submit_element.click();
 	waitForPropagation( 5000 );
 };
