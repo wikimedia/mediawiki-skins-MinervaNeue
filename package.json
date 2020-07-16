@@ -23,7 +23,7 @@
 		"@wdio/sync": "6.1.14",
 		"babel-loader": "8.0.6",
 		"bundlesize": "0.18.0",
-		"eslint-config-wikimedia": "0.16.0",
+		"eslint-config-wikimedia": "0.16.2",
 		"grunt": "1.1.0",
 		"grunt-banana-checker": "0.9.0",
 		"grunt-contrib-watch": "1.1.0",
