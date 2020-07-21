@@ -5,7 +5,8 @@
 			"Ans",
 			"Geonuch",
 			"Horus",
-			"Octahedron80"
+			"Octahedron80",
+			"Patsagorn Y."
 		]
 	},
 	"minerva-last-modified-date": "แก้ไขล่าสุดเมื่อ $1 เวลา $2",
@@ -45,7 +46,7 @@
 	"mobile-frontend-user-button-tooltip": "แสดงประกาศของฉัน",
 	"mobile-frontend-user-newmessages": "คุณมีสารใหม่บนหน้าคุยของคุณ",
 	"mobile-frontend-user-page-contributions": "การมีส่วนร่วม",
-	"mobile-frontend-user-page-member-since": "{{GENDER:$2|เข้าร่วม}} $1 แล้ว",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|เข้าร่วมเมื่อ}} $1",
 	"mobile-frontend-user-page-talk": "คุย",
 	"minerva-skin-desc": "สกินดั้งเดิมสำหรับอุปกรณ์เคลื่อนที่",
 	"skin-minerva-issue-learn-more": "เรียนรู้เพิ่มเติม",
