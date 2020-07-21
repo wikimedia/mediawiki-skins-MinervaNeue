@@ -35,7 +35,12 @@ module.exports = function () {
 				onShow: function () {
 					drawers.lockScroll();
 				},
+				onShowNestedReference: true,
 				onBeforeHide: drawers.discardDrawer
+			},
+			function ( oldDrawer, newDrawer ) {
+				oldDrawer.hide();
+				drawers.displayDrawer( newDrawer, {} );
 			}
 		).then( function ( drawer ) {
 			drawers.displayDrawer( drawer, {} );
