@@ -171,12 +171,6 @@ class MinervaHooks {
 
 		if ( $skin instanceof SkinMinerva ) {
 			switch ( $name ) {
-				case 'MobileMenu':
-					$out->addModuleStyles( [
-						'skins.minerva.mainMenu.icons',
-						'skins.minerva.mainMenu.styles',
-					] );
-					break;
 				case 'Recentchanges':
 					$isEnhancedDefaultForUser = $special->getUser()->getBoolOption( 'usenewrc' );
 					$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
