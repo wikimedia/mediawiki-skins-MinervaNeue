@@ -16,7 +16,8 @@
 	"mobile-frontend-editor-redlink-leave": "唔使喇，唔該。",
 	"mobile-frontend-history": "睇呢版嘅編輯歷史。",
 	"mobile-frontend-home-button": "頭版",
-	"mobile-frontend-language-article-heading": "用其他文去睇",
+	"mobile-frontend-language-article-heading": "用第啲話去睇",
+	"mobile-frontend-languages-not-available": "呢版重未有第啲話可以提供到。",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|歡迎}}，$1！",
 	"mobile-frontend-main-menu-button-tooltip": "開主選單",
 	"mobile-frontend-main-menu-contributions": "貢獻",
@@ -25,8 +26,14 @@
 	"mobile-frontend-main-menu-nearby": "左近",
 	"mobile-frontend-main-menu-settings": "自定喜好",
 	"mobile-frontend-main-menu-watchlist": "監視清單",
+	"mobile-frontend-meta-data-issues-categories": "關於呢個類",
 	"mobile-frontend-meta-data-issues-header-talk": "關於呢版",
 	"mobile-frontend-pageaction-edit-tooltip": "改呢頁嘅頭一段",
 	"mobile-frontend-placeholder": "搵{{SITENAME}}",
-	"mobile-frontend-random-button": "是但"
+	"mobile-frontend-random-button": "是但",
+	"mobile-frontend-user-page-talk": "傾偈",
+	"minerva-page-actions-overflow": "多啲",
+	"minerva-page-actions-backlinks": "有乜嘢連咗嚟呢度",
+	"minerva-page-actions-language-switcher": "話",
+	"minerva-page-actions-history": "史"
 }

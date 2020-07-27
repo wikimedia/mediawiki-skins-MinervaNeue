@@ -6,5 +6,6 @@
 		]
 	},
 	"mobile-frontend-home-button": "الصفحة اللّولا",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|مرحبا بيك}}، $1!",
 	"mobile-frontend-random-button": "عشوائي"
 }
