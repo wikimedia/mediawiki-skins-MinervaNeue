@@ -215,9 +215,6 @@
 			"mobile.special.styles": [
 				"skinStyles/mobile.special.styles/minerva.less"
 			],
-			"ext.echo.styles.special": [
-				"skinStyles/ext.echo.styles.special/SpecialNotificationsOverlay.less"
-			],
 			"mediawiki.editfont.styles": [
 				"skinStyles/mediawiki.editfont.styles/minerva.css"
 			],
@@ -230,12 +227,6 @@
 			],
 			"mobile.special.mobilemenu.styles": [
 				"skinStyles/mobile.special.mobilemenu.styles/minerva.less"
-			],
-			"ext.echo.mobile": [
-				"skinStyles/ext.echo.mobile/minerva.less"
-			],
-			"mobile.notifications.overlay": [
-				"skinStyles/ext.echo.mobile/minerva.less"
 			],
 			"mediawiki.content.json": [
 				"skinStyles/mediawiki.content-json/minerva.less"
