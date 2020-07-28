@@ -11,6 +11,7 @@ module.exports = function () {
 		// eslint-disable-next-line no-restricted-properties
 		mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 		PageGateway = mobile.PageGateway,
+		LanguageInfo = mobile.LanguageInfo,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		toast = mobile.toast,
 		Icon = mobile.Icon,
@@ -128,6 +129,13 @@ module.exports = function () {
 	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
 	overlayManager.add( /^\/languages$/, function () {
 		return mobile.languageOverlay( new PageGateway( api ) );
+	} );
+	// Register a LanguageInfo overlay which has no built-in functionality;
+	// a hook is fired when a language is selected, and extensions can respond
+	// to that hook. See GrowthExperiments WelcomeSurvey feature (in gerrit
+	// Ib558dc7c46cc56ff667957f9126bbe0471d25b8e for example usage).
+	overlayManager.add( /^\/languages\/all$/, function () {
+		return mobile.languageInfoOverlay( new LanguageInfo( api ) );
 	} );
 
 	// Setup
