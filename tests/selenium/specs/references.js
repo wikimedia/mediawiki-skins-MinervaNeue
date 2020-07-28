@@ -37,7 +37,7 @@ describe( 'Opening and closing the reference drawer', () => {
 		iShouldSeeNotTheReferenceDrawer();
 	} );
 
-	it( 'Opening a nested reference', () => {
+	it.skip( 'Opening a nested reference', () => {
 		iAmOnPage( 'Selenium References test page' );
 		iClickOnAReference();
 		iClickOnANestedReference();
