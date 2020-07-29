@@ -399,14 +399,15 @@ class SkinMinerva extends SkinTemplate {
 	 * @return array
 	 */
 	protected function getHistoryLink( Title $title ) {
-		$isLatestRevision = $this->getRevisionId() === $title->getLatestRevID();
+		$out = $this->getOutput();
+		$isLatestRevision = $out->getRevisionId() === $title->getLatestRevID();
 		// Get rev_timestamp of current revision (preloaded by MediaWiki core)
-		$timestamp = $this->getOutput()->getRevisionTimestamp();
+		$timestamp = $out->getRevisionTimestamp();
 		# No cached timestamp, load it from the database
 		if ( $timestamp === null ) {
 			$timestamp = MediaWikiServices::getInstance()
 				->getRevisionLookup()
-				->getTimestampFromId( $this->getOutput()->getRevisionId() );
+				->getTimestampFromId( $out->getRevisionId() );
 		}
 
 		return !$isLatestRevision || $title->isMainPage() ?
@@ -512,7 +513,7 @@ class SkinMinerva extends SkinTemplate {
 			$this->skinOptions->get( SkinOptions::SIMPLIFIED_TALK ) &&
 			// Only if viewing the latest revision, as we can't get the section numbers otherwise
 			// (and even if we could, they would be useless, because edits often add and remove sections).
-			$this->getRevisionId() === $title->getLatestRevID() &&
+			$this->getOutput()->getRevisionId() === $title->getLatestRevID() &&
 			$title->getContentModel() === CONTENT_MODEL_WIKITEXT;
 	}
 
