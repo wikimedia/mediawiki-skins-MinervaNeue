@@ -6,10 +6,10 @@
 		"build-storybook": "npm run storybook:setup && build-storybook -o docs/",
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
 		"doc": "jsdoc -c jsdoc.json",
-		"test:bundle": "./dev-scripts/bundlesize.sh",
+		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
 		"selenium-daily": "MW_SERVER=https://en.m.wikipedia.beta.wmflabs.org npm run selenium-test",
-		"selenium-test": "wdio tests/selenium/wdio.conf.js"
+		"selenium-test": "npm -s run test:size && wdio tests/selenium/wdio.conf.js"
 	},
 	"dependencies": {},
 	"devDependencies": {
@@ -40,23 +40,5 @@
 		"svgo": "1.3.2",
 		"wdio-mediawiki": "1.0.0",
 		"webdriverio": "6.1.25"
-	},
-	"bundlesize": [
-		{
-			"path": "tmp/skins.minerva.content.styles.css",
-			"maxSize": "5.3KB"
-		},
-		{
-			"path": "tmp/skins.minerva.base.styles.css",
-			"maxSize": "4.3KB"
-		},
-		{
-			"path": "tmp/skins.minerva.amc.styles.css",
-			"maxSize": "1.4KB"
-		},
-		{
-			"path": "tmp/skins.minerva.mainMenu.styles.css",
-			"maxSize": "2.0KB"
-		}
-	]
+	}
 }

@@ -20,7 +20,8 @@ module.exports = function ( grunt ) {
 				'!docs/**',
 				'!libs/**',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!tests/resource-loader-bundlesize.js'
 			]
 		},
 		stylelint: {
