@@ -349,23 +349,22 @@ class MinervaHooks {
 	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $skin, &$bodyAttrs ) {
 		$classes = $out->getProperty( 'bodyClassName' );
 		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+		$isMinerva = $skin instanceof SkinMinerva;
 
-		if ( $skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ) {
+		if ( $isMinerva && $skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ) {
 			// Class is used when page actions is modified to contain more elements
 			$classes .= ' minerva--history-page-action-enabled';
-
 		}
 
-		$isSimplifiedTalk = false;
-		if ( $skin instanceof SkinMinerva ) {
-			$isSimplifiedTalk = $skin->isSimplifiedTalkPageEnabled();
-		}
+		if ( $isMinerva ) {
+			// phan doesn't realize that $skin can only be an instance of SkinMinerva without this:
+			'@phan-var SkinMinerva $skin';
+			if ( $skin->isSimplifiedTalkPageEnabled() ) {
+				$classes .= ' skin-minerva--talk-simplified';
+			}
 
-		if ( $isSimplifiedTalk ) {
-			$classes .= ' skin-minerva--talk-simplified';
+			$bodyAttrs['class'] .= ' ' . $classes;
 		}
-
-		$bodyAttrs[ 'class' ] .= ' ' . $classes;
 	}
 
 	/**
