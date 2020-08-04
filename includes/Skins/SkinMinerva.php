@@ -55,7 +55,10 @@ class SkinMinerva extends SkinTemplate {
 	 * Initialize Minerva Skin
 	 */
 	public function __construct() {
-		parent::__construct( 'minerva' );
+		parent::__construct( [
+			'name' => 'minerva',
+			'responsive' => true
+		] );
 		$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
 	}
 
@@ -133,11 +136,6 @@ class SkinMinerva extends SkinTemplate {
 	 */
 	protected function prepareQuickTemplate() {
 		$out = $this->getOutput();
-
-		// add head items
-		$out->addMeta( 'viewport', 'initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, ' .
-				'maximum-scale=5.0, width=device-width'
-		);
 
 		// Generate skin template
 		$tpl = parent::prepareQuickTemplate();
