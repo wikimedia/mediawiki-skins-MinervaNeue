@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Cgboeree",
-			"Katxis"
+			"Katxis",
+			"Robin van der Vliet"
 		]
 	},
 	"mobile-frontend-editor-edit": "Edita",
 	"mobile-frontend-home-button": "Paje prima",
 	"mobile-frontend-language-article-heading": "Leje en un otra lingua",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bonveni}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Abri la menu xef",
 	"mobile-frontend-main-menu-login": "Identifia",
 	"mobile-frontend-main-menu-nearby": "Prosima",
