@@ -84,10 +84,11 @@ return [
 			$user = $context->getUser();
 			$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
 			$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
+			$namespaceInfo = $services->getNamespaceInfo();
 
 			$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
 				new SkinUserPageHelper(
-					$context->getSkin()->getRelevantTitle()->getSubjectPage()
+					$namespaceInfo->getSubjectPage( $context->getSkin()->getRelevantTitle() )
 				) :
 				$userPageHelper;
 
