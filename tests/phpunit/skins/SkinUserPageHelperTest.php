@@ -2,7 +2,6 @@
 
 namespace Tests\MediaWiki\Minerva;
 
-use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWikiTestCase;
 use Title;
@@ -22,20 +21,6 @@ class SkinUserPageHelperTest extends MediaWikiTestCase {
 		$title = Title::newFromText( 'Test Page' );
 
 		$helper = new SkinUserPageHelper( $title );
-		$this->assertFalse( $helper->isUserPage() );
-	}
-
-	/**
-	 * @covers ::isUserPage
-	 * @covers ::getPageUser
-	 */
-	public function testLinkTargetAsConsumer() {
-		$linkTarget = $this->createMock( LinkTarget::class );
-		$linkTarget->method( 'getText' )
-			->willReturn( 'User:LinkTarget' );
-
-		$helper = new SkinUserPageHelper( $linkTarget );
-		$this->assertNull( $helper->getPageUser() );
 		$this->assertFalse( $helper->isUserPage() );
 	}
 
