@@ -20,7 +20,6 @@
 
 namespace MediaWiki\Minerva\Skins;
 
-use MediaWiki\Linker\LinkTarget;
 use Title;
 use User;
 
@@ -40,9 +39,9 @@ class SkinUserPageHelper {
 	private $pageUser;
 
 	/**
-	 * @param Title|LinkTarget|null $title
+	 * @param Title|null $title
 	 */
-	public function __construct( $title = null ) {
+	public function __construct( Title $title = null ) {
 		$this->title = $title;
 	}
 
