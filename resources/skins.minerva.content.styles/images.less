@@ -48,17 +48,13 @@
 	// See bug T64460
 	// due to lazy loading images we also must consider imgs inside noscript tags (T191893)
 	a > img,
-	a > .lazy-image-placeholder,
 	noscript > img {
 		// make sure that images in articles don't cause a horizontal scrollbar
 		// on small screens
 		max-width: 100% !important;
-	}
 
-	// Note height auto is only applied to images. Not neeed for the lazy-image-placeholder which is
-	// a gray box and will cause reflows.
-	noscript > img,
-	a > img {
+		// Note height auto is only applied to images. Not neeed for the lazy-image-placeholder which is
+		// a gray box and will cause reflows.
 		height: auto !important;
 	}
 

@@ -29,3 +29,17 @@
 	// See T199351#6370886
 	vertical-align: middle;
 }
+
+.content {
+	a > .lazy-image-placeholder {
+		// make sure that images in articles don't cause a horizontal scrollbar
+		// on small screens
+		max-width: 100% !important;
+	}
+}
+
+@media print {
+	.lazy-image-placeholder {
+		page-break-inside: avoid;
+	}
+}

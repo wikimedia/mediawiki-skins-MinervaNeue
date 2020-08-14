@@ -166,6 +166,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mobile.init.styles": [
+				"skinStyles/mobile.init.styles/mobile.less"
+			],
 			"mediawiki.diff.styles": [
 				"skinStyles/mediawiki.diff.styles.less"
 			],
