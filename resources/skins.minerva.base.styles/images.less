@@ -3,6 +3,8 @@
 
 @placeholderBackgroundColor: @grayLightest;
 
+// Only applies to mobile Minerva. For this reason these rules should likely be moved to
+// `mobile.init.styles` either as a skin style or default style.
 .lazy-image-placeholder {
 	background-color: @placeholderBackgroundColor;
 
@@ -24,4 +26,6 @@
 	// instead of allowing text before and after
 	// see T146298
 	display: inline-block;
+	// See T199351#6370886
+	vertical-align: middle;
 }
