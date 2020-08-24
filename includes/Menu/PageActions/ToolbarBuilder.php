@@ -22,6 +22,7 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use ExtensionRegistry;
 use Hooks;
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
@@ -75,6 +76,18 @@ class ToolbarBuilder {
 	private $languagesHelper;
 
 	/**
+	 * @var bool Correlates to $wgWatchlistExpiry feature flag.
+	 */
+	private $watchlistExpiryEnabled;
+
+	/**
+	 * ServiceOptions needed.
+	 */
+	public const CONSTRUCTOR_OPTIONS = [
+		'WatchlistExpiry',
+	];
+
+	/**
 	 * Build Group containing icons for toolbar
 	 * @param Title $title Article title user is currently browsing
 	 * @param User $user Currently logged in user
@@ -86,6 +99,7 @@ class ToolbarBuilder {
 	 * user talk page, UserPageHelper should be instantiated with the user page
 	 * Title and NOT with the user talk page Title.
 	 * @param LanguagesHelper $languagesHelper Helper to check title languages/variants
+	 * @param ServiceOptions $options
 	 */
 	public function __construct(
 		Title $title,
@@ -94,7 +108,8 @@ class ToolbarBuilder {
 		IMinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
 		SkinUserPageHelper $relevantUserPageHelper,
-		LanguagesHelper $languagesHelper
+		LanguagesHelper $languagesHelper,
+		ServiceOptions $options
 	) {
 		$this->title = $title;
 		$this->user = $user;
@@ -103,6 +118,7 @@ class ToolbarBuilder {
 		$this->skinOptions = $skinOptions;
 		$this->relevantUserPageHelper = $relevantUserPageHelper;
 		$this->languagesHelper = $languagesHelper;
+		$this->watchlistExpiryEnabled = $options->get( 'WatchlistExpiry' );
 	}
 
 	/**
@@ -220,17 +236,18 @@ class ToolbarBuilder {
 	 * @throws MWException
 	 */
 	protected function createWatchPageAction(): IMenuEntry {
-		$title = $this->title;
-		$user = $this->user;
-		$isWatched = $title && $user->isLoggedIn() && $user->isWatched( $title );
+		$isWatched = $this->user->isLoggedIn() && $this->user->isWatched( $this->title );
+		$isTempWatched = $this->watchlistExpiryEnabled &&
+			$isWatched &&
+			$this->user->isTempWatched( $this->title );
 		$newModeToSet = $isWatched ? 'unwatch' : 'watch';
-		$href = $user->isAnon()
-			? $this->getLoginUrl( [ 'returnto' => $title ] )
-			: $title->getLocalURL( [ 'action' => $newModeToSet ] );
+		$href = $this->user->isAnon()
+			? $this->getLoginUrl( [ 'returnto' => $this->title ] )
+			: $this->title->getLocalURL( [ 'action' => $newModeToSet ] );
 
 		if ( $isWatched ) {
 			$msg = $this->messageLocalizer->msg( 'unwatch' );
-			$icon = 'unStar-progressive';
+			$icon = $isTempWatched ? 'halfStar-progressive' : 'unStar-progressive';
 		} else {
 			$msg = $this->messageLocalizer->msg( 'watch' );
 			$icon = 'star-base20';
@@ -243,7 +260,9 @@ class ToolbarBuilder {
 			'wikimedia'
 		);
 
-		if ( $isWatched ) {
+		if ( $isTempWatched ) {
+			$iconClass .= ' temp-watched';
+		} elseif ( $isWatched ) {
 			$iconClass .= ' watched';
 		}
 

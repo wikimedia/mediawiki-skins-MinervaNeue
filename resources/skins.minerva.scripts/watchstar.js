@@ -1,4 +1,5 @@
 var WATCHED_CLASS = 'mw-ui-icon-wikimedia-unStar-progressive',
+	TEMP_WATCHED_CLASS = 'mw-ui-icon-wikimedia-halfStar-progressive',
 	UNWATCHED_CLASS = 'mw-ui-icon-wikimedia-star-base20';
 
 /**
@@ -9,7 +10,7 @@ var WATCHED_CLASS = 'mw-ui-icon-wikimedia-unStar-progressive',
 module.exports = function init( $icon ) {
 	$icon.on( 'watchpage.mw', function ( _ev, action ) {
 		$( this ).find( 'a' ).removeClass(
-			[ WATCHED_CLASS, 'watched', UNWATCHED_CLASS ]
+			[ WATCHED_CLASS, 'watched', TEMP_WATCHED_CLASS, UNWATCHED_CLASS ]
 		).addClass(
 			action === 'watch' ? [ WATCHED_CLASS, 'watched' ] : UNWATCHED_CLASS
 		);
