@@ -135,7 +135,10 @@ module.exports = function () {
 	// to that hook. See GrowthExperiments WelcomeSurvey feature (in gerrit
 	// Ib558dc7c46cc56ff667957f9126bbe0471d25b8e for example usage).
 	overlayManager.add( /^\/languages\/all$/, function () {
-		return mobile.languageInfoOverlay( new LanguageInfo( api ) );
+		return mobile.languageInfoOverlay( new LanguageInfo( api ), true );
+	} );
+	overlayManager.add( /^\/languages\/all\/no-suggestions$/, function () {
+		return mobile.languageInfoOverlay( new LanguageInfo( api ), false );
 	} );
 
 	// Setup
