@@ -355,6 +355,7 @@
 				"search",
 				"userAvatar",
 				"star",
+				"halfStar",
 				"unStar"
 			]
 		},

@@ -19,6 +19,7 @@
  * @file
  */
 
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
@@ -98,7 +99,9 @@ return [
 				$services->getService( 'Minerva.Permissions' ),
 				$skinOptions,
 				$relevantUserPageHelper,
-				$languagesHelper
+				$languagesHelper,
+				new ServiceOptions( PageActionsMenu\ToolbarBuilder::CONSTRUCTOR_OPTIONS,
+					$services->getMainConfig() )
 			);
 			if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
 				 $overflowBuilder = $relevantUserPageHelper->isUserPage() ?
