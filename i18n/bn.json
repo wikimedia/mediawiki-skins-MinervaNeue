@@ -44,7 +44,7 @@
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" প্রকল্প পাতায় ফিরুন।",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\"-এর ব্যবহারকারী পাতায় ফিরুন।",
 	"mobile-frontend-user-button-tooltip": "আমার বিজ্ঞপ্তিগুলো দেখান",
-	"mobile-frontend-user-newmessages": "আপনার আলাপ পাতায় আপনার জন্য নতুন বার্তা আছে",
+	"mobile-frontend-user-newmessages": "আপনার আলাপ পাতায় আপনার জন্য নতুন বার্তা এসেছে",
 	"mobile-frontend-user-page-contributions": "অবদান",
 	"mobile-frontend-user-page-member-since": "$1 তারিখে {{GENDER:$2|যোগ দিয়েছেন}}",
 	"mobile-frontend-user-page-talk": "আলাপ",
