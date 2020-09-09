@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lancine.kounfantoh.fofana",
 			"Youssoufkadialy"
 		]
 	},
-	"mobile-frontend-editor-edit": "ߟߊߖߍ߲ߛߍ߲߫",
+	"mobile-frontend-editor-edit": "ߊ߬ ߡߊߦߟߍ߬ߡߊ߲߫",
 	"mobile-frontend-home-button": "ߓߏ߬ߟߏ߲߬ߘߊ",
-	"mobile-frontend-main-menu-button-tooltip": "ߓߏ߬ߟߏ߲߬ߘߊ ߘߊߦߟߍ߬",
+	"mobile-frontend-main-menu-button-tooltip": "ߢߣߊߕߊߟߌ ߓߊߖߎߡߊ ߘߊߦߟߍ߬",
 	"mobile-frontend-main-menu-login": "ߌ ߜߊ߲߬ߞߎ߲߫"
 }
