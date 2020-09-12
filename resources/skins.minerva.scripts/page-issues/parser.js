@@ -215,9 +215,6 @@
 		};
 	}
 
-	/**
-	 * @module skins.minerva.scripts/utils
-	 */
 	module.exports = {
 		extract: extract,
 		parse: parse,

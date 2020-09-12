@@ -189,9 +189,9 @@
 		}
 
 		// Setup the overlay route.
-		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( section ) {
+		overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( s ) {
 			return pageIssuesOverlay(
-				getIssues( allIssues, section ), section, CURRENT_NS
+				getIssues( allIssues, s ), s, CURRENT_NS
 			);
 		} );
 	}
