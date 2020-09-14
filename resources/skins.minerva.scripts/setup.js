@@ -10,7 +10,7 @@ function init() {
 		$watch = $( '#page-actions-watch' );
 
 	if ( permissions.watch && !mw.user.isAnon() ) {
-		require( './watchstar.js' )( $watch );
+		require( './watchstar.js' ).init( $watch );
 	}
 
 	// Setup Minerva with MobileFrontend

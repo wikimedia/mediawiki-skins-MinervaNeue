@@ -623,12 +623,14 @@
 			"resources/skins.minerva.scripts/page-issues/index.js",
 			"resources/skins.minerva.scripts/UriUtil.js",
 			"resources/skins.minerva.scripts/TitleUtil.js",
+			"resources/skins.minerva.scripts/watchstar.js",
 			"tests/qunit/skins.minerva.scripts/downloadPageAction.test.js",
 			"tests/qunit/skins.minerva.scripts/page-issues/parser.test.js",
 			"tests/qunit/skins.minerva.scripts/AB.test.js",
 			"tests/qunit/skins.minerva.scripts/page-issues/index.test.js",
 			"tests/qunit/skins.minerva.scripts/UriUtil.test.js",
-			"tests/qunit/skins.minerva.scripts/TitleUtil.test.js"
+			"tests/qunit/skins.minerva.scripts/TitleUtil.test.js",
+			"tests/qunit/skins.minerva.scripts/watchstar.test.js"
 		]
 	},
 	"ServiceWiringFiles": [
