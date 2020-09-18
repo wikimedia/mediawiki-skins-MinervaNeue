@@ -3,9 +3,9 @@
 	"scripts": {
 		"storybook:setup": "./dev-scripts/setup-storybook.sh",
 		"storybook": "npm run storybook:setup && start-storybook -p 6006",
-		"build-storybook": "npm run storybook:setup && build-storybook -o docs/",
+		"build-storybook": "npm run storybook:setup && build-storybook -o docs/ui",
 		"test": "grunt test && npm run doc && dev-scripts/svg_check.sh",
-		"doc": "jsdoc -c jsdoc.json",
+		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
 		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
 		"selenium-daily": "MW_SERVER=https://en.m.wikipedia.beta.wmflabs.org npm run selenium-test",
