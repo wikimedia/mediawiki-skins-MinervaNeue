@@ -5,7 +5,8 @@
 			"Gitartha.bordoloi",
 			"IKHazarika",
 			"Nilamdyuti",
-			"Sagsag"
+			"Sagsag",
+			"Simbu123"
 		]
 	},
 	"mobile-frontend-editor-edit": "সম্পাদনা কৰক",
@@ -23,5 +24,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "এই পৃষ্ঠাৰ শীৰ্ষ অনুচ্ছেদ সম্পাদনা কৰক।",
 	"mobile-frontend-placeholder": "সন্ধান কৰক {{SITENAME}}",
 	"mobile-frontend-random-button": "যিকোনো",
-	"skin-minerva-issue-learn-more": "আৰু শিকক"
+	"skin-minerva-issue-learn-more": "আৰু শিকক",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "দুৰ্ভাগ্যবশত, পৃষ্ঠা অনুসৰি ফলাফল দলবদ্ধ কৰা বিকল্পটো মোবাইলত উপলব্ধ নহয়। আপুনি যদি পৃষ্ঠা অনুসৰি দলবদ্ধ কৰা বিকল্পটো ব্যৱহাৰ কৰিব বিচাৰে, তেন্তে অনুগ্ৰহ কৰি ডেস্কটপ সংস্কৰণটো চাওক।"
 }
