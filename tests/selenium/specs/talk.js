@@ -65,7 +65,7 @@ describe( 'Talk', () => {
 		thereShouldBeASaveDiscussionButton();
 	} );
 
-	it( 'A newly created topic appears in the list of topics', () => {
+	it.skip( 'A newly created topic appears in the list of topics', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnATalkPageWithNoTalkTopics();
 		noTopicIsPresent();
