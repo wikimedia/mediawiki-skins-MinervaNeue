@@ -223,7 +223,8 @@
 			],
 			"mediawiki.notification": [
 				"skinStyles/mobile.startup/drawers.less",
-				"skinStyles/mobile.startup/toast.less"
+				"skinStyles/mobile.startup/toast.less",
+				"skinStyles/mediawiki.watchstar.widgets.css"
 			],
 			"mediawiki.action.edit.styles": [
 				"skinStyles/mediawiki.action.edit.styles/minerva.less"
