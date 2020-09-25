@@ -8,5 +8,6 @@ module.exports = [
 	require( './AB.test.js' ),
 	require( './page-issues/index.test.js' ),
 	require( './UriUtil.test.js' ),
-	require( './TitleUtil.test.js' )
+	require( './TitleUtil.test.js' ),
+	require( './watchstar.test.js' )
 ];
