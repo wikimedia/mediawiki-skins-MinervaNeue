@@ -152,6 +152,9 @@
 			"MinervaHooks::onOutputPageBodyAttributes"
 		]
 	},
+	"SkinLessImportPaths": {
+		"minerva": "resources/mediawiki.less"
+	},
 	"MessagesDirs": {
 		"MinervaNeue": [
 			"i18n"

@@ -4,7 +4,12 @@ set -eu
 mkdir -p .resolve-less-imports/images
 mkdir -p .resolve-less-imports/mediawiki.ui
 
+# Copy skin's mediawiki.skin.variables.less to use it over core's own, which is removed.
+rm -f .resolve-less-imports/mediawiki.skin.variables.less
+cp resources/mediawiki.less/mediawiki.skin.variables.less .resolve-less-imports/
+
 # Fetch resources via curl, `-sSL` silently, Show only errors, Location header and also with a 3XX response code.
+curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.skin.defaults.less?format=TEXT" | base64 --decode > .resolve-less-imports/mediawiki.skin.defaults.less
 curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.skin.defaults.less?format=TEXT" | base64 --decode > .resolve-less-imports/mediawiki.skin.variables.less
 curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.mixins.less?format=TEXT" | base64 --decode > .resolve-less-imports/mediawiki.mixins.less
 curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.ui/variables.less?format=TEXT" | base64 --decode > .resolve-less-imports/mediawiki.ui/variables.less
