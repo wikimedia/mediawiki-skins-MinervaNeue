@@ -9,7 +9,7 @@ export default {
 
 export const lastModifiedBar = () =>
 	withAnnotation( mustache.render( template, {
-		clockIconClass: 'last-modified-bar__icon mw-ui-icon mw-ui-icon-mw-ui-icon-small mw-ui-icon-minerva-clock',
+		historyIconClass: 'last-modified-bar__icon mw-ui-icon mw-ui-icon-mw-ui-icon-small mw-ui-icon-wikimedia-history-base20',
 		arrowIconClass: 'mw-ui-icon mw-ui-icon-small mw-ui-icon-mf-expand-gray mf-mw-ui-icon-rotate-anti-clockwise indicator mw-ui-icon-mf-arrow-gray',
 		text: 'Last edited on 20 January 2020, at 18:38',
 		href: "#/wiki/Special:History/Username",
@@ -20,7 +20,7 @@ export const lastModifiedBar = () =>
 
 export const lastModifiedBarActive = () => {
 	const html = mustache.render( template, {
-			clockIconClass: 'last-modified-bar__icon mw-ui-icon mw-ui-icon-mw-ui-icon-small mw-ui-icon-minerva-clock',
+			historyIconClass: 'last-modified-bar__icon mw-ui-icon mw-ui-icon-mw-ui-icon-small mw-ui-icon-wikimedia-history-base20',
 			arrowIconClass: 'mw-ui-icon mw-ui-icon-small mw-ui-icon-mf-expand-gray mf-mw-ui-icon-rotate-anti-clockwise indicator mw-ui-icon-mf-arrow-gray',
 			text: 'Last edited on 20 January 2020, at 18:38',
 			href: "#/wiki/Special:History/Username",
@@ -35,8 +35,8 @@ export const lastModifiedBarActive = () => {
 	node.querySelector( '.last-modified-bar__text' ).outerHTML = `<span class="last-modified-bar__text">
 		<a href="#">Last edited 57 seconds ago</a> by <a href="#">Username</a></span>`;
 	// invert icons
-	node.querySelector( '.mw-ui-icon-minerva-clock' ).classList.add(
-		'mw-ui-icon-minerva-clock-invert'
+	node.querySelector( '.mw-ui-icon-wikimedia-history-base20' ).classList.add(
+		'mw-ui-icon-wikimedia-history-invert'
 	);
 	node.querySelector( '.mw-ui-icon-mf-expand-gray' ).classList.add(
 		'mw-ui-icon-mf-expand-invert'
