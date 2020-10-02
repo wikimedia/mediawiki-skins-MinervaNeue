@@ -59,45 +59,6 @@ class MinervaTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Returns template data for footer
-	 *
-	 * @param array $data Data used to build the page
-	 * @return array
-	 */
-	protected function getFooterTemplateData( $data ) {
-		$groups = [];
-
-		foreach ( $data['footerlinks'] as $category => $links ) {
-			$items = [];
-			foreach ( $links as $link ) {
-				if ( isset( $this->data[$link] ) && $data[$link] !== '' && $data[$link] !== false ) {
-					$items[] = [
-						'category' => $category,
-						'name' => $link,
-						'linkhtml' => $data[$link],
-					];
-				}
-			}
-			$groups[] = [
-				'name' => $category,
-				'items' => $items,
-			];
-		}
-
-		// This turns off the footer id and allows us to distinguish the old footer with the new design
-
-		return [
-			'lastmodified' => $this->getHistoryLinkHtml( $data ),
-			'headinghtml' => $data['footer-site-heading-html'],
-			// Note mobile-license is only available on the mobile skin. It is outputted as part of
-			// footer-info on desktop hence the conditional check.
-			'licensehtml' => ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ?
-				MobileFrontendSkinHooks::getLicenseText( $this->getSkin() ) : '',
-			'lists' => $groups,
-		];
-	}
-
-	/**
 	 * Get the HTML for rendering the available page actions
 	 * @return string
 	 */
@@ -241,7 +202,6 @@ class MinervaTemplate extends BaseTemplate {
 			'search' => $data['search'],
 			'placeholder' => wfMessage( 'mobile-frontend-placeholder' ),
 			'main-menu-tooltip' => $this->getMsg( 'mobile-frontend-main-menu-button-tooltip' ),
-			'siteheading' => $data['footer-site-heading-html'],
 			'mainPageURL' => Title::newMainPage()->getLocalURL(),
 			'userNavigationLabel' => wfMessage( 'minerva-user-navigation' ),
 			// A button when clicked will submit the form
@@ -268,8 +228,13 @@ class MinervaTemplate extends BaseTemplate {
 			'subtitle' => $data['subtitle'],
 			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
-			'dataAfterContent' => $this->get( 'dataAfterContent' ),
-			'footer' => $this->getFooterTemplateData( $data ),
+
+			'html-minerva-lastmodified' => $this->getHistoryLinkHtml( $data ),
+			// Note mobile-license is only available on the mobile skin. It is outputted as part of
+			// footer-info on desktop hence the conditional check.
+			'html-minerva-license' => ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ?
+				MobileFrontendSkinHooks::getLicenseText( $this->getSkin() ) : '',
+
 			'isBeta' => $skinOptions->get( SkinOptions::BETA_MODE ),
 			'tabs' => $this->showTalkTabs( $hasPageActions, $skinOptions ) &&
 					  $skinOptions->get( SkinOptions::TALK_AT_TOP ) ? [

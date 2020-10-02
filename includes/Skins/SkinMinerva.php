@@ -58,6 +58,9 @@ class SkinMinerva extends SkinMustache {
 		parent::__construct( [
 			'name' => 'minerva',
 			'templateDirectory' => __DIR__,
+			'messages' => [
+				'mobile-frontend-footer-sitename'
+			],
 			'responsive' => true
 		] );
 		$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
@@ -104,40 +107,6 @@ class SkinMinerva extends SkinMustache {
 			$this->mainMenu = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.MainDirector' );
 		}
 		return $this->mainMenu;
-	}
-
-	/**
-	 * Returns the site name for the footer, either as a text or <img> tag
-	 * @return string
-	 */
-	public function getSitename() {
-		$config = $this->getConfig();
-		$logos = ResourceLoaderSkinModule::getAvailableLogos( $config );
-		$wordmark = $logos['wordmark'] ?? false;
-
-		$footerSitename = $this->msg( 'mobile-frontend-footer-sitename' )->text();
-
-		// If there's a custom site logo, use that instead of text.
-		if ( $wordmark ) {
-			$wordmarkAttrs = [];
-
-			foreach ( [ 'src', 'width', 'height' ] as $key ) {
-				if ( isset( $wordmark[ $key ] ) ) {
-					$wordmarkAttrs[ $key ] = $wordmark[ $key ];
-				}
-			}
-			$attributes = $wordmarkAttrs + [
-				'alt' => $footerSitename,
-			];
-			if ( isset( $wordmark[ '1x' ] ) ) {
-				$attributes['srcset'] = $wordmark['1x'] . ' 1x';
-			}
-			$sitename = Html::element( 'img', $attributes );
-		} else {
-			$sitename = $footerSitename;
-		}
-
-		return $sitename;
 	}
 
 	/**
@@ -590,7 +559,6 @@ class SkinMinerva extends SkinMustache {
 		}
 		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
 
-		$tpl->set( 'footer-site-heading-html', $this->getSitename() );
 		// set defaults
 		if ( !isset( $tpl->data['postbodytext'] ) ) {
 			$tpl->set( 'postbodytext', '' ); // not currently set in desktop skin
