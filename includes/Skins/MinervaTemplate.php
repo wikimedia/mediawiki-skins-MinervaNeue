@@ -27,9 +27,6 @@ class MinervaTemplate extends BaseTemplate {
 	/** @var bool Specify whether the page is a special page */
 	protected $isSpecialPage;
 
-	/** @var bool Whether or not the user is on the Special:MobileMenu page */
-	protected $isSpecialMobileMenuPage;
-
 	/** @var bool Specify whether the page is main page */
 	protected $isMainPage;
 
@@ -44,8 +41,6 @@ class MinervaTemplate extends BaseTemplate {
 	public function execute() {
 		$title = $this->getSkin()->getTitle();
 		$this->isSpecialPage = $title->isSpecialPage();
-		$this->isSpecialMobileMenuPage = $this->isSpecialPage &&
-			$title->isSpecial( 'MobileMenu' );
 		$this->isMainPage = $title->isMainPage();
 		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
 			->getSubjectPage( $title );
