@@ -90,4 +90,16 @@
 		.transform( none );
 	}
 }
+
+// T264376 - disable animations on browsers impacted by bug
+.hotfix-T264376 {
+	.main-menu-mask {
+		display: none;
+	}
+
+	#main-menu-input:checked ~ .main-menu-mask {
+		display: block;
+	}
+}
+
 // stylelint-enable no-descending-specificity, selector-max-id
