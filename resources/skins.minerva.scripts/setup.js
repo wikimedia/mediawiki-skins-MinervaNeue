@@ -22,6 +22,13 @@ function init() {
 		require( './searchSuggestReveal.js' )();
 	}
 	mw.hook( 'util.addPortletLink' ).add( require( './addPortletLink.js' ) );
+
+	// This hot fix should be reviewed and possibly removed circa January 2021.
+	// It's assumed that Apple will prioritize fixing this bug in one of its next releases.
+	// See T264376.
+	if ( navigator.userAgent.match( /OS 14_0/ ) ) {
+		document.body.classList.add( 'hotfix-T264376' );
+	}
 }
 
 init();
