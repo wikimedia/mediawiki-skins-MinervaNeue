@@ -38,6 +38,8 @@ class MinervaTemplate extends BaseTemplate {
 
 	/**
 	 * Start render the page in template
+	 * @deprecated please migrate code here to SkinMinerva::getTemplateData
+	 * @return array
 	 */
 	public function execute() {
 		$title = $this->getSkin()->getTitle();
@@ -50,7 +52,7 @@ class MinervaTemplate extends BaseTemplate {
 
 		$this->isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
 		Hooks::run( 'MinervaPreRender', [ $this ], '1.35' );
-		$this->render( $this->data );
+		return $this->getTemplateData();
 	}
 
 	/**
@@ -223,10 +225,11 @@ class MinervaTemplate extends BaseTemplate {
 
 	/**
 	 * Render the entire page
-	 * @param array $data Data used to build the page
-	 * @todo replace with template engines
+	 * @deprecated please migrate code here to SkinMinerva::getTemplateData
+	 * @return array
 	 */
-	protected function render( $data ) {
+	protected function getTemplateData() {
+		$data = $this->data;
 		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
 		$templateParser = new TemplateParser( __DIR__ );
 
@@ -236,13 +239,12 @@ class MinervaTemplate extends BaseTemplate {
 		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
 		// prepare template data
-		$templateData = [
+		return [
 			'banners' => $data['banners'],
 			'wgScript' => $data['wgScript'],
 			'isAnon' => $data['username'] === null,
 			'search' => $data['search'],
 			'placeholder' => wfMessage( 'mobile-frontend-placeholder' ),
-			'headelement' => $data[ 'headelement' ],
 			'main-menu-tooltip' => $this->getMsg( 'mobile-frontend-main-menu-button-tooltip' ),
 			'siteheading' => $data['footer-site-heading-html'],
 			'mainPageURL' => Title::newMainPage()->getLocalURL(),
@@ -279,13 +281,6 @@ class MinervaTemplate extends BaseTemplate {
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
 		];
-		// begin rendering
-		echo $templateParser->processTemplate( 'skin', $templateData );
-		$this->printTrail();
-		?>
-		</body>
-		</html>
-		<?php
 	}
 
 	/**

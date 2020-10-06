@@ -30,7 +30,7 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
  * A skin that works on both desktop and mobile
  * @ingroup Skins
  */
-class SkinMinerva extends SkinTemplate {
+class SkinMinerva extends SkinMustache {
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	 * in editing mode
 	 */
@@ -57,9 +57,20 @@ class SkinMinerva extends SkinTemplate {
 	public function __construct() {
 		parent::__construct( [
 			'name' => 'minerva',
+			'templateDirectory' => __DIR__,
 			'responsive' => true
 		] );
 		$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getTemplateData() {
+			$data = parent::getTemplateData();
+			$tpl = $this->prepareQuickTemplate();
+			$tplData = $tpl->execute();
+			return $data + $tplData;
 	}
 
 	/**
