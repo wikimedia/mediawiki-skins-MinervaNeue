@@ -62,11 +62,23 @@ strong {
 
 blockquote {
 	border-left: 3px solid @colorGray12;
+	padding: @padding-vertical-blockquote @padding-end-blockquote @padding-vertical-blockquote @padding-start-blockquote;
 	font-family: @font-family-serif;
 	font-size: 1.1em;
-	padding: 1em @blockquotePaddingRight 1em @blockquotePaddingLeft;
-	position: relative;
-	overflow: hidden;
+
+	// Ensure not to inherit whitespace mashing margins on child elements.
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	> :only-child {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 em,
