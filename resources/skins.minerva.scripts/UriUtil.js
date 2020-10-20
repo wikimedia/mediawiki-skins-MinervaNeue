@@ -25,7 +25,12 @@
 	 * @return {boolean}
 	 */
 	function isInternal( uri ) {
-		return uri.host === mw.Uri().host;
+		try {
+			// mw.Uri can throw exceptions (T264914, T66884)
+			return uri.host === mw.Uri().host;
+		} catch ( e ) {
+			return false;
+		}
 	}
 
 	module.exports = {
