@@ -70,12 +70,14 @@
 	"minerva-talk-full-page": "Przeczytaj jak stronę wiki",
 	"minerva-talk-topic-feedback": "Nowy temat dodano na stronę dyskusji!",
 	"minerva-talk-reply-success": "Twoja odpowiedź została zapisana na stronie dyskusji.",
-	"skinname-minerva": "Minerwa",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Responsywna skórka przeznaczona dla urządzeń mobilnych",
 	"skin-minerva-issue-learn-more": "Dowiedz się więcej",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorie",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobacz kategorie stron",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Ulepszone rozwiązywanie problemów ze stroną",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemy ze stroną (Szablon:ambox) będą wyświetlane wewnątrz artykułu.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Niestety, funkcja grupowania wyników na strony nie jest dostępna w wersji mobilnej. Jeżeli chcesz użyć funkcji grupowania na strony, przejdź do wersji standardowej."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Niestety, funkcja grupowania wyników na strony nie jest dostępna w wersji mobilnej. Jeżeli chcesz użyć funkcji grupowania na strony, przejdź do wersji standardowej.",
+	"minerva.css": "/* Umieszczony tutaj kod CSS zostanie załadowany przez użytkowników korzystających ze skórki MinervaNeue */",
+	"minerva.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany przez użytkowników korzystających ze skórki MinervaNeue */"
 }
