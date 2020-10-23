@@ -330,7 +330,6 @@ class MinervaHooks {
 			$roConf = MediaWikiServices::getInstance()->getConfiguredReadOnlyMode();
 			$vars += [
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
-				'wgMinervaCountErrors' => $config->get( 'MinervaCountErrors' ),
 				'wgMinervaReadOnly' => $roConf->isReadOnly(),
 			];
 		}
