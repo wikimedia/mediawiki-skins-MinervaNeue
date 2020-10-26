@@ -16,7 +16,6 @@ module.exports = function () {
 		toast = mobile.toast,
 		Icon = mobile.Icon,
 		time = mobile.time,
-		errorLogging = require( './errorLogging.js' ),
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
 		search = require( './search.js' ),
@@ -416,7 +415,6 @@ module.exports = function () {
 			issues.init( overlayManager, currentPageHTMLParser );
 		}
 
-		mw.requestIdleCallback( errorLogging );
 		// deprecation notices
 		mw.log.deprecate( router, 'navigate', router.navigate, 'use navigateTo instead' );
 

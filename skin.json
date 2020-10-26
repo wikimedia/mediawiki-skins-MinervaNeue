@@ -25,9 +25,6 @@
 		"MediaWiki": ">= 1.35.0"
 	},
 	"config": {
-		"MinervaCountErrors": {
-			"value": false
-		},
 		"MinervaDonateLink": {
 			"value": {
 				"base": true
@@ -245,13 +242,6 @@
 			"mediawiki.special.changeslist.legend": [
 				"skinStyles/mediawiki.special.changeslist.legend.less"
 			]
-		}
-	},
-	"attributes": {
-		"EventLogging": {
-			"Schemas": {
-				"WebClientError": 18340282
-			}
 		}
 	},
 	"ResourceModules": {
@@ -563,7 +553,6 @@
 				"resources/skins.minerva.scripts/drawers.js",
 				"resources/skins.minerva.scripts/ctaDrawers.js",
 				"resources/skins.minerva.scripts/menu.js",
-				"resources/skins.minerva.scripts/errorLogging.js",
 				"resources/skins.minerva.scripts/preInit.js",
 				"resources/skins.minerva.scripts/downloadPageAction.js",
 				"resources/skins.minerva.scripts/page-issues/parser.js",
