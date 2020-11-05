@@ -36,9 +36,9 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public const LEAD_SECTION_NUMBER = 0;
 
-	/** @var string $skinname Name of this skin */
+	/** @var string Name of this skin */
 	public $skinname = 'minerva';
-	/** @var string $template Name of this used template */
+	/** @var string Name of this used template */
 	public $template = 'MinervaTemplate';
 
 	/** @var SkinOptions */
