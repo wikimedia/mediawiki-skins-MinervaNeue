@@ -49,6 +49,7 @@
 	"mobile-frontend-user-page-member-since": "$1 তারিখে {{GENDER:$2|যোগ দিয়েছেন}}",
 	"mobile-frontend-user-page-talk": "আলাপ",
 	"minerva-user-menu-button": "ব্যবহারকারী মেনু",
+	"minerva-user-navigation": "ব্যবহারকারীর পরিভ্রমণ",
 	"minerva-page-actions-overflow": "আরও",
 	"minerva-page-actions-info": "পাতার তথ্য",
 	"minerva-page-actions-permalink": "স্থায়ী সংযোগ",
