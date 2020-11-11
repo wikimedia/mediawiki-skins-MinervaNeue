@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ArenaL5",
 			"Banjo",
 			"Elisardojm",
 			"Fisterraeomar",
@@ -13,7 +14,7 @@
 	"minerva-talk-add-topic": "Engadir conversa",
 	"mobile-frontend-cookies-required": "As cookies son necesarias para cambiar o modo de visualización. Permita o uso de cookies e inténteo de novo por favor.",
 	"mobile-frontend-editor-edit": "Editar",
-	"minerva-download": "Descargar",
+	"minerva-download": "Descargar como PDF",
 	"mobile-frontend-editor-redlink-create": "Crear unha páxina",
 	"mobile-frontend-editor-redlink-explain": "Esta páxina aínda non foi creada.",
 	"mobile-frontend-editor-redlink-leave": "Non, grazas",
