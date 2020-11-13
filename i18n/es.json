@@ -72,7 +72,9 @@
 	"minerva-talk-full-page": "Leer como página de wiki",
 	"minerva-talk-topic-feedback": "Se añadió un nuevo tema a la página de discusión.",
 	"minerva-talk-reply-success": "Se guardó tu respuesta en la página de discusión.",
+	"minerva-skin-desc": "La primera apariencia móvil responsiva",
 	"skin-minerva-issue-learn-more": "Más información",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemas de la página (Plantilla:Aviso) se alineará en el artículo."
 }
