@@ -11,11 +11,29 @@
 }
 
 .toctogglecheckbox ~ ul {
-	display: none;
+	visibility: hidden;
+	height: 0;
 }
 
 .toctogglecheckbox:checked ~ ul {
-	display: block;
+	visibility: visible;
+	padding-bottom: 20px;
+	height: auto;
+}
+
+.toctitle {
+	padding: 0 25px 0 32px;
+
+	.mw-ui-icon {
+		position: absolute;
+		left: 0;
+	}
+
+	.toctogglespan + .mw-ui-icon {
+		top: 8px;
+		right: 0;
+		left: auto;
+	}
 }
 
 .toctogglelabel {
@@ -49,10 +67,11 @@
 	}
 
 	> ul {
+		// Account for the icon spaces left and right.
+		margin: 0 unit( @icon-glyph-size-md / @font-size-minerva-small, em ) 0 32px;
+		// Reset `.client-js .toc > ul`.
+		padding-left: 0;
 		font-size: @font-size-minerva-small;
-		margin-left: 52px;
-		margin-right: 24px;
-		padding: 0 0 20px;
 	}
 
 	ul {
