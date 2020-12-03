@@ -107,19 +107,26 @@ module.exports = function () {
 	 * @method
 	 * @ignore
 	 * @param {string} title the title of the image
-	 * @return {jQuery.Deferred|Overlay}
+	 * @return {void|Overlay} note must return void if the overlay should not show (see T262703)
+	 *  otherwise an Overlay is expected and this can lead to e.on/off is not a function
 	 */
 	function makeMediaViewerOverlayIfNeeded( title ) {
 		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {
 			// This means MultimediaViewer has been installed and is loaded.
 			// Avoid loading it (T169622)
-			return $.Deferred().reject();
+			return;
+		}
+		try {
+			title = decodeURIComponent( title );
+		} catch ( e ) {
+			// e.g. https://ro.m.wikipedia.org/wiki/Elisabeta_I_a_Angliei#/media/Fi%C8%18ier:Elizabeth_I_Rainbow_Portrait.jpg
+			return;
 		}
 
 		return mobile.mediaViewer.overlay( {
 			api: api,
 			thumbnails: currentPageHTMLParser.getThumbnails(),
-			title: decodeURIComponent( title ),
+			title: title,
 			eventBus: eventBus
 		} );
 	}
