@@ -776,8 +776,6 @@ class SkinMinerva extends SkinMustache {
 				'jquery.tablesorter.styles',
 				// T111565
 				'jquery.makeCollapsible.styles',
-				// Minerva provides its own implementation
-				'mediawiki.toc.styles'
 			] );
 		}
 		$modules['styles']['core'] = $this->getSkinStyles();
