@@ -522,7 +522,7 @@ class SkinMinerva extends SkinMustache {
 
 			$message = $sectionCount > 0 ? wfMessage( 'minerva-talk-explained' )
 				: wfMessage( 'minerva-talk-explained-empty' );
-			$html = $html . Html::element( 'div', [ 'class' =>
+			$html .= Html::element( 'div', [ 'class' =>
 				'minerva-talk-content-explained' ], $message->text() );
 		}
 
