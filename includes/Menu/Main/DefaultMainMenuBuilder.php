@@ -110,7 +110,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 		$this->definitions->insertAuthMenuItem( $group );
 
-		if ( $this->user->isLoggedIn() ) {
+		if ( $this->user->isRegistered() ) {
 			$this->definitions->insertWatchlistMenuItem( $group );
 			$this->definitions->insertContributionsMenuItem( $group );
 		}

@@ -186,7 +186,7 @@ class MinervaHooks {
 					// if no warning message set.
 					if (
 						!$request->getVal( 'warning' ) &&
-						!$special->getUser()->isLoggedIn() &&
+						!$special->getUser()->isRegistered() &&
 						!$request->wasPosted()
 					) {
 						$request->setVal( 'warning', 'mobile-frontend-generic-login-new' );

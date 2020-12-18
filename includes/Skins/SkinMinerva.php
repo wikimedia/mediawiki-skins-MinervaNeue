@@ -240,7 +240,7 @@ class SkinMinerva extends SkinMustache {
 			$className .= ' page-Main_Page ';
 		}
 
-		if ( $this->getUser()->isLoggedIn() ) {
+		if ( $this->getUser()->isRegistered() ) {
 			$className .= ' is-authenticated';
 		}
 		// The new treatment should only apply to the main namespace
@@ -288,7 +288,7 @@ class SkinMinerva extends SkinMustache {
 		$notificationIconClass = MinervaUI::iconClass( 'bellOutline-base20',
 			'element', '', 'wikimedia' );
 
-		if ( $user->isLoggedIn() ) {
+		if ( $user->isRegistered() ) {
 			$badge = Html::element( 'a', [
 				'class' => $notificationIconClass,
 				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
@@ -543,7 +543,7 @@ class SkinMinerva extends SkinMustache {
 			$pageTitle = '';
 			$msg = $this->msg( 'mobile-frontend-logged-in-homepage-notification', $user->getName() );
 
-			if ( $user->isLoggedIn() && !$msg->isDisabled() ) {
+			if ( $user->isRegistered() && !$msg->isDisabled() ) {
 				$pageTitle = $msg->text();
 			}
 
@@ -822,7 +822,7 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.talk.styles';
 		}
 
-		if ( $this->getUser()->isLoggedIn() ) {
+		if ( $this->getUser()->isRegistered() ) {
 			$styles[] = 'skins.minerva.loggedin.styles';
 			$styles[] = 'skins.minerva.icons.loggedin';
 		}

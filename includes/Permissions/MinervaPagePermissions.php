@@ -187,7 +187,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 
 		return $this->isAllowed( self::TALK ) &&
 			   ( $this->title->isTalkPage() || $this->title->canHaveTalkPage() ) &&
-			   $this->user->isLoggedIn();
+			   $this->user->isRegistered();
 	}
 
 	/**

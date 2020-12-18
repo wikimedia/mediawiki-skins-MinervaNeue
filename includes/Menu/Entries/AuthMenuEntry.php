@@ -40,7 +40,7 @@ final class AuthMenuEntry extends CompositeMenuEntry implements IProfileMenuEntr
 		User $user, MessageLocalizer $messageLocalizer, array $authLinksQuery
 	) {
 		$this->profileMenuEntry = new ProfileMenuEntry( $user );
-		$entries = $user->isLoggedIn()
+		$entries = $user->isRegistered()
 			? [
 				$this->profileMenuEntry,
 				new LogOutMenuEntry(

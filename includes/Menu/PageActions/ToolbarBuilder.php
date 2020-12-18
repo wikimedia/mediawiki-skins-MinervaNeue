@@ -236,7 +236,7 @@ class ToolbarBuilder {
 	 * @throws MWException
 	 */
 	protected function createWatchPageAction(): IMenuEntry {
-		$isWatched = $this->user->isLoggedIn() && $this->user->isWatched( $this->title );
+		$isWatched = $this->user->isRegistered() && $this->user->isWatched( $this->title );
 		$isTempWatched = $this->watchlistExpiryEnabled &&
 			$isWatched &&
 			$this->user->isTempWatched( $this->title );
