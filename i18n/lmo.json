@@ -1,7 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Salvemm el lombard"
+		]
 	},
-	"mobile-frontend-home-button": "Pagina principala",
-	"mobile-frontend-random-button": "A cas"
+	"mobile-frontend-home-button": "Pagina principal",
+	"mobile-frontend-random-button": "Una vos a cas"
 }

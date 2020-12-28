@@ -8,6 +8,7 @@
 			"Guherto"
 		]
 	},
+	"minerva-talk-add-topic": "Gotûbêjê lê zêde bike",
 	"mobile-frontend-editor-edit": "Biguherîne",
 	"mobile-frontend-editor-redlink-create": "Rûpelekê çêke",
 	"mobile-frontend-editor-redlink-leave": "Na, spas.",
@@ -32,5 +33,6 @@
 	"mobile-frontend-user-button-tooltip": "Agahdariyên min nîşan bide",
 	"mobile-frontend-user-page-contributions": "Beşdarî",
 	"mobile-frontend-user-page-member-since": "$1ê bû {{GENDER:$2|endam}}",
-	"mobile-frontend-user-page-talk": "Gotûbêj"
+	"mobile-frontend-user-page-talk": "Gotûbêj",
+	"minerva-page-actions-history": "Dîrok"
 }
