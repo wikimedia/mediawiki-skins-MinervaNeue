@@ -11,8 +11,7 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				cache: true,
-				maxWarnings: 0
+				cache: true
 			},
 			all: [
 				'**/*.{js,json}',
