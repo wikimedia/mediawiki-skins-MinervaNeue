@@ -30,6 +30,7 @@
 	"mobile-frontend-main-menu-watchlist": "İzləmə siyahısı",
 	"mobile-frontend-placeholder": "{{SITENAME}} saytında axtarış",
 	"mobile-frontend-random-button": "Təsadüfi",
+	"mobile-frontend-redirected-from": "\"[[$1]]\" səhifəsindən istiqamətləndirilmişdir",
 	"mobile-frontend-talk-back-to-page": "\"$1\" səhifəsinə qayıt.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" istifadəçi səhifəsinə qayıt.",
 	"mobile-frontend-user-page-contributions": "Töhfələr",
