@@ -63,10 +63,10 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 */
 	private $languagesHelper;
 
-  /**
-   * @var PermissionManager MediaWiki Core PermissionManager
-   */
-  private $permissionManager;
+	/**
+	 * @var PermissionManager MediaWiki Core PermissionManager
+	 */
+	private $permissionManager;
 
 	/**
 	 * Initialize internal Minerva Permissions system

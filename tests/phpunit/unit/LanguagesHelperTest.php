@@ -29,7 +29,7 @@ class LanguagesHelperTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * Build test Title object
-	 * @param $hasVariants
+	 * @param bool $hasVariants
 	 * @param Invocation|null $matcher
 	 * @return \Title
 	 */

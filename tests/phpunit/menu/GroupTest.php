@@ -11,6 +11,7 @@ use MediaWiki\Minerva\Menu\Group;
  * @coversDefaultClass \MediaWiki\Minerva\Menu\Group
  */
 class GroupTest extends \MediaWikiTestCase {
+	/** @var string[] */
 	private $homeComponent = [
 		'text' => 'Home',
 		'href' => '/Main_page',
@@ -18,6 +19,7 @@ class GroupTest extends \MediaWikiTestCase {
 		'data-event-name' => 'home',
 	];
 
+	/** @var string[] */
 	private $nearbyComponent = [
 		'text' => 'Nearby',
 		'href' => '/wiki/Special:Nearby',

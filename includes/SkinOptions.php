@@ -37,9 +37,11 @@ final class SkinOptions {
 	public const PERSONAL_MENU = 'personalMenu';
 	public const SIMPLIFIED_TALK = 'simplifiedTalk';
 
-	/** @var array skin specific options, initialized with default values */
-	// Note stable skin options default to true for desktop-Minerva and are expected to be
-	// overridden on mobile.
+	/**
+	 * Note stable skin options default to true for desktop-Minerva and are expected to be
+	 * overridden on mobile.
+	 * @var array skin specific options, initialized with default values
+	 */
 	private $skinOptions = [
 		self::BETA_MODE => false,
 		self::SHOW_DONATE => true,

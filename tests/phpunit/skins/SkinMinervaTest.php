@@ -17,6 +17,9 @@ use Wikimedia\TestingAccessWrapper;
 class SkinMinervaTest extends MediaWikiTestCase {
 	private const OPTIONS_MODULE = 'skins.minerva.options';
 
+	/**
+	 * @param array $options
+	 */
 	private function overrideSkinOptions( $options ) {
 		$mockOptions = new SkinOptions();
 		$mockOptions->setMultiple( $options );
@@ -109,9 +112,9 @@ class SkinMinervaTest extends MediaWikiTestCase {
 	/**
 	 * Test whether the font changer module is correctly added to the list context modules.
 	 *
-	 * @covers       ::getContextSpecificModules
+	 * @covers ::getContextSpecificModules
 	 * @dataProvider provideGetContextSpecificModules
-	 * @param mixed  $categoryLinks whether category link feature is enabled
+	 * @param mixed $categoryLinks whether category link feature is enabled
 	 * @param string $moduleName Module name that is being tested
 	 * @param bool $expected Whether the module is expected to be returned by the function being tested
 	 */
