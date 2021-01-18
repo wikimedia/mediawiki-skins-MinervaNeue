@@ -10,7 +10,7 @@
 			"Yerpo"
 		]
 	},
-	"minerva-talk-add-topic": "Dodaj razpravo",
+	"minerva-talk-add-topic": "Dodaj pogovor",
 	"mobile-frontend-editor-edit": "Uredi",
 	"minerva-download": "Prenesi PDF",
 	"mobile-frontend-editor-redlink-create": "Ustvari stran",
@@ -53,6 +53,7 @@
 	"minerva-page-actions-history": "Zgodovina",
 	"minerva-talk-explained": "Dejavni pogovori",
 	"minerva-talk-explained-empty": "Na tej strani ni pogovorov.",
+	"minerva-talk-full-page": "Beri kot wikistran",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Združevanje rezultatov po straneh pri mobilnem dostopu žal ni mogoče. Če želite uporabljati \nmožnost združevanja po straneh, pojdite na namizno različico tega spletnega mesta."
 }
