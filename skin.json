@@ -244,6 +244,9 @@
 			],
 			"mediawiki.special.changeslist.legend": [
 				"skinStyles/mediawiki.special.changeslist.legend.less"
+			],
+			"mobile.special.pagefeed.styles": [
+				"skinStyles/mobile.special.pagefeed.styles.less"
 			]
 		}
 	},
