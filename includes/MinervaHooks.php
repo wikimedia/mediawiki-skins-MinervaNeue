@@ -383,7 +383,7 @@ class MinervaHooks {
 			$config['search'] = false;
 			$config['collapsible'] = false;
 			$config['sortable'] = false;
-			$config['selectorLogoutLink'] = 'a.menu__item--logout';
+			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw="interface"]';
 		}
 	}
 }
