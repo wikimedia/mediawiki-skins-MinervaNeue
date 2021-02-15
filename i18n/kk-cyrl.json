@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Arystanbek",
+			"Fontan 030",
 			"Kaztrans",
 			"Wikibilim"
 		]
@@ -38,7 +39,7 @@
 	"mobile-frontend-random-button": "Кездейсоқ",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" бетінен бағытталған",
 	"mobile-frontend-talk-back-to-filepage": "«$1» файлына қайту.",
-	"mobile-frontend-talk-back-to-page": "\"$1\" бетіну қайту.",
+	"mobile-frontend-talk-back-to-page": "\"$1\" бетіне қайту.",
 	"mobile-frontend-talk-back-to-projectpage": " «$1» жоба бетіне қайту.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" қатысушы бетіне қайту.",
 	"mobile-frontend-user-button-tooltip": "Мендегі ескертпелерді көрсет",
