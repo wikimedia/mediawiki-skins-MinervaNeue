@@ -6,6 +6,7 @@
 			"Fitoschido",
 			"GabiBil",
 			"Minisarm",
+			"NGC 54",
 			"Strainu"
 		]
 	},
@@ -45,8 +46,9 @@
 	"mobile-frontend-user-button-tooltip": "Arată-mi notificările",
 	"mobile-frontend-user-newmessages": "Aveți mesaje noi pe pagina dumneavoastră de discuție",
 	"mobile-frontend-user-page-contributions": "Contribuții",
-	"mobile-frontend-user-page-member-since": "{{GENDER:$2|S-a înscris}} în $1",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Alăturat|Alăturată|Alăturat}} în $1",
 	"mobile-frontend-user-page-talk": "Discuție",
 	"minerva-page-actions-overflow": "Mai mult",
+	"minerva-page-actions-info": "Informații despre pagină",
 	"minerva-page-actions-user-groups": "Grupuri de utilizatori"
 }
