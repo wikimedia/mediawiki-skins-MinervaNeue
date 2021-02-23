@@ -134,14 +134,15 @@ main {
 
 /* Search */
 .search-box .search {
-	@searchIconSize: 18px;
-	@searchIconGutter: 6px;
+	@size-icon-search: unit( 18 / @font-size-browser, em );
+	@size-icon-search-gutter: unit( 8 / @font-size-browser, em );
+	@size-modifier-border: unit( 1 / @font-size-browser, em );
 	@padding-vertical-search: 8px - @border-width-base;
-	@padding-start-search-icon: @searchIconSize + ( 2 * @searchIconGutter ) - @border-width-base;
+	@padding-start-search-icon: @size-icon-search + ( 2 * @size-icon-search-gutter ) - @size-modifier-border;
 	background-color: #fff; // Support Fennec, Opera Mini: Remove default background, see T38490.
-	background-position: left @searchIconGutter center;
+	background-position: left @size-icon-search-gutter center;
 	background-repeat: no-repeat;
-	background-size: @searchIconSize;
+	background-size: @size-icon-search;
 	// Support Safari: Get rid of rounded corners.
 	-webkit-appearance: none;
 	width: 100%;

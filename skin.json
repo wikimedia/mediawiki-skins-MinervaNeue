@@ -287,7 +287,6 @@
 			"images": {
 				"toast.mw-notification-type-error,.mw-notification.mw-notification-type-error":
 					"resources/skins.minerva.content.styles.images/error.svg",
-				"input.search,.mw-ui-icon-minerva-magnifying-glass:before": "resources/skins.minerva.content.styles.images/magnifying-glass.svg",
 				"a.external": {
 					"file": {
 						"ltr": "resources/skins.minerva.content.styles.images/link-external-ltr.svg",
