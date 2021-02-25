@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Foavi33",
 			"Obonggi"
 		]
 	},
-	"mobile-frontend-editor-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ"
+	"mobile-frontend-editor-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ",
+	"mobile-frontend-placeholder": "{{SITENAME}} be baimbi"
 }
