@@ -226,6 +226,7 @@ class MinervaHooks {
 				// here results in a circular dependency error which is why
 				// SkinUserPageHelper is being instantiated instead.
 				$relevantUserPageHelper = new SkinUserPageHelper(
+					$services->getUserNameUtils(),
 					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
 				);
 				$isUserPageOrUserTalkPage = $relevantUserPageHelper->isUserPage();

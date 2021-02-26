@@ -20,10 +20,15 @@
 
 namespace MediaWiki\Minerva\Skins;
 
+use MediaWiki\User\UserNameUtils;
 use Title;
 use User;
 
 class SkinUserPageHelper {
+	/**
+	 * @var UserNameUtils
+	 */
+	private $userNameUtils;
 	/**
 	 * @var Title|null
 	 */
@@ -39,9 +44,11 @@ class SkinUserPageHelper {
 	private $pageUser;
 
 	/**
+	 * @param UserNameUtils $userNameUtils
 	 * @param Title|null $title
 	 */
-	public function __construct( Title $title = null ) {
+	public function __construct( UserNameUtils $userNameUtils, Title $title = null ) {
+		$this->userNameUtils = $userNameUtils;
 		$this->title = $title;
 	}
 
@@ -68,7 +75,7 @@ class SkinUserPageHelper {
 	private function buildPageUserObject( Title $title ) {
 		$titleText = $title->getText();
 
-		if ( User::isIP( $titleText ) ) {
+		if ( $this->userNameUtils->isIP( $titleText ) ) {
 			return User::newFromAnyId( null, $titleText, null );
 		}
 
