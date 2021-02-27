@@ -19,6 +19,7 @@
  */
 namespace MediaWiki\Minerva;
 
+use MediaWiki\MediaWikiServices;
 use OutputPage;
 use Title;
 
@@ -46,6 +47,11 @@ class LanguagesHelper {
 	 * @return bool
 	 */
 	public function doesTitleHasLanguagesOrVariants( Title $title ) {
-		return $this->hasLanguages || $title->getPageLanguage()->hasVariants();
+		if ( $this->hasLanguages ) {
+			return true;
+		}
+		$langConv = MediaWikiServices::getInstance()->getLanguageConverterFactory()
+			->getLanguageConverter( $title->getPageLanguage() );
+		return $langConv->hasVariants();
 	}
 }

@@ -2,6 +2,8 @@
 
 namespace Tests\MediaWiki\Minerva;
 
+use ILanguageConverter;
+use MediaWiki\Languages\LanguageConverterFactory;
 use MediaWiki\Minerva\LanguagesHelper;
 use PHPUnit\Framework\MockObject\Invocation;
 
@@ -11,7 +13,7 @@ use PHPUnit\Framework\MockObject\Invocation;
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\LanguagesHelper
  */
-class LanguagesHelperTest extends \MediaWikiUnitTestCase {
+class LanguagesHelperTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * Build test Output object
@@ -35,9 +37,11 @@ class LanguagesHelperTest extends \MediaWikiUnitTestCase {
 	 */
 	private function getTitle( $hasVariants, Invocation $matcher = null ) {
 		$languageMock = $this->createMock( \Language::class );
-		$languageMock->expects( $matcher ?? $this->any() )
-			->method( 'hasVariants' )
-			->willReturn( $hasVariants );
+		$langConv = $this->createMock( ILanguageConverter::class );
+		$langConv->expects( $matcher ?? $this->any() )->method( 'hasVariants' )->willReturn( $hasVariants );
+		$langConvFactory = $this->createMock( LanguageConverterFactory::class );
+		$langConvFactory->method( 'getLanguageConverter' )->with( $languageMock )->willReturn( $langConv );
+		$this->setService( 'LanguageConverterFactory', $langConvFactory );
 
 		$title = $this->createMock( \Title::class );
 		$title->expects( $matcher ?? $this->any() )
