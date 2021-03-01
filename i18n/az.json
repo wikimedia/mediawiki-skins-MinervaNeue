@@ -4,6 +4,7 @@
 			"Cekli829",
 			"Dağlı95",
 			"Interfase",
+			"NMW03",
 			"PPerviz",
 			"Toghrul Rahimli",
 			"Wertuose"
@@ -28,7 +29,7 @@
 	"mobile-frontend-main-menu-nearby": "Yaxınlıqdakılar",
 	"mobile-frontend-main-menu-settings": "Nizamlamalar",
 	"mobile-frontend-main-menu-watchlist": "İzləmə siyahısı",
-	"mobile-frontend-placeholder": "{{SITENAME}} saytında axtarış",
+	"mobile-frontend-placeholder": "{{SITENAME}} saytında axtar",
 	"mobile-frontend-random-button": "Təsadüfi",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" səhifəsindən istiqamətləndirilmişdir",
 	"mobile-frontend-talk-back-to-page": "\"$1\" səhifəsinə qayıt.",

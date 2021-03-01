@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"David Wadie Fisher-Freberg",
 			"Iwan Novirion",
 			"Naval Scene"
 		]
@@ -12,6 +13,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Salamaik datang}}, $1!",
 	"mobile-frontend-main-menu-logout": "Kalua log",
 	"mobile-frontend-pageaction-edit-tooltip": "Suntiang bagian awal laman ko",
+	"mobile-frontend-placeholder": "Cari {{SITENAME}}",
 	"mobile-frontend-random-button": "Sumbarang",
 	"mobile-frontend-user-button-tooltip": "Caliak pambaritauan ambo",
 	"mobile-frontend-user-newmessages": "Sanak ado pasan baru di laman rundiang Sanak",

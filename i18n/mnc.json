@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"ChoiChong",
 			"Foavi33",
 			"Obonggi"
 		]
 	},
 	"mobile-frontend-editor-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ",
-	"mobile-frontend-placeholder": "{{SITENAME}} be baimbi"
+	"mobile-frontend-main-menu-settings": "ᡳᠨᠰᡨᡝᠯᠯᡝᠨ",
+	"mobile-frontend-placeholder": "{{SITENAME}} be baimbi",
+	"mobile-frontend-random-button": "Random (ᡵᠠᠨᡩᠣᠮ)"
 }
