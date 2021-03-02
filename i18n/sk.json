@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
+			"Jaroslav.micek",
 			"LacoR",
 			"Luky001",
 			"Teslaton",
@@ -37,7 +38,7 @@
 	"mobile-frontend-meta-data-issues-talk": "O tejto diskusii",
 	"mobile-frontend-notifications-filter": "Filter",
 	"mobile-frontend-pageaction-edit-tooltip": "Upraviť úvodnú sekciu tejto stránky",
-	"mobile-frontend-placeholder": "Hľadanie na {{grammar:lokál|{{SITENAME}}}}",
+	"mobile-frontend-placeholder": "Hľadať na stránke {{SITENAME}}",
 	"mobile-frontend-random-button": "Náhodná",
 	"mobile-frontend-redirected-from": "Presmerované z „[[$1]]“",
 	"mobile-frontend-talk-back-to-filepage": "Vrátiť sa k súboru „$1“.",
