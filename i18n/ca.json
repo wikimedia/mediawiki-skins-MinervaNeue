@@ -7,6 +7,7 @@
 			"Fitoschido",
 			"Joan manel",
 			"Macofe",
+			"Mguix",
 			"QuimGil",
 			"Vriullop"
 		]
@@ -38,7 +39,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "Sobre aquesta pàgina",
 	"mobile-frontend-meta-data-issues-talk": "Sobre aquesta pàgina de discussió",
 	"mobile-frontend-pageaction-edit-tooltip": "Modifica la capçalera d'aquesta pàgina.",
-	"mobile-frontend-placeholder": "Cerca a {{SITENAME}}",
+	"mobile-frontend-placeholder": "Cercar a {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatori",
 	"mobile-frontend-talk-back-to-filepage": "Torna al fitxer «$1».",
 	"mobile-frontend-talk-back-to-page": "Torna a l'article \"$1\".",
