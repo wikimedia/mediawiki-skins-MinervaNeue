@@ -154,8 +154,10 @@ class SkinMinerva extends SkinMustache {
 		$personalUrls = $tpl->get( 'personal_urls' );
 		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
 
+		$nav = $tpl->get( 'content_navigation' ) ?? [];
+		$actions = $nav['actions'] ?? [];
 		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
-		$tpl->set( 'pageActionsMenu', $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'] ) );
+		$tpl->set( 'pageActionsMenu', $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions ) );
 		$tpl->set( 'userMenuHTML', $userMenuDirector->renderMenuData( $personalTools ) );
 	}
 

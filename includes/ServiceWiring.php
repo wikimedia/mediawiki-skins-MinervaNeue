@@ -105,16 +105,17 @@ return [
 					$services->getMainConfig() )
 			);
 			if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
-				 $overflowBuilder = $relevantUserPageHelper->isUserPage() ?
-					 new PageActionsMenu\UserNamespaceOverflowBuilder(
-						 $title,
-						 $context,
-						 $services->getService( 'Minerva.Permissions' ),
-						 $languagesHelper
-					 ) :
-					 new PageActionsMenu\DefaultOverflowBuilder(
-						 $context
-					 );
+				$overflowBuilder = $relevantUserPageHelper->isUserPage() ?
+					new PageActionsMenu\UserNamespaceOverflowBuilder(
+						$title,
+						$context,
+						$services->getService( 'Minerva.Permissions' ),
+						$languagesHelper
+					) :
+					new PageActionsMenu\DefaultOverflowBuilder(
+						$context,
+						$services->getService( 'Minerva.Permissions' )
+					);
 			} else {
 				$overflowBuilder = new PageActionsMenu\EmptyOverflowBuilder();
 			}

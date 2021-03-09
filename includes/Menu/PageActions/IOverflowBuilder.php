@@ -26,7 +26,8 @@ interface IOverflowBuilder {
 
 	/**
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
+	 * @param array $actions An array of actions usually bucketed under the more menu
 	 * @return Group
 	 */
-	public function getGroup( array $toolbox ): Group;
+	public function getGroup( array $toolbox, array $actions ): Group;
 }

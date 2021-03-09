@@ -46,7 +46,10 @@
 				"edit",
 				"talk",
 				"watch",
-				"switch-language"
+				"switch-language",
+				"move",
+				"delete",
+				"protect"
 			]
 		},
 		"MinervaAlwaysShowLanguageButton": {
@@ -333,6 +336,9 @@
 				"articleRedirect",
 				"infoFilled",
 				"link",
+				"move",
+				"lock",
+				"trash",
 				"listBullet",
 				"logoWikidata",
 				"quotes",

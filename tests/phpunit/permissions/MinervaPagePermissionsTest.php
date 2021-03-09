@@ -26,7 +26,8 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		ContentHandler $contentHandler = null,
 		User $user = null,
 		$hasOtherLanguagesOrVariants = false,
-		$alwaysShowLanguageButton = true
+		$alwaysShowLanguageButton = true,
+		$isSuperUser = false
 	) {
 		$languageHelper = $this->createMock( LanguagesHelper::class );
 		$languageHelper->expects( $this->any() )
@@ -39,6 +40,9 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 				IMinervaPagePermissions::WATCH,
 				IMinervaPagePermissions::TALK,
 				IMinervaPagePermissions::SWITCH_LANGUAGE,
+				IMinervaPagePermissions::MOVE,
+				IMinervaPagePermissions::DELETE,
+				IMinervaPagePermissions::PROTECT,
 		];
 		$contentHandler = $contentHandler ??
 			$this->getMockForAbstractClass( ContentHandler::class, [], '', false );
@@ -55,12 +59,18 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		] ) );
 		$context->setUser( $user );
 
+		$permissionManager = $this->getMockBuilder( PermissionManager::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$permissionManager->expects( $this->any() )
+			->method( 'quickUserCan' )
+			->willReturn( $isSuperUser );
+
 		return ( new MinervaPagePermissions(
 			$skinOptions,
 			$languageHelper,
-			$this->getMockBuilder( PermissionManager::class )
-				->disableOriginalConstructor()
-				->getMock()
+			$permissionManager
 		) )->setContext( $context, $contentHandler );
 	}
 
@@ -251,4 +261,44 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$this->assertFalse( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) );
 	}
 
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testMoveAndDeleteAndProtectNotAllowedByDefault() {
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), [] );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::MOVE ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::DELETE ) );
+		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::PROTECT ) );
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testMoveAndDeleteAndProtectAllowedForUserWithPermissions() {
+		$title = $this->createMock( Title::class );
+		$title->expects( $this->any() )
+			->method( 'exists' )
+			->willReturn( true );
+		$perms = $this->buildPermissionsObject(
+			$title,
+			[
+				IMinervaPagePermissions::CONTENT_EDIT,
+				IMinervaPagePermissions::WATCH,
+				IMinervaPagePermissions::TALK,
+				IMinervaPagePermissions::SWITCH_LANGUAGE,
+				IMinervaPagePermissions::MOVE,
+				IMinervaPagePermissions::DELETE,
+				IMinervaPagePermissions::PROTECT,
+			],
+			[],
+			null,
+			$this->getTestUser()->getUser(),
+			false,
+			true,
+			true
+		);
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::MOVE ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::DELETE ) );
+		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::PROTECT ) );
+	}
 }

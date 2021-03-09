@@ -32,6 +32,9 @@ interface IMinervaPagePermissions {
 	public const EDIT_OR_CREATE = 'edit-or-create';
 	public const TALK = 'talk';
 	public const HISTORY = 'history';
+	public const MOVE = 'move';
+	public const DELETE = 'delete';
+	public const PROTECT = 'protect';
 
 	/**
 	 * Gets whether or not the action is allowed.

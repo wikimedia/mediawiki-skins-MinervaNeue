@@ -64,12 +64,13 @@ final class PageActionsDirector {
 	/**
 	 * Build the menu data array that can be passed to views/javascript
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
+	 * @param array $actions An array of actions usually bucketed under the more menu
 	 * @return array
 	 * @throws MWException
 	 */
-	public function buildMenu( array $toolbox ): array {
+	public function buildMenu( array $toolbox, array $actions ): array {
 		$toolbar = $this->toolbarBuilder->getGroup();
-		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox );
+		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox, $actions );
 
 		$menu = [
 			'toolbar' => $toolbar->getEntries()

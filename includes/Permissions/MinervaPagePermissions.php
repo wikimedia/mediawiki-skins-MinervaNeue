@@ -174,6 +174,19 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			return $this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ) ||
 				$this->config->get( 'MinervaAlwaysShowLanguageButton' );
 		}
+
+		if ( $action === self::MOVE ) {
+			return $this->canMove();
+		}
+
+		if ( $action === self::DELETE ) {
+			return $this->canDelete();
+		}
+
+		if ( $action === self::PROTECT ) {
+			return $this->canProtect();
+		}
+
 		return true;
 	}
 
@@ -224,5 +237,47 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			$this->user, $this->title, true
 		);
 		return $this->isCurrentPageContentModelEditable() && $userQuickEditCheck && !$blocked;
+	}
+
+	/**
+	 * Checks whether the user has the permissions to move the current page.
+	 *
+	 * @return bool
+	 */
+	private function canMove() {
+		if ( !$this->title ) {
+			return false;
+		}
+
+		return $this->permissionManager->quickUserCan( 'move', $this->user, $this->title )
+			&& $this->title->exists();
+	}
+
+	/**
+	 * Checks whether the user has the permissions to delete the current page.
+	 *
+	 * @return bool
+	 */
+	private function canDelete() {
+		if ( !$this->title ) {
+			return false;
+		}
+
+		return $this->permissionManager->quickUserCan( 'delete', $this->user, $this->title )
+			&& $this->title->exists();
+	}
+
+	/**
+	 * Checks whether the user has the permissions to change the protections status of the current page.
+	 *
+	 * @return bool
+	 */
+	private function canProtect() {
+		if ( !$this->title ) {
+			return false;
+		}
+
+		return $this->permissionManager->quickUserCan( 'protect', $this->user, $this->title )
+			&& $this->title->exists();
 	}
 }
