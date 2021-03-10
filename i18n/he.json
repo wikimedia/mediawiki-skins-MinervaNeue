@@ -21,7 +21,7 @@
 	"mobile-frontend-home-button": "דף הבית",
 	"mobile-frontend-language-article-heading": "שפה",
 	"mobile-frontend-languages-not-available": "הדף הזה אינו זמין בשפות אחרות.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ברוך הבא|ברוכה הבאה}}, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ברוך הבא|ברוכה הבאה|ברוך בואך}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "פתיחת התפריט הראשי",
 	"mobile-frontend-main-menu-contributions": "תרומות",
 	"mobile-frontend-main-menu-login": "כניסה לחשבון",
