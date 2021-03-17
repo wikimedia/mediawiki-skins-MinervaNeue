@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"J budissin",
 			"Michawiki"
 		]
 	},
 	"mobile-frontend-editor-edit": "Wobdźěłać",
 	"mobile-frontend-history": "Historiju změnow tuteje strony pokazać.",
 	"mobile-frontend-home-button": "Start",
-	"mobile-frontend-language-article-heading": "W druhej rěči čitać",
-	"mobile-frontend-logged-in-homepage-notification": "Witaj, $1",
+	"mobile-frontend-language-article-heading": "Rěč",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Witaj}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Hłowny meni wočinić",
 	"mobile-frontend-main-menu-login": "Přizjewić",
 	"mobile-frontend-main-menu-logout": "Wotzjewić",
