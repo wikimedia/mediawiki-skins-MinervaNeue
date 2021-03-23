@@ -35,7 +35,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "O tej strani",
 	"mobile-frontend-meta-data-issues-talk": "O tej pogovorni strani",
 	"mobile-frontend-pageaction-edit-tooltip": "Uredi vodilni razdelek strani",
-	"mobile-frontend-placeholder": "Iskanje po {{GRAMMAR:dajalnik|{{SITENAME}}}}",
+	"mobile-frontend-placeholder": "Iskanje v {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Naključno",
 	"mobile-frontend-redirected-from": "Preusmerjeno z »[[$1]]«",
 	"mobile-frontend-talk-back-to-page": "Vrnitev na stran »$1«.",
