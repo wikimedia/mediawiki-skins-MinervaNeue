@@ -121,6 +121,9 @@
 		"minerva": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
+		"BeforePageDisplay": [
+			"MinervaHooks::onBeforePageDisplay"
+		],
 		"ResourceLoaderRegisterModules": [
 			"MinervaHooks::onResourceLoaderRegisterModules"
 		],
@@ -579,6 +582,10 @@
 				"resources/skins.minerva.scripts/watchstar.js"
 			]
 		},
+		"skins.minerva.messageBox.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "interface-message-box" ]
+		},
 		"skins.minerva.options": {
 			"targets": [
 				"mobile",
@@ -599,6 +606,7 @@
 		"localBasePath": "",
 		"remoteSkinPath": "MinervaNeue",
 		"dependencies": [
+			"skins.minerva.messageBox.styles",
 			"mobile.startup",
 			"mediawiki.user",
 			"mediawiki.experiments"
