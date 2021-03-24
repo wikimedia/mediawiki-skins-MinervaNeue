@@ -280,8 +280,7 @@
 			"useDataURI": false,
 			"variants": {
 				"reference": {
-					"color": "#69f",
-					"global": true
+					"color": "#69f"
 				}
 			},
 			"images": {
@@ -291,7 +290,10 @@
 					"file": {
 						"ltr": "resources/skins.minerva.content.styles.images/link-external-ltr.svg",
 						"rtl": "resources/skins.minerva.content.styles.images/link-external-rtl.svg"
-					}
+					},
+					"variants": [
+						"reference"
+					]
 				}
 			}
 		},
