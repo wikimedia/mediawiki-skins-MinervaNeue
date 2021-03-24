@@ -240,6 +240,7 @@ class MinervaTemplate extends BaseTemplate {
 					  $skinOptions->get( SkinOptions::TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
+			'searchPageTitle' => $this->getSkin()->getSearchPageTitle(),
 		];
 	}
 
