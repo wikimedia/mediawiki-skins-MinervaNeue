@@ -10,6 +10,7 @@ module.exports = function () {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
 		placeholder = $searchInput.attr( 'placeholder' ),
+		defaultSearchPage = $searchInput.siblings( 'input[name=title]' ).val(),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchBar = $( '#searchInput, #searchIcon, .skin-minerva-search-trigger' ),
 		searchRoute = new RegExp( /\/search/ ),
@@ -41,7 +42,8 @@ module.exports = function () {
 				gatewayClass: SearchGateway,
 				api: new mw.Api(),
 				searchTerm: $searchInput.val(),
-				placeholderMsg: placeholder
+				placeholderMsg: placeholder,
+				defaultSearchPage: defaultSearchPage
 			} );
 			searchLogger.register( searchOverlayInstance );
 		}
