@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Soul Train"
+			"Soul Train",
+			"Батыр Комдошев"
 		]
 	},
+	"mobile-frontend-language-article-heading": "Тил",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Кӱӱнзеп келер!}}, $1!",
 	"mobile-frontend-placeholder": "Бедреер {{SITENAME}}"
 }
