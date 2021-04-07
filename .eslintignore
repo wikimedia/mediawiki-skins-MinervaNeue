@@ -1,0 +1,6 @@
+/docs/
+/libs/
+/node_modules/
+/vendor/
+/tests/resource-loader-bundlesize.js
+.eslintrc.js
