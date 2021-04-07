@@ -3,14 +3,15 @@
 		"authors": [
 			"AnakngAraw",
 			"Brazal.dang",
+			"GinawaSaHapon",
 			"Jojit fb",
 			"Sky Harbor"
 		]
 	},
 	"mobile-frontend-editor-edit": "Baguhin",
 	"mobile-frontend-home-button": "Tahanan",
-	"mobile-frontend-language-article-heading": "Basahin sa ibang wika",
-	"mobile-frontend-logged-in-homepage-notification": "Mabuhay, $1!",
+	"mobile-frontend-language-article-heading": "Wika",
+	"mobile-frontend-logged-in-homepage-notification": "Kamusta, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Buksan ang pangunahing menu",
 	"mobile-frontend-main-menu-login": "Mag-login",
 	"mobile-frontend-main-menu-logout": "Umalis sa pagkaka-login",
