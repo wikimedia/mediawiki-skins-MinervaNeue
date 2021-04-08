@@ -117,7 +117,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$supportsDirectApiEditing,
 		$expected
 	) {
-		$contentHandler = $this->getMockBuilder( 'ContentHandler' )
+		$contentHandler = $this->getMockBuilder( ContentHandler::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -220,7 +220,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 	public function testWatchIsAllowedOnlyWhenWatchlistPermissionsAreGranted() {
 		$title = Title::newFromText( 'test_watchstar_permissions' );
 
-		$userMock = $this->getMockBuilder( 'User' )
+		$userMock = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->setMethods( [ 'isAllowedAll' ] )
 			->getMock();

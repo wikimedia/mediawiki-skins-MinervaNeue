@@ -94,7 +94,7 @@ final class Definitions {
 		// Watchlist link
 		$watchlistQuery = [];
 		// Avoid fatal when MobileFrontend not available (T171241)
-		if ( class_exists( 'SpecialMobileWatchlist' ) ) {
+		if ( class_exists( SpecialMobileWatchlist::class ) ) {
 			$view = $this->user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
 			$filter = $this->user->getOption( SpecialMobileWatchlist::FILTER_OPTION_NAME, false );
 			if ( $view ) {
