@@ -4,5 +4,7 @@
 			"Adehertogh"
 		]
 	},
-	"mobile-frontend-language-article-heading": "Čhib"
+	"mobile-frontend-language-article-heading": "Čhib",
+	"mobile-frontend-logged-in-homepage-notification": "Av andre $1!",
+	"mobile-frontend-placeholder": "Rode {{SITENAME}}"
 }
