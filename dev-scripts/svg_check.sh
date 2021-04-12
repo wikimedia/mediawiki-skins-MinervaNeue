@@ -4,7 +4,7 @@ found=0
 while read -r svgfile; do
 	outfile="$svgfile.tmp"
 	echo -n "Checking compression: $svgfile ... "
-	node_modules/.bin/svgo --config .svgo.yml -i "$svgfile" -o "$outfile" -q
+	node_modules/.bin/svgo --config .svgo.config.js -i "$svgfile" -o "$outfile" -q
 	if [ "$(wc -c < "$svgfile")" -gt "$(wc -c < "$outfile")" ]; then
 		echo -e "\nERR> file $svgfile is not compressed."
 		found=$((found + 1))
