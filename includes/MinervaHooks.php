@@ -337,6 +337,51 @@ class MinervaHooks {
 	}
 
 	/**
+	 * The Minerva skin loads message box styles differently from core, to
+	 * reduce the amount of styles on the critical path.
+	 * This adds message box styles to pages that need it, to avoid loading them
+	 * on pages where they are not.
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 */
+	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
+		if ( $skin->getSkinName() === 'minerva' ) {
+			self::addMessageBoxStylesToPage( $out );
+		}
+	}
+
+	/**
+	 * The Minerva skin loads message box styles differently from core, to
+	 * reduce the amount of styles on the critical path.
+	 * This adds message box styles to pages that need it, to avoid loading them
+	 * on pages where they are not.
+	 * The pages where they are needed are:
+	 * - special pages
+	 * - edit workflow (action=edit and action=submit)
+	 * - when viewing old revisions
+	 *
+	 * @param OutputPage $out
+	 */
+	private static function addMessageBoxStylesToPage( OutputPage $out ) {
+		$request = $out->getRequest();
+		// Warning box styles are needed when reviewing old revisions
+		// and inside the fallback editor styles to action=edit page.
+		$requestAction = $request->getVal( 'action' );
+		$viewAction = $requestAction === null || $requestAction === 'view';
+
+		if (
+			$out->getTitle()->isSpecialPage() ||
+			$request->getText( 'oldid' ) ||
+			!$viewAction
+		) {
+			$out->addModuleStyles( [
+				'skins.minerva.messageBox.styles'
+			] );
+		}
+	}
+
+	/**
 	 * Modifies the `<body>` element's attributes.
 	 *
 	 * By default, the `class` attribute is set to the output's "bodyClassName"
