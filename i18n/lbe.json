@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Soul Train"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Маз",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Чабувкру}}, $1!"
+}
