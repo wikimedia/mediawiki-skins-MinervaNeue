@@ -29,10 +29,10 @@ exports.config = {
 
 	// Wiki admin
 	mwUser: process.env.MEDIAWIKI_USER || 'Admin',
-	mwPwd: process.env.MEDIAWIKI_PASSWORD || 'vagrant',
+	mwPwd: process.env.MEDIAWIKI_PASSWORD || 'dockerpass',
 
 	// Base for browser.url() and Page#openTitle()
-	baseUrl: ( process.env.MW_SERVER || 'http://127.0.0.1:8080' ) + (
+	baseUrl: ( process.env.MW_SERVER || 'http://localhost:8080' ) + (
 		process.env.MW_SCRIPT_PATH || '/w'
 	),
 
@@ -148,14 +148,9 @@ exports.config = {
 			ffmpeg.kill( 'SIGINT' );
 		}
 
-		// if test passed, ignore, else take and save screenshot
-		if ( test.passed ) {
-			return;
-		}
 		// save screenshot
 		const screenshotfile = filePath( test, logPath, 'png' );
 		browser.saveScreenshot( screenshotfile );
-		console.log( '\n\tScreenshot location:', screenshotfile, '\n' );
 	}
 };
 
