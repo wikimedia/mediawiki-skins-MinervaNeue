@@ -93,6 +93,8 @@ return [
 				) :
 				$userPageHelper;
 
+			$watchlistManager = $services->getWatchlistManager();
+
 			$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
 				$title,
 				$user,
@@ -102,7 +104,8 @@ return [
 				$relevantUserPageHelper,
 				$languagesHelper,
 				new ServiceOptions( PageActionsMenu\ToolbarBuilder::CONSTRUCTOR_OPTIONS,
-					$services->getMainConfig() )
+					$services->getMainConfig() ),
+				$watchlistManager
 			);
 			if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
 				$overflowBuilder = $relevantUserPageHelper->isUserPage() ?

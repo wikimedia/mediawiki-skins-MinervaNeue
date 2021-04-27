@@ -32,6 +32,7 @@ use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\Watchlist\WatchlistManager;
 use MessageLocalizer;
 use MinervaUI;
 use MWException;
@@ -81,6 +82,11 @@ class ToolbarBuilder {
 	private $watchlistExpiryEnabled;
 
 	/**
+	 * @var WatchlistManager
+	 */
+	private $watchlistManager;
+
+	/**
 	 * ServiceOptions needed.
 	 */
 	public const CONSTRUCTOR_OPTIONS = [
@@ -100,6 +106,7 @@ class ToolbarBuilder {
 	 * Title and NOT with the user talk page Title.
 	 * @param LanguagesHelper $languagesHelper Helper to check title languages/variants
 	 * @param ServiceOptions $options
+	 * @param WatchlistManager $watchlistManager
 	 */
 	public function __construct(
 		Title $title,
@@ -109,7 +116,8 @@ class ToolbarBuilder {
 		SkinOptions $skinOptions,
 		SkinUserPageHelper $relevantUserPageHelper,
 		LanguagesHelper $languagesHelper,
-		ServiceOptions $options
+		ServiceOptions $options,
+		WatchlistManager $watchlistManager
 	) {
 		$this->title = $title;
 		$this->user = $user;
@@ -119,6 +127,7 @@ class ToolbarBuilder {
 		$this->relevantUserPageHelper = $relevantUserPageHelper;
 		$this->languagesHelper = $languagesHelper;
 		$this->watchlistExpiryEnabled = $options->get( 'WatchlistExpiry' );
+		$this->watchlistManager = $watchlistManager;
 	}
 
 	/**
@@ -236,10 +245,11 @@ class ToolbarBuilder {
 	 * @throws MWException
 	 */
 	protected function createWatchPageAction(): IMenuEntry {
-		$isWatched = $this->user->isRegistered() && $this->user->isWatched( $this->title );
+		$isWatched = $this->user->isRegistered() &&
+			$this->watchlistManager->isWatched( $this->user, $this->title );
 		$isTempWatched = $this->watchlistExpiryEnabled &&
 			$isWatched &&
-			$this->user->isTempWatched( $this->title );
+			$this->watchlistManager->isTempWatched( $this->user, $this->title );
 		$newModeToSet = $isWatched ? 'unwatch' : 'watch';
 		$href = $this->user->isAnon()
 			? $this->getLoginUrl( [ 'returnto' => $this->title ] )
