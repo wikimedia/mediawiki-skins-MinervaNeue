@@ -1,11 +1,11 @@
 [
 	{
 		"resourceModule": "skins.minerva.base.styles",
-		"maxSize": "3.4KB"
+		"maxSize": "3.5KB"
 	},
 	{
 		"resourceModule": "skins.minerva.content.styles",
-		"maxSize": "3.2KB"
+		"maxSize": "2.2KB"
 	},
 	{
 		"resourceModule": "skins.minerva.content.styles.images",
