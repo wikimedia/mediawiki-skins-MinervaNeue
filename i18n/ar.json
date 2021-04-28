@@ -62,6 +62,8 @@
 	"minerva-page-actions-permalink": "وصلة دائمة",
 	"minerva-page-actions-backlinks": "ماذا يصل هنا",
 	"minerva-page-actions-cite": "استشهد بالصفحة",
+	"minerva-page-actions-move": "انقل",
+	"minerva-page-actions-delete": "احذف",
 	"minerva-page-actions-user-groups": "مجموعات المستخدم",
 	"minerva-page-actions-logs": "سجلات",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} عنصر",

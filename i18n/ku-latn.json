@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Balyozxane",
 			"Bikarhêner",
 			"George Animal",
 			"Ghybu",
@@ -34,7 +35,9 @@
 	"mobile-frontend-user-page-contributions": "Beşdarî",
 	"mobile-frontend-user-page-member-since": "$1ê bû {{GENDER:$2|endam}}",
 	"mobile-frontend-user-page-talk": "Gotûbêj",
+	"minerva-page-actions-language-switcher": "Bi zimanên din",
 	"minerva-page-actions-history": "Dîrok",
+	"minerva-talk-explained": "Gotûbêjên zindî",
 	"skin-minerva-issue-learn-more": "Zêdetir hîn bibe",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorî"
 }
