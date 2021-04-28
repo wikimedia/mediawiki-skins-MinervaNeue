@@ -22,7 +22,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.36.0"
+		"MediaWiki": ">= 1.37.0"
 	},
 	"config": {
 		"MinervaDonateLink": {
