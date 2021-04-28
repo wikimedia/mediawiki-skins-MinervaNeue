@@ -1,4 +1,4 @@
-class ArticlePage # rubocop:disable Metrics/ClassLength
+class ArticlePage
   include PageObject
 
   page_url '<%=params[:article_name]%><%=params[:hash]%>'
@@ -91,7 +91,6 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
   # page-actions
   ul(:page_actions, id: 'page-actions')
   a(:talk, css: '.talk')
-  a(:category, css: '.category-button')
   a(:nearby_button, css: '#page-secondary-actions .nearby')
 
   # wikidata descriptions
@@ -120,9 +119,6 @@ class ArticlePage # rubocop:disable Metrics/ClassLength
     page.overlay_element.button_element(class: 'cancel')
   end
   h2(:overlay_heading, css: '.overlay-title h2')
-
-  # category
-  li(:overlay_category_topic_item, css: '.topic-title-list li')
 
   # visual editor
   div(:overlay_ve, css: '.editor-overlay-ve')

@@ -71,6 +71,10 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public function getTemplateData() {
 			$data = parent::getTemplateData();
+			if ( !$this->hasCategoryLinks() ) {
+				unset( $data['html-categories'] );
+			}
+
 			$tpl = $this->prepareQuickTemplate();
 			$tplData = $tpl->execute();
 			return $data + $tplData;
@@ -638,22 +642,6 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Returns an array with details for a categories button.
-	 * @return array
-	 */
-	protected function getCategoryButton() {
-		return [
-			'attributes' => [
-				'href' => '#/categories',
-				// add hidden class (the overlay works only, when JS is enabled (class will
-				// be removed in categories/init.js)
-				'class' => 'category-button hidden',
-			],
-			'label' => $this->msg( 'categories' )->text()
-		];
-	}
-
-	/**
 	 * Returns an array of links for page secondary actions
 	 * @param BaseTemplate $tpl
 	 * @return array
@@ -689,10 +677,6 @@ class SkinMinerva extends SkinMustache {
 
 		if ( $languagesHelper->doesTitleHasLanguagesOrVariants( $title ) && $title->isMainPage() ) {
 			$buttons['language'] = $this->getLanguageButton();
-		}
-
-		if ( $this->hasCategoryLinks() ) {
-			$buttons['categories'] = $this->getCategoryButton();
 		}
 
 		return $buttons;
@@ -739,20 +723,6 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Returns an array of modules related to the current context of the page.
-	 * @return array
-	 */
-	public function getContextSpecificModules() {
-		$modules = [];
-		$mobileFrontend = ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' );
-		if ( $this->skinOptions->hasSkinOptions() && $mobileFrontend ) {
-			$modules[] = 'skins.minerva.options';
-		}
-
-		return $modules;
-	}
-
-	/**
 	 * Returns the javascript entry modules to load. Only modules that need to
 	 * be overriden or added conditionally should be placed here.
 	 * @return array
@@ -785,12 +755,9 @@ class SkinMinerva extends SkinMustache {
 		}
 		$modules['styles']['core'] = $this->getSkinStyles();
 
-		$modules['minerva'] = array_merge(
-			$this->getContextSpecificModules(),
-			[
-				'skins.minerva.scripts'
-			]
-		);
+		$modules['minerva'] = [
+			'skins.minerva.scripts'
+		];
 
 		Hooks::run( 'SkinMinervaDefaultModules', [ $this, &$modules ], '1.36' );
 
@@ -825,6 +792,10 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.userpage.styles';
 		} elseif ( $this->isTalkPageWithViewAction() ) {
 			$styles[] = 'skins.minerva.talk.styles';
+		}
+
+		if ( $this->hasCategoryLinks() ) {
+			$styles[] = 'skins.minerva.categories.styles';
 		}
 
 		if ( $this->getUser()->isRegistered() ) {

@@ -36,7 +36,7 @@ for the page.
 Controls whether site notices should be shown.
 See <https://www.mediawiki.org/wiki/Manual:$wgSiteNotice>.
 
-#### $wgMinervaShowCategoriesButton
+#### $wgMinervaShowCategories
 
 * Type: `Array`
 * Default:

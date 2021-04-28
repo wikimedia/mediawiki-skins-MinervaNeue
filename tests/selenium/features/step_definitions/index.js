@@ -1,9 +1,6 @@
 'use strict';
 
 const { defineSupportCode } = require( 'cucumber' ),
-	{ iClickOnTheCategoryButton,
-		iShouldSeeTheCategoriesOverlay, iShouldSeeAListOfCategories
-	} = require( './category_steps' ),
 	{ iAmInAWikiThatHasCategories,
 		iAmOnAPageThatHasTheFollowingEdits,
 		iAmOnATalkPageWithNoTalkTopics,
@@ -156,10 +153,4 @@ defineSupportCode( function ( { Then, When, Given } ) {
 	Then( /^the watch star should not be selected$/, theWatchstarShouldNotBeSelected );
 	Then( /^the watch star should be selected$/, theWatchstarShouldBeSelected );
 
-	// Category steps
-	When( /^I click on the category button$/, iClickOnTheCategoryButton );
-
-	Then( /^I should see the categories overlay$/, iShouldSeeTheCategoriesOverlay );
-
-	Then( /^I should see a list of categories$/, iShouldSeeAListOfCategories );
 } );

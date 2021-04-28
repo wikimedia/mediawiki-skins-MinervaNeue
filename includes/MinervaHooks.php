@@ -91,9 +91,9 @@ class MinervaHooks {
 		try {
 			$featureManager->registerFeature(
 				new MobileFrontend\Features\Feature(
-					'MinervaShowCategoriesButton',
+					'MinervaShowCategories',
 					'skin-minerva',
-					$config->get( 'MinervaShowCategoriesButton' )
+					$config->get( 'MinervaShowCategories' )
 				)
 			);
 			$featureManager->registerFeature(
@@ -247,7 +247,7 @@ class MinervaHooks {
 				SkinOptions::BETA_MODE
 					=> $isBeta,
 				SkinOptions::CATEGORIES
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategoriesButton' ),
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategories' ),
 				SkinOptions::PAGE_ISSUES
 					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
 				SkinOptions::MOBILE_OPTIONS => true,
