@@ -227,9 +227,13 @@ class MinervaHooks {
 				// SkinUserPageHelper is being instantiated instead.
 				$relevantUserPageHelper = new SkinUserPageHelper(
 					$services->getUserNameUtils(),
-					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
+					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title,
+					$mobileContext
 				);
-				$isUserPageOrUserTalkPage = $relevantUserPageHelper->isUserPage();
+
+				$isUserPage = $relevantUserPageHelper->isUserPage();
+				$isUserPageAccessible = $relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
+				$isUserPageOrUserTalkPage = $isUserPage && $isUserPageAccessible;
 			} else {
 				// If no title this must be false
 				$isUserPageOrUserTalkPage = false;

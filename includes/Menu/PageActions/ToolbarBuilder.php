@@ -137,10 +137,10 @@ class ToolbarBuilder {
 	public function getGroup(): Group {
 		$group = new Group( 'p-views' );
 		$permissions = $this->permissions;
-		$userPageOrUserTalkPageWithOveflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+		$userPageOrUserTalkPageWithOverflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 			&& $this->relevantUserPageHelper->isUserPage();
 
-		if ( !$userPageOrUserTalkPageWithOveflowMode && $permissions->isAllowed(
+		if ( !$userPageOrUserTalkPageWithOverflowMode && $permissions->isAllowed(
 			IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->insertEntry( new LanguageSelectorEntry(
 				$this->title,
@@ -160,7 +160,9 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->getHistoryPageAction() );
 		}
 
-		if ( $this->relevantUserPageHelper->isUserPage() ) {
+		$isUserPage = $this->relevantUserPageHelper->isUserPage();
+		$isUserPageAccessible = $this->relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
+		if ( $isUserPage && $isUserPageAccessible ) {
 			// T235681: Contributions icon should be added to toolbar on user pages
 			// and user talk pages for all users
 			$user = $this->relevantUserPageHelper->getPageUser();

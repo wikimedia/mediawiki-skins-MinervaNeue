@@ -431,7 +431,8 @@ class SkinMinerva extends SkinMustache {
 		if ( $this->getUserPageHelper()->isUserPage() ) {
 			$pageUser = $this->getUserPageHelper()->getPageUser();
 			$fromDate = $pageUser->getRegistration();
-			if ( is_string( $fromDate ) ) {
+
+			if ( $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser() && is_string( $fromDate ) ) {
 				$fromDateTs = wfTimestamp( TS_UNIX, $fromDate );
 
 				// This is shown when js is disabled. js enhancement made due to caching
@@ -461,7 +462,9 @@ class SkinMinerva extends SkinMustache {
 	 * @return string HTML for header
 	 */
 	protected function getHeadingHtml() {
-		if ( $this->getUserPageHelper()->isUserPage() ) {
+		$isUserPage = $this->getUserPageHelper()->isUserPage();
+		$isUserPageAccessible = $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser();
+		if ( $isUserPage && $isUserPageAccessible ) {
 			// The heading is just the username without namespace
 			$heading = $this->getUserPageHelper()->getPageUser()->getName();
 		} else {

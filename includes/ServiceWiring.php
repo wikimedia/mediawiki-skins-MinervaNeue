@@ -89,7 +89,8 @@ return [
 			$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
 				new SkinUserPageHelper(
 					$services->getUserNameUtils(),
-					$context->getSkin()->getRelevantTitle()->getSubjectPage()
+					$context->getSkin()->getRelevantTitle()->getSubjectPage(),
+					$context
 				) :
 				$userPageHelper;
 
@@ -132,7 +133,8 @@ return [
 	'Minerva.SkinUserPageHelper' => static function ( MediaWikiServices $services ): SkinUserPageHelper {
 		return new SkinUserPageHelper(
 			$services->getUserNameUtils(),
-			RequestContext::getMain()->getSkin()->getRelevantTitle()
+			RequestContext::getMain()->getSkin()->getRelevantTitle(),
+			RequestContext::getMain()
 		);
 	},
 	'Minerva.LanguagesHelper' => static function (): LanguagesHelper {
