@@ -3,6 +3,7 @@
 		"authors": [
 			"Hello903hello",
 			"Ktchankt",
+			"Matttest",
 			"Moon0319",
 			"Obonggi",
 			"Roy17",
@@ -44,6 +45,9 @@
 	"mobile-frontend-user-page-talk": "傾偈",
 	"minerva-page-actions-overflow": "多啲",
 	"minerva-page-actions-backlinks": "有乜嘢連咗嚟呢度",
+	"minerva-page-actions-move": "搬版",
+	"minerva-page-actions-delete": "剷走",
+	"minerva-page-actions-protect": "保護",
 	"minerva-page-actions-user-groups": "用戶組",
 	"minerva-page-actions-logs": "日誌",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}項目",
