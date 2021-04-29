@@ -783,7 +783,6 @@ class SkinMinerva extends SkinMustache {
 		$title = $this->getTitle();
 		$styles = [
 			'skins.minerva.base.styles',
-			'skins.minerva.content.styles',
 			'skins.minerva.content.styles.images',
 			'mediawiki.hlist',
 			'mediawiki.ui.icon',

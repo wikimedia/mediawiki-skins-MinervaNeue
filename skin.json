@@ -253,26 +253,27 @@
 			]
 		}
 	},
+	"@ResourceModules": [
+		"TODO: Remove skins.minerva.content.styles once I8578faab8ca32b is deployed for 2 weeks.",
+		"      when CDN-cached HTML has rolled over."
+	],
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\Minerva\\ResourceLoaderSkinModule",
 			"features": [ "i18n-ordered-lists", "content-body" ],
 			"targets": [
 				"mobile",
 				"desktop"
 			],
 			"styles": [
-				"resources/skins.minerva.base.styles/skin.less"
+				"resources/skins.minerva.base.styles/skin.less",
+				"resources/skins.minerva.base.styles/content/index.less"
 			]
 		},
 		"skins.minerva.content.styles": {
-			"class": "MediaWiki\\Minerva\\ResourceLoaderLessVarFileModule",
 			"targets": [
 				"mobile",
 				"desktop"
-			],
-			"styles": [
-				"resources/skins.minerva.content.styles/index.less"
 			]
 		},
 		"skins.minerva.content.styles.images": {
