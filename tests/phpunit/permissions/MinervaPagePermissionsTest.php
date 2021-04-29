@@ -8,6 +8,7 @@ use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Watchlist\WatchlistManager;
 use MediaWikiTestCase;
 use RequestContext;
 use Title;
@@ -253,9 +254,12 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
-		$title->expects( $this->once() )
+
+		$watchlistManager = $this->createMock( WatchlistManager::class );
+		$watchlistManager->expects( $this->once() )
 			->method( 'isWatchable' )
 			->willReturn( false );
+		$this->setService( 'WatchlistManager', $watchlistManager );
 
 		$permissions = $this->buildPermissionsObject( $title );
 		$this->assertFalse( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) );

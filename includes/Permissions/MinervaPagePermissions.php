@@ -23,6 +23,7 @@ use Config;
 use ConfigException;
 use ContentHandler;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\PermissionManager;
@@ -162,7 +163,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		}
 
 		if ( $action === self::WATCH ) {
-			return $this->title->isWatchable()
+			return MediaWikiServices::getInstance()->getWatchlistManager()->isWatchable( $this->title )
 				? $this->user->isAllowedAll( 'viewmywatchlist', 'editmywatchlist' )
 				: false;
 		}
