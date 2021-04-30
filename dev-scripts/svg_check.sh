@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 found=0
 
-while read -r svgfile; do
+for svgfile in `find resources -type f -name "*.svg"`; do
 	outfile="$svgfile.tmp"
 	echo -n "Checking compression: $svgfile ... "
 	node_modules/.bin/svgo --config .svgo.config.js -i "$svgfile" -o "$outfile" -q
-	if [ "$(wc -c < "$svgfile")" -gt "$(wc -c < "$outfile")" ]; then
-		echo -e "\nERR> file $svgfile is not compressed."
-		found=$((found + 1))
-	else
-		echo "OK"
+	if [ -f $outfile ]; then
+		if [ "$(wc -c < "$svgfile")" -gt "$(wc -c < "$outfile")" ]; then
+			echo "File $svgfile is not compressed."
+			found=$((found + 1))
+		fi
+		rm "$outfile"
 	fi
-	rm "$outfile"
-done < <(find resources -type f -name '*.svg')
+done
 
 if [ $found -gt 0 ]; then
 	echo "Found $found uncompressed SVG files. Please compress the files and re-submit the patch."
