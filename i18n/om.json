@@ -1,11 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ahrada2016",
 			"Hagos",
 			"Maammee"
 		]
 	},
 	"mobile-frontend-language-article-heading": "Afaan",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Anaa dhufu}}, $1!",
-	"mobile-frontend-placeholder": "{{SITENAME}} barbaadi"
+	"mobile-frontend-placeholder": "{{SITENAME}} barbaadi",
+	"minerva-page-actions-move": "Sachoosi",
+	"minerva-page-actions-delete": "Balleessi",
+	"minerva-page-actions-protect": "Eegamaa"
 }

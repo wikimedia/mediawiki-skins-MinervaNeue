@@ -50,6 +50,9 @@
 	"minerva-page-actions-permalink": "Püsilink",
 	"minerva-page-actions-backlinks": "Lingid siia",
 	"minerva-page-actions-cite": "Viita leheküljele",
+	"minerva-page-actions-move": "Teisalda",
+	"minerva-page-actions-delete": "Kustuta",
+	"minerva-page-actions-protect": "Kaitse",
 	"minerva-page-actions-user-groups": "Kasutajarühmad",
 	"minerva-page-actions-logs": "Logid",
 	"minerva-page-actions-wikibase": "Vikiandmete üksus",
@@ -64,5 +67,7 @@
 	"skin-minerva-issue-learn-more": "Lisateave",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategooriad",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näita lehekülgede kategooriaid.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Mobiilivaates kahjuks ei saa tulemusi lehekülje kaupa rühmitada. Kui soovid lehekülje kaupa rühmitamise funktsiooni kasutada, siis palun külasta saiti lauaarvuti vaates."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Mobiilivaates kahjuks ei saa tulemusi lehekülje kaupa rühmitada. Kui soovid lehekülje kaupa rühmitamise funktsiooni kasutada, siis palun külasta saiti lauaarvuti vaates.",
+	"minerva.css": "/* Siin asuv kaskaadilaadistik laaditakse kõigi kujunduse MinervaNeue kasutajate jaoks. */",
+	"minerva.js": "/* Siin asuv JavaScript laaditakse kõigi kujunduse MinervaNeue kasutajate jaoks. */"
 }

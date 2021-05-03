@@ -53,8 +53,11 @@
 	"minerva-page-actions-overflow": "আরও",
 	"minerva-page-actions-info": "পাতার তথ্য",
 	"minerva-page-actions-permalink": "স্থায়ী সংযোগ",
-	"minerva-page-actions-backlinks": "সংযোগকারী পৃষ্ঠাসমূহ",
+	"minerva-page-actions-backlinks": "সংযোগকারী পাতাসমূহ",
 	"minerva-page-actions-cite": "পাতা উদ্ধৃত করুন",
+	"minerva-page-actions-move": "স্থানান্তর করুন",
+	"minerva-page-actions-delete": "অপসারণ করুন",
+	"minerva-page-actions-protect": "সুরক্ষিত করুন",
 	"minerva-page-actions-user-groups": "ব্যবহারকারী দল",
 	"minerva-page-actions-logs": "লগসমূহ",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} আইটেম",
@@ -70,5 +73,7 @@
 	"skin-minerva-issue-learn-more": "আরও জানুন",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "বিষয়শ্রেণী",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "পাতাগুলির বিষয়শ্রেণী দেখুন",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "দুর্ভাগ্যক্রমে, পাতা অনুযায়ী দলবদ্ধ ফলাফল মোবাইলে উপলব্ধ নয়। আপনি যদি পাতা অনুযায়ী দল বৈশিষ্ট্যটি ব্যবহার করতে চান তবে দয়া করে ডেস্কটপ সাইটটি দেখুন।"
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "দুর্ভাগ্যক্রমে, পাতা অনুযায়ী দলবদ্ধ ফলাফল মোবাইলে উপলব্ধ নয়। আপনি যদি পাতা অনুযায়ী দল বৈশিষ্ট্যটি ব্যবহার করতে চান তবে দয়া করে ডেস্কটপ সাইটটি দেখুন।",
+	"minerva.css": "/* এখানের সকল CSS মিনার্ভানিউ আবরণ ব্যবহারকারীদের জন্য লোড হবে */",
+	"minerva.js": "/* এখানের সকল জাভাস্ক্রিপ্ট মিনার্ভানিউ আবরণ ব্যবহারকারীদের জন্য লোড হবে */"
 }
