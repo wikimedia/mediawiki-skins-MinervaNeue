@@ -36,10 +36,10 @@ use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 
 return [
-	'Minerva.Menu.Definitions' => function ( MediaWikiServices $services ): Definitions {
+	'Minerva.Menu.Definitions' => static function ( MediaWikiServices $services ): Definitions {
 		return new Definitions( RequestContext::getMain(), $services->getSpecialPageFactory() );
 	},
-	'Minerva.Menu.UserMenuDirector' => function ( MediaWikiServices $services ): UserMenuDirector {
+	'Minerva.Menu.UserMenuDirector' => static function ( MediaWikiServices $services ): UserMenuDirector {
 		$options = $services->getService( 'Minerva.SkinOptions' );
 		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
 
@@ -57,7 +57,7 @@ return [
 			$context->getSkin()
 		);
 	},
-	'Minerva.Menu.MainDirector' => function ( MediaWikiServices $services ): MainMenuDirector {
+	'Minerva.Menu.MainDirector' => static function ( MediaWikiServices $services ): MainMenuDirector {
 		$context = RequestContext::getMain();
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
@@ -73,7 +73,7 @@ return [
 		return new MainMenuDirector( $builder, $context, $services->getSpecialPageFactory() );
 	},
 	'Minerva.Menu.PageActionsDirector' =>
-		function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
+		static function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
 			/**
 			 * @var SkinOptions $skinOptions
 			 * @var SkinMinerva $skin
@@ -129,19 +129,19 @@ return [
 				$context
 			);
 		},
-	'Minerva.SkinUserPageHelper' => function ( MediaWikiServices $services ): SkinUserPageHelper {
+	'Minerva.SkinUserPageHelper' => static function ( MediaWikiServices $services ): SkinUserPageHelper {
 		return new SkinUserPageHelper(
 			$services->getUserNameUtils(),
 			RequestContext::getMain()->getSkin()->getRelevantTitle()
 		);
 	},
-	'Minerva.LanguagesHelper' => function (): LanguagesHelper {
+	'Minerva.LanguagesHelper' => static function (): LanguagesHelper {
 		return new LanguagesHelper( RequestContext::getMain()->getOutput() );
 	},
-	'Minerva.SkinOptions' => function (): SkinOptions {
+	'Minerva.SkinOptions' => static function (): SkinOptions {
 		return new SkinOptions();
 	},
-	'Minerva.Permissions' => function ( MediaWikiServices $services ): IMinervaPagePermissions {
+	'Minerva.Permissions' => static function ( MediaWikiServices $services ): IMinervaPagePermissions {
 		$permissions = new MinervaPagePermissions(
 			$services->getService( 'Minerva.SkinOptions' ),
 			$services->getService( 'Minerva.LanguagesHelper' ),

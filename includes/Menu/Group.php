@@ -69,7 +69,7 @@ final class Group {
 	 * @return array
 	 */
 	public function getEntries() {
-		$entryPresenter = function ( IMenuEntry $entry ) {
+		$entryPresenter = static function ( IMenuEntry $entry ) {
 			$result = [
 				'name' => $entry->getName(),
 				'components' => $entry->getComponents(),

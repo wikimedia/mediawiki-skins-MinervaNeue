@@ -233,7 +233,7 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 
 		$userMock = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
-			->setMethods( [ 'isAllowedAll' ] )
+			->onlyMethods( [ 'isAllowedAll' ] )
 			->getMock();
 		$userMock->expects( $this->once() )
 			->method( 'isAllowedAll' )
