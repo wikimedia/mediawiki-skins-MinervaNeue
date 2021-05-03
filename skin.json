@@ -238,9 +238,6 @@
 			"mediawiki.action.edit.styles": [
 				"skinStyles/mediawiki.action.edit.styles/minerva.less"
 			],
-			"mobile.special.mobilemenu.styles": [
-				"skinStyles/mobile.special.mobilemenu.styles/minerva.less"
-			],
 			"mediawiki.content.json": [
 				"skinStyles/mediawiki.content-json/minerva.less"
 			],
