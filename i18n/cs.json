@@ -10,7 +10,8 @@
 			"Mormegil",
 			"Patriccck",
 			"Patrik L.",
-			"Vks"
+			"Vks",
+			"Want"
 		]
 	},
 	"minerva-last-modified-date": "Naposledy editováno $1 v $2",
@@ -60,6 +61,9 @@
 	"minerva-page-actions-permalink": "Trvalý odkaz",
 	"minerva-page-actions-backlinks": "Odkazuje sem",
 	"minerva-page-actions-cite": "Citovat stránku",
+	"minerva-page-actions-move": "Přesunout",
+	"minerva-page-actions-delete": "Smazat",
+	"minerva-page-actions-protect": "Zamknout",
 	"minerva-page-actions-user-groups": "Uživatelské skupiny",
 	"minerva-page-actions-logs": "Protokolovací záznamy",
 	"minerva-page-actions-wikibase": "Položka {{grammar:2sg|{{WBREPONAME}}}}",
