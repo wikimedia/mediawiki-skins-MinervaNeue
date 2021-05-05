@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
+			"Jakub Fabijan",
 			"KuboF",
 			"Lucas",
 			"Mirin",
@@ -57,6 +58,8 @@
 	"minerva-page-actions-permalink": "Konstanta ligilo",
 	"minerva-page-actions-backlinks": "Kio enhavas ligilojn ĉi tien",
 	"minerva-page-actions-cite": "Citi paĝon",
+	"minerva-page-actions-delete": "Forigi",
+	"minerva-page-actions-protect": "Protekti",
 	"minerva-page-actions-logs": "Protokoloj",
 	"minerva-page-actions-wikibase": "ero de {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "Lingvoj",
