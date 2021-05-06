@@ -30,7 +30,7 @@
 	"mobile-frontend-home-button": "This is the label of one of the buttons that appear if you click the wiki logo near the search box.\n\nThis buttons takes the user to the home page.\n{{Identical|Home}}",
 	"mobile-frontend-language-article-heading": "In the secondary page menu, a short label that describes the button that displays a list of available languages\n{{Identical|Language}}",
 	"mobile-frontend-languages-not-available": "A toast message that is shown when the user taps on the language button on an article which is not available in other languages.",
-	"mobile-frontend-logged-in-homepage-notification": "Heading at top of homepage telling user they are logged in. Parameters:\n* $1 - username\n{{Identical|Welcome}}",
+	"mobile-frontend-logged-in-homepage-notification": "Heading at top of a wiki's main page telling user they are logged in. Parameters:\n* $1 - username\n{{Identical|Welcome}}",
 	"mobile-frontend-main-menu-button-tooltip": "Tooltip for menu button",
 	"mobile-frontend-main-menu-contributions": "Contributions link in main menu\n{{Identical|Contribution}}",
 	"mobile-frontend-main-menu-login": "Text for log in link in main menu.\n{{Identical|Log in}}",
