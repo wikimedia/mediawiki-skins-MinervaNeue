@@ -9,6 +9,7 @@
 			"Macofe",
 			"Mguix",
 			"QuimGil",
+			"Skurz0",
 			"Vriullop"
 		]
 	},
@@ -56,6 +57,7 @@
 	"minerva-page-actions-permalink": "Enllaç permanent",
 	"minerva-page-actions-backlinks": "Què hi enllaça",
 	"minerva-page-actions-cite": "Cita la pàgina",
+	"minerva-page-actions-move": "Mou",
 	"minerva-page-actions-user-groups": "Grups d’usuaris",
 	"minerva-page-actions-logs": "Registres",
 	"minerva-page-actions-wikibase": "Element {{WBREPONAME}}",

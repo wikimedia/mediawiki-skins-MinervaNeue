@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"咽頭べさ"
 		]
 	},
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|မ္ၚဵုရအဴ}} $1။"
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|မ္ၚဵုရအဴ}} $1။",
+	"minerva-page-actions-move": "ပြံင်ပဆုဲ",
+	"minerva-page-actions-delete": "ပလီု"
 }

@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Klenje",
 			"Tocaibon"
 		]
 	},
 	"mobile-frontend-editor-edit": "Modifiche",
 	"mobile-frontend-home-button": "Cjase",
-	"mobile-frontend-language-article-heading": "Lei intune altre lenghe",
+	"mobile-frontend-language-article-heading": "Lenghe",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvignût|Benvignude}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Vierç il menù principâl",
 	"mobile-frontend-main-menu-login": "Jentre",
 	"mobile-frontend-main-menu-nearby": "Dongje",
