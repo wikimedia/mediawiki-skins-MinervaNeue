@@ -3,6 +3,7 @@
 		"authors": [
 			"Athena in Wonderland",
 			"Edu!",
+			"Emma Franzen",
 			"Fúlvio",
 			"Hamilton Abreu",
 			"Macofe",
@@ -59,6 +60,7 @@
 	"minerva-page-actions-backlinks": "Páginas afluentes",
 	"minerva-page-actions-cite": "Citar a página",
 	"minerva-page-actions-move": "Mover",
+	"minerva-page-actions-delete": "Excluir",
 	"minerva-page-actions-protect": "Proteger",
 	"minerva-page-actions-user-groups": "Grupos de utilizadores",
 	"minerva-page-actions-logs": "Registos",
