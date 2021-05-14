@@ -256,7 +256,7 @@
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "i18n-ordered-lists" ],
+			"features": [ "i18n-ordered-lists", "content-body" ],
 			"targets": [
 				"mobile",
 				"desktop"
