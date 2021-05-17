@@ -6,6 +6,7 @@
 			"Гусейн"
 		]
 	},
+	"minerva-last-modified-date": "Охонә кәрә че $1 сәрост кардә быә саат $2",
 	"mobile-frontend-home-button": "Əsos səhifə",
 	"mobile-frontend-language-article-heading": "Зывон",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Хәш омәјш}}, $1!",
@@ -17,5 +18,25 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Че сәһифә сә чәмисә ној",
 	"mobile-frontend-placeholder": "Нәве {{SITENAME}}",
 	"mobile-frontend-random-button": "Рајрастә",
-	"mobile-frontend-user-page-talk": "Mızokirə"
+	"mobile-frontend-user-page-talk": "Mızokirə",
+	"minerva-page-actions-cite": "Сәһифә ситот карде",
+	"minerva-page-actions-move": "Овахте",
+	"minerva-page-actions-delete": "Моле",
+	"minerva-page-actions-protect": "Мыдофиә карде",
+	"minerva-page-actions-user-groups": "Окоәдон дастә",
+	"minerva-page-actions-logs": "Журналон",
+	"minerva-page-actions-wikibase": "че {{WBREPONAME}} елемент",
+	"minerva-page-actions-language-switcher": "Зывонон",
+	"minerva-page-actions-history": "Тарих",
+	"minerva-talk-explained": "Активә мызокирон",
+	"minerva-talk-explained-empty": "Бы сәһифәдә мызокирон нин.",
+	"minerva-talk-full-page": "Бәнә вики-сәһифә окарде",
+	"minerva-talk-topic-feedback": "Нујә мывзу әловә кардә быә бә мызокирә сәһифә!",
+	"minerva-talk-reply-success": "Шымә ҹәвоб огәтә быә мызокирә сәһифәдә.",
+	"minerva-skin-desc": "Иминә адаптивә мобил мывзу рәвош.",
+	"skin-minerva-issue-learn-more": "Ве зынеј",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категоријон",
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Категоријон сәһифә дијә карде",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Сәһифон проблемон пәјдо карде чок кардә быә",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемон де сәһифә (Шаблон:ambox) бә мәғолә дәғандә бәбен."
 }
