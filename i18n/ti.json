@@ -10,6 +10,7 @@
 	"mobile-frontend-editor-redlink-create": "ገጽ ፍጠር",
 	"mobile-frontend-home-button": "መበገሲ",
 	"mobile-frontend-language-article-heading": "ቋንቋ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|እንቋዕ ብደሓን መጻእካ|እንቋዕ ብደሓን መጻእኪ}}፣ $1!",
 	"mobile-frontend-main-menu-contributions": "ኣበርክቶታት",
 	"mobile-frontend-main-menu-login": "ብመንነት እተው",
 	"mobile-frontend-main-menu-logout": "ብመንነት ውጻእ",
