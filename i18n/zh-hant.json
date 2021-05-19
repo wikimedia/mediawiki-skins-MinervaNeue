@@ -65,6 +65,8 @@
 	"minerva-page-actions-backlinks": "連結至此的頁面",
 	"minerva-page-actions-cite": "引用此頁面",
 	"minerva-page-actions-move": "移動",
+	"minerva-page-actions-delete": "刪除",
+	"minerva-page-actions-protect": "保護",
 	"minerva-page-actions-user-groups": "使用者群組",
 	"minerva-page-actions-logs": "日誌",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}項目",
