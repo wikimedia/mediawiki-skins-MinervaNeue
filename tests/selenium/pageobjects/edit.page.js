@@ -10,7 +10,7 @@ class EditPage extends Page {
 	get save() { return $( 'button.mw-ui-button' ); }
 
 	openForEditing( title ) {
-		super.openTitle( title, { action: 'edit' } );
+		super.openTitle( title, { action: 'edit', mobileaction: 'toggle_view_mobile' } );
 	}
 
 	edit( name, content ) {
