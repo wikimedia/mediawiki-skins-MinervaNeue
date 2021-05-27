@@ -191,36 +191,30 @@ input.search {
 		margin-bottom: @headingMargin;
 	}
 
-	.mw-parser-output > h1,
-	.mw-parser-output > h2,
-	.mw-parser-output > h3,
-	.mw-parser-output > h4,
-	.mw-parser-output > h5,
-	.section-heading,
-	.in-block {
-		// Safari needs this. @see T106347
-		display: table;
+	// The following rules are duplicated in MobileFrontend
+	// but needed by Minerva desktop
+	.mw-parser-output {
+		> h1,
+		> h2,
+		> h3,
+		> h4,
+		> h5 {
+			// Safari needs this. @see T106347
+			display: table;
 
-		.mw-headline {
-			width: 100%;
-		}
+			.mw-headline {
+				width: 100%;
+			}
 
-		> span {
-			display: table-cell;
-			vertical-align: middle;
-		}
-
-		> .mw-editsection > .mw-ui-icon-element {
-			margin-top: -0.75em;
-			margin-bottom: -0.75em;
+			> span {
+				display: table-cell;
+			}
 		}
 	}
-}
 
-// Toggling indicators are unusable without JavaScript
-.client-nojs {
-	.section-heading .indicator {
-		display: none;
+	.mw-editsection > .mw-ui-icon-element {
+		margin-top: -0.75em;
+		margin-bottom: -0.75em;
 	}
 }
 
