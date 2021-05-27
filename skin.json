@@ -39,7 +39,7 @@
 			"value": true
 		},
 		"MinervaApplyKnownTemplateHacks": {
-			"value": false
+			"value": true
 		},
 		"MinervaPageActions": {
 			"value": [
