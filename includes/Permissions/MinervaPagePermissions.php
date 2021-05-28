@@ -23,6 +23,7 @@ use Config;
 use ConfigException;
 use ContentHandler;
 use IContextSource;
+use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
@@ -70,34 +71,43 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	private $permissionManager;
 
 	/**
+	 * @var IContentHandlerFactory
+	 */
+	private $contentHandlerFactory;
+
+	/**
 	 * Initialize internal Minerva Permissions system
 	 * @param SkinOptions $skinOptions Skin options`
 	 * @param LanguagesHelper $languagesHelper
 	 * @param PermissionManager $permissionManager
+	 * @param IContentHandlerFactory $contentHandlerFactory
 	 */
 	public function __construct(
 		SkinOptions $skinOptions,
 		LanguagesHelper $languagesHelper,
-		PermissionManager $permissionManager
+		PermissionManager $permissionManager,
+		IContentHandlerFactory $contentHandlerFactory
 	) {
 		$this->skinOptions = $skinOptions;
 		$this->languagesHelper = $languagesHelper;
 		$this->permissionManager = $permissionManager;
+		$this->contentHandlerFactory = $contentHandlerFactory;
 	}
 
 	/**
 	 * @param IContextSource $context
-	 * @param ContentHandler|null $contentHandler (for unit tests only)
 	 * @return $this
 	 */
-	public function setContext( IContextSource $context, ContentHandler $contentHandler = null ) {
+	public function setContext( IContextSource $context ) {
 		$this->title = $context->getTitle();
 		$this->config = $context->getConfig();
 		$this->user = $context->getUser();
 		// Title may be undefined in certain contexts (T179833)
 		// TODO: Check if this is still true if we always pass a context instead of using global one
 		if ( $this->title ) {
-			$this->contentHandler = $contentHandler ?: ContentHandler::getForTitle( $this->title );
+			$this->contentHandler = $this->contentHandlerFactory->getContentHandler(
+				$this->title->getContentModel()
+			);
 		}
 		return $this;
 	}

@@ -3,6 +3,7 @@
 namespace Tests\MediaWiki\Minerva;
 
 use ContentHandler;
+use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
@@ -68,11 +69,18 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 			->method( 'quickUserCan' )
 			->willReturn( $isSuperUser );
 
+		$contentHandlerFactory = $this->createMock( IContentHandlerFactory::class );
+
+		$contentHandlerFactory->expects( $this->any() )
+			->method( 'getContentHandler' )
+			->willReturn( $contentHandler );
+
 		return ( new MinervaPagePermissions(
 			$skinOptions,
 			$languageHelper,
-			$permissionManager
-		) )->setContext( $context, $contentHandler );
+			$permissionManager,
+			$contentHandlerFactory
+		) )->setContext( $context );
 	}
 
 	/**
@@ -207,6 +215,9 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
+		$title->expects( $this->any() )
+			->method( 'getContentModel' )
+			->willReturn( CONTENT_MODEL_WIKITEXT );
 
 		$permissions = $this->buildPermissionsObject(
 			$title,
@@ -254,6 +265,9 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
+		$title->expects( $this->any() )
+			->method( 'getContentModel' )
+			->willReturn( CONTENT_MODEL_UNKNOWN );
 
 		$watchlistManager = $this->createMock( WatchlistManager::class );
 		$watchlistManager->expects( $this->once() )
@@ -283,6 +297,10 @@ class MinervaPagePermissionsTest extends MediaWikiTestCase {
 		$title->expects( $this->any() )
 			->method( 'exists' )
 			->willReturn( true );
+		$title->expects( $this->any() )
+			->method( 'getContentModel' )
+			->willReturn( CONTENT_MODEL_WIKITEXT );
+
 		$perms = $this->buildPermissionsObject(
 			$title,
 			[
