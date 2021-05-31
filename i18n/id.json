@@ -7,6 +7,7 @@
 			"Ilham151096",
 			"Iwan Novirion",
 			"Kenrick95",
+			"Naufal06",
 			"Rachmat04",
 			"Uchup19",
 			"William Surya Permana"
@@ -60,6 +61,9 @@
 	"minerva-page-actions-permalink": "Pranala permanen",
 	"minerva-page-actions-backlinks": "Pranala balik",
 	"minerva-page-actions-cite": "Kutip halaman ini",
+	"minerva-page-actions-move": "Pindahkan",
+	"minerva-page-actions-delete": "Hapus",
+	"minerva-page-actions-protect": "Lindungi",
 	"minerva-page-actions-user-groups": "Kelompok pengguna",
 	"minerva-page-actions-logs": "Log",
 	"minerva-page-actions-wikibase": "Butir di {{WBREPONAME}}",

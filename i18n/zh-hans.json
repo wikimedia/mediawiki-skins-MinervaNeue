@@ -7,6 +7,7 @@
 			"A Retired User",
 			"A2B4C",
 			"Anakmalaysia",
+			"FakeGreenHand",
 			"Grace03",
 			"Hudafu",
 			"Hzy980512",
@@ -71,6 +72,7 @@
 	"minerva-page-actions-cite": "引用本页",
 	"minerva-page-actions-move": "移动",
 	"minerva-page-actions-delete": "删除",
+	"minerva-page-actions-protect": "保护",
 	"minerva-page-actions-user-groups": "用户组",
 	"minerva-page-actions-logs": "日志",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}项",
@@ -87,5 +89,5 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "查看页面分类",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "改进的页面问题处理",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "页面问题(Template:ambox)将内联在文章中。",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "遗憾的是，无法在移动设备上按页面分组结果。如果您想使用“按页面分组”功能，请访问桌面版站点。"
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很遗憾，按页面分组结果在移动设备上不可用。如果您想使用“按页面分组”功能，请访问桌面版。"
 }
