@@ -147,7 +147,8 @@ return [
 		$permissions = new MinervaPagePermissions(
 			$services->getService( 'Minerva.SkinOptions' ),
 			$services->getService( 'Minerva.LanguagesHelper' ),
-			$services->getPermissionManager()
+			$services->getPermissionManager(),
+			$services->getContentHandlerFactory()
 		);
 		// TODO: This should not be allowed, this is basically global $wgTitle and $wgUser.
 		$permissions->setContext( RequestContext::getMain() );
