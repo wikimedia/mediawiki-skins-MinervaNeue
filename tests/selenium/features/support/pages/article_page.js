@@ -31,7 +31,6 @@ class ArticlePage extends MinervaPage {
 	get menu_element() { return $( 'nav' ); }
 	get user_links_element() { return $( '.user-links' ); }
 	get notifications_button_element() { return $( '#pt-notifications-alert' ); }
-	get category_element() { return $( '.category-button' ); }
 	get drawer_element() { return $( '.drawer' ); }
 	get edit_link_element() { return $( '#ca-edit' ); }
 	get first_heading_element() { return $( '#section_0' ); }

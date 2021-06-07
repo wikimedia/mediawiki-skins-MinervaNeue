@@ -90,10 +90,10 @@
 				"amc": true
 			}
 		},
-		"MinervaShowCategoriesButton": {
+		"MinervaShowCategories": {
 			"value": {
 				"base": false,
-				"beta": true,
+				"loggedin": true,
 				"amc": true
 			}
 		},
@@ -591,20 +591,13 @@
 			"class": "ResourceLoaderSkinModule",
 			"features": [ "interface-message-box" ]
 		},
-		"skins.minerva.options": {
+		"skins.minerva.categories.styles": {
 			"targets": [
 				"mobile",
 				"desktop"
 			],
-			"dependencies": [
-				"skins.minerva.scripts",
-				"mediawiki.language",
-				"mobile.startup"
-			],
-			"packageFiles": [
-				"resources/skins.minerva.options/index.js",
-				"resources/skins.minerva.options/categories.js"
-			]
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "interface-category" ]
 		}
 	},
 	"QUnitTestModule": {

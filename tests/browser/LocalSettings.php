@@ -38,4 +38,4 @@ $wgMFDisplayWikibaseDescriptions = [
 	'tagline' => true,
 ];
 
-$wgMinervaShowCategoriesButton['base'] = true;
+$wgMinervaShowCategories['base'] = true;

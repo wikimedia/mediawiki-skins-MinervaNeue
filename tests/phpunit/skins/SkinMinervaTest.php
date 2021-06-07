@@ -15,8 +15,6 @@ use Wikimedia\TestingAccessWrapper;
  * @group MinervaNeue
  */
 class SkinMinervaTest extends MediaWikiTestCase {
-	private const OPTIONS_MODULE = 'skins.minerva.options';
-
 	/**
 	 * @param array $options
 	 */
@@ -106,48 +104,6 @@ class SkinMinervaTest extends MediaWikiTestCase {
 				],
 				false
 			],
-		];
-	}
-
-	/**
-	 * Test whether the font changer module is correctly added to the list context modules.
-	 *
-	 * @covers ::getContextSpecificModules
-	 * @dataProvider provideGetContextSpecificModules
-	 * @param mixed $categoryLinks whether category link feature is enabled
-	 * @param string $moduleName Module name that is being tested
-	 * @param bool $expected Whether the module is expected to be returned by the function being tested
-	 */
-	public function testGetContextSpecificModules( $categoryLinks, $moduleName, $expected ) {
-		$this->overrideSkinOptions( [
-			SkinOptions::SHOW_DONATE => false,
-			SkinOptions::TALK_AT_TOP => false,
-			SkinOptions::TALK_AT_TOP => false,
-			SkinOptions::HISTORY_IN_PAGE_ACTIONS => false,
-			SkinOptions::TOOLBAR_SUBMENU => false,
-			SkinOptions::MAIN_MENU_EXPANDED => false,
-			SkinOptions::PERSONAL_MENU => false,
-			SkinOptions::CATEGORIES => $categoryLinks,
-		] );
-
-		$skin = new SkinMinerva();
-		$title = Title::newFromText( 'Test' );
-		$testContext = RequestContext::getMain();
-		$testContext->setTitle( $title );
-
-		$skin->setContext( $testContext );
-
-		if ( $expected ) {
-			$this->assertContains( $moduleName, $skin->getContextSpecificModules() );
-		} else {
-			$this->assertNotContains( $moduleName, $skin->getContextSpecificModules() );
-		}
-	}
-
-	public function provideGetContextSpecificModules() {
-		return [
-			[ true, self::OPTIONS_MODULE, true ],
-			[ false, self::OPTIONS_MODULE, false ],
 		];
 	}
 }
