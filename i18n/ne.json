@@ -62,6 +62,6 @@
 	"minerva-talk-topic-feedback": "वार्तालाप पृष्ठमा नयाँ शीर्षक थपियो!",
 	"minerva-talk-reply-success": "तपाईको उत्तर वार्ता पृष्ठमा सङ्ग्रह भयो।",
 	"skin-minerva-issue-learn-more": "थप जान्नुहोस्",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "श्रेणीहरू",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "पृष्ठहरूको श्रेणीहरू हेर्नुहोस्"
+	"skin-minerva-mobile-option-MinervaShowCategories": "श्रेणीहरू",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "पृष्ठहरूको श्रेणीहरू हेर्नुहोस्"
 }

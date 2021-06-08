@@ -81,8 +81,8 @@
 	"minerva-talk-reply-success": "返信をトークページに保存しました。",
 	"minerva-skin-desc": "最初のモバイル機器用外装",
 	"skin-minerva-issue-learn-more": "詳細",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "カテゴリ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ページが属するカテゴリを表示",
+	"skin-minerva-mobile-option-MinervaShowCategories": "カテゴリ",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "ページが属するカテゴリを表示",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "ページの問題処理の改良",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "ページの問題 (Template:ambox) は記事上でリンク表示します。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、モバイルビューでは複数の変更をページごとにまとめて表示することはできません。ページごとにまとめて表示する機能を利用したい場合はデスクトップサイトにアクセスしてください。"

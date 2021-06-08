@@ -20,6 +20,6 @@
 	"mobile-frontend-placeholder": "ⵔⵣⵓ ⴳ {{SITENAME}}",
 	"mobile-frontend-random-button": "ⴰⴷⵀⵎⴰⵙ",
 	"minerva-page-actions-language-switcher": "ⵜⵓⵜⵍⴰⵢⵉⵏ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "ⵉⵙⵎⵉⵍⵏ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ⵥⵕ ⵉⵙⵎⵉⵍⵏ ⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ"
+	"skin-minerva-mobile-option-MinervaShowCategories": "ⵉⵙⵎⵉⵍⵏ",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "ⵥⵕ ⵉⵙⵎⵉⵍⵏ ⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ"
 }

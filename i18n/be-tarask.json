@@ -55,8 +55,8 @@
 	"minerva-page-actions-wikibase": "Элемэнт {{grammar:родны|{{WBREPONAME}}}}",
 	"minerva-skin-desc": "Першая адаптыўная мабільная тэма афармленьня",
 	"skin-minerva-issue-learn-more": "Даведацца болей",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Катэгорыі",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Прагляд катэгорыяў старонак",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Катэгорыі",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Прагляд катэгорыяў старонак",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Палепшанае вырашэньне праблемаў старонкі",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Праблемы старонкі (Шаблён:Паведамленьне) будуць прапісаныя ў артыкуле."
 }

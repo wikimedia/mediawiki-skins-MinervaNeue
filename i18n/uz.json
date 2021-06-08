@@ -58,6 +58,6 @@
 	"minerva-talk-reply-success": "Sizni javobingiz munozara sahifaga saqlandi.",
 	"skinname-minerva": "MinervaNeue",
 	"skin-minerva-issue-learn-more": "Ko‘proq o‘rganish",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Turkumlar",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Sahifaning turkumlarini ko‘rish"
+	"skin-minerva-mobile-option-MinervaShowCategories": "Turkumlar",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Sahifaning turkumlarini ko‘rish"
 }

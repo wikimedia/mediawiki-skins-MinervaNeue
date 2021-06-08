@@ -71,8 +71,8 @@
 	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Ei responsiv drakt for mobil-først.",
 	"skin-minerva-issue-learn-more": "Lær mer",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vis kategoriene til sider",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorier",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Vis kategoriene til sider",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Forbedret behandling av sideproblemer",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sideproblemer (Mal:ambox) vises i artikkelteksten.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Dessverre er ikke gruppering av resultater tilgjengelig på mobil. Om du ønsker å bruke denne funksjonen, besøk datamaskinversjonen av nettstedet."

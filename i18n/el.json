@@ -55,8 +55,8 @@
 	"minerva-page-actions-info": "Πληροφορίες σελίδας",
 	"minerva-skin-desc": "Ένα υπεύθυνο πρώτο θέμα κινητού",
 	"skin-minerva-issue-learn-more": "Μάθετε περισσότερα",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Κατηγορίες",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Προβολή κατηγοριών των σελίδων",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Κατηγορίες",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Προβολή κατηγοριών των σελίδων",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Προβλήματα διαχείρησης για βελτίωση σελίδας",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Τυχόν προβλήματα με την σελίδα (Template:ambox) θα υπογραμμιστούν στο άρθρο."
 }

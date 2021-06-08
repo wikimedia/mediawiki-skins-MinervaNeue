@@ -77,6 +77,6 @@
 	"minerva-talk-reply-success": "Vastauksesi tallennettiin keskustelusivulle.",
 	"minerva-skin-desc": "Responsiivinen mobiililaitteille suunniteltu ulkoasu",
 	"skin-minerva-issue-learn-more": "Lisätietoja",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Luokat",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näytä sivun luokat"
+	"skin-minerva-mobile-option-MinervaShowCategories": "Luokat",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näytä sivun luokat"
 }

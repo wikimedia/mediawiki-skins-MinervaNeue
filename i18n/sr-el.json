@@ -68,8 +68,8 @@
 	"skinname-minerva": "Minerva (novo)",
 	"minerva-skin-desc": "Osetljiva tema prvenstveno za mobilnu upotrebu",
 	"skin-minerva-issue-learn-more": "Saznajte više",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorije",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Prikazuje kategorije stranica",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorije",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Prikazuje kategorije stranica",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Poboljšan tretman problema sa stranicom",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemi sa stranicom (Šablon:ambox) biće umetnuti u članak.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Nažalost, grupisanje rezultata po stranici nije dostupno na mobilnom uređaju. Ako želite da koristite funkciju grupisanja po stranici, posetite veb lokaciju radne površine."

@@ -55,6 +55,6 @@
 	"mobile-frontend-user-page-talk": "वार्ता",
 	"minerva-page-actions-user-groups": "सदस्य समूह",
 	"minerva-skin-desc": "मोबाइल के लिए एक तैयारशूदा विशेष आवरण",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "श्रेणियाँ",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "पृष्ठों की श्रेणियां देखें"
+	"skin-minerva-mobile-option-MinervaShowCategories": "श्रेणियाँ",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "पृष्ठों की श्रेणियां देखें"
 }

@@ -85,8 +85,8 @@
 	"minerva-talk-reply-success": "您的回复已保存至讨论页。",
 	"minerva-skin-desc": "有响应特性的移动优先皮肤。",
 	"skin-minerva-issue-learn-more": "了解更多",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "分类",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "查看页面分类",
+	"skin-minerva-mobile-option-MinervaShowCategories": "分类",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "查看页面分类",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "改进的页面问题处理",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "页面问题(Template:ambox)将内联在文章中。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很遗憾，按页面分组结果在移动设备上不可用。如果您想使用“按页面分组”功能，请访问桌面版。"

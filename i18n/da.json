@@ -71,7 +71,7 @@
 	"minerva-talk-reply-success": "Dit svar blev gemt på diskussionsiden.",
 	"minerva-skin-desc": "Et hurtigt mobilt tema",
 	"skin-minerva-issue-learn-more": "Lær mere",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorier",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Vis sidens kategorier",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorier",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Vis sidens kategorier",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Desværre er gruppering af resultater ikke tilgængelig i mobilvisning. Denne funktion findes kun i den normale udgave af hjemmesiden."
 }
