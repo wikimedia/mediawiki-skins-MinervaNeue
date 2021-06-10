@@ -484,6 +484,12 @@ class SkinMinerva extends SkinMustache {
 	private function isTalkPageWithViewAction() {
 		$title = $this->getTitle();
 
+		// Hook is @unstable and only for use by DiscussionTools. Do not use for any other purpose.
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		if ( !$hookContainer->run( 'MinervaNeueTalkPageOverlay', [ $title, $this->getOutput() ] ) ) {
+			return false;
+		}
+
 		return $title->isTalkPage() && Action::getActionName( $this->getContext() ) === "view";
 	}
 
