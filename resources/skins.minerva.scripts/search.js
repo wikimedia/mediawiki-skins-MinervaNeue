@@ -6,7 +6,6 @@ module.exports = function () {
 		SearchOverlay = mobile.search.SearchOverlay,
 		SearchGateway = mobile.search.SearchGateway,
 		overlayManager = mobile.OverlayManager.getSingleton(),
-		searchLogger = mobile.search.MobileWebSearchLogger,
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
 		placeholder = $searchInput.attr( 'placeholder' ),
@@ -45,7 +44,6 @@ module.exports = function () {
 				placeholderMsg: placeholder,
 				defaultSearchPage: defaultSearchPage
 			} );
-			searchLogger.register( searchOverlayInstance );
 		}
 		return searchOverlayInstance;
 	}
