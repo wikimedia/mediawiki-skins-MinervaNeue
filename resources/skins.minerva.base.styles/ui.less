@@ -75,18 +75,12 @@ main {
 		display: table-cell;
 	}
 
-	// Menu and notifications button
-	> div a {
-		display: block;
-	}
-
 	.branding-box {
 		width: auto;
 		opacity: @opacity-icon-subtle; // T251135
 
-		// TODO: Remove `h1` after T198947 HTML changes expire from cache.
-		h1,
 		a {
+			display: block;
 			margin-left: 5px;
 			font-size: 1em;
 			text-decoration: none;
