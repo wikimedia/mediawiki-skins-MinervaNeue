@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gadarawamo",
-			"Misteld"
+			"Misteld",
+			"Samatics"
 		]
 	},
 	"mobile-frontend-language-article-heading": "Ogbe",
-	"mobile-frontend-logged-in-homepage-notification": "{{SUNNU KAVI YỌNNU:$1|Mikuavọ}},$1!",
-	"mobile-frontend-placeholder": "Din {{TẸNMẸ YINKỌ}}"
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Mikuavọ}}, $1!",
+	"mobile-frontend-placeholder": "Din {{SITENAME}}"
 }
