@@ -54,6 +54,7 @@
 	"minerva-page-actions-move": "Move",
 	"minerva-page-actions-delete": "Delete",
 	"minerva-page-actions-protect": "Protect",
+	"minerva-page-actions-unprotect": "Unprotect",
 	"minerva-page-actions-user-groups": "User groups",
 	"minerva-page-actions-logs": "Logs",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} item",

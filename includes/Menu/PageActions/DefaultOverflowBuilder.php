@@ -58,6 +58,10 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	 */
 	public function getGroup( array $toolbox, array $actions ): Group {
 		$group = new Group( 'p-tb' );
+		// T285567: Make sure admins can unprotect the page afterwards
+		$permissionChangeAction = array_key_exists( 'unprotect', $actions ) ?
+			$this->build( 'unprotect', 'unLock', 'unprotect', $actions ) :
+			$this->build( 'protect', 'lock', 'protect', $actions );
 
 		$possibleEntries = array_filter( [
 			$this->build( 'info', 'infoFilled', 'info', $toolbox ),
@@ -70,7 +74,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 			$this->permissions->isAllowed( IMinervaPagePermissions::DELETE ) ?
 				$this->build( 'delete', 'trash', 'delete', $actions ) : null,
 			$this->permissions->isAllowed( IMinervaPagePermissions::PROTECT ) ?
-				$this->build( 'protect', 'lock', 'protect', $actions ) : null
+				$permissionChangeAction : null
 		] );
 
 		foreach ( $possibleEntries as $menuEntry ) {
