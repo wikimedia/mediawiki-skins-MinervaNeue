@@ -60,6 +60,7 @@
 	"minerva-page-actions-move": "Verschieben",
 	"minerva-page-actions-delete": "Löschen",
 	"minerva-page-actions-protect": "Schützen",
+	"minerva-page-actions-unprotect": "Schutz aufheben",
 	"minerva-page-actions-user-groups": "Benutzergruppen",
 	"minerva-page-actions-logs": "Logbücher",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-Datenobjekt",
