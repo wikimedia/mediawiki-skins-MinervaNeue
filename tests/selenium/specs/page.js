@@ -9,7 +9,7 @@ describe( 'Page', function () {
 	let content, name;
 
 	beforeEach( function () {
-		content = Util.getTestString( 'beforeEach-content-' );
+		content = Util.getTestString( 'BeforeEach-content-' );
 		name = Util.getTestString( 'BeforeEach-name-' );
 	} );
 
@@ -19,7 +19,10 @@ describe( 'Page', function () {
 		EditPage.edit( name, content );
 
 		browser.waitUntil(
-			() => EditPage.heading.getText() === name
+			() => EditPage.heading.getText() === name,
+			{
+				timeout: 10000
+			}
 		);
 		assert.strictEqual( EditPage.heading.getText(), name );
 		assert.strictEqual( EditPage.displayedContent.getText(), content );

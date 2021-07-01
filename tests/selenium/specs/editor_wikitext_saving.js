@@ -35,7 +35,7 @@ describe( 'Wikitext Editor (Makes actual saves)', () => {
 	} );
 
 	// @editing @en.m.wikipedia.beta.wmflabs.org
-	it( 'Broken redirects', () => {
+	it.skip( 'Broken redirects', () => {
 		iAmOnAPageThatDoesNotExist();
 		iClickTheEditButton();
 		iSeeTheWikitextEditorOverlay();
