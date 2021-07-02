@@ -71,6 +71,7 @@
 	"minerva-page-actions-move": "Déplacer",
 	"minerva-page-actions-delete": "Supprimer",
 	"minerva-page-actions-protect": "Protéger",
+	"minerva-page-actions-unprotect": "Déprotéger",
 	"minerva-page-actions-user-groups": "Groupes d’utilisateurs",
 	"minerva-page-actions-logs": "Journaux",
 	"minerva-page-actions-wikibase": "Élément de {{WBREPONAME}}",

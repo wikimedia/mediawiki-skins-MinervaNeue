@@ -60,6 +60,7 @@
 	"minerva-page-actions-move": "Sposta",
 	"minerva-page-actions-delete": "Cancella",
 	"minerva-page-actions-protect": "Proteggi",
+	"minerva-page-actions-unprotect": "Sproteggi",
 	"minerva-page-actions-user-groups": "Gruppi utente",
 	"minerva-page-actions-logs": "Registri",
 	"minerva-page-actions-wikibase": "Elemento {{WBREPONAME}}",

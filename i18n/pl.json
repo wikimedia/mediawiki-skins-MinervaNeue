@@ -63,6 +63,7 @@
 	"minerva-page-actions-move": "Przenieś",
 	"minerva-page-actions-delete": "Usuń",
 	"minerva-page-actions-protect": "Zabezpiecz",
+	"minerva-page-actions-unprotect": "Zmień zabezpieczenie",
 	"minerva-page-actions-user-groups": "Grupy użytkownika",
 	"minerva-page-actions-logs": "Rejestry",
 	"minerva-page-actions-wikibase": "Element Wikidanych",
