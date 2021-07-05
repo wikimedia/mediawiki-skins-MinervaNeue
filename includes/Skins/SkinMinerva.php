@@ -765,8 +765,6 @@ class SkinMinerva extends SkinMustache {
 			'skins.minerva.scripts'
 		];
 
-		Hooks::run( 'SkinMinervaDefaultModules', [ $this, &$modules ], '1.36' );
-
 		return $modules;
 	}
 
