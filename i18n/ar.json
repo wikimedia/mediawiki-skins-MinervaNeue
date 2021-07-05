@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abanima",
+			"Dr. Mohammed",
 			"Hiba Alshawi",
 			"Maroen1990",
 			"Meno25",
@@ -64,6 +65,7 @@
 	"minerva-page-actions-cite": "استشهد بالصفحة",
 	"minerva-page-actions-move": "انقل",
 	"minerva-page-actions-delete": "احذف",
+	"minerva-page-actions-unprotect": "رفع الحماية",
 	"minerva-page-actions-user-groups": "مجموعات المستخدم",
 	"minerva-page-actions-logs": "سجلات",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} عنصر",

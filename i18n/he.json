@@ -60,6 +60,7 @@
 	"minerva-page-actions-move": "העברה",
 	"minerva-page-actions-delete": "מחיקה",
 	"minerva-page-actions-protect": "הגנה",
+	"minerva-page-actions-unprotect": "הסרת הגנה",
 	"minerva-page-actions-user-groups": "קבוצות משתמשים",
 	"minerva-page-actions-logs": "יומנים",
 	"minerva-page-actions-wikibase": "פריט {{WBREPONAME}}",

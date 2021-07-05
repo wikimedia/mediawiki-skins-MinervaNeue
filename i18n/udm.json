@@ -10,6 +10,7 @@
 	"mobile-frontend-editor-edit": "Тупатоно",
 	"mobile-frontend-home-button": "Доре",
 	"mobile-frontend-language-article-heading": "Кыл",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Гажаса ӧтиськом}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Валтӥсь менюез усьтыны",
 	"mobile-frontend-main-menu-login": "Пырыны",
 	"mobile-frontend-main-menu-logout": "Потыны",
