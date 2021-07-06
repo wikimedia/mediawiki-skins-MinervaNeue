@@ -55,6 +55,7 @@
 	"minerva-page-actions-move": "Spuèste",
 	"minerva-page-actions-delete": "Scangìlle",
 	"minerva-page-actions-protect": "Protegge",
+	"minerva-page-actions-unprotect": "Sprotegge",
 	"minerva-page-actions-user-groups": "Gruppe de utinde",
 	"minerva-page-actions-logs": "Archivije",
 	"minerva-page-actions-wikibase": "Vôsce de {{WBREPONAME}}",
