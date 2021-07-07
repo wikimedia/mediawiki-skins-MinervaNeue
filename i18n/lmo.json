@@ -55,6 +55,7 @@
 	"minerva-page-actions-move": "Sposta",
 	"minerva-page-actions-delete": "Scassa",
 	"minerva-page-actions-protect": "Protensg",
+	"minerva-page-actions-unprotect": "Desproténsg",
 	"minerva-page-actions-user-groups": "Grup utent",
 	"minerva-page-actions-logs": "Register",
 	"minerva-page-actions-wikibase": "Modifega de {{WBREPONAME}}",
