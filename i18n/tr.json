@@ -74,6 +74,7 @@
 	"minerva-page-actions-move": "Taşı",
 	"minerva-page-actions-delete": "Sil",
 	"minerva-page-actions-protect": "Koru",
+	"minerva-page-actions-unprotect": "Korumayı kaldır",
 	"minerva-page-actions-user-groups": "Kullanıcı grupları",
 	"minerva-page-actions-logs": "Günlükler",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} ögesi",
