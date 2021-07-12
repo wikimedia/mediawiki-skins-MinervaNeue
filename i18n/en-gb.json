@@ -7,12 +7,14 @@
 			"Chinamoonroll",
 			"Ed g2s",
 			"Fitoschido",
-			"Jagwar"
+			"Jagwar",
+			"Robin Owain"
 		]
 	},
 	"mobile-frontend-editor-edit": "Edit",
 	"mobile-frontend-home-button": "Home",
 	"mobile-frontend-language-article-heading": "Language",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Croeso}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Open main menu",
 	"mobile-frontend-main-menu-login": "Log in",
 	"mobile-frontend-main-menu-nearby": "Nearby",
