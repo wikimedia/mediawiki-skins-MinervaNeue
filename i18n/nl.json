@@ -65,6 +65,7 @@
 	"minerva-page-actions-move": "Verplaatsen",
 	"minerva-page-actions-delete": "Verwijderen",
 	"minerva-page-actions-protect": "Beveiligen",
+	"minerva-page-actions-unprotect": "Beveiliging opheffen",
 	"minerva-page-actions-user-groups": "Gebruikersgroepen",
 	"minerva-page-actions-logs": "Logboeken",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-item",
