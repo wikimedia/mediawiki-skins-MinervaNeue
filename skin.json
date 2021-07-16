@@ -212,9 +212,6 @@
 			"mediawiki.hlist": [
 				"skinStyles/mediawiki.hlist/minerva.less"
 			],
-			"mediawiki.ui.icon": [
-				"skinStyles/mediawiki.ui.icon/mediawiki.ui.icon.less"
-			],
 			"mobile.languages.structured": [
 				"skinStyles/mobile.languages.structured/LanguageSearcher.less"
 			],

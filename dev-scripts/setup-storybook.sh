@@ -16,6 +16,7 @@ curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/maste
 curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.mixins.rotation.less?format=TEXT" | base64 --decode > .resolve-less-imports/mediawiki.mixins.rotation.less
 curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.mixins.animation.less?format=TEXT" | base64 --decode > .resolve-less-imports/mediawiki.mixins.animation.less
 
+curl "https://en.wikipedia.org/w/load.php?modules=mediawiki.ui.icon&only=styles&debug=true&useskin=minerva" -o .resolve-less-imports/mediawiki.ui.icons.less
 # Append compatibility with wgMinervaApplyKnownTemplateHacks.
 echo "@wgMinervaApplyKnownTemplateHacks: 1;"  >> .resolve-less-imports/mediawiki.ui/variables.less
 
@@ -23,4 +24,4 @@ echo "@wgMinervaApplyKnownTemplateHacks: 1;"  >> .resolve-less-imports/mediawiki
 curl "https://en.m.wikipedia.org/w/load.php?modules=skins.minerva.icons.wikimedia&image=history&format=original&skin=minerva&version=7aa66" -o .resolve-less-imports/images/clock.svg
 
 # expand icon
-curl "https://en.m.wikipedia.org/w/load.php?modules=mobile.ooui.icons&image=expand&variant=gray&format=rasterized&skin=minerva&version=grblv" -o .resolve-less-imports/images/expand.svg
+curl "https://en.m.wikipedia.org/w/load.php?modules=mobile.ooui.icons&image=expand&&format=rasterized&skin=minerva&version=grblv" -o .resolve-less-imports/images/expand.svg

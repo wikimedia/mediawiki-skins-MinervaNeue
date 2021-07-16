@@ -3,8 +3,9 @@ import { configure } from '@storybook/html';
 import '../resources/skins.minerva.base.styles/skin.less';
 import '../resources/skins.minerva.scripts/styles.less';
 
+import './storybook.less';
 import '../skinStyles/mediawiki.hlist/minerva.less';
-import '../skinStyles/mediawiki.ui.icon/mediawiki.ui.icon.less';
+
 
 // Automatically import all files ending in `*.stories.js`.
 configure(require.context('../stories', true, /\.stories\.js$/), module);
