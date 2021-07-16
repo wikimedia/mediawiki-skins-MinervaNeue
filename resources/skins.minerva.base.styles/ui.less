@@ -57,7 +57,8 @@ main {
 	display: none;
 }
 
-.header {
+.header, /* FIXME: Remove once <form class="header"> is no longer in the cache (~1 week) */
+.minerva-header {
 	display: table;
 	width: 100%;
 	border-spacing: 0;
@@ -120,8 +121,9 @@ main {
 }
 
 .search-box,
-/* `.header .search-box` is needed to override table-cell rules */
-.header .search-box {
+/* `.minerva-header .search-box` is needed to override table-cell rules */
+.header .search-box, /* FIXME: Remove once <form class="header"> is no longer in the cache (~1 week) */
+.minerva-header .search-box {
 	display: none;
 	width: auto;
 }
