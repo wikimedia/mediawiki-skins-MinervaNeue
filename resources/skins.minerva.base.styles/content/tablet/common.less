@@ -10,7 +10,6 @@ A file for css that optimises the Minerva skin on larger devices.
 		display: none;
 	}
 
-	.header, /* FIXME: Remove once <form class="header"> is no longer in the cache (~1 week) */
 	.minerva-header {
 		.branding-box {
 			width: @brandingBoxWidth;
@@ -91,7 +90,6 @@ A file for css that optimises the Minerva skin on larger devices.
 @media screen and ( min-width: @width-breakpoint-desktop ) {
 	// stylelint-disable-next-line selector-max-id
 	.banner-container,
-	.header, /* FIXME: Remove once <form class="header"> is no longer in the cache (~1 week) */
 	.minerva-header,
 	.page-header-bar,
 	.overlay-header,
@@ -109,7 +107,6 @@ A file for css that optimises the Minerva skin on larger devices.
 		max-width: @contentMaxWidthTablet;
 	}
 
-	.header, /* FIXME: Remove once <form class="header"> is no longer in the cache (~1 week) */
 	.minerva-header {
 		// Make sure the main menu and secondary button icon images are aligned
 		// with the content.
