@@ -3,6 +3,7 @@
 		"authors": [
 			"Cainamarques",
 			"Dianakc",
+			"Edu!",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
 			"Felipe L. Ewald",
@@ -65,6 +66,7 @@
 	"minerva-page-actions-move": "Mover",
 	"minerva-page-actions-delete": "Excluir",
 	"minerva-page-actions-protect": "Proteger",
+	"minerva-page-actions-unprotect": "Desproteger",
 	"minerva-page-actions-user-groups": "Grupos de usuários",
 	"minerva-page-actions-logs": "Registros",
 	"minerva-page-actions-wikibase": "Item no {{WBREPONAME}}",

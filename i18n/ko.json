@@ -64,6 +64,7 @@
 	"minerva-page-actions-move": "이동",
 	"minerva-page-actions-delete": "삭제",
 	"minerva-page-actions-protect": "보호",
+	"minerva-page-actions-unprotect": "보호 해제",
 	"minerva-page-actions-user-groups": "사용자 그룹",
 	"minerva-page-actions-logs": "기록",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} 항목",

@@ -6,7 +6,11 @@
 			"Samatics"
 		]
 	},
+	"mobile-frontend-editor-edit": "Jlado",
+	"mobile-frontend-home-button": "Bẹjẹeji",
 	"mobile-frontend-language-article-heading": "Ogbè",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Kuavọ}}, $1!",
-	"mobile-frontend-placeholder": "Dín {{SITENAME}}"
+	"mobile-frontend-main-menu-login": "Hùn Adà Towe",
+	"mobile-frontend-placeholder": "Dín {{SITENAME}}",
+	"mobile-frontend-user-page-talk": "Hodidọ"
 }
