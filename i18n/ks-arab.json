@@ -4,5 +4,6 @@
 			"Iflaq"
 		]
 	},
-	"mobile-frontend-language-article-heading": "زبان"
+	"mobile-frontend-language-article-heading": "زبان",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|خأر مَقدَم}}، $1!"
 }
