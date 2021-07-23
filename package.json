@@ -38,7 +38,7 @@
 		"mwbot": "2.0.0",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.10.3",
-		"svgo": "2.3.0",
+		"svgo": "2.3.1",
 		"wdio-mediawiki": "1.1.1",
 		"webdriverio": "7.5.1"
 	}

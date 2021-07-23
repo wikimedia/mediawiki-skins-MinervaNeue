@@ -700,7 +700,7 @@ class SkinMinerva extends SkinMustache {
 	 * @inheritDoc
 	 * @return array
 	 */
-	protected function getJsConfigVars() : array {
+	protected function getJsConfigVars(): array {
 		$title = $this->getTitle();
 
 		return array_merge( parent::getJsConfigVars(), [
