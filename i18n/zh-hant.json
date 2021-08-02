@@ -67,6 +67,7 @@
 	"minerva-page-actions-move": "移動",
 	"minerva-page-actions-delete": "刪除",
 	"minerva-page-actions-protect": "保護",
+	"minerva-page-actions-unprotect": "取消保護",
 	"minerva-page-actions-user-groups": "使用者群組",
 	"minerva-page-actions-logs": "日誌",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}項目",
