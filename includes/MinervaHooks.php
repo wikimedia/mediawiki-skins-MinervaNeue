@@ -172,7 +172,9 @@ class MinervaHooks {
 		if ( $skin instanceof SkinMinerva ) {
 			switch ( $name ) {
 				case 'Recentchanges':
-					$isEnhancedDefaultForUser = $special->getUser()->getBoolOption( 'usenewrc' );
+					$isEnhancedDefaultForUser = MediaWikiServices::getInstance()
+						->getUserOptionsLookup()
+						->getBoolOption( $special->getUser(), 'usenewrc' );
 					$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
 					if ( $enhanced ) {
 						$out->addHTML( Html::warningBox(
