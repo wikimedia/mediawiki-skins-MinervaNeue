@@ -16,8 +16,12 @@
 }
 
 .toggle-list-item__anchor {
-	display: block;
-	line-height: 1;
+	// Override .mw-ui-icon `display: inline-block` so that the text is
+	// vertically centered. It also avoids whitespace issues.
+	display: flex;
+	align-items: center;
+	// Override .mw-ui-icon `line-height: 0` so that the text is visible.
+	line-height: inherit;
 
 	&:hover {
 		text-decoration: none;
@@ -29,11 +33,9 @@
 }
 
 .toggle-list-item__label {
-	// Left-align text. Button elements are centered.
-	text-align: left;
 	color: @grayMediumDark;
 	font-weight: bold;
-	white-space: nowrap;
-	vertical-align: middle;
 	font-size: @font-size-minerva-small;
+	// Overflow text is ellipsized in one line.
+	.text-overflow( @visible: false );
 }
