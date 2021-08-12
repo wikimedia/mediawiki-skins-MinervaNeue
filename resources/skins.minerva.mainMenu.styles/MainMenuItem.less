@@ -43,11 +43,15 @@
 
 			a {
 				color: @colorGray5;
-				display: block;
+				// Overrides .mw-ui-icon `display: inline-block` so that the text is
+				// vertically centered. It also avoids whitespace issues.
+				display: flex;
+				align-items: center;
+				// Overrides .mw-ui-icon `line-height: 0` property so that the text is
+				// visible.
+				line-height: inherit;
 				max-width: 100%;
 				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
-				// Overflow text is ellipsized in one line.
-				.text-overflow( @visible: false );
 
 				// T233166
 				&.secondary-action {
@@ -60,9 +64,10 @@
 				}
 
 				span {
+					// Overflow text is ellipsized in one line.
+					.text-overflow( @visible: false );
 					font-size: @font-size-minerva-small;
 					font-weight: bold;
-					vertical-align: middle;
 				}
 			}
 		}
