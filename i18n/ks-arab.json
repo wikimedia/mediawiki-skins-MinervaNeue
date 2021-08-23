@@ -4,6 +4,26 @@
 			"Iflaq"
 		]
 	},
+	"mobile-frontend-editor-edit": "اؠڑِٹ",
+	"minerva-download": "ڈاؤنلوڈ پی‌ڈی‌ایف",
+	"mobile-frontend-editor-redlink-create": "صفہٕ بَنٲیو",
+	"mobile-frontend-editor-redlink-leave": "نَہ، شُکریا۔",
 	"mobile-frontend-language-article-heading": "زبان",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|خأر مَقدَم}}، $1!"
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|خأر مَقدَم}}، $1!",
+	"mobile-frontend-main-menu-contributions": "شِرکت",
+	"mobile-frontend-main-menu-nearby": "نَزدیٖک",
+	"mobile-frontend-redirected-from": "\"[[$1]]\" پیٹھ رجوٗع مُکرر",
+	"mobile-frontend-user-page-contributions": "شِرکت",
+	"mobile-frontend-user-page-talk": "بَحَژ صفہٕ",
+	"minerva-page-actions-info": "صفہٕ معلوٗمات",
+	"minerva-page-actions-backlinks": "یور کُس صفہٕ چھُ یِون",
+	"minerva-page-actions-cite": "مَضموٗنُک حوالہ دِیو",
+	"minerva-page-actions-move": "پکنٲیو",
+	"minerva-page-actions-delete": "مِٹٲیو",
+	"minerva-page-actions-logs": "لاگ",
+	"minerva-page-actions-wikibase": "{{WBREPONAME}} آئٹم",
+	"minerva-page-actions-language-switcher": "زَبانٕ",
+	"minerva-page-actions-history": "توٲریٖخ",
+	"minerva-talk-explained": "جٲری کَتھ بات",
+	"skin-minerva-mobile-option-MinervaShowCategories": "زٲژ"
 }
