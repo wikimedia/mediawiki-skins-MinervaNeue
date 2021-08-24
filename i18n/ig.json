@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tochiprecious",
 			"Ukabia"
 		]
 	},
 	"mobile-frontend-editor-edit": "Mèzi",
+	"mobile-frontend-language-article-heading": "Asụsụ",
+	"mobile-frontend-logged-in-homepage-notification": "{{Gender: $ 1 | Nnọọ}}, $ 1!",
 	"mobile-frontend-main-menu-contributions": "Mmètàrà",
 	"mobile-frontend-main-menu-watchlist": "Ùlìle",
 	"mobile-frontend-placeholder": "Tu nà {{SITENAME}}",
