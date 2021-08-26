@@ -7,39 +7,38 @@
  * It is particularly important on wikis for example inside navbox's that these
  * links can be differentiated from other links. Thus we only apply the linkColor to links with href
  * attributes.
+ * This can be removed when Minerva uses ResourceLoaderSkinModule `elements` feature.
 */
 a:not( [ href ] ) {
 	color: @colorGray2;
-
 	/* The anchor is functionally a link so show a hand cursor. */
 	cursor: pointer;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 a {
+	/* `a` element code block can be removed
+	 * when Minerva uses ResourceLoaderSkinModule `elements` feature. */
 	color: @color-link;
 	text-decoration: none;
+	background: none;
 
+	/* :visited code block can be removed
+	 * when Minerva uses ResourceLoaderSkinModule `elements` feature. */
 	&:visited {
-		color: #6b4ba1;
+		color: @color-link--visited;
 	}
 
+	/* :active code block can be removed
+	 * when Minerva uses ResourceLoaderSkinModule `elements` feature. */
 	&:active {
-		color: #faa700;
+		color: @color-link--active;
 	}
 
+	/* :hover code block can be removed
+	 * when Minerva uses ResourceLoaderSkinModule `elements` feature. */
 	&:hover {
 		text-decoration: underline;
-	}
-
-	&.new,
-	&.new:visited,
-	&.new:hover {
-		color: @color-link--new;
-		// Take care of headings in page lists.
-		> * {
-			color: @color-link--new;
-		}
 	}
 
 	&.external {
@@ -57,11 +56,4 @@ a {
 	display: block;
 	font-size: @font-size-minerva-small;
 	margin-top: 1.5em;
-}
-
-/* Plainlinks - this can be used to switch
- * off special external link styling */
-.plainlinks a {
-	background: none !important;
-	padding: 0 !important;
 }
