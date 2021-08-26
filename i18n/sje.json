@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Olve Utne"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Giella",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Burist båhtem}}, $1!"
+}
