@@ -17,7 +17,7 @@
 	},
 	{
 		"resourceModule": "mediawiki.ui.button",
-		"maxSize": "1.1KB"
+		"maxSize": "1.2KB"
 	},
 	{
 		"resourceModule": "skins.minerva.icons.wikimedia",
