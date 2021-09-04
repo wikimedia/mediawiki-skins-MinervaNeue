@@ -4,6 +4,7 @@
 		"declaration-no-important": null,
 		"property-blacklist": "transition",
 		"selector-list-comma-newline-after": null,
-		"value-keyword-case": null
+		"value-keyword-case": null,
+		"declaration-property-unit-disallowed-list": null
 	}
 }
