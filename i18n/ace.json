@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"MinecraftAustralia",
 			"Si Gam Acèh"
 		]
 	},
 	"mobile-frontend-editor-edit": "Peusaneut",
 	"mobile-frontend-home-button": "Keue",
 	"mobile-frontend-language-article-heading": "Beuët lam bahsa la'én",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Saleuem teuka}} u, $1",
 	"mobile-frontend-main-menu-button-tooltip": "Peuhah menu utama",
 	"mobile-frontend-main-menu-login": "Tamöng",
 	"mobile-frontend-main-menu-nearby": "Silingka",

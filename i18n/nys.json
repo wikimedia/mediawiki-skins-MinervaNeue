@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"MinecraftAustralia"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Wanga",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Wandjoo wandjoo}}, $1!",
+	"mobile-frontend-placeholder": "Genuniny {{SITENAME}}"
+}

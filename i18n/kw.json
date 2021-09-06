@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Kw-Moon",
+			"MinecraftAustralia",
 			"Nrowe"
 		]
 	},
 	"mobile-frontend-editor-edit": "Chanjya",
 	"mobile-frontend-home-button": "Folen dre",
 	"mobile-frontend-language-article-heading": "Redya yn yeth aral",
-	"mobile-frontend-logged-in-homepage-notification": "Dynnargh, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Dynnargh}} dhe $2",
 	"mobile-frontend-main-menu-button-tooltip": "Ygeri an bennrol",
 	"mobile-frontend-main-menu-login": "Omgelmi",
 	"mobile-frontend-main-menu-logout": "Omdenna",
@@ -18,7 +19,7 @@
 	"mobile-frontend-meta-data-issues": "An folen-ma a's teves kudynnow",
 	"mobile-frontend-meta-data-issues-header": "Kudynnow",
 	"mobile-frontend-pageaction-edit-tooltip": "Chanjya tregh penn an folen ma.",
-	"mobile-frontend-placeholder": "Hwilas {{SITENAME}}",
+	"mobile-frontend-placeholder": "Hwilas yn {{SITENAME}}",
 	"mobile-frontend-random-button": "Dre happ",
 	"mobile-frontend-user-button-tooltip": "Diskwedhes ow gwarnyansow"
 }

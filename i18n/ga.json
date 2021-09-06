@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MinecraftAustralia",
 			"Smirkybec",
 			"Tem",
 			"පසිඳු කාවින්ද"
@@ -9,6 +10,7 @@
 	"mobile-frontend-editor-edit": "Cuir in Eagar",
 	"mobile-frontend-home-button": "Baile",
 	"mobile-frontend-language-article-heading": "Léigh i dteanga eile",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Fáilte}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Osclóidh seo an príomhroghchlár",
 	"mobile-frontend-main-menu-login": "Logáil isteach",
 	"mobile-frontend-main-menu-nearby": "In aice láimhe",
