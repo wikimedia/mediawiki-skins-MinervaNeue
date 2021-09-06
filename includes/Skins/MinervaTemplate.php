@@ -188,10 +188,7 @@ class MinervaTemplate extends BaseTemplate {
 		$data = $this->data;
 		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
 		$templateParser = new TemplateParser( __DIR__ );
-
-		$internalBanner = $data[ 'internalBanner' ];
-		$preBodyHtml = $data['prebodyhtml'] ?? '';
-		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['pageActionsMenu'] );
+		$hasHeadingHolder = isset( $data['pageActionsMenu'] );
 		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
 		// prepare template data
@@ -219,8 +216,6 @@ class MinervaTemplate extends BaseTemplate {
 			'data-main-menu' => $this->getMainMenuData( $data ),
 			'hasheadingholder' => $hasHeadingHolder,
 			'taglinehtml' => $data['taglinehtml'],
-			'internalBanner' => $internalBanner,
-			'prebodyhtml' => $preBodyHtml,
 			'headinghtml' => $data['headinghtml'] ?? '',
 			'postheadinghtml' => $data['postheadinghtml'] ?? '',
 			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml() : '',

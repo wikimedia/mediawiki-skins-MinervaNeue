@@ -596,9 +596,6 @@ class SkinMinerva extends SkinMustache {
 			}
 		}
 		$tpl->set( 'banners', $banners );
-		// These banners unlike 'banners' show inside the main content chrome underneath the
-		// page actions.
-		$tpl->set( 'internalBanner', '' );
 	}
 
 	/**
