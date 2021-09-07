@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Harvzsf",
-			"JinJian"
+			"JinJian",
+			"MinecraftAustralia"
 		]
 	},
 	"mobile-frontend-editor-edit": "Igliwat",
 	"mobile-frontend-home-button": "Balay",
 	"mobile-frontend-language-article-heading": "Pinulongan",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Maligayang pagdating}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Abrehi an panguna nga menu",
 	"mobile-frontend-main-menu-login": "Sakob",
 	"mobile-frontend-main-menu-nearby": "Harani",
