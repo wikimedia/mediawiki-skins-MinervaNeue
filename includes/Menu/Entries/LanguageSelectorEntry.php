@@ -18,6 +18,7 @@
 namespace MediaWiki\Minerva\Menu\Entries;
 
 use MessageLocalizer;
+use MinervaUI;
 use SpecialPage;
 use Title;
 
@@ -39,9 +40,9 @@ class LanguageSelectorEntry implements IMenuEntry {
 	 */
 	private $doesPageHaveLanguages;
 	/**
-	 * @var string An icon class generated via MinervaUI::iconClass()
+	 * @var string Associated icon name
 	 */
-	private $iconClass;
+	private $icon;
 
 	/**
 	 * @var string A translatable label used as text and title
@@ -49,26 +50,39 @@ class LanguageSelectorEntry implements IMenuEntry {
 	private $label;
 
 	/**
+	 * @var string additional classes
+	 */
+	private $classes;
+
+	/**
 	 * LanguageSelectorEntry constructor.
 	 * @param Title $title Current Title
 	 * @param bool $doesPageHaveLanguages Whether the page is also available in other
 	 * languages or variants
 	 * @param MessageLocalizer $messageLocalizer Used for translation texts
-	 * @param string $iconClass An icon class generated via MinervaUI::iconClass()
+	 * @param bool $isButton
+	 * @param string $classes page classes
 	 * @param string $label Menu entry label and title
 	 */
 	public function __construct(
 		Title $title,
 		$doesPageHaveLanguages,
 		MessageLocalizer $messageLocalizer,
-		$iconClass,
+		$isButton = false,
+		$classes = '',
 		$label = 'mobile-frontend-language-article-heading'
 	) {
 		$this->title = $title;
 		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
 		$this->messageLocalizer = $messageLocalizer;
-		$this->iconClass = $iconClass;
+		$this->icon = 'wikimedia-language-base20';
 		$this->label = $label;
+		$this->classes = $classes;
+		if ( $isButton ) {
+			$this->classes .= MinervaUI::iconClass(
+				'language-base20', 'element', 'mw-ui-button mw-ui-quiet mw-ui-icon-with-label-desktop', 'wikimedia'
+			);
+		}
 	}
 
 	/**
@@ -105,7 +119,8 @@ class LanguageSelectorEntry implements IMenuEntry {
 		return [
 			[
 				'href' => $switcherLink,
-				'class' => $this->iconClass . $switcherClasses,
+				'icon' => $this->icon,
+				'class' => $this->classes . ' ' . $switcherClasses,
 				'text' => $msg,
 				'title' => $msg,
 				'data-event-name' => 'menu.languages'

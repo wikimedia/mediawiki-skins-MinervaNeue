@@ -146,9 +146,7 @@ class ToolbarBuilder {
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
-				MinervaUI::iconClass(
-					'language-base20', 'element', 'mw-ui-icon-with-label-desktop', 'wikimedia'
-				)
+				true
 			) );
 		}
 

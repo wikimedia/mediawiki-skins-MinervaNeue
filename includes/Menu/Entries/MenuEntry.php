@@ -81,14 +81,16 @@ final class MenuEntry implements IMenuEntry {
 	 * @param string $className Any additional CSS classes that should added to the output,
 	 *  separated by spaces
 	 * @param array $attrs Additional data that can be associated with the component
+	 * @param null|string $icon the icon identifier
 	 *
 	 * @return MenuEntry
 	 */
-	public function addComponent( $label, $url, $className = '', $attrs = [] ) {
+	public function addComponent( $label, $url, $className = '', $attrs = [], $icon = null ) {
 		$this->components[] = [
 			'text' => $label,
 			'href' => $url,
-			'class' => $className
+			'class' => $className,
+			'icon' => $icon,
 		] + $attrs;
 		return $this;
 	}

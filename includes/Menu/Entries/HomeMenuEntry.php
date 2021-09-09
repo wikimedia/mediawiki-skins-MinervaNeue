@@ -17,8 +17,6 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
-use MinervaUI;
-
 /**
  * Class for defining a home menu entry in Special:MobileMenu
  */
@@ -70,7 +68,7 @@ final class HomeMenuEntry implements IMenuEntry {
 		$this->component = [
 			'text' => $text,
 			'href' => $url,
-			'class' => trim( MinervaUI::iconClass( $name, 'before' ) )
+			'icon' => 'minerva-' . $name,
 		];
 		if ( $trackClicks !== false ) {
 			$eventName = $trackClicks === true ? $name : $trackClicks;

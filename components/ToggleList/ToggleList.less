@@ -8,32 +8,6 @@
 	opacity: 0;
 }
 
-.toggle-list__toggle {
-	// labels are inline by default and this is also an icon
-	display: inline-block;
-	// Use the hand icon for the toggle button which is actually a checkbox label.
-	cursor: pointer;
-}
-
-.toggle-list__checkbox:focus + .toggle-list__toggle {
-	// The toggle button / label itself cannot receive focus but the underlying checkbox can. Keep
-	// the button and checkbox focus presentation in sync. From
-	// resources/src/mediawiki.toc.styles/screen.less.
-	outline: dotted 1px; /* Firefox style for focus */
-	outline: auto @colorProgressiveHighlight; /* Webkit style for focus */
-}
-
-.toggle-list__checkbox:checked + .toggle-list__toggle {
-	// show background when the toggle list is open
-	outline: 0;
-	background: rgba( 1, 1, 1, 0.1 );
-}
-
-.touch-events .toggle-list__checkbox:focus + .toggle-list__toggle {
-	// Buttons have no focus outline on mobile.
-	outline: 0;
-}
-
 .toggle-list__list {
 	background: @background-color-base;
 	// The menu appears over the content and occupies no room within it.

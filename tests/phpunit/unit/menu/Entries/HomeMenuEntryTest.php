@@ -26,7 +26,7 @@ class HomeMenuEntryTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( [ [
 			'text' => $text,
 			'href' => $url,
-			'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-minerva-foo',
+			'icon' => 'minerva-foo',
 			'data-event-name' => 'menu.foo'
 		] ], $entry->getComponents() );
 	}
@@ -41,8 +41,8 @@ class HomeMenuEntryTest extends \MediaWikiUnitTestCase {
 		$component = current( $entry->getComponents() );
 		$this->assertSame( 'bar', $component['text'] );
 		$this->assertSame(
-			'mw-ui-icon mw-ui-icon-before mw-ui-icon-minerva-foo',
-			$component['class']
+			'minerva-foo',
+			$component['icon']
 		);
 		$entry->overrideText( 'blah' )
 			->overrideCssClass( 'classy' );

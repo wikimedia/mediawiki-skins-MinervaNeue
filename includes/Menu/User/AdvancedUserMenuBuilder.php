@@ -75,7 +75,6 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 				$this->messageLocalizer->msg( 'mobile-frontend-user-page-talk' )->escaped(),
 				$talkPage->getLocalURL()
 			);
-			$entry->setIcon( 'userTalk', 'before' );
 			$group->insertEntry( $entry );
 		}
 		$sandbox = $personalTools['sandbox']['links'][0] ?? false;

@@ -28,7 +28,6 @@ use MediaWiki\Minerva\Menu\Entries\LogOutMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Special\SpecialPageFactory;
 use Message;
-use MinervaUI;
 use MWException;
 use MWHttpRequest;
 use SpecialMobileWatchlist;
@@ -176,10 +175,13 @@ final class Definitions {
 		$group->insert( 'random' )
 			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->text(),
 				Title::newFromText( $pageMsg->escaped() )->getLocalURL() . '#/random',
-				MinervaUI::iconClass( 'die', 'before' ), [
+				'',
+				[
 					'id' => 'randomButton',
 					'data-event-name' => 'menu.random',
-				] );
+				],
+				'minerva-die'
+			);
 	}
 
 	/**
@@ -194,8 +196,9 @@ final class Definitions {
 				->addComponent(
 					$this->context->msg( 'mobile-frontend-main-menu-nearby' )->text(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
-					MinervaUI::iconClass( 'mapPin', 'before', 'nearby' ),
-					[ 'data-event-name' => 'menu.nearby' ]
+					'',
+					[ 'data-event-name' => 'menu.nearby' ],
+					'minerva-mapPin'
 				);
 		}
 	}
@@ -288,8 +291,9 @@ final class Definitions {
 			->addComponent(
 				$this->context->msg( 'recentchanges' )->escaped(),
 				$title->getLocalURL(),
-				MinervaUI::iconClass( 'recentChanges', 'before' ),
-				[ 'data-event-name' => 'menu.recentchanges' ]
+				'',
+				[ 'data-event-name' => 'menu.recentchanges' ],
+				'minerva-recentChanges'
 			);
 	}
 
@@ -396,12 +400,13 @@ final class Definitions {
 		 $group->insert( 'donate' )->addComponent(
 			$ctx->msg( 'sitesupport' )->text(),
 			$url,
-			MinervaUI::iconClass( 'heart', 'before' ),
+			'',
 			[
 				// for consistency with desktop
 				'id' => 'n-sitesupport',
 				'data-event-name' => 'menu.donate',
-			]
+			],
+			'minerva-heart'
 		 );
 	 }
 }

@@ -17,7 +17,6 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
-use MinervaUI;
 use Title;
 use User;
 
@@ -82,10 +81,9 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 	public function getComponents(): array {
 		$username = $this->user->getName();
 		return [ [
+			'icon' => 'wikimedia-userAvatar-base20',
 			'text' => $this->customProfileLabel ?? $username,
 			'href' => $this->customProfileURL ?? Title::newFromText( $username, NS_USER )->getLocalURL(),
-			'class' => MinervaUI::iconClass( 'userAvatar-base20',
-				'before', 'primary-action', 'wikimedia' ),
 			'data-event-name' => 'menu.' . (
 				$this->profileTrackingCode ?? self::DEFAULT_PROFILE_TRACKING_CODE )
 		] ];

@@ -17,6 +17,7 @@ class GroupTest extends \MediaWikiTestCase {
 		'href' => '/Main_page',
 		'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-home',
 		'data-event-name' => 'home',
+		'icon' => null,
 	];
 
 	/** @var string[] */
@@ -24,6 +25,7 @@ class GroupTest extends \MediaWikiTestCase {
 		'text' => 'Nearby',
 		'href' => '/wiki/Special:Nearby',
 		'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-nearby',
+		'icon' => null
 	];
 
 	/**
@@ -181,12 +183,14 @@ class GroupTest extends \MediaWikiTestCase {
 			'href' => '/wiki/User:Phuedx_(WMF)',
 			'class' =>
 				'mw-ui-icon mw-ui-icon-before mw-ui-icon-profile truncated-text primary-action',
+			'icon' => null,
 		];
 		$authLogoutComponent = [
 			'text' => 'Logout',
 			'href' => '/wiki/Special:UserLogout',
 			'class' =>
 				'mw-ui-icon mw-ui-icon-element secondary-logout secondary-action truncated-text',
+			'icon' => null,
 		];
 
 		$menu = new Group( 'p-test' );

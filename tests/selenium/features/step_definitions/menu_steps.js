@@ -25,8 +25,8 @@ const iShouldSeeALinkInMenu = ( text ) => {
 };
 
 const iShouldSeeALinkToDisclaimer = () => {
-	ArticlePage.menu_element.$( '=Disclaimers' ).waitForDisplayed();
-	assert.strictEqual( ArticlePage.menu_element.$( '=Disclaimers' ).isDisplayed(), true );
+	ArticlePage.menu_element.$( 'span=Disclaimers' ).waitForDisplayed();
+	assert.strictEqual( ArticlePage.menu_element.$( 'span=Disclaimers' ).isDisplayed(), true );
 };
 
 module.exports = {

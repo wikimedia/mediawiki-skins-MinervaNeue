@@ -28,7 +28,6 @@ use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MessageLocalizer;
-use MinervaUI;
 use MWException;
 use Title;
 
@@ -84,8 +83,9 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
 				$this->messageLocalizer,
-				MinervaUI::iconClass( 'language-base20', 'before',
-					'minerva-page-actions-language-switcher', 'wikimedia' ),
+				false,
+				// no additional classes
+				'',
 				'minerva-page-actions-language-switcher'
 			) );
 		}
