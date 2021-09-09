@@ -29,6 +29,8 @@
 	"mobile-frontend-main-menu-nearby": "Yaxınlıqdakılar",
 	"mobile-frontend-main-menu-settings": "Nizamlamalar",
 	"mobile-frontend-main-menu-watchlist": "İzləmə siyahısı",
+	"mobile-frontend-meta-data-issues": "Səhifədəki problemlər",
+	"mobile-frontend-meta-data-issues-header": "Səhifədəki problemlər",
 	"mobile-frontend-placeholder": "{{SITENAME}} layihəsində axtar",
 	"mobile-frontend-random-button": "Təsadüfi",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" səhifəsindən istiqamətləndirilmişdir",
