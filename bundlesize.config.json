@@ -13,7 +13,7 @@
 	},
 	{
 		"resourceModule": "mediawiki.ui.icon",
-		"maxSize": "0.8KB"
+		"maxSize": "1.0KB"
 	},
 	{
 		"resourceModule": "mediawiki.ui.button",
