@@ -9,7 +9,7 @@
 	"mobile-frontend-editor-edit": "Eedit",
 	"mobile-frontend-home-button": "Home",
 	"mobile-frontend-language-article-heading": "Leid",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$2|Walcome}} $1",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Walcome}}, $1",
 	"mobile-frontend-main-menu-button-tooltip": "Open main menu",
 	"mobile-frontend-main-menu-login": "Log in",
 	"mobile-frontend-main-menu-nearby": "Nearbi",
