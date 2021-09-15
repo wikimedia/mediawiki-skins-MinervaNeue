@@ -13,7 +13,7 @@ describe( 'Page', function () {
 		name = Util.getTestString( 'BeforeEach-name-' );
 	} );
 
-	it( 'should be creatable', function () {
+	it.skip( 'should be creatable', function () {
 		UserLoginPage.loginAdmin();
 
 		EditPage.edit( name, content );
