@@ -19,6 +19,8 @@ namespace MediaWiki\Minerva\Menu\Entries;
 
 /**
  * Class for defining a home menu entry in Special:MobileMenu
+ * @internal with exception of usage inside Extension:GrowthExperiments. Please check
+ *   compatibility with any method/class changes.
  */
 final class HomeMenuEntry implements IMenuEntry {
 
@@ -51,6 +53,17 @@ final class HomeMenuEntry implements IMenuEntry {
 	 */
 	public function overrideCssClass( $cssClass ) {
 		$this->component['class'] = $cssClass;
+		return $this;
+	}
+
+	/**
+	 * Override the icon used in the home menu entry.
+	 *
+	 * @param string $icon
+	 * @return $this
+	 */
+	public function overrideIcon( $icon ) {
+		$this->component['icon'] = $icon;
 		return $this;
 	}
 
