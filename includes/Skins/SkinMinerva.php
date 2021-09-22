@@ -59,7 +59,7 @@ class SkinMinerva extends SkinMustache {
 			'name' => 'minerva',
 			'templateDirectory' => __DIR__,
 			'messages' => [
-				'mobile-frontend-footer-sitename'
+				'mobile-frontend-sitename'
 			],
 			'responsive' => true
 		] );
