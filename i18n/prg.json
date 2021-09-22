@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nertiks"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Bilā",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Kaīls}}, $1!",
+	"mobile-frontend-placeholder": "Laukīs en {{SITENAME}}"
+}
