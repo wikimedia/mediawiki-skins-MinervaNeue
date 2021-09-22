@@ -10,7 +10,7 @@ export default {
 };
 
 const FOOTER_TEMPLATE_DATA = {
-	'msg-mobile-frontend-footer-sitename': 'Site title OR Logo',
+	'msg-mobile-frontend-sitename': 'Site title OR Logo',
 	'html-minerva-license': 'Content is available under <a rel="nofollow" href="#">Reading Web 3.0 License</a> unless otherwise noted.',
 	'html-after-content': placeholder( 'Extensions can add here e.g. Related Articles.' ),
 	'data-places': [

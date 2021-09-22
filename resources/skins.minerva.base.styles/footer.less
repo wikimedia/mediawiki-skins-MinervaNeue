@@ -33,7 +33,9 @@
 			margin-bottom: 9px;
 		}
 
-		> h2 {
+		// FIXME: H2 selector can be removed when .minerva-footer-logo appears in anon HTML.
+		> h2,
+		.minerva-footer-logo {
 			border-bottom: solid 1px @footerBorderColor;
 			padding-bottom: 10px;
 			margin-top: 42px;
