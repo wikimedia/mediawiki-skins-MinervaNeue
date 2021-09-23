@@ -23,6 +23,7 @@ function init() {
 		require( './searchSuggestReveal.js' )();
 	}
 
+	addPortletLink.init();
 	mw.hook( 'util.addPortletLink' ).add(
 		addPortletLink.hookHandler
 	);
