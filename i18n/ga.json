@@ -18,5 +18,6 @@
 	"mobile-frontend-main-menu-watchlist": "Liosta faire",
 	"mobile-frontend-placeholder": "Cuardaigh {{SITENAME}}",
 	"mobile-frontend-random-button": "Fánach",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"minerva-page-actions-logs": "Logaí"
 }

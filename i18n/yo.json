@@ -16,5 +16,6 @@
 	"mobile-frontend-main-menu-watchlist": "Ìtòjọ àmójútó",
 	"mobile-frontend-pageaction-edit-tooltip": "Àtúnṣe abala asíwájú ojúewé yìí.",
 	"mobile-frontend-placeholder": "Ṣ'àwáàrí nínú {{SITENAME}}",
-	"mobile-frontend-random-button": "Ojúewé àrìnnàkò"
+	"mobile-frontend-random-button": "Ojúewé àrìnnàkò",
+	"mobile-frontend-sitename": "{{SITENAME}}"
 }

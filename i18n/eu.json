@@ -41,6 +41,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} wikian bilatu",
 	"mobile-frontend-random-button": "Ausazkoa",
 	"mobile-frontend-redirected-from": "[[$1]](e)tik birzuzenduta",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" fitxategira bueltatu.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" orrira bueltatu.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" proiektu orrira bueltatu.",

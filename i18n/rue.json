@@ -18,5 +18,6 @@
 	"mobile-frontend-main-menu-watchlist": "Слїдованы сторінкы",
 	"mobile-frontend-pageaction-edit-tooltip": "Редагувати основну ділянку цієї сторінки.",
 	"mobile-frontend-placeholder": "Глядати {{SITENAME}}",
-	"mobile-frontend-random-button": "Трафункова"
+	"mobile-frontend-random-button": "Трафункова",
+	"mobile-frontend-sitename": "{{SITENAME}}"
 }

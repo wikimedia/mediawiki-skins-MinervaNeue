@@ -39,6 +39,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} অনুসন্ধান",
 	"mobile-frontend-random-button": "অজানা পাতা",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" থেকে পুনর্নির্দেশিত",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" ফাইলে ফিরুন।",
 	"mobile-frontend-talk-back-to-page": "\"$1\" পাতায় ফেরত যান।",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" প্রকল্প পাতায় ফিরুন।",

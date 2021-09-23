@@ -15,5 +15,6 @@
 	"mobile-frontend-main-menu-watchlist": "Volglies",
 	"mobile-frontend-pageaction-edit-tooltip": "Bewirk de äöpeningssectie van dees pagina.",
 	"mobile-frontend-placeholder": "Doorzeuk {{SITENAME}}",
-	"mobile-frontend-random-button": "Willekäörig"
+	"mobile-frontend-random-button": "Willekäörig",
+	"mobile-frontend-sitename": "{{SITENAME}}"
 }

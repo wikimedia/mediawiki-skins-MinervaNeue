@@ -32,6 +32,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "გვერდის წამყვანი სექციის რედაქტირება",
 	"mobile-frontend-placeholder": "ძიება {{SITENAME}}",
 	"mobile-frontend-random-button": "შემთხვევითი",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" ფაილზე დაბრუნება.",
 	"mobile-frontend-talk-back-to-page": "დაბრუნდი \"$1\"-ზე.",
 	"mobile-frontend-user-button-tooltip": "მაჩვენე შეტყობინებები",

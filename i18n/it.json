@@ -42,6 +42,7 @@
 	"mobile-frontend-placeholder": "Cerca in {{SITENAME}}",
 	"mobile-frontend-random-button": "Una pagina a caso",
 	"mobile-frontend-redirected-from": "Reindirizzamento da \"[[$1]]\"",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Ritorna al file \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Ritorna alla pagina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Ritorna alla pagina di progetto \"$1\".",

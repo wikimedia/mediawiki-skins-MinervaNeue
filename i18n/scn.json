@@ -22,5 +22,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Cancia la sizzioni inizziali di sta pàggina.",
 	"mobile-frontend-placeholder": "Arricerca nta {{SITENAME}}",
 	"mobile-frontend-random-button": "Na pàggina a muzzu",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-user-page-contributions": "Cuntribbuti"
 }

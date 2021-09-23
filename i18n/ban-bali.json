@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Carma Citrawati",
 			"Tok Pisin"
 		]
 	},
-	"mobile-frontend-language-article-heading": "ᬩᬲ",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ᬭᬳᬚᬾᬂ​ᬭᭁᬄ}} $1!"
+	"mobile-frontend-language-article-heading": "ᬪᬵᬱ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ᬭᬳᬚᭂᬂᬭᬯᬸᬄ}} $1!"
 }

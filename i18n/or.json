@@ -23,5 +23,6 @@
 	"mobile-frontend-meta-data-issues-header": "ଅସୁବିଧାଗୁଡିକ",
 	"mobile-frontend-pageaction-edit-tooltip": "ଏହି ପୃଷ୍ଠାର ମୁଖ୍ୟ ଅଂଶକୁ ବଦଳାଇବେ",
 	"mobile-frontend-placeholder": "{{SITENAME}}ରେ ଖୋଜିବେ",
-	"mobile-frontend-random-button": "ଯାହିତାହି"
+	"mobile-frontend-random-button": "ଯାହିତାହି",
+	"mobile-frontend-sitename": "{{SITENAME}}"
 }

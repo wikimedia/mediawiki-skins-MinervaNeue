@@ -46,6 +46,7 @@
 	"mobile-frontend-placeholder": "Hledání na {{grammar:6sg|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Náhodně",
 	"mobile-frontend-redirected-from": "Přesměrováno z „[[$1]]“",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Vrátit se k souboru „$1“.",
 	"mobile-frontend-talk-back-to-page": "Zpět na stránku „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Vrátit se na projektovou stránku „$1“.",

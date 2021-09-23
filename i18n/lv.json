@@ -37,6 +37,7 @@
 	"mobile-frontend-placeholder": "Meklēt {{SITENAME}}",
 	"mobile-frontend-random-button": "Nejaušs raksts",
 	"mobile-frontend-redirected-from": "Pāradresēts no \"[[$1]]\"",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Atgriezties uz failu \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Atgriezties uz \"$1\" lapu.",
 	"mobile-frontend-talk-back-to-projectpage": "Atgriezties uz projekta lapu \"$1\".",

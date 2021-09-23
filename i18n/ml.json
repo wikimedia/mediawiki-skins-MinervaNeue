@@ -38,6 +38,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} സംരംഭത്തിൽ തിരയുക",
 	"mobile-frontend-random-button": "ക്രമരഹിതം",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" എന്നതിൽ നിന്ന് തിരിച്ചുവിടപ്പെട്ടത്",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" എന്ന പ്രമാണത്തിലേക്ക് മടങ്ങുക.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" താളിലേക്ക് മടങ്ങുക.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" എന്ന പദ്ധതി താളിലേക്ക് മടങ്ങുക.",

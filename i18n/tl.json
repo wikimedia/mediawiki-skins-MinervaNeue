@@ -33,6 +33,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Baguhin ang unang seksiyon ng pahinang ito",
 	"mobile-frontend-placeholder": "Maghanap sa {{SITENAME}}",
 	"mobile-frontend-random-button": "Alin man",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-user-button-tooltip": "Ipakita ang aking mga notipikasyon.",
 	"mobile-frontend-user-page-contributions": "Mga ambag",
 	"mobile-frontend-user-page-talk": "Usapan",

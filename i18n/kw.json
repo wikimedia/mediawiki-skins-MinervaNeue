@@ -21,5 +21,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Chanjya tregh penn an folen ma.",
 	"mobile-frontend-placeholder": "Hwilas yn {{SITENAME}}",
 	"mobile-frontend-random-button": "Dre happ",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-user-button-tooltip": "Diskwedhes ow gwarnyansow"
 }

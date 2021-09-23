@@ -55,6 +55,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} üzerinde ara",
 	"mobile-frontend-random-button": "Rastgele",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" sayfasından yönlendirildi",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" dosyasına geri dön.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" sayfasına geri dön.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" proje sayfasına geri dön.",

@@ -44,6 +44,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} में खोजें",
 	"mobile-frontend-random-button": "कोई भी",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" से अनुप्रेषित",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "फ़ाइल \"$1\" पर जाएँ",
 	"mobile-frontend-talk-back-to-page": "पृष्ठ \"$1\" पर वापस जाएँ।",
 	"mobile-frontend-talk-back-to-projectpage": "परियोजना पृष्ठ \"$1\" पर वापस जाएँ",

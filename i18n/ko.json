@@ -46,6 +46,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} 검색",
 	"mobile-frontend-random-button": "임의의 문서로",
 	"mobile-frontend-redirected-from": "\"[[$1]]\"에서 넘어옴",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" 파일로 돌아갑니다.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" 문서로 돌아갑니다.",
 	"mobile-frontend-talk-back-to-projectpage": "\"$1\" 프로젝트 문서로 돌아갑니다.",

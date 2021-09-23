@@ -51,6 +51,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}}内を検索",
 	"mobile-frontend-random-button": "おまかせ表示",
 	"mobile-frontend-redirected-from": "「[[$1]]」から転送されました",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "ファイル「$1」に戻る。",
 	"mobile-frontend-talk-back-to-page": "ページ「$1」に戻る。",
 	"mobile-frontend-talk-back-to-projectpage": "プロジェクトページ「$1」に戻る。",

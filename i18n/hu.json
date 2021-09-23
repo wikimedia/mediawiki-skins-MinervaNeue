@@ -39,6 +39,7 @@
 	"mobile-frontend-placeholder": "Keresés: {{SITENAME}}",
 	"mobile-frontend-random-button": "Véletlen lap",
 	"mobile-frontend-redirected-from": "„[[$1]]” szócikkből átirányítva",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Visszatérés a(z) „$1” fájlhoz.",
 	"mobile-frontend-talk-back-to-page": "Visszatérés a(z) „$1” laphoz.",
 	"mobile-frontend-talk-back-to-projectpage": "Visszatérés a(z) „$1” projektlaphoz.",

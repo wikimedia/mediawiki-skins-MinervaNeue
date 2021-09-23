@@ -43,6 +43,7 @@
 	"mobile-frontend-placeholder": "Hľadať na stránke {{SITENAME}}",
 	"mobile-frontend-random-button": "Náhodná",
 	"mobile-frontend-redirected-from": "Presmerované z „[[$1]]“",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Vrátiť sa k súboru „$1“.",
 	"mobile-frontend-talk-back-to-page": "Späť na stránku „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Vrátiť sa na projektovú stránku „$1“.",

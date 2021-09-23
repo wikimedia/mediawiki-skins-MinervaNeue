@@ -26,6 +26,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Kemmañ rann dibenn ar bajenn-man.",
 	"mobile-frontend-placeholder": "Klask e {{SITENAME}}",
 	"mobile-frontend-random-button": "Dre zegouezh",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-page": "Distreiñ d'ar bajenn \"$1\".",
 	"mobile-frontend-user-button-tooltip": "Diskouez ma c'hemennoù",
 	"mobile-frontend-user-newmessages": "Kemennadennoù nevez hoc'h eus war ho pajenn gaozeal",

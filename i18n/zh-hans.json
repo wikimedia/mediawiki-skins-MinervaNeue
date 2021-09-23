@@ -56,6 +56,7 @@
 	"mobile-frontend-placeholder": "搜索{{SITENAME}}",
 	"mobile-frontend-random-button": "随机",
 	"mobile-frontend-redirected-from": "重定向自“[[$1]]”",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "返回到文件“$1”。",
 	"mobile-frontend-talk-back-to-page": "返回到“$1”页面。",
 	"mobile-frontend-talk-back-to-projectpage": "返回到项目页面“$1”。",

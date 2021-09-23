@@ -38,6 +38,7 @@
 	"mobile-frontend-placeholder": "Golèk ing {{SITENAME}}",
 	"mobile-frontend-random-button": "Sembarang",
 	"mobile-frontend-redirected-from": "Alihan saka \"[[$1]]\"",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Bali menyang barkas \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Bali menyang kaca \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Bali menyang kaca proyèk \"$1\".",

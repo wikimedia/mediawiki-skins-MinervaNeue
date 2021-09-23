@@ -25,6 +25,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "بو صفحه‌نین باشلانیش بؤلومونو دَییشدیر.",
 	"mobile-frontend-placeholder": "{{SITENAME}}-دا آختار",
 	"mobile-frontend-random-button": "تصادوفی",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-userpage": "«{{GENDER:$1|$1}}» ایشلدن صفحه‌سینه قایید",
 	"mobile-frontend-user-page-contributions": "چالیشمالار",
 	"mobile-frontend-user-page-member-since": "عضویت $1-دن"

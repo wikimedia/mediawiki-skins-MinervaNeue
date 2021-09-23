@@ -27,6 +27,7 @@
 	"mobile-frontend-placeholder": "Deursoek {{SITENAME}}",
 	"mobile-frontend-random-button": "Lukrake blad",
 	"mobile-frontend-redirected-from": "Aangestuur vanaf \"[[$1]]\"",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Terug na die lêer \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Terug na \"$1\"-bladsy.",
 	"mobile-frontend-talk-back-to-projectpage": "Terug na die projekblad \"$1\".",

@@ -27,6 +27,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "ویرایشت سر بهرجا ای بلگه.",
 	"mobile-frontend-placeholder": "پی جوری {{SITENAME}}",
 	"mobile-frontend-random-button": "بختكی",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "ؤرئشتن د جانیا \"$1\".",
 	"mobile-frontend-talk-back-to-page": "ؤرئشتن د بلگه \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "ؤرئشتن د بلگه کاریاری \"{{GENDER:$1|$1}}\".",

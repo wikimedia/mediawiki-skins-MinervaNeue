@@ -43,6 +43,7 @@
 	"mobile-frontend-placeholder": "Претражите {{GRAMMAR:акузатив|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Случајна",
 	"mobile-frontend-redirected-from": "Преусмерено са „[[$1]]”",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Врати ме на датотеку „$1”.",
 	"mobile-frontend-talk-back-to-page": "Врати ме на страницу „$1”.",
 	"mobile-frontend-talk-back-to-projectpage": "Врати ме на страницу пројекта „$1”.",

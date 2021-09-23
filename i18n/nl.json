@@ -46,6 +46,7 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} doorzoeken",
 	"mobile-frontend-random-button": "Willekeurig",
 	"mobile-frontend-redirected-from": "Doorverwezen vanaf \"[[$1]]\"",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Terugkeren naar het bestand \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Terugkeren naar de pagina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Terugkeren naar de projectpagina \"$1\".",

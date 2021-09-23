@@ -31,6 +31,7 @@
 	"mobile-frontend-notifications-filter": "Луьттург",
 	"mobile-frontend-placeholder": "{{grammar:prepositional|{{SITENAME}}}} чухула леха",
 	"mobile-frontend-random-button": "Нисделларг",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-page": "Йуха гӀо «$1» агӀонг.",
 	"mobile-frontend-user-button-tooltip": "Гайта сан хаамаш",
 	"mobile-frontend-user-newmessages": "Хьан дийцарийн агӀонгахь керла хаамаш бу",

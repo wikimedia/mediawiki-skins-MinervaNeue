@@ -24,6 +24,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Modifiché la session ëd trama ëd sa pàgina.",
 	"mobile-frontend-placeholder": "Sërca an {{SITENAME}}",
 	"mobile-frontend-random-button": "A cas",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-page": "Torné a la pàgina «$1».",
 	"mobile-frontend-user-button-tooltip": "Smon-e mie notìfiche"
 }

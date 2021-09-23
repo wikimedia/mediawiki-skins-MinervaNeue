@@ -37,6 +37,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Биттең төп бүлеген үҙгәртеү",
 	"mobile-frontend-placeholder": "{{grammar:prepositional|{{SITENAME}}}} эсендә эҙләргә",
 	"mobile-frontend-random-button": "Осраҡлы",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "«$1» файлына кире ҡайтырға.",
 	"mobile-frontend-talk-back-to-page": "«$1» битенә кире ҡайтырға.",
 	"mobile-frontend-talk-back-to-projectpage": "Проекттың «$1» битенә кире ҡайтырға.",

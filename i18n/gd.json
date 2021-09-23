@@ -26,6 +26,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Deasaich prìomh-earrann na duilleige seo.",
 	"mobile-frontend-placeholder": "Lorg air {{SITENAME}}",
 	"mobile-frontend-random-button": "Air thuaiream",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Till dhan fhaidhle \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Till gun duilleag \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Till gu duilleag \"$1\" a' phròiseict.",

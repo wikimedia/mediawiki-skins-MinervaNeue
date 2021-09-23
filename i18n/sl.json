@@ -39,6 +39,7 @@
 	"mobile-frontend-placeholder": "Iskanje v {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Naključno",
 	"mobile-frontend-redirected-from": "Preusmerjeno z »[[$1]]«",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-page": "Vrnitev na stran »$1«.",
 	"mobile-frontend-user-button-tooltip": "Prikaži moja obvestila",
 	"mobile-frontend-user-page-contributions": "Prispevki",

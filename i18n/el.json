@@ -43,6 +43,7 @@
 	"mobile-frontend-placeholder": "Αναζήτηση σε {{SITENAME}}",
 	"mobile-frontend-random-button": "Τυχαίο",
 	"mobile-frontend-redirected-from": "Ανακατευθύνθηκε από το \"[[$1]]\"",
+	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Επιστροφή στο αρχείο \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Επιστροφή στη σελίδα \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Επιστροφή στη σελίδα του εγχειρήματος \"$1\".",
