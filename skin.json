@@ -108,7 +108,22 @@
 		}
 	},
 	"ValidSkinNames": {
-		"minerva": "MinervaNeue"
+		"minerva": {
+			"class": "SkinMinervaNeue",
+			"args": [ {
+				"name": "minerva",
+				"templateDirectory": "includes/Skins",
+				"messages": [
+					"mobile-frontend-sitename"
+				],
+				"responsive": true,
+				"link": {
+					"text-wrapper": {
+						"tag": "span"
+					}
+				}
+			} ]
+		}
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Minerva\\": "includes/"

@@ -21,28 +21,37 @@ function getClassesForItem( $item ) {
 }
 
 /**
- * @param {HTMLElement|null} link The added list item, or null if no element was added.
+ * Insert icon into the portlet link.
+ *
+ * @param {jQuery.Object} $link
+ * @param {string} id for icon
+ */
+function insertIcon( $link, id ) {
+	var icon = document.createElement( 'span' );
+	icon.setAttribute( 'class', 'mw-ui-icon mw-ui-icon-portletlink-' + id );
+	$link.prepend( '&nbsp;' );
+	$link.prepend( icon );
+}
+
+/**
+ * @param {HTMLElement|null} listItem The added list item, or null if no element was added.
  * @param {Object} data
  */
-module.exports = function ( link, data ) {
-	var label, $item, $a, classes,
+function hookHandler( listItem, data ) {
+	var $item, $a, classes,
 		id = data.id || 'unknowngadget';
 
-	if ( link ) {
-		$item = $( link );
+	if ( listItem ) {
+		$item = $( listItem );
 		classes = getClassesForItem( $item );
 		$item.addClass( classes.li );
 		$a = $item.find( 'a' );
-		$a.addClass( [
-			'menu-list-item__button',
-			'menu__item--' + id,
-			'mw-ui-icon',
-			'mw-ui-icon-before',
-			'mw-ui-icon-portletlink-' + id
-		].concat( classes.a ) );
-		label = document.createElement( 'span' );
-		label.setAttribute( 'class', classes.span.join( ' ' ) );
-		label.textContent = $item.text();
-		$a.empty().append( label );
+		$a.addClass( classes.a );
+		$item.find( 'a > span' ).addClass( classes.span );
+		insertIcon( $a, id );
 	}
+}
+
+module.exports = {
+	hookHandler: hookHandler
 };

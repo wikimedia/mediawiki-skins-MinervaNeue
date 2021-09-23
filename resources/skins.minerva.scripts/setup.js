@@ -2,7 +2,8 @@
  * This setups the Minerva skin.
  * It should run without errors even if MobileFrontend is not installed.
  */
-var ms = require( 'mobile.startup' );
+var ms = require( 'mobile.startup' ),
+	addPortletLink = require( './addPortletLink.js' );
 
 function init() {
 	var permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
@@ -21,7 +22,10 @@ function init() {
 		// setup search for desktop Minerva at mobile resolution without MobileFrontend.
 		require( './searchSuggestReveal.js' )();
 	}
-	mw.hook( 'util.addPortletLink' ).add( require( './addPortletLink.js' ) );
+
+	mw.hook( 'util.addPortletLink' ).add(
+		addPortletLink.hookHandler
+	);
 
 	// This hot fix should be reviewed and possibly removed circa January 2021.
 	// It's assumed that Apple will prioritize fixing this bug in one of its next releases.
