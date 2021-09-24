@@ -45,7 +45,6 @@
 	"mobile-frontend-placeholder": "Търсене в {{SITENAME}}",
 	"mobile-frontend-random-button": "Случайна",
 	"mobile-frontend-redirected-from": "Пренасочване от „[[$1]]“",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Назад към файл „$1“.",
 	"mobile-frontend-talk-back-to-page": "Връщане към „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Назад към проектната страница „$1“.",

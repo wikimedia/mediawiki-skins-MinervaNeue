@@ -47,7 +47,6 @@
 	"mobile-frontend-placeholder": "Buscar en {{SITENAME}}",
 	"mobile-frontend-random-button": "Al azar",
 	"mobile-frontend-redirected-from": "Redirigido de «[[$1]]»",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Volver al archivo «$1».",
 	"mobile-frontend-talk-back-to-page": "Volver a la página «$1».",
 	"mobile-frontend-talk-back-to-projectpage": "Volver a la página de proyecto «$1».",

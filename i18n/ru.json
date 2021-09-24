@@ -53,7 +53,6 @@
 	"mobile-frontend-placeholder": "Искать в {{grammar:prepositional|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Случайная",
 	"mobile-frontend-redirected-from": "Перенаправлено с «[[$1]]»",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Вернуться к файлу «$1».",
 	"mobile-frontend-talk-back-to-page": "Вернуться на страницу «$1».",
 	"mobile-frontend-talk-back-to-projectpage": "Вернуться к странице проекта «$1».",

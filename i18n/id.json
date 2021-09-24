@@ -45,7 +45,6 @@
 	"mobile-frontend-placeholder": "Cari di {{SITENAME}}",
 	"mobile-frontend-random-button": "Sembarang",
 	"mobile-frontend-redirected-from": "Dialihkan dari \"[[$1]]\"",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Kembali ke berkas \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Kembali ke halaman \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Kembali ke halaman Wikipedia \"$1\".",

@@ -38,7 +38,6 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} сайтынан іздеу",
 	"mobile-frontend-random-button": "Кездейсоқ",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" бетінен бағытталған",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "«$1» файлына қайту.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" бетіне қайту.",
 	"mobile-frontend-talk-back-to-projectpage": " «$1» жоба бетіне қайту.",

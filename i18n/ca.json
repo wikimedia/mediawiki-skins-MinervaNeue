@@ -43,7 +43,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Edició de la secció principal de d'aquesta pàgina.",
 	"mobile-frontend-placeholder": "Cercar a {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatori",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Torna al fitxer \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Torna a la pàgina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Torna a la pàgina de projecte \"$1\".",

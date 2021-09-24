@@ -49,7 +49,6 @@
 	"mobile-frontend-placeholder": "Hae {{GRAMMAR:elative|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Satunnainen",
 	"mobile-frontend-redirected-from": "Ohjattu sivulta ”[[$1]]”",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Palaa tiedostoon ”$1”.",
 	"mobile-frontend-talk-back-to-page": "Palaa sivulle ”$1”.",
 	"mobile-frontend-talk-back-to-projectpage": "Palaa projektisivulle ”$1”.",

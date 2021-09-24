@@ -44,7 +44,6 @@
 	"mobile-frontend-placeholder": "Шукати у {{GRAMMAR:genitive|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Випадкова",
 	"mobile-frontend-redirected-from": "Перенаправлено з «[[$1]]»",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Повернутися до файлу «$1».",
 	"mobile-frontend-talk-back-to-page": "Повернутися до сторінки «$1»",
 	"mobile-frontend-talk-back-to-projectpage": "Повернутися на сторінку проєкту «$1».",

@@ -37,7 +37,6 @@
 	"mobile-frontend-placeholder": "Пребарајте ја {{SITENAME}}",
 	"mobile-frontend-random-button": "Случајна",
 	"mobile-frontend-redirected-from": "Пренасочено од „[[$1]]“",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Назад на податотеката „$1“.",
 	"mobile-frontend-talk-back-to-page": "Назад на страницата „$1“.",
 	"mobile-frontend-talk-back-to-projectpage": "Назад на проектната страница „$1“.",

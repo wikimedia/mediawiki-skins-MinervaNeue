@@ -42,7 +42,6 @@
 	"mobile-frontend-placeholder": "Søk i {{SITENAME}}",
 	"mobile-frontend-random-button": "Tilfeldig artikkel",
 	"mobile-frontend-redirected-from": "Omdirigert fra «[[$1]]»",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Tilbake til filen «$1».",
 	"mobile-frontend-talk-back-to-page": "Tilbake til siden «$1».",
 	"mobile-frontend-talk-back-to-projectpage": "Tilbake til prosjektsiden «$1».",

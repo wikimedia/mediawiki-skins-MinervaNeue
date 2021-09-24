@@ -40,7 +40,6 @@
 	"mobile-frontend-placeholder": "Sök på {{SITENAME}}",
 	"mobile-frontend-random-button": "Slumpartikel",
 	"mobile-frontend-redirected-from": "Omdirigerades från \"[[$1]]\"",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Tillbaka till filen \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Tillbaka till sidan \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Tillbaka till projektsidan \"$1\".",

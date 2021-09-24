@@ -37,7 +37,6 @@
 	"mobile-frontend-placeholder": "Cercar in {{SITENAME}}",
 	"mobile-frontend-random-button": "Aleatori",
 	"mobile-frontend-redirected-from": "Redirigite ab \"[[$1]]\"",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "Retornar al file \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Retornar al pagina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Retornar al pagina de projecto \"$1\".",

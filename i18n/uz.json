@@ -34,7 +34,6 @@
 	"mobile-frontend-placeholder": "{{SITENAME}}dan qidirish",
 	"mobile-frontend-random-button": "Tasodifiy",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" dan yo‘naltirildi",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "\"$1\" fayliga qaytatish.",
 	"mobile-frontend-talk-back-to-page": "\"$1\" sahifasiga qaytarish.",
 	"mobile-frontend-user-button-tooltip": "Bildirishnomalarimni ko‘rish",

@@ -50,7 +50,6 @@
 	"mobile-frontend-placeholder": "جستجو در {{SITENAME}}",
 	"mobile-frontend-random-button": "تصادفی",
 	"mobile-frontend-redirected-from": "تغییرمسیر از «[[$1]]»",
-	"mobile-frontend-sitename": "{{SITENAME}}",
 	"mobile-frontend-talk-back-to-filepage": "بازگشت به پروندهٔ «$1».",
 	"mobile-frontend-talk-back-to-page": "بازگشت به صفحهٔ «$1».",
 	"mobile-frontend-talk-back-to-projectpage": "بازگشت به صفحۀ پروژهٔ «$1».",
