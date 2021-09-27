@@ -5,7 +5,6 @@
 		icons = mobile.icons,
 		Deferred = $.Deferred,
 		windowChrome = { chrome: true },
-		downloadIcon = icons.spinner(),
 		windowNotChrome = {},
 		downloadAction = require( '../../../resources/skins.minerva.scripts/downloadPageAction.js' ),
 		getOnClickHandler = downloadAction.test.getOnClickHandler,
@@ -16,8 +15,9 @@
 
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
+			var portletLink = document.createElement( 'li' );
 			this.getOnClickHandler = function () {
-				return getOnClickHandler( icons.spinner() ).bind( downloadIcon );
+				return getOnClickHandler( portletLink, icons.spinner() );
 			};
 		}
 	} );
