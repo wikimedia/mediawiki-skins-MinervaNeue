@@ -6,5 +6,6 @@
 		]
 	},
 	"mobile-frontend-language-article-heading": "ᬪᬵᬱ",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ᬭᬳᬚᭂᬂᬭᬯᬸᬄ}} $1!"
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ᬭᬳᬚᭂᬂᬭᬯᬸᬄ}} $1!",
+	"mobile-frontend-placeholder": "ᬋᬋᬄ {{SITENAME}}"
 }
