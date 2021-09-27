@@ -21,6 +21,9 @@
 
 .overlay-header {
 	height: @overlayHeaderHeight;
+	// FIXME: The header code should be refactored to use flex box,
+	// given we don't need to support IE11 for mobile.
+	display: table;
 
 	.header-chrome & {
 		height: @siteHeaderHeight;
