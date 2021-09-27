@@ -1,11 +1,10 @@
 ( function ( M, track, msg ) {
 	var MAX_PRINT_TIMEOUT = 3000,
+		timeout = 0,
 		mobile = M.require( 'mobile.startup' ),
-		Icon = mobile.Icon,
 		icons = mobile.icons,
 		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
-		browser = mobile.Browser.getSingleton(),
-		GLYPH = 'download';
+		browser = mobile.Browser.getSingleton();
 
 	/**
 	 * Helper function to retrieve the Android version
@@ -69,36 +68,37 @@
 	/**
 	 * onClick handler for button that invokes print function
 	 *
-	 * @param {Icon} icon
+	 * @param {HTMLElement} portletItem
 	 * @param {Icon} spinner
 	 */
-	function onClick( icon, spinner ) {
+	function onClick( portletItem, spinner ) {
+		var icon = portletItem.querySelector( '.mw-ui-icon-minerva-download' );
 		function doPrint() {
-			icon.timeout = clearTimeout( icon.timeout );
+			timeout = clearTimeout( timeout );
 			track( 'minerva.downloadAsPDF', {
 				action: 'callPrint'
 			} );
 			window.print();
-			icon.$el.show();
+			$( icon ).show();
 			spinner.$el.hide();
 		}
 
 		function doPrintBeforeTimeout() {
-			if ( icon.timeout ) {
+			if ( timeout ) {
 				doPrint();
 			}
 		}
 		// The click handler may be invoked multiple times so if a pending print is occurring
 		// do nothing.
-		if ( !icon.timeout ) {
+		if ( !timeout ) {
 			track( 'minerva.downloadAsPDF', {
 				action: 'fetchImages'
 			} );
-			icon.$el.hide();
+			$( icon ).hide();
 			spinner.$el.show();
 			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 			// abort the spinner and print regardless.
-			icon.timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
+			timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
 			lazyImageLoader.loadImages( lazyImageLoader.queryPlaceholders( document.getElementById( 'content' ) ) )
 				.then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 		}
@@ -106,14 +106,14 @@
 
 	/**
 	 * Gets a click handler for the download icon
-	 * Expects to be run in the context of an icon using `Function.bind`
 	 *
+	 * @param {HTMLElement} portletLink
 	 * @param {Icon} spinner
 	 * @return {Function}
 	 */
-	function getOnClickHandler( spinner ) {
+	function getOnClickHandler( portletLink, spinner ) {
 		return function () {
-			onClick( this, spinner );
+			onClick( portletLink, spinner );
 		};
 	}
 
@@ -124,15 +124,15 @@
 	 * @param {Page} page
 	 * @param {number[]} supportedNamespaces
 	 * @param {Window} [windowObj] window object
-	 * @param {boolean} [hasText] Use icon + button style.
+	 * @param {boolean} [overflowList] Append to overflow list
 	 * @return {jQuery.Object|null}
 	 */
-	function downloadPageAction( page, supportedNamespaces, windowObj, hasText ) {
+	function downloadPageAction( page, supportedNamespaces, windowObj, overflowList ) {
 		var
-			modifier = hasText ? 'toggle-list-item__anchor toggle-list-item__label' : 'mw-ui-icon-element mw-ui-icon-with-label-desktop',
-			icon,
+			portletLink, iconElement,
+			modifier = overflowList ? 'toggle-list-item__anchor toggle-list-item__label' :
+				'mw-ui-icon-element mw-ui-icon-with-label-desktop',
 			spinner = icons.spinner( {
-				hasText: hasText,
 				modifier: modifier
 			} );
 
@@ -142,21 +142,30 @@
 				supportedNamespaces
 			)
 		) {
-			icon = new Icon( {
-				glyphPrefix: 'minerva',
-				title: msg( 'minerva-download' ),
-				name: GLYPH,
-				tagName: 'button',
-				events: {
-					// will be bound to `this`
-					click: getOnClickHandler( spinner )
-				},
-				hasText: hasText,
-				label: mw.msg( 'minerva-download' ),
-				modifier: modifier
-			} );
 
-			return $( '<li>' ).addClass( hasText ? 'toggle-list-item' : 'page-actions-menu__list-item' ).append( icon.$el ).append( spinner.$el.hide() );
+			portletLink = mw.util.addPortletLink(
+				overflowList ? 'page-actions-overflow' : 'page-actions',
+				'#',
+				msg( 'minerva-download' ),
+				// id
+				'minerva-download',
+				// tooltip
+				msg( 'minerva-download' ),
+				// access key
+				'p',
+				overflowList ? null : document.getElementById( 'page-actions-watch' )
+			);
+			if ( portletLink ) {
+				portletLink.addEventListener( 'click', getOnClickHandler( portletLink, spinner ) );
+				spinner.$el.hide().insertAfter(
+					$( portletLink ).find( '.mw-ui-icon' )
+				);
+				iconElement = portletLink.querySelector( '.mw-ui-icon' );
+				if ( iconElement ) {
+					iconElement.classList.add( 'mw-ui-icon-minerva-download' );
+				}
+			}
+			return portletLink;
 		} else {
 			return null;
 		}
