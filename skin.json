@@ -378,18 +378,6 @@
 				"unStar"
 			]
 		},
-		"skins.minerva.icons.images.scripts": {
-			"targets": [
-				"mobile",
-				"desktop"
-			],
-			"dependencies": [
-				"skins.minerva.icons.images.scripts.misc",
-				"skins.minerva.icons.page.issues.uncolored",
-				"skins.minerva.icons.page.issues.default.color",
-				"skins.minerva.icons.page.issues.medium.color"
-			]
-		},
 		"skins.minerva.icons.images.scripts.misc": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
@@ -531,7 +519,10 @@
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"jquery.cookie",
-				"skins.minerva.icons.images.scripts",
+				"skins.minerva.icons.images.scripts.misc",
+				"skins.minerva.icons.page.issues.uncolored",
+				"skins.minerva.icons.page.issues.default.color",
+				"skins.minerva.icons.page.issues.medium.color",
 				"mediawiki.util",
 				"mediawiki.router",
 				"mediawiki.Title",
