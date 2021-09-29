@@ -1,6 +1,6 @@
 ( function ( M, track, msg ) {
 	var MAX_PRINT_TIMEOUT = 3000,
-		timeout = 0,
+		printSetTimeoutReference = 0,
 		mobile = M.require( 'mobile.startup' ),
 		icons = mobile.icons,
 		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
@@ -74,7 +74,7 @@
 	function onClick( portletItem, spinner ) {
 		var icon = portletItem.querySelector( '.mw-ui-icon-minerva-download' );
 		function doPrint() {
-			timeout = clearTimeout( timeout );
+			printSetTimeoutReference = clearTimeout( printSetTimeoutReference );
 			track( 'minerva.downloadAsPDF', {
 				action: 'callPrint'
 			} );
@@ -84,13 +84,13 @@
 		}
 
 		function doPrintBeforeTimeout() {
-			if ( timeout ) {
+			if ( printSetTimeoutReference ) {
 				doPrint();
 			}
 		}
 		// The click handler may be invoked multiple times so if a pending print is occurring
 		// do nothing.
-		if ( !timeout ) {
+		if ( !printSetTimeoutReference ) {
 			track( 'minerva.downloadAsPDF', {
 				action: 'fetchImages'
 			} );
@@ -98,28 +98,17 @@
 			spinner.$el.show();
 			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 			// abort the spinner and print regardless.
-			timeout = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
+			printSetTimeoutReference = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
 			lazyImageLoader.loadImages( lazyImageLoader.queryPlaceholders( document.getElementById( 'content' ) ) )
 				.then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 		}
 	}
 
 	/**
-	 * Gets a click handler for the download icon
-	 *
-	 * @param {HTMLElement} portletLink
-	 * @param {Icon} spinner
-	 * @return {Function}
-	 */
-	function getOnClickHandler( portletLink, spinner ) {
-		return function () {
-			onClick( portletLink, spinner );
-		};
-	}
-
-	/**
 	 * Generate a download icon for triggering print functionality if
-	 * printing is available
+	 * printing is available.
+	 * Calling this method has side effects:
+	 * It calls mw.util.addPortletLink and may inject an element into the page.
 	 *
 	 * @param {Page} page
 	 * @param {number[]} supportedNamespaces
@@ -156,7 +145,9 @@
 				overflowList ? null : document.getElementById( 'page-actions-watch' )
 			);
 			if ( portletLink ) {
-				portletLink.addEventListener( 'click', getOnClickHandler( portletLink, spinner ) );
+				portletLink.addEventListener( 'click', function () {
+					onClick( portletLink, spinner );
+				} );
 				spinner.$el.hide().insertAfter(
 					$( portletLink ).find( '.mw-ui-icon' )
 				);
@@ -175,7 +166,7 @@
 		downloadPageAction: downloadPageAction,
 		test: {
 			isAvailable: isAvailable,
-			getOnClickHandler: getOnClickHandler
+			onClick: onClick
 		}
 	};
 
