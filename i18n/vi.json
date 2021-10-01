@@ -5,6 +5,7 @@
 			"Cheers!",
 			"Darcy Le",
 			"Minh Nguyen",
+			"NguoiDungKhongDinhDanh",
 			"Nguyên Lê",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran"
@@ -38,7 +39,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "Giới thiệu về trang này",
 	"mobile-frontend-meta-data-issues-talk": "Giới thiệu về trang thảo luận này",
 	"mobile-frontend-notifications-filter": "Bộ lọc",
-	"mobile-frontend-pageaction-edit-tooltip": "Sửa đổi phần mở đầu của trang này",
+	"mobile-frontend-pageaction-edit-tooltip": "Sửa đổi đề mục đầu tiên của trang này",
 	"mobile-frontend-placeholder": "Tìm kiếm {{SITENAME}}",
 	"mobile-frontend-random-button": "Ngẫu nhiên",
 	"mobile-frontend-redirected-from": "Đổi hướng từ “[[$1]]”",
