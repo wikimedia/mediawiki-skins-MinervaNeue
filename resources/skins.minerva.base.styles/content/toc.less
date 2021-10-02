@@ -1,87 +1,111 @@
 @import '../../../minerva.less/minerva.variables.less';
 
+@toc-large-icon: 44px;
+@toc-small-icon: 34px;
+
 .toc {
 	display: none;
 	position: relative;
 	margin: 1em 0;
-	padding: 0.2em 0.5em;
+	padding: 0 1em 1em 1em;
 	background-color: @colorGray15;
 	border: solid 1px @grayLightest;
 	box-sizing: border-box;
-}
 
-.toctogglecheckbox ~ ul {
-	visibility: hidden;
-	height: 0;
-}
+	// We need high specificity to override .content ul
+	&.toc > ul {
+		// Account for the icon spaces left and right.
+		// margin: 0 @toc-small-icon 0 @toc-large-icon;
+		font-size: @font-size-minerva-small;
+		// Reset `.client-js .toc > ul`.
+		padding-left: 0;
+	}
 
-.toctogglecheckbox:checked ~ ul {
-	visibility: visible;
-	padding-bottom: 20px;
-	height: auto;
+	// We need high specificity to override .content ul
+	&.toc ul {
+		list-style: none;
+		// break long headings like urls
+		word-break: break-word;
+	}
 }
 
 .toctitle {
-	padding: 0 25px 0 32px;
+	@toctitle-vertical-padding: 1.4em / 2;
+	font-weight: bold;
+	display: flex;
+	// Force vertical centering on title by making this full height
+	align-items: center;
+	// Ensure height for icon
+	min-height: @toc-large-icon;
 
-	.mw-ui-icon {
-		position: absolute;
-		left: 0;
-	}
-
-	.toctogglespan + .mw-ui-icon {
-		top: 8px;
-		right: 0;
-		left: auto;
+	// We need high specificity to override .content h2
+	&.toctitle h2 {
+		display: inline-block;
+		font-family: @font-family-base;
+		font-size: unit( 18/16, em );
+		vertical-align: middle;
 	}
 }
 
+.tocnumber {
+	display: none;
+}
+
 .toctogglelabel {
-	cursor: pointer;
 	position: absolute;
 	left: 0;
 	top: 0;
 	right: 0;
-	height: 50px;
+	height: @toc-large-icon;
 	z-index: @z-indexAboveContent;
 }
 
+// Do stuff we only need to do with JS
+// Collapsing and reserving space for the JS icons
 .client-js .toc {
+	// Reset padding, because we need to reserve space for icons
+	padding: 0;
+
 	.toctitle {
-		@toctitle-vertical-padding: 1.4em / 2;
-		visibility: hidden;
-		background-position: right center;
-		font-weight: bold;
-		border-bottom: 0;
+		// Reserve space for icons
+		padding: 0 @toc-small-icon 0 @toc-large-icon;
 
-		h2 {
-			display: inline-block;
-			font-family: @font-family-base;
-			font-size: unit( 18/16, em );
-			vertical-align: middle;
+		.mw-ui-icon {
+			position: absolute;
+			left: 0;
 		}
-	}
 
-	.tocnumber {
-		display: none;
+		.toctogglespan + .mw-ui-icon {
+			top: (@toc-large-icon - @toc-small-icon) / 2;
+			right: 0;
+			left: auto;
+		}
 	}
 
 	> ul {
 		// Account for the icon spaces left and right.
-		margin: 0 unit( @icon-glyph-size-md / @font-size-minerva-small, em ) 0 32px;
-		// Reset `.client-js .toc > ul`.
-		padding-left: 0;
-		font-size: @font-size-minerva-small;
+		margin: 0 @toc-small-icon 0 @toc-large-icon;
 	}
 
-	ul {
-		list-style: none;
+	.toctogglecheckbox ~ ul {
+		visibility: hidden;
+		height: 0;
+	}
+
+	.toctogglecheckbox:checked ~ ul {
+		visibility: visible;
+		padding-bottom: 20px;
+		height: auto;
+	}
+
+	.toctogglelabel {
+		cursor: pointer;
 	}
 }
 
 @media screen and ( min-width: @width-breakpoint-tablet ) {
-	.client-js .toc {
-		// Reset the rule for mobile mode (but not for .client-nojs)
+	.toc {
+		// Reset the rule for mobile mode
 		display: table;
 
 		.toctitle {
