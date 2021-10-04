@@ -72,7 +72,9 @@ class SkinMinerva extends SkinMustache {
 
 			$tpl = $this->prepareQuickTemplate();
 			$tplData = $tpl->execute();
-			return $data + $tplData;
+			return $data + $tplData + [
+				'html-minerva-subject-link' => $this->getSubjectPage(),
+			];
 	}
 
 	/**
@@ -119,16 +121,11 @@ class SkinMinerva extends SkinMustache {
 		// Generate skin template
 		$tpl = parent::prepareQuickTemplate();
 
-		// Set whether or not the page content should be wrapped in div.content (for
-		// example, on a special page)
-		$tpl->set( 'unstyledContent', $out->getProperty( 'unstyledContent' ) );
-
 		// Set the links for page secondary actions
 		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
 
 		// Construct various Minerva-specific interface elements
 		$this->prepareMenus( $tpl );
-		$this->preparePageContent( $tpl );
 		$this->prepareHeaderAndFooter( $tpl );
 		$this->prepareBanners( $tpl );
 		$this->prepareUserNotificationsButton( $tpl, $tpl->get( 'newtalk' ) );
@@ -161,11 +158,9 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Prepares the header and the content of a page
-	 * Stores in QuickTemplate prebodytext, postbodytext keys
-	 * @param QuickTemplate $tpl
+	 * @return string
 	 */
-	protected function preparePageContent( QuickTemplate $tpl ) {
+	protected function getSubjectPage() {
 		$services = MediaWikiServices::getInstance();
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
@@ -190,11 +185,13 @@ class SkinMinerva extends SkinMustache {
 			}
 			$subjectPage = $services->getNamespaceInfo()->getSubjectPage( $title );
 
-			$tpl->set( 'subject-page', MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 				$subjectPage,
 				$this->msg( $msg, $title->getText() )->text(),
 				[ 'class' => 'return-link' ]
-			) );
+			);
+		} else {
+			return '';
 		}
 	}
 

@@ -150,27 +150,6 @@ class MinervaTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Get the HTML for the content of a page
-	 * @param array $data Data used to build the page
-	 * @return string representing HTML of content
-	 */
-	protected function getContentHtml( $data ) {
-		if ( !$data[ 'unstyledContent' ] ) {
-			$content = Html::openElement( 'div', [
-				'id' => 'bodyContent',
-				'class' => 'content',
-			] );
-			$content .= $data[ 'bodytext' ];
-			if ( isset( $data['subject-page'] ) ) {
-				$content .= $data['subject-page'];
-			}
-			return $content . Html::closeElement( 'div' );
-		}
-
-		return $data[ 'bodytext' ];
-	}
-
-	/**
 	 * Gets the main menu HTML.
 	 * @param array $data Data used to build the page
 	 * @return string
@@ -203,7 +182,6 @@ class MinervaTemplate extends BaseTemplate {
 			'postheadinghtml' => $data['postheadinghtml'] ?? '',
 			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml() : '',
 			'userMenuHTML' => $data['userMenuHTML'],
-			'contenthtml' => $this->getContentHtml( $data ),
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 
 			'html-minerva-lastmodified' => $this->getHistoryLinkHtml( $data ),

@@ -1,5 +1,5 @@
 // stylelint-disable selector-max-id
-@import 'mediawiki.ui/variables';
+@import '../minerva.less/minerva.variables.less';
 
 // Override MobileFrontend styles (can be weakened/removed when MobileDiff no longer exists)
 #mw-mf-diffview .mw-diff-empty-line {
@@ -16,6 +16,21 @@
 .rtl .mw-diff-movedpara-right {
 	&:after {
 		content: none;
+	}
+}
+
+.mw-special-MobileDiff {
+	#mw-mf-diffarea {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media all and ( max-width: @width-breakpoint-tablet ) {
+	.mw-special-MobileDiff {
+		.content-unstyled {
+			margin: 0 @contentMargin;
+		}
 	}
 }
 

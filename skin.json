@@ -194,6 +194,9 @@
 			"mobile.init.styles": [
 				"skinStyles/mobile.init.styles/mobile.less"
 			],
+			"mobile.special.nearby.styles": [
+				"skinStyles/mobile.special.nearby.styles.less"
+			],
 			"mediawiki.diff.styles": [
 				"skinStyles/mediawiki.diff.styles.less"
 			],

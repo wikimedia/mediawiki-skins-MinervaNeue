@@ -1,5 +1,31 @@
+// stylelint-disable selector-max-id
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
+
+.mw-mf-special-page {
+	#bodyContent.content {
+		max-width: none;
+		margin: 0;
+		width: auto;
+
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		// override core .content li rule
+		.page-header-bar li {
+			margin-bottom: 0;
+		}
+
+		.mw-mf-history-wrap-link {
+			@media all and ( min-width: @width-breakpoint-desktop ) {
+				margin: 0;
+				max-width: none;
+			}
+		}
+	}
+}
 
 // FIXME [mediawiki ui] These rules should not be needed in the mobile context
 .mw-ui-button-group {
@@ -16,7 +42,7 @@
 }
 
 .ns-special {
-	.mw-body #section_0 { // stylelint-disable-line selector-max-id
+	.mw-body #section_0 {
 		font-size: 1.5em;
 		font-weight: bold;
 	}
@@ -32,6 +58,12 @@
 	h2 {
 		// Important given we have no idea which rules special pages are enforcing
 		font-family: @font-family-base !important;
+	}
+
+	.errorbox {
+		h2 {
+			display: block;
+		}
 	}
 
 	.content-header {
