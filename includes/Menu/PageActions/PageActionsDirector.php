@@ -76,7 +76,7 @@ final class PageActionsDirector {
 			'toolbar' => $toolbar->getEntries()
 		];
 		if ( $overflowMenu->hasEntries() ) {
-			// See components/ToggleList.
+			// See includes/Skins/components/ToggleList.
 			$menu[ 'overflowMenu' ] = [
 				'item-id' => 'page-actions-overflow',
 				'checkboxID' => 'page-actions-overflow-checkbox',

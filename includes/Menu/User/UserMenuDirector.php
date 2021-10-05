@@ -55,7 +55,7 @@ final class UserMenuDirector {
 		$group = $this->builder->getGroup( $personalTools );
 		$entries = $group->getEntries();
 
-		$templateParser = new TemplateParser( __DIR__ . '/../../../components' );
+		$templateParser = new TemplateParser( __DIR__ . '/../../Skins/components' );
 		return empty( $entries )
 			? null
 			: $templateParser->processTemplate( 'ToggleList', [
