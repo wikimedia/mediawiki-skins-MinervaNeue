@@ -6,6 +6,6 @@
 		]
 	},
 	"mobile-frontend-language-article-heading": "Tɔgum",
-	"mobile-frontend-logged-in-homepage-notification": "{{Dɔɔ/NYA’AŋA:$1|Zaarɛ}}, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Zaarɛ}}, $1!",
 	"mobile-frontend-placeholder": "Ɛ {{SITENAME}}"
 }

@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"SawJaemin"
 		]
 	},
 	"mobile-frontend-language-article-heading": "ကျိာ်",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|တၢ်တူၢ်လိာ်မုာ်}}, $1!",
 	"mobile-frontend-placeholder": "ကွၢ်ဃု {{SITENAME}}"
 }
