@@ -114,7 +114,11 @@
 				"name": "minerva",
 				"templateDirectory": "includes/Skins",
 				"messages": [
-					"mobile-frontend-sitename"
+					"mainpage",
+					"minerva-user-navigation",
+					"mobile-frontend-main-menu-button-tooltip",
+					"mobile-frontend-placeholder",
+					"mobile-frontend-footer-sitename"
 				],
 				"responsive": true,
 				"link": {

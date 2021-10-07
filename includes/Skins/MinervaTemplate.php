@@ -197,10 +197,6 @@ class MinervaTemplate extends BaseTemplate {
 			'wgScript' => $data['wgScript'],
 			'isAnon' => $data['username'] === null,
 			'search' => $data['search'],
-			'placeholder' => wfMessage( 'mobile-frontend-placeholder' ),
-			'main-menu-tooltip' => $this->getMsg( 'mobile-frontend-main-menu-button-tooltip' ),
-			'mainPageURL' => Title::newMainPage()->getLocalURL(),
-			'userNavigationLabel' => wfMessage( 'minerva-user-navigation' ),
 			// A button when clicked will submit the form
 			// This is used so that on tablet devices with JS disabled the search button
 			// passes the value of input to the search
