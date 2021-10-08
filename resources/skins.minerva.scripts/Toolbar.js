@@ -1,7 +1,7 @@
 ( function ( M ) {
 	var
 		mobile = M.require( 'mobile.startup' ),
-		ToggleList = require( '../../components/ToggleList/ToggleList.js' ),
+		ToggleList = require( '../../includes/Skins/components/ToggleList/ToggleList.js' ),
 		Icon = mobile.Icon,
 		page = mobile.currentPage(),
 		/** The top level menu. */

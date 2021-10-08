@@ -63,7 +63,7 @@ class MinervaTemplate extends BaseTemplate {
 	 * @return string
 	 */
 	protected function getPageActionsHtml() {
-		$templateParser = new TemplateParser( __DIR__ . '/../../components' );
+		$templateParser = new TemplateParser( __DIR__ . '/../../includes/Skins/components' );
 		$pageActions = $this->getPageActions();
 		$html = '';
 
