@@ -3,14 +3,14 @@
 namespace Tests\MediaWiki\Minerva;
 
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
-use MediaWikiTestCase;
+use MediaWikiIntegrationTestCase;
 use Title;
 
 /**
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\Skins\SkinUserPageHelper
  */
-class SkinUserPageHelperTest extends MediaWikiTestCase {
+class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::isUserPage

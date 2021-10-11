@@ -10,7 +10,7 @@ use MediaWiki\Minerva\Menu\Group;
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\Menu\Group
  */
-class GroupTest extends \MediaWikiTestCase {
+class GroupTest extends \MediaWikiIntegrationTestCase {
 	/** @var string[] */
 	private $homeComponent = [
 		'text' => 'Home',

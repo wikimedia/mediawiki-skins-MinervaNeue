@@ -8,7 +8,7 @@ use MediaWiki\Minerva\Menu\Entries\MenuEntry;
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\Menu\Entries\MenuEntry
  */
-class MenuEntryTest extends \MediaWikiTestCase {
+class MenuEntryTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::__construct

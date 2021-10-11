@@ -3,7 +3,7 @@
 namespace Tests\MediaWiki\Minerva;
 
 use MediaWiki\Minerva\SkinOptions;
-use MediaWikiTestCase;
+use MediaWikiIntegrationTestCase;
 use OutputPage;
 use RequestContext;
 use SkinMinerva;
@@ -14,7 +14,7 @@ use Wikimedia\TestingAccessWrapper;
  * @coversDefaultClass SkinMinerva
  * @group MinervaNeue
  */
-class SkinMinervaTest extends MediaWikiTestCase {
+class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @param array $options
 	 */

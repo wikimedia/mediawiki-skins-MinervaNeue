@@ -10,7 +10,7 @@ use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Watchlist\WatchlistManager;
-use MediaWikiTestCase;
+use MediaWikiIntegrationTestCase;
 use RequestContext;
 use Title;
 use User;
@@ -19,7 +19,7 @@ use User;
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\Permissions\MinervaPagePermissions
  */
-class MinervaPagePermissionsTest extends MediaWikiTestCase {
+class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 
 	private function buildPermissionsObject(
 		Title $title,
