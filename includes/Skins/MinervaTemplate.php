@@ -194,20 +194,7 @@ class MinervaTemplate extends BaseTemplate {
 		// prepare template data
 		return [
 			'banners' => $data['banners'],
-			'wgScript' => $data['wgScript'],
 			'isAnon' => $data['username'] === null,
-			'search' => $data['search'],
-			// A button when clicked will submit the form
-			// This is used so that on tablet devices with JS disabled the search button
-			// passes the value of input to the search
-			// We avoid using input[type=submit] as these cannot be easily styled as mediawiki ui icons
-			// which is problematic in Opera Mini (see T140490)
-			'searchButton' => Html::rawElement( 'button', [
-				'id' => 'searchIcon',
-				'class' => MinervaUI::iconClass(
-					'search-base20', 'element', 'skin-minerva-search-trigger', 'wikimedia'
-				)
-			], wfMessage( 'searchbutton' )->escaped() ),
 			'userNotificationsHTML' => $data['userNotificationsHTML'] ?? '',
 			'data-main-menu' => $this->getMainMenuData( $data ),
 			'hasheadingholder' => $hasHeadingHolder,
@@ -230,7 +217,6 @@ class MinervaTemplate extends BaseTemplate {
 					  $skinOptions->get( SkinOptions::TALK_AT_TOP ) ? [
 				'items' => array_values( $data['content_navigation']['namespaces'] ),
 			] : false,
-			'searchPageTitle' => $this->getSkin()->getSearchPageTitle(),
 		];
 	}
 

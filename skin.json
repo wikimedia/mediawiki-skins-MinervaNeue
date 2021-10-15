@@ -115,9 +115,9 @@
 				"templateDirectory": "includes/Skins",
 				"messages": [
 					"mainpage",
+					"searchbutton",
 					"minerva-user-navigation",
 					"mobile-frontend-main-menu-button-tooltip",
-					"mobile-frontend-placeholder",
 					"mobile-frontend-footer-sitename"
 				],
 				"responsive": true,
