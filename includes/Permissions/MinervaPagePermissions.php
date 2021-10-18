@@ -35,7 +35,6 @@ use User;
  * A wrapper for all available Minerva permissions.
  */
 final class MinervaPagePermissions implements IMinervaPagePermissions {
-
 	/**
 	 * @var Title Current page title
 	 */
@@ -117,10 +116,6 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 *
 	 * Actions isn't allowed when:
 	 * <ul>
-	 *   <li>
-	 *     the action is disabled (by removing it from the <code>MinervaPageActions</code>
-	 *     configuration variable; or
-	 *   </li>
 	 *   <li>the user is on the main page</li>
 	 * </ul>
 	 *
@@ -143,13 +138,20 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		// T206406: Enable "Talk" or "Discussion" button on Main page, also, not forgetting
 		// the "switch-language" button. But disable "edit" and "watch" actions.
 		if ( $this->title->isMainPage() ) {
-			if ( !in_array( $action, $this->config->get( 'MinervaPageActions' ) ) ) {
-				return false;
-			}
 			if ( $action === self::SWITCH_LANGUAGE ) {
 				return !$wgHideInterlanguageLinks;
 			}
-			return $action === self::TALK;
+			// Only the talk page is allowed on the main page provided user is registered.
+			// talk page permission is disabled on mobile for anons
+			// https://phabricator.wikimedia.org/T54165
+			return $action === self::TALK && $this->user->isRegistered();
+		}
+
+		if ( $action === self::TALK ) {
+			return (
+				$this->title->isTalkPage() ||
+				$this->title->canHaveTalkPage()
+			);
 		}
 
 		if ( $action === self::HISTORY && $this->title->exists() ) {
@@ -162,10 +164,6 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 
 		if ( $action === self::EDIT_OR_CREATE ) {
 			return $this->canEditOrCreate();
-		}
-
-		if ( !in_array( $action, $this->config->get( 'MinervaPageActions' ) ) ) {
-			return false;
 		}
 
 		if ( $action === self::CONTENT_EDIT ) {
@@ -198,20 +196,15 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			return $this->canProtect();
 		}
 
-		return true;
+		// Unknown action has been passed.
+		return false;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function isTalkAllowed() {
-		if ( !$this->title ) {
-			return false;
-		}
-
-		return $this->isAllowed( self::TALK ) &&
-			   ( $this->title->isTalkPage() || $this->title->canHaveTalkPage() ) &&
-			   $this->user->isRegistered();
+		return $this->isAllowed( self::TALK );
 	}
 
 	/**

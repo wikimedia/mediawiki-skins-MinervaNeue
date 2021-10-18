@@ -660,6 +660,10 @@ class SkinMinerva extends SkinMustache {
 			$subjectPage->isMainPage();
 		if ( !$this->getUserPageHelper()->isUserPage() &&
 			$this->getPermissions()->isTalkAllowed() && $talkAtBottom &&
+			// When showing talk at the bottom we restrict this so it is not shown to anons
+			// https://phabricator.wikimedia.org/T54165
+			// This whole code block can be removed when SkinOptions::TALK_AT_TOP is always true
+			$this->getUser()->isRegistered() &&
 			!$this->isTalkPageWithViewAction()
 		) {
 			$namespaces = $tpl->data['content_navigation']['namespaces'];

@@ -23,7 +23,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 
 	private function buildPermissionsObject(
 		Title $title,
-		array $actions = null,
+		$actions = null, /* unused */
 		array $options = [],
 		ContentHandler $contentHandler = null,
 		User $user = null,
@@ -56,7 +56,6 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$context = new RequestContext();
 		$context->setTitle( $title );
 		$context->setConfig( new \HashConfig( [
-			'MinervaPageActions' => $actions,
 			'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton
 		] ) );
 		$context->setUser( $user );
@@ -87,10 +86,19 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::isAllowed
 	 */
 	public function testWatchAndEditNotAllowedOnMainPage() {
+		$userMock = $this->getMockBuilder( User::class )
+			->disableOriginalConstructor()
+			->onlyMethods( [ 'isRegistered' ] )
+			->getMock();
+		$userMock->expects( $this->once() )
+			->method( 'isRegistered' )
+			->willReturn( false );
+		$permsAnon = $this->buildPermissionsObject( Title::newMainPage(), null, [], null, $userMock );
 		$perms = $this->buildPermissionsObject( Title::newMainPage() );
 
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::CONTENT_EDIT ) );
+		$this->assertFalse( $permsAnon->isAllowed( IMinervaPagePermissions::TALK ) );
 
 		// Check to make sure 'talk' and 'switch-language' are enabled on the Main page.
 		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
@@ -103,9 +111,8 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	public function testInvalidPageActionsArentAllowed() {
 		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), [] );
 
-		// By default, the "talk" and "watch" page actions are allowed but are now deemed invalid.
-		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
-		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
+		$this->assertFalse( $perms->isAllowed( 'blah' ) );
+		$this->assertFalse( $perms->isAllowed( 'wah' ) );
 	}
 
 	/**
@@ -283,7 +290,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::isAllowed
 	 */
 	public function testMoveAndDeleteAndProtectNotAllowedByDefault() {
-		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), [] );
+		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), null );
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::MOVE ) );
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::DELETE ) );
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::PROTECT ) );

@@ -41,17 +41,6 @@
 		"MinervaApplyKnownTemplateHacks": {
 			"value": true
 		},
-		"MinervaPageActions": {
-			"value": [
-				"edit",
-				"talk",
-				"watch",
-				"switch-language",
-				"move",
-				"delete",
-				"protect"
-			]
-		},
 		"MinervaAlwaysShowLanguageButton": {
 			"value": true
 		},

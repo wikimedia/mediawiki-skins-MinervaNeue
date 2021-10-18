@@ -67,15 +67,6 @@ When enabled and hacks.less exists, hacks.less workarounds are included in style
 
 When enabled a donate link will be added to the main menu. The donate link uses the `sitesupport` and `sitesupport-url` mediawiki messages.
 
-#### $wgMinervaPageActions
-
-* Type: `Array`
-* Default: `['edit', 'talk', 'watch', 'switch-language']`
-
-Controls which page actions, if any, are displayed. Allowed: `edit`, `watch`, `talk`, and
-`switch-language`.
-
-
 #### $wgMinervaPageIssuesNewTreatment
 
 * Type: `Array`
