@@ -4,5 +4,7 @@
 			"Weather Top Wizard"
 		]
 	},
-	"mobile-frontend-language-article-heading": "Vosa"
+	"mobile-frontend-language-article-heading": "Vosa",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Veiciqomi}}, $1!",
+	"mobile-frontend-placeholder": "Vaqaqara {{SITENAME}}"
 }

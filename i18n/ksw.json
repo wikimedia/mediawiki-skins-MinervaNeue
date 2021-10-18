@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jaeminlovetaejoon",
 			"Ninjastrikers",
 			"SawJaemin"
 		]
 	},
 	"mobile-frontend-language-article-heading": "ကျိာ်",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|တၢ်တူၢ်လိာ်မုာ်}}, $1!",
-	"mobile-frontend-placeholder": "ကွၢ်ဃု {{SITENAME}}"
+	"mobile-frontend-placeholder": "ကွၢ်ဃု {{SITENAME}}",
+	"minerva-page-actions-permalink": "လ့ၣ်ခ်လၢအအိၣ်တ့ၢ်ထီဘိ"
 }

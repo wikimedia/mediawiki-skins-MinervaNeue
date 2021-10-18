@@ -3,14 +3,15 @@
 		"authors": [
 			"Aliyu shaba",
 			"Ammarpad",
-			"DonCamillo"
+			"DonCamillo",
+			"Gwanki"
 		]
 	},
 	"mobile-frontend-editor-edit": "Gyara",
-	"mobile-frontend-home-button": "Marhabin",
+	"mobile-frontend-home-button": "Gida",
 	"mobile-frontend-language-article-heading": "Harshe",
 	"mobile-frontend-logged-in-homepage-notification": "{{Jinsi:$1|Sannu da Zuwa}} $1",
-	"mobile-frontend-main-menu-settings": "Sigogi",
+	"mobile-frontend-main-menu-settings": "Saituttuka",
 	"mobile-frontend-placeholder": "Binciko {{Saka Suna}}",
-	"mobile-frontend-random-button": "Randam"
+	"mobile-frontend-random-button": "Kai tsaye"
 }
