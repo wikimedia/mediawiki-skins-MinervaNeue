@@ -12,13 +12,15 @@
 
 		&:visited,
 		&:hover,
-		&:active,
+		&:active {
+			text-decoration: none;
+		}
+
 		&.new,
 		&.new:visited,
-		&.new:active,
-		&.new:hover {
-			color: @colorGray5;
-			text-decoration: none;
+		&.new:hover,
+		&.new:active {
+			color: @color-link-new;
 		}
 
 		&:last-child {
