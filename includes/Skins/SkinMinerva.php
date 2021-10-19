@@ -100,7 +100,7 @@ class SkinMinerva extends SkinMustache {
 		if ( !$hasPageActions ) {
 			return '';
 		}
-		$templateParser = new TemplateParser( __DIR__ . '/../../includes/Skins/components' );
+		$templateParser = new TemplateParser( __DIR__ . '/../../includes/Skins' );
 		$pageActions = $this->getPageActions();
 		$html = '';
 
@@ -907,7 +907,7 @@ class SkinMinerva extends SkinMustache {
 			$skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ||
 			$skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 		) {
-			// SkinOptions::PERSONAL_MENU + SkinOptions::TOOLBAR_SUBMENU uses components/ToggleList
+			// SkinOptions::PERSONAL_MENU + SkinOptions::TOOLBAR_SUBMENU uses ToggleList
 			// SkinOptions::TALK_AT_TOP uses tabs.less
 			// SkinOptions::HISTORY_IN_PAGE_ACTIONS + SkinOptions::TOOLBAR_SUBMENU uses pageactions.less
 			$styles[] = 'skins.minerva.amc.styles';
