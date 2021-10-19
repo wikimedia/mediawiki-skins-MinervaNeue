@@ -91,30 +91,13 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Returns available page actions
-	 * @return array
+	 * Returns available page actions if the page has any.
+	 *
+	 * @return array|null
 	 */
 	private function getPageActions() {
-		return $this->isFallbackEditor() ? [] : $this->pageActionsMenu;
-	}
-
-	/**
-	 * Get the HTML for rendering the available page actions
-	 * @return string
-	 */
-	private function getPageActionsHtml() {
-		$hasPageActions = $this->hasPageActions();
-		if ( !$hasPageActions ) {
-			return '';
-		}
-		$templateParser = new TemplateParser( __DIR__ . '/../../includes/Skins' );
-		$pageActions = $this->getPageActions();
-		$html = '';
-
-		if ( $pageActions && $pageActions['toolbar'] ) {
-			$html = $templateParser->processTemplate( 'PageActionsMenu',  $pageActions );
-		}
-		return $html;
+		return $this->isFallbackEditor() || !$this->hasPageActions() ?
+			null : $this->pageActionsMenu;
 	}
 
 	/**
@@ -125,14 +108,12 @@ class SkinMinerva extends SkinMustache {
 			if ( !$this->hasCategoryLinks() ) {
 				unset( $data['html-categories'] );
 			}
-			$hasPageActions = $this->hasPageActions();
 
 			$tpl = $this->prepareQuickTemplate();
 			$tplData = $tpl->execute();
 			return $data + $tplData + [
-				'has-minerva-page-actions' => $hasPageActions,
 				'data-minerva-tabs' => $this->getTabsData(),
-				'html-minerva-page-actions' => $this->getPageActionsHtml(),
+				'data-minerva-page-actions' => $this->getPageActions(),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
 				'data-minerva-secondary-actions' => $this->hasSecondaryActions() ? $this->getSecondaryActions() : [],
 			];
