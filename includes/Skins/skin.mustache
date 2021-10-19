@@ -50,24 +50,24 @@
 			<div class="banner-container">
 			{{>banners}}
 			</div>
-			{{#hasheadingholder}}
 			<div class="pre-content heading-holder">
 				<div class="page-heading">
 					{{{headinghtml}}}
 					{{{taglinehtml}}}
 				</div>
-				{{#tabs}}
+				{{#data-minerva-tabs}}
 					<div class="minerva__tab-container">
 						{{#items}}
 							<a href="{{href}}" rel="{{rel}}" class="minerva__tab {{class}}" data-event-name="tabs.{{context}}">{{text}}</a>
 						{{/items}}
 					</div>
-				{{/tabs}}
-				{{{pageactionshtml}}}
+				{{/data-minerva-tabs}}
+				{{#has-minerva-page-actions}}
+				{{{html-minerva-page-actions}}}
+				{{/has-minerva-page-actions}}
 				{{{postheadinghtml}}}
 				<div class="minerva__subtitle">{{{html-subtitle}}}</div>
 			</div>
-			{{/hasheadingholder}}
 			<div id="bodyContent" class="content">
 				{{{html-body-content}}}
 				{{! This shows "Return to page" on talk page when talk tab not shown at top.

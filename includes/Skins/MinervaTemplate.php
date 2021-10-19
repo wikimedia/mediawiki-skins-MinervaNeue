@@ -24,53 +24,14 @@ use MediaWiki\Minerva\SkinOptions;
  * Extended Template class of BaseTemplate for mobile devices
  */
 class MinervaTemplate extends BaseTemplate {
-	/** @var bool Specify whether the page is a special page */
-	protected $isSpecialPage;
-
-	/** @var bool Specify whether the page is main page */
-	protected $isMainPage;
-
-	/** @var bool */
-	protected $isMainPageTalk;
-
 	/**
 	 * Start render the page in template
 	 * @deprecated please migrate code here to SkinMinerva::getTemplateData
 	 * @return array
 	 */
 	public function execute() {
-		$title = $this->getSkin()->getTitle();
-		$this->isSpecialPage = $title->isSpecialPage();
-		$this->isMainPage = $title->isMainPage();
-		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
-			->getSubjectPage( $title );
-
-		$this->isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
 		Hooks::run( 'MinervaPreRender', [ $this ], '1.35' );
 		return $this->getTemplateData();
-	}
-
-	/**
-	 * Returns available page actions
-	 * @return array
-	 */
-	protected function getPageActions() {
-		return $this->isFallbackEditor() ? [] : $this->data['pageActionsMenu'];
-	}
-
-	/**
-	 * Get the HTML for rendering the available page actions
-	 * @return string
-	 */
-	protected function getPageActionsHtml() {
-		$templateParser = new TemplateParser( __DIR__ . '/../../includes/Skins/components' );
-		$pageActions = $this->getPageActions();
-		$html = '';
-
-		if ( $pageActions && $pageActions['toolbar'] ) {
-			$html = $templateParser->processTemplate( 'PageActionsMenu',  $pageActions );
-		}
-		return $html;
 	}
 
 	/**
@@ -167,8 +128,6 @@ class MinervaTemplate extends BaseTemplate {
 		$data = $this->data;
 		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
 		$templateParser = new TemplateParser( __DIR__ );
-		$hasHeadingHolder = isset( $data['pageActionsMenu'] );
-		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
 		// prepare template data
 		return [
@@ -176,11 +135,9 @@ class MinervaTemplate extends BaseTemplate {
 			'isAnon' => $data['username'] === null,
 			'userNotificationsHTML' => $data['userNotificationsHTML'] ?? '',
 			'data-main-menu' => $this->getMainMenuData( $data ),
-			'hasheadingholder' => $hasHeadingHolder,
 			'taglinehtml' => $data['taglinehtml'],
 			'headinghtml' => $data['headinghtml'] ?? '',
 			'postheadinghtml' => $data['postheadinghtml'] ?? '',
-			'pageactionshtml' => $hasPageActions ? $this->getPageActionsHtml() : '',
 			'userMenuHTML' => $data['userMenuHTML'],
 			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 
@@ -191,33 +148,6 @@ class MinervaTemplate extends BaseTemplate {
 				MobileFrontendSkinHooks::getLicenseText( $this->getSkin() ) : '',
 
 			'isBeta' => $skinOptions->get( SkinOptions::BETA_MODE ),
-			'tabs' => $this->showTalkTabs( $hasPageActions, $skinOptions ) &&
-					  $skinOptions->get( SkinOptions::TALK_AT_TOP ) ? [
-				'items' => array_values( $data['content_navigation']['namespaces'] ),
-			] : false,
 		];
-	}
-
-	/**
-	 * @param IContextSource $context
-	 * @return bool
-	 */
-	private function hasPageActions( IContextSource $context ) {
-		return !$this->isSpecialPage && !$this->isMainPage &&
-		   Action::getActionName( $context ) === 'view';
-	}
-
-	/**
-	 * @param bool $hasPageActions
-	 * @param SkinOptions $skinOptions
-	 * @return bool
-	 */
-	private function showTalkTabs( $hasPageActions, SkinOptions $skinOptions ) {
-		$hasTalkTabs = $hasPageActions && !$this->isMainPageTalk;
-		if ( !$hasTalkTabs && $this->isSpecialPage &&
-			 $skinOptions->get( SkinOptions::TABS_ON_SPECIALS ) ) {
-			$hasTalkTabs = true;
-		}
-		return $hasTalkTabs;
 	}
 }
