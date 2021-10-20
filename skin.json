@@ -114,6 +114,7 @@
 				"name": "minerva",
 				"templateDirectory": "includes/Skins",
 				"messages": [
+					"sitetitle",
 					"mainpage",
 					"searchbutton",
 					"minerva-user-navigation",
