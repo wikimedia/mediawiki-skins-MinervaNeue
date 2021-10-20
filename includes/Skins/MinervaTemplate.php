@@ -66,51 +66,6 @@ class MinervaTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return bool
-	 */
-	protected function isFallbackEditor() {
-		$action = $this->getSkin()->getRequest()->getVal( 'action' );
-		return $action === 'edit';
-	}
-
-	/**
-	 * Get page secondary actions
-	 * @return array
-	 */
-	protected function getSecondaryActions() {
-		if ( $this->isFallbackEditor() ) {
-			return [];
-		}
-
-		return $this->data['secondary_actions'];
-	}
-
-	/**
-	 * Get HTML representing secondary page actions like language selector
-	 * @return string
-	 */
-	protected function getSecondaryActionsHtml() {
-		$baseClass = MinervaUI::buttonClass( '', 'button' );
-		/** @var SkinMinerva $skin */
-		$skin = $this->getSkin();
-		$html = '';
-		// no secondary actions on the user page
-		if ( $skin instanceof SkinMinerva && !$skin->getUserPageHelper()->isUserPage() ) {
-			foreach ( $this->getSecondaryActions() as $el ) {
-				if ( isset( $el['attributes']['class'] ) ) {
-					$el['attributes']['class'] .= ' ' . $baseClass;
-				} else {
-					$el['attributes']['class'] = $baseClass;
-				}
-				// @phan-suppress-next-line PhanTypeMismatchArgument
-				$html .= Html::element( 'a', $el['attributes'], $el['label'] );
-			}
-		}
-
-		return $html;
-	}
-
-	/**
 	 * Gets the main menu HTML.
 	 * @param array $data Data used to build the page
 	 * @return string
@@ -139,7 +94,6 @@ class MinervaTemplate extends BaseTemplate {
 			'headinghtml' => $data['headinghtml'] ?? '',
 			'postheadinghtml' => $data['postheadinghtml'] ?? '',
 			'userMenuHTML' => $data['userMenuHTML'],
-			'secondaryactionshtml' => $this->getSecondaryActionsHtml(),
 
 			'html-minerva-lastmodified' => $this->getHistoryLinkHtml( $data ),
 			// Note mobile-license is only available on the mobile skin. It is outputted as part of
