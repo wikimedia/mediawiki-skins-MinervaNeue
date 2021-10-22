@@ -31,6 +31,11 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinMustache {
+	/** @var array|null Cached array of content navigation URLs */
+	private $contentNavigationUrls = null;
+	/** @var array|null cached array of page action URLs */
+	private $pageActionsMenu = null;
+
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	 * in editing mode
 	 */
@@ -62,6 +67,50 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * @return bool
+	 */
+	private function hasPageActions() {
+		$title = $this->getTitle();
+		return !$title->isSpecialPage() && !$title->isMainPage() &&
+			Action::getActionName( $this->getContext() ) === 'view';
+	}
+
+	/**
+	 * @return bool
+	 */
+	private function isFallbackEditor() {
+		$action = $this->getRequest()->getVal( 'action' );
+		return $action === 'edit';
+	}
+
+	/**
+	 * Returns available page actions
+	 * @return array
+	 */
+	private function getPageActions() {
+		return $this->isFallbackEditor() ? [] : $this->pageActionsMenu;
+	}
+
+	/**
+	 * Get the HTML for rendering the available page actions
+	 * @return string
+	 */
+	private function getPageActionsHtml() {
+		$hasPageActions = $this->hasPageActions();
+		if ( !$hasPageActions ) {
+			return '';
+		}
+		$templateParser = new TemplateParser( __DIR__ . '/../../includes/Skins/components' );
+		$pageActions = $this->getPageActions();
+		$html = '';
+
+		if ( $pageActions && $pageActions['toolbar'] ) {
+			$html = $templateParser->processTemplate( 'PageActionsMenu',  $pageActions );
+		}
+		return $html;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData() {
@@ -69,12 +118,54 @@ class SkinMinerva extends SkinMustache {
 			if ( !$this->hasCategoryLinks() ) {
 				unset( $data['html-categories'] );
 			}
+			$hasPageActions = $this->hasPageActions();
 
 			$tpl = $this->prepareQuickTemplate();
 			$tplData = $tpl->execute();
 			return $data + $tplData + [
+				'has-minerva-page-actions' => $hasPageActions,
+				'data-minerva-tabs' => $this->getTabsData(),
+				'html-minerva-page-actions' => $this->getPageActionsHtml(),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
 			];
+	}
+
+	/**
+	 * Tabs are available if a page has page actions but is not the talk page of
+	 * the main page.
+	 *
+	 * Special pages have tabs if SkinOptions::TABS_ON_SPECIALS is enabled.
+	 * This is used by Extension:GrowthExperiments
+	 *
+	 * @return bool
+	 */
+	private function hasPageTabs() {
+		$title = $this->getTitle();
+		$skinOptions = $this->getSkinOptions();
+		$isSpecialPage = $title->isSpecialPage();
+		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
+			->getSubjectPage( $title );
+		$isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
+		return (
+				$this->hasPageActions() && !$isMainPageTalk
+			) || (
+				$isSpecialPage &&
+				$skinOptions->get( SkinOptions::TABS_ON_SPECIALS )
+			);
+	}
+
+	/**
+	 * @return array
+	 */
+	private function getTabsData() {
+		$skinOptions = $this->getSkinOptions();
+		$hasTalkTabs = $skinOptions->get( SkinOptions::TALK_AT_TOP ) && $this->hasPageTabs();
+		if ( !$hasTalkTabs ) {
+			return [];
+		}
+		return $this->contentNavigationUrls ? [
+			'items' => array_values( $this->contentNavigationUrls['namespaces'] ),
+		] : [];
 	}
 
 	/**
@@ -149,11 +240,11 @@ class SkinMinerva extends SkinMustache {
 		$sidebar = parent::buildSidebar();
 		$personalUrls = $tpl->get( 'personal_urls' );
 		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
-
-		$nav = $tpl->get( 'content_navigation' ) ?? [];
+		$nav = $this->buildContentNavigationUrls();
 		$actions = $nav['actions'] ?? [];
 		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
-		$tpl->set( 'pageActionsMenu', $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions ) );
+		$this->contentNavigationUrls = $nav;
+		$this->pageActionsMenu = $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
 		$tpl->set( 'userMenuHTML', $userMenuDirector->renderMenuData( $personalTools ) );
 	}
 
