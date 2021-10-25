@@ -9,6 +9,7 @@
 	},
 	"mobile-frontend-editor-edit": "Cancia",
 	"minerva-download": "Scàrrica PDF",
+	"mobile-frontend-editor-redlink-leave": "No, grazzi.",
 	"mobile-frontend-home-button": "Pàggina principali",
 	"mobile-frontend-language-article-heading": "Lingua",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bimminutu|Bimminuta|Bimminutu/a}}, $1",
@@ -23,5 +24,6 @@
 	"mobile-frontend-placeholder": "Arricerca nta {{SITENAME}}",
 	"mobile-frontend-random-button": "Na pàggina a muzzu",
 	"mobile-frontend-user-page-contributions": "Cuntribbuti",
-	"minerva-page-actions-delete": "Cancella"
+	"minerva-page-actions-delete": "Cancella",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Catigurìi"
 }
