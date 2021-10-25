@@ -75,7 +75,18 @@
 				{{{html-minerva-subject-link}}}
 			</div>
 			<div class="post-content" id="page-secondary-actions">
-			{{{secondaryactionshtml}}}
+			{{#data-minerva-secondary-actions}}
+				{{#talk}}
+				<a {{#attributes}} href="{{href}}" data-title="{{data-title}}" class="{{class}} mw-ui-button button"{{/attributes}}>
+					{{{label}}}
+				</a>
+				{{/talk}}
+				{{#language}}
+				<a {{#attributes}} href="{{href}}" data-title="{{data-title}}" class="{{class}} mw-ui-button button"{{/attributes}}>
+					{{{label}}}
+				</a>
+				{{/language}}
+			{{/data-minerva-secondary-actions}}
 			</div>
 			{{#html-categories}}
 			<div class="post-content">{{{.}}}</div>

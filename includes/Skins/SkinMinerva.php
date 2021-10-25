@@ -31,8 +31,8 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinMustache {
-	/** @var array|null Cached array of content navigation URLs */
-	private $contentNavigationUrls = null;
+	/** @var array Cached array of content navigation URLs */
+	private $contentNavigationUrls = [];
 	/** @var array|null cached array of page action URLs */
 	private $pageActionsMenu = null;
 
@@ -73,6 +73,13 @@ class SkinMinerva extends SkinMustache {
 		$title = $this->getTitle();
 		return !$title->isSpecialPage() && !$title->isMainPage() &&
 			Action::getActionName( $this->getContext() ) === 'view';
+	}
+
+	/**
+	 * @return bool
+	 */
+	private function hasSecondaryActions() {
+		return !$this->getUserPageHelper()->isUserPage();
 	}
 
 	/**
@@ -127,6 +134,7 @@ class SkinMinerva extends SkinMustache {
 				'data-minerva-tabs' => $this->getTabsData(),
 				'html-minerva-page-actions' => $this->getPageActionsHtml(),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
+				'data-minerva-secondary-actions' => $this->hasSecondaryActions() ? $this->getSecondaryActions() : [],
 			];
 	}
 
@@ -211,9 +219,6 @@ class SkinMinerva extends SkinMustache {
 
 		// Generate skin template
 		$tpl = parent::prepareQuickTemplate();
-
-		// Set the links for page secondary actions
-		$tpl->set( 'secondary_actions', $this->getSecondaryActions( $tpl ) );
 
 		// Construct various Minerva-specific interface elements
 		$this->prepareMenus( $tpl );
@@ -733,10 +738,13 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Returns an array of links for page secondary actions
-	 * @param BaseTemplate $tpl
 	 * @return array
 	 */
-	protected function getSecondaryActions( BaseTemplate $tpl ) {
+	protected function getSecondaryActions() {
+		if ( $this->isFallbackEditor() ) {
+			return [];
+		}
+
 		$services = MediaWikiServices::getInstance();
 		$skinOptions = $this->getSkinOptions();
 		$namespaceInfo = $services->getNamespaceInfo();
@@ -757,7 +765,7 @@ class SkinMinerva extends SkinMustache {
 			$this->getUser()->isRegistered() &&
 			!$this->isTalkPageWithViewAction()
 		) {
-			$namespaces = $tpl->data['content_navigation']['namespaces'];
+			$namespaces = $this->contentNavigationUrls['namespaces'];
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
 			$talkId = $subjectId === 'main' ? 'talk' : "{$subjectId}_talk";
