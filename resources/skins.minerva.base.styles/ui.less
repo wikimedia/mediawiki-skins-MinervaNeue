@@ -57,6 +57,14 @@ main {
 	display: none;
 }
 
+// Override rule in MobileFrontend to show copyright.
+// FIXME: This can be removed when I0bfc7f977cdaf5ce8873103346c64121d704b86c
+// is merged.
+// stylelint-disable-next-line selector-max-id
+#footer-info-copyright {
+	display: block;
+}
+
 // One selector for JavaScript overlays
 // One selector for server side rendered HTML
 // FIXME: The header code should be refactored to use flex box,

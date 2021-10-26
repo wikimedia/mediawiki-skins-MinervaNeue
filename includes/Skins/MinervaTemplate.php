@@ -62,12 +62,6 @@ class MinervaTemplate extends BaseTemplate {
 			'headinghtml' => $data['headinghtml'] ?? '',
 			'postheadinghtml' => $data['postheadinghtml'] ?? '',
 			'userMenuHTML' => $data['userMenuHTML'],
-
-			// Note mobile-license is only available on the mobile skin. It is outputted as part of
-			// footer-info on desktop hence the conditional check.
-			'html-minerva-license' => ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ?
-				MobileFrontendSkinHooks::getLicenseText( $this->getSkin() ) : '',
-
 			'isBeta' => $skinOptions->get( SkinOptions::BETA_MODE ),
 		];
 	}
