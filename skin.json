@@ -351,6 +351,12 @@
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-background-icon-{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
+			"variants": {
+				"warning": {
+					"color": "#fc3",
+					"global": true
+				}
+			},
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
 				"edit",
@@ -360,6 +366,7 @@
 				"menu",
 				"search",
 				"userAvatar",
+				"userTalk",
 				"star",
 				"halfStar",
 				"unStar"
