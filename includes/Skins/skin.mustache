@@ -62,9 +62,9 @@
 						{{/items}}
 					</div>
 				{{/data-minerva-tabs}}
-				{{#has-minerva-page-actions}}
-				{{{html-minerva-page-actions}}}
-				{{/has-minerva-page-actions}}
+				{{#data-minerva-page-actions}}
+				{{>PageActionsMenu}}
+				{{/data-minerva-page-actions}}
 				{{{postheadinghtml}}}
 				<div class="minerva__subtitle">{{{html-subtitle}}}</div>
 			</div>
