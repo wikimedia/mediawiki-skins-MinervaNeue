@@ -114,8 +114,8 @@ class SkinMinerva extends SkinMustache {
 			return $data + $tplData + [
 				'data-minerva-tabs' => $this->getTabsData(),
 				'data-minerva-page-actions' => $this->getPageActions(),
+				'data-minerva-secondary-actions' => $this->getSecondaryActions(),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
-				'data-minerva-secondary-actions' => $this->hasSecondaryActions() ? $this->getSecondaryActions() : [],
 			];
 	}
 
@@ -719,11 +719,11 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Returns an array of links for page secondary actions
-	 * @return array
+	 * @return array|null
 	 */
 	protected function getSecondaryActions() {
-		if ( $this->isFallbackEditor() ) {
-			return [];
+		if ( $this->isFallbackEditor() || !$this->hasSecondaryActions() ) {
+			return null;
 		}
 
 		$services = MediaWikiServices::getInstance();
