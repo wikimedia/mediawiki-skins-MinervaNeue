@@ -366,18 +366,20 @@ class MinervaHooks {
 	 * - special pages
 	 * - edit workflow (action=edit and action=submit)
 	 * - when viewing old revisions
+	 * - non-main namespaces for anon talk page messages
 	 *
 	 * @param OutputPage $out
 	 */
 	private static function addMessageBoxStylesToPage( OutputPage $out ) {
 		$request = $out->getRequest();
+		$title = $out->getTitle();
 		// Warning box styles are needed when reviewing old revisions
 		// and inside the fallback editor styles to action=edit page.
 		$requestAction = $request->getVal( 'action' );
 		$viewAction = $requestAction === null || $requestAction === 'view';
 
 		if (
-			$out->getTitle()->isSpecialPage() ||
+			$title->getNamespace() !== NS_MAIN ||
 			$request->getText( 'oldid' ) ||
 			!$viewAction
 		) {

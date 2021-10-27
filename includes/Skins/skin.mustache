@@ -50,10 +50,12 @@
 			<div class="banner-container">
 			{{>banners}}
 			</div>
+			{{#html-user-message}}
 			<div class="minerva-anon-talk-message warningbox">
 				<span class="mw-ui-icon mw-ui-icon-wikimedia-userTalk-warning"> </span>
 				{{{html-user-message}}}
 			</div>
+			{{/html-user-message}}
 			<div class="pre-content heading-holder">
 				<div class="page-heading">
 					{{{headinghtml}}}
