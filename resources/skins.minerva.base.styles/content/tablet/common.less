@@ -10,24 +10,6 @@ A file for css that optimises the Minerva skin on larger devices.
 		display: none;
 	}
 
-	.minerva-header {
-		.branding-box {
-			width: @brandingBoxWidth;
-		}
-	}
-
-	.search-overlay,
-	.minerva-header {
-		.search-box {
-			display: table-cell;
-			width: auto;
-
-			.search {
-				width: @searchBoxWidth;
-			}
-		}
-	}
-
 	// stylelint-disable selector-max-id
 	// FIXME: Have a class that identifies all of these selectors
 	.pre-content,
@@ -111,11 +93,5 @@ A file for css that optimises the Minerva skin on larger devices.
 		margin-right: auto;
 		width: 90%;
 		max-width: @contentMaxWidthTablet;
-	}
-
-	.minerva-header {
-		// Make sure the main menu and secondary button icon images are aligned
-		// with the content.
-		max-width: @contentMaxWidthTablet + 2 * @iconGutterWidth;
 	}
 }

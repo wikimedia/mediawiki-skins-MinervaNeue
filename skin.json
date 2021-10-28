@@ -259,6 +259,9 @@
 			],
 			"mobile.special.pagefeed.styles": [
 				"skinStyles/mobile.special.pagefeed.styles.less"
+			],
+			"mobile.editor.overlay": [
+				"skinStyles/mobile.editor.overlay.less"
 			]
 		}
 	},
