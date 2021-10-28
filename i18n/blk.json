@@ -4,5 +4,13 @@
 			"咽頭べさ"
 		]
 	},
+	"mobile-frontend-history": "နွို့ထွား လိတ်မဲ့ငါယို ခြပ်ချော်ꩻမုꩻ ရာႏဇာႏဝင်ႏတာႏ",
+	"mobile-frontend-home-button": "အမွူး",
+	"mobile-frontend-language-article-heading": "ဘာႏသာႏငဝ်းငွါ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ကျိုႏဆွုမ်ႏဒျာႏသြ}}၊ $1",
+	"mobile-frontend-main-menu-login": "နွို့အကောက်",
+	"mobile-frontend-main-menu-settings": "အဖျင်အဆင်ဖုံႏ",
+	"mobile-frontend-placeholder": "ထိုမ်ႏထွား {{SITENAME}}ကို",
+	"mobile-frontend-random-button": "ရောꩻရာꩻ",
 	"minerva-page-actions-info": "လိတ်မဲ့ငါအချက်လက်"
 }
