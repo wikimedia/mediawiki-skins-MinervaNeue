@@ -1,7 +1,9 @@
 {{#data-footer}}
 {{! `role` is implied in `footer` element, but added to mitigate a VoiceOver bug. }}
 <footer class="mw-footer minerva-footer" role="contentinfo">
-{{{html-minerva-lastmodified}}}
+{{#data-minerva-history-link}}
+  {{>history}}
+{{/data-minerva-history-link}}
 	<div class="post-content footer-content">
 	{{{html-after-content}}}
 	<div class="minerva-footer-logo">{{>Logo}}</div>
