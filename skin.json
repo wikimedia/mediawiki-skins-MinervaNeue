@@ -352,6 +352,14 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"variants": {
+				"progressive": {
+					"color": "#36c",
+					"global": true
+				},
+				"invert": {
+					"color": "#fff",
+					"global": true
+				},
 				"warning": {
 					"color": "#fc3",
 					"global": true
