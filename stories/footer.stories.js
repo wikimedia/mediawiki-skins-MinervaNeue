@@ -37,14 +37,14 @@ const FOOTER_TEMPLATE_DATA = {
 export const footer = () =>
 	mustache.render( template, {
 		'data-footer': Object.assign( FOOTER_TEMPLATE_DATA, {
-			'html-minerva-lastmodified': lastModifiedBar()
+			'data-minerva-history-link': lastModifiedBar()
 		} )
 	} );
 
 export const footerRecentEdit = () =>
 	mustache.render( template, {
 		'data-footer': Object.assign( FOOTER_TEMPLATE_DATA, {
-			'html-minerva-lastmodified': lastModifiedBarActive()
+			'data-minerva-history-link': lastModifiedBarActive()
 		} )
 	}, {
 		footerItemList,

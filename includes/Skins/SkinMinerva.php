@@ -116,6 +116,7 @@ class SkinMinerva extends SkinMustache {
 				'data-minerva-page-actions' => $this->getPageActions(),
 				'data-minerva-secondary-actions' => $this->getSecondaryActions(),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
+				'data-minerva-history-link' => $this->getHistoryLink( $this->getTitle() ),
 			];
 	}
 
@@ -452,7 +453,7 @@ class SkinMinerva extends SkinMustache {
 	 * For older revisions the last modified information will not render with a relative time
 	 * nor will it show the name of the editor.
 	 * @param Title $title The Title object of the page being viewed
-	 * @return array
+	 * @return array|null
 	 */
 	protected function getHistoryLink( Title $title ) {
 		$out = $this->getOutput();
@@ -465,10 +466,28 @@ class SkinMinerva extends SkinMustache {
 				->getRevisionLookup()
 				->getTimestampFromId( $out->getRevisionId() );
 		}
-
-		return !$isLatestRevision || $title->isMainPage() ?
+		$historyIconClasses = [
+			'historyIconClass' => MinervaUI::iconClass(
+				'history-base20', 'mw-ui-icon-small', '', 'wikimedia'
+			),
+			'arrowIconClass' => MinervaUI::iconClass(
+				'expand-gray', 'small',
+				'mf-mw-ui-icon-rotate-anti-clockwise indicator',
+				// Uses icon in MobileFrontend so must be prefixed mf.
+				// Without MobileFrontend it will not render.
+				// Rather than maintain 2 versions (and variants) of the arrow icon which can conflict
+				// with each othe and bloat CSS, we'll
+				// use the MobileFrontend one. Long term when T177432 and T160690 are resolved
+				// we should be able to use one icon definition and break this dependency.
+				'mf'
+			),
+		];
+		$historyLink = !$isLatestRevision || $title->isMainPage() ?
 			$this->getGenericHistoryLink( $title ) :
 			$this->getRelativeHistoryLink( $title, $timestamp );
+
+		return $this->canUseWikiPage() && $this->getWikiPage()->exists() ?
+			$historyLink + $historyIconClasses : null;
 	}
 
 	/**
@@ -642,9 +661,6 @@ class SkinMinerva extends SkinMustache {
 			$tpl->set( 'postheadinghtml', $this->getTalkPagePostHeadingHtml() );
 		}
 
-		if ( $this->canUseWikiPage() && $this->getWikiPage()->exists() ) {
-			$tpl->set( 'historyLink', $this->getHistoryLink( $title ) );
-		}
 		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
 
 		// set defaults
