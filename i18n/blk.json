@@ -4,13 +4,31 @@
 			"咽頭べさ"
 		]
 	},
+	"mobile-frontend-editor-edit": "ဖျင်ဆင်တာႏ",
 	"mobile-frontend-history": "နွို့ထွား လိတ်မဲ့ငါယို ခြပ်ချော်ꩻမုꩻ ရာႏဇာႏဝင်ႏတာႏ",
 	"mobile-frontend-home-button": "အမွူး",
 	"mobile-frontend-language-article-heading": "ဘာႏသာႏငဝ်းငွါ",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ကျိုႏဆွုမ်ႏဒျာႏသြ}}၊ $1",
+	"mobile-frontend-main-menu-contributions": "ခွုမ်မာꩻချက်ဖုံႏ",
 	"mobile-frontend-main-menu-login": "နွို့အကောက်",
+	"mobile-frontend-main-menu-logout": "ထန်ႏအကောက်",
+	"mobile-frontend-main-menu-nearby": "ဗော့ꩻရာꩻတာႏ",
 	"mobile-frontend-main-menu-settings": "အဖျင်အဆင်ဖုံႏ",
+	"mobile-frontend-main-menu-watchlist": "အုံပွေားထွားစာႏရင်ꩻ",
 	"mobile-frontend-placeholder": "ထိုမ်ႏထွား {{SITENAME}}ကို",
 	"mobile-frontend-random-button": "ရောꩻရာꩻ",
-	"minerva-page-actions-info": "လိတ်မဲ့ငါအချက်လက်"
+	"mobile-frontend-user-page-contributions": "ခွုမ်မာꩻချက်ဖုံႏ",
+	"mobile-frontend-user-page-talk": "အုံကွံ",
+	"minerva-page-actions-overflow": "ထဲင်းယင်း",
+	"minerva-page-actions-info": "လိတ်မဲ့ငါအချက်လက်",
+	"minerva-page-actions-permalink": "လိဥ့်သေႏပွုံႏသီ",
+	"minerva-page-actions-backlinks": "လိဥ့်မုဲင်ꩻဖုံႏအွဥ်ႏယိုကို",
+	"minerva-page-actions-move": "ခြုဲင်း",
+	"minerva-page-actions-delete": "ယားကုဲင်",
+	"minerva-page-actions-protect": "ရဲးကမ်းသွော့",
+	"minerva-page-actions-logs": "မုဲင်တန်ꩻဖုံႏ",
+	"minerva-page-actions-wikibase": "{{WBREPONAME}} item",
+	"minerva-page-actions-language-switcher": "ဘာႏသာႏငဝ်းငွါဖုံႏ",
+	"skin-minerva-issue-learn-more": "လွူꩻထွားထဲင်းတာႏ",
+	"skin-minerva-mobile-option-MinervaShowCategories": "ကဏ္ဍဖုံႏ"
 }
