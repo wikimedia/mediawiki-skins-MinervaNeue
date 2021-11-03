@@ -79,9 +79,13 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 		$groups = [
 			BuilderUtil::getDiscoveryTools( $this->definitions ),
-			$this->getPersonalTools(),
-			BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions ),
+			$this->getPersonalTools( $this->showMobileOptions ),
 		];
+
+		if ( !$this->user->isRegistered() ) {
+			$groups[] = BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions );
+		}
+
 		if ( $donate ) {
 			$groups[] = $donate;
 		}
@@ -101,11 +105,12 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 *
 	 * ... by adding the Watchlist, Settings, and Log{in,out} menu items in the given order.
 	 *
+	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
 	 * @return Group
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	private function getPersonalTools(): Group {
+	private function getPersonalTools( $showMobileOptions ): Group {
 		$group = new Group( 'p-personal' );
 
 		$this->definitions->insertAuthMenuItem( $group );
@@ -113,6 +118,10 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 		if ( $this->user->isRegistered() ) {
 			$this->definitions->insertWatchlistMenuItem( $group );
 			$this->definitions->insertContributionsMenuItem( $group );
+			$showMobileOptions ? // Identical logic as BuilderUtil::getConfigurationTools
+				$this->definitions->insertMobileOptionsItem( $group ) :
+				$this->definitions->insertPreferencesItem( $group );
+			$this->definitions->insertLogoutMenuItem( $group );
 		}
 
 		// Allow other extensions to add or override tools

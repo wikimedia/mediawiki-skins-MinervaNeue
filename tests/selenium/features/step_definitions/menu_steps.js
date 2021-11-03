@@ -12,11 +12,11 @@ const iClickOnTheMainNavigationButton = () => {
 };
 
 const iShouldSeeAUserPageLinkInMenu = () => {
-	ArticlePage.menu_element.$( '.primary-action' );
+	ArticlePage.menu_element.$( '.menu__item--user' );
 };
 
 const iShouldSeeLogoutLinkInMenu = () => {
-	ArticlePage.menu_element.$( '.secondary-action' );
+	ArticlePage.menu_element.$( '.menu__item--logout' );
 };
 
 const iShouldSeeALinkInMenu = ( text ) => {

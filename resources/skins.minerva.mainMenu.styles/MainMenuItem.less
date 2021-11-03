@@ -6,23 +6,6 @@
 
 // .menu
 #mw-mf-page-left {
-	.secondary-action {
-		border: 0;
-		// T170362 - reset font size
-		font-size: 16px;
-		position: absolute;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		border-left: 1px solid @grayMediumLight;
-		color: transparent;
-	}
-
-	.primary-action {
-		// 1px for the logout icon border-left
-		margin-right: @iconSize + @iconGutterWidth * 2;
-	}
-
 	ul {
 		&:first-child {
 			li:first-child {
@@ -52,11 +35,6 @@
 				line-height: inherit;
 				max-width: 100%;
 				padding: @menuLinkLineHeight / 2 10px @menuLinkLineHeight / 2 15px;
-
-				// T233166
-				&.secondary-action {
-					padding-left: 10px;
-				}
 
 				&:hover {
 					box-shadow: inset 4px 0 0 0 @colorProgressive;
