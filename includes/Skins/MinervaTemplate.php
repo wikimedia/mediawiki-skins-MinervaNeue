@@ -30,7 +30,6 @@ class MinervaTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	public function execute() {
-		Hooks::run( 'MinervaPreRender', [ $this ], '1.35' );
 		return $this->getTemplateData();
 	}
 
