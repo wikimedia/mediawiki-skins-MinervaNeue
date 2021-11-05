@@ -110,13 +110,14 @@ module.exports = function ( mobile ) {
 				ev.preventDefault();
 				window.location.hash = '#' + encodedHeadlineId;
 
-			} );
+			} ).attr( 'data-event-name', 'talkpage.section' );
 
 			// remove the `id` to avoid conflicts with the overlay route.
 			// Without JS the id will still be present. With JS the overlay will open.
 			$headline.removeAttr( 'id' );
 			// however cache it to data for cooperation with the 'read as wiki page' button.
 			$headline.data( 'id', headlineId );
+			$headline.attr( 'data-event-name', 'talkpage.section' );
 
 			overlayManager.add( encodedHeadlineId, function () {
 				return createTalkSectionOverlay( $heading, $headline, sectionId );
@@ -154,6 +155,7 @@ module.exports = function ( mobile ) {
 	function renderReadAsWikiPageButton() {
 		$( '<button>' )
 			.addClass( 'minerva-talk-full-page-button' )
+			.attr( 'data-event-name', 'talkpage.readAsWiki' )
 			.text( mw.message( 'minerva-talk-full-page' ).text() )
 			.on( 'click', function () {
 				restoreSectionHeadings();
