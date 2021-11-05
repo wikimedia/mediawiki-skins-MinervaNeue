@@ -33,7 +33,7 @@ class ArticlePage extends MinervaPage {
 	get notifications_button_element() { return $( '#pt-notifications-alert' ); }
 	get drawer_element() { return $( '.drawer' ); }
 	get edit_link_element() { return $( '#ca-edit' ); }
-	get first_heading_element() { return $( '#section_0' ); }
+	get first_heading_element() { return $( 'h1.mw-first-heading' ); }
 	get notification_element() { return $( '.mw-notification-area .mw-notification' ); }
 	get overlay_heading_element() { return $( '.overlay-title h2' ); }
 	get overlay_category_topic_item_element() { return $( '.topic-title-list li' ); }
