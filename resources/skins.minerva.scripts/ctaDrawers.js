@@ -82,7 +82,7 @@ function initWatchstarCta( $watchstar ) {
 		// prevent default to stop the user
 		// being navigated to Special:UserLogin
 		ev.preventDefault();
-		ev.stopPropagation();
+		// Don't stopProgation, as we want WikimediaEvents to log clicks to this.
 	} );
 }
 
