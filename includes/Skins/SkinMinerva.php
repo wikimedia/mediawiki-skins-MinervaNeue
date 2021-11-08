@@ -266,7 +266,10 @@ class SkinMinerva extends SkinMustache {
 			return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 				$subjectPage,
 				$this->msg( $msg, $title->getText() )->text(),
-				[ 'class' => 'return-link' ]
+				[
+					'data-event-name' => 'talk.returnto',
+					'class' => 'return-link'
+				]
 			);
 		} else {
 			return '';
@@ -618,7 +621,9 @@ class SkinMinerva extends SkinMustache {
 		) {
 			$addTopicButton = $this->getTalkButton( $title, wfMessage(
 				'minerva-talk-add-topic' )->text(), true );
-			$html = Html::element( 'a', $addTopicButton['attributes'], $addTopicButton['label'] );
+			$html = Html::element( 'a', $addTopicButton['attributes'] + [
+				'data-event-name' => 'talkpage.add-topic'
+			], $addTopicButton['label'] );
 		}
 
 		if ( $this->isSimplifiedTalkPageEnabled() && $this->canUseWikiPage() ) {
