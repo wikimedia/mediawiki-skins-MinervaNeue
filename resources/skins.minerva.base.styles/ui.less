@@ -38,17 +38,6 @@ main {
 	background-color: @background-color-base;
 }
 
-.header-container {
-	border-bottom: 1px solid @colorGray12;
-	padding: 0 @contentPadding;
-
-	&.header-chrome {
-		background-color: @chromeColor;
-		border: 0;
-		box-shadow: inset 0 -1px 3px rgba( 0, 0, 0, 0.08 );
-	}
-}
-
 // If footer has last modified list item (Desktop MinervaNeue ?useformat=desktop&useskin=minerva),
 // hide it (T173545).
 // stylelint-disable-next-line selector-max-id
@@ -65,13 +54,22 @@ main {
 	display: block;
 }
 
-// One selector for JavaScript overlays
-// One selector for server side rendered HTML
-// FIXME: The header code should be refactored to use flex box,
-// given we don't need to support IE11 for mobile.
+.header-container {
+	border-bottom: 1px solid @colorGray12;
+	padding: 0 @contentPadding;
+
+	&.header-chrome {
+		background-color: @chromeColor;
+		border: 0;
+		box-shadow: inset 0 -1px 3px rgba( 0, 0, 0, 0.08 );
+	}
+}
+
+// JavaScript overlay and server side rendered header
 .overlay-header,
 .minerva-header {
-	display: table;
+	display: flex;
+	align-items: center;
 	width: 100%;
 	border-spacing: 0;
 	border-collapse: collapse;
@@ -80,66 +78,10 @@ main {
 	// When banners are present we want to easily distinguish between them and the header so add border
 	border-top: 1px solid @colorGray12;
 	margin-top: @headerMarginTop;
-
-	> div,
-	> .navigation-drawer {
-		position: relative;
-		vertical-align: middle;
-		display: table-cell;
-	}
-
-	.branding-box {
-		width: auto;
-		opacity: @opacity-icon-subtle; // T251135
-
-		a {
-			display: block;
-			margin-left: 5px;
-			font-size: 1em;
-			text-decoration: none;
-			color: @colorGray2;
-
-			span {
-				line-height: 1;
-				font-size: inherit;
-			}
-
-			img {
-				vertical-align: middle;
-			}
-
-			> * {
-				float: left;
-			}
-
-			sup {
-				color: @colorGray5;
-				display: none;
-
-				.beta & {
-					display: initial;
-				}
-			}
-		}
-	}
-
-	> .header-title {
-		vertical-align: middle;
-	}
 }
 
-#searchInput { // stylelint-disable-line selector-max-id
-	cursor: text;
-}
-
-.search-box,
-/* `.minerva-header .search-box` is needed to override table-cell rules */
-.minerva-header .search-box {
-	display: none;
-	width: auto;
-}
-
-/* Search */
+// Search input
+// Used in minerva header and search overlay header
 .search-box .search {
 	@size-icon-search: unit( 18 / @font-size-browser, em );
 	@size-icon-search-gutter: unit( 8 / @font-size-browser, em );
@@ -159,19 +101,10 @@ main {
 	border-radius: @border-radius-base;
 	padding: @padding-vertical-search 0 @padding-vertical-search @padding-start-search-icon;
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
-	// Keyboard focus is taken care of below at `.search-box .search:focus`.
+	// Keyboard focus is taken care of below at `.search:focus`.
 	outline: 0;
 	.transition( border-color @transition-duration-medium, box-shadow @transition-duration-medium; );
-}
 
-// Provide focus styles only in non-JS and overlay to prevent double transition.
-.client-nojs .search-box .search:focus,
-.search-overlay .search-box .search:focus {
-	border-color: @colorProgressive;
-	box-shadow: inset 0 0 0 1px @colorProgressive, 0 1px 1px rgba( 0, 0, 0, 0.05 );
-}
-
-input.search {
 	// [T139928] Hide all pseudo-elements added to search inputs in WebKit.
 	&::-webkit-search-decoration,
 	&::-webkit-search-cancel-button,
@@ -179,6 +112,13 @@ input.search {
 	&::-webkit-search-results-decoration {
 		display: none;
 	}
+}
+
+// Provide focus styles only in non-JS and overlay to prevent double transition.
+.client-nojs .search-box .search:focus,
+.search-overlay .search-box .search:focus {
+	border-color: @colorProgressive;
+	box-shadow: inset 0 0 0 1px @colorProgressive, 0 1px 1px rgba( 0, 0, 0, 0.05 );
 }
 
 .content {
