@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Khun Kt",
 			"咽頭べさ"
 		]
 	},
-	"minerva-last-modified-date": "အဆုဲင်ꩻသွတ်ꩻ ခြပ်ချော်ꩻထွူလဲဉ်း အခိန်ႏ $1၊ $2 ကို။",
+	"minerva-last-modified-date": "အဆုဲင်ꩻသွတ်ꩻ ခြပ်ချော်ꩻထွူလဲဉ်း $1၊ $2 အခိန်ႏကိုသွူ။",
 	"minerva-watchlist-cta": "ထွေထောင်လွောန်ꩻ လိတ်မဲ့ငါယို တောမ်ႏ ဝွေꩻပြောင်ꩻလုဲင်ႏမုꩻကားကအဝ်ႏ။",
 	"minerva-talk-add-topic": "ထဲမ်သော့ꩻ အိုင်ကိုမ်ချက်",
 	"mobile-frontend-cookies-required": "ပြောင်ꩻထာꩻထီႏမိုဒ်ငွါဖုံႏတာႏ အဝ်ႏလိုႏကွတ်ကီးဖုံႏသွူ။ ဗွောင်ထွူနဝ်ꩻဖုံႏတဲင် စံꩻထွားထဲင်းယင်းသွော့သြ။",
@@ -24,7 +25,7 @@
 	"mobile-frontend-main-menu-logout": "ထန်ႏအကောက်",
 	"mobile-frontend-main-menu-nearby": "ဗော့ꩻရာꩻတာႏ",
 	"mobile-frontend-main-menu-settings": "အဖျင်အဆင်ဖုံႏ",
-	"mobile-frontend-main-menu-watchlist": "အုံပွေားထွားစာႏရင်ꩻ",
+	"mobile-frontend-main-menu-watchlist": "ပွေားထွားစာႏရင်ꩻ",
 	"mobile-frontend-meta-data-issues": "လိတ်မဲ့ငါ ခရာႏဖုံႏ",
 	"mobile-frontend-meta-data-issues-categories": "ကဏ္ဍယိုခရာႏ",
 	"mobile-frontend-meta-data-issues-header": "လိတ်မဲ့ငါ ခရာႏဖုံႏ",
@@ -44,7 +45,7 @@
 	"mobile-frontend-user-newmessages": "နာꩻအိုင်ကိုမ်ဒေါ့ꩻရီလိတ်မဲ့ငါကို လိတ်မဲက်သေ့တသာ အဝ်ႏဖျော်တွိုႏလွောန်သြ။",
 	"mobile-frontend-user-page-contributions": "ခွုမ်မာꩻချက်ဖုံႏ",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|ဆွိုက်ထွူလဲဉ်း}} $1 အခိန်ႏကို",
-	"mobile-frontend-user-page-talk": "အုံကွံ",
+	"mobile-frontend-user-page-talk": "အိုင်ကိုမ်ဒေါ့ꩻရီ",
 	"minerva-user-menu-button": "ကေားသုင်ꩻသား မီနူး",
 	"minerva-user-navigation": "ယီးနယ် ကေားသုင်ꩻသား",
 	"minerva-page-actions-overflow": "ထဲင်းယင်း",
