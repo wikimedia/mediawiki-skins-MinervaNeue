@@ -290,9 +290,9 @@
 				}
 			},
 			"images": {
-				"toast.mw-notification-type-error,.mw-notification.mw-notification-type-error":
+				"toast.mw-notification-type-error, .mw-notification.mw-notification-type-error":
 					"resources/skins.minerva.content.styles.images/error.svg",
-				"a.external": {
+				"a.external, .mw-parser-output a.external": {
 					"file": {
 						"ltr": "resources/skins.minerva.content.styles.images/link-external-ltr.svg",
 						"rtl": "resources/skins.minerva.content.styles.images/link-external-rtl.svg"
