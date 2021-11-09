@@ -1,6 +1,6 @@
 'use strict';
 
-const { defineSupportCode } = require( 'cucumber' ),
+const { defineSupportCode } = require( '@cucumber/cucumber' ),
 	{ iAmInAWikiThatHasCategories,
 		iAmOnAPageThatHasTheFollowingEdits,
 		iAmOnATalkPageWithNoTalkTopics,
