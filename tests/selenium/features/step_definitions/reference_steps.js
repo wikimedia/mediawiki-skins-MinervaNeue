@@ -22,7 +22,7 @@ const iClickOnANestedReference = () => {
 
 const iShouldSeeDrawerWithText = ( text ) => {
 	ArticlePage.drawer_element.waitForDisplayed();
-	browser.waitUntil( () => ArticlePage.drawer_element.getText().indexOf( text ) > -1 );
+	browser.waitUntil( () => ArticlePage.drawer_element.getText().includes( text ) );
 };
 
 module.exports = {

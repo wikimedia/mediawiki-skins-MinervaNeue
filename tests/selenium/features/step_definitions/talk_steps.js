@@ -49,7 +49,7 @@ const thereShouldBeNoTalkButton = () => {
 
 const iShouldSeeTheTopicInTheListOfTopics = ( subject ) => {
 	assert.strictEqual(
-		ArticlePage.first_section_element.getText().indexOf( subject ) > -1,
+		ArticlePage.first_section_element.getText().includes( subject ),
 		true
 	);
 };
