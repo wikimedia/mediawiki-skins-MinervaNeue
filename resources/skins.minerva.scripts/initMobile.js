@@ -257,7 +257,7 @@ module.exports = function () {
 	 * Initialisation function for user creation module.
 	 *
 	 * Enhances an element representing a time
-	 + to show a human friendly date in seconds, minutes, hours, days
+	 * to show a human friendly date in seconds, minutes, hours, days
 	 * months or years
 	 *
 	 * @ignore

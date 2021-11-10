@@ -94,7 +94,7 @@ const iShouldSeeAToastNotification = () => {
 const iShouldSeeAToastNotificationWithMessage = ( msg ) => {
 	iShouldSeeAToastNotification();
 	const notificationBody = ArticlePage.notification_element.$( '.mw-notification-content' );
-	assert.strictEqual( notificationBody.getText().indexOf( msg ) > -1, true );
+	assert.strictEqual( notificationBody.getText().includes( msg ), true );
 };
 
 const iClickTheBrowserBackButton = () => {
