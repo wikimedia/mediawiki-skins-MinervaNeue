@@ -8,7 +8,7 @@
 					<label for="main-menu-input" id="mw-mf-main-menu-button"
 						class=" mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-menu-base20 mw-ui-icon-flush-left toggle-list__toggle"
 						title="{{msg-mobile-frontend-main-menu-button-tooltip}}" data-event-name="ui.mainmenu">{{msg-mobile-frontend-main-menu-button-tooltip}}</label>
-					{{#data-main-menu}}{{>menu}}{{/data-main-menu}}
+					{{#data-minerva-main-menu}}{{>menu}}{{/data-minerva-main-menu}}
 					<label class="main-menu-mask" for="main-menu-input"></label>
 				</nav>
 				<div class="branding-box">
@@ -16,7 +16,7 @@
 					{{#data-logos}}
 						<span>{{>Logo}}</span>
 					{{/data-logos}}
-						{{#isBeta}}<sup>&beta;</sup>{{/isBeta}}
+						{{#is-minerva-beta}}<sup>&beta;</sup>{{/is-minerva-beta}}
 					</a>
 				</div>
 				{{#data-search-box}}
@@ -37,12 +37,12 @@
 						}}
 						<button id="searchIcon" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search-base20 skin-minerva-search-trigger mw-ui-button mw-ui-quiet">{{msg-searchbutton}}</button>
 					</div>
-					{{^isAnon}}
+					{{^is-anon}}
 							<div class="minerva-user-notifications" id="pt-notifications-alert">
-								{{{userNotificationsHTML}}}
+								{{{html-minerva-user-notifications}}}
 							</div>
-					{{/isAnon}}
-					{{#userMenuHTML}}{{{userMenuHTML}}}{{/userMenuHTML}}
+					{{/is-anon}}
+					{{#html-minerva-user-menu}}{{{html-minerva-user-menu}}}{{/html-minerva-user-menu}}
 				</nav>
 			</form>
 		</header>
@@ -58,8 +58,8 @@
 			{{/html-user-message}}
 			<div class="pre-content heading-holder">
 				<div class="page-heading">
-					{{{headinghtml}}}
-					{{{taglinehtml}}}
+					{{{html-minerva-heading}}}
+					{{{html-minerva-tagline}}}
 				</div>
 				{{#data-minerva-tabs}}
 					<div class="minerva__tab-container">
@@ -71,7 +71,7 @@
 				{{#data-minerva-page-actions}}
 				{{>PageActionsMenu}}
 				{{/data-minerva-page-actions}}
-				{{{postheadinghtml}}}
+				{{{html-minerva-post-heading}}}
 				<div class="minerva__subtitle">{{{html-subtitle}}}</div>
 			</div>
 			<div id="bodyContent" class="content">

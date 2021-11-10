@@ -125,7 +125,6 @@
 	"AutoloadClasses": {
 		"MinervaUI": "includes/MinervaUI.php",
 		"MinervaHooks": "includes/MinervaHooks.php",
-		"MinervaTemplate": "includes/Skins/MinervaTemplate.php",
 		"SkinMinerva": "includes/Skins/SkinMinerva.php",
 		"SkinMinervaNeue": "includes/Skins/SkinMinerva.php"
 	},
