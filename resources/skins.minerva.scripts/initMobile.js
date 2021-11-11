@@ -170,10 +170,9 @@ module.exports = function () {
 	 * @param {jQuery.Object} $lastModifiedLink
 	 */
 	function initHistoryLink( $lastModifiedLink ) {
-		var delta, historyUrl, $msg, $bar,
+		var delta, $msg, $bar,
 			ts, username, gender;
 
-		historyUrl = $lastModifiedLink.attr( 'href' );
 		ts = $lastModifiedLink.data( 'timestamp' );
 		username = $lastModifiedLink.data( 'user-name' ) || false;
 		gender = $lastModifiedLink.data( 'user-gender' );
@@ -195,7 +194,10 @@ module.exports = function () {
 				// The new element should maintain the non-js element's CSS classes.
 				.attr( 'class', $lastModifiedLink.attr( 'class' ) )
 				.html(
-					time.getLastModifiedMessage( ts, username, gender, historyUrl )
+					time.getLastModifiedMessage( ts, username, gender,
+						// For cached HTML
+						$lastModifiedLink.attr( 'href' )
+					)
 				);
 			$lastModifiedLink.replaceWith( $msg );
 		}

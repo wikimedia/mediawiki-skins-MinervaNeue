@@ -2,6 +2,7 @@
 @import '../../minerva.less/minerva.mixins.less';
 
 .last-modified-bar {
+	display: block;
 	border-bottom: solid 1px @footerBorderColor;
 	background-color: @lastModifiedBarBgColor;
 	color: @lastModifiedBarTextColor;
@@ -11,13 +12,12 @@
 	.transition( background-color @transition-duration-medium, color @transition-duration-medium; );
 
 	a,
-	a:visited {
+	a:visited,
+	.last-modified-text-accent {
 		color: @colorGray5;
-		// If browser supports
-		&:nth-child( 1 ) {
-			font-weight: bold;
-		}
 	}
+
+	// Note: This can be progressively enhanced in skins.minerva.scripts to provide 'recently edited' state.
 }
 
 .last-modified-bar__content {
