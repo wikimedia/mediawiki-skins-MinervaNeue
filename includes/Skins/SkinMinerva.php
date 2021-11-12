@@ -31,11 +31,6 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinMustache {
-	/** @var array Cached array of content navigation URLs */
-	private $contentNavigationUrls = [];
-	/** @var array|null cached array of page action URLs */
-	private $pageActionsMenu = null;
-
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	 * in editing mode
 	 */
@@ -93,18 +88,29 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * Returns available page actions if the page has any.
 	 *
+	 * @param array $nav result of SkinTemplate::buildContentNavigationUrls
 	 * @return array|null
+	 * @throws MWException
 	 */
-	private function getPageActions() {
-		return $this->isFallbackEditor() || !$this->hasPageActions() ?
-			null : $this->pageActionsMenu;
+	private function getPageActions( array $nav ) {
+		if ( $this->isFallbackEditor() || !$this->hasPageActions() ) {
+			return null;
+		}
+		$services = MediaWikiServices::getInstance();
+		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
+		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
+		$sidebar = parent::buildSidebar();
+		$actions = $nav['actions'] ?? [];
+		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getTemplateData() {
+	public function getTemplateData(): array {
 			$data = parent::getTemplateData();
+			// FIXME: Can we use $data instead of calling buildContentNavigationUrls ?
+			$nav = $this->buildContentNavigationUrls();
 			if ( !$this->hasCategoryLinks() ) {
 				unset( $data['html-categories'] );
 			}
@@ -118,11 +124,11 @@ class SkinMinerva extends SkinMustache {
 				'html-minerva-post-heading' => $this->isTalkPageWithViewAction()
 					? $this->getTalkPagePostHeadingHtml()
 					: '',
-				'html-minerva-user-menu' => $this->prepareMenus(),
+				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav ),
 				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
-				'data-minerva-tabs' => $this->getTabsData(),
-				'data-minerva-page-actions' => $this->getPageActions(),
-				'data-minerva-secondary-actions' => $this->getSecondaryActions(),
+				'data-minerva-tabs' => $this->getTabsData( $nav ),
+				'data-minerva-page-actions' => $this->getPageActions( $nav ),
+				'data-minerva-secondary-actions' => $this->getSecondaryActions( $nav ),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
 				'data-minerva-history-link' => $this->getHistoryLink( $this->getTitle() ),
 			];
@@ -153,16 +159,17 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * @param array $contentNavigationUrls
 	 * @return array
 	 */
-	private function getTabsData() {
+	private function getTabsData( array $contentNavigationUrls ) {
 		$skinOptions = $this->getSkinOptions();
 		$hasTalkTabs = $skinOptions->get( SkinOptions::TALK_AT_TOP ) && $this->hasPageTabs();
 		if ( !$hasTalkTabs ) {
 			return [];
 		}
-		return $this->contentNavigationUrls ? [
-			'items' => array_values( $this->contentNavigationUrls['namespaces'] ),
+		return $contentNavigationUrls ? [
+			'items' => array_values( $contentNavigationUrls['namespaces'] ),
 		] : [];
 	}
 
@@ -201,23 +208,16 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Prepare all Minerva menus
+	 *
+	 * @param array $nav result of SkinTemplate::buildContentNavigationUrls
 	 * @return string|null
-	 * @throws MWException
 	 */
-	private function prepareMenus() {
+	private function getPersonalToolsMenu( array $nav ) {
 		$services = MediaWikiServices::getInstance();
-		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
-		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
 		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $userMenuDirector */
 		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
-
-		$sidebar = parent::buildSidebar();
-		$nav = $this->buildContentNavigationUrls();
-		$actions = $nav['actions'] ?? [];
 		$personalUrls = isset( $nav['user-menu'] ) ? $this->injectLegacyMenusIntoPersonalTools( $nav ) : [];
 		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
-		$this->contentNavigationUrls = $nav;
-		$this->pageActionsMenu = $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
 
 		return $userMenuDirector->renderMenuData( $personalTools );
 	}
@@ -695,9 +695,10 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Returns an array of links for page secondary actions
+	 * @param array $contentNavigationUrls
 	 * @return array|null
 	 */
-	protected function getSecondaryActions() {
+	protected function getSecondaryActions( array $contentNavigationUrls ) {
 		if ( $this->isFallbackEditor() || !$this->hasSecondaryActions() ) {
 			return null;
 		}
@@ -722,7 +723,7 @@ class SkinMinerva extends SkinMustache {
 			$this->getUser()->isRegistered() &&
 			!$this->isTalkPageWithViewAction()
 		) {
-			$namespaces = $this->contentNavigationUrls['namespaces'];
+			$namespaces = $contentNavigationUrls['namespaces'];
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
 			$talkId = $subjectId === 'main' ? 'talk' : "{$subjectId}_talk";
