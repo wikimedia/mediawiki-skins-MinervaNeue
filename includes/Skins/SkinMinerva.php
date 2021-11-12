@@ -109,9 +109,17 @@ class SkinMinerva extends SkinMustache {
 				unset( $data['html-categories'] );
 			}
 
-			$tpl = $this->prepareQuickTemplate();
-			$tplData = $tpl->execute();
-			return $data + $tplData + [
+			return $data + [
+				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
+				'html-minerva-user-notifications' => $this->prepareUserNotificationsButton( $this->getNewtalks() ),
+				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData()['items'],
+				'html-minerva-tagline' => $this->getTaglineHtml(),
+				'html-minerva-heading' => $this->prepareHeader(),
+				'html-minerva-post-heading' => $this->isTalkPageWithViewAction()
+					? $this->getTalkPagePostHeadingHtml()
+					: '',
+				'html-minerva-user-menu' => $this->prepareMenus(),
+				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
 				'data-minerva-tabs' => $this->getTabsData(),
 				'data-minerva-page-actions' => $this->getPageActions(),
 				'data-minerva-secondary-actions' => $this->getSecondaryActions(),
@@ -192,32 +200,11 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * initialize various variables and generate the template
-	 * @return QuickTemplate
-	 * @suppress PhanTypeMismatchArgument
-	 */
-	protected function prepareQuickTemplate() {
-		$out = $this->getOutput();
-
-		// Generate skin template
-		$tpl = parent::prepareQuickTemplate();
-
-		// Construct various Minerva-specific interface elements
-		$this->prepareMenus( $tpl );
-		$this->prepareHeaderAndFooter( $tpl );
-		$this->prepareBanners( $tpl );
-		$this->prepareUserNotificationsButton( $tpl, $tpl->get( 'newtalk' ) );
-		$this->prepareLanguages( $tpl );
-
-		return $tpl;
-	}
-
-	/**
 	 * Prepare all Minerva menus
-	 * @param BaseTemplate $tpl
+	 * @return string|null
 	 * @throws MWException
 	 */
-	private function prepareMenus( BaseTemplate $tpl ) {
+	private function prepareMenus() {
 		$services = MediaWikiServices::getInstance();
 		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
 		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
@@ -225,14 +212,14 @@ class SkinMinerva extends SkinMustache {
 		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
 
 		$sidebar = parent::buildSidebar();
-		$personalUrls = $tpl->get( 'personal_urls' );
-		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
 		$nav = $this->buildContentNavigationUrls();
 		$actions = $nav['actions'] ?? [];
-		$tpl->set( 'mainMenu', $this->getMainMenu()->getMenuData() );
+		$personalUrls = isset( $nav['user-menu'] ) ? $this->injectLegacyMenusIntoPersonalTools( $nav ) : [];
+		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
 		$this->contentNavigationUrls = $nav;
 		$this->pageActionsMenu = $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
-		$tpl->set( 'userMenuHTML', $userMenuDirector->renderMenuData( $personalTools ) );
+
+		return $userMenuDirector->renderMenuData( $personalTools );
 	}
 
 	/**
@@ -360,17 +347,16 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Prepares the user button.
-	 * @param QuickTemplate $tpl
 	 * @param string $newTalks New talk page messages for the current user
+	 * @return string
 	 */
-	protected function prepareUserNotificationsButton( QuickTemplate $tpl, $newTalks ) {
+	protected function prepareUserNotificationsButton( $newTalks ) {
 		$user = $this->getUser();
-		$currentTitle = $this->getTitle();
-		$notificationsMsg = $this->msg( 'mobile-frontend-user-button-tooltip' )->text();
-		$notificationIconClass = MinervaUI::iconClass( 'bellOutline-base20',
-			'element', '', 'wikimedia' );
-
 		if ( $user->isRegistered() ) {
+			$currentTitle = $this->getTitle();
+			$notificationsMsg = $this->msg( 'mobile-frontend-user-button-tooltip' )->text();
+			$notificationIconClass = MinervaUI::iconClass( 'bellOutline-base20',
+				'element', '', 'wikimedia' );
 			$badge = Html::element( 'a', [
 				'class' => $notificationIconClass,
 				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
@@ -379,25 +365,9 @@ class SkinMinerva extends SkinMustache {
 			], $notificationsMsg );
 			Hooks::run( 'SkinMinervaReplaceNotificationsBadge',
 				[ $user, $currentTitle, &$badge ] );
-			$tpl->set( 'userNotificationsHTML', $badge );
+			return $badge;
 		}
-	}
-
-	/**
-	 * Rewrites the language list so that it cannot be contaminated by other extensions with things
-	 * other than languages
-	 * See bug 57094.
-	 *
-	 * @todo Remove when Special:Languages link goes stable
-	 * @param QuickTemplate $tpl
-	 */
-	protected function prepareLanguages( $tpl ) {
-		$lang = $this->getTitle()->getPageViewLanguage();
-		$tpl->set( 'pageLang', $lang->getHtmlCode() );
-		$tpl->set( 'pageDir', $lang->getDir() );
-		// If the array is empty, then instead give the skin boolean false
-		$language_urls = $this->getLanguages() ?: false;
-		$tpl->set( 'language_urls', $language_urls );
+		return '';
 	}
 
 	/**
@@ -642,51 +612,39 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Create and prepare header and footer content
-	 * @param BaseTemplate $tpl
+	 * Create and prepare header content
+	 * @return string
 	 */
-	protected function prepareHeaderAndFooter( BaseTemplate $tpl ) {
+	protected function prepareHeader() {
 		$title = $this->getTitle();
-		$user = $this->getUser();
-		$out = $this->getOutput();
-		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
-
 		if ( $title->isMainPage() ) {
+			$user = $this->getUser();
 			$msg = $this->msg( 'mobile-frontend-logged-in-homepage-notification', $user->getName() );
 
 			if ( $user->isRegistered() && !$msg->isDisabled() ) {
+				$out = $this->getOutput();
 				$out->setPageTitle( $msg->text() );
 			}
-		} elseif ( $this->isTalkPageWithViewAction() ) {
-			// We only want the simplified talk page to show for the view action of the
-			// talk (e.g. not history action)
-			$tpl->set( 'postheadinghtml', $this->getTalkPagePostHeadingHtml() );
 		}
 
-		$tpl->set( 'headinghtml', $this->getHeadingHtml() );
-
-		// set defaults
-		if ( !isset( $tpl->data['postbodytext'] ) ) {
-			$tpl->set( 'postbodytext', '' ); // not currently set in desktop skin
-		}
+		return $this->getHeadingHtml();
 	}
 
 	/**
 	 * Load internal banner content to show in pre content in template
 	 * Beware of HTML caching when using this function.
 	 * Content set as "internalbanner"
-	 * @param BaseTemplate $tpl
+	 * @param string $siteNotice HTML fragment
+	 * @return array
 	 */
-	protected function prepareBanners( BaseTemplate $tpl ) {
-		// Make sure Zero banner are always on top
-		$banners = [ '<div id="siteNotice"></div>' ];
+	protected function prepareBanners( $siteNotice ) {
+		$banners = [];
 		if ( $this->getConfig()->get( 'MinervaEnableSiteNotice' ) ) {
-			$siteNotice = $this->getSiteNotice();
 			if ( $siteNotice ) {
 				$banners[] = $siteNotice;
 			}
 		}
-		$tpl->set( 'banners', $banners );
+		return $banners;
 	}
 
 	/**
