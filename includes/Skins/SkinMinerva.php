@@ -652,14 +652,11 @@ class SkinMinerva extends SkinMustache {
 		$tpl->set( 'taglinehtml', $this->getTaglineHtml() );
 
 		if ( $title->isMainPage() ) {
-			$pageTitle = '';
 			$msg = $this->msg( 'mobile-frontend-logged-in-homepage-notification', $user->getName() );
 
 			if ( $user->isRegistered() && !$msg->isDisabled() ) {
-				$pageTitle = $msg->text();
+				$out->setPageTitle( $msg->text() );
 			}
-
-			$out->setPageTitle( $pageTitle );
 		} elseif ( $this->isTalkPageWithViewAction() ) {
 			// We only want the simplified talk page to show for the view action of the
 			// talk (e.g. not history action)
