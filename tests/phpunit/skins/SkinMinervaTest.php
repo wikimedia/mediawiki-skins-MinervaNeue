@@ -44,7 +44,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 		$skin = TestingAccessWrapper::newFromObject( $skin );
 
-		$this->assertEquals( $skin->hasCategoryLinks(), false );
+		$this->assertFalse( $skin->hasCategoryLinks() );
 	}
 
 	/**
