@@ -6,5 +6,7 @@
 	},
 	"mobile-frontend-history": "Hwɛ kratafa yi abakwasɛm",
 	"mobile-frontend-home-button": "Fie",
+	"mobile-frontend-language-article-heading": "Kasa",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Akwaaba}}, $1!",
 	"mobile-frontend-placeholder": "Hwehwɛ {{SITENAME}}"
 }
