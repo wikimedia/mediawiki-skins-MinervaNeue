@@ -7,7 +7,9 @@
 			"Minh Nguyen",
 			"Nguyên Lê",
 			"Trần Nguyễn Minh Huy",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Nghiemtrongdai VN",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"minerva-last-modified-date": "Sửa đổi lần cuối lúc $2 vào $1",
@@ -41,7 +43,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Sửa đổi phần mở đầu của trang này",
 	"mobile-frontend-placeholder": "Tìm kiếm {{SITENAME}}",
 	"mobile-frontend-random-button": "Ngẫu nhiên",
-	"mobile-frontend-redirected-from": "Chuyển hướng từ “[[$1]]”",
+	"mobile-frontend-redirected-from": "Đổi hướng từ “[[$1]]”",
 	"mobile-frontend-talk-back-to-filepage": "Quay lại tập tin “$1”.",
 	"mobile-frontend-talk-back-to-page": "Quay lại trang “$1”.",
 	"mobile-frontend-talk-back-to-projectpage": "Quay lại trang dự án “$1”.",

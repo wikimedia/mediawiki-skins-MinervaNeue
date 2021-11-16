@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Weather Top Wizard"
+		]
+	},
+	"minerva-download": "Hiki mei e PDF",
+	"mobile-frontend-history": "Vakai ki he liliu ki he hisitōlia ʻo e peesi ko ʻení.",
+	"mobile-frontend-home-button": "ʻapi",
+	"mobile-frontend-language-article-heading": "Lea:",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Mālō}}, $1!",
+	"mobile-frontend-main-menu-login": "\nKau ki ai",
+	"mobile-frontend-main-menu-settings": "Fokotuʻutuʻú",
+	"mobile-frontend-placeholder": "Kumi {{SITENAME}}",
+	"mobile-frontend-random-button": "Noa pē"
+}

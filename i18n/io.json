@@ -3,7 +3,8 @@
 		"authors": [
 			"Fitoschido",
 			"Joao Xavier",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"JSantos"
 		]
 	},
 	"mobile-frontend-editor-edit": "Redaktar",
@@ -14,6 +15,7 @@
 	"mobile-frontend-language-article-heading": "Linguo",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bonveno}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Apertar la precipua menuo",
+	"mobile-frontend-main-menu-contributions": "Kontributadi",
 	"mobile-frontend-main-menu-login": "Enirar",
 	"mobile-frontend-main-menu-logout": "Ekirar",
 	"mobile-frontend-main-menu-nearby": "Vicina",
@@ -23,7 +25,10 @@
 	"mobile-frontend-placeholder": "Serchez en {{SITENAME}}",
 	"mobile-frontend-random-button": "Hazarde",
 	"mobile-frontend-user-button-tooltip": "Montrez mea avizi",
+	"mobile-frontend-user-page-contributions": "Kontributadi",
+	"mobile-frontend-user-page-talk": "Diskuto",
 	"minerva-page-actions-info": "Informo pri pagino",
+	"minerva-page-actions-delete": "Efacez",
 	"minerva-page-actions-unprotect": "Desprotektar",
 	"minerva-page-actions-user-groups": "Uzero-grupi"
 }

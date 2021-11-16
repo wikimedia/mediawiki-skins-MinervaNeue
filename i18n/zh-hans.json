@@ -20,7 +20,8 @@
 			"Ywang",
 			"予弦",
 			"沈澄心",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"Xzonn"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -91,5 +92,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "查看页面分类",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "改进的页面问题处理",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "页面问题(Template:ambox)将内联在文章中。",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很遗憾，按页面分组结果在移动设备上不可用。如果您想使用“按页面分组”功能，请访问桌面版。"
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很遗憾，按页面分组结果在移动设备上不可用。如果您想使用“按页面分组”功能，请访问桌面版。",
+	"minerva.css": "/* 这里放置的CSS将应用于MinervaNeue皮肤 */",
+	"minerva.js": "/* 这里的任何JavaScript将为使用MinervaNeue皮肤的用户加载 */"
 }

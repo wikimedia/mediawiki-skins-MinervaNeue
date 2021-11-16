@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Weather Top Wizard"
+		]
+	},
+	"mobile-frontend-history": "Raica na ituvatuva ni itukutuku ni tabana oqo.",
+	"mobile-frontend-home-button": "Vale",
+	"mobile-frontend-language-article-heading": "Vosa",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Veiciqomi}}, $1!",
+	"mobile-frontend-main-menu-login": "Curu mai",
+	"mobile-frontend-main-menu-settings": "Ivakaraitaki",
+	"mobile-frontend-placeholder": "Vaqaqara {{SITENAME}}",
+	"mobile-frontend-random-button": "Vakawasoma"
+}
