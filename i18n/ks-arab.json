@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Iflaq"
+			"Iflaq",
+			"Rishabhbhat"
 		]
 	},
 	"minerva-last-modified-date": "آخری اؠڑِٹ $1، $2 بَجے",
@@ -20,7 +21,7 @@
 	"mobile-frontend-main-menu-logout": "نؠبَر نیرُن",
 	"mobile-frontend-main-menu-nearby": "نَزدیٖک",
 	"mobile-frontend-main-menu-settings": "طَرٕز",
-	"mobile-frontend-main-menu-watchlist": "زیرِنَظَر فِہرسَت",
+	"mobile-frontend-main-menu-watchlist": "نَظَرتَل فِہرسَت",
 	"mobile-frontend-meta-data-issues": "صَفہٕ مَسلہٕ",
 	"mobile-frontend-meta-data-issues-categories": "یؠتھ زٲژ مُتعلِق",
 	"mobile-frontend-meta-data-issues-header": "صَفہٕ مَسلہٕ",
