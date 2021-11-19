@@ -182,14 +182,14 @@ class GroupTest extends \MediaWikiIntegrationTestCase {
 			'text' => 'Phuedx (WMF)',
 			'href' => '/wiki/User:Phuedx_(WMF)',
 			'class' =>
-				'mw-ui-icon mw-ui-icon-before mw-ui-icon-profile truncated-text primary-action',
+				'mw-ui-icon mw-ui-icon-before mw-ui-icon-profile',
 			'icon' => null,
 		];
 		$authLogoutComponent = [
 			'text' => 'Logout',
 			'href' => '/wiki/Special:UserLogout',
 			'class' =>
-				'mw-ui-icon mw-ui-icon-element secondary-logout secondary-action truncated-text',
+				'mw-ui-icon mw-ui-icon-element secondary-logout',
 			'icon' => null,
 		];
 
