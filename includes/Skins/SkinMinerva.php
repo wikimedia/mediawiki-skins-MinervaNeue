@@ -624,6 +624,10 @@ class SkinMinerva extends SkinMustache {
 			if ( $user->isRegistered() && !$msg->isDisabled() ) {
 				$out = $this->getOutput();
 				$out->setPageTitle( $msg->text() );
+			} else {
+				// Don’t add any <h1> to main pages
+				// for logged-out users
+				return '';
 			}
 		}
 
