@@ -3,11 +3,13 @@
 		"authors": [
 			"Cedric31",
 			"Fitoschido",
+			"Guilhelma",
 			"Quentí"
 		]
 	},
 	"mobile-frontend-editor-edit": "Modificar",
 	"mobile-frontend-editor-redlink-explain": "Aquesta pagina es pas encara estada creada.",
+	"mobile-frontend-history": "Afichar l’istoric de las modificacions d'aquesta pagina",
 	"mobile-frontend-home-button": "Acuèlh",
 	"mobile-frontend-language-article-heading": "Lenga",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvengut|Benvenguda}}, $1 !",

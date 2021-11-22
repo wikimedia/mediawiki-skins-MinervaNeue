@@ -5,13 +5,16 @@
 		]
 	},
 	"minerva-download": "Laadd PDF-teâttõõzz",
+	"mobile-frontend-history": "Čuäʹjet tän seeid muʹttemhistoria.",
 	"mobile-frontend-language-article-heading": "Ǩiõll",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Puäʹđ tiõrvân}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ääʹved väʹlddvaʹlljõõǥǥ",
 	"mobile-frontend-main-menu-login": "Ǩeeʹrjtõõđ sizz",
 	"mobile-frontend-main-menu-logout": "Ǩeeʹrjtõõđ åålǥas",
 	"mobile-frontend-main-menu-settings": "Asetõõzz",
+	"mobile-frontend-meta-data-issues-talk": "Teâđ tän saǥstõõllâmsseeidast",
 	"mobile-frontend-placeholder": "Ooʒʒ {{SITENAME}}:st",
 	"minerva-page-actions-move": "Seeʹrd",
+	"minerva-page-actions-protect": "Suõjjâd",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoria"
 }
