@@ -459,8 +459,10 @@ class SkinMinerva extends SkinMustache {
 			$this->getGenericHistoryLink( $title ) :
 			$this->getRelativeHistoryLink( $title, $timestamp );
 
-		return $this->canUseWikiPage() && $this->getWikiPage()->exists() ?
-			$historyLink + $historyIconClasses : null;
+		$title = $this->getTitle();
+		return $title->canExist() && $title->exists()
+			? $historyLink + $historyIconClasses
+			: null;
 	}
 
 	/**
@@ -596,12 +598,16 @@ class SkinMinerva extends SkinMustache {
 			], $addTopicButton['label'] );
 		}
 
-		if ( $this->isSimplifiedTalkPageEnabled() && $this->canUseWikiPage() ) {
-			$wikiPage = $this->getWikiPage();
-			$parserOptions = $wikiPage->makeParserOptions( $this->getContext() );
-			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
-			$sectionCount = $parserOutput ? count( $parserOutput->getSections() ) : 0;
-
+		$title = $this->getTitle();
+		if ( $this->isSimplifiedTalkPageEnabled() && $title->canExist() ) {
+			$parserOutputAccess = MediaWikiServices::getInstance()->getParserOutputAccess();
+			$parserOptions = ParserOptions::newFromContext( $this->getContext() );
+			$pageRecord = $title->toPageRecord();
+			$status = $parserOutputAccess->getParserOutput( $pageRecord, $parserOptions );
+			$statusValue = $status->getValue();
+			$sectionCount = ( $status->isGood() && $statusValue instanceof ParserOutput )
+				? count( $statusValue->getSections() )
+				: 0;
 			$message = $sectionCount > 0 ? wfMessage( 'minerva-talk-explained' )
 				: wfMessage( 'minerva-talk-explained-empty' );
 			$html .= Html::element( 'div', [ 'class' =>
