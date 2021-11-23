@@ -460,10 +460,7 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#54595d",
-			"icons": [
-				"sandbox",
-				"markup"
-			],
+			"icons": [ "sandbox" ],
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
