@@ -479,16 +479,16 @@ class SkinMinerva extends SkinMustache {
 	 *   exists in the database or is hidden from public view.
 	 */
 	private function getRevisionEditorData( LinkTarget $title ) {
-		$rev = MediaWikiServices::getInstance()->getRevisionLookup()
+		$services = MediaWikiServices::getInstance();
+		$rev = $services->getRevisionLookup()
 			->getRevisionByTitle( $title );
 		$result = [];
 		if ( $rev ) {
 			$revUser = $rev->getUser();
 			// Note the user will only be returned if that information is public
 			if ( $revUser ) {
-				$revUser = User::newFromIdentity( $revUser );
 				$editorName = $revUser->getName();
-				$editorGender = $revUser->getOption( 'gender' );
+				$editorGender = $services->getGenderCache()->getGenderOf( $revUser, __METHOD__ );
 				$result += [
 					'data-user-name' => $editorName,
 					'data-user-gender' => $editorGender,
@@ -511,6 +511,7 @@ class SkinMinerva extends SkinMustache {
 
 			if ( $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser() && is_string( $fromDate ) ) {
 				$fromDateTs = wfTimestamp( TS_UNIX, $fromDate );
+				$genderCache = MediaWikiServices::getInstance()->getGenderCache();
 
 				// This is shown when js is disabled. js enhancement made due to caching
 				$tagline = $this->msg( 'mobile-frontend-user-page-member-since',
@@ -520,7 +521,7 @@ class SkinMinerva extends SkinMustache {
 				// Define html attributes for usage with js enhancement (unix timestamp, gender)
 				$attrs = [ 'id' => 'tagline-userpage',
 					'data-userpage-registration-date' => $fromDateTs,
-					'data-userpage-gender' => $pageUser->getOption( 'gender' ) ];
+					'data-userpage-gender' => $genderCache->getGenderOf( $pageUser, __METHOD__ ) ];
 			}
 		} else {
 			$title = $this->getTitle();

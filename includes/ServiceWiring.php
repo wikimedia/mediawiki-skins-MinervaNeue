@@ -37,7 +37,11 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 
 return [
 	'Minerva.Menu.Definitions' => static function ( MediaWikiServices $services ): Definitions {
-		return new Definitions( RequestContext::getMain(), $services->getSpecialPageFactory() );
+		return new Definitions(
+			RequestContext::getMain(),
+			$services->getSpecialPageFactory(),
+			$services->getUserOptionsLookup()
+		);
 	},
 	'Minerva.Menu.UserMenuDirector' => static function ( MediaWikiServices $services ): UserMenuDirector {
 		$options = $services->getService( 'Minerva.SkinOptions' );

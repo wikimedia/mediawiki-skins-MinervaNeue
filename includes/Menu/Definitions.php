@@ -27,6 +27,7 @@ use MediaWiki\Minerva\Menu\Entries\LogInMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LogOutMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Special\SpecialPageFactory;
+use MediaWiki\User\UserOptionsLookup;
 use Message;
 use MWException;
 use SpecialMobileWatchlist;
@@ -55,15 +56,26 @@ final class Definitions {
 	private $specialPageFactory;
 
 	/**
+	 * @var UserOptionsLookup
+	 */
+	private $userOptionsLookup;
+
+	/**
 	 * Initialize definitions helper class
 	 *
 	 * @param IContextSource $context
 	 * @param SpecialPageFactory $factory
+	 * @param UserOptionsLookup $userOptionsLookup
 	 */
-	public function __construct( IContextSource $context, SpecialPageFactory $factory ) {
+	public function __construct(
+		IContextSource $context,
+		SpecialPageFactory $factory,
+		UserOptionsLookup $userOptionsLookup
+	) {
 		$this->user = $context->getUser();
 		$this->context = $context;
 		$this->specialPageFactory = $factory;
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
@@ -93,8 +105,12 @@ final class Definitions {
 		$watchlistQuery = [];
 		// Avoid fatal when MobileFrontend not available (T171241)
 		if ( class_exists( SpecialMobileWatchlist::class ) ) {
-			$view = $this->user->getOption( SpecialMobileWatchlist::VIEW_OPTION_NAME, false );
-			$filter = $this->user->getOption( SpecialMobileWatchlist::FILTER_OPTION_NAME, false );
+			$view = $this->userOptionsLookup->getOption(
+				$this->user, SpecialMobileWatchlist::VIEW_OPTION_NAME, false
+			);
+			$filter = $this->userOptionsLookup->getOption(
+				$this->user, SpecialMobileWatchlist::FILTER_OPTION_NAME, false
+			);
 			if ( $view ) {
 				$watchlistQuery['watchlistview'] = $view;
 			}
