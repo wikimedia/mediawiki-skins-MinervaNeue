@@ -12,10 +12,9 @@
 		"test": "npm run lint && npm run doc && dev-scripts/svg_check.sh",
 		"minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
-		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
 		"selenium-daily": "npm run selenium-test",
-		"selenium-test": "npm -s run test:size && wdio tests/selenium/wdio.conf.js"
+		"selenium-test": "wdio tests/selenium/wdio.conf.js"
 	},
 	"devDependencies": {
 		"@babel/core": "7.7.7",
@@ -28,7 +27,6 @@
 		"@wdio/mocha-framework": "7.16.4",
 		"@wdio/sync": "7.16.4",
 		"babel-loader": "8.0.6",
-		"bundlesize": "0.18.1",
 		"eslint-config-wikimedia": "0.21.0",
 		"grunt-banana-checker": "0.9.0",
 		"jsdoc": "3.6.7",
