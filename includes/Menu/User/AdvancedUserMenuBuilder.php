@@ -81,6 +81,8 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 
 		if ( $sandbox ) {
 			$group->insertEntry( SingleMenuEntry::create(
+				// TODO: Replace with 'sandbox' after
+				// https://gerrit.wikimedia.org/r/c/mediawiki/extensions/SandboxLink/+/740890 is merged
 				'markup',
 				$sandbox['text'],
 				$sandbox['href']
