@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nertiks"
+			"Nertiks",
+			"Nērtiks Jōrgesuns"
 		]
 	},
 	"mobile-frontend-language-article-heading": "Bilā",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Kaīls}}, $1!",
+	"mobile-frontend-main-menu-settings": "Ensadīnsenei",
 	"mobile-frontend-placeholder": "Laukīs en {{SITENAME}}"
 }
