@@ -9,6 +9,6 @@
 	"mobile-frontend-language-article-heading": "Lam",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|B'danmii}}, $1!",
 	"mobile-frontend-main-menu-login": "Jib lni",
-	"mobile-frontend-placeholder": "Bag (SITENAME) l jugun",
+	"mobile-frontend-placeholder": "Bag {{SITENAME}} l jugun",
 	"mobile-frontend-random-button": "Yɔyɔ"
 }
