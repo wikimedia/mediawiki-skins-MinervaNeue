@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"RFScott"
 		]
 	},
 	"mobile-frontend-language-article-heading": "Хэсэ",
 	"mobile-frontend-logged-in-homepage-notification": "$1, бачигоапу!",
+	"mobile-frontend-main-menu-login": "Ӣури",
 	"mobile-frontend-placeholder": "Гэлэури неду: {{SITENAME}}"
 }
