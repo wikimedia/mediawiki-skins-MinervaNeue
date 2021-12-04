@@ -45,6 +45,8 @@ ul.special {
 		font-style: italic;
 		line-height: 1.4em;
 		padding: 0.5em 0;
+		// avoid overflows on very long words in edit summaries (T297045)
+		max-width: 100%;
 	}
 }
 
