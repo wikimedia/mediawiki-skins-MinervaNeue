@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"AC Krah",
+			"Robertjamal12"
+		]
+	},
+	"mobile-frontend-history": "Hwɛ kratafa yi abakwasɛm",
+	"mobile-frontend-home-button": "Fie",
+	"mobile-frontend-language-article-heading": "Kasa",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Akwaaba}}, $1!",
+	"mobile-frontend-main-menu-login": "Kɔm.",
+	"mobile-frontend-main-menu-settings": "Beaɛ a biribi rekɔso.",
+	"mobile-frontend-placeholder": "Hwehwɛ {{SITENAME}}",
+	"mobile-frontend-random-button": "Yi bia"
+}

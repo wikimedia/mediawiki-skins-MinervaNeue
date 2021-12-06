@@ -47,6 +47,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pievienojās}} $1",
 	"mobile-frontend-user-page-talk": "Diskusija",
 	"minerva-user-menu-button": "Dalībnieka izvēlne",
+	"minerva-user-navigation": "Lietotāja navigācija",
 	"minerva-page-actions-overflow": "Vairāk",
 	"minerva-page-actions-info": "Lapas informācija",
 	"minerva-page-actions-permalink": "Pastāvīgā saite",

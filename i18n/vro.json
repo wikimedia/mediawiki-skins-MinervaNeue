@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Võrok"
+			"Võrok",
+			"Adeliine"
 		]
 	},
 	"mobile-frontend-editor-edit": "Toimõndaq",
 	"mobile-frontend-home-button": "Pääleht",
-	"mobile-frontend-language-article-heading": "Loeq tõõsõn keelen",
+	"mobile-frontend-language-article-heading": "Kiil",
+	"mobile-frontend-logged-in-homepage-notification": "Olõq terveq tulõma, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Tiiq vallalõ päävalik",
 	"mobile-frontend-main-menu-login": "Nimega sisseminek",
 	"mobile-frontend-main-menu-nearby": "Lähkün",

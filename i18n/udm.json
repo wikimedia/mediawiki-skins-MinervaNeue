@@ -3,19 +3,30 @@
 		"authors": [
 			"AlnashPiyash2",
 			"Kaganer",
-			"Wadorgurt"
+			"Wadorgurt",
+			"Kotwys"
 		]
 	},
-	"mobile-frontend-editor-edit": "Тупатон",
+	"minerva-last-modified-date": "Берпуметӥзэ $1 $2 часэ тупатэмын вал",
+	"minerva-watchlist-cta": "Та бамез но сое ваньмыз тупатэмъёсты чаклалэ.",
+	"minerva-talk-add-topic": "Вераськон ватсано",
+	"mobile-frontend-editor-edit": "Тупатоно",
+	"minerva-download": "PDF кысконо",
+	"mobile-frontend-editor-redlink-create": "Бам кылдытоно",
+	"mobile-frontend-editor-redlink-explain": "Та бамез кылдытӥллямтэ на.",
+	"mobile-frontend-editor-redlink-leave": "Тау, кулэ ӧвӧл",
 	"mobile-frontend-home-button": "Доре",
-	"mobile-frontend-language-article-heading": "Мукет кылын лыдӟыны",
-	"mobile-frontend-main-menu-button-tooltip": "Валтӥсь меню усьтыны",
+	"mobile-frontend-language-article-heading": "Кыл",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Гажаса ӧтиськом}}, $1!",
+	"mobile-frontend-main-menu-button-tooltip": "Валтӥсь менюез усьтыны",
 	"mobile-frontend-main-menu-login": "Пырыны",
 	"mobile-frontend-main-menu-logout": "Потыны",
-	"mobile-frontend-main-menu-nearby": "Матысьёсыз",
+	"mobile-frontend-main-menu-nearby": "Матысь",
 	"mobile-frontend-main-menu-settings": "Настройкаос",
 	"mobile-frontend-main-menu-watchlist": "Чаклан список",
+	"mobile-frontend-notifications-filter": "Сӥсъян",
 	"mobile-frontend-pageaction-edit-tooltip": "Та бамлэсь валтӥсь люкетсэ тупатыны.",
-	"mobile-frontend-placeholder": "Утчано {{SITENAME}}",
-	"mobile-frontend-random-button": "Олокыӵе"
+	"mobile-frontend-placeholder": "Утчано {{SITENAME}}ысь",
+	"mobile-frontend-random-button": "Олокыӵе",
+	"mobile-frontend-user-page-talk": "Вераськон"
 }

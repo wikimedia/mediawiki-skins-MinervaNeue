@@ -6,10 +6,11 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Ивын",
-	"mobile-frontend-home-button": "Райдианмæ",
-	"mobile-frontend-language-article-heading": "Æндæр æвзæгтыл",
+	"mobile-frontend-home-button": "Сæйраг",
+	"mobile-frontend-language-article-heading": "Æвзаг",
+	"mobile-frontend-main-menu-login": "Бахиз",
 	"mobile-frontend-main-menu-nearby": "Мæ цуры",
-	"mobile-frontend-main-menu-settings": "Æвæрдтытæ",
+	"mobile-frontend-main-menu-settings": "Æрмадз",
 	"mobile-frontend-main-menu-watchlist": "Цæстдард",
 	"mobile-frontend-placeholder": "{{grammar:genitive|{{SITENAME}}}} агурын",
 	"mobile-frontend-random-button": "Халæй"

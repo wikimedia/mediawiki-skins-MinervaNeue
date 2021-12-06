@@ -8,7 +8,8 @@
 			"Movses",
 			"Piramidion",
 			"Ата",
-			"Максим Підліснюк"
+			"Максим Підліснюк",
+			"DDPAT"
 		]
 	},
 	"minerva-last-modified-date": "Останнє редагування: $1, $2",
@@ -45,7 +46,7 @@
 	"mobile-frontend-redirected-from": "Перенаправлено з «[[$1]]»",
 	"mobile-frontend-talk-back-to-filepage": "Повернутися до файлу «$1».",
 	"mobile-frontend-talk-back-to-page": "Повернутися до сторінки «$1»",
-	"mobile-frontend-talk-back-to-projectpage": "Повернутися на сторінку проекту «$1».",
+	"mobile-frontend-talk-back-to-projectpage": "Повернутися на сторінку проєкту «$1».",
 	"mobile-frontend-talk-back-to-userpage": "Повернутися на сторінку {{GENDER:$1|користувача|користувачки}} «$1».",
 	"mobile-frontend-user-button-tooltip": "Показати мої сповіщення",
 	"mobile-frontend-user-newmessages": "У Вас є нові повідомлення на Вашій сторінці обговорення",
@@ -69,11 +70,14 @@
 	"minerva-talk-full-page": "Читати як вікісторінку",
 	"minerva-talk-topic-feedback": "На сторінку обговорення додано нову тему!",
 	"minerva-talk-reply-success": "Вашу відповідь збережено на сторінці обговорення.",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Перша адаптивна мобільна тема оформлення",
 	"skin-minerva-issue-learn-more": "Дізнатися більше",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Категорії",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Переглянути категорії сторінок",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Поліпшене вирішення проблем сторінки",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблеми сторінки (шаблон:ambox) буде прописано в статті.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "На жаль, групування результатів за сторінками не доступне у мобільному вигляді. Якщо ви хочете скористатися функцією групування за сторінками, будь ласка, відкрийте стаціонарну версію сайту."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "На жаль, групування результатів за сторінками не доступне у мобільному вигляді. Якщо ви хочете скористатися функцією групування за сторінками, будь ласка, відкрийте стаціонарну версію сайту.",
+	"minerva.css": "/* Усі CSS тут будуть завантажені для користувачів скіна MinervaNeue */",
+	"minerva.js": "/* Усі JavaScript тут будуть завантажені для користувачів скіна MinervaNeue */"
 }

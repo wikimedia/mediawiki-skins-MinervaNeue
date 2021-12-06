@@ -9,7 +9,8 @@
 			"Nikosguard",
 			"SucreRouge",
 			"ZaDiak",
-			"Ανώνυμος Βικιπαιδιστής"
+			"Ανώνυμος Βικιπαιδιστής",
+			"NikosLikomitros"
 		]
 	},
 	"minerva-last-modified-date": "Τελευταία επεξεργασία στις $1, στις $2",
@@ -22,7 +23,7 @@
 	"mobile-frontend-editor-redlink-leave": "Όχι, ευχαριστώ",
 	"mobile-frontend-history": "Προβολή ιστορικού επεξεργασιών αυτή της σελίδας.",
 	"mobile-frontend-home-button": "Αρχική σελίδα",
-	"mobile-frontend-language-article-heading": "Διαβάστε σε άλλη γλώσσα",
+	"mobile-frontend-language-article-heading": "Γλώσσα",
 	"mobile-frontend-languages-not-available": "Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Καλώς ορίσατε}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Άνοιγμα κυρίου μενού",

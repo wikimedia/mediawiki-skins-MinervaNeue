@@ -38,5 +38,6 @@
 	"mobile-frontend-user-newmessages": "განხილვის გვერდზე ახალი შეტყობინებები გაქვთ",
 	"mobile-frontend-user-page-contributions": "წვლილი",
 	"mobile-frontend-user-page-member-since": "წევრი $1-დან",
-	"mobile-frontend-user-page-talk": "განხილვა"
+	"mobile-frontend-user-page-talk": "განხილვა",
+	"minerva-page-actions-overflow": "მეტი"
 }

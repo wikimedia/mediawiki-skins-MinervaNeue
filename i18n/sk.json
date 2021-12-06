@@ -6,7 +6,10 @@
 			"Luky001",
 			"Teslaton",
 			"TomášPolonec",
-			"Wizzard"
+			"Wizzard",
+			"Dušan Kreheľ",
+			"Jaroslav.micek",
+			"Yardom78"
 		]
 	},
 	"minerva-last-modified-date": "Naposledy upravené $1 o $2",
@@ -21,7 +24,7 @@
 	"mobile-frontend-home-button": "Domov",
 	"mobile-frontend-language-article-heading": "Jazyk",
 	"mobile-frontend-languages-not-available": "Táto stránka nie je k dispozícii v iných jazykoch",
-	"mobile-frontend-logged-in-homepage-notification": "Vitaj, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Vitaj}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Otvoriť hlavné menu",
 	"mobile-frontend-main-menu-contributions": "Príspevky",
 	"mobile-frontend-main-menu-login": "Prihlásiť sa",
@@ -37,7 +40,7 @@
 	"mobile-frontend-meta-data-issues-talk": "O tejto diskusii",
 	"mobile-frontend-notifications-filter": "Filter",
 	"mobile-frontend-pageaction-edit-tooltip": "Upraviť úvodnú sekciu tejto stránky",
-	"mobile-frontend-placeholder": "Hľadanie na {{grammar:lokál|{{SITENAME}}}}",
+	"mobile-frontend-placeholder": "Hľadať na stránke {{SITENAME}}",
 	"mobile-frontend-random-button": "Náhodná",
 	"mobile-frontend-redirected-from": "Presmerované z „[[$1]]“",
 	"mobile-frontend-talk-back-to-filepage": "Vrátiť sa k súboru „$1“.",

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"ChoiChong",
+			"Jobrz0405"
+		]
+	},
+	"mobile-frontend-language-article-heading": "言葉（くとぅば）",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|メンソーレー}}、$1さん!",
+	"mobile-frontend-placeholder": "{{SITENAME}}を探すん"
+}

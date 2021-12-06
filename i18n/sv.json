@@ -73,5 +73,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Visa kategorier över sidor",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Förbättrad behandling av sidproblem",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sidproblem (Template:ambox) kommer att visas i artikeln.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Tyvärr är inte grupperade resultat tillgängligt på mobiler. Besök datorwebbplatsen om du vill använda sidgrupperingsfunktionen."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Tyvärr är inte grupperade resultat tillgängligt på mobiler. Besök datorwebbplatsen om du vill använda sidgrupperingsfunktionen.",
+	"minerva.css": "/* All CSS här kommer att läsas in för de som använder utseendet MinervaNeue */",
+	"minerva.js": "/* All JavaScript här kommer att läsas in för alla som använder utseendet MinervaNeue */"
 }

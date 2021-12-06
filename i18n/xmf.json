@@ -1,21 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Silovan"
+			"Silovan",
+			"Narazeni"
 		]
 	},
 	"mobile-frontend-editor-edit": "რედაქტირაფა",
 	"mobile-frontend-editor-redlink-create": "ხასჷლაშ დორსხუაფა",
 	"mobile-frontend-editor-redlink-explain": "თე ხასჷლა დიო ვარე დორსხუაფილი {{SITENAME}}-ს.",
 	"mobile-frontend-editor-redlink-leave": "ვარი, უზომე მარდი",
-	"mobile-frontend-home-button": "დუდხასჷლაშა",
-	"mobile-frontend-language-article-heading": "შხვა ნინაშა კითხირი",
+	"mobile-frontend-history": "თე ხასჷლაშ რედაქტირაფაშ ისტორიაშ ძირაფა.",
+	"mobile-frontend-home-button": "დუდხასჷლა",
+	"mobile-frontend-language-article-heading": "ნინა",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|მოზოჯით}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "თარ მენიუშა მიშულა",
 	"mobile-frontend-main-menu-login": "მიშულა",
 	"mobile-frontend-main-menu-nearby": "გოხოლუას",
 	"mobile-frontend-main-menu-settings": "პარამეტრეფი",
 	"mobile-frontend-main-menu-watchlist": "კონტროლიშ ერკებული",
 	"mobile-frontend-pageaction-edit-tooltip": "თე ხასჷლაშ მაჸვენჯი გნნართიშ რედაქტირაფა.",
-	"mobile-frontend-placeholder": "გორუა {{SITENAME}}",
+	"mobile-frontend-placeholder": "გორუა {{SITENAME}}ს",
 	"mobile-frontend-random-button": "ნამდგარენ ხასჷლა"
 }

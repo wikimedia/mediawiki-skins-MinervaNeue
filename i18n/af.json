@@ -3,7 +3,8 @@
 		"authors": [
 			"Fwolff",
 			"Joris Darlington Quarshie",
-			"Naudefj"
+			"Naudefj",
+			"MinecraftAustralia"
 		]
 	},
 	"mobile-frontend-editor-edit": "Wysig",
@@ -12,7 +13,7 @@
 	"mobile-frontend-editor-redlink-leave": "Nee dankie",
 	"mobile-frontend-history": "Wys wysigingsgeskiedenis van dié bladsy.",
 	"mobile-frontend-home-button": "Tuisblad",
-	"mobile-frontend-language-article-heading": "Lees in 'n ander taal",
+	"mobile-frontend-language-article-heading": "Taal",
 	"mobile-frontend-languages-not-available": "Dié bladsy is nie beskikbaar in ander tale nie.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Welkom}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Maak hoofkeuseskerm oop",

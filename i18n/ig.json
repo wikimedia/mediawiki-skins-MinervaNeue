@@ -1,13 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ukabia"
+			"Ukabia",
+			"Tochiprecious",
+			"Uzoma Ozurumba",
+			"Weather Top Wizard"
 		]
 	},
 	"mobile-frontend-editor-edit": "Mèzi",
+	"mobile-frontend-language-article-heading": "Asụsụ",
+	"mobile-frontend-logged-in-homepage-notification": "{{Gender: $1|Nnọọ}}, $1!",
 	"mobile-frontend-main-menu-contributions": "Mmètàrà",
 	"mobile-frontend-main-menu-watchlist": "Ùlìle",
-	"mobile-frontend-placeholder": "Tu nà {{SITENAME}}",
+	"mobile-frontend-placeholder": "Chọọ na {{SITENAME}}",
 	"mobile-frontend-user-page-contributions": "Mmètàrà",
 	"mobile-frontend-user-page-talk": "Nkàta",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Ụdàkọ"

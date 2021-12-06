@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"علی ساکی لرستانی"
+			"علی ساکی لرستانی",
+			"Bluehamed"
 		]
 	},
 	"mobile-frontend-editor-edit": "ئیصلاح",
@@ -14,5 +15,5 @@
 	"mobile-frontend-main-menu-watchlist": "فهرست پیگیری یل",
 	"mobile-frontend-pageaction-edit-tooltip": "ئیصلاح بأخش سرب د ئی بألگە",
 	"mobile-frontend-placeholder": "جۉستأن {{SITENAME}}",
-	"mobile-frontend-random-button": "بأختە کی"
+	"mobile-frontend-random-button": "شانسٱکی"
 }

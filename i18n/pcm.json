@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Samatics"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Language",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Welkom}}, $1!",
+	"mobile-frontend-main-menu-login": "Enter inside",
+	"mobile-frontend-placeholder": "Search {{SITENAME}}"
+}

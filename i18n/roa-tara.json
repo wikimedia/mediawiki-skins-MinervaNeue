@@ -62,11 +62,14 @@
 	"minerva-talk-full-page": "Lìgge cu 'na pàgene uicchi",
 	"minerva-talk-topic-feedback": "Argomende nuève aggiunde sus 'a pàgene de le 'ngazzaminde!",
 	"minerva-talk-reply-success": "'A resposta toje ha state reggistrate jndr'à pàgene de le 'ngazzaminde.",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "'U prime skin responsive pu mobbile",
 	"skin-minerva-issue-learn-more": "'Mbare de cchiù",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorije",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "'Ndruche le categorije de sta pàgene",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Pàgena migliorate trattaminde pe l'errore",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Probbleme d'a pàgene (Template:ambox) onna essere mise in linèe jndr'à vôsce.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Sfortunatamende, le resultate raggruppate pe pàgene non ge sò disponibbele sus a 'u mobbile. Ce vuè ccu ause 'a funzione de le gruppe pe pàgene pe piacere 'ndruche 'u site in versione desktop."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Sfortunatamende, le resultate raggruppate pe pàgene non ge sò disponibbele sus a 'u mobbile. Ce vuè ccu ause 'a funzione de le gruppe pe pàgene pe piacere 'ndruche 'u site in versione desktop.",
+	"minerva.css": "/* Tutte le CSS aqquà avène carecate pe le utinde ca ausane 'a masckere MinervaNeue */",
+	"minerva.js": "/* Tutte le JavaScript aqquà avène carecate pe le utinde ca ausane 'a masckere MinervaNeue */"
 }

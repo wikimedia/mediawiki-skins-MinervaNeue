@@ -4,20 +4,21 @@
 			"Espreon",
 			"Gott wisst",
 			"JJohnson1701",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Heahwrita"
 		]
 	},
-	"mobile-frontend-editor-edit": "Ādihtan",
-	"mobile-frontend-home-button": "Hām",
-	"mobile-frontend-language-article-heading": "Rǣdan on ōðrum gereordum",
+	"mobile-frontend-editor-edit": "Adiht",
+	"mobile-frontend-home-button": "Ham",
+	"mobile-frontend-language-article-heading": "Spræc",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Wilcume}}, $1!",
-	"mobile-frontend-main-menu-button-tooltip": "Openian hēafodlic getæl",
-	"mobile-frontend-main-menu-login": "Inmeldian",
-	"mobile-frontend-main-menu-logout": "Ūtmeldian",
-	"mobile-frontend-main-menu-nearby": "Nēah",
-	"mobile-frontend-main-menu-settings": "Setednessa",
+	"mobile-frontend-main-menu-button-tooltip": "Opena heafodlic getæl",
+	"mobile-frontend-main-menu-login": "Foh to wisbec",
+	"mobile-frontend-main-menu-logout": "Blinn þinre wisbec",
+	"mobile-frontend-main-menu-nearby": "Neah",
+	"mobile-frontend-main-menu-settings": "Cysta",
 	"mobile-frontend-main-menu-watchlist": "Behealdunggetæl",
-	"mobile-frontend-pageaction-edit-tooltip": "Adihtan þone forman dǣl þisses trametes.",
-	"mobile-frontend-placeholder": "Sēcan on {{SITENAME}}",
-	"mobile-frontend-random-button": "Wēasgelimplic"
+	"mobile-frontend-pageaction-edit-tooltip": "Adiht þone forman dæl þisses trametes",
+	"mobile-frontend-placeholder": "Sec on {{SITENAME}}",
+	"mobile-frontend-random-button": "Weasgelimplic"
 }

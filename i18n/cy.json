@@ -3,14 +3,15 @@
 		"authors": [
 			"Ham II",
 			"Lloffiwr",
-			"Robin Owain"
+			"Robin Owain",
+			"Troswr"
 		]
 	},
 	"mobile-frontend-editor-edit": "Golygu",
 	"mobile-frontend-history": "Gweld hanes golygu'r dudalen hon.",
 	"mobile-frontend-home-button": "Hafan",
-	"mobile-frontend-language-article-heading": "Darllen mewn iaith arall",
-	"mobile-frontend-logged-in-homepage-notification": "Croeso, $1!",
+	"mobile-frontend-language-article-heading": "Iaith",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Croeso}} i $1",
 	"mobile-frontend-main-menu-button-tooltip": "Agor y brif ddewislen",
 	"mobile-frontend-main-menu-login": "Mewngofnodi",
 	"mobile-frontend-main-menu-logout": "Allgofnodi",

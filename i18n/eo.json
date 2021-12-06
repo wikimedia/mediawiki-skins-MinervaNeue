@@ -7,7 +7,9 @@
 			"Mirin",
 			"Robin van der Vliet",
 			"Yekrats",
-			"YvesNevelsteen"
+			"YvesNevelsteen",
+			"Jakub Fabijan",
+			"NMaia"
 		]
 	},
 	"minerva-last-modified-date": "Laste redaktita je $1, $2",
@@ -59,6 +61,7 @@
 	"minerva-page-actions-logs": "Protokoloj",
 	"minerva-page-actions-wikibase": "ero de {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "Lingvoj",
+	"minerva-page-actions-history": "Historio",
 	"minerva-skin-desc": "Respondema etoso por poŝaparatoj",
 	"skin-minerva-issue-learn-more": "Ekscii pli",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategorioj",

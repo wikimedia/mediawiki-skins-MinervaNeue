@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Menachem.Moreira",
-			"Universal Life"
+			"Universal Life",
+			"WikiiiTranslator"
 		]
 	},
 	"mobile-frontend-editor-edit": "Trocar",
 	"mobile-frontend-home-button": "Kaza",
+	"mobile-frontend-language-article-heading": "Lingua",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Venidos buenos}}, $1!",
 	"mobile-frontend-placeholder": "Bushka en {{SITENAME}}"
 }

@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"ChoiChong"
+		]
+	},
+	"mobile-frontend-language-article-heading": "言语",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|欢迎}}，$1！",
+	"mobile-frontend-placeholder": "去寻{{SITENAME}}"
+}

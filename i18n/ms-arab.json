@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tofeiku"
+		]
+	},
+	"mobile-frontend-language-article-heading": "بهاس",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|سلامت داتڠ}}، $1!",
+	"mobile-frontend-main-menu-contributions": "سومبڠن",
+	"mobile-frontend-placeholder": "چاري دالم {{SITENAME}}",
+	"mobile-frontend-user-page-contributions": "سومبڠن"
+}

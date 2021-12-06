@@ -4,7 +4,8 @@
 			"Artsiom91",
 			"Mikalai Udodau",
 			"Vlad5250",
-			"Чаховіч Уладзіслаў"
+			"Чаховіч Уладзіслаў",
+			"Maksim L."
 		]
 	},
 	"minerva-last-modified-date": "Апошнія змены $1 а $2",
@@ -14,7 +15,7 @@
 	"mobile-frontend-editor-redlink-leave": "Не, дзякуй",
 	"mobile-frontend-history": "Глядзець гісторыю правак гэтай старонкі.",
 	"mobile-frontend-home-button": "Галоўная",
-	"mobile-frontend-language-article-heading": "Чытаць на іншай мове",
+	"mobile-frontend-language-article-heading": "Мова",
 	"mobile-frontend-languages-not-available": "Гэтая старонка не даступная на іншых мовах.",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Вітаем}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Адкрыць галоўнае меню",
@@ -30,7 +31,7 @@
 	"mobile-frontend-meta-data-issues-talk": "Пра гэтую размоўную старонку",
 	"mobile-frontend-notifications-filter": "Фільтр",
 	"mobile-frontend-pageaction-edit-tooltip": "Правіць вядучы раздзел старонкі",
-	"mobile-frontend-placeholder": "Шукаць у {{GRAMMAR:месны|{{SITENAME}}}}",
+	"mobile-frontend-placeholder": "Знайсці ў {{GRAMMAR:месны|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Выпадкова",
 	"mobile-frontend-user-button-tooltip": "Паказаць мае паведамленні",
 	"mobile-frontend-user-page-contributions": "Уклад",

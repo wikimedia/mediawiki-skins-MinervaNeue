@@ -5,10 +5,12 @@
 			"Kghbln",
 			"Metalhead64",
 			"Tobi 406",
-			"WikiBayer"
+			"WikiBayer",
+			"Umherirrender"
 		]
 	},
 	"minerva-last-modified-date": "Zuletzt bearbeitet am $1 um $2",
+	"minerva-watchlist-cta": "Verfolge diese Seite und alle Änderungen an ihr.",
 	"minerva-talk-add-topic": "Diskussion hinzufügen",
 	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktiviere sie und versuche es erneut.",
 	"mobile-frontend-editor-edit": "Bearbeiten",
@@ -49,6 +51,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Beigetreten}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"minerva-user-menu-button": "Benutzermenü",
+	"minerva-user-navigation": "Weitere Navigation",
 	"minerva-page-actions-overflow": "Mehr",
 	"minerva-page-actions-info": "Seiteninformationen",
 	"minerva-page-actions-permalink": "Permanentlink",

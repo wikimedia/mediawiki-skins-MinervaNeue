@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gothicspeaker"
+			"Gothicspeaker",
+			"Iohanen"
 		]
 	},
 	"mobile-frontend-editor-edit": "𐌹𐌽𐌼𐌰𐌹𐌳𐌴𐌹",
 	"mobile-frontend-home-button": "𐌲𐌰𐍂𐌳𐍃",
-	"mobile-frontend-language-article-heading": "𐌿𐍃𐍃𐌹𐌲𐌲𐍅 𐌹𐌽 𐌰𐌽𐌸𐌰𐍂𐌰𐌹 𐍂𐌰𐌶𐌳𐌰𐌹",
+	"mobile-frontend-language-article-heading": "𐍂𐌰𐌶𐌳𐌰",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Wiljaquma}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "𐌿𐍃𐌻𐌿𐌺 𐌷𐌰𐌿𐌱𐌹𐌳𐌰𐍅𐌰𐌻𐌴𐌹𐌽𐌹𐍅𐌹𐌺𐍉𐌽",
 	"mobile-frontend-main-menu-login": "𐌰𐍄𐌲𐌰𐌲𐌲",
 	"mobile-frontend-main-menu-nearby": "𐌽𐌴𐍈𐌰",

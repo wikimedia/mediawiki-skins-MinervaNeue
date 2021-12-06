@@ -7,7 +7,10 @@
 	},
 	"mobile-frontend-editor-edit": "Kümeelün",
 	"mobile-frontend-home-button": "Llitun",
+	"mobile-frontend-language-article-heading": "Kewünh",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Küme akukonpaymi}}, $1!",
 	"mobile-frontend-main-menu-login": "Konkülen",
 	"mobile-frontend-pageaction-edit-tooltip": "Elkünufinge tüfachi pakina ñi ünengechi trokiñ.",
+	"mobile-frontend-placeholder": "Kintun {{SITENAME}} mew",
 	"minerva-talk-full-page": "Chilcatun chum tapül mew wiki"
 }

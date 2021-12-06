@@ -64,5 +64,7 @@
 	"skin-minerva-issue-learn-more": "Lisateave",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategooriad",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Näita lehekülgede kategooriaid.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Mobiilivaates kahjuks ei saa tulemusi lehekülje kaupa rühmitada. Kui soovid lehekülje kaupa rühmitamise funktsiooni kasutada, siis palun külasta saiti lauaarvuti vaates."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Mobiilivaates kahjuks ei saa tulemusi lehekülje kaupa rühmitada. Kui soovid lehekülje kaupa rühmitamise funktsiooni kasutada, siis palun külasta saiti lauaarvuti vaates.",
+	"minerva.css": "/* Siin asuv kaskaadilaadistik laaditakse kõigi kujunduse MinervaNeue kasutajate jaoks. */",
+	"minerva.js": "/* Siin asuv JavaScript laaditakse kõigi kujunduse MinervaNeue kasutajate jaoks. */"
 }

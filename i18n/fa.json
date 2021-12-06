@@ -14,11 +14,12 @@
 			"Ladsgroup",
 			"Mahdy Saffar",
 			"Mjbmr",
-			"Reza1615"
+			"Reza1615",
+			"Mohammad ebz"
 		]
 	},
 	"minerva-last-modified-date": "آخرین‌بار در $1، $2 ویرایش شده‌است",
-	"minerva-watchlist-cta": "پیگیری این برگه و همۀ تغییرات آن",
+	"minerva-watchlist-cta": "پی‌گیری این صفحه و همۀ تغییرات آن",
 	"minerva-talk-add-topic": "اضافه‌کردن بحث",
 	"mobile-frontend-cookies-required": "کوکی‌ها برای تعویض روش‌های نمایش مورد نیاز هستند. لطفاً آن‌ها را فعال کنید و دوباره امتحان کنید.",
 	"mobile-frontend-editor-edit": "ویرایش",
@@ -70,7 +71,7 @@
 	"minerva-page-actions-language-switcher": "زبان‌ها",
 	"minerva-page-actions-history": "تاریخچه",
 	"minerva-talk-explained": "بحث‌های فعال",
-	"minerva-talk-explained-empty": "هیچ بحثی در این برگه نیست.",
+	"minerva-talk-explained-empty": "هیچ بحثی در این صفحه نیست.",
 	"minerva-talk-full-page": "خواندن به‌عنوان برگۀ ویکی",
 	"minerva-talk-topic-feedback": "جستار تازه به صفحۀ بحث افزوده شد!",
 	"minerva-talk-reply-success": "پاسخ شما در صفحۀ بحث ذخیره شد.",
@@ -79,5 +80,5 @@
 	"skin-minerva-issue-learn-more": "بیشتر بدانید",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "نمایش رده‌های صفحات",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "مشکلات بهبود یافته در برگه"
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "مشکلات بهبود یافته در صفحه"
 }

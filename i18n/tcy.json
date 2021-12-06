@@ -5,12 +5,14 @@
 			"Kiranpoojary",
 			"Lokesha kunchadka",
 			"VASANTH S.N.",
-			"Vishwanatha Badikana"
+			"Vishwanatha Badikana",
+			"Chidananda Kampa"
 		]
 	},
 	"mobile-frontend-editor-edit": "ಸಂಪೊಲಿಪುಲೆ",
-	"mobile-frontend-home-button": "ಮುಖ್ಯಪುಟ",
-	"mobile-frontend-language-article-heading": "ನನೊಂಜಿ ಬಾಸೆಡ್ ಓದ್‌ಲೆ",
+	"mobile-frontend-home-button": "ಇಲ್ಲಗ್",
+	"mobile-frontend-language-article-heading": "ಬಾಸೆ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ಸ್ವಾಗತ}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "ಮುಕ್ಯೊ ಪರಿವಿಡಿ ತೋಜಾಲೆ",
 	"mobile-frontend-main-menu-login": "ಲಾಗಿನ್ ಆಲೆ",
 	"mobile-frontend-main-menu-nearby": "ಕೈತಲ್‍ದ",
@@ -18,5 +20,5 @@
 	"mobile-frontend-main-menu-watchlist": "ವೀಕ್ಷಣಾಪಟ್ಟಿ",
 	"mobile-frontend-pageaction-edit-tooltip": "ಈ ಪುಟೊದ ಪ್ರಮುಕೊ ವಿಬಾಗೊನು ಸಂಪೊಲಿಪುಲೆ.",
 	"mobile-frontend-placeholder": "{{SITENAME}}ನ್ ನಾಡ್‍ಲೆ",
-	"mobile-frontend-random-button": "ಗೊತ್ತು ಗುರಿದಾಂತಿನ"
+	"mobile-frontend-random-button": "ಒವ್ವಾಂಡಲ"
 }

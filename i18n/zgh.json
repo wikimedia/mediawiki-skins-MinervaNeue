@@ -5,18 +5,23 @@
 			"Aslmad mohamed belarhzali",
 			"Mdb897",
 			"YesIn",
-			"ⵕⴰⵊⵉ"
+			"ⵕⴰⵊⵉ",
+			"Brahim-essaidi",
+			"Hakim1bal"
 		]
 	},
 	"mobile-frontend-editor-edit": "ⵙⵏⴼⵍ",
 	"mobile-frontend-home-button": "ⴰⵙⵏⵓⴱⴳ",
-	"mobile-frontend-language-article-heading": "ⵖⵔ ⵙ ⴽⵔⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵢⴰⴹⵏ",
-	"mobile-frontend-main-menu-button-tooltip": "ⵔⵥⵎ ⵜⴰⵍⴳⴰⵎⵜ ⵜⴰⴷⵙⵍⴰⵏⵜ",
+	"mobile-frontend-language-article-heading": "ⵜⵓⵜⵍⴰⵢⵜ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ⴱⵔⵔⴽ}}, $1!",
+	"mobile-frontend-main-menu-button-tooltip": "ⵕⵥⵎ ⵓⵎⵓⵖ ⵏ ⵓⵙⵏⵓⴱⴳ",
 	"mobile-frontend-main-menu-login": "ⴽⵛⵎ",
 	"mobile-frontend-main-menu-settings": "ⵜⵉⵙⵖⴰⵍ",
 	"mobile-frontend-main-menu-watchlist": "ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵔ",
+	"mobile-frontend-meta-data-issues-header-talk": "ⵖⴼ ⵜⵙⵏⴰ ⴰⴷ",
 	"mobile-frontend-placeholder": "ⵔⵣⵓ ⴳ {{SITENAME}}",
 	"mobile-frontend-random-button": "ⴰⴷⵀⵎⴰⵙ",
+	"minerva-page-actions-language-switcher": "ⵜⵓⵜⵍⴰⵢⵉⵏ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "ⵉⵙⵎⵉⵍⵏ",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "ⵥⵕ ⵉⵙⵎⵉⵍⵏ ⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ"
 }

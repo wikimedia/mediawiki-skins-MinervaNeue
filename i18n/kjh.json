@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"AlexandrL714",
+			"Joseph"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Тіл",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Аалҷы полыңар}}, $1!",
+	"mobile-frontend-placeholder": "Тілирге {{SITENAME}}"
+}

@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Carlos Cristia"
+			"Carlos Cristia",
+			"Willtron"
 		]
 	},
 	"mobile-frontend-editor-edit": "Editar",
 	"mobile-frontend-home-button": "Portalada",
+	"mobile-frontend-language-article-heading": "Idioma",
+	"mobile-frontend-logged-in-homepage-notification": "¡{{GENDER:$1|Bienveniu|Bienvenida}}, $1!",
 	"mobile-frontend-main-menu-login": "Encetar sesión",
 	"mobile-frontend-placeholder": "Mirar en {{SITENAME}}",
 	"mobile-frontend-random-button": "Aliatorio"
