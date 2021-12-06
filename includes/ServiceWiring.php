@@ -84,8 +84,12 @@ return [
 			 * @var SkinUserPageHelper $userPageHelper
 			 */
 			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
+			// FIXME: RequestContext should not be accessed in service container.
 			$context = RequestContext::getMain();
 			$title = $context->getTitle();
+			if ( !$title ) {
+				$title = SpecialPage::getTitleFor( 'Badtitle' );
+			}
 			$user = $context->getUser();
 			$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
 			$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
