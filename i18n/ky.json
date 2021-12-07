@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Janatkg"
+			"Janatkg",
+			"Bosogo"
 		]
 	},
 	"mobile-frontend-editor-edit": "Оңдоо",
 	"mobile-frontend-home-button": "Башкы",
-	"mobile-frontend-language-article-heading": "Башка тилде окуу",
+	"mobile-frontend-language-article-heading": "Башка тилинде окуу",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Кош келиңиз}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Башбаракты ачуу",
 	"mobile-frontend-main-menu-login": "Кирүү",
 	"mobile-frontend-main-menu-nearby": "Жакынкы",

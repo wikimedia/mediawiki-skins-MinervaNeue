@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Katelem"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Usem",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Onu}}, $1!",
+	"mobile-frontend-placeholder": "Wèek {{SITENAME}}"
+}

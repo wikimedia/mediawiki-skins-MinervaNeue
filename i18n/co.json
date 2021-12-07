@@ -4,5 +4,8 @@
 			"Jun Misugi"
 		]
 	},
-	"mobile-frontend-editor-edit": "Mudificà"
+	"mobile-frontend-editor-edit": "Mudificà",
+	"mobile-frontend-language-article-heading": "Lingua",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvenutu}}, $1!",
+	"mobile-frontend-placeholder": "Circà in {{SITENAME}}"
 }

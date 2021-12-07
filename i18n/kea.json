@@ -5,5 +5,8 @@
 			"Waldyrious"
 		]
 	},
-	"mobile-frontend-editor-edit": "Muda"
+	"mobile-frontend-editor-edit": "Muda",
+	"mobile-frontend-language-article-heading": "Língua",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvindo|Benvinda}}, $1!",
+	"mobile-frontend-placeholder": "Buska na {{SITENAME}}"
 }

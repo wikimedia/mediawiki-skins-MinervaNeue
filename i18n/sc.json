@@ -2,8 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Taxandru",
-			"Via maxima"
+			"Via maxima",
+			"L2212"
 		]
 	},
-	"mobile-frontend-editor-edit": "Modìfica"
+	"mobile-frontend-editor-edit": "Modìfica",
+	"mobile-frontend-language-article-heading": "Limba",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bene bènnidu|Bene bènnida|Bene bènnidu/a}}, $1!",
+	"mobile-frontend-placeholder": "Chirca in intro de {{SITENAME}}"
 }

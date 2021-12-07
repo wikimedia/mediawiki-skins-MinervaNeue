@@ -1,14 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hangmanwa7id"
+			"Hangmanwa7id",
+			"Beunice"
 		]
 	},
 	"mobile-frontend-editor-edit": "Changer",
 	"mobile-frontend-home-button": "Accueil",
+	"mobile-frontend-language-article-heading": "Langue",
+	"mobile-frontend-logged-in-homepage-notification": "Bienvenue, {{GENDER:$1|}}$1 !",
 	"mobile-frontend-main-menu-login": "Connecter",
 	"mobile-frontend-main-menu-settings": "Configuration",
 	"mobile-frontend-main-menu-watchlist": "Mes pages guettées",
-	"mobile-frontend-placeholder": "Charcher sur {{SITENAME}}",
+	"mobile-frontend-placeholder": "Charche {{SITENAME}}",
 	"mobile-frontend-random-button": "Au hasard"
 }

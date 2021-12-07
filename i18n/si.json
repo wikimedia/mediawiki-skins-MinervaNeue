@@ -4,13 +4,14 @@
 			"Roonyh",
 			"පසිඳු කාවින්ද",
 			"හරිත",
-			1100100
+			1100100,
+			"Shwetha"
 		]
 	},
 	"mobile-frontend-editor-edit": "සංස්කරණය",
 	"mobile-frontend-home-button": "මුල් පිටුව",
-	"mobile-frontend-language-article-heading": "වෙන භාෂාවකින් කියවන්න",
-	"mobile-frontend-logged-in-homepage-notification": "ආයුබෝවන්, $1!",
+	"mobile-frontend-language-article-heading": "භාෂාව",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ආයුබෝවන්}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "ප්‍රධාන මෙනුව විවෘත කරන්න",
 	"mobile-frontend-main-menu-login": "පිවිසෙන්න",
 	"mobile-frontend-main-menu-logout": "නික්මීම",
@@ -21,7 +22,7 @@
 	"mobile-frontend-meta-data-issues-categories": "මෙම ප්‍රවර්ගය ගැන",
 	"mobile-frontend-meta-data-issues-header": "වාදපද",
 	"mobile-frontend-pageaction-edit-tooltip": "මෙම පිටුවේ මුල් ඡේදය සංස්කරණය කරන්න.",
-	"mobile-frontend-placeholder": "{{SITENAME}} හොයන්න",
+	"mobile-frontend-placeholder": "{{SITENAME}} ගවේෂණය කරන්න",
 	"mobile-frontend-random-button": "අහඹු",
 	"mobile-frontend-user-page-contributions": "දායකත්ව"
 }

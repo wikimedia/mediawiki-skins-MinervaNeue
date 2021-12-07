@@ -16,11 +16,12 @@
 	"mobile-frontend-main-menu-nearby": "W bliskosći",
 	"mobile-frontend-main-menu-settings": "Nastajenja",
 	"mobile-frontend-main-menu-watchlist": "Wobkedźbowanki",
-	"mobile-frontend-meta-data-issues": "Tuta strona ma problemy",
-	"mobile-frontend-meta-data-issues-header": "Problemy",
+	"mobile-frontend-meta-data-issues": "Problemy strony",
+	"mobile-frontend-meta-data-issues-header": "Problemy strony",
 	"mobile-frontend-pageaction-edit-tooltip": "Wobdźěłaj zawodny wotrězk tuteje strony.",
 	"mobile-frontend-placeholder": "{{GRAMMAR:akuzatiw|{{SITENAME}}}} přepytać",
 	"mobile-frontend-random-button": "Připadny",
 	"mobile-frontend-talk-back-to-page": "Wróćo k stronje \"$1\".",
-	"mobile-frontend-user-button-tooltip": "Moje zdźělenki pokazać"
+	"mobile-frontend-user-button-tooltip": "Moje zdźělenki pokazać",
+	"minerva-page-actions-language-switcher": "Rěče"
 }

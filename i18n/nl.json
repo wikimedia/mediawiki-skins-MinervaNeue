@@ -11,7 +11,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin",
-			"Southparkfan"
+			"Southparkfan",
+			"Nickthijssen1994"
 		]
 	},
 	"minerva-last-modified-date": "Laatst bewerkt op $1, om $2",
@@ -66,6 +67,7 @@
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-item",
 	"minerva-page-actions-language-switcher": "Talen",
 	"minerva-page-actions-history": "Geschiedenis",
+	"minerva-talk-explained": "Actieve overleggen",
 	"minerva-talk-full-page": "Als wikipagina lezen",
 	"minerva-talk-topic-feedback": "Nieuw onderwerp aan de overlegpagina toegevoegd!",
 	"minerva-talk-reply-success": "Uw reactie is op de overlegpagina opgeslagen.",

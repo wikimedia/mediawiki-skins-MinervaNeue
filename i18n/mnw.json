@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Ranger-Mon",
+			"咽頭べさ"
 		]
 	},
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|မ္ၚဵုရအဴ}} $1။"
+	"mobile-frontend-language-article-heading": "အရေဝ်ဘာသာ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|မ္ၚဵုရအဴ}} $1။",
+	"mobile-frontend-placeholder": "ဂၠာဲ {{SITENAME}}"
 }

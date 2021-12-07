@@ -4,18 +4,20 @@
 			"Ammartivari",
 			"FatosMorina",
 			"Liridon",
-			"Olsi"
+			"Olsi",
+			"Besnik b"
 		]
 	},
 	"mobile-frontend-editor-edit": "Redakto",
 	"mobile-frontend-home-button": "Kryefaqja",
-	"mobile-frontend-language-article-heading": "Lexo në një gjuhë tjetër",
+	"mobile-frontend-language-article-heading": "Lexojeni në një gjuhë tjetër",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Mirë se vini}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Hape menynë kryesore",
-	"mobile-frontend-main-menu-login": "Kyçu",
-	"mobile-frontend-main-menu-nearby": "Pranë",
-	"mobile-frontend-main-menu-settings": "Parametrat",
-	"mobile-frontend-main-menu-watchlist": "Lista mbikëqyrëse",
-	"mobile-frontend-pageaction-edit-tooltip": "Redakto seksionin kryesues në këtë faqe.",
-	"mobile-frontend-placeholder": "Kërko {{SITENAME}}",
-	"mobile-frontend-random-button": "I rastit"
+	"mobile-frontend-main-menu-login": "Hyni",
+	"mobile-frontend-main-menu-nearby": "Atypari",
+	"mobile-frontend-main-menu-settings": "Rregullime",
+	"mobile-frontend-main-menu-watchlist": "Listë vëzhgimesh",
+	"mobile-frontend-pageaction-edit-tooltip": "Përpunoni seksionin e kryes në këtë faqe",
+	"mobile-frontend-placeholder": "Kërko te {{SITENAME}}",
+	"mobile-frontend-random-button": "Kuturu"
 }

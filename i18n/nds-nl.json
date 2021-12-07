@@ -9,7 +9,7 @@
 	"minerva-download": "PDF daleladen",
 	"mobile-frontend-home-button": "Startsyde",
 	"mobile-frontend-language-article-heading": "Språke",
-	"mobile-frontend-logged-in-homepage-notification": "Welkom, $1!",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Welkom}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Heufdmenu losdoon",
 	"mobile-frontend-main-menu-login": "Anmelden",
 	"mobile-frontend-main-menu-logout": "Afmelden",

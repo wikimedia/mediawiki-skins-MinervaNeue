@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kjeanclaude"
+		]
+	},
+	"mobile-frontend-language-article-heading": "Anien",
+	"mobile-frontend-logged-in-homepage-notification": "Akwaba, {{GENDER:$1|}}$1 !",
+	"mobile-frontend-placeholder": "Kounndè {{SITENAME}} i noun"
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Carma Citrawati",
+			"Chinamoonroll",
+			"Tok Pisin"
+		]
+	},
+	"mobile-frontend-language-article-heading": "ᬪᬵᬱ",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ᬭᬳᬚᭂᬂᬭᬯᬸᬄ}} $1!",
+	"mobile-frontend-main-menu-login": "ᬫᬜ᭄ᬚᬶᬂᬮᭀᬕ᭄",
+	"mobile-frontend-placeholder": "ᬋᬋᬄ {{SITENAME}}",
+	"mobile-frontend-user-page-talk": "ᬧᬩ᭄ᬮᬶᬕ᭄ᬩᬕᬦ᭄",
+	"minerva-page-actions-cite": "ᬳᬂᬕᬶᬢ᭄ᬓᬘ"
+}
