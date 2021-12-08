@@ -13,25 +13,25 @@
 
 	QUnit.test( 'toggleClasses() from watched to unwatched', function ( assert ) {
 		var $elem = createElemWithClass( WATCHED_CLASS );
-		toggleClasses( $elem, 'unwatch' );
+		toggleClasses( $elem, false );
 		assert.deepEqual( $elem.attr( 'class' ), UNWATCHED_CLASS );
 	} );
 
 	QUnit.test( 'toggleClasses() from unwatched to watched', function ( assert ) {
 		var $elem = createElemWithClass( UNWATCHED_CLASS );
-		toggleClasses( $elem, 'watch', null );
+		toggleClasses( $elem, true, null );
 		assert.deepEqual( $elem.attr( 'class' ).split( /\s+/ ), WATCHED_CLASS );
 	} );
 
 	QUnit.test( 'toggleClasses() from unwatched to temp watched', function ( assert ) {
 		var $elem = createElemWithClass( UNWATCHED_CLASS );
-		toggleClasses( $elem, 'watch', 'expiry' );
+		toggleClasses( $elem, true, 'expiry' );
 		assert.deepEqual( $elem.attr( 'class' ).split( /\s+/ ), TEMP_WATCHED_CLASS );
 	} );
 
 	QUnit.test( 'toggleClasses() from temp watched to watched', function ( assert ) {
 		var $elem = createElemWithClass( TEMP_WATCHED_CLASS );
-		toggleClasses( $elem, 'watch', null );
+		toggleClasses( $elem, true, null );
 		assert.deepEqual( $elem.attr( 'class' ).split( /\s+/ ), WATCHED_CLASS );
 	} );
 

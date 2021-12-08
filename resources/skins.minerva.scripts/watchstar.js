@@ -1,3 +1,5 @@
+var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
+
 ( function () {
 
 	var WATCHED_CLASS = [ 'watched', 'mw-ui-icon-wikimedia-unStar-progressive' ],
@@ -10,24 +12,23 @@
 	 * @param {jQuery.Object} $icon
 	 */
 	function init( $icon ) {
-		$icon.on( 'watchpage.mw', function ( _ev, action, expiry ) {
-			toggleClasses( $( this ).find( 'a' ), action, expiry );
-		} );
+		var $watchlink = $icon.find( 'a' );
+		watchstar( $watchlink, mw.config.get( 'wgRelevantPageName' ), toggleClasses );
 	}
 
 	/**
 	 *
-	 * @param {jQuery.Object} $elem
-	 * @param {string} action
+	 * @param {jQuery.Object} $link
+	 * @param {boolean} isWatched
 	 * @param {string} expiry
 	 */
-	function toggleClasses( $elem, action, expiry ) {
-		$elem.removeClass(
+	function toggleClasses( $link, isWatched, expiry ) {
+		$link.removeClass(
 			[].concat( WATCHED_CLASS, TEMP_WATCHED_CLASS, UNWATCHED_CLASS )
 		).addClass( function () {
 			var classes = UNWATCHED_CLASS;
-			if ( action === 'watch' ) {
-				if ( expiry !== null && expiry !== undefined ) {
+			if ( isWatched ) {
+				if ( expiry !== null && expiry !== undefined && expiry !== 'infinity' ) {
 					classes = TEMP_WATCHED_CLASS;
 				} else {
 					classes = WATCHED_CLASS;

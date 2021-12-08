@@ -532,7 +532,8 @@
 				"mobile.startup",
 				"mediawiki.user",
 				"mediawiki.storage",
-				"mediawiki.experiments"
+				"mediawiki.experiments",
+				"mediawiki.page.watch.ajax"
 			],
 			"messages": [
 				"echo-badge-count",
