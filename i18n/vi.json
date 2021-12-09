@@ -52,7 +52,7 @@
 	"mobile-frontend-user-button-tooltip": "Xem thông báo của tôi",
 	"mobile-frontend-user-newmessages": "Bạn có tin nhắn mới trong trang thảo luận của mình",
 	"mobile-frontend-user-page-contributions": "Đóng góp",
-	"mobile-frontend-user-page-member-since": "{{GENDER:$2}}Gia nhập $1",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2}}Tham gia $1",
 	"mobile-frontend-user-page-talk": "Thảo luận",
 	"minerva-user-menu-button": "Trình đơn thành viên",
 	"minerva-user-navigation": "Điều hướng thành viên",
