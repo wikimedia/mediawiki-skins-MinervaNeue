@@ -27,7 +27,7 @@
 	"config": {
 		"MinervaDonateLink": {
 			"value": {
-				"base": true
+				"base": false
 			}
 		},
 		"MinervaDownloadNamespaces": {
