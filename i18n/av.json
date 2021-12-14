@@ -7,14 +7,14 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Хисизабизе",
-	"mobile-frontend-home-button": "БетІераб",
-	"mobile-frontend-language-article-heading": "МацІ",
+	"mobile-frontend-home-button": "БетӀераб",
+	"mobile-frontend-language-article-heading": "МацӀ",
 	"mobile-frontend-main-menu-button-tooltip": "Аслияб меню рагьизе",
-	"mobile-frontend-main-menu-login": "Жаниве лъугьине",
-	"mobile-frontend-main-menu-nearby": "ГІагарлъухъ",
+	"mobile-frontend-main-menu-login": "Жанире лӀугьине",
+	"mobile-frontend-main-menu-nearby": "ГӀагарлъухъ",
 	"mobile-frontend-main-menu-settings": "Рекъезариял",
-	"mobile-frontend-main-menu-watchlist": "Халгьабиялъул сияхІ",
-	"mobile-frontend-placeholder": "{{grammar:prepositional|{{SITENAME}}}}-алда хъирщизе",
+	"mobile-frontend-main-menu-watchlist": "Халкквеязул сияхІ",
+	"mobile-frontend-placeholder": "{{SITENAME}} сайталда балагьизе",
 	"mobile-frontend-random-button": "Цебе ккараб",
 	"mobile-frontend-user-page-talk": "Гьоркьоб лъей"
 }
