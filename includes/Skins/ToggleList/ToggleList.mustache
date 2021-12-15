@@ -16,11 +16,13 @@
 		class="toggle-list__checkbox"
 		role="button"
 		aria-labelledby="{{toggleID}}"
-		aria-expanded="false">
+		aria-expanded="false"
+		aria-haspopup="true">
 	<label
 		id="{{toggleID}}"
 		class="toggle-list__toggle {{toggleClass}}"
 		for="{{checkboxID}}"
+		aria-hidden="true"
 		data-event-name="{{analyticsEventName}}">
 		{{text}}
 	</label>
