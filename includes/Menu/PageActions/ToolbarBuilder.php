@@ -251,9 +251,9 @@ class ToolbarBuilder {
 			$isWatched &&
 			$this->watchlistManager->isTempWatched( $this->user, $this->title );
 		$newModeToSet = $isWatched ? 'unwatch' : 'watch';
-		$href = $this->user->isAnon()
-			? $this->getLoginUrl( [ 'returnto' => $this->title ] )
-			: $this->title->getLocalURL( [ 'action' => $newModeToSet ] );
+		$href = $this->user->isRegistered()
+			? $this->title->getLocalURL( [ 'action' => $newModeToSet ] )
+			: $this->getLoginUrl( [ 'returnto' => $this->title ] );
 
 		if ( $isWatched ) {
 			$msg = $this->messageLocalizer->msg( 'unwatch' );

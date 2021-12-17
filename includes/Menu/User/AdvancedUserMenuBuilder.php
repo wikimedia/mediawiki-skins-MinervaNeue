@@ -88,10 +88,10 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 		}
 		$this->definitions->insertWatchlistMenuItem( $group );
 		$this->definitions->insertContributionsMenuItem( $group );
-		if ( $this->user->isAnon() ) {
-			$this->definitions->insertLogInMenuItem( $group );
-		} else {
+		if ( $this->user->isRegistered() ) {
 			$this->definitions->insertLogOutMenuItem( $group );
+		} else {
+			$this->definitions->insertLogInMenuItem( $group );
 		}
 		Hooks::run( 'MobileMenu', [ 'user', &$group ] );
 		return $group;

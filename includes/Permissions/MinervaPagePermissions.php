@@ -237,9 +237,9 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 					'create', $this->user, $this->title, PermissionManager::RIGOR_QUICK
 				)
 			);
-		$blocked = $this->user->isAnon() ? false : $this->permissionManager->isBlockedFrom(
+		$blocked = $this->user->isRegistered() ? $this->permissionManager->isBlockedFrom(
 			$this->user, $this->title, true
-		);
+		) : false;
 		return $this->isCurrentPageContentModelEditable() && $userQuickEditCheck && !$blocked;
 	}
 

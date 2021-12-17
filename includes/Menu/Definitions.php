@@ -235,8 +235,8 @@ final class Definitions {
 		 * - user is logged out and beta is disabled (beta is the only thing a non-js user can do)
 		 * In future we might want to make this a static function on Special:MobileOptions.
 		 */
-		$jsonly = ( $user->isAnon() && !$betaEnabled ) ||
-			( !$user->isAnon() && !$config->get( 'MFAdvancedMobileContributions' ) &&
+		$jsonly = ( !$user->isRegistered() && !$betaEnabled ) ||
+			( $user->isRegistered() && !$config->get( 'MFAdvancedMobileContributions' ) &&
 				!$betaEnabled
 			);
 
@@ -355,7 +355,7 @@ final class Definitions {
 		if ( $title && !$title->isSpecial( 'Userlogin' ) ) {
 			$ret[ 'returnto' ] = $title->getPrefixedText();
 		}
-		if ( $this->user && $this->user->isAnon() ) {
+		if ( $this->user && !$this->user->isRegistered() ) {
 			// unset campaign on login link so as not to interfere with A/B tests
 			unset( $returnToQuery['campaign'] );
 		}
