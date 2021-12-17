@@ -17,8 +17,8 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use MediaWiki\User\UserIdentity;
 use MessageLocalizer;
-use User;
 
 /**
  * Model for a menu entry that represents log-in / profile+logout pair of links
@@ -32,12 +32,12 @@ final class AuthMenuEntry extends CompositeMenuEntry implements IProfileMenuEntr
 	/**
 	 * Initialize the Auth menu entry
 	 *
-	 * @param User $user Currently logged in user/anon
+	 * @param UserIdentity $user Currently logged in user/anon
 	 * @param MessageLocalizer $messageLocalizer used for text translation
 	 * @param array $authLinksQuery Mapping of URI query parameter names to values.
 	 */
 	public function __construct(
-		User $user, MessageLocalizer $messageLocalizer, array $authLinksQuery
+		UserIdentity $user, MessageLocalizer $messageLocalizer, array $authLinksQuery
 	) {
 		$this->profileMenuEntry = new ProfileMenuEntry( $user );
 		$entries = $user->isRegistered()

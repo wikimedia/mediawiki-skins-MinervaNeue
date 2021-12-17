@@ -17,12 +17,12 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use MediaWiki\User\UserIdentity;
 use Title;
-use User;
 
 final class ProfileMenuEntry implements IProfileMenuEntry {
 	/**
-	 * @var User
+	 * @var UserIdentity
 	 */
 	private $user;
 
@@ -45,9 +45,9 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 	private $customProfileLabel = null;
 
 	/**
-	 * @param User $user Currently logged in user/anon
+	 * @param UserIdentity $user Currently logged in user/anon
 	 */
-	public function __construct( User $user ) {
+	public function __construct( UserIdentity $user ) {
 		$this->user = $user;
 	}
 

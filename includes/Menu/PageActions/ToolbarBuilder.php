@@ -180,7 +180,7 @@ class ToolbarBuilder {
 	 * Create Contributions page action visible on user pages or user talk pages
 	 * for given $user
 	 *
-	 * @param User $user Determines what the contribution page action will link to
+	 * @param UserIdentity $user Determines what the contribution page action will link to
 	 * @return IMenuEntry
 	 */
 	protected function createContributionsPageAction( UserIdentity $user ): IMenuEntry {

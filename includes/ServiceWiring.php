@@ -71,7 +71,7 @@ return [
 		// Add a donate link (see https://phabricator.wikimedia.org/T219793)
 		$showDonateLink = $options->get( SkinOptions::SHOW_DONATE );
 		$builder = $options->get( SkinOptions::MAIN_MENU_EXPANDED ) ?
-			new AdvancedMainMenuBuilder( $showMobileOptions, $showDonateLink, $user, $definitions ) :
+			new AdvancedMainMenuBuilder( $showMobileOptions, $showDonateLink, $definitions ) :
 			new DefaultMainMenuBuilder( $showMobileOptions, $showDonateLink, $user, $definitions );
 
 		return new MainMenuDirector( $builder, $context, $services->getSpecialPageFactory() );

@@ -27,13 +27,13 @@ use MediaWiki\Minerva\Menu\Entries\LogInMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LogOutMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Special\SpecialPageFactory;
+use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use Message;
 use MWException;
 use SpecialMobileWatchlist;
 use SpecialPage;
 use Title;
-use User;
 
 /**
  * Set of all know menu items for easier building
@@ -41,7 +41,7 @@ use User;
 final class Definitions {
 
 	/**
-	 * @var User
+	 * @var UserIdentity
 	 */
 	private $user;
 

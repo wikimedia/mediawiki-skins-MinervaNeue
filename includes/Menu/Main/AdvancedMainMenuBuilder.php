@@ -25,7 +25,6 @@ use Hooks;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
 use MWException;
-use User;
 
 /**
  * A menu builder that provides additional menu entries that match
@@ -46,12 +45,6 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	private $showDonateLink;
 
 	/**
-	 * Currently logged in user
-	 * @var User
-	 */
-	private $user;
-
-	/**
 	 * @var Definitions
 	 */
 	private $definitions;
@@ -61,13 +54,11 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	 *
 	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
 	 * @param bool $showDonateLink whether to show the donate link
-	 * @param User $user The current user
 	 * @param Definitions $definitions A menu items definitions set
 	 */
-	public function __construct( $showMobileOptions, $showDonateLink, User $user, Definitions $definitions ) {
+	public function __construct( $showMobileOptions, $showDonateLink, Definitions $definitions ) {
 		$this->showMobileOptions = $showMobileOptions;
 		$this->showDonateLink = $showDonateLink;
-		$this->user = $user;
 		$this->definitions = $definitions;
 	}
 

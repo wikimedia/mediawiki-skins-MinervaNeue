@@ -24,8 +24,8 @@ use FatalError;
 use Hooks;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\User\UserIdentity;
 use MWException;
-use User;
 
 /**
  * Used to build default (available for everyone by default) main menu
@@ -44,7 +44,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 	/**
 	 * Currently logged in user
-	 * @var User
+	 * @var UserIdentity
 	 */
 	private $user;
 
@@ -58,10 +58,10 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 *
 	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
 	 * @param bool $showDonateLink whether to show the donate link
-	 * @param User $user The current user
+	 * @param UserIdentity $user The current user
 	 * @param Definitions $definitions A menu items definitions set
 	 */
-	public function __construct( $showMobileOptions, $showDonateLink, User $user, Definitions $definitions ) {
+	public function __construct( $showMobileOptions, $showDonateLink, UserIdentity $user, Definitions $definitions ) {
 		$this->showMobileOptions = $showMobileOptions;
 		$this->showDonateLink = $showDonateLink;
 		$this->user = $user;
