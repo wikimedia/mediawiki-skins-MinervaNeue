@@ -60,7 +60,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			->getMock();
 		$outputPage->expects( $this->once() )
 			->method( 'getCategoryLinks' )
-			->will( $this->returnValue( $categoryLinks ) );
+			->willReturn( $categoryLinks );
 
 		$this->overrideSkinOptions( [ SkinOptions::CATEGORIES => true ] );
 

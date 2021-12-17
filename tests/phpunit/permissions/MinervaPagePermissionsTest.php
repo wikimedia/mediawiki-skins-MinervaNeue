@@ -32,8 +32,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$isSuperUser = false
 	) {
 		$languageHelper = $this->createMock( LanguagesHelper::class );
-		$languageHelper->expects( $this->any() )
-			->method( 'doesTitleHasLanguagesOrVariants' )
+		$languageHelper->method( 'doesTitleHasLanguagesOrVariants' )
 			->willReturn( $hasOtherLanguagesOrVariants );
 
 		$user = $user ?? $this->getTestUser()->getUser();
@@ -148,10 +147,10 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 			->getMock();
 
 		$contentHandler->method( 'supportsDirectEditing' )
-			->will( $this->returnValue( $supportsDirectEditing ) );
+			->willReturn( $supportsDirectEditing );
 
 		$contentHandler->method( 'supportsDirectApiEditing' )
-			->will( $this->returnValue( $supportsDirectApiEditing ) );
+			->willReturn( $supportsDirectApiEditing );
 
 		$perms = $this->buildPermissionsObject( Title::newFromText( 'test' ), null, [],
 			$contentHandler );
