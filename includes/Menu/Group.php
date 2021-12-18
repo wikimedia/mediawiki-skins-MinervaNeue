@@ -36,7 +36,7 @@ final class Group {
 	/**
 	 * @var string
 	 */
-	private $id = '';
+	private $id;
 
 	/**
 	 * @param string $id of the menu defaults to null (optional)
