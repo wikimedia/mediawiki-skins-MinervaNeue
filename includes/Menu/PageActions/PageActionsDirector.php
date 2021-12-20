@@ -47,7 +47,7 @@ final class PageActionsDirector {
 	/**
 	 * Director responsible for Page Actions menu building
 	 *
-	 * @param ToolbarBuilder $toolbarBuilder The toolbar builder
+	 * @param ToolbarBuilder $toolbarBuilder
 	 * @param IOverflowBuilder $overflowBuilder The overflow menu builder
 	 * @param MessageLocalizer $messageLocalizer Message localizer used to translate texts
 	 */

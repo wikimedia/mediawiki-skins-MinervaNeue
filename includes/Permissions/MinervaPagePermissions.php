@@ -45,7 +45,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	private $config;
 
 	/**
-	 * @var User user object
+	 * @var User
 	 */
 	private $user;
 
@@ -65,7 +65,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	private $languagesHelper;
 
 	/**
-	 * @var PermissionManager MediaWiki Core PermissionManager
+	 * @var PermissionManager
 	 */
 	private $permissionManager;
 
@@ -76,7 +76,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 
 	/**
 	 * Initialize internal Minerva Permissions system
-	 * @param SkinOptions $skinOptions Skin options`
+	 * @param SkinOptions $skinOptions
 	 * @param LanguagesHelper $languagesHelper
 	 * @param PermissionManager $permissionManager
 	 * @param IContentHandlerFactory $contentHandlerFactory

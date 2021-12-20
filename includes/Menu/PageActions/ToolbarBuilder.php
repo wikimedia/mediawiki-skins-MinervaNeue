@@ -99,7 +99,7 @@ class ToolbarBuilder {
 	 * @param User $user Currently logged in user
 	 * @param MessageLocalizer $msgLocalizer Message localizer to generate localized texts
 	 * @param IMinervaPagePermissions $permissions Minerva permissions system
-	 * @param SkinOptions $skinOptions Skin options
+	 * @param SkinOptions $skinOptions
 	 * @param SkinUserPageHelper $relevantUserPageHelper User Page helper. The
 	 * UserPageHelper passed should always be specific to the user page Title. If on a
 	 * user talk page, UserPageHelper should be instantiated with the user page
