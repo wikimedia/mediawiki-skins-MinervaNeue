@@ -50,7 +50,7 @@
 	"mobile-frontend-user-newmessages": "Aveți mesaje noi pe pagina dumneavoastră de discuție",
 	"mobile-frontend-user-page-contributions": "Contribuții",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Alăturat|Alăturată|Alăturat}} în $1",
-	"mobile-frontend-user-page-talk": "Discuție",
+	"mobile-frontend-user-page-talk": "Discuții",
 	"minerva-user-menu-button": "Meniul de utilizator",
 	"minerva-user-navigation": "Navigarea de utilizator",
 	"minerva-page-actions-overflow": "Mai mult",

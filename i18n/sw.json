@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Kwisha",
-			"Stephenwanjau"
+			"Stephenwanjau",
+			"Kipala"
 		]
 	},
+	"mobile-frontend-history": "Angalia historia ya ukurasa huu",
 	"mobile-frontend-home-button": "Mwanzo",
+	"mobile-frontend-language-article-heading": "Lugha",
 	"mobile-frontend-main-menu-nearby": "Karibu",
 	"mobile-frontend-main-menu-settings": "Mpangilio",
 	"mobile-frontend-placeholder": "Tafuta {{SITENAME}}",
