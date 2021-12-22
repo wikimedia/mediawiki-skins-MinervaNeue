@@ -3,15 +3,16 @@
 		"authors": [
 			"Gadarawamo",
 			"Misteld",
-			"Samatics"
+			"Samatics",
+			"Amire80"
 		]
 	},
 	"mobile-frontend-editor-edit": "Jlado",
 	"mobile-frontend-history": "Pọn kandai nujlado tọn na weda ehe",
 	"mobile-frontend-home-button": "Bẹjẹeji",
 	"mobile-frontend-language-article-heading": "Ogbè",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Kuavọ}}, $1!",
-	"mobile-frontend-main-menu-login": "Hùn Adà Towe",
+	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Mì kuavọ}}, $1!",
+	"mobile-frontend-main-menu-login": "Hùn adà towe",
 	"mobile-frontend-main-menu-settings": "Nujlomẹ Lẹ",
 	"mobile-frontend-placeholder": "Dín {{SITENAME}}",
 	"mobile-frontend-random-button": "Yi do de amọẹ do",

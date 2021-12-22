@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mahuton"
+			"Mahuton",
+			"Àlɔ̀ tɛ́"
 		]
 	},
 	"mobile-frontend-language-article-heading": "Gbé",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Kwabɔ}}, $1!",
+	"mobile-frontend-main-menu-login": "Sɔ hwiɖé sɔ́ xlɛ",
 	"mobile-frontend-placeholder": "Bá nǔ kpɔn ɖo {{SITENAME}} mɛ"
 }
