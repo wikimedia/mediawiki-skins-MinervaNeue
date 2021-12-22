@@ -5,7 +5,7 @@ const Page = require( 'wdio-mediawiki/Page' );
 class EditPage extends Page {
 	get content() { return $( '#wikitext-editor' ); }
 	get displayedContent() { return $( '#mw-content-text .mw-parser-output' ); }
-	get heading() { return $( '#section_0' ); }
+	get heading() { return $( 'h1.mw-first-heading' ); }
 	get next() { return $( '.mw-ui-icon-mf-next-invert' ); }
 	get save() { return $( 'button.mw-ui-button' ); }
 

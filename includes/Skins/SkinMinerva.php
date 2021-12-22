@@ -115,12 +115,19 @@ class SkinMinerva extends SkinMustache {
 				unset( $data['html-categories'] );
 			}
 
+			// Special handling for certain pages.
+			// This is technical debt that should be upstreamed to core.
+			$isUserPage = $this->getUserPageHelper()->isUserPage();
+			$isUserPageAccessible = $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser();
+			if ( $isUserPage && $isUserPageAccessible ) {
+				$data['html-title-heading'] = $this->getUserPageHeadingHtml( $data['html-title-heading' ] );
+			}
+
 			return $data + [
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
 				'html-minerva-user-notifications' => $this->prepareUserNotificationsButton( $this->getNewtalks() ),
 				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData()['items'],
 				'html-minerva-tagline' => $this->getTaglineHtml(),
-				'html-minerva-heading' => $this->prepareHeader(),
 				'html-minerva-post-heading' => $this->isTalkPageWithViewAction()
 					? $this->getTalkPagePostHeadingHtml()
 					: '',
@@ -537,18 +544,23 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Returns the HTML representing the heading.
+	 *
+	 * @param string $heading The heading suggested by core.
 	 * @return string HTML for header
 	 */
-	protected function getHeadingHtml() {
-		$isUserPage = $this->getUserPageHelper()->isUserPage();
-		$isUserPageAccessible = $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser();
-		if ( $isUserPage && $isUserPageAccessible ) {
-			// The heading is just the username without namespace
-			$heading = $this->getUserPageHelper()->getPageUser()->getName();
-		} else {
-			$heading = $this->getOutput()->getPageTitle();
-		}
-		return Html::rawElement( 'h1', [ 'id' => 'section_0' ], $heading );
+	private function getUserPageHeadingHtml( $heading ) {
+		// The heading is just the username without namespace
+		// This is escaped as a precaution (user name should be safe).
+		return Html::rawElement( 'h1',
+			// These IDs and classes should match Skin::getTemplateData
+			[
+				'id' => 'firstHeading',
+				'class' => 'firstHeading mw-first-heading mw-minerva-user-heading',
+			],
+			htmlspecialchars(
+				$this->getUserPageHelper()->getPageUser()->getName()
+			)
+		);
 	}
 
 	/**
@@ -623,29 +635,6 @@ class SkinMinerva extends SkinMustache {
 		}
 
 		return $html;
-	}
-
-	/**
-	 * Create and prepare header content
-	 * @return string
-	 */
-	protected function prepareHeader() {
-		$title = $this->getTitle();
-		if ( $title->isMainPage() ) {
-			$user = $this->getUser();
-			$msg = $this->msg( 'mobile-frontend-logged-in-homepage-notification', $user->getName() );
-
-			if ( $user->isRegistered() && !$msg->isDisabled() ) {
-				$out = $this->getOutput();
-				$out->setPageTitle( $msg->text() );
-			} else {
-				// Don’t add any <h1> to main pages
-				// for logged-out users
-				return '';
-			}
-		}
-
-		return $this->getHeadingHtml();
 	}
 
 	/**
