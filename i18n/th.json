@@ -22,7 +22,6 @@
 	"mobile-frontend-home-button": "หน้าหลัก",
 	"mobile-frontend-language-article-heading": "ภาษาอื่น",
 	"mobile-frontend-languages-not-available": "หน้านี้ไม่มีในภาษาอื่น",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ยินดีต้อนรับ}} $1!",
 	"mobile-frontend-main-menu-button-tooltip": "เปิดเมนูหลัก",
 	"mobile-frontend-main-menu-contributions": "การมีส่วนร่วม",
 	"mobile-frontend-main-menu-login": "เข้าสู่ระบบ",

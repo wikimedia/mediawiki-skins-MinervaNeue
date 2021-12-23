@@ -26,7 +26,6 @@
 	"mobile-frontend-home-button": "Начало",
 	"mobile-frontend-language-article-heading": "Език",
 	"mobile-frontend-languages-not-available": "Тази страница не е налична на други езици.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Добре дошъл|Добре дошла}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Отваря главното меню",
 	"mobile-frontend-main-menu-contributions": "Приноси",
 	"mobile-frontend-main-menu-login": "Влизане",

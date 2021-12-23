@@ -19,7 +19,6 @@
 	"mobile-frontend-home-button": "Glavna stranica",
 	"mobile-frontend-language-article-heading": "Jezik",
 	"mobile-frontend-languages-not-available": "Ova stranica nije dostupna na drugim jezicima.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Dobro došao|Dobro došla|Dobro došli}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Otvori glavni izbornik",
 	"mobile-frontend-main-menu-contributions": "Doprinosi",
 	"mobile-frontend-main-menu-login": "Prijavi se",

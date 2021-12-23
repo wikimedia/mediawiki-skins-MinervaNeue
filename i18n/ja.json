@@ -32,7 +32,6 @@
 	"mobile-frontend-home-button": "ホーム",
 	"mobile-frontend-language-article-heading": "言語",
 	"mobile-frontend-languages-not-available": "このページに他の言語版はありません。",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ようこそ}}、$1さん!",
 	"mobile-frontend-main-menu-button-tooltip": "メインメニューを開く",
 	"mobile-frontend-main-menu-contributions": "投稿記録",
 	"mobile-frontend-main-menu-login": "ログイン",

@@ -25,7 +25,6 @@
 	"mobile-frontend-home-button": "Αρχική σελίδα",
 	"mobile-frontend-language-article-heading": "Γλώσσα",
 	"mobile-frontend-languages-not-available": "Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Καλώς ορίσατε}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Άνοιγμα κυρίου μενού",
 	"mobile-frontend-main-menu-contributions": "Συνεισφορές",
 	"mobile-frontend-main-menu-login": "Είσοδος",

@@ -36,7 +36,6 @@
 	"mobile-frontend-home-button": "Anasayfa",
 	"mobile-frontend-language-article-heading": "Dil",
 	"mobile-frontend-languages-not-available": "Bu sayfa diğer dillerde mevcut değil.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Hoş geldiniz}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ana menüyü aç",
 	"mobile-frontend-main-menu-contributions": "Katkılar",
 	"mobile-frontend-main-menu-login": "Oturum aç",

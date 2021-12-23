@@ -20,7 +20,6 @@
 	"mobile-frontend-home-button": "প্রধান পাতা",
 	"mobile-frontend-language-article-heading": "ভাষা",
 	"mobile-frontend-languages-not-available": "এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|স্বাগতম}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "প্রধান মেনু খুলুন",
 	"mobile-frontend-main-menu-contributions": "অবদান",
 	"mobile-frontend-main-menu-login": "প্রবেশ করুন",

@@ -26,7 +26,6 @@
 	"mobile-frontend-home-button": "Beranda",
 	"mobile-frontend-language-article-heading": "Bahasa",
 	"mobile-frontend-languages-not-available": "Halaman ini tidak tersedia dalam bahasa lain.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Selamat datang}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Buka menu utama",
 	"mobile-frontend-main-menu-contributions": "Kontribusi",
 	"mobile-frontend-main-menu-login": "Masuk log",

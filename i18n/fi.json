@@ -30,7 +30,6 @@
 	"mobile-frontend-home-button": "Etusivu",
 	"mobile-frontend-language-article-heading": "Kieli",
 	"mobile-frontend-languages-not-available": "Tämä sivu ei ole saatavilla muilla kielillä.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Tervetuloa}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Avaa päävalikko",
 	"mobile-frontend-main-menu-contributions": "Muokkaukset",
 	"mobile-frontend-main-menu-login": "Kirjaudu sisään",

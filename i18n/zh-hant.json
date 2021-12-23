@@ -29,7 +29,6 @@
 	"mobile-frontend-home-button": "首頁",
 	"mobile-frontend-language-article-heading": "語言",
 	"mobile-frontend-languages-not-available": "此頁面沒有其它可用的語言版本。",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|歡迎}}，$1！",
 	"mobile-frontend-main-menu-button-tooltip": "開啟主選單",
 	"mobile-frontend-main-menu-contributions": "貢獻",
 	"mobile-frontend-main-menu-login": "登入",

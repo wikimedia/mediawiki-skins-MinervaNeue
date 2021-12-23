@@ -34,7 +34,6 @@
 	"mobile-frontend-home-button": "Главная",
 	"mobile-frontend-language-article-heading": "Язык",
 	"mobile-frontend-languages-not-available": "Эта страница недоступна на других языках.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Добро пожаловать}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Открыть главное меню",
 	"mobile-frontend-main-menu-contributions": "Вклад",
 	"mobile-frontend-main-menu-login": "Войти",

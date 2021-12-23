@@ -28,7 +28,6 @@
 	"mobile-frontend-home-button": "Inicio",
 	"mobile-frontend-language-article-heading": "Idioma",
 	"mobile-frontend-languages-not-available": "Esta página no está disponible en otros idiomas.",
-	"mobile-frontend-logged-in-homepage-notification": "¡{{GENDER:$1|Bienvenido|Bienvenida}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Abrir menú principal",
 	"mobile-frontend-main-menu-contributions": "Contribuciones",
 	"mobile-frontend-main-menu-login": "Acceder",

@@ -13,7 +13,6 @@
 	"mobile-frontend-home-button": "መበገሲ",
 	"mobile-frontend-language-article-heading": "ቋንቋ",
 	"mobile-frontend-languages-not-available": "እዚ ገጽ እዚ ብካልኦት ቋንቋታት ኣይርከብን እዩ።",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|እንቋዕ ብደሓን መጻእካ|እንቋዕ ብደሓን መጻእኪ}}፣ $1!",
 	"mobile-frontend-main-menu-button-tooltip": "መበገሲ መምረጺ ክፈት",
 	"mobile-frontend-main-menu-contributions": "ኣበርክቶታት",
 	"mobile-frontend-main-menu-login": "ብመንነት እተው",

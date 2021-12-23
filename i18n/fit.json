@@ -10,7 +10,6 @@
 	"minerva-download": "Lattaa PDF",
 	"mobile-frontend-history": "Näytä tämän sivun muutoshistuuria.",
 	"mobile-frontend-home-button": "Alkusivu",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Tervetuloa}}, $1!",
 	"mobile-frontend-main-menu-contributions": "Mookkaukset",
 	"mobile-frontend-main-menu-login": "Lokkaa sisäle",
 	"mobile-frontend-main-menu-logout": "Lokkaa ulos",

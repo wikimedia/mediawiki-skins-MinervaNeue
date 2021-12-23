@@ -21,7 +21,6 @@
 	"mobile-frontend-home-button": "Domov",
 	"mobile-frontend-language-article-heading": "Jezik",
 	"mobile-frontend-languages-not-available": "Ta stran ni na voljo v drugih jezikih.",
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Pozdravljen|Pozdravljena|Pozdravljeni}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Odpre glavni meni",
 	"mobile-frontend-main-menu-contributions": "Prispevki",
 	"mobile-frontend-main-menu-login": "Prijava",
