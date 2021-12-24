@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kw-Moon",
 			"MinecraftAustralia",
 			"Nrowe"
@@ -8,7 +9,7 @@
 	},
 	"mobile-frontend-editor-edit": "Chanjya",
 	"mobile-frontend-home-button": "Folen dre",
-	"mobile-frontend-language-article-heading": "Redya yn yeth aral",
+	"mobile-frontend-language-article-heading": "Yeth",
 	"mobile-frontend-main-menu-button-tooltip": "Ygeri an bennrol",
 	"mobile-frontend-main-menu-login": "Omgelmi",
 	"mobile-frontend-main-menu-logout": "Omdenna",

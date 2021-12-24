@@ -1,8 +1,0 @@
-{
-	"@metadata": {
-		"authors": [
-			"MinecraftAustralia"
-		]
-	},
-	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bagrisung}}, $1!"
-}

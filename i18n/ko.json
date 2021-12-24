@@ -56,6 +56,7 @@
 	"mobile-frontend-user-page-member-since": "$1에 {{GENDER:$2|가입함}}",
 	"mobile-frontend-user-page-talk": "토론",
 	"minerva-user-menu-button": "사용자 메뉴",
+	"minerva-user-navigation": "사용자 둘러보기",
 	"minerva-page-actions-overflow": "더 보기",
 	"minerva-page-actions-info": "문서 정보",
 	"minerva-page-actions-permalink": "고유 링크",
