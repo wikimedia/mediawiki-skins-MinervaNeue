@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Karapananguasú Kururú Teremembé"
 		]
 	},
 	"mobile-frontend-history": "E-maã murupiawa kuauçawa kuá sowa reçé.",
 	"mobile-frontend-home-button": "Yupirũgawa",
-	"mobile-frontend-language-article-heading": "nhẽẽga",
+	"mobile-frontend-language-article-heading": "Nhẽẽga",
 	"mobile-frontend-main-menu-login": "Log in",
 	"mobile-frontend-main-menu-settings": "yumukaturuçawa'etá",
 	"mobile-frontend-placeholder": "E-sikári {{SITENAME}} rupí",

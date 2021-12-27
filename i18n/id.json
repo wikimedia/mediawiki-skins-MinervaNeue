@@ -63,6 +63,7 @@
 	"minerva-page-actions-move": "Pindahkan",
 	"minerva-page-actions-delete": "Hapus",
 	"minerva-page-actions-protect": "Lindungi",
+	"minerva-page-actions-unprotect": "Batalkan perlindungan",
 	"minerva-page-actions-user-groups": "Kelompok pengguna",
 	"minerva-page-actions-logs": "Log",
 	"minerva-page-actions-wikibase": "Butir di {{WBREPONAME}}",
