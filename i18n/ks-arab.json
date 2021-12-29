@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Iflaq",
-			"Rishabhbhat"
+			"Rishabhbhat",
+			"Teashae"
 		]
 	},
 	"minerva-last-modified-date": "آخری اؠڑِٹ $1، $2 بَجے",
 	"minerva-talk-add-topic": "پیغام لؠکھِو",
-	"mobile-frontend-editor-edit": "اؠڑِٹ",
+	"mobile-frontend-editor-edit": "تَبدیٖل",
 	"minerva-download": "ڈاؤنلوڈ پی‌ڈی‌ایف",
 	"mobile-frontend-editor-redlink-create": "صفہٕ بَنٲیو",
 	"mobile-frontend-editor-redlink-explain": "یہِ صَفہٕ چھُ نہٕ وُنہٕ تَخلیٖق کَرنہٕ آمُت.",
@@ -51,7 +52,7 @@
 	"minerva-page-actions-user-groups": "رُکُن جَماعت",
 	"minerva-page-actions-logs": "لاگ",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} آئٹم",
-	"minerva-page-actions-language-switcher": "زَبانٕ",
+	"minerva-page-actions-language-switcher": "زَبانہٕ",
 	"minerva-page-actions-history": "توٲریٖخ",
 	"minerva-talk-explained": "جٲری کَتھ بات",
 	"minerva-talk-explained-empty": "یتھ صَفَس پؠٹھ چھُ نَہ کانٛہہ بَِحَژ.",
