@@ -11,7 +11,8 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "ફેરફાર કરો",
-	"mobile-frontend-home-button": "ઘર",
+	"mobile-frontend-history": "આ પાનાંનો ઈતિહાસ જુઓ.",
+	"mobile-frontend-home-button": "મુખપૃષ્ઠ",
 	"mobile-frontend-language-article-heading": "ભાષા",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|સ્વાગત}} છે, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "મુખ્ય મેનુ ખોલો",
