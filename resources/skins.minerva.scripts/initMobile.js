@@ -347,7 +347,8 @@ module.exports = function () {
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$watch = $( '#page-actions-watch' ),
 			toolbarElement = document.querySelector( Toolbar.selector ),
-			userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
+			userMenu = document.querySelector( '.minerva-user-menu' ), // See UserMenuDirector.
+			navigationDrawer = document.querySelector( '.navigation-drawer' );
 
 		// The `minerva-animations-ready` class can be used by clients to prevent unwanted
 		// CSS transitions from firing on page load in some browsers (see
@@ -391,6 +392,14 @@ module.exports = function () {
 		}
 		if ( userMenu ) {
 			ToggleList.bind( window, userMenu );
+		}
+		if ( navigationDrawer ) {
+			ToggleList.bind( window, navigationDrawer );
+			var navigationDrawerMask = navigationDrawer.querySelector( '.main-menu-mask' );
+			// The 'for' attribute is used to close the drawer when the mask is clicked without JS
+			// Since we are using JS to enhance the drawer behavior, we need to
+			// remove the attribute to prevent the drawer from being toggled twice
+			navigationDrawerMask.removeAttribute( 'for' );
 		}
 		TabScroll.initTabsScrollPosition();
 		// Setup the issues banner on the page
