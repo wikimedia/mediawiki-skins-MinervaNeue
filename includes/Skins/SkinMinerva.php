@@ -223,8 +223,7 @@ class SkinMinerva extends SkinMustache {
 		$services = MediaWikiServices::getInstance();
 		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $userMenuDirector */
 		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
-		$personalUrls = isset( $nav['user-menu'] ) ? $this->injectLegacyMenusIntoPersonalTools( $nav ) : [];
-		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $personalUrls );
+		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $nav['user-menu'] ?? [] );
 
 		return $userMenuDirector->renderMenuData( $personalTools );
 	}
