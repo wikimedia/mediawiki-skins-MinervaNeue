@@ -2,14 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Fiestoforo",
+			"Manke ruLpa",
 			"Ndołkah"
 		]
 	},
 	"mobile-frontend-editor-edit": "Kümeelün",
-	"mobile-frontend-home-button": "Llitun",
+	"mobile-frontend-history": "Pengepe fachi tapülh ñi kümeeltun tukulpan",
+	"mobile-frontend-home-button": "Tuwül",
 	"mobile-frontend-language-article-heading": "Kewünh",
 	"mobile-frontend-main-menu-login": "Konkülen",
+	"mobile-frontend-main-menu-settings": "Trürümün",
 	"mobile-frontend-pageaction-edit-tooltip": "Elkünufinge tüfachi pakina ñi ünengechi trokiñ.",
 	"mobile-frontend-placeholder": "Kintun {{SITENAME}} mew",
+	"mobile-frontend-random-button": "Chem Rume",
 	"minerva-talk-full-page": "Chilcatun chum tapül mew wiki"
 }
