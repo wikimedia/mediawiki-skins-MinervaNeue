@@ -13,6 +13,7 @@
 	"mobile-frontend-language-article-heading": "Ǩiõll",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Puäʹđ tiõrvân}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "Ääʹved väʹlddvaʹlljõõǥǥ",
+	"mobile-frontend-main-menu-contributions": "Muttâz",
 	"mobile-frontend-main-menu-login": "Ǩeeʹrjtõõđ sizz",
 	"mobile-frontend-main-menu-logout": "Ǩeeʹrjtõõđ åålǥas",
 	"mobile-frontend-main-menu-settings": "Asetõõzz",
@@ -22,5 +23,6 @@
 	"mobile-frontend-notifications-filter": "Siʹlle",
 	"mobile-frontend-placeholder": "Ooʒʒ {{SITENAME}}:st",
 	"mobile-frontend-random-button": "Håʹt mii seidd",
+	"mobile-frontend-user-page-contributions": "Muttâz",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Kategoria"
 }
