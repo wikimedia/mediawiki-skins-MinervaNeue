@@ -23,15 +23,12 @@ namespace MediaWiki\Minerva\Menu;
 use IContextSource;
 use MediaWiki\Minerva\Menu\Entries\AuthMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\HomeMenuEntry;
-use MediaWiki\Minerva\Menu\Entries\LogInMenuEntry;
-use MediaWiki\Minerva\Menu\Entries\LogOutMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Special\SpecialPageFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use Message;
 use MWException;
-use SpecialMobileWatchlist;
 use SpecialPage;
 use Title;
 
@@ -79,79 +76,6 @@ final class Definitions {
 	}
 
 	/**
-	 * Inserts the Contributions menu item into the menu.
-	 *
-	 * @param Group $group
-	 * @throws MWException
-	 */
-	public function insertContributionsMenuItem( Group $group ) {
-		$group->insertEntry( SingleMenuEntry::create(
-			'userContributions',
-			$this->context->msg( 'mobile-frontend-main-menu-contributions' )->text(),
-			SpecialPage::getTitleFor( 'Contributions', $this->user->getName() )->getLocalURL()
-		)->trackClicks( 'contributions' ) );
-	}
-
-	/**
-	 * Inserts the Watchlist menu item into the menu for a logged in user
-	 *
-	 * @param Group $group
-	 * @throws MWException
-	 */
-	public function insertWatchlistMenuItem( Group $group ) {
-		$watchTitle = SpecialPage::getTitleFor( 'Watchlist' );
-
-		// Watchlist link
-		$watchlistQuery = [];
-		// Avoid fatal when MobileFrontend not available (T171241)
-		if ( class_exists( SpecialMobileWatchlist::class ) ) {
-			$view = $this->userOptionsLookup->getOption(
-				$this->user, SpecialMobileWatchlist::VIEW_OPTION_NAME, false
-			);
-			$filter = $this->userOptionsLookup->getOption(
-				$this->user, SpecialMobileWatchlist::FILTER_OPTION_NAME, false
-			);
-			if ( $view ) {
-				$watchlistQuery['watchlistview'] = $view;
-			}
-			if ( $filter && $view === 'feed' ) {
-				$watchlistQuery['filter'] = $filter;
-			}
-		}
-		$group->insertEntry( SingleMenuEntry::create(
-			'watchlist',
-			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->text(),
-			$watchTitle->getLocalURL( $watchlistQuery )
-		) );
-	}
-
-	/**
-	 * Creates a log in or log out button.
-	 *
-	 * @param Group $group
-	 * @throws MWException
-	 */
-	public function insertLogInMenuItem( Group $group ) {
-		$group->insertEntry( new LogInMenuEntry(
-			$this->context,
-			$this->newLogInOutQuery( $this->newReturnToQuery() )
-		) );
-	}
-
-	/**
-	 * Creates a log in or log out button.
-	 *
-	 * @param Group $group
-	 * @throws MWException
-	 */
-	public function insertLogOutMenuItem( Group $group ) {
-		$group->insertEntry( new LogOutMenuEntry(
-			$this->context,
-			$this->newLogInOutQuery( $this->newReturnToQuery() )
-		) );
-	}
-
-	/**
 	 * Creates a login or logout button with a profile button.
 	 *
 	 * @param Group $group
@@ -159,9 +83,9 @@ final class Definitions {
 	 */
 	public function insertAuthMenuItem( Group $group ) {
 		$group->insertEntry( new AuthMenuEntry(
-			$this->user,
-			$this->context,
-			$this->newLogInOutQuery( $this->newReturnToQuery() )
+				$this->user,
+				$this->context,
+				$this->newLogInOutQuery( $this->newReturnToQuery() )
 		) );
 	}
 

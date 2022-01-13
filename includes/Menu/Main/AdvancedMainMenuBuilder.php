@@ -64,24 +64,23 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 
 	/**
 	 * @inheritDoc
-	 * @return Group[]
-	 * @throws FatalError
-	 * @throws MWException
 	 */
-	public function getGroups(): array {
-		$donate = $this->showDonateLink ?
-			BuilderUtil::getDonateGroup( $this->definitions ) : null;
+	public function getPersonalToolsGroup( array $personalTools ): Group {
+		return BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions );
+	}
 
-		$groups = [
-			BuilderUtil::getDiscoveryTools( $this->definitions ),
-			$this->getSiteTools(),
-			BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions ),
-		];
+	/**
+	 * @inheritDoc
+	 */
+	public function getDiscoveryGroup(): Group {
+		return BuilderUtil::getDiscoveryTools( $this->definitions );
+	}
 
-		if ( $donate ) {
-			$groups[] = $donate;
-		}
-		return $groups;
+	/**
+	 * @inheritDoc
+	 */
+	public function getDonateGroup(): Group {
+		return BuilderUtil::getDonateGroup( $this->definitions, $this->showDonateLink );
 	}
 
 	/**
@@ -99,7 +98,7 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	private function getSiteTools(): Group {
+	public function getInteractionToolsGroup(): Group {
 		$group = new Group( 'p-interaction' );
 
 		$this->definitions->insertRecentChanges( $group );

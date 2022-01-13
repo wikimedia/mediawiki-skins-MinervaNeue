@@ -35,14 +35,17 @@ final class BuilderUtil {
 	/**
 	 * Prepares donate group if available
 	 * @param Definitions $definitions A menu items definitions set
-	 * @return Group|null if not available
+	 * @param bool $includeDonateLink whether to include it or not.
+	 * @return Group
 	 * @throws FatalError
 	 * @throws MWException
 	 */
-	public static function getDonateGroup( Definitions $definitions ) {
+	public static function getDonateGroup( Definitions $definitions, $includeDonateLink ): Group {
 		$group = new Group( 'p-donation' );
-		$definitions->insertDonateItem( $group );
-		return $group->hasEntries() ? $group : null;
+		if ( $includeDonateLink ) {
+			$definitions->insertDonateItem( $group );
+		}
+		return $group;
 	}
 
 	/**

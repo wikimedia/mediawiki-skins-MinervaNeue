@@ -17,6 +17,9 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+/**
+ * Note: Used by Extension:GrowthExperiments
+ */
 interface IProfileMenuEntry extends IMenuEntry {
 	/**
 	 * Default tracking code for clicks on profile menu link

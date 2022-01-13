@@ -23,11 +23,26 @@ namespace MediaWiki\Minerva\Menu\Main;
 use MediaWiki\Minerva\Menu\Group;
 
 interface IMainMenuBuilder {
+	/**
+	 * @return Group
+	 */
+	public function getInteractionToolsGroup(): Group;
 
 	/**
-	 * @return Group[]
+	 * @param array $personalTools
+	 * @return Group
 	 */
-	public function getGroups(): array;
+	public function getPersonalToolsGroup( array $personalTools ): Group;
+
+	/**
+	 * @return Group
+	 */
+	public function getDiscoveryGroup(): Group;
+
+	/**
+	 * @return Group
+	 */
+	public function getDonateGroup(): Group;
 
 	/**
 	 * @return Group

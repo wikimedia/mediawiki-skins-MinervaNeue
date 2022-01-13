@@ -44,6 +44,9 @@ class SkinMinerva extends SkinMustache {
 	/** @var SkinOptions */
 	private $skinOptions;
 
+	/** @var array|null */
+	private $sidebarCachedResult;
+
 	/**
 	 * This variable is lazy loaded, please use getPermissions() getter
 	 * @see SkinMinerva::getPermissions()
@@ -99,7 +102,7 @@ class SkinMinerva extends SkinMustache {
 		$services = MediaWikiServices::getInstance();
 		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
 		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
-		$sidebar = parent::buildSidebar();
+		$sidebar = $this->buildSidebarCached();
 		$actions = $nav['actions'] ?? [];
 		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
 	}
@@ -126,12 +129,15 @@ class SkinMinerva extends SkinMustache {
 			return $data + [
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
 				'html-minerva-user-notifications' => $this->prepareUserNotificationsButton( $this->getNewtalks() ),
-				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData()['items'],
+				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
+					$nav,
+					$this->buildSidebarCached()
+				)['items'],
 				'html-minerva-tagline' => $this->getTaglineHtml(),
 				'html-minerva-post-heading' => $this->isTalkPageWithViewAction()
 					? $this->getTalkPagePostHeadingHtml()
 					: '',
-				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav ),
+				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
 				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
 				'data-minerva-tabs' => $this->getTabsData( $nav ),
 				'data-minerva-page-actions' => $this->getPageActions( $nav ),
@@ -216,16 +222,14 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * Prepare all Minerva menus
 	 *
-	 * @param array $nav result of SkinTemplate::buildContentNavigationUrls
+	 * @param array $personalUrls result of SkinTemplate::buildPersonalUrls
 	 * @return string|null
 	 */
-	private function getPersonalToolsMenu( array $nav ) {
+	private function getPersonalToolsMenu( array $personalUrls ) {
 		$services = MediaWikiServices::getInstance();
 		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $userMenuDirector */
 		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
-		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem( $nav['user-menu'] ?? [] );
-
-		return $userMenuDirector->renderMenuData( $personalTools );
+		return $userMenuDirector->renderMenuData( $personalUrls );
 	}
 
 	/**
@@ -753,8 +757,11 @@ class SkinMinerva extends SkinMustache {
 	 * Minerva skin do not have sidebar, there is no need to calculate that.
 	 * @return array
 	 */
-	public function buildSidebar() {
-		return [];
+	private function buildSidebarCached() {
+		if ( !$this->sidebarCachedResult ) {
+			$this->sidebarCachedResult = $this->buildSidebar();
+		}
+		return $this->sidebarCachedResult;
 	}
 
 	/**

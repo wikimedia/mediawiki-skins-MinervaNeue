@@ -67,31 +67,42 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 	 */
 	public function getGroup( array $personalTools ): Group {
 		$group = new Group( 'p-personal' );
-		$group->insertEntry( new ProfileMenuEntry( $this->user ) );
-		$talkPage = $this->user->getUserPage()->getTalkPageIfDefined();
-		if ( $talkPage ) {
-			$entry = SingleMenuEntry::create(
-				'userTalk',
-				$this->messageLocalizer->msg( 'mobile-frontend-user-page-talk' )->escaped(),
-				$talkPage->getLocalURL()
-			);
-			$group->insertEntry( $entry );
-		}
-		$sandbox = $personalTools['sandbox']['links'][0] ?? false;
+		$trackingKeyOverrides = [
+			'mytalk' => 'userTalk',
+			'watchlist' => 'unStar',
+			'mycontris' => 'contributions',
+		];
 
-		if ( $sandbox ) {
-			$group->insertEntry( SingleMenuEntry::create(
-				'sandbox',
-				$sandbox['text'],
-				$sandbox['href']
-			) );
-		}
-		$this->definitions->insertWatchlistMenuItem( $group );
-		$this->definitions->insertContributionsMenuItem( $group );
-		if ( $this->user->isRegistered() ) {
-			$this->definitions->insertLogOutMenuItem( $group );
-		} else {
-			$this->definitions->insertLogInMenuItem( $group );
+		foreach ( $personalTools as $key => $item ) {
+			if ( in_array( $key, [ 'preferences', 'betafeatures', 'uploads' ] ) ) {
+				continue;
+			}
+			// Special casing for userpage to support Extension:GrowthExperiments.
+			// This can be removed when T291568 is resolved.
+			if ( $key === 'userpage' ) {
+				$entry = new ProfileMenuEntry( $this->user );
+				$entry->overrideProfileURL(
+					$item['href'],
+					$item['text']
+				);
+				$group->insertEntry( $entry );
+				continue;
+			}
+			$icon = $item['icon'] ?? null;
+			if ( $icon ) {
+				$entry = SingleMenuEntry::create(
+					$key,
+					$item['text'],
+					$item['href'],
+					$item['class'] ?? '',
+					$icon
+				);
+				// override tracking key where key mismatch
+				if ( array_key_exists( $key, $trackingKeyOverrides ) ) {
+					$entry->trackClicks( $trackingKeyOverrides[ $key ] );
+				}
+				$group->insertEntry( $entry );
+			}
 		}
 		Hooks::run( 'MobileMenu', [ 'user', &$group ] );
 		return $group;

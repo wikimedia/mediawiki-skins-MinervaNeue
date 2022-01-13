@@ -20,6 +20,9 @@ namespace MediaWiki\Minerva\Menu\Entries;
 use MediaWiki\User\UserIdentity;
 use Title;
 
+/**
+ * Note this is used by Extension:GrowthExperiments
+ */
 final class ProfileMenuEntry implements IProfileMenuEntry {
 	/**
 	 * @var UserIdentity

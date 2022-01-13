@@ -20,9 +20,9 @@
 
 namespace MediaWiki\Minerva\Menu\Main;
 
-use FatalError;
 use Hooks;
 use MediaWiki\Minerva\Menu\Definitions;
+use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\User\UserIdentity;
 use MWException;
@@ -70,26 +70,23 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 	/**
 	 * @inheritDoc
-	 * @throws FatalError
-	 * @throws MWException
 	 */
-	public function getGroups(): array {
-		$donate = $this->showDonateLink ?
-			BuilderUtil::getDonateGroup( $this->definitions ) : null;
+	public function getDiscoveryGroup(): Group {
+		return BuilderUtil::getDiscoveryTools( $this->definitions );
+	}
 
-		$groups = [
-			BuilderUtil::getDiscoveryTools( $this->definitions ),
-			$this->getPersonalTools( $this->showMobileOptions ),
-		];
+	/**
+	 * @inheritDoc
+	 */
+	public function getDonateGroup(): Group {
+		return BuilderUtil::getDonateGroup( $this->definitions, $this->showDonateLink );
+	}
 
-		if ( !$this->user->isRegistered() ) {
-			$groups[] = BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions );
-		}
-
-		if ( $donate ) {
-			$groups[] = $donate;
-		}
-		return $groups;
+	/**
+	 * @inheritDoc
+	 */
+	public function getInteractionToolsGroup(): Group {
+		return new Group( 'p-interaction' );
 	}
 
 	/**
@@ -105,23 +102,51 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 *
 	 * ... by adding the Watchlist, Settings, and Log{in,out} menu items in the given order.
 	 *
-	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
-	 * @return Group
-	 * @throws FatalError
-	 * @throws MWException
+	 * @inheritDoc
 	 */
-	private function getPersonalTools( $showMobileOptions ): Group {
+	public function getPersonalToolsGroup( array $personalTools ): Group {
 		$group = new Group( 'p-personal' );
 
-		$this->definitions->insertAuthMenuItem( $group );
+		// special casing for now to support Extension:GrowthExperiments
+		$userpage = $personalTools[ 'userpage' ] ?? null;
 
-		if ( $this->user->isRegistered() ) {
-			$this->definitions->insertWatchlistMenuItem( $group );
-			$this->definitions->insertContributionsMenuItem( $group );
-			$showMobileOptions ? // Identical logic as BuilderUtil::getConfigurationTools
-				$this->definitions->insertMobileOptionsItem( $group ) :
-				$this->definitions->insertPreferencesItem( $group );
-			$this->definitions->insertLogoutMenuItem( $group );
+		// Check if it exists. In future Extension:GrowthExperiments can unset
+		// this and replace it with homepage key.
+		if ( $userpage ) {
+			$this->definitions->insertAuthMenuItem( $group );
+		}
+
+		// Note `homepage` is reserved for Extension:GrowthExperiments usage
+		$include = [ 'homepage', 'login', 'watchlist',
+			'mycontris', 'preferences', 'logout' ];
+		$trackingKeyOverrides = [
+			'watchlist' => 'unStar',
+			'mycontris' => 'contributions',
+		];
+
+		foreach ( $include as $key ) {
+			$item = $personalTools[ $key ] ?? null;
+			if ( $item ) {
+				// Substitute preference if $showMobileOptions is set.
+				if ( $this->showMobileOptions && $key === 'preferences' ) {
+					$this->definitions->insertMobileOptionsItem( $group );
+				} else {
+					$icon = $item['icon'] ?? null;
+					$entry = SingleMenuEntry::create(
+						$key,
+						$item['text'],
+						$item['href'],
+						$item['class'] ?? '',
+						$icon
+					);
+
+					// override tracking key where key mismatch
+					if ( array_key_exists( $key, $trackingKeyOverrides ) ) {
+						$entry->trackClicks( $trackingKeyOverrides[ $key ] );
+					}
+					$group->insertEntry( $entry );
+				}
+			}
 		}
 
 		// Allow other extensions to add or override tools

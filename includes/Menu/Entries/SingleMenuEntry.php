@@ -43,20 +43,19 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param string $name An unique menu element identifier
 	 * @param string $text Text to show on menu element
 	 * @param string $url URL menu element points to
-	 * @param string $className Additional CSS class names.
+	 * @param string|array $className Additional CSS class names.
 	 */
 	public function __construct( $name, $text, $url, $className = '' ) {
 		$this->name = $name;
-		if ( $className ) {
-			$className .= ' ';
-		}
-		$className .= 'menu__item--' . $name;
+		$menuClass = 'menu__item--' . $name;
 
 		$this->attributes = [
 			'icon' => null,
 			'text' => $text,
 			'href' => $url,
-			'class' => $className
+			'class' => is_array( $className ) ?
+				implode( ' ', $className + [ $menuClass ] ) :
+					ltrim( $className . ' ' . $menuClass ),
 		];
 	}
 
@@ -67,12 +66,16 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param string $text Entry label
 	 * @param string $url The URL entry points to
 	 * @param string $className Optional HTML classes
+	 * @param string|null $icon defaults to $name if not specified
 	 * @return static
 	 */
-	public static function create( $name, $text, $url, $className = '' ) {
+	public static function create( $name, $text, $url, $className = '', $icon = null ) {
 		$entry = new static( $name, $text, $url, $className );
 		$entry->trackClicks( $name );
-		$entry->setIcon( $name );
+		if ( $icon === null ) {
+			$icon = $name;
+		}
+		$entry->setIcon( $icon );
 		return $entry;
 	}
 
