@@ -119,7 +119,7 @@ final class Definitions {
 			}
 		}
 		$group->insertEntry( SingleMenuEntry::create(
-			'unStar',
+			'watchlist',
 			$this->context->msg( 'mobile-frontend-main-menu-watchlist' )->text(),
 			$watchTitle->getLocalURL( $watchlistQuery )
 		) );
