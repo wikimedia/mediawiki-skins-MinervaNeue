@@ -60,6 +60,7 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|عضو شد}}",
 	"mobile-frontend-user-page-talk": "بحث",
 	"minerva-user-menu-button": "منوی کاربری",
+	"minerva-user-navigation": "ناوبری کاربر",
 	"minerva-page-actions-overflow": "بیشتر",
 	"minerva-page-actions-info": "اطلاعات صفحه",
 	"minerva-page-actions-permalink": "پیوند پایدار",
@@ -80,5 +81,7 @@
 	"skin-minerva-issue-learn-more": "بیشتر بدانید",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "رده‌ها",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "نمایش رده‌های صفحات",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "مشکلات بهبود یافته در صفحه"
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "مشکلات بهبود یافته در صفحه",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "مشکلات صفحه (الگو:ambox) لابه‌لای متن مقاله نمایش می‌یابند.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "متأسفانه، دسته‌بندی نتایج بر اساس صفحه در نسخهٔ موبایل ممکن نیست. اگر می‌خواهید نتایج را بر اساس صفحه دسته‌بندی کنید لطفاً نسخهٔ رایانه را بازدید کنید."
 }

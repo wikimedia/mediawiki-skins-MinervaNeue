@@ -21,7 +21,8 @@
 			"Grace03",
 			"Joshua",
 			"Lakejason0",
-			"Xzonn"
+			"Xzonn",
+			"SolidBlock"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -29,7 +30,7 @@
 	"minerva-talk-add-topic": "添加讨论",
 	"mobile-frontend-cookies-required": "需要Cookie以切换视图模式。请启用它们后重试。",
 	"mobile-frontend-editor-edit": "编辑",
-	"minerva-download": "下载为PDF",
+	"minerva-download": "下载PDF",
 	"mobile-frontend-editor-redlink-create": "创建页面",
 	"mobile-frontend-editor-redlink-explain": "此页面尚未创建。",
 	"mobile-frontend-editor-redlink-leave": "不，谢谢。",
