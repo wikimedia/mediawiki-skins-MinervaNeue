@@ -60,6 +60,28 @@ class SingleMenuEntry implements IMenuEntry {
 	}
 
 	/**
+	 * Override the icon used in the home menu entry.
+	 *
+	 * @param string $icon
+	 * @return $this
+	 */
+	public function overrideIcon( $icon ) {
+		$this->setIcon( str_replace( 'minerva-', '', $icon ) );
+		return $this;
+	}
+
+	/**
+	 * Override the text used in the home menu entry.
+	 *
+	 * @param string $text
+	 * @return $this
+	 */
+	public function overrideText( $text ) {
+		$this->attributes['text'] = $text;
+		return $this;
+	}
+
+	/**
 	 * Create a Single Menu entry with text, icon and active click tracking
 	 *
 	 * @param string $name Entry identifier

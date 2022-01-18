@@ -72,8 +72,8 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getDiscoveryGroup(): Group {
-		return BuilderUtil::getDiscoveryTools( $this->definitions );
+	public function getDiscoveryGroup( array $navigationTools ): Group {
+		return BuilderUtil::getDiscoveryTools( $this->definitions, $navigationTools );
 	}
 
 	/**

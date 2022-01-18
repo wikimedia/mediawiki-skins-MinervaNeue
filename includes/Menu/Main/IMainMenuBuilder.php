@@ -35,9 +35,10 @@ interface IMainMenuBuilder {
 	public function getPersonalToolsGroup( array $personalTools ): Group;
 
 	/**
+	 * @param array $navigationTools
 	 * @return Group
 	 */
-	public function getDiscoveryGroup(): Group;
+	public function getDiscoveryGroup( array $navigationTools ): Group;
 
 	/**
 	 * @return Group

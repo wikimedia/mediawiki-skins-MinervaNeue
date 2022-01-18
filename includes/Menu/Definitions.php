@@ -22,12 +22,10 @@ namespace MediaWiki\Minerva\Menu;
 
 use IContextSource;
 use MediaWiki\Minerva\Menu\Entries\AuthMenuEntry;
-use MediaWiki\Minerva\Menu\Entries\HomeMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Special\SpecialPageFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
-use Message;
 use MWException;
 use SpecialPage;
 use Title;
@@ -90,37 +88,12 @@ final class Definitions {
 	}
 
 	/**
-	 * Build and insert Home link
-	 * @param Group $group
+	 * Perform message localization
+	 * @param string $key to localize
+	 * @return string
 	 */
-	public function insertHomeItem( Group $group ) {
-		$group->insertEntry( new HomeMenuEntry(
-			'home',
-			$this->context->msg( 'mobile-frontend-home-button' )->text(),
-			Title::newMainPage()->getLocalURL()
-		) );
-	}
-
-	/**
-	 * Build and insert Random link
-	 * @param Group $group
-	 * @throws MWException
-	 */
-	public function insertRandomItem( Group $group ) {
-		$pageMsg = new Message( 'randompage-url' );
-		if ( !$pageMsg->exists() ) {
-			return;
-		}
-		$group->insert( 'random' )
-			->addComponent( $this->context->msg( 'mobile-frontend-random-button' )->text(),
-				Title::newFromText( $pageMsg->escaped() )->getLocalURL() . '#/random',
-				'',
-				[
-					'id' => 'randomButton',
-					'data-event-name' => 'menu.random',
-				],
-				'minerva-die'
-			);
+	public function msg( string $key ) {
+		return $this->context->msg( $key );
 	}
 
 	/**

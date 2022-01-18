@@ -98,7 +98,7 @@ final class MainMenuDirector {
 			]
 		];
 		$groups = [
-			$builder->getDiscoveryGroup(),
+			$builder->getDiscoveryGroup( $sidebar['navigation'] ),
 			$builder->getInteractionToolsGroup(),
 			$builder->getPersonalToolsGroup( $contentNavUrls['user-menu'] ),
 			$builder->getDonateGroup(),
