@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kakonjo"
 		]
 	},
@@ -9,6 +10,6 @@
 	"mobile-frontend-language-article-heading": "Orurimi",
 	"mobile-frontend-main-menu-login": "Yeyanjure",
 	"mobile-frontend-main-menu-settings": "Ebi'kukwataho",
-	"mobile-frontend-placeholder": "Sherura {{SITE NAME}}",
+	"mobile-frontend-placeholder": "Sherura {{SITENAME}}",
 	"mobile-frontend-random-button": "Ekitajonjwire"
 }
