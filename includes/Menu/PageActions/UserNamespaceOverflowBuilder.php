@@ -111,7 +111,7 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 		foreach ( $possibleEntries as $menuEntry ) {
 			$group->insertEntry( $menuEntry );
 		}
-		Hooks::run( 'MobileMenu', [ 'pageactions.overflow', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'pageactions.overflow', &$group ], '1.38' );
 		return $group;
 	}
 

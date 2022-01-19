@@ -150,7 +150,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 		}
 
 		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'personal', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'personal', &$group ], '1.38' );
 		return $group;
 	}
 }
