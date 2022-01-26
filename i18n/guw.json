@@ -8,12 +8,27 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Jlado",
+	"minerva-download": "Mọ PDF yi",
 	"mobile-frontend-history": "Pọn kandai vọjlado tọn na weda ehe.",
 	"mobile-frontend-home-button": "Bẹjẹeji",
 	"mobile-frontend-language-article-heading": "Ogbè",
+	"mobile-frontend-main-menu-contributions": "Yidogọ lẹ",
 	"mobile-frontend-main-menu-login": "Hùn adà towe",
+	"mobile-frontend-main-menu-logout": "Ṣí adà towe",
 	"mobile-frontend-main-menu-settings": "Nutito lẹ",
+	"mobile-frontend-main-menu-watchlist": "Todohunkanji-nupinpọn",
+	"mobile-frontend-notifications-filter": "Sẹ̀sinwhena",
 	"mobile-frontend-placeholder": "Dín {{SITENAME}}",
 	"mobile-frontend-random-button": "E ma to tito ji",
-	"mobile-frontend-user-page-talk": "Hodidọ"
+	"mobile-frontend-user-page-talk": "Hodidọ",
+	"minerva-page-actions-overflow": "Dogọ",
+	"minerva-page-actions-move": "Sẹtẹn",
+	"minerva-page-actions-delete": "Sunsunsẹ",
+	"minerva-page-actions-protect": "Họ́",
+	"minerva-page-actions-logs": "Kandai lẹ",
+	"minerva-page-actions-wikibase": "{{WBREPONAME}} nuzinzan",
+	"minerva-page-actions-language-switcher": "Ogbè lẹ",
+	"minerva-page-actions-history": "Kandai",
+	"skin-minerva-issue-learn-more": "Plọnnu dogọ",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Adà lẹ"
 }
