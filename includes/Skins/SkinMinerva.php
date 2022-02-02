@@ -126,6 +126,14 @@ class SkinMinerva extends SkinMustache {
 				$data['html-title-heading'] = $this->getUserPageHeadingHtml( $data['html-title-heading' ] );
 			}
 
+			$usermessage = $data['html-user-message'] ?? '';
+			if ( $usermessage ) {
+				$data['html-user-message'] = Html::warningBox(
+					'<span class="mw-ui-icon mw-ui-icon-wikimedia-userTalk-warning"></span>&nbsp;'
+						. $usermessage,
+					'minerva-anon-talk-message'
+				);
+			}
 			return $data + [
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
 				'html-minerva-user-notifications' => $this->prepareUserNotificationsButton( $this->getNewtalks() ),
