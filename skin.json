@@ -616,7 +616,8 @@
 			"skins.minerva.messageBox.styles",
 			"mobile.startup",
 			"mediawiki.user",
-			"mediawiki.experiments"
+			"mediawiki.experiments",
+			"mediawiki.Uri"
 		],
 		"packageFiles": [
 			"tests/qunit/skins.minerva.scripts/index.js",
