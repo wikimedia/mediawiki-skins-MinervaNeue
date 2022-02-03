@@ -12,6 +12,7 @@ const iHaveNoNotifications = () => {
 
 const iClickOnTheNotificationIcon = () => {
 	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
+	ArticlePage.notifications_button_element.waitForDisplayed();
 	ArticlePage.notifications_button_element.click();
 };
 

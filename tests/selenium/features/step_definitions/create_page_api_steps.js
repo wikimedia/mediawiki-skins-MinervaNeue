@@ -84,6 +84,7 @@ const watch = ( title ) => {
 	// So we run the non-js workflow.
 	const page = new Page();
 	page.openTitle( title, { action: 'watch' } );
+	$( '#mw-content-text button[type="submit"]' ).waitForDisplayed();
 	$( '#mw-content-text button[type="submit"]' ).click();
 	waitForPropagation( 10000 );
 	page.openTitle( title );
