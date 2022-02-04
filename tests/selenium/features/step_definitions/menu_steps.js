@@ -8,6 +8,7 @@ const iSeeALinkToAboutPage = () => {
 };
 
 const iClickOnTheMainNavigationButton = () => {
+	ArticlePage.menu_button_element.waitForDisplayed();
 	ArticlePage.menu_button_element.click();
 };
 

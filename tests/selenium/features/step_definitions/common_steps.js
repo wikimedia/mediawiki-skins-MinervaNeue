@@ -103,6 +103,7 @@ const iClickTheBrowserBackButton = () => {
 
 const iClickTheOverlayCloseButton = () => {
 	waitForPropagation( 2000 );
+	ArticlePageWithOverlay.overlay_close_element.waitForDisplayed();
 	ArticlePageWithOverlay.overlay_close_element.click();
 };
 

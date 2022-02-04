@@ -12,6 +12,7 @@ const iShouldSeeNotTheReferenceDrawer = () => {
 };
 
 const iClickOnAReference = () => {
+	ArticlePage.reference_element.waitForDisplayed();
 	ArticlePage.reference_element.click();
 };
 
