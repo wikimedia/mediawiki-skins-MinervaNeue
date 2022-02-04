@@ -37,11 +37,15 @@ function getClassesForItem( $item ) {
  * Insert icon into the portlet link.
  *
  * @param {jQuery.Object} $link
- * @param {string} id for icon
+ * @param {string|undefined} id for icon
  */
 function insertIcon( $link, id ) {
-	var icon = document.createElement( 'span' );
-	icon.setAttribute( 'class', 'mw-ui-icon mw-ui-icon-portletlink-' + id );
+	var icon = document.createElement( 'span' ),
+		classes = 'mw-ui-icon';
+	if ( id ) {
+		classes += ' mw-ui-icon-portletlink-' + id;
+	}
+	icon.setAttribute( 'class', classes );
 	$link.prepend( '&nbsp;' );
 	$link.prepend( icon );
 }
@@ -62,7 +66,7 @@ function hookHandler( listItem, data ) {
 		$a.addClass( classes.a );
 		$item.find( 'a > span' ).addClass( classes.span );
 		listItem.dataset.minervaPortlet = true;
-		if ( id && classes.span.indexOf( 'mw-ui-icon' ) === -1 ) {
+		if ( classes.span.indexOf( 'mw-ui-icon' ) === -1 ) {
 			insertIcon( $a, id );
 		}
 	}
