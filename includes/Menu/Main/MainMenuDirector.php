@@ -98,7 +98,8 @@ final class MainMenuDirector {
 			]
 		];
 		$groups = [
-			$builder->getDiscoveryGroup( $sidebar['navigation'] ),
+			// sidebar comes from MediaWiki:Sidebar so we can't assume it doesn't exist.
+			$builder->getDiscoveryGroup( $sidebar['navigation'] ?? [] ),
 			$builder->getInteractionToolsGroup(),
 			$builder->getPersonalToolsGroup( $contentNavUrls['user-menu'] ),
 			$builder->getDonateGroup(),
