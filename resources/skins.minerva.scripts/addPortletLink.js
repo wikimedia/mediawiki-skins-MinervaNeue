@@ -46,7 +46,6 @@ function insertIcon( $link, id ) {
 		classes += ' mw-ui-icon-portletlink-' + id;
 	}
 	icon.setAttribute( 'class', classes );
-	$link.prepend( '&nbsp;' );
 	$link.prepend( icon );
 }
 
