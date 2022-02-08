@@ -105,7 +105,7 @@ class SkinMinerva extends SkinMustache {
 		$services = MediaWikiServices::getInstance();
 		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
 		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
-		$sidebar = $this->buildSidebarCached();
+		$sidebar = $this->buildSidebar();
 		$actions = $nav['actions'] ?? [];
 		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
 	}
@@ -163,7 +163,7 @@ class SkinMinerva extends SkinMustache {
 				'html-minerva-user-notifications' => $this->prepareUserNotificationsButton( $this->getNewtalks() ),
 				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
 					$nav,
-					$this->buildSidebarCached()
+					$this->buildSidebar()
 				)['items'],
 				'html-minerva-tagline' => $this->getTaglineHtml(),
 				'html-minerva-post-heading' => $this->isTalkPageWithViewAction()
@@ -783,17 +783,6 @@ class SkinMinerva extends SkinMustache {
 		}
 
 		return $buttons;
-	}
-
-	/**
-	 * Minerva skin do not have sidebar, there is no need to calculate that.
-	 * @return array
-	 */
-	private function buildSidebarCached() {
-		if ( !$this->sidebarCachedResult ) {
-			$this->sidebarCachedResult = $this->buildSidebar();
-		}
-		return $this->sidebarCachedResult;
 	}
 
 	/**
