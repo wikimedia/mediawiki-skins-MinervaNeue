@@ -47,6 +47,9 @@ class SkinMinerva extends SkinMustache {
 	/** @var array|null */
 	private $sidebarCachedResult;
 
+	/** @var array|null */
+	private $contentNavigationUrls;
+
 	/**
 	 * This variable is lazy loaded, please use getPermissions() getter
 	 * @see SkinMinerva::getPermissions()
@@ -108,12 +111,33 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * Caches content navigation urls locally for use inside getTemplateData
+	 *
+	 * @inheritDoc
+	 */
+	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$contentNavigationUrls ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $contentNavigationUrls );
+		// There are some SkinTemplate modifications that occur after the execution of this hook
+		// to add rel attributes and ID attributes.
+		// The only one Minerva needs is this one so we manually add it.
+		foreach ( array_keys( $contentNavigationUrls['namespaces'] ) as $id ) {
+			if ( in_array( $id, [ 'user_talk', 'talk' ] ) ) {
+				$contentNavigationUrls['namespaces'][ $id ]['rel'] = 'discussion';
+			}
+		}
+		$this->contentNavigationUrls = $contentNavigationUrls;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
 			$data = parent::getTemplateData();
 			// FIXME: Can we use $data instead of calling buildContentNavigationUrls ?
-			$nav = $this->buildContentNavigationUrls();
+			$nav = $this->contentNavigationUrls;
+			if ( $nav === null ) {
+				throw new RuntimeException( 'contentNavigationUrls was not set as expected.' );
+			}
 			if ( !$this->hasCategoryLinks() ) {
 				unset( $data['html-categories'] );
 			}
