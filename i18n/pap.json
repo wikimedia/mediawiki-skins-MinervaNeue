@@ -2,14 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Irus",
-			"ObaTango"
+			"ObaTango",
+			"Amire80"
 		]
 	},
 	"mobile-frontend-editor-edit": "Editá",
+	"mobile-frontend-history": "Mira e historia di redakshon di e página akí.",
 	"mobile-frontend-home-button": "Página Prinsipal",
 	"mobile-frontend-language-article-heading": "Idioma",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Bon biní}}, $1!",
-	"mobile-frontend-main-menu-login": "Registro na",
+	"mobile-frontend-main-menu-login": "Registrá",
+	"mobile-frontend-main-menu-settings": "Konfigurashon",
 	"mobile-frontend-placeholder": "Búskeda di {{SITENAME}}",
 	"mobile-frontend-random-button": "Kualkier"
 }
