@@ -123,8 +123,6 @@
 		"MediaWiki\\Minerva\\": "includes/"
 	},
 	"AutoloadClasses": {
-		"MinervaUI": "includes/MinervaUI.php",
-		"MinervaHooks": "includes/MinervaHooks.php",
 		"SkinMinerva": "includes/Skins/SkinMinerva.php"
 	},
 	"ConfigRegistry": {
@@ -132,37 +130,37 @@
 	},
 	"Hooks": {
 		"BeforePageDisplay": [
-			"MinervaHooks::onBeforePageDisplay"
+			"MediaWiki\\Minerva\\Hooks::onBeforePageDisplay"
 		],
 		"ResourceLoaderRegisterModules": [
-			"MinervaHooks::onResourceLoaderRegisterModules"
+			"MediaWiki\\Minerva\\Hooks::onResourceLoaderRegisterModules"
 		],
 		"SkinPageReadyConfig": [
-			"MinervaHooks::onSkinPageReadyConfig"
+			"MediaWiki\\Minerva\\Hooks::onSkinPageReadyConfig"
 		],
 		"UserLogoutComplete": [
-			"MinervaHooks::onUserLogoutComplete"
+			"MediaWiki\\Minerva\\Hooks::onUserLogoutComplete"
 		],
 		"FetchChangesList": [
-			"MinervaHooks::onFetchChangesList"
+			"MediaWiki\\Minerva\\Hooks::onFetchChangesList"
 		],
 		"MobileFrontendBeforeDOM": [
-			"MinervaHooks::onMobileFrontendBeforeDOM"
+			"MediaWiki\\Minerva\\Hooks::onMobileFrontendBeforeDOM"
 		],
 		"MobileFrontendFeaturesRegistration": [
-			"MinervaHooks::onMobileFrontendFeaturesRegistration"
+			"MediaWiki\\Minerva\\Hooks::onMobileFrontendFeaturesRegistration"
 		],
 		"RequestContextCreateSkinMobile": [
-			"MinervaHooks::onRequestContextCreateSkinMobile"
+			"MediaWiki\\Minerva\\Hooks::onRequestContextCreateSkinMobile"
 		],
 		"SpecialPageBeforeExecute": [
-			"MinervaHooks::onSpecialPageBeforeExecute"
+			"MediaWiki\\Minerva\\Hooks::onSpecialPageBeforeExecute"
 		],
 		"ResourceLoaderGetConfigVars": [
-			"MinervaHooks::onResourceLoaderGetConfigVars"
+			"MediaWiki\\Minerva\\Hooks::onResourceLoaderGetConfigVars"
 		],
 		"OutputPageBodyAttributes": [
-			"MinervaHooks::onOutputPageBodyAttributes"
+			"MediaWiki\\Minerva\\Hooks::onOutputPageBodyAttributes"
 		]
 	},
 	"SkinLessImportPaths": {

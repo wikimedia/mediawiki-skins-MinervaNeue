@@ -18,9 +18,27 @@
  * @file
  */
 
+namespace MediaWiki\Minerva;
+
+use ExtensionRegistry;
+use Hooks as MWHooks;
+use Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MobileContext;
+use MobileFormatter;
+use MobileFrontend\Features\Feature;
+use MobileFrontend\Features\FeaturesManager;
+use OldChangesList;
+use OutputPage;
+use ResourceLoader;
+use ResourceLoaderContext;
+use RuntimeException;
+use Skin;
+use SkinMinerva;
+use SpecialPage;
+use User;
+use Wikimedia\Services\NoSuchServiceException;
 
 /**
  * Hook handlers for Minerva skin.
@@ -28,7 +46,7 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
  * Hook handler method names should be in the form of:
  *	on<HookName>()
  */
-class MinervaHooks {
+class Hooks {
 	private const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
 	/**
@@ -42,9 +60,9 @@ class MinervaHooks {
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
 	 *
-	 * @param ResourceLoader &$resourceLoader
+	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			$resourceLoader->register( [
 				'mobile.startup' => [
@@ -63,12 +81,12 @@ class MinervaHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FetchChangesList
 	 *
 	 * @param User $user
-	 * @param Skin &$skin
+	 * @param Skin $skin
 	 * @param array &$list
 	 * @param array $groups
 	 * @return bool|null
 	 */
-	public static function onFetchChangesList( User $user, Skin &$skin, &$list, $groups = [] ) {
+	public static function onFetchChangesList( User $user, Skin $skin, &$list, $groups = [] ) {
 		if ( $skin->getSkinName() === 'minerva' ) {
 			// The new changes list (table-based) does not work with Minerva
 			$list = new OldChangesList( $skin->getContext(), $groups );
@@ -82,7 +100,7 @@ class MinervaHooks {
 	 * @see https://www.mediawiki.org/wiki/
 	 *  Extension:MobileFrontend/MobileFrontendFeaturesRegistration
 	 *
-	 * @param MobileFrontend\Features\FeaturesManager $featureManager
+	 * @param FeaturesManager $featureManager
 	 */
 	public static function onMobileFrontendFeaturesRegistration( $featureManager ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()
@@ -90,56 +108,56 @@ class MinervaHooks {
 
 		try {
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaShowCategories',
 					'skin-minerva',
 					$config->get( 'MinervaShowCategories' )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaPageIssuesNewTreatment',
 					'skin-minerva',
 					$config->get( 'MinervaPageIssuesNewTreatment' )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaTalkAtTop',
 					'skin-minerva',
 					$config->get( 'MinervaTalkAtTop' )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaDonateLink',
 					'skin-minerva',
 					$config->get( 'MinervaDonateLink' )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaHistoryInPageActions',
 					'skin-minerva',
 					$config->get( 'MinervaHistoryInPageActions' )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					self::FEATURE_OVERFLOW_PAGE_ACTIONS,
 					'skin-minerva',
 					$config->get( self::FEATURE_OVERFLOW_PAGE_ACTIONS )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaAdvancedMainMenu',
 					'skin-minerva',
 					$config->get( 'MinervaAdvancedMainMenu' )
 				)
 			);
 			$featureManager->registerFeature(
-				new MobileFrontend\Features\Feature(
+				new Feature(
 					'MinervaPersonalMenu',
 					'skin-minerva',
 					$config->get( 'MinervaPersonalMenu' )
@@ -267,7 +285,7 @@ class MinervaHooks {
 					),
 				SkinOptions::TABS_ON_SPECIALS => false,
 			] );
-			Hooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
+			MWHooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
 		}
 	}
 
@@ -302,7 +320,7 @@ class MinervaHooks {
 		try {
 			$ctx = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
 			self::setMinervaSkinOptions( $ctx, $ctx->getSkin() );
-		} catch ( Wikimedia\Services\NoSuchServiceException $ex ) {
+		} catch ( NoSuchServiceException $ex ) {
 			// MobileFrontend not installed. Not important.
 		}
 	}

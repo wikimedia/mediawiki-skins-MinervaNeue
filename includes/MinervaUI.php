@@ -18,6 +18,10 @@
  * @file
  */
 
+namespace MediaWiki\Minerva;
+
+use RuntimeException;
+
 /**
  * FIXME: Use OOUI when available
  *

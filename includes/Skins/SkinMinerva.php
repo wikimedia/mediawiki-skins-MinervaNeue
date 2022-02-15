@@ -21,6 +21,7 @@
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
+use MediaWiki\Minerva\MinervaUI;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;

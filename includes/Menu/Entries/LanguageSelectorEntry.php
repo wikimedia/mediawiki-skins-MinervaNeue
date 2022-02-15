@@ -17,8 +17,8 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use MediaWiki\Minerva\MinervaUI;
 use MessageLocalizer;
-use MinervaUI;
 use SpecialPage;
 use Title;
 

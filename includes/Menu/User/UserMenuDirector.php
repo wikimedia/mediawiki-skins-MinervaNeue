@@ -19,8 +19,8 @@
  */
 namespace MediaWiki\Minerva\Menu\User;
 
+use MediaWiki\Minerva\MinervaUI;
 use MessageLocalizer;
-use MinervaUI;
 use TemplateParser;
 
 /**
