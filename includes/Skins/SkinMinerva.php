@@ -940,6 +940,3 @@ class SkinMinerva extends SkinMustache {
 		return $styles;
 	}
 }
-
-// Setup alias for compatibility with SkinMinervaNeue.
-class_alias( 'SkinMinerva', 'SkinMinervaNeue' );
