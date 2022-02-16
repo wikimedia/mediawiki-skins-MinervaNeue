@@ -85,7 +85,7 @@ final class BuilderUtil {
 		foreach ( $navigationTools as $item ) {
 			$id = $item['id'] ?? null;
 			if ( $id && isset( $entryDefinitions[ $id ] ) ) {
-				foreach ( [ 'icon', 'class', 'href' ] as $overridableKey ) {
+				foreach ( [ 'icon', 'class', 'href', 'msg' ] as $overridableKey ) {
 					$override = $item[ $overridableKey ] ?? null;
 					if ( $override ) {
 						$entryDefinitions[$id][$overridableKey] = $override;
@@ -95,9 +95,19 @@ final class BuilderUtil {
 		}
 		// Build the menu
 		foreach ( $entryDefinitions as $definition ) {
+			$msgKey = $definition['msg'] ?? null;
+			$text = null;
+			if ( $msgKey ) {
+				$msg = $definitions->msg( $msgKey );
+				$text = $msg->exists() ? $msg->text() : null;
+			}
+			if ( !$text ) {
+				$text = $definition['text'];
+			}
+
 			$entry = SingleMenuEntry::create(
 				$definition['name'],
-				$definition['text'],
+				$text,
 				$definition['href'],
 				$definition['class'],
 				$definition['icon']
