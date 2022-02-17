@@ -26,6 +26,7 @@ use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Special\SpecialPageFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
+use Message;
 use MWException;
 use SpecialPage;
 use Title;
@@ -90,7 +91,7 @@ final class Definitions {
 	/**
 	 * Perform message localization
 	 * @param string $key to localize
-	 * @return string
+	 * @return Message
 	 */
 	public function msg( string $key ) {
 		return $this->context->msg( $key );
