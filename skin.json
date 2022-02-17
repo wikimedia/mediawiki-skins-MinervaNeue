@@ -98,7 +98,7 @@
 	},
 	"ValidSkinNames": {
 		"minerva": {
-			"class": "SkinMinervaNeue",
+			"class": "SkinMinerva",
 			"args": [ {
 				"name": "minerva",
 				"templateDirectory": "includes/Skins",
@@ -125,8 +125,7 @@
 	"AutoloadClasses": {
 		"MinervaUI": "includes/MinervaUI.php",
 		"MinervaHooks": "includes/MinervaHooks.php",
-		"SkinMinerva": "includes/Skins/SkinMinerva.php",
-		"SkinMinervaNeue": "includes/Skins/SkinMinerva.php"
+		"SkinMinerva": "includes/Skins/SkinMinerva.php"
 	},
 	"ConfigRegistry": {
 		"minerva": "GlobalVarConfig::newInstance"
