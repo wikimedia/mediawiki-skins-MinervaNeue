@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Hasslaebetch"
+		]
+	},
+	"mobile-frontend-home-button": "Yire",
+	"mobile-frontend-main-menu-login": "Kẽ",
+	"mobile-frontend-main-menu-settings": "Parametre",
+	"mobile-frontend-placeholder": "Bao {{SITENAME}}"
+}
