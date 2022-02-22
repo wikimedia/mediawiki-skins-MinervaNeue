@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Keresturec"
+		]
+	},
+	"mobile-frontend-history": "Опатриц историю ушорйованя того боку",
+	"mobile-frontend-home-button": "Главни",
+	"mobile-frontend-language-article-heading": "Язик",
+	"mobile-frontend-main-menu-login": "Приявце ше",
+	"mobile-frontend-main-menu-settings": "Намесцанє",
+	"mobile-frontend-placeholder": "Глєдац у {{SITENAME}}",
+	"mobile-frontend-random-button": "Намислом"
+}
