@@ -8,7 +8,7 @@
 	// Support Firefox: Needs `min-height` to vertically align icons in menu. See T233517.
 	min-height: @siteHeaderHeight;
 	height: 100%;
-	// Fill empty space left / start so the buttons can stay right / end.
+	// FIXME: for cached HTML. Merge with `.minerva-search-form + .minerva-user-navigation`.
 	width: 100%;
 	// Center vertically.
 	align-items: center;
@@ -21,4 +21,12 @@
 	& > *:last-child {
 		margin-right: -@icon-padding-md;
 	}
+}
+
+// Different rule for cached HTML
+// Can be merged into `.minerva-user-navigation` rule one week after this
+// change was introduced and minerva-search-form class is present everywhere.
+.minerva-search-form + .minerva-user-navigation {
+	width: auto;
+	min-width: @menuButtonIconSize * 1.5;
 }
