@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hasslaebetch"
+			"Hasslaebetch",
+			"Amire80"
 		]
 	},
-	"mobile-frontend-main-menu-login": "Ké",
+	"mobile-frontend-home-button": "Yire",
+	"mobile-frontend-main-menu-login": "Kẽ",
 	"mobile-frontend-main-menu-settings": "Parametre",
-	"mobile-frontend-placeholder": "Bao {{SITÃYUURE}}"
+	"mobile-frontend-placeholder": "Bao {{SITENAME}}"
 }
