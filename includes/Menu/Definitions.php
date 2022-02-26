@@ -23,7 +23,7 @@ namespace MediaWiki\Minerva\Menu;
 use IContextSource;
 use MediaWiki\Minerva\Menu\Entries\AuthMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
-use MediaWiki\Special\SpecialPageFactory;
+use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use Message;

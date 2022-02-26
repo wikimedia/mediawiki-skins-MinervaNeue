@@ -19,7 +19,7 @@
  */
 namespace MediaWiki\Minerva\Menu\Main;
 
-use MediaWiki\Special\SpecialPageFactory;
+use MediaWiki\SpecialPage\SpecialPageFactory;
 use MessageLocalizer;
 
 /**
