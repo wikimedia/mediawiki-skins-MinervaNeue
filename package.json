@@ -10,7 +10,7 @@
 		"lint:styles": "stylelint '**/*.{css,less}'",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"test": "npm run lint && npm run doc && dev-scripts/svg_check.sh",
-		"minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/",
+		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
 		"selenium-daily": "npm run selenium-test",
@@ -36,7 +36,7 @@
 		"mwbot": "2.0.0",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.11.1",
-		"svgo": "2.3.1",
+		"svgo": "2.8.0",
 		"wdio-mediawiki": "1.1.1",
 		"webdriverio": "7.16.4"
 	}
