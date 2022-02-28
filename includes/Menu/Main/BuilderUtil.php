@@ -117,7 +117,7 @@ final class BuilderUtil {
 		$definitions->insertNearbyIfSupported( $group );
 
 		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'discovery', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'discovery', &$group ], '1.38' );
 		return $group;
 	}
 
@@ -154,7 +154,7 @@ final class BuilderUtil {
 		$definitions->insertAboutItem( $group );
 		$definitions->insertDisclaimersItem( $group );
 		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'sitelinks', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'sitelinks', &$group ], '1.38' );
 		return $group;
 	}
 }

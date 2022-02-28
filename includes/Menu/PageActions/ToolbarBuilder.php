@@ -167,7 +167,7 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->createContributionsPageAction( $user ) );
 		}
 
-		Hooks::run( 'MobileMenu', [ 'pageactions.toolbar', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'pageactions.toolbar', &$group ], '1.38' );
 
 		// We want the edit icon/action always to be the last element on the toolbar list
 		if ( $permissions->isAllowed( IMinervaPagePermissions::CONTENT_EDIT ) ) {

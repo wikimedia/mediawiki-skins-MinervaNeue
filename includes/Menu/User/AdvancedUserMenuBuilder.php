@@ -104,7 +104,7 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 				$group->insertEntry( $entry );
 			}
 		}
-		Hooks::run( 'MobileMenu', [ 'user', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'user', &$group ], '1.38' );
 		return $group;
 	}
 }

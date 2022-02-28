@@ -106,7 +106,7 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 		$this->definitions->insertCommunityPortal( $group );
 
 		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'sitetools', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'sitetools', &$group ], '1.38' );
 		return $group;
 	}
 }

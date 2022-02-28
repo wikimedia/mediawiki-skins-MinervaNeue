@@ -81,7 +81,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 			$group->insertEntry( $menuEntry );
 		}
 
-		Hooks::run( 'MobileMenu', [ 'pageactions.overflow', &$group ] );
+		Hooks::run( 'MobileMenu', [ 'pageactions.overflow', &$group ], '1.38' );
 		return $group;
 	}
 
