@@ -47,14 +47,14 @@ describe( 'Talk', () => {
 	} );
 
 	// @smoke @login
-	it( 'Add discussion button shows on talk pages for logged in users', () => {
+	it.skip( 'Add discussion button shows on talk pages for logged in users', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnPage( 'Talk:Selenium talk test' );
 		thereShouldBeAnAddDiscussionButton();
 	} );
 
 	// @smoke @login
-	it( 'Add discussion for talk page possible as logged in user', () => {
+	it.skip( 'Add discussion for talk page possible as logged in user', () => {
 		iAmLoggedIntoTheMobileWebsite();
 		iAmOnPage( 'Talk:Selenium talk test' );
 		iClickTheAddTalkButton();
