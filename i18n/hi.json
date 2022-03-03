@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Anamdas",
 			"Innocentbunny",
 			"Jayprakash12345",
@@ -18,7 +19,7 @@
 	},
 	"minerva-last-modified-date": "अंतिम बार $1 को $2 बजे संपादित किया गया",
 	"minerva-watchlist-cta": "इस पृष्ठ और इसपर सभी बदलावों पर ध्यान रखें।",
-	"minerva-talk-add-topic": "चर्चा जोड़ें",
+	"minerva-talk-add-topic": "विषय जोड़ें",
 	"mobile-frontend-cookies-required": "दृश्य मोड को स्विच करने के लिए कुकीज़ की आवश्यकता है कृपया उन्हें सक्षम करें और पुनः प्रयास करें।",
 	"mobile-frontend-editor-edit": "संपादित करें",
 	"minerva-download": "PDF डाउनलोड करें",
