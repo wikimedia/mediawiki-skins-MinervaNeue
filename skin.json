@@ -98,7 +98,7 @@
 	},
 	"ValidSkinNames": {
 		"minerva": {
-			"class": "SkinMinerva",
+			"class": "MediaWiki\\Minerva\\Skins\\SkinMinerva",
 			"args": [ {
 				"name": "minerva",
 				"templateDirectory": "includes/Skins",
@@ -121,9 +121,6 @@
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Minerva\\": "includes/"
-	},
-	"AutoloadClasses": {
-		"SkinMinerva": "includes/Skins/SkinMinerva.php"
 	},
 	"ConfigRegistry": {
 		"minerva": "GlobalVarConfig::newInstance"

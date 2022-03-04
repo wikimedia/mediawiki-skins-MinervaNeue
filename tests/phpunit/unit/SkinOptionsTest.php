@@ -6,7 +6,6 @@ use MediaWiki\Minerva\SkinOptions;
 use OutOfBoundsException;
 
 /**
- * Class SkinMinervaTest
  * @package Tests\MediaWiki\Minerva
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\SkinOptions

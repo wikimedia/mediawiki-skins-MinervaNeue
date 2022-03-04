@@ -3,15 +3,15 @@
 namespace Tests\MediaWiki\Minerva;
 
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWikiIntegrationTestCase;
 use OutputPage;
 use RequestContext;
-use SkinMinerva;
 use Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass SkinMinerva
+ * @coversDefaultClass \MediaWiki\Minerva\Skins\SkinMinerva
  * @group MinervaNeue
  */
 class SkinMinervaTest extends MediaWikiIntegrationTestCase {

@@ -18,13 +18,32 @@
  * @file
  */
 
+namespace MediaWiki\Minerva\Skins;
+
+use Action;
+use ExtensionRegistry;
+use Hooks as MWHooks;
+use Html;
+use Language;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
+use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
+use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\MinervaUI;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MWException;
+use MWTimestamp;
+use ParserOptions;
+use ParserOutput;
+use RequestContext;
+use RuntimeException;
+use SkinMustache;
+use SkinTemplate;
+use SpecialMobileHistory;
+use SpecialPage;
+use Title;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -104,7 +123,7 @@ class SkinMinerva extends SkinMustache {
 			return null;
 		}
 		$services = MediaWikiServices::getInstance();
-		/** @var \MediaWiki\Minerva\Menu\PageActions\PageActionsDirector $pageActionsDirector */
+		/** @var PageActionsDirector $pageActionsDirector */
 		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
 		$sidebar = $this->buildSidebar();
 		$actions = $nav['actions'] ?? [];
@@ -260,7 +279,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getPersonalToolsMenu( array $personalUrls ) {
 		$services = MediaWikiServices::getInstance();
-		/** @var \MediaWiki\Minerva\Menu\User\UserMenuDirector $userMenuDirector */
+		/** @var UserMenuDirector $userMenuDirector */
 		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
 		return $userMenuDirector->renderMenuData( $personalUrls );
 	}
@@ -406,7 +425,7 @@ class SkinMinerva extends SkinMustache {
 					[ 'returnto' => $currentTitle->getPrefixedText() ]
 				),
 			], $notificationsMsg );
-			Hooks::run( 'SkinMinervaReplaceNotificationsBadge',
+			MWHooks::run( 'SkinMinervaReplaceNotificationsBadge',
 				[ $user, $currentTitle, &$badge ] );
 			return $badge;
 		}

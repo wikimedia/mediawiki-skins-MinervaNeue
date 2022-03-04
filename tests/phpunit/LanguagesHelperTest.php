@@ -8,7 +8,6 @@ use MediaWiki\Minerva\LanguagesHelper;
 use PHPUnit\Framework\MockObject\Invocation;
 
 /**
- * Class SkinMinervaTest
  * @package Tests\MediaWiki\Minerva
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\LanguagesHelper
