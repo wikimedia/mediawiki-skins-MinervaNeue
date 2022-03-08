@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Oby Ezeilo",
 			"Tochiprecious",
 			"Ukabia",
 			"Uzoma Ozurumba",
@@ -8,6 +9,7 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Mèzi",
+	"mobile-frontend-home-button": "Ụlọ",
 	"mobile-frontend-language-article-heading": "Asụsụ",
 	"mobile-frontend-main-menu-contributions": "Mmètàrà",
 	"mobile-frontend-main-menu-watchlist": "Ùlìle",

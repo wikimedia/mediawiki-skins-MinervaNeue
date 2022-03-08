@@ -44,7 +44,7 @@
 	"mobile-frontend-meta-data-issues-talk": "關於此對話頁面",
 	"mobile-frontend-notifications-filter": "篩選器",
 	"mobile-frontend-pageaction-edit-tooltip": "編輯此頁面的導言章節",
-	"mobile-frontend-placeholder": "搜尋{{SITENAME}}",
+	"mobile-frontend-placeholder": "在{{SITENAME}}搜尋",
 	"mobile-frontend-random-button": "隨機",
 	"mobile-frontend-redirected-from": "重新導向自 \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "返回到檔案 \"$1\" 。",
