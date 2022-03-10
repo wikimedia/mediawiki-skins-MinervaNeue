@@ -73,7 +73,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 		$skin = TestingAccessWrapper::newFromObject( $skin );
 
-		$this->assertEquals( $skin->hasCategoryLinks(), $expected );
+		$this->assertEquals( $expected, $skin->hasCategoryLinks() );
 	}
 
 	public function provideHasCategoryLinks() {
