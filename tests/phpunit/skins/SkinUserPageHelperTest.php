@@ -18,7 +18,7 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::__construct
 	 */
 	public function testTitleNotInUserNamespace() {
-		$title = Title::newFromText( 'Test Page' );
+		$title = Title::makeTitle( NS_MAIN, 'Test_Page' );
 
 		$helper = new SkinUserPageHelper( $this->getServiceContainer()->getUserNameUtils(), $title );
 		$this->assertFalse( $helper->isUserPage() );
@@ -42,7 +42,7 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::fetchData
 	 */
 	public function testTitleisASubpage() {
-		$title = Title::newFromText( 'User:TestUser/subpage' );
+		$title = Title::makeTitle( NS_USER, 'TestUser/subpage' );
 
 		$helper = new SkinUserPageHelper( $this->getServiceContainer()->getUserNameUtils(), $title );
 		$this->assertFalse( $helper->isUserPage() );
@@ -54,7 +54,7 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::buildPageUserObject
 	 */
 	public function testTitleisAnIP() {
-		$title = Title::newFromText( 'User:127.0.0.1' );
+		$title = Title::makeTitle( NS_USER, '127.0.0.1' );
 
 		$helper = new SkinUserPageHelper( $this->getServiceContainer()->getUserNameUtils(), $title );
 		$this->assertTrue( $helper->isUserPage() );
@@ -66,7 +66,7 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::buildPageUserObject
 	 */
 	public function testTitleIsIPRange() {
-		$title = Title::newFromText( 'User:127.0.0.1/24' );
+		$title = Title::makeTitle( NS_USER, '127.0.0.1/24' );
 
 		$helper = new SkinUserPageHelper( $this->getServiceContainer()->getUserNameUtils(), $title );
 		$this->assertFalse( $helper->isUserPage() );
@@ -78,7 +78,7 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::buildPageUserObject
 	 */
 	public function testTitleIsFakeUserPage() {
-		$title = Title::newFromText( 'User:Fake user' );
+		$title = Title::makeTitle( NS_USER, 'Fake_user' );
 
 		$helper = new SkinUserPageHelper( $this->getServiceContainer()->getUserNameUtils(), $title );
 		$this->assertFalse( $helper->isUserPage() );

@@ -86,7 +86,7 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 		return [ [
 			'icon' => 'wikimedia-userAvatar-base20',
 			'text' => $this->customProfileLabel ?? $username,
-			'href' => $this->customProfileURL ?? Title::newFromText( $username, NS_USER )->getLocalURL(),
+			'href' => $this->customProfileURL ?? Title::makeTitle( NS_USER, $username )->getLocalURL(),
 			'class' => 'menu__item--user',
 			'data-event-name' => 'menu.' . (
 				$this->profileTrackingCode ?? self::DEFAULT_PROFILE_TRACKING_CODE )
