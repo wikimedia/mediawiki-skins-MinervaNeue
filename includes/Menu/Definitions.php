@@ -105,7 +105,7 @@ final class Definitions {
 	public function insertNearbyIfSupported( Group $group ) {
 		// Nearby link (if supported)
 		if ( $this->specialPageFactory->exists( 'Nearby' ) ) {
-			$group->insert( 'nearby', $isJSOnly = true )
+			$group->insert( 'nearby', /* $isJSOnly = */ true )
 				->addComponent(
 					$this->context->msg( 'mobile-frontend-main-menu-nearby' )->text(),
 					SpecialPage::getTitleFor( 'Nearby' )->getLocalURL(),
@@ -170,12 +170,16 @@ final class Definitions {
 	 * @param Group $group
 	 */
 	public function insertAboutItem( Group $group ) {
-		$title = Title::newFromText( $this->context->msg( 'aboutpage' )->inContentLanguage()->text() );
 		$msg = $this->context->msg( 'aboutsite' );
-		if ( $title && !$msg->isDisabled() ) {
-			$group->insert( 'about' )
-				->addComponent( $msg->text(), $title->getLocalURL() );
+		if ( $msg->isDisabled() ) {
+			return;
 		}
+		$title = Title::newFromText( $this->context->msg( 'aboutpage' )->inContentLanguage()->text() );
+		if ( !$title ) {
+			return;
+		}
+		$group->insert( 'about' )
+			->addComponent( $msg->text(), $title->getLocalURL() );
 	}
 
 	/**
@@ -183,13 +187,17 @@ final class Definitions {
 	 * @param Group $group
 	 */
 	public function insertDisclaimersItem( Group $group ) {
+		$msg = $this->context->msg( 'disclaimers' );
+		if ( $msg->isDisabled() ) {
+			return;
+		}
 		$title = Title::newFromText( $this->context->msg( 'disclaimerpage' )
 			->inContentLanguage()->text() );
-		$msg = $this->context->msg( 'disclaimers' );
-		if ( $title && !$msg->isDisabled() ) {
-			$group->insert( 'disclaimers' )
-				->addComponent( $msg->text(), $title->getLocalURL() );
+		if ( !$title ) {
+			return;
 		}
+		$group->insert( 'disclaimers' )
+			->addComponent( $msg->text(), $title->getLocalURL() );
 	}
 
 	/**
@@ -231,16 +239,20 @@ final class Definitions {
 	 * @throws MWException
 	 */
 	public function insertCommunityPortal( Group $group ) {
+		$msg = $this->context->msg( 'portal' );
+		if ( $msg->isDisabled() ) {
+			return;
+		}
 		$title = Title::newFromText( $this->context->msg( 'portal-url' )
 			->inContentLanguage()->text() );
-		$msg = $this->context->msg( 'portal' );
-		if ( $title && !$msg->isDisabled() ) {
-			$group->insertEntry( SingleMenuEntry::create(
-				'speechBubbles',
-				$msg->text(),
-				$title->getLocalURL()
-			) );
+		if ( !$title ) {
+			return;
 		}
+		$group->insertEntry( SingleMenuEntry::create(
+			'speechBubbles',
+			$msg->text(),
+			$title->getLocalURL()
+		) );
 	}
 
 	/**
@@ -272,8 +284,9 @@ final class Definitions {
 	 */
 	private function newReturnToQuery(): array {
 		$returnToQuery = [];
-		if ( !$this->context->getRequest()->wasPosted() ) {
-			$returnToQuery = $this->context->getRequest()->getValues();
+		$request = $this->context->getRequest();
+		if ( !$request->wasPosted() ) {
+			$returnToQuery = $request->getValues();
 			unset( $returnToQuery['title'] );
 			unset( $returnToQuery['returnto'] );
 			unset( $returnToQuery['returntoquery'] );
@@ -287,22 +300,21 @@ final class Definitions {
 	 * @param Group $group
 	 * @throws MWException
 	 */
-	 public function insertDonateItem( Group $group ) {
-		 $ctx = $this->context;
-		 if ( !$ctx->msg( 'sitesupport-url' )->exists() ||
-			$ctx->msg( 'sitesupport' )->isDisabled()
-		) {
+	public function insertDonateItem( Group $group ) {
+		$labelMsg = $this->context->msg( 'sitesupport' );
+		$urlMsg = $this->context->msg( 'sitesupport-url' );
+		if ( !$urlMsg->exists() || $labelMsg->isDisabled() ) {
 			return;
-		 }
-		 // Add term field to allow distinguishing from other sidebars.
-		 // https://www.mediawiki.org/wiki/Wikimedia_Product/Analytics_Infrastructure/Schema_fragments#Campaign_Attribution
-		 $url = wfAppendQuery(
-			$ctx->msg( 'sitesupport-url' )->text(),
+		}
+		// Add term field to allow distinguishing from other sidebars.
+		// https://www.mediawiki.org/wiki/Wikimedia_Product/Analytics_Infrastructure/Schema_fragments#Campaign_Attribution
+		$url = wfAppendQuery(
+			$urlMsg->text(),
 			[ 'utm_key' => 'minerva' ]
 		);
 
 		 $group->insert( 'donate' )->addComponent(
-			$ctx->msg( 'sitesupport' )->text(),
+			$labelMsg->text(),
 			$url,
 			'',
 			[
@@ -311,6 +323,6 @@ final class Definitions {
 				'data-event-name' => 'menu.donate',
 			],
 			'minerva-heart'
-		 );
-	 }
+		);
+	}
 }
