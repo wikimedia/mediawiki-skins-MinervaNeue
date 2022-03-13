@@ -37,7 +37,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 		$this->overrideSkinOptions( [ SkinOptions::CATEGORIES => false ] );
 		$context = new RequestContext();
-		$context->setTitle( Title::newFromText( 'Test' ) );
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'Test' ) );
 		$context->setOutput( $outputPage );
 
 		$skin = new SkinMinerva();
@@ -65,7 +65,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->overrideSkinOptions( [ SkinOptions::CATEGORIES => true ] );
 
 		$context = new RequestContext();
-		$context->setTitle( Title::newFromText( 'Test' ) );
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'Test' ) );
 		$context->setOutput( $outputPage );
 
 		$skin = new SkinMinerva();
