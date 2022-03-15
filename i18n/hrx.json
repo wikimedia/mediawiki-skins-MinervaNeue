@@ -1,15 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Midnight Gambler"
+			"Midnight Gambler",
+			"Iohanen"
 		]
 	},
 	"mobile-frontend-editor-edit": "Beoorbeite",
-	"mobile-frontend-home-button": "Startseit",
-	"mobile-frontend-main-menu-login": "Oonmelde",
+	"mobile-frontend-history": "Die Versionsgeschicht fon dieser Seit aansihn",
+	"mobile-frontend-home-button": "Start",
+	"mobile-frontend-language-article-heading": "Sproch",
+	"mobile-frontend-main-menu-login": "Aanmelle",
 	"mobile-frontend-main-menu-nearby": "In der Näh",
-	"mobile-frontend-main-menu-settings": "Instellunge",
+	"mobile-frontend-main-menu-settings": "Konfigurazione",
 	"mobile-frontend-main-menu-watchlist": "Beobachtungslist",
-	"mobile-frontend-placeholder": "{{SITENAME}} doorrichsuche",
-	"mobile-frontend-random-button": "Zufällich"
+	"mobile-frontend-placeholder": "{{SITENAME}} dorrichsuche",
+	"mobile-frontend-random-button": "Zufall"
 }

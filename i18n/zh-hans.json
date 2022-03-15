@@ -22,7 +22,9 @@
 			"Joshua",
 			"Lakejason0",
 			"Xzonn",
-			"SolidBlock"
+			"SolidBlock",
+			"GuoPC",
+			"Winston Sung"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -54,7 +56,7 @@
 	"mobile-frontend-meta-data-issues-talk": "关于此讨论页",
 	"mobile-frontend-notifications-filter": "过滤器",
 	"mobile-frontend-pageaction-edit-tooltip": "编辑此页面的序言章节",
-	"mobile-frontend-placeholder": "搜索{{SITENAME}}",
+	"mobile-frontend-placeholder": "在{{SITENAME}}搜索",
 	"mobile-frontend-random-button": "随机",
 	"mobile-frontend-redirected-from": "重定向自“[[$1]]”",
 	"mobile-frontend-talk-back-to-filepage": "返回到文件“$1”。",
