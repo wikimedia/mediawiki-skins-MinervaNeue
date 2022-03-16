@@ -5,20 +5,21 @@
 			"Ukabia",
 			"Uzoma Ozurumba",
 			"Weather Top Wizard",
-			"Oby Ezeilo"
+			"Oby Ezeilo",
+			"Pasjoesscc"
 		]
 	},
 	"mobile-frontend-editor-edit": "Mèzi",
-	"mobile-frontend-history": "Lelee idezi akụkọ nke ibe a.",
+	"mobile-frontend-history": "Lee akụkọala ihu a.",
 	"mobile-frontend-home-button": "Ụlọ",
 	"mobile-frontend-language-article-heading": "Asụsụ",
 	"mobile-frontend-logged-in-homepage-notification": "{{Gender: $1|Nnọọ}}, $1!",
 	"mobile-frontend-main-menu-contributions": "Mmètàrà",
 	"mobile-frontend-main-menu-login": "Banye",
-	"mobile-frontend-main-menu-settings": "Ntọala",
+	"mobile-frontend-main-menu-settings": "Nhaziga",
 	"mobile-frontend-main-menu-watchlist": "Ùlìle",
 	"mobile-frontend-placeholder": "Chọọ na {{SITENAME}}",
-	"mobile-frontend-random-button": "Enweghị usoro",
+	"mobile-frontend-random-button": "mbọ mbọ",
 	"mobile-frontend-user-page-contributions": "Mmètàrà",
 	"mobile-frontend-user-page-talk": "Nkàta",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Ụdàkọ"
