@@ -105,7 +105,7 @@ class ArticlePage
   span(:visual_editor_button, css: '.visual-editor .oo-ui-icon-edit-ve')
 
   # editor
-  textarea(:editor_textarea, css: '.wikitext-editor,.overlay-content .surface')
+  textarea(:editor_textarea, class: 'wikitext-editor')
   button(:escape_button, class: 'mw-ui-icon-back')
   button(:continue_button, class: 'continue')
   button(:submit_button, class: 'submit')
