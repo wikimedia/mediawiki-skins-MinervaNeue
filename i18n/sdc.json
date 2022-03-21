@@ -1,10 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jun Misugi"
+			"Jun Misugi",
+			"F Samaritani"
 		]
 	},
+	"mobile-frontend-home-button": "Pàgina prinzipari",
 	"mobile-frontend-language-article-heading": "Linga",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Binvinuddu}}, $1!",
+	"mobile-frontend-main-menu-login": "Intrà",
+	"mobile-frontend-main-menu-settings": "Prifirènzi",
 	"mobile-frontend-placeholder": "Zercha di dentru a {{SITENAME}}"
 }
