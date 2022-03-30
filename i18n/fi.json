@@ -14,7 +14,9 @@
 			"Pyscowicz",
 			"Stryn",
 			"Syreeni",
-			"Valtlait"
+			"Valtlait",
+			"Korjaus1",
+			"Markus Mikkonen"
 		]
 	},
 	"minerva-last-modified-date": "Viimeksi muokattu $1 kello $2",
@@ -65,6 +67,10 @@
 	"minerva-page-actions-permalink": "Ikilinkki",
 	"minerva-page-actions-backlinks": "Tänne viittaavat sivut",
 	"minerva-page-actions-cite": "Viitetiedot",
+	"minerva-page-actions-move": "Siirrä",
+	"minerva-page-actions-delete": "Poista",
+	"minerva-page-actions-protect": "Suojaa",
+	"minerva-page-actions-unprotect": "Poista suojaus",
 	"minerva-page-actions-user-groups": "Käyttäjäryhmät",
 	"minerva-page-actions-logs": "Lokit",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-kohde",
