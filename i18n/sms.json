@@ -4,6 +4,7 @@
 			"Yupik"
 		]
 	},
+	"minerva-talk-add-topic": "Lââʹzzet teeʹm",
 	"mobile-frontend-editor-edit": "Muuʹtt",
 	"minerva-download": "Laadd PDF-teâttõõzz",
 	"mobile-frontend-editor-redlink-create": "Raaj seeid",
@@ -27,6 +28,8 @@
 	"mobile-frontend-user-page-contributions": "Muttâz",
 	"mobile-frontend-user-page-talk": "Saǥstõõllâmseidd",
 	"minerva-page-actions-move": "Seeʹrd",
+	"minerva-page-actions-delete": "Jaukkâd",
 	"minerva-page-actions-protect": "Suõjjâd",
+	"minerva-page-actions-language-switcher": "Ǩiõl",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoria"
 }

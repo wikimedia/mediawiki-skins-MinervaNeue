@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Evannak",
-			"គីមស៊្រុន"
+			"គីមស៊្រុន",
+			"Sovichet"
 		]
 	},
 	"minerva-last-modified-date": "កែប្រែចុងក្រោយនៅ $1 $2",
-	"minerva-talk-add-topic": "បន្ថែមការពិភាក្សា",
+	"minerva-talk-add-topic": "បន្ថែម​ប្រធានបទ​",
 	"mobile-frontend-editor-edit": "កែប្រែ",
 	"minerva-download": "ទាញយកជាPDF",
 	"mobile-frontend-editor-redlink-create": "បង្កើតទំព័រ",
