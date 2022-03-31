@@ -491,47 +491,43 @@ class SkinMinerva extends SkinMustache {
 	 * @return array|null
 	 */
 	protected function getHistoryLink( Title $title ) {
+		if ( !$title->exists() ||
+			Action::getActionName( RequestContext::getMain() ) !== 'view'
+		) {
+			return null;
+		}
+
 		$out = $this->getOutput();
-		$isLatestRevision = $out->getRevisionId() === $title->getLatestRevID();
-		// Get rev_timestamp of current revision (preloaded by MediaWiki core)
-		$timestamp = $out->getRevisionTimestamp();
-		# No cached timestamp, load it from the database
-		if ( $timestamp === null ) {
-			$timestamp = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getTimestampFromId( $out->getRevisionId() );
+
+		if ( !$out->isRevisionCurrent() || $title->isMainPage() ) {
+			$historyLink = $this->getGenericHistoryLink( $title );
+		} else {
+			// Get rev_timestamp of current revision (preloaded by MediaWiki core)
+			$timestamp = $out->getRevisionTimestamp();
+			if ( !$timestamp ) {
+				# No cached timestamp, load it from the database
+				$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+				$timestamp = $revisionLookup->getTimestampFromId( $out->getRevisionId() );
+			}
+			$historyLink = $this->getRelativeHistoryLink( $title, $timestamp );
 		}
 
-		// Create history link and corresponding icons.
-		$historyLinkAndIcons = [];
-		if ( Action::getActionName( RequestContext::getMain() ) === 'view' ) {
-			$historyIconClasses = [
-				'historyIconClass' => MinervaUI::iconClass(
-					'history-base20', 'mw-ui-icon-small', '', 'wikimedia'
-				),
-				'arrowIconClass' => MinervaUI::iconClass(
-					'expand-gray', 'small',
-					'mf-mw-ui-icon-rotate-anti-clockwise indicator',
-					// Uses icon in MobileFrontend so must be prefixed mf.
-					// Without MobileFrontend it will not render.
-					// Rather than maintain 2 versions (and variants) of the arrow icon which can conflict
-					// with each othe and bloat CSS, we'll
-					// use the MobileFrontend one. Long term when T177432 and T160690 are resolved
-					// we should be able to use one icon definition and break this dependency.
-					'mf'
-				),
-			];
-			$historyLink = !$isLatestRevision || $title->isMainPage() ?
-				$this->getGenericHistoryLink( $title ) :
-				$this->getRelativeHistoryLink( $title, $timestamp );
-
-			$historyLinkAndIcons = $historyLink + $historyIconClasses;
-		}
-
-		$title = $this->getTitle();
-		return $title->canExist() && $title->exists() && !empty( $historyLinkAndIcons )
-			? $historyLinkAndIcons
-			: null;
+		return $historyLink + [
+			'historyIconClass' => MinervaUI::iconClass(
+				'history-base20', 'mw-ui-icon-small', '', 'wikimedia'
+			),
+			'arrowIconClass' => MinervaUI::iconClass(
+				'expand-gray', 'small',
+				'mf-mw-ui-icon-rotate-anti-clockwise indicator',
+				// Uses icon in MobileFrontend so must be prefixed mf.
+				// Without MobileFrontend it will not render.
+				// Rather than maintain 2 versions (and variants) of the arrow icon which can conflict
+				// with each othe and bloat CSS, we'll
+				// use the MobileFrontend one. Long term when T177432 and T160690 are resolved
+				// we should be able to use one icon definition and break this dependency.
+				'mf'
+			),
+		];
 	}
 
 	/**
