@@ -193,10 +193,7 @@ class ToolbarBuilder {
 		$entry->setTitle( $label )
 			->trackClicks( 'contributions' )
 			->setIcon( 'userContributions', 'element',
-				// FIXME: mw-ui-icon-minerva-contributions and mw-ui-icon-minerva-userContributions
-				// can be removed after cache has cleared (I6c908acd70c0dca5bcb1754d1b25d3da2389feb8)
-				'mw-ui-icon-with-label-desktop mw-ui-icon-minerva-contributions '
-				. 'mw-ui-icon-minerva-userContributions'
+				'mw-ui-icon-with-label-desktop'
 			);
 
 		return $entry;
