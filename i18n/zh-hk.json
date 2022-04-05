@@ -1,9 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"LNDDYL"
+			"LNDDYL",
+			"StarrySky"
 		]
 	},
-	"mobile-frontend-editor-unavailable": "流動編輯器尚不支援您的瀏覽器。請嘗試使用其他瀏覽器。",
-	"mobile-frontend-editor-undo-unsupported": "流動裝置目前尚未支援還原。"
+	"mobile-frontend-history": "檢視此頁面的編輯歷史",
+	"mobile-frontend-home-button": "首頁",
+	"mobile-frontend-language-article-heading": "語言",
+	"mobile-frontend-main-menu-login": "登入",
+	"mobile-frontend-main-menu-settings": "設定",
+	"mobile-frontend-placeholder": "搜尋{{SITENAME}}",
+	"mobile-frontend-random-button": "隨機"
 }
