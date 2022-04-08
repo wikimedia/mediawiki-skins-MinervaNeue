@@ -42,6 +42,7 @@ class SkinOptionsTest extends MediaWikiUnitTestCase {
 			SkinOptions::TOOLBAR_SUBMENU => false,
 			SkinOptions::MAIN_MENU_EXPANDED => false,
 			SkinOptions::PERSONAL_MENU => false,
+			SkinOptions::TABS_ON_SPECIALS => false,
 		] );
 		$this->assertFalse( $options->hasSkinOptions() );
 	}

@@ -140,10 +140,15 @@ class SkinMinerva extends SkinMustache {
 		// There are some SkinTemplate modifications that occur after the execution of this hook
 		// to add rel attributes and ID attributes.
 		// The only one Minerva needs is this one so we manually add it.
+		$isSpecialPage = $skin->getTitle()->isSpecialPage();
 		foreach ( array_keys( $contentNavigationUrls['namespaces'] ) as $id ) {
 			if ( in_array( $id, [ 'user_talk', 'talk' ] ) ) {
 				$contentNavigationUrls['namespaces'][ $id ]['rel'] = 'discussion';
 			}
+		}
+		// Do not output the "Special page" tab.
+		if ( $isSpecialPage ) {
+			unset( $contentNavigationUrls['namespaces']['special'] );
 		}
 		$this->contentNavigationUrls = $contentNavigationUrls;
 	}
@@ -216,7 +221,8 @@ class SkinMinerva extends SkinMustache {
 			->getSubjectPage( $title );
 		$isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
 		return (
-				$this->hasPageActions() && !$isMainPageTalk
+				$this->hasPageActions() && !$isMainPageTalk &&
+				$skinOptions->get( SkinOptions::TALK_AT_TOP )
 			) || (
 				$isSpecialPage &&
 				$skinOptions->get( SkinOptions::TABS_ON_SPECIALS )
@@ -228,9 +234,8 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	private function getTabsData( array $contentNavigationUrls ) {
-		$skinOptions = $this->getSkinOptions();
-		$hasTalkTabs = $skinOptions->get( SkinOptions::TALK_AT_TOP ) && $this->hasPageTabs();
-		if ( !$hasTalkTabs ) {
+		$hasPageTabs = $this->hasPageTabs();
+		if ( !$hasPageTabs ) {
 			return [];
 		}
 		return $contentNavigationUrls ? [

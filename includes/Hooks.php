@@ -283,7 +283,7 @@ class Hooks {
 					true : $featureManager->isFeatureAvailableForCurrentUser(
 						self::FEATURE_OVERFLOW_PAGE_ACTIONS
 					),
-				SkinOptions::TABS_ON_SPECIALS => false,
+				SkinOptions::TABS_ON_SPECIALS => true,
 			] );
 			MWHooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
 		}
