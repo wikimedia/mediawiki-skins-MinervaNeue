@@ -20,7 +20,6 @@
 
 namespace MediaWiki\Minerva\Skins;
 
-use Action;
 use ExtensionRegistry;
 use Hooks as MWHooks;
 use Html;
@@ -37,7 +36,6 @@ use MWException;
 use MWTimestamp;
 use ParserOptions;
 use ParserOutput;
-use RequestContext;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
@@ -93,7 +91,7 @@ class SkinMinerva extends SkinMustache {
 	private function hasPageActions() {
 		$title = $this->getTitle();
 		return !$title->isSpecialPage() && !$title->isMainPage() &&
-			Action::getActionName( $this->getContext() ) === 'view';
+			$this->getContext()->getActionName() === 'view';
 	}
 
 	/**
@@ -492,7 +490,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getHistoryLink( Title $title ) {
 		if ( !$title->exists() ||
-			Action::getActionName( RequestContext::getMain() ) !== 'view'
+			$this->getContext()->getActionName() !== 'view'
 		) {
 			return null;
 		}
@@ -627,7 +625,7 @@ class SkinMinerva extends SkinMustache {
 			return false;
 		}
 
-		return $title->isTalkPage() && Action::getActionName( $this->getContext() ) === "view";
+		return $title->isTalkPage() && $this->getContext()->getActionName() === "view";
 	}
 
 	/**
@@ -847,7 +845,7 @@ class SkinMinerva extends SkinMustache {
 		// in order to enable toggling of the
 		// filters. Long term this won't be necessary when T111565 is resolved and a
 		// more general solution can be used.
-		if ( Action::getActionName( $this->getContext() ) !== 'history' ) {
+		if ( $this->getContext()->getActionName() !== 'history' ) {
 			// dequeue default content modules (toc, sortable, collapsible, etc.)
 			$modules['content'] = array_diff( $modules['content'], [
 				// T233340
