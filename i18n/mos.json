@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Hasslaebetch"
+			"Hasslaebetch",
+			"Abdul Fatawu 352"
 		]
 	},
 	"mobile-frontend-home-button": "Yire",
+	"mobile-frontend-language-article-heading": "Gomde",
 	"mobile-frontend-main-menu-login": "Kẽ",
 	"mobile-frontend-main-menu-settings": "Parametre",
-	"mobile-frontend-placeholder": "Bao {{SITENAME}}"
+	"mobile-frontend-placeholder": "Bao {{SITENAME}}",
+	"mobile-frontend-random-button": "Yaare"
 }
