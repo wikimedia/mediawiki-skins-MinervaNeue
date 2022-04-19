@@ -640,5 +640,12 @@
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
+	"attributes": {
+		"MobileFrontend": {
+			"EditorAvailableSkins": [
+				"minerva"
+			]
+		}
+	},
 	"manifest_version": 2
 }
