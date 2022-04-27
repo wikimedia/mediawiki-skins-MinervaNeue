@@ -20,7 +20,6 @@
 
 namespace MediaWiki\Minerva\Menu\PageActions;
 
-use Hooks;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
@@ -111,7 +110,6 @@ class UserNamespaceOverflowBuilder implements IOverflowBuilder {
 		foreach ( $possibleEntries as $menuEntry ) {
 			$group->insertEntry( $menuEntry );
 		}
-		Hooks::run( 'MobileMenu', [ 'pageactions.overflow', &$group ], '1.38' );
 		return $group;
 	}
 

@@ -20,7 +20,6 @@
 
 namespace MediaWiki\Minerva\Menu\Main;
 
-use Hooks;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
@@ -148,9 +147,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 				}
 			}
 		}
-
-		// Allow other extensions to add or override tools
-		Hooks::run( 'MobileMenu', [ 'personal', &$group ], '1.38' );
 		return $group;
 	}
 }
