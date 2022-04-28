@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Har-wradim",
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
 	"minerva-last-modified-date": "לעצט רעדאגירט אום $1, ביי $2",
@@ -15,7 +16,7 @@
 	"mobile-frontend-editor-redlink-leave": "ניין, א דאנק",
 	"mobile-frontend-history": "באקוקן רעדאקטירן היסטאריע פון דעם בלאט.",
 	"mobile-frontend-home-button": "היימבלאַט",
-	"mobile-frontend-language-article-heading": "שפראַך",
+	"mobile-frontend-language-article-heading": "שפּראַך",
 	"mobile-frontend-languages-not-available": "דער בלאט איז נישט פאראן אין אנדערע שפראכן.",
 	"mobile-frontend-main-menu-button-tooltip": "עפענען הויפטמעניו",
 	"mobile-frontend-main-menu-contributions": "בײַשטײַערונגען",
