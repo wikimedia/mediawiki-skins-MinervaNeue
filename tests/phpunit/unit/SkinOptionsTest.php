@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\MediaWiki\Minerva;
+namespace MediaWiki\Minerva;
 
-use MediaWiki\Minerva\SkinOptions;
+use MediaWikiUnitTestCase;
 use OutOfBoundsException;
 
 /**
@@ -10,7 +10,7 @@ use OutOfBoundsException;
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\SkinOptions
  */
-class SkinOptionsTest extends \MediaWikiUnitTestCase {
+class SkinOptionsTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::get

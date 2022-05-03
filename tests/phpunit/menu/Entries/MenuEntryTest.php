@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\MediaWiki\Minerva\Menu\Entries;
+namespace MediaWiki\Minerva\Menu\Entries;
 
-use MediaWiki\Minerva\Menu\Entries\MenuEntry;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\Menu\Entries\MenuEntry
  */
-class MenuEntryTest extends \MediaWikiIntegrationTestCase {
+class MenuEntryTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::__construct

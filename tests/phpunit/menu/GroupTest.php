@@ -1,16 +1,16 @@
 <?php
 
-namespace Tests\MediaWiki\Minerva\Menu;
+namespace MediaWiki\Minerva\Menu;
 
 use DomainException;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
-use MediaWiki\Minerva\Menu\Group;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @group MinervaNeue
  * @coversDefaultClass \MediaWiki\Minerva\Menu\Group
  */
-class GroupTest extends \MediaWikiIntegrationTestCase {
+class GroupTest extends MediaWikiIntegrationTestCase {
 	/** @var string[] */
 	private $homeComponent = [
 		'text' => 'Home',
