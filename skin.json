@@ -322,6 +322,7 @@
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
+				"block",
 				"ellipsis",
 				"articleRedirect",
 				"infoFilled",
