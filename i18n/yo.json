@@ -1,19 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Demmy"
+			"Demmy",
+			"Oyatopeabioye"
 		]
 	},
 	"mobile-frontend-editor-edit": "Àtúnṣe",
 	"mobile-frontend-history": "Ìwo ìtàn àwọn àtúnṣe ojúewé yìí.",
-	"mobile-frontend-home-button": "Ibùdó",
+	"mobile-frontend-home-button": "Ile",
 	"mobile-frontend-language-article-heading": "Èdè",
 	"mobile-frontend-main-menu-button-tooltip": "Ìṣí ojúewé ètò àkọ́kọ́",
-	"mobile-frontend-main-menu-login": "Ìjáwọlé",
+	"mobile-frontend-main-menu-login": "wọ ile",
 	"mobile-frontend-main-menu-nearby": "Ìtòsí",
-	"mobile-frontend-main-menu-settings": "Àwọn ìtòjọ",
+	"mobile-frontend-main-menu-settings": "ètò",
 	"mobile-frontend-main-menu-watchlist": "Ìtòjọ àmójútó",
 	"mobile-frontend-pageaction-edit-tooltip": "Àtúnṣe abala asíwájú ojúewé yìí.",
-	"mobile-frontend-placeholder": "Ṣ'àwáàrí nínú {{SITENAME}}",
-	"mobile-frontend-random-button": "Ojúewé àrìnnàkò"
+	"mobile-frontend-placeholder": "Ṣ'àwáàrí {{ORUKO AAYE AYELUJARA}}",
+	"mobile-frontend-random-button": "laileto"
 }
