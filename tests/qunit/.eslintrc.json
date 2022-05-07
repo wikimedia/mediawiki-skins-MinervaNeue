@@ -1,8 +1,8 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/qunit",
-		"../../.eslintrc.js"
+		"../../resources/.eslintrc.js",
+		"wikimedia/qunit"
 	],
 	"rules": {
 		"no-restricted-properties": "off",

@@ -3,11 +3,11 @@
 @import 'minerva.variables.less';
 
 .editor-textarea() {
-	// stylelint-disable-next-line no-descending-specificity
 	.box-sizing( border-box );
 	width: 100%;
 	// Note if a textarea has a .mw-ui-input class, this may be overridden
 	padding: 10px @contentPadding 10px @contentPadding;
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	resize: none;
 }
 

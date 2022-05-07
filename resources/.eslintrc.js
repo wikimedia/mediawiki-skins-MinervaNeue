@@ -3,6 +3,9 @@
 // The merge function calls Object.assign with special handling for configuration such as
 // `no-restricted-properties` and `no-restricted-syntax` which are array based - ensuring the two
 // values being merged are concatenated.
+
+'use strict';
+
 const merge = require( 'eslint-config-wikimedia/language/merge.js' ),
 	config = {
 		root: true,
@@ -46,7 +49,14 @@ const merge = require( 'eslint-config-wikimedia/language/merge.js' ),
 			'no-use-before-define': 'off',
 			'no-underscore-dangle': 'off',
 			'jsdoc/no-undefined-types': 'off'
-		}
+		},
+		overrides: [ {
+			files: [ '.eslintrc.js' ],
+			extends: 'wikimedia/server',
+			rules: {
+				'compat/compat': 'off'
+			}
+		} ]
 	};
 
 // eslint-disable-next-line es/no-object-assign

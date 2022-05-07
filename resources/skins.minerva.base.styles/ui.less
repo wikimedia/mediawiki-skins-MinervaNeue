@@ -12,6 +12,7 @@ body {
 html {
 	font-size: @font-size-root;
 	// Support Safari: Prevent font scaling in landscape
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	-webkit-text-size-adjust: none;
 }
 
@@ -96,6 +97,7 @@ main {
 	background-repeat: no-repeat;
 	background-size: @size-icon-search;
 	// Support Safari: Get rid of rounded corners.
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	-webkit-appearance: none;
 	width: 100%;
 	margin-top: 0;
