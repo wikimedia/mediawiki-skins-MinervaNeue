@@ -97,6 +97,19 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	}
 
 	/**
+	 * Builds the anonymous settings group.
+	 *
+	 * @inheritDoc
+	 */
+	public function getSettingsGroup(): Group {
+		$group = new Group( 'pt-preferences' );
+		if ( $this->showMobileOptions && !$this->user->isRegistered() ) {
+			$this->definitions->insertMobileOptionsItem( $group );
+		}
+		return $group;
+	}
+
+	/**
 	 * Builds the personal tools menu item group.
 	 *
 	 * ... by adding the Watchlist, Settings, and Log{in,out} menu items in the given order.

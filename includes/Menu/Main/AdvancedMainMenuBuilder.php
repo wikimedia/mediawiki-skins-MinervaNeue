@@ -62,6 +62,13 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	}
 
 	/**
+	 * @return Group
+	 */
+	public function getSettingsGroup(): Group {
+		return new Group( 'pt-preferences' );
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getPersonalToolsGroup( array $personalTools ): Group {
