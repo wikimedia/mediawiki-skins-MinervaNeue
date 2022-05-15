@@ -2,11 +2,11 @@
 	var TitleUtil = require( '../../../resources/skins.minerva.scripts/TitleUtil.js' );
 
 	QUnit.module( 'Minerva TitleUtil', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.mwUriOrg = mw.Uri;
 			mw.Uri = mw.UriRelative( 'https://meta.wikimedia.org/w/index.php' );
 		},
-		teardown: function () {
+		afterEach: function () {
 			mw.Uri = this.mwUriOrg;
 			delete this.mwUriOrg;
 		},

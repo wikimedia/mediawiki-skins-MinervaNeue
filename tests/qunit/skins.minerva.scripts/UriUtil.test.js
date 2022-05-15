@@ -2,11 +2,11 @@
 	var UriUtil = require( '../../../resources/skins.minerva.scripts/UriUtil.js' );
 
 	QUnit.module( 'Minerva UriUtil', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.mwUriOrg = mw.Uri;
 			mw.Uri = mw.UriRelative( 'https://meta.wikimedia.org/w/index.php' );
 		},
-		teardown: function () {
+		afterEach: function () {
 			mw.Uri = this.mwUriOrg;
 			delete this.mwUriOrg;
 		}
