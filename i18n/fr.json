@@ -72,6 +72,7 @@
 	"minerva-page-actions-protect": "Protéger",
 	"minerva-page-actions-unprotect": "Déprotéger",
 	"minerva-page-actions-user-groups": "Groupes d’utilisateurs",
+	"minerva-page-actions-block": "Bloquer l’utilisateur",
 	"minerva-page-actions-logs": "Journaux",
 	"minerva-page-actions-wikibase": "Élément de {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "Langues",

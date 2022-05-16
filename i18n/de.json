@@ -63,6 +63,7 @@
 	"minerva-page-actions-protect": "Schützen",
 	"minerva-page-actions-unprotect": "Schutz aufheben",
 	"minerva-page-actions-user-groups": "Benutzergruppen",
+	"minerva-page-actions-block": "Benutzer sperren",
 	"minerva-page-actions-logs": "Logbücher",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-Datenobjekt",
 	"minerva-page-actions-language-switcher": "Sprachen",

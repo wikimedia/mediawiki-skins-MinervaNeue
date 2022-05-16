@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Anont",
+			"Bluehill",
 			"Bluemersen",
 			"Garam",
 			"Hwangjy9",
@@ -67,6 +68,7 @@
 	"minerva-page-actions-protect": "보호",
 	"minerva-page-actions-unprotect": "보호 해제",
 	"minerva-page-actions-user-groups": "사용자 그룹",
+	"minerva-page-actions-block": "사용자 차단",
 	"minerva-page-actions-logs": "기록",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} 항목",
 	"minerva-page-actions-language-switcher": "언어",
