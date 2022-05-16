@@ -1,4 +1,5 @@
 @import '../../minerva.less/minerva.variables.less';
+@import 'mediawiki.mixins.less';
 
 @border-color-divider: @colorGray14;
 
@@ -22,10 +23,7 @@
 
 .minerva-talk-full-page-button {
 	display: block;
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
-	position: -webkit-sticky;
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
-	position: sticky;
+	.position-sticky();
 	bottom: 0;
 	left: 0;
 	width: 100%;
