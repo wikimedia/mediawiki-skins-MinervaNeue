@@ -258,7 +258,7 @@
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
 			"class": "MediaWiki\\Minerva\\ResourceLoaderSkinModule",
-			"features": [ "i18n-ordered-lists", "content-body", "content-links" ],
+			"features": [ "accessibility", "i18n-ordered-lists", "content-body", "content-links" ],
 			"targets": [
 				"mobile",
 				"desktop"
