@@ -2,14 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Ebenoffen1",
-			"Leonard Nketsia"
+			"Leonard Nketsia",
+			"Blanche Micah-Davis"
 		]
 	},
+	"minerva-watchlist-cta": "Ma w'anyiwa nkɔ kratafa yi do na nsesa biara a ɔbɛbado.",
 	"minerva-talk-add-topic": "Fa tsirasɛm ka ho",
+	"mobile-frontend-editor-edit": "sesa mu",
+	"mobile-frontend-editor-redlink-explain": "Wɔnnyan ntse dɛm kratafa yi.",
+	"mobile-frontend-editor-redlink-leave": "Ɔhɔ, medaase.",
 	"mobile-frontend-history": "Hwɛ kratafa yi nsesa mu abakɔsɛm",
 	"mobile-frontend-home-button": "Fie",
 	"mobile-frontend-language-article-heading": "Kasa",
+	"mobile-frontend-languages-not-available": "Dɛm kratafa yi nyi kasa ahorow mu.",
 	"mobile-frontend-main-menu-login": "Kɔ mu",
+	"mobile-frontend-main-menu-logout": "Yi woho firim",
+	"mobile-frontend-main-menu-nearby": "Nkyɛn hɔ",
 	"mobile-frontend-main-menu-settings": "Bea a etoto wo ndzɛmba",
 	"mobile-frontend-placeholder": "Hwehwɛ {{SITENAME}}",
 	"mobile-frontend-random-button": "No mu biara"
