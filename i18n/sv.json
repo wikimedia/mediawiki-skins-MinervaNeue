@@ -60,6 +60,7 @@
 	"minerva-page-actions-protect": "Skydda",
 	"minerva-page-actions-unprotect": "Ta bort skydd",
 	"minerva-page-actions-user-groups": "Användargrupper",
+	"minerva-page-actions-block": "Blockera användare",
 	"minerva-page-actions-logs": "Loggar",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}objekt",
 	"minerva-page-actions-language-switcher": "Språk",

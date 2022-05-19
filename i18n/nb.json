@@ -62,6 +62,7 @@
 	"minerva-page-actions-protect": "Beskytt",
 	"minerva-page-actions-unprotect": "Fjern beskyttelse",
 	"minerva-page-actions-user-groups": "Brukergrupper",
+	"minerva-page-actions-block": "Blokker bruker",
 	"minerva-page-actions-logs": "Logger",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}-element",
 	"minerva-page-actions-language-switcher": "Språk",
