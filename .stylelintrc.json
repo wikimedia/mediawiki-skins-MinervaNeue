@@ -6,7 +6,6 @@
 	"rules": {
 		"declaration-no-important": null,
 		"declaration-property-unit-disallowed-list": null,
-		"property-disallowed-list": "transition",
 		"selector-class-pattern": null,
 		"selector-list-comma-newline-after": null,
 		"value-keyword-case": null
