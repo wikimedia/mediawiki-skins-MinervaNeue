@@ -8,3 +8,4 @@
 /tests/selenium/log
 /tmp
 /.resolve-less-imports
+/.phpunit.result.cache
