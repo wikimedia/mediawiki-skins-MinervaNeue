@@ -28,9 +28,11 @@
 	"mobile-frontend-meta-data-issues": "ߞߐߜߍ ߓߐ߲ߘߊ ߟߎ߬",
 	"mobile-frontend-meta-data-issues-categories": "ߞߊ߬ ߓߍ߲߬ ߞߎߡߘߊ ߣߌ߲߬ ߡߊ߬",
 	"mobile-frontend-meta-data-issues-header": "ߞߐߜߍ ߝߌ߬ߛߌ ߟߎ߬",
+	"minerva-meta-data-issues-section-header": "ߕߍߕߍ߮ ߝߙߋߞߋ ߟߎ߬",
 	"mobile-frontend-meta-data-issues-header-talk": "ߞߊ߬ ߓߍ߲߬ ߞߐߜߍ ߣߌ߲߬ ߡߊ߬",
 	"mobile-frontend-meta-data-issues-talk": "ߞߊ߬ ߓߍ߲߬ ߞߎߡߊ߫ ߞߐߜߍ ߣߌ߲߬ ߡߊ߬",
 	"mobile-frontend-notifications-filter": "ߛߍ߲ߛߍ߲ߟߊ߲",
+	"mobile-frontend-pageaction-edit-tooltip": "ߞߐߜߍ ߣߌ߲߬ ߟߊ߬ߘߏ߲߬ߠߌ߲߬ ߕߍߕߍ߮ ߡߊߦߟߍ߬ߡߊ߲߬",
 	"mobile-frontend-placeholder": "ߊ߬ ߢߌߣߌ߲߫ {{SITENAME}} ߞߣߐ߫",
 	"mobile-frontend-random-button": "ߓߍ߲߬ߛߋ߲߬ߡߊ",
 	"mobile-frontend-redirected-from": "ߊ߬ ߟߊߞߎ߲߬ߛߌ߲߬ߣߍ߲߫ ߦߋ߫ ߞߊ߬ ߝߘߊ߫ \"[[$1]]\"",
@@ -38,6 +40,7 @@
 	"mobile-frontend-talk-back-to-page": "ߌ ߞߐߛߊ߬ߦߌ߫ ߞߐߜߍ \"$1\" ߡߊ߬.",
 	"mobile-frontend-talk-back-to-projectpage": "ߌ ߞߐߛߊ߬ߦߌ߫ ߖߊ߬ߕߋ߬ߘߐ߬ߛߌ߰ ߞߐߜߍ \"$1\" ߡߊ߬",
 	"mobile-frontend-talk-back-to-userpage": "ߌ ߞߐߛߊ߬ߦߌ߫ \"{{GENDER:$1|$1}}\" ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߞߐߜߍ ߡߊ߬.",
+	"mobile-frontend-user-button-tooltip": "ߒ ߠߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߌ߬ߘߊ߬",
 	"mobile-frontend-user-newmessages": "ߗߋߛߓߍ߫ ߞߎߘߊ߫ ߦߴߌ ߟߊ߫ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߘߐ߫.",
 	"mobile-frontend-user-page-contributions": "ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|ߘߏ߲߬ ߘߊ߫}} $1 ߟߋ߬ ߟߊ߫",
@@ -65,5 +68,6 @@
 	"minerva-talk-reply-success": "ߌ ߟߊ߫ ߖߋ߬ߓߌ ߓߘߊ߫ ߟߊߡߊ߲߬ߘߌ߫ ߞߎߡߊ߫ ߞߐߜߍ ߟߊ߫.",
 	"skin-minerva-issue-learn-more": "ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
 	"skin-minerva-mobile-option-MinervaShowCategories": "ߦߌߟߡߊ ߟߎ߬",
-	"skin-minerva-mobile-option-MinervaShowCategories-description": "ߞߐߜߍ ߟߎ߬ ߦߌߟߡߊ ߟߎ߬ ߦߋ߫"
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "ߞߐߜߍ ߟߎ߬ ߦߌߟߡߊ ߟߎ߬ ߦߋ߫",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "ߞߐߜߍ ߝߙߋߞߋ ߟߎ߬ ߟߊߢߊ߬ߟߌ"
 }
