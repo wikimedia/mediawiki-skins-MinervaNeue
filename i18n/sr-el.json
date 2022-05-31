@@ -45,7 +45,7 @@
 	"mobile-frontend-talk-back-to-projectpage": "Vrati me na stranicu projekta „$1”.",
 	"mobile-frontend-talk-back-to-userpage": "Vrati me na stranicu {{GENDER:$1|korisnika|korisnice}} „$1”.",
 	"mobile-frontend-user-button-tooltip": "Prikažite obaveštenja",
-	"mobile-frontend-user-newmessages": "Imate nove poruke na stranici za razgovor",
+	"mobile-frontend-user-newmessages": "Imate nove poruke",
 	"mobile-frontend-user-page-contributions": "Doprinosi",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pridružio|Pridružila|Pridružio/la}} se na datum $1",
 	"mobile-frontend-user-page-talk": "Razgovor",
