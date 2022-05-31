@@ -76,7 +76,8 @@
 			"value": {
 				"base": false,
 				"beta": false,
-				"amc": true
+				"amc": true,
+				"loggedin": true
 			}
 		},
 		"MinervaShowCategories": {
