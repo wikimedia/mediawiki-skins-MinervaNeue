@@ -22,7 +22,6 @@ namespace MediaWiki\Minerva\Skins;
 
 use Action;
 use ExtensionRegistry;
-use Hooks as MWHooks;
 use Html;
 use Language;
 use MediaWiki\Linker\LinkTarget;
@@ -51,6 +50,15 @@ use Title;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinMustache {
+	private const NOTIFICATION_BUTTON_CLASSES = [
+		'user-button',
+		'mw-ui-button',
+		'mw-ui-quiet',
+		'mw-ui-icon',
+		'mw-ui-icon-element',
+		'mw-ui-icon-wikimedia-bellOutline-base20'
+	];
+
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	 * in editing mode
 	 */
@@ -131,6 +139,74 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * A notification icon that links to Special:Mytalk when Echo is not installed.
+	 * Consider upstreaming this to core or removing at a future date.
+	 *
+	 * @return array
+	 */
+	private function getNotificationFallbackButton() {
+		return [
+			'link-class' => [
+				'mw-ui-icon',
+				'mw-ui-icon-element',
+				'mw-ui-icon-wikimedia-bellOutline-base20',
+				'mw-ui-button',
+				'mw-ui-quiet'
+			],
+			'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
+				[ 'returnto' => $this->getTitle()->getPrefixedText() ]
+			),
+		];
+	}
+
+	/**
+	 * Minerva differs from other skins in that for users with unread notifications
+	 * instead of a bell with a small square indicating the number of notifications
+	 * it shows a red circle with a number inside. Ideally Vector and Minerva would
+	 * be treated the same but we'd need to talk to a designer about consolidating these
+	 * before making such a decision.
+	 *
+	 * @param array $alert
+	 * @return array
+	 */
+	private function getNotificationCircleButton( array $alert ) {
+		$alertCount = $alert['data']['counter-num'] ?? 0;
+		$alert['html'] =
+			Html::rawElement( 'div', [ 'class' => 'circle' ],
+				Html::element( 'span', [
+					'data-notification-count' => $alertCount,
+				], $alertCount )
+			);
+		$alert['class'] = 'notification-count notification-unseen mw-echo-unseen-notifications';
+		$alert['link-class'] = array_merge(
+			$alert['link-class'],
+			self::NOTIFICATION_BUTTON_CLASSES
+		);
+		return $alert;
+	}
+
+	/**
+	 * Removes the OOUI icon class and adds Minerva notification classes.
+	 *
+	 * @param array $alert
+	 * @return array
+	 */
+	private function getNotificationButton( array $alert ) {
+		$linkClass = $alert['link-class'];
+		$linkClass = array_merge(
+			$linkClass,
+			self::NOTIFICATION_BUTTON_CLASSES
+		);
+		$alert['link-class'] = array_filter(
+			$linkClass,
+			static function ( $class ) {
+				return $class !== 'oo-ui-icon-bellOutline';
+			}
+		);
+		return $alert;
+	}
+
+	/**
 	 * Caches content navigation urls locally for use inside getTemplateData
 	 *
 	 * @inheritDoc
@@ -151,6 +227,23 @@ class SkinMinerva extends SkinMustache {
 			unset( $contentNavigationUrls['namespaces']['special'] );
 		}
 		$this->contentNavigationUrls = $contentNavigationUrls;
+		if ( $this->getUser()->isRegistered() ) {
+			// Unset notice icon. Minerva only shows one entry point to notifications.
+			// This can be reconsidered with a solution to https://phabricator.wikimedia.org/T142981
+			unset( $contentNavigationUrls['notifications']['notifications-notice'] );
+			// Shown to logged in users when Echo is not installed:
+			if ( count( $contentNavigationUrls['notifications'] ) === 0 ) {
+				$contentNavigationUrls['notifications']['mytalks'] = $this->getNotificationFallbackButton();
+			} else {
+				$alert = $contentNavigationUrls['notifications']['notifications-alert'] ?? null;
+				if ( $alert ) {
+					// @phan-suppress-next-line PhanTypeMismatchDimFetch False positive
+					$alertCount = $alert['data']['counter-num'] ?? 0;
+					$contentNavigationUrls['notifications']['notifications-alert'] = $alertCount > 0 ?
+						$this->getNotificationCircleButton( $alert ) : $this->getNotificationButton( $alert );
+				}
+			}
+		}
 	}
 
 	/**
@@ -185,7 +278,6 @@ class SkinMinerva extends SkinMustache {
 			}
 			return $data + [
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
-				'html-minerva-user-notifications' => $this->prepareUserNotificationsButton( $this->getNewtalks() ),
 				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
 					$nav,
 					$this->buildSidebar()
@@ -410,31 +502,6 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public function getUserPageHelper() {
 		return MediaWikiServices::getInstance()->getService( 'Minerva.SkinUserPageHelper' );
-	}
-
-	/**
-	 * Prepares the user button.
-	 * @param string $newTalks New talk page messages for the current user
-	 * @return string
-	 */
-	protected function prepareUserNotificationsButton( $newTalks ) {
-		$user = $this->getUser();
-		if ( $user->isRegistered() ) {
-			$currentTitle = $this->getTitle();
-			$notificationsMsg = $this->msg( 'mobile-frontend-user-button-tooltip' )->text();
-			$notificationIconClass = MinervaUI::iconClass( 'bellOutline-base20',
-				'element', '', 'wikimedia' );
-			$badge = Html::element( 'a', [
-				'class' => $notificationIconClass,
-				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
-					[ 'returnto' => $currentTitle->getPrefixedText() ]
-				),
-			], $notificationsMsg );
-			MWHooks::run( 'SkinMinervaReplaceNotificationsBadge',
-				[ $user, $currentTitle, &$badge ] );
-			return $badge;
-		}
-		return '';
 	}
 
 	/**
