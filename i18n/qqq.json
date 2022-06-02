@@ -73,6 +73,7 @@
 	"minerva-page-actions-wikibase": "In the secondary page menu, the wikibase item button label",
 	"minerva-page-actions-language-switcher": "In the secondary page menu, the language switcher item button label\n{{Identical|Language}}",
 	"minerva-page-actions-history": "In the secondary page menu, a short label for the history link",
+	"minerva-prefs-talkpage": "Link to Moderator Tools's talk page which is shown before the preview link in skin preferences.",
 	"minerva-talk-explained": "Explains that the user is seeing talk page headings",
 	"minerva-talk-explained-empty": "Explains why the list is empty.",
 	"minerva-talk-full-page": "Used as label for link to show the full talk page.",
