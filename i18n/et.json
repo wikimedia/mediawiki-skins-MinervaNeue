@@ -53,6 +53,7 @@
 	"minerva-page-actions-move": "Teisalda",
 	"minerva-page-actions-delete": "Kustuta",
 	"minerva-page-actions-protect": "Kaitse",
+	"minerva-page-actions-unprotect": "Eemalda kaitse",
 	"minerva-page-actions-user-groups": "Kasutajarühmad",
 	"minerva-page-actions-logs": "Logid",
 	"minerva-page-actions-wikibase": "Vikiandmete üksus",
