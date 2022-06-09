@@ -454,7 +454,7 @@ class Hooks {
 		if ( $context->getSkin() === 'minerva' ) {
 			$config['search'] = false;
 			$config['collapsible'] = false;
-			$config['sortable'] = false;
+			$config['sortable'] = true;
 			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw="interface"]';
 		}
 	}
