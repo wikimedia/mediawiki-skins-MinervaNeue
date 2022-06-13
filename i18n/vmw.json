@@ -8,5 +8,5 @@
 	"mobile-frontend-language-article-heading": "Nttaava",
 	"mobile-frontend-logged-in-homepage-notification": "{{SOONE Awe:s1/moophiya salama",
 	"mobile-frontend-main-menu-login": "Otthuniha ovolowa",
-	"mobile-frontend-placeholder": "Ophavela {opuro wa nsina}"
+	"mobile-frontend-placeholder": "Ophavela {{SITENAME}}"
 }
