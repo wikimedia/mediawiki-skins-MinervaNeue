@@ -171,11 +171,12 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getNotificationCircleButton( array $alert ) {
 		$alertCount = $alert['data']['counter-num'] ?? 0;
+		$alertText = $alert['data']['counter-text'] ?? $alertCount;
 		$alert['html'] =
 			Html::rawElement( 'div', [ 'class' => 'circle' ],
 				Html::element( 'span', [
 					'data-notification-count' => $alertCount,
-				], $alertCount )
+				], $alertText )
 			);
 		$alert['class'] = 'notification-count notification-unseen mw-echo-unseen-notifications';
 		$alert['link-class'] = array_merge(
