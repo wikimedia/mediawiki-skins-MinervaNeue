@@ -6,7 +6,8 @@
 			"GinawaSaHapon",
 			"Jojit fb",
 			"Rodney Araujo",
-			"Sky Harbor"
+			"Sky Harbor",
+			"Ianlopez1115"
 		]
 	},
 	"minerva-last-modified-date": "Huling binago noong $1, sa oras na $2.",
@@ -15,6 +16,7 @@
 	"mobile-frontend-editor-redlink-create": "Lumikha ng pahina",
 	"mobile-frontend-editor-redlink-explain": "Hindi pa nilikha ang pahinang ito.",
 	"mobile-frontend-editor-redlink-leave": "Hindi, salamat.",
+	"mobile-frontend-history": "Tignan ang kasaysayan ng mga pagbabago ng pahina na ito.",
 	"mobile-frontend-home-button": "Tahanan",
 	"mobile-frontend-language-article-heading": "Wika",
 	"mobile-frontend-logged-in-homepage-notification": "Kamusta, $1!",
@@ -44,6 +46,7 @@
 	"minerva-page-actions-move": "Ilipat",
 	"minerva-page-actions-delete": "Burahin",
 	"minerva-page-actions-protect": "Protektahan",
+	"minerva-page-actions-logs": "Mga talaan",
 	"minerva-page-actions-wikibase": "Item na {{WBREPONAME}}",
 	"minerva-page-actions-language-switcher": "Mga wika",
 	"minerva-page-actions-history": "Kasaysayan",
