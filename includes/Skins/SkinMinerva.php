@@ -570,7 +570,7 @@ class SkinMinerva extends SkinMustache {
 
 		$out = $this->getOutput();
 
-		if ( !$out->isRevisionCurrent() || $title->isMainPage() ) {
+		if ( !$out->getRevisionId() || !$out->isRevisionCurrent() || $title->isMainPage() ) {
 			$historyLink = $this->getGenericHistoryLink( $title );
 		} else {
 			// Get rev_timestamp of current revision (preloaded by MediaWiki core)
