@@ -22,7 +22,7 @@ namespace MediaWiki\Minerva\Menu;
 
 use DomainException;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
-use MediaWiki\Minerva\Menu\Entries\MenuEntry;
+use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 
 /**
  * Model for a menu that can be presented in a skin.
@@ -111,21 +111,6 @@ final class Group {
 	}
 
 	/**
-	 * Insert an entry into the menu.
-	 *
-	 * @param string $name A unique name identifying the menu entry
-	 * @param bool $isJSOnly Whether the menu entry works without JS
-	 * @throws DomainException When the entry already exists
-	 * @return MenuEntry
-	 */
-	public function insert( $name, $isJSOnly = false ) {
-		$this->throwIfNotUnique( $name );
-		$this->entries[] = $entry = new MenuEntry( $name, $isJSOnly );
-
-		return $entry;
-	}
-
-	/**
 	 * Searches for a menu entry by name.
 	 *
 	 * @param string $name
@@ -149,18 +134,24 @@ final class Group {
 	 * @param string $targetName The name of the existing entry to insert
 	 *  the new entry after
 	 * @param string $name The name of the new entry
+	 * @param string $text Entry label
+	 * @param string $url The URL entry points to
+	 * @param string $className Optional HTML classes
+	 * @param string|null $icon defaults to $name if not specified
+	 * @param bool $trackable Whether an entry will track clicks or not. Default is false.
 	 * @param bool $isJSOnly Whether the entry works without JS
 	 * @throws DomainException When the existing entry doesn't exist
-	 * @return MenuEntry
 	 */
-	public function insertAfter( $targetName, $name, $isJSOnly = false ) {
+	public function insertAfter( $targetName, $name, $text, $url,
+			$className = '', $icon = null, $trackable = false, $isJSOnly = false ) {
 		$this->throwIfNotUnique( $name );
 		$index = $this->search( $targetName );
 
-		$entry = new MenuEntry( $name, $isJSOnly );
+		$entry = SingleMenuEntry::create( $name, $text, $url, $className, $icon, $trackable );
+		if ( $isJSOnly ) {
+			$entry->setJSOnly();
+		}
 		array_splice( $this->entries, $index + 1, 0, [ $entry ] );
-
-		return $entry;
 	}
 
 	/**
