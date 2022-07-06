@@ -15,6 +15,7 @@
 	"mobile-frontend-main-menu-settings": "Sazlamalar",
 	"mobile-frontend-placeholder": "{{SITENAME}} içinde qıdır",
 	"mobile-frontend-random-button": "Rastkele",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Qatılğan vaqıtı}} $1",
 	"minerva-talk-explained": "Azırda laf etilgen mevzular",
 	"minerva-talk-explained-empty": "Mına muzakere saifesinde mevzu yoq.",
 	"minerva-talk-full-page": "Viki saifesi kibi oqu",
