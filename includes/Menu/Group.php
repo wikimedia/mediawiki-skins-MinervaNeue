@@ -130,7 +130,7 @@ final class Group {
 
 	/**
 	 * Insert an entry after an existing one.
-	 *
+	 * @deprecated since 1.39
 	 * @param string $targetName The name of the existing entry to insert
 	 *  the new entry after
 	 * @param string $name The name of the new entry
@@ -143,7 +143,9 @@ final class Group {
 	 * @throws DomainException When the existing entry doesn't exist
 	 */
 	public function insertAfter( $targetName, $name, $text, $url,
-			$className = '', $icon = null, $trackable = false, $isJSOnly = false ) {
+			$className = '', $icon = null, $trackable = false, $isJSOnly = false
+	) {
+		wfDeprecated( __METHOD__, '1.39' );
 		$this->throwIfNotUnique( $name );
 		$index = $this->search( $targetName );
 
