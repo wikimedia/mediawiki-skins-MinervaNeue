@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrisportelli",
 			"Leli Forte",
-			"MTSap"
+			"MTSap",
+			"ToniSant"
 		]
 	},
 	"mobile-frontend-editor-edit": "Immodifika",
@@ -20,5 +21,6 @@
 	"mobile-frontend-meta-data-issues-header": "Anomaliji",
 	"mobile-frontend-pageaction-edit-tooltip": "Immodifika s-sezzjoni tad-dħul ta' din il-paġna.",
 	"mobile-frontend-placeholder": "Fittex fil-{{SITENAME}}",
-	"mobile-frontend-random-button": "Paġna kwalunkwe"
+	"mobile-frontend-random-button": "Paġna kwalunkwe",
+	"minerva-page-actions-language-switcher": "Lingwa"
 }
