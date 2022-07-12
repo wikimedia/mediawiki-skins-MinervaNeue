@@ -133,6 +133,7 @@ final class Definitions {
 			);
 			// Setting this feature for javascript only
 			$entry->setJSOnly();
+			$group->insertEntry( $entry );
 		}
 	}
 
