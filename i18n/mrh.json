@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Taytay",
 			"Teitei Para"
 		]
 	},
@@ -33,7 +34,7 @@
 	"mobile-frontend-meta-data-issues-talk": "He pachiana hmia thâtih",
 	"mobile-frontend-notifications-filter": "Athlina",
 	"mobile-frontend-pageaction-edit-tooltip": "He hmia âthaona he taopathi",
-	"mobile-frontend-placeholder": "‎Tlua {{SITENAME}}",
+	"mobile-frontend-placeholder": "‎{{SITENAME}} lia tlua teh",
 	"mobile-frontend-random-button": "Khothi",
 	"mobile-frontend-redirected-from": "\"[[$1]]\" tawh redirect-pa",
 	"mobile-frontend-talk-back-to-filepage": "Faih \"$1\" lâ kua teh.",
