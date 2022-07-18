@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Laitei",
 			"Taytay",
 			"Teitei Para"
 		]
 	},
-	"minerva-last-modified-date": "$1 nota $2 lia taopathipa",
+	"minerva-last-modified-date": "$1, $2 nota mopado pachiepa a châ",
 	"minerva-watchlist-cta": "He hmia nata â pathlaina zydua pazi",
 	"minerva-talk-add-topic": "Chôtlâhpi khô",
 	"mobile-frontend-cookies-required": "Hmôna môd lâ pathlai n'awpa ta cookie-zy ta amâ byuh. Âmo kha pahy la azaoh pathi bei teh.",
@@ -15,7 +16,7 @@
 	"mobile-frontend-editor-redlink-create": "Hmia tao teh",
 	"mobile-frontend-editor-redlink-explain": "He hmia he taopa châ mâh vei.",
 	"mobile-frontend-editor-redlink-leave": "Yse, châly.",
-	"mobile-frontend-history": "He châhmia taopathina thâtih palâhâh teh.",
+	"mobile-frontend-history": "He hmia taopathina thâtih palâhâh teh.",
 	"mobile-frontend-home-button": "Tôhpipa",
 	"mobile-frontend-language-article-heading": "Reihchâ",
 	"mobile-frontend-languages-not-available": "He hmia he reihchâ hro ta ahmô mâh vei",
@@ -58,7 +59,7 @@
 	"minerva-page-actions-protect": "Vaih",
 	"minerva-page-actions-unprotect": "Vaih lei",
 	"minerva-page-actions-user-groups": "Hmâtuh pyzy",
-	"minerva-page-actions-block": "Hmâhtuhpa hrie",
+	"minerva-page-actions-block": "Hmâhtuhpa dâtai",
 	"minerva-page-actions-logs": "Logzy",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} hmodâh",
 	"minerva-page-actions-language-switcher": "Reihchâzy",
@@ -68,9 +69,9 @@
 	"minerva-talk-explained-empty": "He hmia lia biepachianazy y tlâ vei.",
 	"minerva-talk-full-page": "Wiki hmia lâta reih",
 	"minerva-talk-topic-feedback": "Thâtih thiehpa cha biepachiana hmia lâ khôpa a châ haw!",
-	"minerva-talk-reply-success": "Nâ chhypa châ biepachiana hmia lâ khôpa a châ haw.",
+	"minerva-talk-reply-success": "Nâ chhypa cha biepachiana hmia lâ khôpa a châ haw.",
 	"minerva-skin-desc": "A responsive mobile first skin",
-	"skin-minerva-issue-learn-more": "A chu via",
+	"skin-minerva-issue-learn-more": "Achu via",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Phozy",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Hmia phozy palâ",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Pakiathysapa hmia buanazy patlâhna",
