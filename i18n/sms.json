@@ -18,6 +18,7 @@
 	"mobile-frontend-main-menu-logout": "Ǩeeʹrjtõõđ åålǥas",
 	"mobile-frontend-main-menu-settings": "Asetõõzz",
 	"mobile-frontend-main-menu-watchlist": "Valvvâmlistt",
+	"mobile-frontend-meta-data-issues-categories": "Lââʹssteâđ tän kategoria pirr",
 	"mobile-frontend-meta-data-issues-header-talk": "Teâđ tän seeidast",
 	"mobile-frontend-meta-data-issues-talk": "Teâđ tän saǥstõõllâmsseeidast",
 	"mobile-frontend-notifications-filter": "Siʹlle",
@@ -31,5 +32,7 @@
 	"minerva-page-actions-delete": "Jaukkâd",
 	"minerva-page-actions-protect": "Suõjjâd",
 	"minerva-page-actions-language-switcher": "Ǩiõl",
+	"minerva-page-actions-history": "Historia",
+	"skin-minerva-issue-learn-more": "Lââʹssteâđ",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoria"
 }
