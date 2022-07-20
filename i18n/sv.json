@@ -5,6 +5,7 @@
 			"Cybjit",
 			"Jopparn",
 			"Lokal Profil",
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
@@ -54,6 +55,7 @@
 	"minerva-page-actions-info": "Sidinformation",
 	"minerva-page-actions-permalink": "Permanent länk",
 	"minerva-page-actions-backlinks": "Vad som länkar hit",
+	"minerva-page-actions-change-block": "Ändra block",
 	"minerva-page-actions-cite": "Citera sida",
 	"minerva-page-actions-move": "Flytta",
 	"minerva-page-actions-delete": "Radera",

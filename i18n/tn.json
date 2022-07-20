@@ -4,6 +4,11 @@
 			"Rebelagent"
 		]
 	},
+	"mobile-frontend-history": "Bona diphetogo tsa segologolo tsa tsebe ye.",
+	"mobile-frontend-home-button": "Tsebe ya konokono",
 	"mobile-frontend-language-article-heading": "Teme",
-	"mobile-frontend-main-menu-login": "Tsena"
+	"mobile-frontend-main-menu-login": "Tsena",
+	"mobile-frontend-main-menu-settings": "Didirisiwa",
+	"mobile-frontend-placeholder": " Batla {{SITENAME}}",
+	"mobile-frontend-random-button": "Tsebe e gaufi"
 }
