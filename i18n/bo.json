@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"ཁ་བཏགས་ནག་པོ"
+			"ཁ་བཏགས་ནག་པོ",
+			"TayfunEt."
 		]
 	},
 	"mobile-frontend-home-button": "མ་ངོས།",
-	"mobile-frontend-main-menu-login": "ནང་འཛུ།"
+	"mobile-frontend-language-article-heading": "སྐད་རིགས།",
+	"mobile-frontend-main-menu-login": "ནང་འཛུལ།",
+	"mobile-frontend-main-menu-settings": "སྒྲིག་བཀོད།",
+	"mobile-frontend-placeholder": "འཚོལ། {{SITENAME}}"
 }
