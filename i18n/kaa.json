@@ -10,5 +10,20 @@
 	"mobile-frontend-main-menu-login": "Kiriw",
 	"mobile-frontend-main-menu-settings": "Sazlaw",
 	"mobile-frontend-placeholder": "{{SITENAME}}dan izlew",
-	"mobile-frontend-random-button": "Tosattan"
+	"mobile-frontend-random-button": "Tosattan",
+	"mobile-frontend-user-page-contributions": "Meniń úlesim",
+	"mobile-frontend-user-page-talk": "Sáwbet",
+	"minerva-page-actions-overflow": "Jáne",
+	"minerva-page-actions-info": "Bet haqqında maǵlıwmat",
+	"minerva-page-actions-permalink": "Turaqlı silteme",
+	"minerva-page-actions-backlinks": "Siltelgen betler",
+	"minerva-page-actions-change-block": "bloklawdı ózgertiw",
+	"minerva-page-actions-move": "Kóshiriw",
+	"minerva-page-actions-delete": "Óshiriw",
+	"minerva-page-actions-protect": "Qorǵaw",
+	"minerva-page-actions-unblock": "Paydalanıwshınıń qulpın sheshiw",
+	"minerva-page-actions-unprotect": "Qorǵawdı ózgertiw",
+	"minerva-page-actions-user-groups": "Paydalanıwshı toparları",
+	"minerva-page-actions-block": "Paydalanıwshını qulıplaw",
+	"minerva-page-actions-logs": "Jurnallar"
 }
