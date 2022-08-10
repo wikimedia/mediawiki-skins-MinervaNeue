@@ -4,6 +4,7 @@
 			"Aftabuzzaman",
 			"Bellayet",
 			"Nasir8891",
+			"আজিজ",
 			"আফতাবুজ্জামান"
 		]
 	},
@@ -57,6 +58,7 @@
 	"minerva-page-actions-move": "স্থানান্তর করুন",
 	"minerva-page-actions-delete": "অপসারণ করুন",
 	"minerva-page-actions-protect": "সুরক্ষিত করুন",
+	"minerva-page-actions-unblock": "ব্যবহারকারীর বাধা তুলুন",
 	"minerva-page-actions-unprotect": "সুরক্ষা পাল্টান",
 	"minerva-page-actions-user-groups": "ব্যবহারকারী দল",
 	"minerva-page-actions-block": "ব্যবহারকারীকে বাধা দিন",
