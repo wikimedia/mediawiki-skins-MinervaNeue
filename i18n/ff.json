@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Musaddam Idriss"
 		]
 	},
@@ -8,5 +9,5 @@
 	"mobile-frontend-language-article-heading": "Ɗenmgal",
 	"mobile-frontend-main-menu-login": "Seŋo",
 	"mobile-frontend-main-menu-settings": "Dartinde",
-	"mobile-frontend-placeholder": "Fanya"
+	"mobile-frontend-placeholder": "Yiylo e {{SITENAME}}"
 }
