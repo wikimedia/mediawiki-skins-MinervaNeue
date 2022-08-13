@@ -227,6 +227,9 @@
 			"mediawiki.special": [
 				"skinStyles/mobile.special.styles/minerva.less"
 			],
+			"mediawiki.special.preferences.styles.ooui": [
+				"skinStyles/mediawiki.special.preferences.styles.ooui/minerva.less"
+			],
 			"mobile.special.styles": [
 				"skinStyles/mobile.special.styles/minerva.less"
 			],
