@@ -5,7 +5,8 @@
 			"Fontan 030",
 			"Kaztrans",
 			"U.ayaao.p",
-			"Wikibilim"
+			"Wikibilim",
+			"СеніңШешең"
 		]
 	},
 	"minerva-last-modified-date": "Соңғы рет $1, $2 бұрын өңделді",
@@ -17,8 +18,8 @@
 	"mobile-frontend-editor-redlink-create": "Бетті бастау",
 	"mobile-frontend-editor-redlink-explain": "Бұл бет әлі басталмаған.",
 	"mobile-frontend-editor-redlink-leave": "Жоқ, рақмет.",
-	"mobile-frontend-history": "Бұл беттің өңдеу тарихын қарау",
-	"mobile-frontend-home-button": "Басты бет",
+	"mobile-frontend-history": "Бұл беттің өңдеу тарихын көру.",
+	"mobile-frontend-home-button": "Басты",
 	"mobile-frontend-language-article-heading": "Тіл",
 	"mobile-frontend-languages-not-available": "Бұл бет басқа тілдерде қолдетімді емес.",
 	"mobile-frontend-main-menu-button-tooltip": "Басты мәзірді ашу",
@@ -26,7 +27,7 @@
 	"mobile-frontend-main-menu-login": "Кіру",
 	"mobile-frontend-main-menu-logout": "Шығу",
 	"mobile-frontend-main-menu-nearby": "Айналада",
-	"mobile-frontend-main-menu-settings": "Баптаулар",
+	"mobile-frontend-main-menu-settings": "Баптау",
 	"mobile-frontend-main-menu-watchlist": "Бақылау тізімім",
 	"mobile-frontend-meta-data-issues": "Бет мәселелері",
 	"mobile-frontend-meta-data-issues-categories": "Бұл санат туралы",
