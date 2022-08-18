@@ -213,7 +213,7 @@ module.exports = function () {
 			amcOutreach = mobile.amcOutreach,
 			amcCampaign = amcOutreach.loadCampaign(),
 			onDismiss = function () {
-				toast.showOnPageReload( mw.message( 'mobile-frontend-amc-outreach-dismissed-message' ).text() );
+				toast.showOnPageReload( mw.msg( 'mobile-frontend-amc-outreach-dismissed-message' ) );
 				window.location = self.href;
 			},
 			drawer = amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' );
