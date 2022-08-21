@@ -126,22 +126,17 @@
 	"ConfigRegistry": {
 		"minerva": "GlobalVarConfig::newInstance"
 	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Minerva\\Hooks"
+		}
+	},
 	"Hooks": {
-		"BeforePageDisplay": [
-			"MediaWiki\\Minerva\\Hooks::onBeforePageDisplay"
-		],
-		"ResourceLoaderRegisterModules": [
-			"MediaWiki\\Minerva\\Hooks::onResourceLoaderRegisterModules"
-		],
-		"SkinPageReadyConfig": [
-			"MediaWiki\\Minerva\\Hooks::onSkinPageReadyConfig"
-		],
-		"UserLogoutComplete": [
-			"MediaWiki\\Minerva\\Hooks::onUserLogoutComplete"
-		],
-		"FetchChangesList": [
-			"MediaWiki\\Minerva\\Hooks::onFetchChangesList"
-		],
+		"BeforePageDisplay": "main",
+		"ResourceLoaderRegisterModules": "main",
+		"SkinPageReadyConfig": "main",
+		"UserLogoutComplete": "main",
+		"FetchChangesList": "main",
 		"MobileFrontendBeforeDOM": [
 			"MediaWiki\\Minerva\\Hooks::onMobileFrontendBeforeDOM"
 		],
@@ -151,15 +146,9 @@
 		"RequestContextCreateSkinMobile": [
 			"MediaWiki\\Minerva\\Hooks::onRequestContextCreateSkinMobile"
 		],
-		"SpecialPageBeforeExecute": [
-			"MediaWiki\\Minerva\\Hooks::onSpecialPageBeforeExecute"
-		],
-		"ResourceLoaderGetConfigVars": [
-			"MediaWiki\\Minerva\\Hooks::onResourceLoaderGetConfigVars"
-		],
-		"OutputPageBodyAttributes": [
-			"MediaWiki\\Minerva\\Hooks::onOutputPageBodyAttributes"
-		]
+		"SpecialPageBeforeExecute": "main",
+		"ResourceLoaderGetConfigVars": "main",
+		"OutputPageBodyAttributes": "main"
 	},
 	"SkinLessImportPaths": {
 		"minerva": "resources/mediawiki.less"
