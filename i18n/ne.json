@@ -10,7 +10,8 @@
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल",
 			"हिमाल सुबेदी",
-			"Bada Kaji"
+			"Bada Kaji",
+			"बडा काजी"
 		]
 	},
 	"minerva-last-modified-date": "अन्तिम सम्पादन $1, $2",
@@ -27,7 +28,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|स्वागतम्}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "मुख्य सूची खोल्नुहोस्",
 	"mobile-frontend-main-menu-contributions": "योगदानहरू",
-	"mobile-frontend-main-menu-login": "प्रवेश",
+	"mobile-frontend-main-menu-login": "प्रवेश गर्नुहोस्",
 	"mobile-frontend-main-menu-logout": "निर्गमन",
 	"mobile-frontend-main-menu-nearby": "नजिकैको",
 	"mobile-frontend-main-menu-settings": "मेरो अभिरुचिहरू",

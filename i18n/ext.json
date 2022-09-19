@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Crucifunked"
+			"Crucifunked",
+			"Julio Nepote"
 		]
 	},
 	"mobile-frontend-editor-edit": "Eital",
 	"mobile-frontend-home-button": "Encetu",
-	"mobile-frontend-random-button": "Aleatóriu"
+	"mobile-frontend-random-button": "Aleatóriu",
+	"minerva-page-actions-info": "Informacionis dela página"
 }
