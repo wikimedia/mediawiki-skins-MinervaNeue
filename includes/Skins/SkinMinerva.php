@@ -216,14 +216,10 @@ class SkinMinerva extends SkinMustache {
 		// to add rel attributes and ID attributes.
 		// The only one Minerva needs is this one so we manually add it.
 		$isSpecialPage = $skin->getTitle()->isSpecialPage();
-		foreach ( array_keys( $contentNavigationUrls['namespaces'] ) as $id ) {
+		foreach ( array_keys( $contentNavigationUrls['associated-pages'] ) as $id ) {
 			if ( in_array( $id, [ 'user_talk', 'talk' ] ) ) {
-				$contentNavigationUrls['namespaces'][ $id ]['rel'] = 'discussion';
+				$contentNavigationUrls['associated-pages'][ $id ]['rel'] = 'discussion';
 			}
-		}
-		// Do not output the "Special page" tab.
-		if ( $isSpecialPage ) {
-			unset( $contentNavigationUrls['namespaces']['special'] );
 		}
 		$this->contentNavigationUrls = $contentNavigationUrls;
 		if ( $this->getUser()->isRegistered() ) {
@@ -330,7 +326,7 @@ class SkinMinerva extends SkinMustache {
 			return [];
 		}
 		return $contentNavigationUrls ? [
-			'items' => array_values( $contentNavigationUrls['namespaces'] ),
+			'items' => array_values( $contentNavigationUrls['associated-pages'] ),
 		] : [];
 	}
 
@@ -852,7 +848,7 @@ class SkinMinerva extends SkinMustache {
 			$this->getUser()->isRegistered() &&
 			!$this->isTalkPageWithViewAction()
 		) {
-			$namespaces = $contentNavigationUrls['namespaces'];
+			$namespaces = $contentNavigationUrls['associated-pages'];
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
 			$talkId = $subjectId === 'main' ? 'talk' : "{$subjectId}_talk";
