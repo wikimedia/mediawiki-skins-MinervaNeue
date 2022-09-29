@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tšepo"
+			"Tšepo",
+			"Coldfact"
 		]
 	},
 	"mobile-frontend-history": "Sheba nalane ea ho fetola leqephe lena.",
 	"mobile-frontend-home-button": "Hae",
-	"mobile-frontend-language-article-heading": "Lipuo",
+	"mobile-frontend-language-article-heading": "Puo",
 	"mobile-frontend-main-menu-login": "Kena"
 }
