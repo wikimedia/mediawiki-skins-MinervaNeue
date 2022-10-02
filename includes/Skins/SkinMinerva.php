@@ -34,8 +34,6 @@ use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MWException;
 use MWTimestamp;
-use ParserOptions;
-use ParserOutput;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
@@ -336,9 +334,6 @@ class SkinMinerva extends SkinMustache {
 					$this->buildSidebar()
 				)['items'],
 				'html-minerva-tagline' => $this->getTaglineHtml(),
-				'html-minerva-post-heading' => $this->isTalkPageOverlayEnabled()
-					? $this->getTalkPagePostHeadingHtml()
-					: '',
 				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
 				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
 				'is-minerva-echo-single-button' => $skinOptions->get( SkinOptions::SINGLE_ECHO_BUTTON ),
@@ -741,94 +736,6 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Check if the talk page overlay is enabled. True unless disabled by a hook.
-	 *
-	 * @return bool
-	 */
-	private function isTalkPageOverlayEnabled(): bool {
-		if ( !$this->isTalkPageWithViewAction() ) {
-			return false;
-		}
-
-		$title = $this->getTitle();
-		// Hook is @unstable and only for use by DiscussionTools. Do not use for any other purpose.
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		if ( !$hookContainer->run( 'MinervaNeueTalkPageOverlay', [ $title, $this->getOutput() ] ) ) {
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Check if the current title is a talk page with the default view action
-	 *
-	 * @return bool
-	 */
-	private function isTalkPageWithViewAction(): bool {
-		return $this->getTitle()->isTalkPage() && $this->getContext()->getActionName() === 'view';
-	}
-
-	/**
-	 * Check if the simplified talk page rendering should be used
-	 *
-	 * @internal Should not be used outside Minerva.
-	 * @todo Find better place for this.
-	 *
-	 * @return bool
-	 */
-	public function isSimplifiedTalkPageEnabled(): bool {
-		$title = $this->getTitle();
-		$skinOptions = $this->getSkinOptions();
-
-		return $this->isTalkPageOverlayEnabled() &&
-			$skinOptions->get( SkinOptions::SIMPLIFIED_TALK ) &&
-			// Only if viewing the latest revision, as we can't get the section numbers otherwise
-			// (and even if we could, they would be useless, because edits often add and remove sections).
-			$this->getOutput()->getRevisionId() === $title->getLatestRevID() &&
-			$title->getContentModel() === CONTENT_MODEL_WIKITEXT;
-	}
-
-	/**
-	 * Returns the postheadinghtml for the talk page with view action
-	 *
-	 * @return string HTML for postheadinghtml
-	 */
-	private function getTalkPagePostHeadingHtml() {
-		$title = $this->getTitle();
-		$html = '';
-
-		// T237589: We don't want to show the add discussion button on Flow pages,
-		// only wikitext pages
-		if ( $this->getPermissions()->isTalkAllowed() &&
-			$title->getContentModel() === CONTENT_MODEL_WIKITEXT
-		) {
-			$addTopicButton = $this->getTalkButton( $title, wfMessage(
-				'minerva-talk-add-topic' )->text(), true );
-			$html = Html::element( 'a', $addTopicButton['attributes'] + [
-				'data-event-name' => 'talkpage.add-topic'
-			], $addTopicButton['label'] );
-		}
-
-		$title = $this->getTitle();
-		if ( $this->isSimplifiedTalkPageEnabled() && $title->canExist() ) {
-			$parserOutputAccess = MediaWikiServices::getInstance()->getParserOutputAccess();
-			$parserOptions = ParserOptions::newFromContext( $this->getContext() );
-			$pageRecord = $title->toPageRecord();
-			$status = $parserOutputAccess->getParserOutput( $pageRecord, $parserOptions );
-			$statusValue = $status->getValue();
-			$sectionCount = ( $status->isGood() && $statusValue instanceof ParserOutput )
-				? count( $statusValue->getSections() )
-				: 0;
-			$message = $sectionCount > 0 ? wfMessage( 'minerva-talk-explained' )
-				: wfMessage( 'minerva-talk-explained-empty' );
-			$html .= Html::element( 'div', [ 'class' =>
-				'minerva-talk-content-explained' ], $message->text() );
-		}
-
-		return $html;
-	}
-
-	/**
 	 * Load internal banner content to show in pre content in template
 	 * Beware of HTML caching when using this function.
 	 * Content set as "internalbanner"
@@ -868,24 +775,14 @@ class SkinMinerva extends SkinMustache {
 	 * Returns an array with details for a talk button.
 	 * @param Title $talkTitle Title object of the talk page
 	 * @param string $label Button label
-	 * @param bool $addSection (optional) when added the talk button will render
-	 *  as an add topic button. Defaults to false.
 	 * @return array
 	 */
-	protected function getTalkButton( $talkTitle, $label, $addSection = false ) {
-		if ( $addSection ) {
-			$params = [ 'action' => 'edit', 'section' => 'new' ];
-			$className = 'minerva-talk-add-button ' . MinervaUI::buttonClass( 'progressive', 'button' );
-		} else {
-			$params = [];
-			$className = 'talk';
-		}
-
+	protected function getTalkButton( $talkTitle, $label ) {
 		return [
 			'attributes' => [
-				'href' => $talkTitle->getLinkURL( $params ),
+				'href' => $talkTitle->getLinkURL(),
 				'data-title' => $talkTitle->getFullText(),
-				'class' => $className,
+				'class' => 'talk',
 			],
 			'label' => $label,
 		];
@@ -918,8 +815,7 @@ class SkinMinerva extends SkinMustache {
 			// When showing talk at the bottom we restrict this so it is not shown to anons
 			// https://phabricator.wikimedia.org/T54165
 			// This whole code block can be removed when SkinOptions::TALK_AT_TOP is always true
-			$this->getUser()->isRegistered() &&
-			!$this->isTalkPageOverlayEnabled()
+			$this->getUser()->isRegistered()
 		) {
 			$namespaces = $contentNavigationUrls['associated-pages'];
 			// FIXME [core]: This seems unnecessary..
@@ -952,26 +848,10 @@ class SkinMinerva extends SkinMustache {
 		return array_merge( parent::getJsConfigVars(), [
 			'wgMinervaPermissions' => [
 				'watch' => $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ),
-				'talk' => $this->getUserPageHelper()->isUserPage() ||
-					( $this->getPermissions()->isTalkAllowed() || $title->isTalkPage() ) &&
-					$this->isWikiTextTalkPage()
 			],
 			'wgMinervaFeatures' => $skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 		] );
-	}
-
-	/**
-	 * Returns true, if the talk page of this page is wikitext-based.
-	 * @return bool
-	 */
-	protected function isWikiTextTalkPage() {
-		$title = $this->getTitle();
-		if ( !$title->isTalkPage() ) {
-			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
-			$title = Title::newFromLinkTarget( $namespaceInfo->getTalkPage( $title ) );
-		}
-		return $title->isWikitextPage();
 	}
 
 	/**
@@ -1054,8 +934,6 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.mainPage.styles';
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
-		} elseif ( $this->isTalkPageOverlayEnabled() ) {
-			$styles[] = 'skins.minerva.talk.styles';
 		}
 
 		if ( $this->hasCategoryLinks() ) {

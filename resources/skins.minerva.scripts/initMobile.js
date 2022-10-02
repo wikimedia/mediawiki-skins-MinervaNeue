@@ -24,7 +24,6 @@ module.exports = function () {
 		references = require( './references.js' ),
 		TitleUtil = require( './TitleUtil.js' ),
 		issues = require( './page-issues/index.js' ),
-		talk = require( './talk.js' ),
 		Toolbar = require( './Toolbar.js' ),
 		ToggleList = require( '../../includes/Skins/ToggleList/ToggleList.js' ),
 		TabScroll = require( './TabScroll.js' ),
@@ -407,7 +406,7 @@ module.exports = function () {
 		// Pages which dont exist (id 0) cannot have issues
 		if (
 			!currentPage.isMissing &&
-			( !currentPage.titleObj.isTalkPage() || talk.isSimplifiedViewEnabled() )
+			!currentPage.titleObj.isTalkPage()
 		) {
 			issues.init( overlayManager, currentPageHTMLParser );
 		}
@@ -430,11 +429,6 @@ module.exports = function () {
 				isSmall: true
 			} ).$el.appendTo( $toctitle );
 		} );
-
-		// wire up talk icon if necessary
-		if ( permissions.talk ) {
-			talk.init( mobile );
-		}
 
 		// wire up watch icon if necessary
 		if ( permissions.watch && mw.user.isAnon() ) {

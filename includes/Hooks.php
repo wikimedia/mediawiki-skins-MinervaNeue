@@ -39,7 +39,6 @@ use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MobileContext;
-use MobileFormatter;
 use MobileFrontend\Features\Feature;
 use MobileFrontend\Features\FeaturesManager;
 use OldChangesList;
@@ -327,26 +326,6 @@ class Hooks implements
 	}
 
 	/**
-	 * MobileFrontendBeforeDOM hook handler that runs before the MobileFormatter
-	 * executes. We use it to determine whether or not the talk page is eligible
-	 * to be simplified (we want it only to be simplified when the MobileFormatter
-	 * makes expandable sections).
-	 *
-	 * @param MobileContext $mobileContext
-	 * @param MobileFormatter $formatter
-	 */
-	public static function onMobileFrontendBeforeDOM(
-		MobileContext $mobileContext,
-		MobileFormatter $formatter
-	) {
-		$services = MediaWikiServices::getInstance();
-		$skinOptions = $services->getService( 'Minerva.SkinOptions' );
-		$skinOptions->setMultiple( [
-			SkinOptions::SIMPLIFIED_TALK => true
-		] );
-	}
-
-	/**
 	 * UserLogoutComplete hook handler.
 	 * Resets skin options if a user logout occurs - this is necessary as the
 	 * RequestContextCreateSkinMobile hook runs before the UserLogout hook.
@@ -419,12 +398,6 @@ class Hooks implements
 		}
 
 		if ( $isMinerva ) {
-			// phan doesn't realize that $skin can only be an instance of SkinMinerva without this:
-			'@phan-var SkinMinerva $skin';
-			if ( $skin->isSimplifiedTalkPageEnabled() ) {
-				$classes .= ' skin-minerva--talk-simplified';
-			}
-
 			$bodyAttrs['class'] .= ' ' . $classes;
 		}
 	}
