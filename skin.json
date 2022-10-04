@@ -193,6 +193,9 @@
 			"mediawiki.action.history.styles": [
 				"skinStyles/mediawiki.action.history.styles.less"
 			],
+			"+mediawiki.ui.icon": [
+				"skinStyles/mediawiki.ui.icon.less"
+			],
 			"mediawiki.interface.helpers.styles": [
 				"skinStyles/mediawiki.interface.helpers.styles.less"
 			],
