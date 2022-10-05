@@ -111,6 +111,10 @@
 					"mobile-frontend-main-menu-button-tooltip",
 					"mobile-frontend-footer-sitename"
 				],
+				"menus": [
+					"notifications",
+					"associated-pages"
+				],
 				"responsive": true,
 				"link": {
 					"text-wrapper": {
