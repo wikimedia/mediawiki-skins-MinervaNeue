@@ -1,5 +1,10 @@
 @import 'mediawiki.ui/variables';
 
+/* stylelint-disable-next-line selector-max-id */
+#mw-prefs-container .oo-ui-iconWidget {
+	font-size: 0.875em;
+}
+
 .mw-mobile-preferences-option {
 	cursor: pointer;
 	padding-top: 0.75em;
@@ -14,9 +19,9 @@
 	border-bottom: none; // stylelint-disable-line declaration-property-value-disallowed-list
 }
 
-.mw-prefs-icon {
+.oo-ui-iconWidget.mw-prefs-icon {
 	color: @colorGray2;
-	margin: 0.5em 0.5em 0 0.5em !important;
+	margin: 0.5em 0.5em 0 0.5em;
 }
 
 .mw-prefs-title {
@@ -30,6 +35,7 @@
 	font-weight: normal;
 	font-size: 0.875em;
 	line-height: 1.25em;
+	padding: 0 0 0 2.5em;
 	color: @colorGray7;
 	margin-top: 0;
 }
@@ -59,4 +65,14 @@
 
 .mw-prefs-header-title {
 	display: inline-flex;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#mw-prefs-form p {
+	margin: 0 0 0.75em 0;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#mw-prefs-form h5 {
+	padding-bottom: 0.25em;
 }
