@@ -278,7 +278,7 @@ class SkinMinerva extends SkinMustache {
 					$this->buildSidebar()
 				)['items'],
 				'html-minerva-tagline' => $this->getTaglineHtml(),
-				'html-minerva-post-heading' => $this->isTalkPageWithViewAction()
+				'html-minerva-post-heading' => $this->isTalkPageOverlayEnabled()
 					? $this->getTalkPagePostHeadingHtml()
 					: '',
 				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
@@ -682,32 +682,46 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * @return bool Whether or not current title is a Talk page with the default
-	 * action ('view')
+	 * Check if the talk page overlay is enabled. True unless disabled by a hook.
+	 *
+	 * @return bool
 	 */
-	private function isTalkPageWithViewAction() {
-		$title = $this->getTitle();
+	private function isTalkPageOverlayEnabled(): bool {
+		if ( !$this->isTalkPageWithViewAction() ) {
+			return false;
+		}
 
+		$title = $this->getTitle();
 		// Hook is @unstable and only for use by DiscussionTools. Do not use for any other purpose.
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		if ( !$hookContainer->run( 'MinervaNeueTalkPageOverlay', [ $title, $this->getOutput() ] ) ) {
 			return false;
 		}
-
-		return $title->isTalkPage() && $this->getContext()->getActionName() === "view";
+		return true;
 	}
 
 	/**
+	 * Check if the current title is a talk page with the default view action
+	 *
+	 * @return bool
+	 */
+	private function isTalkPageWithViewAction(): bool {
+		return $this->getTitle()->isTalkPage() && $this->getContext()->getActionName() === 'view';
+	}
+
+	/**
+	 * Check if the simplified talk page rendering should be used
+	 *
 	 * @internal Should not be used outside Minerva.
 	 * @todo Find better place for this.
 	 *
-	 * @return bool Whether or not the simplified talk page is enabled and action is 'view'
+	 * @return bool
 	 */
 	public function isSimplifiedTalkPageEnabled(): bool {
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
 
-		return $this->isTalkPageWithViewAction() &&
+		return $this->isTalkPageOverlayEnabled() &&
 			$skinOptions->get( SkinOptions::SIMPLIFIED_TALK ) &&
 			// Only if viewing the latest revision, as we can't get the section numbers otherwise
 			// (and even if we could, they would be useless, because edits often add and remove sections).
@@ -846,7 +860,7 @@ class SkinMinerva extends SkinMustache {
 			// https://phabricator.wikimedia.org/T54165
 			// This whole code block can be removed when SkinOptions::TALK_AT_TOP is always true
 			$this->getUser()->isRegistered() &&
-			!$this->isTalkPageWithViewAction()
+			!$this->isTalkPageOverlayEnabled()
 		) {
 			$namespaces = $contentNavigationUrls['associated-pages'];
 			// FIXME [core]: This seems unnecessary..
@@ -967,7 +981,7 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.mainPage.styles';
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
-		} elseif ( $this->isTalkPageWithViewAction() ) {
+		} elseif ( $this->isTalkPageOverlayEnabled() ) {
 			$styles[] = 'skins.minerva.talk.styles';
 		}
 
