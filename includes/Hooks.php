@@ -97,6 +97,21 @@ class Hooks implements
 	}
 
 	/**
+	 * PreferencesGetLayout hook handler.
+	 *
+	 * Use mobile layout in Special:Preferences
+	 * @see https://phabricator.wikimedia.org/T311717
+	 *
+	 * @param bool &$useMobileLayout
+	 * @param Skin $skin
+	 */
+	public static function onPreferencesGetLayout( &$useMobileLayout, Skin $skin ) {
+		if ( $skin->getSkinName() === 'minerva' ) {
+			$useMobileLayout = true;
+		}
+	}
+
+	/**
 	 * Disable recent changes enhanced mode (table mode)
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FetchChangesList
 	 *

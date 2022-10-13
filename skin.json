@@ -150,6 +150,7 @@
 		"RequestContextCreateSkinMobile": [
 			"MediaWiki\\Minerva\\Hooks::onRequestContextCreateSkinMobile"
 		],
+		"PreferencesGetLayout": "main",
 		"SpecialPageBeforeExecute": "main",
 		"ResourceLoaderGetConfigVars": "main",
 		"OutputPageBodyAttributes": "main"
