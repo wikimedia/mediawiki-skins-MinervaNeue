@@ -100,7 +100,7 @@ class Hooks implements
 	 * PreferencesGetLayout hook handler.
 	 *
 	 * Use mobile layout in Special:Preferences
-	 * @see https://phabricator.wikimedia.org/T311717
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PreferencesGetLayout
 	 *
 	 * @param bool &$useMobileLayout
 	 * @param Skin $skin
