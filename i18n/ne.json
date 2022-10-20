@@ -11,7 +11,8 @@
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल",
-			"हिमाल सुबेदी"
+			"हिमाल सुबेदी",
+			"CAPTAIN MEDUSA"
 		]
 	},
 	"minerva-last-modified-date": "अन्तिम सम्पादन $1, $2",
@@ -28,7 +29,7 @@
 	"mobile-frontend-main-menu-button-tooltip": "मुख्य सूची खोल्नुहोस्",
 	"mobile-frontend-main-menu-contributions": "योगदानहरू",
 	"mobile-frontend-main-menu-login": "प्रवेश गर्नुहोस्",
-	"mobile-frontend-main-menu-logout": "निर्गमन",
+	"mobile-frontend-main-menu-logout": "निर्गमन गर्नुहोस्",
 	"mobile-frontend-main-menu-nearby": "नजिकैको",
 	"mobile-frontend-main-menu-settings": "मेरो अभिरुचिहरू",
 	"mobile-frontend-main-menu-watchlist": "अवलोकनसूची",
