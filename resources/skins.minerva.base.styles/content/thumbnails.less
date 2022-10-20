@@ -46,7 +46,16 @@
 	}
 
 	figure[ typeof~='mw:File' ],
-	figure[ typeof~='mw:File/Frameless' ] {
+	figure[ typeof~='mw:File/Frameless' ],
+	/* TODO(T203211): Remove "Image|Video|Audio" when version 2.4.0 of the
+	 * content is no longer supported
+	 */
+	figure[ typeof~='mw:Image' ],
+	figure[ typeof~='mw:Video' ],
+	figure[ typeof~='mw:Audio' ],
+	figure[ typeof~='mw:Image/Frameless' ],
+	figure[ typeof~='mw:Video/Frameless' ],
+	figure[ typeof~='mw:Audio/Frameless' ] {
 		/* Hide the caption for frameless and plain floated images */
 		> figcaption {
 			display: none;
