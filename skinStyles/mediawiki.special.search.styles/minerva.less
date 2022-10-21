@@ -18,6 +18,13 @@
 	display: none;
 }
 
+// some of the content is extremely long and trying to keep
+// as much as possible on 1 line causes breaking other
+// parts (notably: thumbnails end up being squished)
+.searchResultImage-text {
+	word-break: break-word;
+}
+
 // override ul padding-left defined in lists.less, which isn't
 // meant to affect the search results list
 .content ul.mw-search-results {
