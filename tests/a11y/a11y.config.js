@@ -51,7 +51,7 @@ module.exports = {
 				'set field #wpName1 to ' + testData.loginUser,
 				'set field #wpPassword1 to ' + testData.loginPassword,
 				'click #wpLoginAttempt',
-				'wait for .minerva-user-navigation to be visible'
+				'navigate to ' + testData.baseUrl + testData.pageUrl
 			]
 		},
 		{
