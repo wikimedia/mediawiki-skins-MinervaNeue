@@ -17,3 +17,9 @@
 .mw-search-result:not( .mw-search-result-ns-6 ) .searchResultImage-thumbnail {
 	display: none;
 }
+
+// override ul padding-left defined in lists.less, which isn't
+// meant to affect the search results list
+.content ul.mw-search-results {
+	padding-left: 0;
+}
