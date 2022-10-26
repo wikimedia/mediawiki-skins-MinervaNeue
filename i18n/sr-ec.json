@@ -61,6 +61,7 @@
 	"minerva-page-actions-move": "Премести",
 	"minerva-page-actions-delete": "Избриши",
 	"minerva-page-actions-protect": "Заштити",
+	"minerva-page-actions-unprotect": "Скини заштиту",
 	"minerva-page-actions-user-groups": "Корисничке групе",
 	"minerva-page-actions-logs": "Дневници",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} ставка",
