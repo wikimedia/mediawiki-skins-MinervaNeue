@@ -6,7 +6,8 @@
 			"Kareyac",
 			"Pandukht",
 			"Xelgen",
-			"Սահակ"
+			"Սահակ",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"mobile-frontend-cookies-required": "Դիտման ռեժիմը փոխելու համար անհրաժեշտ է ակտիվացնել թխուկները (քուքիները)։ Խնդրում ենք միացնել դրանք։",
@@ -28,5 +29,6 @@
 	"mobile-frontend-redirected-from": "Վերահղված է «[[$1]]»-ից",
 	"mobile-frontend-user-page-contributions": "Ներդրում",
 	"minerva-page-actions-overflow": "Ավելին",
+	"minerva-page-actions-language-switcher": "Լեզուներ",
 	"minerva-page-actions-history": "Պատմություն"
 }

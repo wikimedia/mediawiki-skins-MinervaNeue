@@ -3,11 +3,17 @@
 		"authors": [
 			"Tiin",
 			"Killarnee",
-			"Zabe"
+			"Zabe",
+			"ThisCarthing"
 		]
 	},
+	"minerva-watchlist-cta": "Verfolgen Sie diese Seite und alle Änderungen an ihr.",
+	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktivieren Sie sie und versuchen Sie es erneut.",
 	"mobile-frontend-language-article-heading": "Sprache",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Willkommen}}, $1!",
-	"mobile-frontend-pageaction-edit-tooltip": "Bearbeiten Sie den Einführungsabschnitt für diese Seite.",
-	"mobile-frontend-placeholder": "{{SITENAME}} durchsuchen"
+	"mobile-frontend-pageaction-edit-tooltip": "Bearbeiten Sie den Einführungsabschnitt für diese Seite",
+	"mobile-frontend-placeholder": "{{SITENAME}} durchsuchen",
+	"mobile-frontend-user-newmessages": "Sie haben neue Nachrichten auf Ihrer Diskussionsseite",
+	"minerva-talk-reply-success": "Ihre Antwort wurde auf der Diskussionsseite gespeichert.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Leider ist die Gruppierung der Ergebnisse nach Seiten in der mobilen Ansicht nicht möglich. Wenn Sie die Funktion Gruppierung nach Seiten nutzen möchten, besuchen Sie bitte die Desktop-Ansicht."
 }
