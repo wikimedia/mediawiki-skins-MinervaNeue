@@ -63,7 +63,8 @@
 	}
 
 	// Parsoid class name is mw-image-border (T198534) and parser (PHP) class name is thumbborder
-	.mw-image-border,
+	// However, Parsoid places the class on the wrapper, whereas the legacy parser placed it on the img
+	.mw-image-border img,
 	.thumbborder {
 		border: 1px solid @colorGray12;
 	}
