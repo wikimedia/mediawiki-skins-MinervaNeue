@@ -97,7 +97,7 @@ final class Group {
 		} catch ( DomainException $exception ) {
 			return;
 		}
-		throw new DomainException( "The \"${name}\" entry already exists." );
+		throw new DomainException( "The \"{$name}\" entry already exists." );
 	}
 
 	/**
