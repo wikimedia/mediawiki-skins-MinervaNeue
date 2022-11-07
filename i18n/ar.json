@@ -90,5 +90,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "عرض تصنيفات الصفحات",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "تم تحسين معالجة مشاكل الصفحة",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "سيتم تضمين موضوعات الصفحة (قالب:صندوق رسالة مقالة) في المقالة.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "لسوء الحظ، تجميع النتائج حسب الصفحة غير متاح على الجوال، إذا كنت ترغب في استخدام ميزة المجموعة حسب الصفحة فتُرجَى زيارة موقع سطح المكتب."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "لسوء الحظ، تجميع النتائج حسب الصفحة غير متاح على الجوال، إذا كنت ترغب في استخدام ميزة المجموعة حسب الصفحة فتُرجَى زيارة موقع سطح المكتب.",
+	"minerva.css": "/ * سيتم تحميل جميع CSS هنا لمستخدمي MinervaNeue skin * /",
+	"minerva.js": "/ * سيتم تحميل جميع JavaScript هنا لمستخدمي MinervaNeue skin * /"
 }
