@@ -4,10 +4,12 @@
 			"Dicto23456",
 			"Gazeb",
 			"KHMELNYTSKYIA",
-			"Gramo6"
+			"Gramo6",
+			"Vlad5250"
 		]
 	},
 	"mobile-frontend-editor-edit": "Редагувати",
+	"mobile-frontend-history": "Зобразити історію едітовань той сторінкы.",
 	"mobile-frontend-home-button": "Домів",
 	"mobile-frontend-language-article-heading": "Бесїда",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Вітайте}}, $1!",
