@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Dfoy",
-			"Moyogo"
+			"Moyogo",
+			"BamLifa"
 		]
 	},
 	"mobile-frontend-editor-edit": "Kobɔngisa",
+	"mobile-frontend-home-button": "Lonkásá loa libosó",
 	"mobile-frontend-language-article-heading": "Kotánga o lokótá lisúsu",
 	"mobile-frontend-main-menu-login": "Komíkitola",
 	"mobile-frontend-main-menu-nearby": "Pɛmbɛ́ni",
