@@ -103,10 +103,12 @@ class Hooks implements
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PreferencesGetLayout
 	 *
 	 * @param bool &$useMobileLayout
-	 * @param Skin $skin
+	 * @param Skin|string $skin
 	 */
-	public static function onPreferencesGetLayout( &$useMobileLayout, Skin $skin ) {
-		if ( $skin->getSkinName() === 'minerva' ) {
+	public static function onPreferencesGetLayout( &$useMobileLayout, $skin ) {
+		if ( $skin instanceof Skin && $skin->getSkinName() === 'minerva' ) {
+			$useMobileLayout = true;
+		} elseif ( is_string( $skin ) && $skin === 'minerva' ) {
 			$useMobileLayout = true;
 		}
 	}
