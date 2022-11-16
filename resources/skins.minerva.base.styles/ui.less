@@ -129,6 +129,7 @@ main {
 }
 
 .content {
+	.mw-heading2,
 	h2 {
 		// Clear table of contents and any other floated elements in desktop Minerva.
 		clear: left;
@@ -147,6 +148,7 @@ main {
 		}
 	}
 
+	.mw-parser-output > .mw-heading2,
 	.mw-parser-output > h2,
 	.section-heading {
 		border-bottom: @border-width-base @border-style-base #eaecf0;
@@ -154,10 +156,12 @@ main {
 	}
 
 	.mw-parser-output {
+		.mw-heading,
 		h1, h2, h3, h4, h5, h6 {
 			display: flex;
 		}
 
+		h1, h2, h3, h4, h5, h6,
 		.mw-headline {
 			flex-grow: 1;
 			flex-basis: 0;
