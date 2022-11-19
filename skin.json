@@ -169,6 +169,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"ext.echo.styles.badge": [
+				"skinStyles/ext.echo.styles.badge.less"
+			],
 			"mobile.init.styles": [
 				"skinStyles/mobile.init.styles/mobile.less"
 			],
