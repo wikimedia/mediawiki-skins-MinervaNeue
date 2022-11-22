@@ -269,8 +269,6 @@ class Hooks implements
 	/**
 	 * SkinPageReadyConfig hook handler
 	 *
-	 * Disable collapsible on page load
-	 *
 	 * @param Context $context
 	 * @param mixed[] &$config Associative array of configurable options
 	 */
@@ -280,7 +278,10 @@ class Hooks implements
 	): void {
 		if ( $context->getSkin() === 'minerva' ) {
 			$config['search'] = false;
-			$config['collapsible'] = false;
+			// Enable collapsible styles on Minerva. Projects are already doing this via gadgets
+			// which creates an unpredictable testing environment so it is better to match production.
+			// NOTE: This is enabled despite the well documented problems with the current design on T111565.
+			$config['collapsible'] = true;
 			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw="interface"]';
 		}
 	}
