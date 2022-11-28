@@ -9,7 +9,8 @@
 			"Sakretsu",
 			"Senpremì",
 			"The Polish",
-			"Ximo17"
+			"Ximo17",
+			"Pierpao"
 		]
 	},
 	"minerva-last-modified-date": "Ultima modifica il $1 alle $2",
@@ -68,5 +69,6 @@
 	"minerva-talk-reply-success": "La tua risposta è stata salvata nella pagina di discussione.",
 	"skin-minerva-issue-learn-more": "Ulteriori informazioni",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorie",
-	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Visualizza le categorie delle pagine"
+	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Visualizza le categorie delle pagine",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Sfortunatamente, il raggruppamento dei risultati per pagina non è disponibile sui dispositivi mobili. Se desideri utilizzare la funzione \"raggruppa per pagina\", utilizza il sito in versione desktop."
 }
