@@ -55,15 +55,6 @@ A file for css that optimises the Minerva skin on larger devices.
 		// .tright to be on the right in RTL languages.
 		figure[ typeof~='mw:File/Thumb' ],
 		figure[ typeof~='mw:File/Frame' ],
-		/* TODO(T203211): Remove "Image|Video|Audio" when version 2.4.0 of the
-		 * content is no longer supported
-		 */
-		figure[ typeof~='mw:Image/Thumb' ],
-		figure[ typeof~='mw:Video/Thumb' ],
-		figure[ typeof~='mw:Audio/Thumb' ],
-		figure[ typeof~='mw:Image/Frame' ],
-		figure[ typeof~='mw:Video/Frame' ],
-		figure[ typeof~='mw:Audio/Frame' ],
 		.thumb {
 			max-width: @width-breakpoint-tablet - @contentMargin;
 		}

@@ -22,16 +22,7 @@
  * (mostly derived from MediaWiki's content.media-common.less)
  */
 figure[ typeof~='mw:File/Thumb' ],
-figure[ typeof~='mw:File/Frame' ],
-/* TODO(T203211): Remove "Image|Video|Audio" when version 2.4.0 of the content
- * is no longer supported
- */
-figure[ typeof~='mw:Image/Thumb' ],
-figure[ typeof~='mw:Video/Thumb' ],
-figure[ typeof~='mw:Audio/Thumb' ],
-figure[ typeof~='mw:Image/Frame' ],
-figure[ typeof~='mw:Video/Frame' ],
-figure[ typeof~='mw:Audio/Frame' ] {
+figure[ typeof~='mw:File/Frame' ] {
 	max-width: 100%;
 	// Centered on non-tablet
 	margin: 0 auto;
