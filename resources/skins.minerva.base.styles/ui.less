@@ -216,9 +216,10 @@ main {
 .post-content {
 	margin: 0 @contentMargin;
 }
-// stylelint-enable selector-max-id
 
 // T217197
+// FIXME: minerva__subtitle can be removed when cache has cleared.
+#mw-content-subtitle,
 .minerva__subtitle {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -227,6 +228,7 @@ main {
 		margin: 0;
 	}
 }
+// stylelint-enable selector-max-id
 
 @media all and ( min-width: @width-breakpoint-tablet ) {
 	/* FIXME: this should be one generic class name */
