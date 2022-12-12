@@ -9,6 +9,7 @@
 			"Guherto"
 		]
 	},
+	"minerva-last-modified-date": "Herî dawî di $1an, $2 de hatiye guhartin",
 	"minerva-talk-add-topic": "Gotûbêjê lê zêde bike",
 	"mobile-frontend-editor-edit": "Biguhêre",
 	"mobile-frontend-editor-redlink-create": "Rûpelekê çêke",
@@ -21,6 +22,7 @@
 	"mobile-frontend-main-menu-contributions": "Beşdarî",
 	"mobile-frontend-main-menu-login": "Têkeve",
 	"mobile-frontend-main-menu-logout": "Derkeve",
+	"mobile-frontend-main-menu-nearby": "Derdora min",
 	"mobile-frontend-main-menu-settings": "Eyar",
 	"mobile-frontend-main-menu-watchlist": "Lîsteya şopandinê",
 	"mobile-frontend-meta-data-issues-categories": "Di derbarê vê kategoriyê de",
@@ -35,9 +37,14 @@
 	"mobile-frontend-user-page-contributions": "Beşdarî",
 	"mobile-frontend-user-page-member-since": "$1ê bû {{GENDER:$2|endam}}",
 	"mobile-frontend-user-page-talk": "Gotûbêj",
+	"minerva-page-actions-overflow": "Zêdetir",
+	"minerva-page-actions-info": "Agahiyên rûpelê",
+	"minerva-page-actions-permalink": "Girêdana daîmî",
+	"minerva-page-actions-backlinks": "Girêdanên li ser vê rûpelê",
 	"minerva-page-actions-language-switcher": "Bi zimanên din",
 	"minerva-page-actions-history": "Dîrok",
 	"minerva-talk-explained": "Gotûbêjên zindî",
+	"minerva-talk-explained-empty": "Li ser vê rûpelê ti gotûbêj tine ye.",
 	"minerva-talk-full-page": "Wekî rûpela wîkiyê bixwîne",
 	"skin-minerva-issue-learn-more": "Zêdetir hîn bibe"
 }
