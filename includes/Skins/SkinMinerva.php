@@ -23,6 +23,7 @@ namespace MediaWiki\Minerva\Skins;
 use ExtensionRegistry;
 use Html;
 use Language;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
@@ -158,6 +159,30 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * @param array $alert
+	 * @param array $notice
+	 * @return array
+	 */
+	private function getCombinedNotificationButton( array $alert, array $notice ) {
+		// Sum the notifications from the two original buttons
+		$notifCount = ( $alert['data']['counter-num'] ?? 0 ) + ( $notice['data']['counter-num'] ?? 0 );
+		$alert['data']['counter-num'] = $notifCount;
+		// @phan-suppress-next-line PhanUndeclaredClassReference
+		if ( class_exists( NotificationController::class ) ) {
+			// @phan-suppress-next-line PhanUndeclaredClassMethod
+			$alert['data']['counter-text'] = NotificationController::formatNotificationCount( $notifCount );
+		} else {
+			$alert['data']['counter-text'] = $notifCount;
+		}
+
+		if ( $notifCount > 0 ) {
+			return $this->getNotificationCircleButton( $alert );
+		} else {
+			return $this->getNotificationButton( $alert );
+		}
+	}
+
+	/**
 	 * Minerva differs from other skins in that for users with unread notifications
 	 * instead of a bell with a small square indicating the number of notifications
 	 * it shows a red circle with a number inside. Ideally Vector and Minerva would
@@ -223,19 +248,18 @@ class SkinMinerva extends SkinMustache {
 		}
 		$this->contentNavigationUrls = $contentNavigationUrls;
 		if ( $this->getUser()->isRegistered() ) {
-			// Unset notice icon. Minerva only shows one entry point to notifications.
-			// This can be reconsidered with a solution to https://phabricator.wikimedia.org/T142981
-			unset( $contentNavigationUrls['notifications']['notifications-notice'] );
-			// Shown to logged in users when Echo is not installed:
 			if ( count( $contentNavigationUrls['notifications'] ) === 0 ) {
+				// Shown to logged in users when Echo is not installed:
 				$contentNavigationUrls['notifications']['mytalks'] = $this->getNotificationFallbackButton();
 			} else {
+				// Combine notification icons. Minerva only shows one entry point to notifications.
+				// This can be reconsidered with a solution to https://phabricator.wikimedia.org/T142981
 				$alert = $contentNavigationUrls['notifications']['notifications-alert'] ?? null;
-				if ( $alert ) {
-					// @phan-suppress-next-line PhanTypeMismatchDimFetch False positive
-					$alertCount = $alert['data']['counter-num'] ?? 0;
-					$contentNavigationUrls['notifications']['notifications-alert'] = $alertCount > 0 ?
-						$this->getNotificationCircleButton( $alert ) : $this->getNotificationButton( $alert );
+				$notice = $contentNavigationUrls['notifications']['notifications-notice'] ?? null;
+				if ( $alert && $notice ) {
+					unset( $contentNavigationUrls['notifications']['notifications-notice'] );
+					$contentNavigationUrls['notifications']['notifications-alert'] =
+						$this->getCombinedNotificationButton( $alert, $notice );
 				}
 			}
 		}
