@@ -262,12 +262,13 @@ class SkinMinerva extends SkinMustache {
 				$contentNavigationUrls['associated-pages'][ $id ]['rel'] = 'discussion';
 			}
 		}
+		$skinOptions = $this->getSkinOptions();
 		$this->contentNavigationUrls = $contentNavigationUrls;
 		if ( $this->getUser()->isRegistered() ) {
 			if ( count( $contentNavigationUrls['notifications'] ) === 0 ) {
 				// Shown to logged in users when Echo is not installed:
 				$contentNavigationUrls['notifications']['mytalks'] = $this->getNotificationFallbackButton();
-			} else {
+			} elseif ( $skinOptions->get( SkinOptions::SINGLE_ECHO_BUTTON ) ) {
 				// Combine notification icons. Minerva only shows one entry point to notifications.
 				// This can be reconsidered with a solution to https://phabricator.wikimedia.org/T142981
 				$alert = $contentNavigationUrls['notifications']['notifications-alert'] ?? null;
@@ -276,6 +277,19 @@ class SkinMinerva extends SkinMustache {
 					unset( $contentNavigationUrls['notifications']['notifications-notice'] );
 					$contentNavigationUrls['notifications']['notifications-alert'] =
 						$this->getCombinedNotificationButton( $alert, $notice );
+				}
+			} else {
+				// Show desktop alert icon.
+				$alert = $contentNavigationUrls['notifications']['notifications-alert'] ?? null;
+				if ( $alert ) {
+					// Correct the icon to be the bell filled rather than the outline to match
+					// Echo's badge.
+					$linkClass = $alert['link-class'] ?? [];
+					$alert['link-class'] = array_map( static function ( $class ) {
+						return $class === 'oo-ui-icon-bellOutline' ?
+							'oo-ui-icon-bell' : $class;
+					}, $linkClass );
+					$contentNavigationUrls['notifications']['notifications-alert'] = $alert;
 				}
 			}
 		}
@@ -286,6 +300,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public function getTemplateData(): array {
 			$data = parent::getTemplateData();
+			$skinOptions = $this->getSkinOptions();
 			// FIXME: Can we use $data instead of calling buildContentNavigationUrls ?
 			$nav = $this->contentNavigationUrls;
 			if ( $nav === null ) {
@@ -323,6 +338,7 @@ class SkinMinerva extends SkinMustache {
 					: '',
 				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
 				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
+				'is-minerva-echo-single-button' => $skinOptions->get( SkinOptions::SINGLE_ECHO_BUTTON ),
 				'data-minerva-tabs' => $this->getTabsData( $nav ),
 				'data-minerva-page-actions' => $this->getPageActions( $nav ),
 				'data-minerva-secondary-actions' => $this->getSecondaryActions( $nav ),
