@@ -175,8 +175,18 @@ class SkinMinerva extends SkinMustache {
 			$alert['data']['counter-text'] = $notifCount;
 		}
 
-		if ( $notifCount > 0 ) {
-			return $this->getNotificationCircleButton( $alert );
+		$linkClassAlert = $alert['link-class'] ?? [];
+		$hasUnseenAlerts = is_array( $linkClassAlert ) && in_array( 'mw-echo-unseen-notifications', $linkClassAlert );
+		// The circle should only appear if there are unseen notifications.
+		// Once the notifications are seen (by opening the notification drawer)
+		// then the icon reverts to a gray circle, but on page refresh
+		// it should revert back to a bell icon.
+		// If you try and change this behaviour, at time of writing
+		// (December 2022) JavaScript will correct it.
+		if ( $notifCount > 0 && $hasUnseenAlerts ) {
+			$linkClass = $notice['link-class'] ?? [];
+			$hasUnseenNotices = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
+			return $this->getNotificationCircleButton( $alert, $hasUnseenNotices );
 		} else {
 			return $this->getNotificationButton( $alert );
 		}
@@ -190,10 +200,13 @@ class SkinMinerva extends SkinMustache {
 	 * before making such a decision.
 	 *
 	 * @param array $alert
+	 * @param bool $hasUnseenNotices does the user have unseen notices?
 	 * @return array
 	 */
-	private function getNotificationCircleButton( array $alert ) {
+	private function getNotificationCircleButton( array $alert, bool $hasUnseenNotices ) {
 		$alertCount = $alert['data']['counter-num'] ?? 0;
+		$linkClass = $alert['link-class'] ?? [];
+		$hasSeenAlerts = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
 		$alertText = $alert['data']['counter-text'] ?? $alertCount;
 		$alert['html'] =
 			Html::rawElement( 'div', [ 'class' => 'circle' ],
@@ -201,7 +214,10 @@ class SkinMinerva extends SkinMustache {
 					'data-notification-count' => $alertCount,
 				], $alertText )
 			);
-		$alert['class'] = 'notification-count notification-unseen mw-echo-unseen-notifications';
+		$alert['class'] = 'notification-count';
+		if ( $hasSeenAlerts || $hasUnseenNotices ) {
+			$alert['class'] .= ' notification-unseen mw-echo-unseen-notifications';
+		}
 		$alert['link-class'] = array_merge(
 			$alert['link-class'],
 			self::NOTIFICATION_BUTTON_CLASSES
