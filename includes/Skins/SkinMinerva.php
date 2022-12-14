@@ -164,6 +164,9 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	private function getCombinedNotificationButton( array $alert, array $notice ) {
+		// Remove id="pt-notifications-alert", added to the wrapper in Header.mustache
+		$alert['id'] = '';
+
 		// Sum the notifications from the two original buttons
 		$notifCount = ( $alert['data']['counter-num'] ?? 0 ) + ( $notice['data']['counter-num'] ?? 0 );
 		$alert['data']['counter-num'] = $notifCount;
