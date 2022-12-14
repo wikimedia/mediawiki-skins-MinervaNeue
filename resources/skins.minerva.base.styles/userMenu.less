@@ -1,4 +1,5 @@
 @import '../../minerva.less/minerva.variables.less';
+// stylelint-disable selector-max-id
 
 // The top level user account button in the upper right near the notifications button.
 .minerva-user-navigation {
@@ -20,6 +21,28 @@
 	// align the last icon (i.e. notification or use menu) with the container edge.
 	& > *:last-child {
 		margin-right: -@icon-padding-md;
+	}
+
+	// desktop mode modifications
+	.minerva-user-notifications {
+		ul {
+			display: flex;
+			align-items: center;
+		}
+
+		#pt-notifications-alert {
+			margin-right: 20px;
+
+			&.mw-echo-ui-notificationBadgeButtonPopupWidget {
+				margin-right: 8px;
+			}
+		}
+
+		li#pt-notifications-notice,
+		li#pt-notifications-alert {
+			display: block;
+			width: 32px;
+		}
 	}
 }
 

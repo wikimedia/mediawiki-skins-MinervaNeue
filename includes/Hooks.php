@@ -314,6 +314,8 @@ class Hooks implements
 				SkinOptions::MAIN_MENU_EXPANDED => $featureManager->isFeatureAvailableForCurrentUser(
 					'MinervaAdvancedMainMenu'
 				),
+				// In mobile, always resort to single icon.
+				SkinOptions::SINGLE_ECHO_BUTTON => true,
 				SkinOptions::HISTORY_IN_PAGE_ACTIONS => $isUserPageOrUserTalkPage ?
 					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
 				SkinOptions::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
