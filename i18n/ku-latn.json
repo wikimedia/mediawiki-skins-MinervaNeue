@@ -10,9 +10,11 @@
 		]
 	},
 	"minerva-last-modified-date": "Herî dawî di $1an, $2 de hatiye guhartin",
+	"minerva-watchlist-cta": "Vê rûpelê û hemû guhartinên wê bişopîne.",
 	"minerva-talk-add-topic": "Gotûbêjê lê zêde bike",
 	"mobile-frontend-editor-edit": "Biguhêre",
 	"mobile-frontend-editor-redlink-create": "Rûpelekê çêke",
+	"mobile-frontend-editor-redlink-explain": "Ev rûpel hîn nehatiye çêkirin.",
 	"mobile-frontend-editor-redlink-leave": "Na, spas.",
 	"mobile-frontend-history": "Dîroka guhartina vê rûpelê bibîne.",
 	"mobile-frontend-home-button": "Destpêk",
