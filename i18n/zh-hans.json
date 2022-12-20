@@ -26,7 +26,8 @@
 			"Ywang",
 			"予弦",
 			"沈澄心",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"Lantianjialiang"
 		]
 	},
 	"minerva-last-modified-date": "最后编辑于$1 $2",
@@ -75,7 +76,7 @@
 	"minerva-page-actions-info": "页面信息",
 	"minerva-page-actions-permalink": "固定链接",
 	"minerva-page-actions-backlinks": "链入页面",
-	"minerva-page-actions-change-block": "更改封禁",
+	"minerva-page-actions-change-block": "更改块区域",
 	"minerva-page-actions-cite": "引用本页",
 	"minerva-page-actions-move": "移动",
 	"minerva-page-actions-delete": "删除",
