@@ -98,6 +98,7 @@ return [
 			$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
 				new SkinUserPageHelper(
 					$services->getUserNameUtils(),
+					$services->getUserFactory(),
 					$context->getSkin()->getRelevantTitle()->getSubjectPage(),
 					$context
 				) :
@@ -142,6 +143,7 @@ return [
 	'Minerva.SkinUserPageHelper' => static function ( MediaWikiServices $services ): SkinUserPageHelper {
 		return new SkinUserPageHelper(
 			$services->getUserNameUtils(),
+			$services->getUserFactory(),
 			RequestContext::getMain()->getSkin()->getRelevantTitle(),
 			RequestContext::getMain()
 		);

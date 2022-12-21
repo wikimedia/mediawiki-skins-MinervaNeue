@@ -284,6 +284,7 @@ class Hooks implements
 				// SkinUserPageHelper is being instantiated instead.
 				$relevantUserPageHelper = new SkinUserPageHelper(
 					$services->getUserNameUtils(),
+					$services->getUserFactory(),
 					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title,
 					$mobileContext
 				);
