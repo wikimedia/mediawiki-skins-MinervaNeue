@@ -39,7 +39,7 @@
 	"mobile-frontend-talk-back-to-page": "Torna indree a la pagina \"$1\".",
 	"mobile-frontend-talk-back-to-projectpage": "Torna indree a la pagina de proget \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "Torna a la pagina de l'utenza d{{GENDER:el \"$1\"|e la \"$1\"}}.",
-	"mobile-frontend-user-button-tooltip": "Mostra i me notifiche",
+	"mobile-frontend-user-button-tooltip": "Mostra i mè notifiche",
 	"mobile-frontend-user-newmessages": "Te gh'heet di messagg noeuv in su la toa pagina de ciciarada",
 	"mobile-frontend-user-page-contributions": "Contribuzzion",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Iscrit|Iscritta}} el $1",

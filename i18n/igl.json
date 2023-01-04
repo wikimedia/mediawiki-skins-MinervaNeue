@@ -4,7 +4,10 @@
 			"AgnesAbah"
 		]
 	},
+	"mobile-frontend-history": "Gí nabali ku ma Dabi kó oji Ogbá yí",
 	"mobile-frontend-home-button": "Unyi",
 	"mobile-frontend-language-article-heading": "íchi",
-	"mobile-frontend-main-menu-login": "Tafunn"
+	"mobile-frontend-main-menu-login": "Tafunn",
+	"mobile-frontend-placeholder": "Téné{{SITENAME}}",
+	"mobile-frontend-random-button": "Àtu"
 }
