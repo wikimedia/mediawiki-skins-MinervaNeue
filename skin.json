@@ -169,6 +169,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.page.gallery.slideshow": [
+				"skinStyles/mediawiki.page.gallery.slideshow.less"
+			],
 			"ext.echo.styles.badge": [
 				"skinStyles/ext.echo.styles.badge.less"
 			],
