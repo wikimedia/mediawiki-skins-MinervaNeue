@@ -12,7 +12,8 @@
 			"MarcoAurelio",
 			"Ryo567",
 			"Jackiezelaya",
-			"Rodney Araujo"
+			"Rodney Araujo",
+			"Pierpao"
 		]
 	},
 	"minerva-last-modified-date": "Última edición el $1 a las $2",
@@ -73,7 +74,7 @@
 	"minerva-talk-full-page": "Leer como página de wiki",
 	"minerva-talk-topic-feedback": "Se añadió un nuevo tema a la página de discusión.",
 	"minerva-talk-reply-success": "Se guardó tu respuesta en la página de discusión.",
-	"minerva-skin-desc": "La primera apariencia móvil responsiva",
+	"minerva-skin-desc": "Una apariencia mobile-first responsiva",
 	"skin-minerva-issue-learn-more": "Más información",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton": "Categorías",
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Ver categorías de páginas",
