@@ -6,6 +6,7 @@
 			"Maksim L.",
 			"Mikalai Udodau",
 			"No Sleep till Krupki",
+			"Plaga med",
 			"Vlad5250",
 			"Чаховіч Уладзіслаў"
 		]
@@ -41,7 +42,7 @@
 	"mobile-frontend-placeholder": "Знайсці ў {{GRAMMAR:месны|{{SITENAME}}}}",
 	"mobile-frontend-random-button": "Выпадкова",
 	"mobile-frontend-redirected-from": "Перанакіравана з «[[$1]]»",
-	"mobile-frontend-talk-back-to-filepage": "Вярнуцца да файлу «$1».",
+	"mobile-frontend-talk-back-to-filepage": "Вярнуцца да файла «$1».",
 	"mobile-frontend-talk-back-to-page": "Вярнуцца да старонкі «$1».",
 	"mobile-frontend-talk-back-to-projectpage": "Вярнуцца да старонкі праекту «$1».",
 	"mobile-frontend-talk-back-to-userpage": "Вярнуцца на старонку {{GENDER:$1|ўдзельніка|ўдзельніцы}} «$1»",
