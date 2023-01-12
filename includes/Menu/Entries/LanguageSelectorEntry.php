@@ -19,7 +19,6 @@ namespace MediaWiki\Minerva\Menu\Entries;
 
 use MediaWiki\Minerva\MinervaUI;
 use MessageLocalizer;
-use SpecialPage;
 use Title;
 
 /**
@@ -107,10 +106,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 		$switcherClasses = ' language-selector';
 
 		if ( $this->doesPageHaveLanguages ) {
-			$switcherLink = SpecialPage::getTitleFor(
-				'MobileLanguages',
-				$this->title
-			)->getLocalURL();
+			$switcherLink = '#p-lang';
 		} else {
 			$switcherClasses .= ' disabled';
 		}
