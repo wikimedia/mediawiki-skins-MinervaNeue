@@ -104,6 +104,9 @@
 				"name": "minerva",
 				"templateDirectory": "includes/Skins",
 				"messages": [
+					"variants",
+					"mobile-frontend-languages-not-available",
+					"minerva-page-actions-language-switcher",
 					"sitetitle",
 					"mainpage",
 					"searchbutton",

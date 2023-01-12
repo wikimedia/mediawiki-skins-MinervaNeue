@@ -329,7 +329,11 @@ class SkinMinerva extends SkinMustache {
 					'minerva-anon-talk-message'
 				);
 			}
+			$allLanguages = $data['data-portlets']['data-languages']['array-items'] ?? [];
+			$allVariants = $data['data-portlets']['data-variants']['array-items'] ?? [];
+
 			return $data + [
+				'has-minerva-languages' => !empty( $allLanguages ) || !empty( $allVariants ),
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
 				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
 					$nav,
@@ -850,15 +854,10 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	protected function getLanguageButton() {
-		$languageUrl = SpecialPage::getTitleFor(
-			'MobileLanguages',
-			$this->getSkin()->getTitle()
-		)->getLocalURL();
-
 		return [
 			'attributes' => [
 				'class' => 'language-selector',
-				'href' => $languageUrl,
+				'href' => '#p-lang'
 			],
 			'label' => $this->msg( 'mobile-frontend-language-article-heading' )->text()
 		];
