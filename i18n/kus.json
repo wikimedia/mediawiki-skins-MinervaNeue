@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bugirbiig"
+			"Bugirbiig",
+			"Vsambian"
 		]
 	},
+	"minerva-watchlist-cta": "Kpansim lakir kaŋa nɛ tiakir kanɛ wʋsa bɛ di ni.",
+	"minerva-talk-add-topic": "Pɛ'ɛsim pian'azug",
 	"mobile-frontend-history": "Gɔsim tia'as banɛ maal lakir kaŋa ni",
 	"mobile-frontend-home-button": "Yin/Lɛm yin",
 	"mobile-frontend-language-article-heading": "Buudi pian'uk",
