@@ -7,5 +7,6 @@
 	},
 	"mobile-frontend-language-article-heading": "Тил",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Кӱӱнзеп келер!}}, $1!",
+	"mobile-frontend-main-menu-login": "Кирер",
 	"mobile-frontend-placeholder": "Бедреер {{SITENAME}}"
 }
