@@ -40,7 +40,7 @@ module.exports = function () {
 				router: overlayManager.router,
 				gatewayClass: SearchGateway,
 				api: new mw.Api(),
-				autocapitalize: $searchInput.prop( 'autocapitalize' ),
+				autocapitalize: $searchInput.attr( 'autocapitalize' ),
 				searchTerm: $searchInput.val(),
 				placeholderMsg: placeholder,
 				defaultSearchPage: defaultSearchPage
