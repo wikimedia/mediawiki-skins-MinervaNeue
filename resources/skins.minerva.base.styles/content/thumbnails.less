@@ -22,8 +22,13 @@
 		}
 	}
 
-	figcaption,
 	.thumbcaption {
+		width: auto !important;
+	}
+
+	.thumbcaption,
+	figure[ typeof~='mw:File/Thumb' ] > figcaption,
+	figure[ typeof~='mw:File/Frame' ] > figcaption {
 		margin: 0.5em 0 0;
 		font-size: @font-size-minerva-smallest;
 		line-height: 1.5;
@@ -31,25 +36,15 @@
 		color: @grayMediumDark;
 	}
 
-	.thumbcaption {
-		width: auto !important;
-	}
-
-	figure {
-		display: table;
+	figure[ typeof~='mw:File/Thumb' ],
+	figure[ typeof~='mw:File/Frame' ] {
 		margin: 0.6em auto;
-	}
+		display: table;
+		border-collapse: collapse;
 
-	figcaption {
-		display: table-caption;
-		caption-side: bottom;
-	}
-
-	figure[ typeof~='mw:File' ],
-	figure[ typeof~='mw:File/Frameless' ] {
-		/* Hide the caption for frameless and plain floated images */
 		> figcaption {
-			display: none;
+			display: table-caption;
+			caption-side: bottom;
 		}
 	}
 

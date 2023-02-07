@@ -26,26 +26,29 @@ A file for css that optimises the Minerva skin on larger devices.
 
 	// Defaults for page content language
 	// These will be overriden below when explicit classes are set
-	.mw-content-ltr figure {
-		/* @noflip */
-		float: right;
-		/* @noflip */
-		clear: right;
-		/* @noflip */
-		margin-left: 1.4em;
-		/* @noflip */
-		margin-right: 0;
-	}
+	figure[ typeof~='mw:File/Thumb' ],
+	figure[ typeof~='mw:File/Frame' ] {
+		.mw-content-ltr & {
+			/* @noflip */
+			float: right;
+			/* @noflip */
+			clear: right;
+			/* @noflip */
+			margin-left: 1.4em;
+			/* @noflip */
+			margin-right: 0;
+		}
 
-	.mw-content-rtl figure {
-		/* @noflip */
-		float: left;
-		/* @noflip */
-		clear: left;
-		/* @noflip */
-		margin-left: 0;
-		/* @noflip */
-		margin-right: 1.4em;
+		.mw-content-rtl & {
+			/* @noflip */
+			float: left;
+			/* @noflip */
+			clear: left;
+			/* @noflip */
+			margin-left: 0;
+			/* @noflip */
+			margin-right: 1.4em;
+		}
 	}
 
 	.content {
@@ -57,10 +60,7 @@ A file for css that optimises the Minerva skin on larger devices.
 		figure[ typeof~='mw:File/Frame' ],
 		.thumb {
 			max-width: @width-breakpoint-tablet - @contentMargin;
-		}
 
-		figure,
-		.thumb {
 			&.mw-halign-left,
 			&.tleft {
 				/* @noflip */
