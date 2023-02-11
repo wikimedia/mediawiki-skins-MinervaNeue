@@ -136,7 +136,6 @@
 		}
 	},
 	"Hooks": {
-		"BeforePageDisplay": "main",
 		"ResourceLoaderRegisterModules": "main",
 		"SkinPageReadyConfig": "main",
 		"UserLogoutComplete": "main",
