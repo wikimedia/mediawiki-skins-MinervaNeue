@@ -26,7 +26,6 @@ use Config;
 use ExtensionRegistry;
 use Hooks as MWHooks;
 use Html;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
@@ -58,7 +57,6 @@ use Wikimedia\Services\NoSuchServiceException;
  *	on<HookName>()
  */
 class Hooks implements
-	BeforePageDisplayHook,
 	FetchChangesListHook,
 	OutputPageBodyAttributesHook,
 	ResourceLoaderGetConfigVarsHook,
@@ -398,53 +396,6 @@ class Hooks implements
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
 				'wgMinervaReadOnly' => $roConf->isReadOnly(),
 			];
-		}
-	}
-
-	/**
-	 * The Minerva skin loads message box styles differently from core, to
-	 * reduce the amount of styles on the critical path.
-	 * This adds message box styles to pages that need it, to avoid loading them
-	 * on pages where they are not.
-	 *
-	 * @param OutputPage $out
-	 * @param Skin $skin
-	 */
-	public function onBeforePageDisplay( $out, $skin ): void {
-		if ( $skin->getSkinName() === 'minerva' ) {
-			self::addMessageBoxStylesToPage( $out );
-		}
-	}
-
-	/**
-	 * The Minerva skin loads message box styles differently from core, to
-	 * reduce the amount of styles on the critical path.
-	 * This adds message box styles to pages that need it, to avoid loading them
-	 * on pages where they are not.
-	 * The pages where they are needed are:
-	 * - special pages
-	 * - edit workflow (action=edit and action=submit)
-	 * - when viewing old revisions
-	 * - non-main namespaces for anon talk page messages
-	 *
-	 * @param OutputPage $out
-	 */
-	private static function addMessageBoxStylesToPage( OutputPage $out ) {
-		$request = $out->getRequest();
-		$title = $out->getTitle();
-		// Warning box styles are needed when reviewing old revisions
-		// and inside the fallback editor styles to action=edit page.
-		$requestAction = $request->getVal( 'action' );
-		$viewAction = $requestAction === null || $requestAction === 'view';
-
-		if (
-			$title->getNamespace() !== NS_MAIN ||
-			$request->getText( 'oldid' ) ||
-			!$viewAction
-		) {
-			$out->addModuleStyles( [
-				'skins.minerva.messageBox.styles'
-			] );
 		}
 	}
 

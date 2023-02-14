@@ -1026,6 +1026,9 @@ class SkinMinerva extends SkinMustache {
 	protected function getSkinStyles(): array {
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
+		$request = $this->getRequest();
+		$requestAction = $request->getVal( 'action' );
+		$viewAction = $requestAction === null || $requestAction === 'view';
 		$styles = [
 			'skins.minerva.base.styles',
 			'skins.minerva.content.styles.images',
@@ -1036,6 +1039,17 @@ class SkinMinerva extends SkinMustache {
 			'skins.minerva.mainMenu.icons',
 			'skins.minerva.mainMenu.styles',
 		];
+
+		// Warning box styles are needed when reviewing old revisions
+		// and inside the fallback editor styles to action=edit page.
+		if (
+			$title->getNamespace() !== NS_MAIN ||
+			$request->getText( 'oldid' ) ||
+			!$viewAction
+		) {
+			$styles[] = 'skins.minerva.messageBox.styles';
+		}
+
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
 		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
