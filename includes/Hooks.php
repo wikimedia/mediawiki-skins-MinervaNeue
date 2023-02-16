@@ -88,7 +88,6 @@ class Hooks implements
 					'localBasePath' => dirname( __DIR__ ),
 					'remoteExtPath' => 'Minerva',
 					'scripts' => 'resources/mobile.startup.stub.js',
-					'targets' => [ 'desktop', 'mobile' ],
 				]
 			] );
 		}
