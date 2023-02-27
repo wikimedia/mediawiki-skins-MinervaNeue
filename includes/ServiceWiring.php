@@ -75,7 +75,7 @@ return [
 			new AdvancedMainMenuBuilder( $showMobileOptions, $showDonateLink, $definitions ) :
 			new DefaultMainMenuBuilder( $showMobileOptions, $showDonateLink, $user, $definitions );
 
-		return new MainMenuDirector( $builder, $context, $services->getSpecialPageFactory() );
+		return new MainMenuDirector( $builder );
 	},
 	'Minerva.Menu.PageActionsDirector' =>
 		static function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
