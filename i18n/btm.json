@@ -1,11 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Simartampua"
+			"Simartampua",
+			"IHLubis"
 		]
 	},
-	"skin-minerva-blocked-drawer-title": "Akun mu madung iblokir tuna mangedit {{SITENAME}}",
-	"skin-minerva-blocked-drawer-reason-header": "Alasanna iblokir",
-	"skin-minerva-blocked-drawer-creator-header": "Iblokir ni",
-	"skin-minerva-blocked-drawer-expiry-header": "Blokir kadaluarsa i"
+	"mobile-frontend-history": "ligi sajarah patureon alaman on",
+	"mobile-frontend-home-button": "Bagas",
+	"mobile-frontend-language-article-heading": "Saro",
+	"mobile-frontend-main-menu-login": "masuk",
+	"mobile-frontend-main-menu-settings": "pangaturan nai",
+	"mobile-frontend-placeholder": "Jalaki{{NAMA SITUS}}",
+	"mobile-frontend-random-button": "larak"
 }
