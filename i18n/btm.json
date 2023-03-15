@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"IHLubis"
+			"IHLubis",
+			"Amire80"
 		]
 	},
-	"mobile-frontend-history": "ligi sajarah patureon alaman on",
+	"mobile-frontend-history": "Ligi sajarah patureon alaman on",
 	"mobile-frontend-home-button": "Bagas",
 	"mobile-frontend-language-article-heading": "Saro",
-	"mobile-frontend-main-menu-login": "masuk",
-	"mobile-frontend-main-menu-settings": "pangaturan nai",
-	"mobile-frontend-placeholder": "Jalaki{{NAMA SITUS}}",
-	"mobile-frontend-random-button": "larak"
+	"mobile-frontend-main-menu-login": "Masuk",
+	"mobile-frontend-main-menu-settings": "Pangaturan nai",
+	"mobile-frontend-placeholder": "Jalaki {{SITENAME}}",
+	"mobile-frontend-random-button": "Larak"
 }
