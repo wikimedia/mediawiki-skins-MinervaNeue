@@ -32,7 +32,7 @@
 		"grunt-notify": "0.4.5",
 		"grunt-stylelint": "0.15.0",
 		"jsdoc": "3.6.10",
-		"less": "3.8.1",
+		"less": "3.13.1",
 		"less-loader": "4.1.0",
 		"mustache": "3.0.1",
 		"mwbot": "1.0.10",
