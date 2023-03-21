@@ -143,9 +143,6 @@
 		"SkinPageReadyConfig": "main",
 		"UserLogoutComplete": "main",
 		"FetchChangesList": "main",
-		"MobileFrontendBeforeDOM": [
-			"MediaWiki\\Minerva\\Hooks::onMobileFrontendBeforeDOM"
-		],
 		"MobileFrontendFeaturesRegistration": [
 			"MediaWiki\\Minerva\\Hooks::onMobileFrontendFeaturesRegistration"
 		],
@@ -434,11 +431,6 @@
 				"resources/skins.minerva.userpage.styles/userpage.less"
 			]
 		},
-		"skins.minerva.talk.styles": {
-			"styles": [
-				"resources/skins.minerva.talk.styles/talkpage.less"
-			]
-		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
@@ -513,10 +505,8 @@
 				"skin-minerva-issue-learn-more",
 				"mobile-frontend-meta-data-issues",
 				"minerva-meta-data-issues-section-header",
-				"mobile-frontend-meta-data-issues-talk",
 				"mobile-frontend-meta-data-issues-categories",
 				"mobile-frontend-meta-data-issues-header",
-				"mobile-frontend-meta-data-issues-header-talk",
 				"mobile-frontend-languages-not-available",
 				"mobile-frontend-cookies-required",
 				"mobile-frontend-editor-redlink-create",
@@ -524,10 +514,7 @@
 				"mobile-frontend-editor-redlink-explain",
 				"minerva-download",
 				"minerva-watchlist-cta",
-				"mobile-frontend-redirected-from",
-				"minerva-talk-full-page",
-				"minerva-talk-topic-feedback",
-				"minerva-talk-reply-success"
+				"mobile-frontend-redirected-from"
 			],
 			"styles": [
 				"resources/skins.minerva.scripts/styles.less",
@@ -563,7 +550,6 @@
 				"resources/skins.minerva.scripts/mobileRedirect.js",
 				"resources/skins.minerva.scripts/search.js",
 				"resources/skins.minerva.scripts/references.js",
-				"resources/skins.minerva.scripts/talk.js",
 				"resources/skins.minerva.scripts/watchstar.js"
 			]
 		},
