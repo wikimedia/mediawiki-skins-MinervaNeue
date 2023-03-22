@@ -36,7 +36,7 @@
 	"mobile-frontend-random-button": "Xaalli-xaallidi",
 	"mobile-frontend-redirected-from": "[[$1]] hagaappe yuuyyis",
 	"mobile-frontend-talk-back-to-filepage": "$1 hagaakko guyye simma",
-	"mobile-frontend-talk-back-to-page": "$ ha sinttaakko guyye simma.",
+	"mobile-frontend-talk-back-to-page": "\"$1\" ha sinttaakko guyye simma.",
 	"mobile-frontend-talk-back-to-projectpage": "Proojektiyaa sinttaakko $1 simma.",
 	"mobile-frontend-talk-back-to-userpage": "\"{{GENDER:$1|$1}}\" ha yaraa sinttaakko guyye simma.",
 	"mobile-frontend-user-button-tooltip": "Ta erissota bessa",

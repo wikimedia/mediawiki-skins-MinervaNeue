@@ -7,7 +7,9 @@
 		]
 	},
 	"minerva-last-modified-date": "ٲخری اؠڈِٹ $1 پؠٹھ، $2 بَجے",
+	"minerva-watchlist-cta": "یَتھ صَفَس تہٕ یَمچہِ تَبدیٖلیَن پؠٹھ تھٲوِو نَظَر.",
 	"minerva-talk-add-topic": " عُنٛوان لؠکھِو",
+	"mobile-frontend-cookies-required": "انداز نُمٲیِش تبدیٖل کَرنہٕ خٲطرٕ چھِ کُکیٖز ضۆروٗرَتھ. مہربٲنی کٔرِتھ ترٛٲوِو تِم یَلہٕ تہٕ پَتہٕ کٔرِو بیٛاکھ کوٗشِش.",
 	"mobile-frontend-editor-edit": "اؠڈِٹ",
 	"minerva-download": "ڈاوُنلوڈ پی‌ڈی‌ایف",
 	"mobile-frontend-editor-redlink-create": "صَفہٕ بَنٲوِو",
@@ -69,5 +71,7 @@
 	"skin-minerva-issue-learn-more": "مٔزیٖد وُچھِو",
 	"skin-minerva-mobile-option-MinervaShowCategories": "زٲژ",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "صَفٕک زٲژِ وُچھِو",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "صَفہٕ مَسلہٕ (فرما:Ambox) آسَن مَضموٗن کین گۄڈنِچَن سٕطرَن مَنٛز."
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "صَفَس مَنٛز مَسلَن ہُنٛد بَہتَر سلوٗک",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "صَفہٕ مَسلہٕ (فرما:Ambox) آسَن مَضموٗن کین گۄڈنِچَن سٕطرَن مَنٛز.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "بدقسمتی سان چھُنہٕ صَفہٕ مُطٲبِق جَماتھ ہُنٛد نٔتیٖجہٕ  موبٲیِلس پؠٹھ دٔستیاب۔ اگر تم گروپس مطٲبق صفحہٕ خصوصیت استعمال کرنإ چُھ چاھندٕ، براہ کرم ڈیسک ٹاپ سائٹس پیٹھ زِ"
 }
