@@ -7,7 +7,6 @@
 			"Ильнар"
 		]
 	},
-	"minerva-talk-add-topic": "Фикер алышуны өстәү",
 	"mobile-frontend-editor-edit": "Үзгәртү",
 	"minerva-download": "PDF күчереп алу",
 	"mobile-frontend-editor-redlink-create": "Мәкалә ясау",
@@ -25,8 +24,6 @@
 	"mobile-frontend-meta-data-issues": "Бит буенча сораулар",
 	"mobile-frontend-meta-data-issues-categories": "Бу төркем турында",
 	"mobile-frontend-meta-data-issues-header": "Бит мәсьәләсе",
-	"mobile-frontend-meta-data-issues-header-talk": "Бу бит турында",
-	"mobile-frontend-meta-data-issues-talk": "Бу бәхәс бите турында",
 	"mobile-frontend-notifications-filter": "Сөзгеч",
 	"mobile-frontend-pageaction-edit-tooltip": "Битнең төп бүлеген үзгәртү",
 	"mobile-frontend-placeholder": "{{SITENAME}} эчендә эзләү",

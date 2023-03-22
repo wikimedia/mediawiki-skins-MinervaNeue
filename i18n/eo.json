@@ -13,7 +13,6 @@
 		]
 	},
 	"minerva-last-modified-date": "Laste redaktita je $1, $2",
-	"minerva-talk-add-topic": "Aldoni diskuton",
 	"mobile-frontend-cookies-required": "Kuketoj estas devigaj por ŝalti inter vidaj reĝimoj. Bonvolu aktivigi ilin kaj reprovi.",
 	"mobile-frontend-editor-edit": "Redakti",
 	"minerva-download": "Elŝuti kiel PDF-dosieron",
@@ -35,8 +34,6 @@
 	"mobile-frontend-meta-data-issues-categories": "Pri ĉi tiu kategorio",
 	"mobile-frontend-meta-data-issues-header": "Problemoj pri paĝo",
 	"minerva-meta-data-issues-section-header": "Problemoj pri paragrafo",
-	"mobile-frontend-meta-data-issues-header-talk": "Pri ĉi tiu paĝo",
-	"mobile-frontend-meta-data-issues-talk": "Pri ĉi tiu diskutpaĝo",
 	"mobile-frontend-notifications-filter": "Filtrilo",
 	"mobile-frontend-pageaction-edit-tooltip": "Redakti la unuan sekcion de ĉi tiu paĝo.",
 	"mobile-frontend-placeholder": "Serĉi tra {{SITENAME}}",

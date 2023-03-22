@@ -7,7 +7,6 @@
 		]
 	},
 	"minerva-last-modified-date": "Fir d'lescht geännert den $1 ëm $2",
-	"minerva-talk-add-topic": "Thema derbäisetzen",
 	"mobile-frontend-editor-edit": "Änneren",
 	"minerva-download": "PDF eroflueden",
 	"mobile-frontend-editor-redlink-create": "Säit uleeën",
@@ -27,8 +26,6 @@
 	"mobile-frontend-meta-data-issues": "Problemer mat der Säit",
 	"mobile-frontend-meta-data-issues-categories": "Iwwer dës Kategorie",
 	"mobile-frontend-meta-data-issues-header": "Problemer mat Säiten",
-	"mobile-frontend-meta-data-issues-header-talk": "Iwwer dës Säit",
-	"mobile-frontend-meta-data-issues-talk": "Iwwer dës Diskussiouns-Säit",
 	"mobile-frontend-notifications-filter": "Filter",
 	"mobile-frontend-pageaction-edit-tooltip": "Ännert den Aleedungs-Abschnitt vun dëser Säit",
 	"mobile-frontend-placeholder": "Op {{SITENAME}} sichen",
@@ -56,11 +53,6 @@
 	"minerva-page-actions-logs": "Logbicher",
 	"minerva-page-actions-language-switcher": "Sproochen",
 	"minerva-page-actions-history": "Versiounen",
-	"minerva-talk-explained": "Aktiv Diskussiounen",
-	"minerva-talk-explained-empty": "Et gëtt keng Diskussiounen op dëser Säit.",
-	"minerva-talk-full-page": "Als Wiki-Säit liesen",
-	"minerva-talk-topic-feedback": "Neie Sujet op d'Diskussiounssäit derbäigesat!",
-	"minerva-talk-reply-success": "Är Äntwert gouf op der Diskussiounssäit gespäichert.",
 	"skin-minerva-issue-learn-more": "Fir méi ze wëssen",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Kategorie vu Säite weisen"

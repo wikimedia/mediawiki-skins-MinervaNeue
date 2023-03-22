@@ -11,7 +11,6 @@
 		]
 	},
 	"minerva-last-modified-date": "Última edición o $1 ás $2",
-	"minerva-talk-add-topic": "Nova sección",
 	"mobile-frontend-cookies-required": "As cookies son necesarias para cambiar o modo de visualización. Permita o uso de cookies e inténteo de novo por favor.",
 	"mobile-frontend-editor-edit": "Editar",
 	"minerva-download": "Descargar como PDF",
@@ -32,8 +31,6 @@
 	"mobile-frontend-meta-data-issues": "Problemas da páxina",
 	"mobile-frontend-meta-data-issues-categories": "Sobre esta categoría",
 	"mobile-frontend-meta-data-issues-header": "Problemas da páxina",
-	"mobile-frontend-meta-data-issues-header-talk": "Sobre esta páxina",
-	"mobile-frontend-meta-data-issues-talk": "Acerca desta páxina de conversa",
 	"mobile-frontend-notifications-filter": "Filtro",
 	"mobile-frontend-pageaction-edit-tooltip": "Editar a introdución desta páxina",
 	"mobile-frontend-placeholder": "Procurar en {{SITENAME}}",

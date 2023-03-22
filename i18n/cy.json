@@ -9,7 +9,6 @@
 		]
 	},
 	"minerva-last-modified-date": "Golygwyd ddiwethaf ar $1, am $2",
-	"minerva-talk-add-topic": "Ychwanegu pwnc",
 	"mobile-frontend-editor-edit": "Golygu",
 	"minerva-download": "Lawrlwytho PDF",
 	"mobile-frontend-editor-redlink-create": "Creu tudalen",
@@ -26,8 +25,6 @@
 	"mobile-frontend-main-menu-watchlist": "Rhestr wylio",
 	"mobile-frontend-meta-data-issues": "Problemau â'r dudalen",
 	"mobile-frontend-meta-data-issues-header": "Problemau'r dudalen",
-	"mobile-frontend-meta-data-issues-header-talk": "Ynglŷn â'r dudalen hon",
-	"mobile-frontend-meta-data-issues-talk": "Ynglŷn â'r dudalen sgwrs hon",
 	"mobile-frontend-notifications-filter": "Hidlo",
 	"mobile-frontend-pageaction-edit-tooltip": "Golygu adran agoriadol y dudalen hon",
 	"mobile-frontend-placeholder": "Chwilio {{SITENAME}}",

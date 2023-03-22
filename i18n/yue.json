@@ -13,7 +13,6 @@
 		]
 	},
 	"minerva-last-modified-date": "最近編輯時間係$1 $2",
-	"minerva-talk-add-topic": "加討論",
 	"mobile-frontend-editor-edit": "改",
 	"minerva-download": "下載PDF",
 	"mobile-frontend-editor-redlink-create": "開新版",
@@ -33,7 +32,6 @@
 	"mobile-frontend-meta-data-issues": "版面問題",
 	"mobile-frontend-meta-data-issues-categories": "關於呢個類",
 	"mobile-frontend-meta-data-issues-header": "版面問題",
-	"mobile-frontend-meta-data-issues-header-talk": "關於呢版",
 	"mobile-frontend-pageaction-edit-tooltip": "改呢頁嘅頭一段",
 	"mobile-frontend-placeholder": "搵{{SITENAME}}",
 	"mobile-frontend-random-button": "是但",
@@ -54,7 +52,5 @@
 	"minerva-page-actions-wikibase": "{{WBREPONAME}}項目",
 	"minerva-page-actions-language-switcher": "話",
 	"minerva-page-actions-history": "史",
-	"minerva-talk-explained": "熱鬧嘅討論",
-	"minerva-talk-reply-success": "你嘅回覆經已儲存咗去討論版。",
 	"skin-minerva-mobile-option-MinervaShowCategories": "分類"
 }
