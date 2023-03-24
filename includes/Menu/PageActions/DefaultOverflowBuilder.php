@@ -85,7 +85,6 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	 */
 	private function build( $name, $icon, $toolboxIdx, array $toolbox ) {
 		$href = $toolbox[$toolboxIdx]['href'] ?? null;
-		$minervaMsg = $this->messageLocalizer->msg( 'minerva-page-actions-' . $name );
 		$originalMsg = $toolbox[$toolboxIdx]['text'] ??
 			$this->messageLocalizer->msg( $toolboxIdx )->text();
 
