@@ -3,11 +3,13 @@
 		"authors": [
 			"AmaryllisGardener",
 			"Caliburn",
-			"MinecraftAustralia"
+			"MinecraftAustralia",
+			"C1614"
 		]
 	},
 	"mobile-frontend-editor-edit": "Eedit",
-	"mobile-frontend-home-button": "Home",
+	"mobile-frontend-history": "View eedit history o this page.",
+	"mobile-frontend-home-button": "Hame",
 	"mobile-frontend-language-article-heading": "Leid",
 	"mobile-frontend-main-menu-button-tooltip": "Open main menu",
 	"mobile-frontend-main-menu-login": "Log in",
