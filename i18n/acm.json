@@ -1,14 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmedadeljaff"
+			"Ahmedadeljaff",
+			"MRidhaAJ"
 		]
 	},
+	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، الساعة $2",
+	"minerva-watchlist-cta": "تتبع هذه الصفحة وكل التغييرات عليها.",
+	"mobile-frontend-cookies-required": "الكوكيز ضرورية حتى تغير واجهة العرض; رجاءاً فعل خاصية الاحتفاظ بهاي الملفات والمحاولة مرة ثانيه",
+	"mobile-frontend-editor-edit": "عدل",
+	"minerva-download": "تنزيل بصيغة PDF",
+	"mobile-frontend-editor-redlink-create": "سوي الصفحه",
+	"mobile-frontend-editor-redlink-explain": "هاي الصفحه ما سووها.",
+	"mobile-frontend-editor-redlink-leave": "لا، شكرا.",
 	"mobile-frontend-history": "اعرض تاريخ تعديل هاي الصفحة.",
 	"mobile-frontend-home-button": "الصـفحـة الرئيـسية",
 	"mobile-frontend-language-article-heading": "لغة",
+	"mobile-frontend-languages-not-available": "هاي الصفحة ما متوفرة بلغات ثانية.",
+	"mobile-frontend-main-menu-button-tooltip": "افتح القائمه الرئيسيه",
+	"mobile-frontend-main-menu-contributions": "مساهمات",
 	"mobile-frontend-main-menu-login": "سجل دخول",
+	"mobile-frontend-main-menu-logout": "سجل الخروج",
+	"mobile-frontend-main-menu-nearby": "قريب",
 	"mobile-frontend-main-menu-settings": "الاعدادات",
+	"mobile-frontend-main-menu-watchlist": "قائمة المراقبة",
 	"mobile-frontend-placeholder": "بحث في {{SITENAME}}",
 	"mobile-frontend-random-button": "عشوآئي"
 }
