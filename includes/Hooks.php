@@ -405,7 +405,7 @@ class Hooks implements
 	/**
 	 * SkinPageReadyConfig hook handler
 	 *
-	 * Disable collapsible and sortable on page load
+	 * Disable collapsible on page load
 	 *
 	 * @param Context $context
 	 * @param mixed[] &$config Associative array of configurable options
@@ -417,7 +417,6 @@ class Hooks implements
 		if ( $context->getSkin() === 'minerva' ) {
 			$config['search'] = false;
 			$config['collapsible'] = false;
-			$config['sortable'] = true;
 			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw="interface"]';
 		}
 	}

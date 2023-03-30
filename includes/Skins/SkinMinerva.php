@@ -862,15 +862,13 @@ class SkinMinerva extends SkinMustache {
 		$modules = parent::getDefaultModules();
 
 		// FIXME: T223204: Dequeue default content modules except for the history
-		// action. Allow default history action content modules
-		// in order to enable toggling of the
-		// filters. Long term this won't be necessary when T111565 is resolved and a
+		// action. Allow default content modules on history action in order to
+		// enable toggling of the filters.
+		// Long term this won't be necessary when T111565 is resolved and a
 		// more general solution can be used.
 		if ( $this->getContext()->getActionName() !== 'history' ) {
-			// dequeue default content modules (toc, sortable, collapsible, etc.)
+			// dequeue default content modules (toc, collapsible, etc.)
 			$modules['content'] = array_diff( $modules['content'], [
-				// T233340
-				'jquery.tablesorter',
 				// T111565
 				'jquery.makeCollapsible',
 				// Minerva provides its own implementation. Loading this will break display.
@@ -878,8 +876,6 @@ class SkinMinerva extends SkinMustache {
 			] );
 			// dequeue styles associated with `content` key.
 			$modules['styles']['content'] = array_diff( $modules['styles']['content'], [
-				// T233340
-				'jquery.tablesorter.styles',
 				// T111565
 				'jquery.makeCollapsible.styles',
 			] );
