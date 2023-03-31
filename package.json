@@ -5,7 +5,7 @@
 		"lint": "npm -s run lint:styles && npm -s run lint:js && npm -s run lint:i18n",
 		"lint:fix": "npm -s run lint:styles -- --fix && npm -s run lint:js -- --fix && npm -s run lint:i18",
 		"lint:js": "eslint --cache .",
-		"lint:styles": "stylelint --cache --report-needless-disables '**/*.{css,less}'",
+		"lint:styles": "stylelint --cache --report-needless-disables **/*.{css,less}",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"test": "npm run lint && npm run doc && dev-scripts/svg_check.sh",
 		"test:a11y": "npx wmf-a11y --config 'tests/a11y/a11y.config.js'",
@@ -28,7 +28,7 @@
 		"jsdoc": "3.6.10",
 		"mwbot": "2.0.0",
 		"pre-commit": "1.2.2",
-		"stylelint-config-wikimedia": "0.13.0",
+		"stylelint-config-wikimedia": "0.14.0",
 		"svgo": "2.8.0",
 		"wdio-mediawiki": "1.2.0",
 		"wmf-a11y": "0.0.0"

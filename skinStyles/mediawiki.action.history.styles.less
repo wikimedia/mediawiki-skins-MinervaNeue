@@ -97,7 +97,7 @@
 			padding: 12px 0 10px 60px;
 		}
 
-		li:after {
+		li::after {
 			.clearfix();
 		}
 
@@ -156,8 +156,8 @@
 
 	// Disable the parentheseses around the undo and rollback link.
 	.mw-changeslist-links:not( .mw-usertoollinks ):not( .mw-history-histlinks ) {
-		& > span:after,
-		& > span:before {
+		& > span::after,
+		& > span::before {
 			content: '';
 		}
 	}

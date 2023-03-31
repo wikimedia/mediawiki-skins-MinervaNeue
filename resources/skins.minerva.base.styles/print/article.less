@@ -34,7 +34,7 @@
 	padding-top: 55px;
 	position: relative;
 
-	&:before {
+	&::before {
 		top: 0;
 	}
 }
@@ -54,13 +54,13 @@
 	text-align: left;
 	margin: 0 !important;
 
-	&:after {
+	&::after {
 		bottom: @dividerHeight + @dividerSpacing;
 	}
 }
 
-.thumb:after,
-.content:before {
+.thumb::after,
+.content::before {
 	position: absolute;
 	left: 0;
 	content: '';
