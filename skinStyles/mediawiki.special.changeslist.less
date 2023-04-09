@@ -6,7 +6,6 @@
 @import '../minerva.less/minerva.mixins.less';
 @import '../minerva.less/minerva.variables.less';
 @import 'mediawiki.ui/mixins.buttons.less';
-@import 'mediawiki.ui/variables.less';
 @import 'mediawiki.mixins.less';
 
 // Decrease the font-size of the advanced filters module (see T229360).
@@ -92,15 +91,15 @@ ul.mw-contributions-list li > * {
  * Colored watchlist and recent changes numbers.
  */
 .mw-plusminus-pos {
-	color: @wmui-color-green30;
+	color: @color-success;
 }
 
 .mw-plusminus-neg {
-	color: @wmui-color-red30;
+	color: @color-destructive;
 }
 
 .mw-plusminus-null {
-	color: @wmui-color-grey30;
+	color: @color-subtle;
 }
 
 /*
@@ -129,8 +128,8 @@ ul.mw-contributions-list li > * {
 	display: inline-block;
 	box-sizing: border-box;
 	height: 1.6em;
-	border: 1px solid #a2a9b1;
-	border-radius: 1.6em;
+	border: @border-base;
+	border-radius: @border-radius-circle;
 	line-height: 1.6em;
 	padding: 0 0.6em;
 	vertical-align: middle;

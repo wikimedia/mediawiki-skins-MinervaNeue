@@ -18,13 +18,13 @@
 .notification-count {
 	display: inline-block;
 	margin: auto;
-	background: @notificationBackgroundRead;
-	color: @notificationColorRead;
+	background: @background-color-light;
+	color: @color-subtle;
 	cursor: pointer;
 
 	.circle {
-		border-radius: 50%;
-		border: 2px solid @notificationColorRead;
+		border-radius: @border-radius-circle;
+		border: @border-width-thick @border-style-base #54595d;
 		margin: auto;
 		height: @icon-size-md;
 		width: @icon-size-md;
@@ -54,11 +54,11 @@
 	}
 
 	&.notification-unseen {
-		color: @notificationColorUnread;
+		color: @color-inverted;
 
 		.circle {
-			background: @notificationBackgroundUnread;
-			border-color: @notificationBackgroundUnread;
+			background: @background-color-destructive;
+			border-color: @border-color-destructive;
 		}
 	}
 
