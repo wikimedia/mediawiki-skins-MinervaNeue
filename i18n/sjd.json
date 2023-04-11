@@ -11,8 +11,9 @@
 	"mobile-frontend-main-menu-login": "Суаӈӈэ",
 	"mobile-frontend-main-menu-settings": "Пыйнэмуж",
 	"mobile-frontend-placeholder": "О̄дзэ {{SITENAME}}-сьт",
-	"mobile-frontend-random-button": "А̄йнхэм лысст",
+	"mobile-frontend-random-button": "А̄йнхэмь лысст",
 	"mobile-frontend-user-button-tooltip": "Вӯзьхэ мӯн тӣдҍхэмужэтҍ",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Се̄брэ}} $1",
 	"minerva-page-actions-language-switcher": "Кӣл",
 	"minerva-page-actions-history": "Исторья"
 }
