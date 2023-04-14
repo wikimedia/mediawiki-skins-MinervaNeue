@@ -12,6 +12,7 @@ module.exports = function () {
 	var
 		// eslint-disable-next-line no-restricted-properties
 		mobile = mw.mobileFrontend.require( 'mobile.startup' ),
+		PageHTMLParser = mobile.PageHTMLParser,
 		PageGateway = mobile.PageGateway,
 		LanguageInfo = mobile.LanguageInfo,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
@@ -34,7 +35,6 @@ module.exports = function () {
 		overlayManager = mobile.OverlayManager.getSingleton(),
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
-		$redLinks = currentPageHTMLParser.getRedLinks(),
 		api = new mw.Api(),
 		eventBus = mobile.eventBusSingleton,
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
@@ -42,18 +42,27 @@ module.exports = function () {
 	/**
 	 * Event handler for clicking on an image thumbnail
 	 *
-	 * @param {jQuery.Event} ev
+	 * @param {MouseEvent} ev
 	 * @ignore
 	 */
 	function onClickImage( ev ) {
-		// Do not interfere with non-left clicks or if modifier keys are pressed.
-		if ( ( ev.button !== 0 && ev.which !== 1 ) ||
-			ev.altKey || ev.ctrlKey || ev.shiftKey || ev.metaKey ) {
+		// Do not interfere when a modifier key is pressed.
+		if ( ev.altKey || ev.ctrlKey || ev.shiftKey || ev.metaKey ) {
+			return;
+		}
+
+		var el = ev.target.closest( PageHTMLParser.THUMB_SELECTOR );
+		if ( !el ) {
+			return;
+		}
+
+		var thumb = currentPageHTMLParser.getThumbnail( $( el ) );
+		if ( !thumb ) {
 			return;
 		}
 
 		ev.preventDefault();
-		routeThumbnail( $( this ).data( 'thumb' ) );
+		routeThumbnail( thumb );
 	}
 
 	/**
@@ -69,12 +78,10 @@ module.exports = function () {
 	 *
 	 * @method
 	 * @ignore
-	 * @param {jQuery.Object} [$container] Optional container to search within
+	 * @param {HTMLElement} container Container to search within
 	 */
-	function initMediaViewer( $container ) {
-		currentPageHTMLParser.getThumbnails( $container ).forEach( function ( thumb ) {
-			thumb.$el.off().data( 'thumb', thumb ).on( 'click', onClickImage );
-		} );
+	function initMediaViewer( container ) {
+		container.addEventListener( 'click', onClickImage );
 	}
 
 	/**
@@ -153,11 +160,6 @@ module.exports = function () {
 	$( function () {
 		initButton();
 	} );
-
-	// If the MMV module is missing or disabled from the page, initialise our version
-	if ( desktopMMV === null || desktopMMV === 'registered' ) {
-		mw.hook( 'wikipage.content' ).add( initMediaViewer );
-	}
 
 	/**
 	 * Initialisation function for last modified module.
@@ -321,9 +323,10 @@ module.exports = function () {
 	/**
 	 * Strip the edit action from red links to nonexistent User namespace pages.
 	 *
+	 * @param {jQuery.Object} $redLinks
 	 * @return {void}
 	 */
-	function initUserRedLinks() {
+	function initUserRedLinks( $redLinks ) {
 		$redLinks.filter( function ( _, element ) {
 			// Filter out non-User namespace pages.
 			return isUserUri( element.href );
@@ -418,6 +421,12 @@ module.exports = function () {
 		// This should probably be done in the parser.
 		// setup toc icons
 		mw.hook( 'wikipage.content' ).add( function ( $container ) {
+			// If the MMV module is missing or disabled from the page, initialise our version
+			if ( desktopMMV === null || desktopMMV === 'registered' ) {
+				initMediaViewer( $container[ 0 ] );
+			}
+
+			// Mutate TOC.
 			var $toctitle = $container.find( '.toctitle' );
 			new Icon( {
 				glyphPrefix: 'minerva',
@@ -428,18 +437,21 @@ module.exports = function () {
 				name: 'expand',
 				isSmall: true
 			} ).$el.appendTo( $toctitle );
+
+			// Init red links.
+			var $redLinks = currentPageHTMLParser.getRedLinks();
+			ctaDrawers.initRedlinksCta(
+				$redLinks.filter( function ( _, element ) {
+					// Filter out local User namespace pages.
+					return !isUserUri( element.href );
+				} )
+			);
+			initUserRedLinks( $redLinks );
 		} );
 
 		// wire up watch icon if necessary
 		if ( permissions.watch && mw.user.isAnon() ) {
 			ctaDrawers.initWatchstarCta( $watch );
 		}
-		ctaDrawers.initRedlinksCta(
-			$redLinks.filter( function ( _, element ) {
-				// Filter out local User namespace pages.
-				return !isUserUri( element.href );
-			} )
-		);
-		initUserRedLinks();
 	} );
 };
