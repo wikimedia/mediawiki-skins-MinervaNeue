@@ -112,7 +112,7 @@ class SkinMinerva extends SkinMustache {
 	 * @return bool
 	 */
 	private function isFallbackEditor() {
-		$action = $this->getRequest()->getVal( 'action' );
+		$action = $this->getContext()->getActionName();
 		return $action === 'edit';
 	}
 
@@ -902,8 +902,8 @@ class SkinMinerva extends SkinMustache {
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
 		$request = $this->getRequest();
-		$requestAction = $request->getVal( 'action' );
-		$viewAction = $requestAction === null || $requestAction === 'view';
+		$requestAction = $this->getContext()->getActionName();
+		$viewAction = $requestAction === 'view';
 		$styles = [
 			'skins.minerva.base.styles',
 			'skins.minerva.content.styles.images',
