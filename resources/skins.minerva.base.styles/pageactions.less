@@ -5,7 +5,7 @@
 	position: relative;
 
 	.tagline {
-		color: @colorGray5;
+		color: @color-subtle;
 		font-size: @taglineFontSize;
 	}
 }
@@ -27,14 +27,14 @@
 
 .page-actions-menu {
 	box-sizing: border-box;
-	border-top: 1px solid @colorGray14;
-	border-bottom: 1px solid @colorGray12;
-	margin-top: -1px; // Offset top border.
+	border-top: @border-width-base @border-style-base #eaecf0;
+	border-bottom: @border-subtle;
+	margin-top: -@border-width-base; // Offset top border.
 }
 
 .page-actions-menu__list {
 	display: flex;
-	height: @iconSize * 2;
+	height: @size-icon * 2;
 	justify-content: space-between;
 }
 

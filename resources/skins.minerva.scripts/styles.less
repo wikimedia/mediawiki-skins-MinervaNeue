@@ -2,8 +2,6 @@
 @import '../../minerva.less/minerva.mixins.less';
 @import 'mediawiki.mixins.less';
 
-@animationDuration: 0.3s;
-
 .mw-mf-page-center__mask {
 	position: absolute;
 	top: 0;
@@ -36,11 +34,11 @@
 .last-modified-bar {
 	&.active {
 		background-color: @lastModifiedBarActiveBackgroundColor;
-		color: #fff;
+		color: @color-inverted;
 
 		.last-modified-text-accent,
 		a {
-			color: #fff;
+			color: @color-inverted;
 		}
 	}
 }
@@ -73,5 +71,5 @@
 // When the image has loaded transition background color and image opacity
 // for a fade-in effect
 img.image-lazy-loaded {
-	animation: fadeInImage @animationDuration ease-in;
+	animation: fadeInImage 300ms ease-in;
 }

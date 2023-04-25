@@ -33,7 +33,7 @@
 		font-size: @font-size-minerva-smallest;
 		line-height: 1.5;
 		padding: 0 !important;
-		color: @grayMediumDark;
+		color: @color-subtle;
 	}
 
 	figure[ typeof~='mw:File/Thumb' ],
@@ -52,7 +52,7 @@
 	// However, Parsoid places the class on the wrapper, whereas the legacy parser placed it on the img
 	.mw-image-border img,
 	.thumbborder {
-		border: 1px solid @colorGray12;
+		border: @border-subtle;
 	}
 
 	// Hide the image magnification icon normally displayed in image captions

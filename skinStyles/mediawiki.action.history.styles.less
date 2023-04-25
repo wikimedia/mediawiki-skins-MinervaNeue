@@ -2,7 +2,6 @@
 
 @import '../minerva.less/minerva.mixins.less';
 @import '../minerva.less/minerva.variables.less';
-@import 'mediawiki.ui/variables.less';
 @import 'mediawiki.ui/mixins.buttons.less';
 @import 'mediawiki.mixins.less';
 
@@ -32,7 +31,7 @@
 		// "Compare selected revisions" button
 		.mw-history-compareselectedversions-button {
 			.mw-ui-button();
-			.mw-ui-button-colors-primary( @colorProgressive, @colorProgressiveHighlight, @colorProgressiveActive );
+			.mw-ui-button-colors-primary( @color-progressive, @color-progressive--hover, @color-progressive--active );
 			width: 100%;
 			max-width: 100%;
 			// stylelint-disable-next-line plugin/no-unsupported-browser-features
@@ -81,7 +80,7 @@
 	.mw-history-revisiondelete-button {
 		.mw-ui-button();
 		.mw-ui-button-states();
-		background-color: @colorGray15;
+		background-color: @background-color-lightest;
 		margin-bottom: 1em;
 	}
 

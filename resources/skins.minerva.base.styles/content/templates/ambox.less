@@ -8,7 +8,6 @@
 
 @amboxPadding: 8px;
 @amboxIconPadding: @amboxPadding * 4;
-@amboxBackground: @colorGray15;
 
 .ambox,
 /* Be more specific than .content table styles in Minerva */
@@ -27,8 +26,8 @@ table.ambox {
 .client-js .ambox {
 	cursor: pointer;
 	width: auto;
-	background: @amboxBackground;
-	color: @colorGray5;
+	background: @background-color-lightest;
+	color: @color-subtle;
 	margin-bottom: 1px;
 
 	tbody {
@@ -127,7 +126,7 @@ table.ambox {
 			height: 100%;
 			box-sizing: content-box; // explicitly setting box-sizing so padding extends beyond 100%.
 			padding-left: 4em;
-			background: linear-gradient( to right, fade( @amboxBackground, 0 ) 0, @amboxBackground 3em );
+			background: linear-gradient( to right, fade( @background-color-lightest, 0 ) 0, @background-color-lightest 3em );
 		}
 	}
 
