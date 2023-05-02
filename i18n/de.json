@@ -3,6 +3,7 @@
 		"authors": [
 			"Brettchenweber",
 			"ChrisiPK",
+			"Count Count",
 			"Justman10000",
 			"Kghbln",
 			"Lucas Werkmeister",
@@ -21,7 +22,7 @@
 	"mobile-frontend-editor-redlink-create": "Seite erstellen",
 	"mobile-frontend-editor-redlink-explain": "Diese Seite wurde noch nicht erstellt.",
 	"mobile-frontend-editor-redlink-leave": "Nein danke.",
-	"mobile-frontend-history": "Bearbeite den Verlauf dieser Seite.",
+	"mobile-frontend-history": "Versionsgeschichte dieser Seite anzeigen.",
 	"mobile-frontend-home-button": "Start",
 	"mobile-frontend-language-article-heading": "Sprache",
 	"mobile-frontend-languages-not-available": "Diese Seite ist nicht in anderen Sprachen verfügbar.",
