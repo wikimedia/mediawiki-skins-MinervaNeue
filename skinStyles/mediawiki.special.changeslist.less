@@ -168,6 +168,20 @@ ul.mw-contributions-list li .mw-rollback-link {
 		display: table;
 		width: 100%;
 	}
+
+	.mw-tempuserlink {
+		background-color: transparent;
+		padding: 0;
+
+		// Since the user link is split over two lines,
+		// add the background color on the bdi instead
+		bdi {
+			// @background-color-interactive
+			background-color: #eaecf0;
+			padding: 2px 8px 2px 8px;
+			border-radius: @border-radius-base;
+		}
+	}
 }
 
 // `.content` must be specified to override padding of
