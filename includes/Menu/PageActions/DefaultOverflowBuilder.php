@@ -52,6 +52,14 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 		$this->permissions = $permissions;
 	}
 
+	public function getMessageLocalizer(): MessageLocalizer {
+		return $this->messageLocalizer;
+	}
+
+	public function isAllowed( string $permission ): bool {
+		return $this->permissions->isAllowed( $permission );
+	}
+
 	/**
 	 * @inheritDoc
 	 */
