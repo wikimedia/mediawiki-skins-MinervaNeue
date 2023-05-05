@@ -29,6 +29,11 @@
 		border: 0; // FIXME: this is needed because a global .error adds border
 	}
 
+	.oo-ui-iconElement-icon {
+		// Fix icon placement in post-edit notifications (T336001)
+		display: block;
+	}
+
 	a {
 		color: @color-inverted;
 		text-decoration: underline;
