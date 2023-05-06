@@ -24,7 +24,6 @@ use ChangesList;
 use ChangesListFilterGroup;
 use Config;
 use ExtensionRegistry;
-use Hooks as MWHooks;
 use Html;
 use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
@@ -321,7 +320,7 @@ class Hooks implements
 					),
 				SkinOptions::TABS_ON_SPECIALS => true,
 			] );
-			MWHooks::run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
+			$services->getHookContainer()->run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
 		}
 	}
 
