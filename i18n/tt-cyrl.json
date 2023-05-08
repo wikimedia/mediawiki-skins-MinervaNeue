@@ -39,8 +39,6 @@
 	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|кушылды}}",
 	"mobile-frontend-user-page-talk": "Бәхәс",
 	"minerva-user-menu-button": "Кулланучы менюсы",
-	"minerva-page-actions-permalink": "Даими сылтама",
-	"minerva-page-actions-backlinks": "Бирегә нәрсә сылтый",
 	"minerva-page-actions-language-switcher": "Телләр",
 	"minerva-page-actions-history": "Тарих",
 	"skin-minerva-issue-learn-more": "Күбрәк белү",

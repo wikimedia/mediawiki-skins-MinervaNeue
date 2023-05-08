@@ -22,9 +22,6 @@
 	"mobile-frontend-talk-back-to-projectpage": "Takashiin prujektisivule ”$1”.",
 	"mobile-frontend-talk-back-to-userpage": "Takashiin käyttäjän ”{{GENDER:$1|$1}}” käyttäjäsivule.",
 	"mobile-frontend-user-page-contributions": "Mookkaukset",
-	"minerva-page-actions-permalink": "Ikunen länkki",
-	"minerva-page-actions-backlinks": "Mitä länkkaa tänne",
-	"minerva-page-actions-logs": "Lokit",
 	"minerva-page-actions-language-switcher": "Kielet",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Katekuurit",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näytä sivujen katekuurit"
