@@ -484,7 +484,7 @@
 				"mediawiki.ui.anchor",
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
-				"jquery.cookie",
+				"mediawiki.cookie",
 				"skins.minerva.icons.images.scripts.misc",
 				"skins.minerva.icons.page.issues.uncolored",
 				"skins.minerva.icons.page.issues.default.color",
