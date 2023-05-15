@@ -52,6 +52,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Připojil|Připojila|Připojil(a)}} se dne $1",
 	"mobile-frontend-user-page-talk": "Diskuse",
 	"minerva-user-menu-button": "Uživatelské menu",
+	"minerva-user-navigation": "Uživatelská navigace",
 	"minerva-page-actions-overflow": "Více",
 	"minerva-page-actions-language-switcher": "Jazyky",
 	"minerva-page-actions-history": "Historie",
