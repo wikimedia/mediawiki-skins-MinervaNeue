@@ -39,7 +39,8 @@
 		"mediawiki/class-doc": "off",
 		"no-use-before-define": "off",
 		"no-underscore-dangle": "off",
-		"jsdoc/no-undefined-types": "off"
+		"jsdoc/no-undefined-types": "off",
+		"no-var": "warn"
 	},
 	"overrides": [
 		{
