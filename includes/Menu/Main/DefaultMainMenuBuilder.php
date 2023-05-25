@@ -130,7 +130,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 		// Note `homepage` is reserved for Extension:GrowthExperiments usage
 		$include = [ 'homepage', 'login', 'watchlist',
-			'mycontris', 'preferences', 'logout' ];
+			'mycontris', 'contribute', 'preferences', 'logout' ];
 		$trackingKeyOverrides = [
 			'watchlist' => 'unStar',
 			'mycontris' => 'contributions',
