@@ -116,27 +116,18 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 */
 	public function getPersonalToolsGroup( array $personalTools ): Group {
 		$group = new Group( 'p-personal' );
+		$excludeKeyList = [ 'betafeatures', 'mytalk' ];
 
-		// special casing for now to support Extension:GrowthExperiments
-		$userpage = $personalTools[ 'userpage' ] ?? null;
-
-		// Check if it exists. In future Extension:GrowthExperiments can unset
-		// this and replace it with homepage key.
-		if ( $userpage ) {
-			$this->definitions->insertAuthMenuItem( $group );
+		// For anonymous users exclude all links except login.
+		if ( !$this->user->isRegistered() ) {
+			$excludeKeyList = array_diff(
+				array_keys( $personalTools ),
+				[ 'login' ]
+			);
 		}
-
-		// Note `homepage` is reserved for Extension:GrowthExperiments usage
-		$include = [ 'homepage', 'login', 'watchlist',
-			'mycontris', 'contribute', 'preferences', 'logout' ];
-		$trackingKeyOverrides = [
-			'watchlist' => 'unStar',
-			'mycontris' => 'contributions',
-		];
-
-		foreach ( $include as $key ) {
-			$item = $personalTools[ $key ] ?? null;
-			if ( $item ) {
+		foreach ( $personalTools as $key => $item ) {
+			$href = $item['href'] ?? null;
+			if ( $href && !in_array( $key, $excludeKeyList ) ) {
 				// Substitute preference if $showMobileOptions is set.
 				if ( $this->showMobileOptions && $key === 'preferences' ) {
 					$this->definitions->insertMobileOptionsItem( $group );
@@ -145,15 +136,12 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 					$entry = SingleMenuEntry::create(
 						$key,
 						$item['text'],
-						$item['href'],
+						$href,
 						$item['class'] ?? '',
 						$icon
 					);
 
-					// override tracking key where key mismatch
-					if ( array_key_exists( $key, $trackingKeyOverrides ) ) {
-						$entry->trackClicks( $trackingKeyOverrides[ $key ] );
-					}
+					$entry->trackClicks( $key );
 					$group->insertEntry( $entry );
 				}
 			}
