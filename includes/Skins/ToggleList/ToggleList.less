@@ -4,7 +4,7 @@
 	// Always occlude the checkbox. The checkbox display cannot be none since its focus state is used
 	// for other selectors.
 	position: absolute;
-	z-index: @z-index-bottom;
+	z-index: @z-indexOccluded;
 	opacity: 0;
 }
 
@@ -17,7 +17,7 @@
 	overflow-y: auto;
 	//
 	// The menu floats over content but below overlays.
-	z-index: @z-index-dropdown;
+	z-index: @z-indexDrawer;
 	//
 	box-shadow: 0 5px 17px 0 rgba( 0, 0, 0, 0.24 ), 0 0 1px #a2a9b1;
 	//
