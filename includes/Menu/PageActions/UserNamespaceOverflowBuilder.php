@@ -25,7 +25,6 @@ use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MessageLocalizer;
-use MWException;
 use Title;
 
 class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
@@ -60,7 +59,6 @@ class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 
 	/**
 	 * @inheritDoc
-	 * @throws MWException
 	 */
 	public function getGroup( array $toolbox, array $actions ): Group {
 		$group = parent::getGroup( $toolbox, $actions );

@@ -24,7 +24,6 @@ use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\User\UserIdentity;
-use MWException;
 
 /**
  * Used to build default (available for everyone by default) main menu
@@ -90,7 +89,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
 	/**
 	 * @inheritDoc
-	 * @throws MWException
 	 */
 	public function getSiteLinks(): Group {
 		return BuilderUtil::getSiteLinks( $this->definitions );

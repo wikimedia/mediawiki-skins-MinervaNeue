@@ -27,7 +27,6 @@ use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use Message;
-use MWException;
 use SpecialPage;
 use Title;
 
@@ -83,7 +82,6 @@ final class Definitions {
 	 * @param string $className Optional HTML classes
 	 * @param string|null $icon defaults to $name if not specified
 	 * @param bool $trackable Whether an entry will track clicks or not. Default is false.
-	 * @throws MWException
 	 * @return SingleMenuEntry
 	 */
 	private function buildMenuEntry( $name, $text, $url, $className = '', $icon = null, $trackable = false ) {
@@ -96,7 +94,6 @@ final class Definitions {
 	 * Creates a login or logout button with a profile button.
 	 *
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertAuthMenuItem( Group $group ) {
 		$group->insertEntry( new AuthMenuEntry(
@@ -118,7 +115,6 @@ final class Definitions {
 	/**
 	 * If Nearby is supported, build and inject the Nearby link
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertNearbyIfSupported( Group $group ) {
 		// Nearby link (if supported)
@@ -140,7 +136,6 @@ final class Definitions {
 	/**
 	 * Build and insert the Settings link
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertMobileOptionsItem( Group $group ) {
 		$title = $this->context->getTitle();
@@ -177,7 +172,6 @@ final class Definitions {
 	/**
 	 * Build and insert the Preferences link
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertPreferencesItem( Group $group ) {
 		$entry = $this->buildMenuEntry(
@@ -229,7 +223,6 @@ final class Definitions {
 	/**
 	 * Build and insert the RecentChanges link
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertRecentChanges( Group $group ) {
 		$entry = $this->buildMenuEntry(
@@ -246,7 +239,6 @@ final class Definitions {
 	/**
 	 * Build and insert the SpecialPages link
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertSpecialPages( Group $group ) {
 		$entry = $this->buildMenuEntry(
@@ -263,7 +255,6 @@ final class Definitions {
 	/**
 	 * Build and insert the CommunityPortal link
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertCommunityPortal( Group $group ) {
 		$msg = $this->context->msg( 'portal' );
@@ -329,7 +320,6 @@ final class Definitions {
 	 * Insert the Donate Link in the Mobile Menu.
 	 *
 	 * @param Group $group
-	 * @throws MWException
 	 */
 	public function insertDonateItem( Group $group ) {
 		$labelMsg = $this->context->msg( 'sitesupport' );

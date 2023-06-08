@@ -21,7 +21,6 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use MediaWiki\Minerva\MinervaUI;
 use MessageLocalizer;
-use MWException;
 
 /**
  * Director responsible for building Page Actions menu.
@@ -66,7 +65,6 @@ final class PageActionsDirector {
 	 * @param array $toolbox An array of common toolbox items from the sidebar menu
 	 * @param array $actions An array of actions usually bucketed under the more menu
 	 * @return array
-	 * @throws MWException
 	 */
 	public function buildMenu( array $toolbox, array $actions ): array {
 		$toolbar = $this->toolbarBuilder->getGroup();

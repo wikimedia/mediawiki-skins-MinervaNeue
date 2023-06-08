@@ -20,11 +20,9 @@
 
 namespace MediaWiki\Minerva\Menu\Main;
 
-use FatalError;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
-use MWException;
 use SpecialPage;
 use Title;
 
@@ -39,8 +37,6 @@ final class BuilderUtil {
 	 * @param Definitions $definitions A menu items definitions set
 	 * @param bool $includeDonateLink whether to include it or not.
 	 * @return Group
-	 * @throws FatalError
-	 * @throws MWException
 	 */
 	public static function getDonateGroup( Definitions $definitions, $includeDonateLink ): Group {
 		$group = new Group( 'p-donation' );
@@ -55,8 +51,6 @@ final class BuilderUtil {
 	 * @param Definitions $definitions A menu items definitions set
 	 * @param array $navigationTools
 	 * @return Group
-	 * @throws FatalError
-	 * @throws MWException
 	 */
 	public static function getDiscoveryTools(
 		Definitions $definitions,
@@ -124,7 +118,6 @@ final class BuilderUtil {
 	 * @param Definitions $definitions A menu items definitions set
 	 * @param bool $showMobileOptions Show MobileOptions instead of Preferences
 	 * @return Group
-	 * @throws MWException
 	 */
 	public static function getConfigurationTools(
 		Definitions $definitions, $showMobileOptions
@@ -142,7 +135,6 @@ final class BuilderUtil {
 	 * Returns an array of sitelinks to add into the main menu footer.
 	 * @param Definitions $definitions A menu items definitions set
 	 * @return Group Collection of site links
-	 * @throws MWException
 	 */
 	public static function getSiteLinks( Definitions $definitions ): Group {
 		$group = new Group( 'p-minerva-sitelinks' );

@@ -32,7 +32,6 @@ use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\MinervaUI;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MWException;
 use MWTimestamp;
 use RuntimeException;
 use SkinMustache;
@@ -121,7 +120,6 @@ class SkinMinerva extends SkinMustache {
 	 *
 	 * @param array $nav result of SkinTemplate::buildContentNavigationUrls
 	 * @return array|null
-	 * @throws MWException
 	 */
 	private function getPageActions( array $nav ) {
 		if ( $this->isFallbackEditor() || !$this->hasPageActions() ) {

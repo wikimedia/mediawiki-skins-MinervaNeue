@@ -35,7 +35,6 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Watchlist\WatchlistManager;
 use MessageLocalizer;
-use MWException;
 use SpecialMobileHistory;
 use SpecialPage;
 use Title;
@@ -131,7 +130,6 @@ class ToolbarBuilder {
 
 	/**
 	 * @return Group
-	 * @throws MWException
 	 */
 	public function getGroup(): Group {
 		$group = new Group( 'p-views' );
@@ -201,8 +199,6 @@ class ToolbarBuilder {
 	 * editor with the lead section loaded.
 	 *
 	 * @return IMenuEntry An edit page actions menu entry
-	 * @throws MWException
-	 * @throws \Exception
 	 */
 	protected function createEditPageAction(): IMenuEntry {
 		$title = $this->title;
@@ -236,7 +232,6 @@ class ToolbarBuilder {
 	 * will direct the user's UA to Special:Login.
 	 *
 	 * @return IMenuEntry An watch/unwatch page actions menu entry
-	 * @throws MWException
 	 */
 	protected function createWatchPageAction(): IMenuEntry {
 		$isWatched = $this->user->isRegistered() &&
@@ -286,7 +281,6 @@ class ToolbarBuilder {
 	 *
 	 * @return IMenuEntry A menu entry object that represents a map of HTML attributes
 	 * and a 'text' property to be used with the pageActionMenu.mustache template.
-	 * @throws MWException
 	 */
 	protected function getHistoryPageAction(): IMenuEntry {
 		$entry = new SingleMenuEntry(
@@ -305,7 +299,6 @@ class ToolbarBuilder {
 	 * FIXME: temporary duplicated code, same as SkinMinerva::getHistoryUrl()
 	 * @param Title $title The Title object of the page being viewed
 	 * @return string
-	 * @throws MWException
 	 */
 	protected function getHistoryUrl( Title $title ) {
 		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
@@ -318,7 +311,6 @@ class ToolbarBuilder {
 	 * Prepares a url to the Special:UserLogin with query parameters
 	 * @param array $query
 	 * @return string
-	 * @throws MWException
 	 */
 	private function getLoginUrl( $query ) {
 		return SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $query );
