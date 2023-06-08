@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Herryz"
+			"Herryz",
+			"Bennylin"
 		]
 	},
+	"mobile-frontend-language-article-heading": "Parhataan",
+	"mobile-frontend-main-menu-login": "Bongot tu log",
 	"mobile-frontend-placeholder": "Lului di {{SITENAME}}"
 }
