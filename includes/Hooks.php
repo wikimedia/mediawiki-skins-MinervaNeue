@@ -29,6 +29,7 @@ use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\ResourceLoader\Context;
@@ -320,7 +321,7 @@ class Hooks implements
 					),
 				SkinOptions::TABS_ON_SPECIALS => true,
 			] );
-			$services->getHookContainer()->run( 'SkinMinervaOptionsInit', [ $skin, $skinOptions ] );
+			( new HookRunner( $services->getHookContainer() ) )->onSkinMinervaOptionsInit( $skin, $skinOptions );
 		}
 	}
 
