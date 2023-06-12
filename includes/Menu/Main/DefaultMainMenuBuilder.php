@@ -116,7 +116,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 */
 	public function getPersonalToolsGroup( array $personalTools ): Group {
 		$group = new Group( 'p-personal' );
-		$excludeKeyList = [ 'betafeatures', 'mytalk' ];
+		$excludeKeyList = [ 'betafeatures', 'mytalk', 'sandbox' ];
 
 		// For anonymous users exclude all links except login.
 		if ( !$this->user->isRegistered() ) {
