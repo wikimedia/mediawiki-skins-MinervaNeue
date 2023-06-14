@@ -450,7 +450,7 @@ module.exports = function () {
 		} );
 
 		// wire up watch icon if necessary
-		if ( permissions.watch && mw.user.isAnon() ) {
+		if ( permissions.watch && !mw.user.isNamed() ) {
 			ctaDrawers.initWatchstarCta( $watch );
 		}
 	} );
