@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Emmikweok",
 			"Samatics"
 		]
 	},
+	"mobile-frontend-history": "Se ikpehe emi ẹma ẹkekakabade",
 	"mobile-frontend-home-button": "Akpa page",
 	"mobile-frontend-language-article-heading": "Usem",
 	"mobile-frontend-main-menu-login": "Dụk",
-	"mobile-frontend-placeholder": "Yom {{SITENAME}}"
+	"mobile-frontend-placeholder": "Yom {{SITENAME}}",
+	"mobile-frontend-random-button": "Nsio nsio"
 }
