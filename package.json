@@ -28,7 +28,7 @@
 		"mwbot": "2.0.0",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.15.0",
-		"svgo": "2.8.0",
+		"svgo": "3.0.2",
 		"wdio-mediawiki": "2.1.0",
 		"wmf-a11y": "0.0.0"
 	}
