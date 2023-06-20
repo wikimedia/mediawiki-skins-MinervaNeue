@@ -20,6 +20,7 @@
 
 namespace MediaWiki\Minerva\Menu\Main;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
@@ -101,7 +102,10 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 */
 	public function getSettingsGroup(): Group {
 		$group = new Group( 'pt-preferences' );
-		if ( $this->showMobileOptions && !$this->user->isRegistered() ) {
+		// Show settings group for anon and temp users
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+		$isTemp = $userNameUtils->isTemp( $this->user->getName() );
+		if ( $this->showMobileOptions && ( !$this->user->isRegistered() || $isTemp ) ) {
 			$this->definitions->insertMobileOptionsItem( $group );
 		}
 		return $group;
@@ -124,6 +128,11 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 				array_keys( $personalTools ),
 				[ 'login' ]
 			);
+		}
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+		$isTemp = $userNameUtils->isTemp( $this->user->getName() );
+		if ( $isTemp ) {
+			$excludeKeyList[] = 'mycontris';
 		}
 		foreach ( $personalTools as $key => $item ) {
 			$href = $item['href'] ?? null;
