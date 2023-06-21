@@ -56,9 +56,11 @@ table.ambox {
 		padding: 0 !important;
 	}
 
-	td {
+	td,
+	div.mbox-text {
 		position: relative;
-		padding: @amboxPadding @amboxPadding @amboxPadding @amboxIconPadding;
+		// Override !important above if this is a div
+		padding: @amboxPadding @amboxPadding @amboxPadding @amboxIconPadding !important;
 
 		> div,
 		> span {
