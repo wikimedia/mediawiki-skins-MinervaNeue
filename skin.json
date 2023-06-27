@@ -169,8 +169,6 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
-			"mediawiki.special.userlogin.login.styles": [],
-			"mediawiki.special.userlogin.signup.styles": [],
 			"ext.echo.styles.badge": [
 				"skinStyles/ext.echo.styles.badge.less"
 			],
@@ -207,9 +205,6 @@
 			],
 			"mediawiki.page.gallery.styles": [
 				"skinStyles/mediawiki.page.gallery.styles/tablet.less"
-			],
-			"mediawiki.special.userlogin.common.styles": [
-				"skinStyles/mediawiki.special.userlogin.common.styles/minerva.less"
 			],
 			"mediawiki.special.search.styles": [
 				"skinStyles/mediawiki.special.search.styles/minerva.less"
