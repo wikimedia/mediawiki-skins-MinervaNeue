@@ -96,12 +96,13 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 		$originalMsg = $toolbox[$toolboxIdx]['text'] ??
 			$this->messageLocalizer->msg( $toolboxIdx )->text();
 
-		return $href ?
-			SingleMenuEntry::create(
-				'page-actions-overflow-' . $name,
-				$originalMsg,
-				$href
-			)->setIcon( $icon, 'before' )
-			->trackClicks( $name ) : null;
+		$entry = new SingleMenuEntry(
+			'page-actions-overflow-' . $name,
+			$originalMsg,
+			$href,
+			$toolbox[$name]['class'] ?? false
+		);
+
+		return $href ? $entry->setIcon( $icon, 'before' )->trackClicks( $name ) : null;
 	}
 }
