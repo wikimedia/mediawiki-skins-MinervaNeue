@@ -4,7 +4,8 @@
 			"AlnashPiyash2",
 			"Kaganer",
 			"Kotwys",
-			"Wadorgurt"
+			"Wadorgurt",
+			"Света Поторочина"
 		]
 	},
 	"minerva-last-modified-date": "Берпуметӥзэ $1 $2 часэ тупатэмын вал",
@@ -31,7 +32,7 @@
 	"mobile-frontend-notifications-filter": "Сӥсъян",
 	"mobile-frontend-pageaction-edit-tooltip": "Та бамлэсь валтӥсь люкетсэ тупатыны.",
 	"mobile-frontend-placeholder": "Утчано {{SITENAME}}ысь",
-	"mobile-frontend-random-button": "Олокыӵе",
+	"mobile-frontend-random-button": "кемласькем",
 	"mobile-frontend-talk-back-to-page": "«$1» баме берытсконо.",
 	"mobile-frontend-user-newmessages": "Вераськон бамады выль гожтэмъёс вань",
 	"mobile-frontend-user-page-contributions": "Гожтэмез",
