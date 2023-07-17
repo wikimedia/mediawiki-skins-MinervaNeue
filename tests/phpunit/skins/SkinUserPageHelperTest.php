@@ -3,8 +3,10 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
 use Title;
+use User;
 
 /**
  * @group MinervaNeue
@@ -145,16 +147,23 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::isUserPage
 	 */
 	public function testGetPageUserWhenOnUserPage() {
-		$testUser = $this->getTestUser()->getUser();
-		$title = $testUser->getUserPage();
+		$user = $this->createMock( User::class );
+		$user->method( 'getId' )->willReturn( 42 );
+		$user->method( 'getName' )->willReturn( __METHOD__ );
+		$user->method( 'isRegistered' )->willReturn( true );
+		$title = Title::makeTitle( NS_USER, $user->getName() );
 
+		$userFactory = $this->createMock( UserFactory::class );
+		$userFactory->method( 'newFromName' )
+			->with( $user->getName() )
+			->willReturn( $user );
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
+			$userFactory,
 			$title
 		);
 		$this->assertTrue( $helper->isUserPage() );
-		$this->assertEquals( $testUser->getId(), $helper->getPageUser()->getId() );
+		$this->assertEquals( $user->getId(), $helper->getPageUser()->getId() );
 	}
 
 	/**
@@ -163,20 +172,30 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::isUserPage
 	 */
 	public function testGetPageUserWhenOnUserPageReturnsCorrectUser() {
-		$testUser = $this->getTestUser()->getUser();
-		$testUserTitle = $testUser->getUserPage();
+		$user = $this->createMock( User::class );
+		$user->method( 'getId' )->willReturn( 42 );
+		$user->method( 'getName' )->willReturn( __METHOD__ );
+		$user->method( 'isRegistered' )->willReturn( true );
+		$userTitle = Title::makeTitle( NS_USER, $user->getName() );
 
-		$secondTestUser = $this->getTestSysop()->getUser();
-		$secondTestUserTitle = $secondTestUser->getUserPage();
+		$secondUser = $this->createMock( User::class );
+		$secondUser->method( 'getId' )->willReturn( $user->getId() + 1 );
+		$secondUser->method( 'getName' )->willReturn( $user->getName() . 'other' );
+		$secondUser->method( 'isRegistered' )->willReturn( true );
+		$secondUserTitle = Title::makeTitle( NS_USER, $secondUser->getName() );
 
+		$userFactory = $this->createMock( UserFactory::class );
+		$userFactory->method( 'newFromName' )
+			->with( $secondUser->getName() )
+			->willReturn( $secondUser );
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
-			$secondTestUserTitle
+			$userFactory,
+			$secondUserTitle
 		);
 		$this->assertTrue( $helper->isUserPage() );
-		$this->assertNotEquals( $testUser->getId(), $helper->getPageUser()->getId() );
-		$this->assertNotEquals( $helper->getPageUser()->getUserPage(), $testUserTitle );
+		$this->assertNotEquals( $user->getId(), $helper->getPageUser()->getId() );
+		$this->assertNotEquals( $helper->getPageUser()->getUserPage(), $userTitle );
 	}
 
 }
