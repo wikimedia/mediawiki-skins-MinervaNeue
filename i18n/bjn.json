@@ -11,6 +11,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Salamat datang}}, $1!",
 	"mobile-frontend-main-menu-login": "Babuat log",
 	"mobile-frontend-main-menu-settings": "Pangaturan",
+	"mobile-frontend-notifications-filter": "Panyaring",
 	"mobile-frontend-placeholder": "Gagai {{SITENAME}}",
 	"mobile-frontend-random-button": "Babarang"
 }
