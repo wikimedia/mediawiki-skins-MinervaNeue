@@ -25,15 +25,17 @@
 }
 
 // Last modified bar styles
-.last-modified-bar {
-	&.active {
-		background-color: @lastModifiedBarActiveBackgroundColor;
-		color: @color-inverted;
+.last-modified-bar.active {
+	background-color: @lastModifiedBarActiveBackgroundColor;
+	color: @color-inverted;
 
-		.last-modified-text-accent,
-		a {
-			color: @color-inverted;
-		}
+	.last-modified-text-accent,
+	a {
+		color: @color-inverted;
+	}
+
+	.last-modified-bar__icon {
+		background-color: @color-inverted;
 	}
 }
 

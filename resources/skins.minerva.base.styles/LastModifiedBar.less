@@ -16,10 +16,9 @@
 	a,
 	a:visited,
 	.last-modified-text-accent {
+		// Note: This can be progressively enhanced in skins.minerva.scripts to provide 'recently edited' state.
 		color: @color-subtle;
 	}
-
-	// Note: This can be progressively enhanced in skins.minerva.scripts to provide 'recently edited' state.
 }
 
 .last-modified-bar__content {
@@ -35,6 +34,10 @@
 	vertical-align: middle;
 	flex-grow: 1;
 	.text-overflow( @visible: false );
+}
+
+.last-modified-bar__icon {
+	background-color: @color-subtle;
 }
 
 @media ( max-width: @width-breakpoint-tablet ) {

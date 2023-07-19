@@ -636,20 +636,14 @@ class SkinMinerva extends SkinMustache {
 		}
 
 		return $historyLink + [
-			'historyIconClass' => MinervaUI::iconClass(
-				'history-base20', 'mw-ui-icon-small', '', 'wikimedia'
-			),
-			'arrowIconClass' => MinervaUI::iconClass(
-				'expand-gray', 'small',
-				'mf-mw-ui-icon-rotate-anti-clockwise indicator',
-				// Uses icon in MobileFrontend so must be prefixed mf.
-				// Without MobileFrontend it will not render.
-				// Rather than maintain 2 versions (and variants) of the arrow icon which can conflict
-				// with each othe and bloat CSS, we'll
-				// use the MobileFrontend one. Long term when T177432 and T160690 are resolved
-				// we should be able to use one icon definition and break this dependency.
-				'mf'
-			),
+			'historyIcon' => [
+				'icon' => 'history',
+				'classes' => 'last-modified-bar__icon'
+			],
+			'arrowIcon' => [
+				'icon' => 'expand',
+				'classes' => 'last-modified-bar__icon'
+			]
 		];
 	}
 

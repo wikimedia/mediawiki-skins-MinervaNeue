@@ -14,6 +14,16 @@
 	}
 }
 
+// NOTE: @param-is-button-icon lets us change the icon color
+// with background-color by using mask-image.
+.minerva-icon--history {
+	.cdx-mixin-css-icon( @cdx-icon-history, @param-is-button-icon: true );
+}
+
+.minerva-icon--expand {
+	.cdx-mixin-css-icon( @cdx-icon-next, @param-is-button-icon: true );
+}
+
 // On desktop reveal labels of icon-only buttons.
 // This applies to page actions and other icon only buttons
 // that are not scoped in the rule above.
