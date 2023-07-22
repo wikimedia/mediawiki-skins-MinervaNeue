@@ -127,6 +127,7 @@ return [
 						$languagesHelper
 					) :
 					new PageActionsMenu\DefaultOverflowBuilder(
+						$title,
 						$context,
 						$services->getService( 'Minerva.Permissions' )
 					);

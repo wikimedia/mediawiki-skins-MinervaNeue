@@ -30,11 +30,6 @@ use Title;
 class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 
 	/**
-	 * @var Title
-	 */
-	private $title;
-
-	/**
 	 * @var LanguagesHelper
 	 */
 	private $languagesHelper;
@@ -52,9 +47,8 @@ class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 		IMinervaPagePermissions $permissions,
 		LanguagesHelper $languagesHelper
 	) {
-		$this->title = $title;
 		$this->languagesHelper = $languagesHelper;
-		parent::__construct( $msgLocalizer, $permissions );
+		parent::__construct( $title, $msgLocalizer, $permissions );
 	}
 
 	/**
@@ -65,8 +59,8 @@ class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 
 		if ( $this->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->prependEntry( new LanguageSelectorEntry(
-				$this->title,
-				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ),
+				$this->getTitle(),
+				$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->getTitle() ),
 				$this->getMessageLocalizer(),
 				false,
 				// no additional classes
