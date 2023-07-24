@@ -17,7 +17,6 @@ module.exports = function () {
 		LanguageInfo = mobile.LanguageInfo,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		toast = mobile.toast,
-		Icon = mobile.Icon,
 		time = mobile.time,
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
@@ -428,15 +427,8 @@ module.exports = function () {
 
 			// Mutate TOC.
 			var $toctitle = $container.find( '.toctitle' );
-			new Icon( {
-				glyphPrefix: 'minerva',
-				name: 'listBullet'
-			} ).$el.prependTo( $toctitle );
-			new Icon( {
-				glyphPrefix: 'mf',
-				name: 'expand',
-				isSmall: true
-			} ).$el.appendTo( $toctitle );
+			$( '<span>' ).addClass( 'toc-title-icon' ).prependTo( $toctitle );
+			$( '<span>' ).addClass( 'toc-title-state-icon' ).appendTo( $toctitle );
 
 			// Init red links.
 			var $redLinks = currentPageHTMLParser.getRedLinks();
