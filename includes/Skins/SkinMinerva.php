@@ -331,6 +331,47 @@ class SkinMinerva extends SkinMustache {
 			return $data + [
 				'has-minerva-languages' => !empty( $allLanguages ) || !empty( $allVariants ),
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
+				'data-minerva-search-box' => $data['data-search-box'] + [
+					'data-btn' => [
+						'data-icon' => [
+							'icon' => 'wikimedia-search-base20',
+						],
+						'label' => $this->msg( 'searchbutton' )->escaped(),
+						'classes' => 'skin-minerva-search-trigger',
+						'attributes' => [
+							[
+								'key' => 'id',
+								'value' => 'searchIcon',
+							]
+						]
+					],
+				],
+				'data-minerva-main-menu-btn' => [
+					'data-icon' => [
+						'icon' => 'wikimedia-menu-base20',
+					],
+					'tag-name' => 'label',
+					'classes' => 'toggle-list__toggle mw-ui-icon-flush-left',
+					'attributes' => [
+						[
+							'key' => 'for',
+							'value' => 'main-menu-input',
+						],
+						[
+							'key' => 'id',
+							'value' => 'mw-mf-main-menu-button',
+						],
+						[
+							'key' => 'aria-hidden',
+							'value' => 'true',
+						],
+						[
+							'key' => 'data-event-name',
+							'value' => 'ui.mainmenu',
+						],
+					],
+					'text' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->escaped(),
+				],
 				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
 					$nav,
 					$this->buildSidebar()
@@ -756,9 +797,13 @@ class SkinMinerva extends SkinMustache {
 	protected function getLanguageButton() {
 		return [
 			'attributes' => [
-				'class' => 'language-selector',
-				'href' => '#p-lang'
+				[
+					'key' => 'href',
+					'value' => '#p-lang'
+				]
 			],
+			'tag-name' => 'a',
+			'classes' => 'language-selector button',
 			'label' => $this->msg( 'mobile-frontend-language-article-heading' )->text()
 		];
 	}
@@ -772,10 +817,17 @@ class SkinMinerva extends SkinMustache {
 	protected function getTalkButton( $talkTitle, $label ) {
 		return [
 			'attributes' => [
-				'href' => $talkTitle->getLinkURL(),
-				'data-title' => $talkTitle->getFullText(),
-				'class' => 'talk',
+				[
+					'key' => 'href',
+					'value' => $talkTitle->getLinkURL(),
+				],
+				[
+					'key' => 'data-title',
+					'value' => $talkTitle->getFullText(),
+				]
 			],
+			'tag-name' => 'a',
+			'classes' => 'talk button',
 			'label' => $label,
 		];
 	}
