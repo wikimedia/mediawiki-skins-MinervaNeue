@@ -25,8 +25,14 @@ use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MessageLocalizer;
+use Title;
 
 class DefaultOverflowBuilder implements IOverflowBuilder {
+
+	/**
+	 * @var Title
+	 */
+	private $title;
 
 	/**
 	 * @var MessageLocalizer
@@ -41,15 +47,22 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	/**
 	 * Initialize Default overflow menu Group
 	 *
+	 * @param Title $title
 	 * @param MessageLocalizer $messageLocalizer
 	 * @param IMinervaPagePermissions $permissions Minerva permissions system
 	 */
 	public function __construct(
+		Title $title,
 		MessageLocalizer $messageLocalizer,
 		IMinervaPagePermissions $permissions
 	) {
+		$this->title = $title;
 		$this->messageLocalizer = $messageLocalizer;
 		$this->permissions = $permissions;
+	}
+
+	public function getTitle(): Title {
+		return $this->title;
 	}
 
 	public function getMessageLocalizer(): MessageLocalizer {
@@ -66,17 +79,26 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	public function getGroup( array $toolbox, array $actions ): Group {
 		$group = new Group( 'p-tb' );
 
+		$override = $this->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE ) ? [
+			'editfull' => [
+				'icon' => 'edit',
+				'text' => $this->messageLocalizer->msg( 'minerva-page-actions-editfull' ),
+				'href' => $this->title->getLocalURL( [ 'action' => 'edit', 'section' => 'all' ] ),
+				'class' => 'edit-link',
+			],
+		] : [];
 		// watch icon appears in page actions rather than here.
-		$combinedMenu = array_merge( $toolbox, $actions );
+		$combinedMenu = array_merge( $toolbox, $override, $actions );
 		unset( $combinedMenu[ 'watch' ] );
 		unset( $combinedMenu[ 'unwatch' ] );
 		foreach ( $combinedMenu as $key => $definition ) {
 			$icon = $definition['icon'] ?? null;
 			// Only menu items with icons can be displayed here.
 			if ( $icon ) {
-				$group->insertEntry(
-					$this->build( $key, $icon, $key, $combinedMenu )
-				);
+				$entry = $this->build( $key, $icon, $key, $combinedMenu );
+				if ( $entry ) {
+					$group->insertEntry( $entry );
+				}
 			}
 		}
 		return $group;

@@ -55,6 +55,7 @@
 	"mobile-frontend-user-page-talk": "Text of the link to the user's talk page\n{{Identical|Talk}}",
 	"minerva-user-menu-button": "Text describing the user menu",
 	"minerva-user-navigation": "Text describing the navigation menus available in the top header.",
+	"minerva-page-actions-editfull": "In the secondary page menu, the edit full page button label",
 	"minerva-page-actions-overflow": "In the secondary page menu, short text describing the button that triggers the drop-down menu\n{{Identical|More}}",
 	"minerva-page-actions-language-switcher": "In the secondary page menu, the language switcher item button label\n{{Identical|Language}}",
 	"minerva-page-actions-history": "In the secondary page menu, a short label for the history link",
