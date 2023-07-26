@@ -103,8 +103,8 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	public function getSettingsGroup(): Group {
 		$group = new Group( 'pt-preferences' );
 		// Show settings group for anon and temp users
-		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-		$isTemp = $userNameUtils->isTemp( $this->user->getName() );
+		$userIdentityUtils = MediaWikiServices::getInstance()->getUserIdentityUtils();
+		$isTemp = $userIdentityUtils->isTemp( $this->user );
 		if ( $this->showMobileOptions && ( !$this->user->isRegistered() || $isTemp ) ) {
 			$this->definitions->insertMobileOptionsItem( $group );
 		}
@@ -129,8 +129,8 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 				[ 'login' ]
 			);
 		}
-		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-		$isTemp = $userNameUtils->isTemp( $this->user->getName() );
+		$userIdentityUtils = MediaWikiServices::getInstance()->getUserIdentityUtils();
+		$isTemp = $userIdentityUtils->isTemp( $this->user );
 		if ( $isTemp ) {
 			$excludeKeyList[] = 'mycontris';
 		}
