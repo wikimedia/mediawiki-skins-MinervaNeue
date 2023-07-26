@@ -50,6 +50,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Iscritto|Iscritta}} il $1",
 	"mobile-frontend-user-page-talk": "Discussione",
 	"minerva-user-menu-button": "Menu utente",
+	"minerva-page-actions-editfull": "Modifica pagina intera",
 	"minerva-page-actions-overflow": "Altro",
 	"minerva-page-actions-language-switcher": "Lingue",
 	"minerva-page-actions-history": "Cronologia",
