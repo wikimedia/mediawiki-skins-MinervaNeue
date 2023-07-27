@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ante75",
 			"Kimberli Mäkäräinen (WMNO)",
 			"Lea-Christine Sara",
 			"Trondtr",
@@ -46,6 +47,7 @@
 	"mobile-frontend-user-page-talk": "Ságastallan",
 	"minerva-user-menu-button": "Geavaheaddjisiidu",
 	"minerva-user-navigation": "Geavaheaddjinavigašuvdna",
+	"minerva-page-actions-editfull": "Olles siiddu rievdadus",
 	"minerva-page-actions-overflow": "Eambbo",
 	"minerva-page-actions-language-switcher": "Gielat",
 	"minerva-page-actions-history": "Historjá",
