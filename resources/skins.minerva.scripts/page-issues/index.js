@@ -167,7 +167,9 @@
 					pageHTMLParser.$el.find( PageHTMLParser.HEADING_SELECTOR ).each(
 						function ( i, headingEl ) {
 							var $headingEl = $( headingEl ),
-								sectionNum = $headingEl.find( '.edit-page' ).data( 'section' );
+								// section number is absent on protected pages, when this is the case use i,
+								// otherwise icon will not show (T340910)
+								sectionNum = $headingEl.find( '.edit-page' ).data( 'section' ) || i;
 
 							// Note certain headings matched using
 							// PageHTMLParser.HEADING_SELECTOR may not be headings and will
