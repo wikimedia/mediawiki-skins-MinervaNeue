@@ -124,11 +124,10 @@
 	function downloadPageAction( page, supportedNamespaces, windowObj, overflowList ) {
 		var
 			portletLink, iconElement,
-			modifier = overflowList ? 'toggle-list-item__anchor toggle-list-item__label' :
-				'mw-ui-icon-element mw-ui-icon-with-label-desktop',
-			spinner = icons.spinner( {
-				modifier: modifier
-			} );
+			spinner = ( overflowList ) ? icons.spinner( {
+				label: '',
+				isIconOnly: false
+			} ) : icons.spinner();
 
 		if (
 			isAvailable(
@@ -153,13 +152,13 @@
 				portletLink.addEventListener( 'click', function () {
 					onClick( portletLink, spinner );
 				} );
-				spinner.$el.hide().insertAfter(
-					$( portletLink ).find( '.mw-ui-icon' )
-				);
 				iconElement = portletLink.querySelector( '.mw-ui-icon' );
 				if ( iconElement ) {
 					iconElement.classList.add( 'mw-ui-icon-minerva-download' );
 				}
+				spinner.$el.hide().insertBefore(
+					$( portletLink ).find( '.mw-ui-icon' )
+				);
 			}
 			return portletLink;
 		} else {
