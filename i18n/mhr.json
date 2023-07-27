@@ -17,5 +17,6 @@
 	"mobile-frontend-main-menu-watchlist": "Эскерымаш лаштык",
 	"mobile-frontend-pageaction-edit-tooltip": "Лаштыкын тӱҥ ужашыжым тӧрлаташ.",
 	"mobile-frontend-placeholder": "{{SITENAME}} сайтыште кычалаш",
-	"mobile-frontend-random-button": "Чокым"
+	"mobile-frontend-random-button": "Чокым",
+	"mobile-frontend-user-newmessages": "Тыйын каҥашымаш велыжыштет у серыш уло"
 }
