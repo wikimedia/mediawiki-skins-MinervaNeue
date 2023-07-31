@@ -642,6 +642,7 @@ class SkinMinerva extends SkinMustache {
 			],
 			'arrowIcon' => [
 				'icon' => 'expand',
+				'size' => 'small',
 				'classes' => 'last-modified-bar__icon'
 			]
 		];

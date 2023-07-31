@@ -19,12 +19,12 @@
 
 // NOTE: @param-is-button-icon lets us change the icon color
 // with background-color by using mask-image.
-.minerva-icon--history {
+.minerva-icon--history-medium {
 	.cdx-mixin-css-icon( @cdx-icon-history, @param-is-button-icon: true );
 }
 
-.minerva-icon--expand {
-	.cdx-mixin-css-icon( @cdx-icon-next, @param-is-button-icon: true );
+.minerva-icon--expand-small {
+	.cdx-mixin-css-icon( @cdx-icon-next, @param-is-button-icon: true, @param-size-icon: @size-icon-small );
 }
 
 // On desktop reveal labels of icon-only buttons.
