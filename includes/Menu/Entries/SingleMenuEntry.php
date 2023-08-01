@@ -50,7 +50,9 @@ class SingleMenuEntry implements IMenuEntry {
 		$menuClass = 'menu__item--' . $name;
 
 		$this->attributes = [
-			'icon' => null,
+			'data-icon' => [
+				'icon' => null,
+			],
 			'text' => $text,
 			'href' => $url,
 			'class' => is_array( $className ) ?
@@ -149,7 +151,7 @@ class SingleMenuEntry implements IMenuEntry {
 		$iconPrefix = 'minerva'
 	) {
 		if ( $iconType === 'before' ) {
-			$this->attributes['icon'] = $iconPrefix . '-' . $iconName;
+			$this->attributes['data-icon']['icon'] = $iconPrefix . '-' . $iconName;
 		} else {
 			$this->attributes['class'] .= ' ' . MinervaUI::iconClass(
 				$iconName,

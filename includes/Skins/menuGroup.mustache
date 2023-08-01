@@ -2,7 +2,8 @@
   {{#components}}
     <a href="{{href}}" class="{{class}}"
 	   data-mw="interface" data-event-name="{{data-event-name}}">
-      {{#icon}}<span class="mw-ui-icon-{{*}} mw-ui-icon"></span>{{/icon}}<span>{{text}}</span>
+      {{#data-icon}} {{>IconLegacy}} {{/data-icon}}
+      <span>{{text}}</span>
      </a>
   {{/components}}
 </li>

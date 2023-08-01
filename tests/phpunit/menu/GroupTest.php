@@ -18,7 +18,7 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 		'href' => '/Main_page',
 		'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-home',
 		'data-event-name' => 'menu.home',
-		'icon' => null
+		'icon' => 'home'
 	];
 
 	/** @var string[] */
@@ -26,7 +26,7 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 		'text' => 'Nearby',
 		'href' => '/wiki/Special:Nearby',
 		'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-nearby',
-		'icon' => null
+		'icon' => 'nearby'
 	];
 
 	/**
@@ -66,7 +66,9 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 						'text' => $this->homeComponent['text'],
 						'href' => $this->homeComponent['href'],
 						'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-home menu__item--home',
-						'icon' => 'minerva-home',
+						'data-icon' => [
+							'icon' => 'minerva-home',
+						],
 						'data-event-name' => 'menu.home'
 					]
 				 ],
@@ -117,7 +119,9 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 						'text' => $this->nearbyComponent['text'],
 						'href' => $this->nearbyComponent['href'],
 						'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-nearby menu__item--nearby',
-						'icon' => 'minerva-nearby'
+						'data-icon' => [
+							'icon' => 'minerva-nearby',
+						]
 					]
 				],
 				'class' => 'jsonly'
