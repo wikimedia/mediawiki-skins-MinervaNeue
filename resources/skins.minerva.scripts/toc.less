@@ -4,14 +4,12 @@
 	position: absolute;
 	left: @spacing-horizontal-button;
 	.cdx-mixin-css-icon( @cdx-icon-list-bullet, @param-is-button-icon: false );
-	.cdx-mixin-css-icon-size();
 }
 
 .toc-title-state-icon {
 	position: absolute;
 	right: @spacing-horizontal-button;
-	.cdx-mixin-css-icon( @cdx-icon-expand, @param-is-button-icon: false );
-	.cdx-mixin-css-icon-size();
+	.cdx-mixin-css-icon( @cdx-icon-expand, @param-is-button-icon: false, @param-size-icon: @size-icon-small);
 }
 
 // Flip the arrow in table of contents when toggled
