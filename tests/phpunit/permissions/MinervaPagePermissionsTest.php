@@ -53,6 +53,8 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$context = new RequestContext();
+		// Force a content model to avoid DB queries.
+		$title->setContentModel( CONTENT_MODEL_WIKITEXT );
 		$context->setTitle( $title );
 		$context->setConfig( new HashConfig( [
 			'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton

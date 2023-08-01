@@ -100,11 +100,20 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::buildPageUserObject
 	 */
 	public function testTitleIsFakeUserPage() {
+		$origUserFactory = $this->getServiceContainer()->getUserFactory();
+		$userFactory = $this->createMock( UserFactory::class );
+		$userFactory->method( 'newFromName' )
+			->willReturnCallback( static function () use ( $origUserFactory ) {
+				$user = $origUserFactory->newFromName( ...func_get_args() );
+				$user->setId( 0 );
+				$user->setItemLoaded( 'id' );
+				return $user;
+			} );
 		$title = Title::makeTitle( NS_USER, 'Fake_user' );
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
+			$userFactory,
 			$title
 		);
 		$this->assertFalse( $helper->isUserPage() );
@@ -130,9 +139,19 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 			->method( 'getText' )
 			->willReturn( 'Test' );
 
+		$origUserFactory = $this->getServiceContainer()->getUserFactory();
+		$userFactory = $this->createMock( UserFactory::class );
+		$userFactory->method( 'newFromName' )
+			->willReturnCallback( static function () use ( $origUserFactory ) {
+				$user = $origUserFactory->newFromName( ...func_get_args() );
+				$user->setId( 0 );
+				$user->setItemLoaded( 'id' );
+				return $user;
+			} );
+
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
+			$userFactory,
 			$titleMock
 		);
 		$helper->isUserPage();
