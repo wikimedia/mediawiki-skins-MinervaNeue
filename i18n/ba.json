@@ -10,7 +10,8 @@
 			"Ләйсән",
 			"Рустам Нурыев",
 			"Янмурза Баки",
-			"ҒатаУлла"
+			"ҒатаУлла",
+			"З. ӘЙЛЕ"
 		]
 	},
 	"mobile-frontend-cookies-required": "Ҡарап сығыу режимын үҙгәртергә cookie файлы кәрәк. Уны тоҡандырып, яңынан эшләп ҡарағыҙ.",
@@ -18,7 +19,7 @@
 	"mobile-frontend-editor-redlink-create": "Яңы бит яһарға",
 	"mobile-frontend-editor-redlink-explain": "Был бит әле булдырылмаған.",
 	"mobile-frontend-editor-redlink-leave": "Юҡ, рәхмәт.",
-	"mobile-frontend-history": "Был биттең үҙгәртеү тарихын ҡарау.",
+	"mobile-frontend-history": "Биттең үҙгәртеү тарихын ҡарағыҙ.",
 	"mobile-frontend-home-button": "Башына",
 	"mobile-frontend-language-article-heading": "Тел",
 	"mobile-frontend-main-menu-button-tooltip": "Төп менюны асырға",
@@ -34,7 +35,7 @@
 	"mobile-frontend-meta-data-issues-header-talk": "Был бит тураһында",
 	"mobile-frontend-meta-data-issues-talk": "Был фекер алышыу бите тураһында",
 	"mobile-frontend-pageaction-edit-tooltip": "Биттең төп бүлеген үҙгәртеү",
-	"mobile-frontend-placeholder": "{{grammar:prepositional|{{SITENAME}}}} эсендә эҙләргә",
+	"mobile-frontend-placeholder": "{{SITENAME}} эҙләргә",
 	"mobile-frontend-random-button": "Осраҡлы",
 	"mobile-frontend-talk-back-to-filepage": "«$1» файлына кире ҡайтырға.",
 	"mobile-frontend-talk-back-to-page": "«$1» битенә кире ҡайтырға.",

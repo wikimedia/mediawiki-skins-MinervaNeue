@@ -21,5 +21,6 @@
 	"mobile-frontend-main-menu-watchlist": "Көзөмөл тизмеси",
 	"mobile-frontend-placeholder": "{{SITENAME}} издөө",
 	"mobile-frontend-random-button": "Тушкелди",
-	"mobile-frontend-user-page-talk": "Талкуу"
+	"mobile-frontend-user-page-talk": "Талкуу",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Категориялар"
 }
