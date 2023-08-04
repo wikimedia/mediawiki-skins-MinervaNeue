@@ -396,8 +396,8 @@
 		},
 		"skins.minerva.icons.page.issues.default.color": {
 			"class": "ResourceLoaderImageModule",
-			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}-defaultColor:before",
-			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}-defaultColor",
+			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}",
 			"defaultColor": "#54595d",
 			"variants": {
 				"lowColor": {
