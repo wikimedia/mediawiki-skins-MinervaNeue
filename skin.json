@@ -388,7 +388,7 @@
 		},
 		"skins.minerva.icons.page.issues.uncolored": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}:before",
+			"selector": ".mw-ui-icon-minerva-{name}",
 			"images": {
 				"issue-severity-low-lowColor": "resources/skins.minerva.icons.page.issues.uncolored/issue-severity-low.svg",
 				"issue-type-move-defaultColor": "resources/skins.minerva.icons.page.issues.uncolored/issue-type-move.svg"
@@ -419,7 +419,7 @@
 		},
 		"skins.minerva.icons.page.issues.medium.color": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}-mediumColor:before",
+			"selector": ".mw-ui-icon-minerva-{name}-mediumColor",
 			"defaultColor": "#ff5d01",
 			"images": {
 				"issue-severity-medium": "resources/skins.minerva.icons.page.issues.medium.color/issue-severity-medium.svg",
