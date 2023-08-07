@@ -5,7 +5,8 @@
 			"Kaganer",
 			"Wadorgurt",
 			"Kotwys",
-			"Света Поторочина"
+			"Света Поторочина",
+			"Udmwiki"
 		]
 	},
 	"minerva-last-modified-date": "Берпуметӥзэ $1 $2 часэ тупатэмын вал",
@@ -17,7 +18,7 @@
 	"mobile-frontend-editor-redlink-create": "Бам кылдытоно",
 	"mobile-frontend-editor-redlink-explain": "Та бамез кылдытӥллямтэ на.",
 	"mobile-frontend-editor-redlink-leave": "Тау, кулэ ӧвӧл",
-	"mobile-frontend-history": "Та бамлэсь воштон историзэ учконо",
+	"mobile-frontend-history": "Та бамлэсь воштӥськон историзэ учконо",
 	"mobile-frontend-home-button": "Доре",
 	"mobile-frontend-language-article-heading": "Кыл",
 	"mobile-frontend-languages-not-available": "Мукет кылъёсын та бамез лыдӟонтэм.",
@@ -35,8 +36,8 @@
 	"mobile-frontend-meta-data-issues-talk": "Та вераськон бам сярысь",
 	"mobile-frontend-notifications-filter": "Сӥсъян",
 	"mobile-frontend-pageaction-edit-tooltip": "Та бамлэсь валтӥсь люкетсэ тупатыны.",
-	"mobile-frontend-placeholder": "Утчано {{SITENAME}}ысь",
-	"mobile-frontend-random-button": "кемласькем",
+	"mobile-frontend-placeholder": "{{SITENAME}}ысь утчано",
+	"mobile-frontend-random-button": "Олокыӵе",
 	"mobile-frontend-talk-back-to-page": "«$1» баме берытсконо.",
 	"mobile-frontend-user-newmessages": "Вераськон бамады выль гожтэмъёс вань",
 	"mobile-frontend-user-page-contributions": "Гожтэмез",
