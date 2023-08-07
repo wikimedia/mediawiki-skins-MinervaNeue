@@ -4,6 +4,7 @@
 			"Ainali",
 			"Cybjit",
 			"Jopparn",
+			"Lejonel",
 			"Lokal Profil",
 			"Sabelöga",
 			"WikiPhoenix"
@@ -48,6 +49,7 @@
 	"mobile-frontend-user-page-talk": "Diskussion",
 	"minerva-user-menu-button": "Användarmeny",
 	"minerva-user-navigation": "Användarnavigering",
+	"minerva-page-actions-editfull": "Redigera hela sidan",
 	"minerva-page-actions-overflow": "Mer",
 	"minerva-page-actions-language-switcher": "Språk",
 	"minerva-page-actions-history": "Historik",
