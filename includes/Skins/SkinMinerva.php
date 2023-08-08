@@ -46,15 +46,6 @@ use Title;
  * @ingroup Skins
  */
 class SkinMinerva extends SkinMustache {
-	private const NOTIFICATION_BUTTON_CLASSES = [
-		'user-button',
-		'mw-ui-button',
-		'mw-ui-quiet',
-		'mw-ui-icon',
-		'mw-ui-icon-element',
-		'mw-ui-icon-wikimedia-bellOutline-base20'
-	];
-
 	/** @const LEAD_SECTION_NUMBER integer which corresponds to the lead section
 	 * in editing mode
 	 */
@@ -141,16 +132,10 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getNotificationFallbackButton() {
 		return [
-			'link-class' => [
-				'mw-ui-icon',
-				'mw-ui-icon-element',
-				'mw-ui-icon-wikimedia-bellOutline-base20',
-				'mw-ui-button',
-				'mw-ui-quiet'
-			],
-			'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
-				[ 'returnto' => $this->getTitle()->getPrefixedText() ]
-			),
+				'icon' => 'wikimedia-bellOutline-base20',
+				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
+						[ 'returnto' => $this->getTitle()->getPrefixedText() ]
+				),
 		];
 	}
 
@@ -160,9 +145,6 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	private function getCombinedNotificationButton( array $alert, array $notice ) {
-		// Remove id="pt-notifications-alert", added to the wrapper in Header.mustache
-		$alert['id'] = '';
-
 		// Sum the notifications from the two original buttons
 		$notifCount = ( $alert['data']['counter-num'] ?? 0 ) + ( $notice['data']['counter-num'] ?? 0 );
 		$alert['data']['counter-num'] = $notifCount;
@@ -207,20 +189,11 @@ class SkinMinerva extends SkinMustache {
 		$linkClass = $alert['link-class'] ?? [];
 		$hasSeenAlerts = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
 		$alertText = $alert['data']['counter-text'] ?? $alertCount;
-		$alert['html'] =
-			Html::rawElement( 'div', [ 'class' => 'circle' ],
-				Html::element( 'span', [
-					'data-notification-count' => $alertCount,
-				], $alertText )
-			);
+		$alert['icon'] = 'circle';
 		$alert['class'] = 'notification-count';
 		if ( $hasSeenAlerts || $hasUnseenNotices ) {
 			$alert['class'] .= ' notification-unseen mw-echo-unseen-notifications';
 		}
-		$alert['link-class'] = array_merge(
-			$alert['link-class'],
-			self::NOTIFICATION_BUTTON_CLASSES
-		);
 		return $alert;
 	}
 
@@ -232,16 +205,13 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getNotificationButton( array $alert ) {
 		$linkClass = $alert['link-class'];
-		$linkClass = array_merge(
-			$linkClass,
-			self::NOTIFICATION_BUTTON_CLASSES
-		);
 		$alert['link-class'] = array_filter(
 			$linkClass,
 			static function ( $class ) {
 				return $class !== 'oo-ui-icon-bellOutline';
 			}
 		);
+		$alert['icon'] = 'wikimedia-bellOutline-base20';
 		return $alert;
 	}
 
@@ -255,7 +225,6 @@ class SkinMinerva extends SkinMustache {
 		// There are some SkinTemplate modifications that occur after the execution of this hook
 		// to add rel attributes and ID attributes.
 		// The only one Minerva needs is this one so we manually add it.
-		$isSpecialPage = $skin->getTitle()->isSpecialPage();
 		foreach ( array_keys( $contentNavigationUrls['associated-pages'] ) as $id ) {
 			if ( in_array( $id, [ 'user_talk', 'talk' ] ) ) {
 				$contentNavigationUrls['associated-pages'][ $id ]['rel'] = 'discussion';
@@ -263,6 +232,12 @@ class SkinMinerva extends SkinMustache {
 		}
 		$skinOptions = $this->getSkinOptions();
 		$this->contentNavigationUrls = $contentNavigationUrls;
+
+		//
+		// Echo Technical debt!!
+		// * Convert the Echo button into a single button
+		// * Switch out the icon.
+		//
 		if ( $this->getUser()->isRegistered() ) {
 			if ( count( $contentNavigationUrls['notifications'] ) === 0 ) {
 				// Shown to logged in users when Echo is not installed:
@@ -284,10 +259,9 @@ class SkinMinerva extends SkinMustache {
 					// Correct the icon to be the bell filled rather than the outline to match
 					// Echo's badge.
 					$linkClass = $alert['link-class'] ?? [];
-					$alert['link-class'] = array_map( static function ( $class ) {
-						return $class === 'oo-ui-icon-bellOutline' ?
-							'oo-ui-icon-bell' : $class;
-					}, $linkClass );
+					$alert['link-class'] = array_filter( $linkClass, static function ( $class ) {
+						return $class !== 'oo-ui-icon-bellOutline';
+					} );
 					$contentNavigationUrls['notifications']['notifications-alert'] = $alert;
 				}
 			}
@@ -327,6 +301,7 @@ class SkinMinerva extends SkinMustache {
 			}
 			$allLanguages = $data['data-portlets']['data-languages']['array-items'] ?? [];
 			$allVariants = $data['data-portlets']['data-variants']['array-items'] ?? [];
+			$notifications = $data['data-portlets']['data-notifications']['array-items'] ?? [];
 
 			return $data + [
 				'has-minerva-languages' => !empty( $allLanguages ) || !empty( $allVariants ),
@@ -338,7 +313,7 @@ class SkinMinerva extends SkinMustache {
 						],
 						'label' => $this->msg( 'searchbutton' )->escaped(),
 						'classes' => 'skin-minerva-search-trigger',
-						'attributes' => [
+						'array-attributes' => [
 							[
 								'key' => 'id',
 								'value' => 'searchIcon',
@@ -352,7 +327,7 @@ class SkinMinerva extends SkinMustache {
 					],
 					'tag-name' => 'label',
 					'classes' => 'toggle-list__toggle mw-ui-icon-flush-left',
-					'attributes' => [
+					'array-attributes' => [
 						[
 							'key' => 'for',
 							'value' => 'main-menu-input',
@@ -379,13 +354,68 @@ class SkinMinerva extends SkinMustache {
 				'html-minerva-tagline' => $this->getTaglineHtml(),
 				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
 				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
-				'is-minerva-echo-single-button' => $skinOptions->get( SkinOptions::SINGLE_ECHO_BUTTON ),
+				'data-minerva-notifications' => $notifications ? [
+					'array-buttons' => $this->getNotificationButtons( $notifications ),
+				] : null,
 				'data-minerva-tabs' => $this->getTabsData( $nav ),
 				'data-minerva-page-actions' => $this->getPageActions( $nav ),
 				'data-minerva-secondary-actions' => $this->getSecondaryActions( $nav ),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
 				'data-minerva-history-link' => $this->getHistoryLink( $this->getTitle() ),
 			];
+	}
+
+	/**
+	 * Prepares the notification badges for the Button template.
+	 *
+	 * @internal
+	 * @param array $notifications
+	 * @return array
+	 */
+	public static function getNotificationButtons( array $notifications ) {
+		$btns = [];
+
+		foreach ( $notifications as $notification ) {
+			$linkData = $notification['array-links'][ 0 ] ?? [];
+			$icon = $linkData['icon'] ?? null;
+			if ( !$icon ) {
+				continue;
+			}
+			$id = $notification['id'] ?? null;
+			$classes = '';
+			$attributes = [];
+
+			// We don't want to output multiple attributes.
+			// Iterate through the attributes and pull out ID and class which
+			// will be defined separately.
+			foreach ( $linkData[ 'array-attributes' ] as $keyValuePair ) {
+				if ( $keyValuePair['key'] === 'class' ) {
+					$classes = $keyValuePair['value'];
+				} elseif ( $keyValuePair['key'] === 'id' ) {
+					// ignore. We want to use the LI `id` instead.
+				} else {
+					$attributes[] = $keyValuePair;
+				}
+			}
+			// add LI ID to end for use on the button.
+			if ( $id ) {
+				$attributes[] = [
+					'key' => 'id',
+					'value' => $id,
+				];
+			}
+			$btns[] = [
+				'tag-name' => 'a',
+				// FIXME: Move preg_replace when Echo no longer provides this class.
+				'classes' => preg_replace( '/oo-ui-icon-(bellOutline|tray)/', '', $classes ),
+				'array-attributes' => $attributes,
+				'data-icon' => [
+					'icon' => $icon,
+				],
+				'label' => $linkData['text'] ?? '',
+			];
+		}
+		return $btns;
 	}
 
 	/**
@@ -796,7 +826,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getLanguageButton() {
 		return [
-			'attributes' => [
+			'array-attributes' => [
 				[
 					'key' => 'href',
 					'value' => '#p-lang'
@@ -816,7 +846,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getTalkButton( $talkTitle, $label ) {
 		return [
-			'attributes' => [
+			'array-attributes' => [
 				[
 					'key' => 'href',
 					'value' => $talkTitle->getLinkURL(),

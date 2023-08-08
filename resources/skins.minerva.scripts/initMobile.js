@@ -349,6 +349,28 @@ module.exports = function () {
 		} );
 	}
 
+	/**
+	 * Wires up the notification badge to Echo extension
+	 */
+	function setupEcho() {
+		const echoBtn = document.querySelector( '.minerva-notifications .mw-echo-notification-badge-nojs' );
+		if ( echoBtn ) {
+			echoBtn.addEventListener( 'click', function ( ev ) {
+				router.navigate( '#/notifications' );
+				// prevent navigation to original Special:Notifications URL
+				// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
+				ev.preventDefault();
+
+				// Mark as read.
+				echoBtn.dataset.counterNum = 0;
+				echoBtn.dataset.counterText = mw.msg( 'echo-badge-count',
+					mw.language.convertNumber( 0 )
+				);
+
+			} );
+		}
+	}
+
 	$( function () {
 		var
 			// eslint-disable-next-line no-jquery/no-global-selector
@@ -449,6 +471,13 @@ module.exports = function () {
 		// wire up watch icon if necessary
 		if ( permissions.watch && !mw.user.isNamed() ) {
 			ctaDrawers.initWatchstarCta( $watch );
+		}
+
+		// If Echo is installed, wire it up.
+		const echoState = mw.loader.getState( 'ext.echo.mobile' );
+		// If Echo is installed, set it up.
+		if ( echoState !== null && echoState !== 'registered' ) {
+			setupEcho();
 		}
 	} );
 };

@@ -19,14 +19,15 @@
 			{{>SearchBox}}
 		{{/data-minerva-search-box}}
 		<nav class="minerva-user-navigation" aria-label="{{msg-minerva-user-navigation}}">
-			{{^is-anon}}
-					<div class="minerva-user-notifications"
-						{{#is-minerva-echo-single-button}}id="pt-notifications-alert"{{/is-minerva-echo-single-button}}>
-						{{#data-portlets.data-notifications}}
-						<ul>{{{html-items}}}</ul>
-						{{/data-portlets.data-notifications}}
+			{{#data-minerva-notifications}}
+					<div class="minerva-notifications">
+						<ul>
+						{{#array-buttons}}
+						<li>{{>Button}}</li>
+						{{/array-buttons}}
+						</ul>
 					</div>
-			{{/is-anon}}
+			{{/data-minerva-notifications}}
 			{{#html-minerva-user-menu}}{{{html-minerva-user-menu}}}{{/html-minerva-user-menu}}
 		</nav>
 	</div>

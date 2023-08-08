@@ -1,5 +1,5 @@
 <{{^tag-name}}button{{/tag-name}}{{#tag-name}}{{.}}{{/tag-name}}
-    {{#attributes}}{{key}}="{{value}}"{{/attributes}}
+    {{#array-attributes}}{{key}}="{{value}}"{{/array-attributes}}
     class="{{classes}} mw-ui-button {{#data-icon}}mw-ui-icon-element mw-ui-quiet{{/data-icon}}">
     {{#data-icon}}{{>IconLegacy}}{{/data-icon}} <span>{{ label }}</span>
 </{{^tag-name}}button{{/tag-name}}{{#tag-name}}{{.}}{{/tag-name}}>
