@@ -3,6 +3,7 @@
 		"authors": [
 			"Aftabuzzaman",
 			"Bellayet",
+			"MdsShakil",
 			"Nasir8891",
 			"আজিজ",
 			"আফতাবুজ্জামান"
@@ -47,6 +48,7 @@
 	"mobile-frontend-user-page-talk": "আলাপ",
 	"minerva-user-menu-button": "ব্যবহারকারী মেনু",
 	"minerva-user-navigation": "ব্যবহারকারীর পরিভ্রমণ",
+	"minerva-page-actions-editfull": "সম্পূর্ণ পাতা সম্পাদনা করুন",
 	"minerva-page-actions-overflow": "আরও",
 	"minerva-page-actions-language-switcher": "ভাষা",
 	"minerva-page-actions-history": "ইতিহাস",

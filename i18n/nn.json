@@ -28,6 +28,7 @@
 	"mobile-frontend-user-button-tooltip": "Vis meldingane mine",
 	"mobile-frontend-user-newmessages": "Du har nye meldingar på diskusjonssida di",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Vart}} med $1",
+	"minerva-page-actions-editfull": "Endra heile sida",
 	"minerva-page-actions-overflow": "Meir",
 	"skin-minerva-issue-learn-more": "Lær meir",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoriar",
