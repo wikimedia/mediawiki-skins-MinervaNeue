@@ -21,7 +21,7 @@
 			$clickContainer = multiple ? issue.$el.parents( '.mbox-text' ) : issue.$el;
 
 		$issueContainer.prepend(
-			issue.issue.icon.$el.clone().addClass( 'mf-icon--small' )
+			issue.issue.icon.$el.clone()
 		);
 		$issueContainer.prepend( $learnMoreEl );
 
