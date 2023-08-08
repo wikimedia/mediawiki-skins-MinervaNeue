@@ -1,9 +1,9 @@
 <li class="{{class}}">
   {{#components}}
-    <a href="{{href}}" class="{{class}}"
-	   data-mw="interface" data-event-name="{{data-event-name}}">
+    <a class="{{class}}"
+    {{#array-attributes}}{{key}}="{{value}}"{{/array-attributes}}>
       {{#data-icon}} {{>IconLegacy}} {{/data-icon}}
-      <span>{{text}}</span>
+      <span>{{label}}</span>
      </a>
   {{/components}}
 </li>

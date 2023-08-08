@@ -17,7 +17,6 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
-use MediaWiki\Minerva\MinervaUI;
 use MessageLocalizer;
 use Title;
 
@@ -78,9 +77,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 		$this->label = $label;
 		$this->classes = $classes;
 		if ( $isButton ) {
-			$this->classes .= MinervaUI::iconClass(
-				'language-base20', 'element', 'mw-ui-button mw-ui-quiet mw-ui-icon-with-label-desktop', 'wikimedia'
-			);
+			$this->classes .= 'mw-ui-icon-with-label-desktop';
 		}
 	}
 
@@ -114,14 +111,35 @@ class LanguageSelectorEntry implements IMenuEntry {
 
 		return [
 			[
-				'href' => $switcherLink,
-				'icon' => $this->icon,
-				'class' => $this->classes . ' ' . $switcherClasses,
-				'text' => $msg,
-				'title' => $msg,
-				'data-event-name' => 'menu.languages'
-			]
-
+				'tag-name' => 'a',
+				'classes' => $this->classes . ' ' . $switcherClasses,
+				'label' => $msg,
+				'data-icon' => [
+					'icon' => $this->icon,
+				],
+				'array-attributes' => [
+					[
+						'key' => 'href',
+						'value' => $switcherLink,
+					],
+					[
+						'key' => 'data-mw',
+						'value' => 'interface',
+					],
+					[
+						'key' => 'data-event-name',
+						'value' => 'menu.languages',
+					],
+					[
+						'key' => 'role',
+						'value' => 'button',
+					],
+					[
+						'key' => 'title',
+						'value' => $msg,
+					],
+				],
+			],
 		];
 	}
 }
