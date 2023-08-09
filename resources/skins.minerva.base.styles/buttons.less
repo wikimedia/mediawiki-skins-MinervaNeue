@@ -1,0 +1,12 @@
+@import 'mediawiki.skin.variables.less';
+
+// Make sure label vertically aligns with icon
+.cdx-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	.minerva-icon + span:not( :empty ) {
+		margin-left: 8px;
+	}
+}
