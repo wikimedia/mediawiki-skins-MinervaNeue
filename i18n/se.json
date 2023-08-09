@@ -4,7 +4,8 @@
 			"Yupik",
 			"Trondtr",
 			"Kimberli Mäkäräinen (WMNO)",
-			"Lea-Christine Sara"
+			"Lea-Christine Sara",
+			"Ante75"
 		]
 	},
 	"minerva-last-modified-date": "Maŋemus rievdaduvvon $1, diibmu $2",
@@ -34,7 +35,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Divo siiddu álggahusoasi",
 	"mobile-frontend-placeholder": "Oza {{SITENAME}}:is/as",
 	"mobile-frontend-random-button": "Summal/Sahtedohko",
-	"mobile-frontend-redirected-from": "Sirdon \"[[$1]]\"",
+	"mobile-frontend-redirected-from": "Stivrejuvvon ođđasit siiddus \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Máhca fiilii \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Máhca \"$1\" siidui.",
 	"mobile-frontend-talk-back-to-projectpage": "Máhca prošeaktasiidui \"$1\".",
@@ -57,6 +58,7 @@
 	"minerva-page-actions-logs": "Loggat",
 	"minerva-page-actions-language-switcher": "Gielat",
 	"minerva-page-actions-history": "Historjá",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Dohkálaš olggosoainnihahte telefovdna ",
 	"skin-minerva-issue-learn-more": "Oahpa eambbo",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoriijat",
