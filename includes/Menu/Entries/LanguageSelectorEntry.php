@@ -76,9 +76,6 @@ class LanguageSelectorEntry implements IMenuEntry {
 		$this->icon = 'wikimedia-language-base20';
 		$this->label = $label;
 		$this->classes = $classes;
-		if ( $isButton ) {
-			$this->classes .= 'mw-ui-icon-with-label-desktop';
-		}
 	}
 
 	/**

@@ -15,7 +15,6 @@
 }
 
 // used to disable the languages icon.
-.mw-ui-icon-element.disabled,
 .language-selector.disabled {
 	cursor: default;
 	opacity: 0.25;
@@ -56,12 +55,12 @@
 .page-actions-menu__list-item:first-child {
 	flex-grow: 1;
 	justify-content: flex-start;
-	margin-left: @contentPadding/-2;
+	.cdx-mixin-button-layout-flush( 'start', true  );
 }
 
 // position the last icon with the edge of the content container
 .page-actions-menu__list-item:last-child {
-	margin-right: @contentPadding/-2;
+	.cdx-mixin-button-layout-flush( 'end', true  );
 }
 
 // Watchstar is hidden for anonymous no-js users

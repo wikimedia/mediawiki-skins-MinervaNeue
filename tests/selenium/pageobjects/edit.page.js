@@ -7,7 +7,7 @@ class EditPage extends Page {
 	get displayedContent() { return $( '#mw-content-text .mw-parser-output' ); }
 	get heading() { return $( 'h1.mw-first-heading' ); }
 	get next() { return $( '.mw-ui-icon-mf-next-invert' ); }
-	get save() { return $( 'button.mw-ui-button' ); }
+	get save() { return $( 'button.cdx-button' ); }
 
 	openForEditing( title ) {
 		super.openTitle( title, { action: 'edit', mobileaction: 'toggle_view_mobile' } );

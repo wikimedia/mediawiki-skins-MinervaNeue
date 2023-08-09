@@ -297,7 +297,7 @@ class SkinMinerva extends SkinMustache {
 			$usermessage = $data['html-user-message'] ?? '';
 			if ( $usermessage ) {
 				$data['html-user-message'] = Html::warningBox(
-					'<span class="mw-ui-icon mw-ui-icon-wikimedia-userTalk-warning"></span>&nbsp;'
+					'<span class="minerva-icon minerva-icon--wikimedia-userTalk-warning"></span>&nbsp;'
 						. $usermessage,
 					'minerva-anon-talk-message'
 				);
@@ -329,7 +329,7 @@ class SkinMinerva extends SkinMustache {
 						'icon' => 'wikimedia-menu-base20',
 					],
 					'tag-name' => 'label',
-					'classes' => 'toggle-list__toggle mw-ui-icon-flush-left',
+					'classes' => 'toggle-list__toggle',
 					'array-attributes' => [
 						[
 							'key' => 'for',
@@ -587,7 +587,7 @@ class SkinMinerva extends SkinMustache {
 				'label' => $message,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
 				// we default to enabled even though this may not be true.
-				'classes' => 'edit-page mw-ui-icon-flush-right',
+				'classes' => 'edit-page',
 			] );
 			$html .= Html::closeElement( 'span' );
 			return $html;
@@ -730,12 +730,11 @@ class SkinMinerva extends SkinMustache {
 		return $historyLink + [
 			'historyIcon' => [
 				'icon' => 'history',
-				'classes' => 'last-modified-bar__icon'
+				'size' => 'medium'
 			],
 			'arrowIcon' => [
 				'icon' => 'expand',
-				'size' => 'small',
-				'classes' => 'last-modified-bar__icon'
+				'size' => 'small'
 			]
 		];
 	}
@@ -1006,8 +1005,7 @@ class SkinMinerva extends SkinMustache {
 			'skins.minerva.base.styles',
 			'skins.minerva.content.styles.images',
 			'mediawiki.hlist',
-			'mediawiki.ui.icon',
-			'mediawiki.ui.button',
+			'codex-search-styles',
 			'skins.minerva.icons.wikimedia',
 			'skins.minerva.mainMenu.icons',
 			'skins.minerva.mainMenu.styles',

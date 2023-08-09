@@ -85,7 +85,7 @@ final class PageActionsDirector {
 					'data-icon' => [
 						'icon' => 'minerva-ellipsis',
 					],
-					'classes' => 'toggle-list__toggle mw-ui-icon-with-label-desktop',
+					'classes' => 'toggle-list__toggle',
 					'array-attributes' => [
 						[
 							'key' => 'id',
