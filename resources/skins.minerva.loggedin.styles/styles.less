@@ -22,7 +22,8 @@
 //
 // Difference 1) Never show count for seen notifications
 .mw-mf .mw-echo-notification-badge-nojs::after {
-	content: none;
+	// In desktop site, content is used for the badge counter. In mobile site this is never needed.
+	content: none !important;
 }
 
 //
