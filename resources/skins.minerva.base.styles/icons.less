@@ -1,22 +1,5 @@
 @import 'mediawiki.skin.variables.less';
 
-// Never reveal the labels of icon only buttons in the header,
-// article content (parser-output), IP masking banner,
-// or MobileFrontend overlays / drawers.
-// Also applies to the slide left/right buttons in the image overlay.
-.mw-temp-user-banner,
-.mw-parser-output,
-.overlay-header,
-.drawer-container,
-.slider-button,
-.minerva-header {
-	.cdx-button.cdx-button--icon-only {
-		span + span {
-			.mixin-screen-reader-text();
-		}
-	}
-}
-
 // NOTE: @param-is-button-icon lets us change the icon color
 // with background-color by using mask-image.
 .minerva-icon--history {
@@ -36,15 +19,4 @@
 .minerva-icon-size-small {
 	.cdx-mixin-css-icon-background( @size-icon-small );
 	.cdx-mixin-css-icon-size( @size-icon-small );
-}
-
-// On desktop reveal labels of icon-only buttons.
-// This applies to page actions and other icon only buttons
-// that are not scoped in the rule above.
-@media all and ( max-width: @width-breakpoint-desktop ) {
-	.cdx-button.cdx-button--icon-only {
-		span + span {
-			.mixin-screen-reader-text();
-		}
-	}
 }
