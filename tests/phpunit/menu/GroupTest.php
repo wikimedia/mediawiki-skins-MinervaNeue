@@ -16,7 +16,7 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 	private $homeComponent = [
 		'text' => 'Home',
 		'href' => '/Main_page',
-		'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-home',
+		'class' => '',
 		'data-event-name' => 'menu.home',
 		'icon' => 'home'
 	];
@@ -25,7 +25,7 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 	private $nearbyComponent = [
 		'text' => 'Nearby',
 		'href' => '/wiki/Special:Nearby',
-		'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-nearby',
+		'class' => '',
 		'icon' => 'nearby'
 	];
 
@@ -63,13 +63,26 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 				'name' => 'home',
 				'components' => [
 					[
-						'text' => $this->homeComponent['text'],
-						'href' => $this->homeComponent['href'],
-						'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-home menu__item--home',
+						'tag-name' => 'a',
+						'label' => $this->homeComponent['text'],
+						'array-attributes' => [
+							[
+								'key' => 'href',
+								'value' => $this->homeComponent['href'],
+							],
+							[
+								'key' => 'data-event-name',
+								'value' => 'menu.home'
+							],
+							[
+								'key' => 'data-mw',
+								'value' => 'interface'
+							],
+						],
+						'classes' => 'menu__item--home',
 						'data-icon' => [
 							'icon' => 'minerva-home',
 						],
-						'data-event-name' => 'menu.home'
 					]
 				 ],
 			],
@@ -116,9 +129,19 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 				'name' => 'nearby',
 				'components' => [
 					[
-						'text' => $this->nearbyComponent['text'],
-						'href' => $this->nearbyComponent['href'],
-						'class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-nearby menu__item--nearby',
+						'tag-name' => 'a',
+						'label' => $this->nearbyComponent['text'],
+						'array-attributes' => [
+							[
+								'key' => 'href',
+								'value' => $this->nearbyComponent['href'],
+							],
+							[
+								'key' => 'data-mw',
+								'value' => 'interface'
+							],
+						],
+						'classes' => 'menu__item--nearby',
 						'data-icon' => [
 							'icon' => 'minerva-nearby',
 						]

@@ -27,7 +27,6 @@ use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
-use MediaWiki\Minerva\MinervaUI;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinMinerva;
@@ -252,26 +251,22 @@ class ToolbarBuilder {
 			$icon = 'star-base20';
 		}
 
-		$iconClass = MinervaUI::iconClass(
-			$icon,
-			'element',
-			'mw-ui-icon-with-label-desktop watch-this-article',
-			'wikimedia'
-		);
+		$btnClass = 'mw-ui-icon-with-label-desktop watch-this-article';
 
 		if ( $isTempWatched ) {
-			$iconClass .= ' temp-watched';
+			$btnClass .= ' temp-watched';
 		} elseif ( $isWatched ) {
-			$iconClass .= ' watched';
+			$btnClass .= ' watched';
 		}
 
 		$entry = new SingleMenuEntry(
 			'page-actions-watch',
 			$msg->text(),
 			$href,
-			$iconClass . ' mw-watchlink'
+			$btnClass . ' mw-watchlink'
 		);
 		return $entry->trackClicks( $newModeToSet )
+			->setIcon( $icon, 'element', '', 'wikimedia' )
 			->setTitle( $msg )
 			->setNodeID( 'ca-watch' );
 	}
