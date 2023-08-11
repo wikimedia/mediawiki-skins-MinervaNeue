@@ -199,6 +199,7 @@ final class Definitions {
 			return;
 		}
 		$entry = $this->buildMenuEntry( 'about', $msg->text(), $title->getLocalURL() );
+		$entry->setIcon( null );
 		$group->insertEntry( $entry );
 	}
 
@@ -217,6 +218,7 @@ final class Definitions {
 			return;
 		}
 		$entry = $this->buildMenuEntry( 'disclaimers', $msg->text(), $title->getLocalURL() );
+		$entry->setIcon( null );
 		$group->insertEntry( $entry );
 	}
 

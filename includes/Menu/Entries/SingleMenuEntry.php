@@ -173,7 +173,11 @@ class SingleMenuEntry implements IMenuEntry {
 		$additionalClassNames = '',
 		$iconPrefix = 'minerva'
 	) {
-		$this->attributes['data-icon']['icon'] = $iconPrefix . '-' . $iconName;
+		if ( $iconName !== null ) {
+			$this->attributes['data-icon']['icon'] = $iconPrefix . '-' . $iconName;
+		} else {
+			$this->attributes['data-icon'] = null;
+		}
 		if ( $additionalClassNames ) {
 			$this->attributes['class'] .= ' ' . $additionalClassNames;
 		}

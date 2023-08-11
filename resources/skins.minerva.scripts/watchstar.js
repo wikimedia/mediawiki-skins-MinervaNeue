@@ -24,7 +24,7 @@ var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
 	 * @param {string} expiry
 	 */
 	function toggleClasses( $link, isWatched, expiry ) {
-		var $icon = $link.find( '.minerva-icon' );
+		var $icon = $link.find( '.minerva-icon, .mw-ui-icon' );
 		$icon.removeClass( [ WATCHED_ICON_CLASS, UNWATCHED_ICON_CLASS, TEMP_WATCHED_ICON_CLASS ] )
 			.addClass( function () {
 				var classes = UNWATCHED_ICON_CLASS;
