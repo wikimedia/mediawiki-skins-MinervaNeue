@@ -39,11 +39,8 @@ use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MobileContext;
-use MobileFrontend\Features\Feature;
-use MobileFrontend\Features\FeaturesManager;
 use OldChangesList;
 use OutputPage;
-use RuntimeException;
 use Skin;
 use SpecialPage;
 use User;
@@ -64,7 +61,7 @@ class Hooks implements
 	SpecialPageBeforeExecuteHook,
 	UserLogoutCompleteHook
 {
-	private const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
+	public const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.
@@ -129,81 +126,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Register mobile web beta features
-	 * @see https://www.mediawiki.org/wiki/
-	 *  Extension:MobileFrontend/MobileFrontendFeaturesRegistration
-	 *
-	 * @param FeaturesManager $featureManager
-	 */
-	public static function onMobileFrontendFeaturesRegistration( $featureManager ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'minerva' );
-
-		try {
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaShowCategories',
-					'skin-minerva',
-					$config->get( 'MinervaShowCategories' )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaPageIssuesNewTreatment',
-					'skin-minerva',
-					$config->get( 'MinervaPageIssuesNewTreatment' )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaTalkAtTop',
-					'skin-minerva',
-					$config->get( 'MinervaTalkAtTop' )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaDonateLink',
-					'skin-minerva',
-					$config->get( 'MinervaDonateLink' )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaHistoryInPageActions',
-					'skin-minerva',
-					$config->get( 'MinervaHistoryInPageActions' )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					self::FEATURE_OVERFLOW_PAGE_ACTIONS,
-					'skin-minerva',
-					$config->get( self::FEATURE_OVERFLOW_PAGE_ACTIONS )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaAdvancedMainMenu',
-					'skin-minerva',
-					$config->get( 'MinervaAdvancedMainMenu' )
-				)
-			);
-			$featureManager->registerFeature(
-				new Feature(
-					'MinervaPersonalMenu',
-					'skin-minerva',
-					$config->get( 'MinervaPersonalMenu' )
-				)
-			);
-		} catch ( RuntimeException $e ) {
-			// features already registered...
-			// due to a bug it's possible for this to run twice
-			// https://phabricator.wikimedia.org/T165068
-		}
-	}
-
-	/**
 	 * Invocation of hook SpecialPageBeforeExecute
 	 *
 	 * We use this hook to ensure that login/account creation pages
@@ -255,7 +177,7 @@ class Hooks implements
 	 * @param MobileContext $mobileContext
 	 * @param Skin $skin
 	 */
-	private static function setMinervaSkinOptions(
+	public static function setMinervaSkinOptions(
 		MobileContext $mobileContext, Skin $skin
 	) {
 		// setSkinOptions is not available
@@ -341,18 +263,6 @@ class Hooks implements
 		} catch ( NoSuchServiceException $ex ) {
 			// MobileFrontend not installed. Not important.
 		}
-	}
-
-	/**
-	 * BeforePageDisplayMobile hook handler.
-	 *
-	 * @param MobileContext $mobileContext
-	 * @param Skin $skin
-	 */
-	public static function onRequestContextCreateSkinMobile(
-		MobileContext $mobileContext, Skin $skin
-	) {
-		self::setMinervaSkinOptions( $mobileContext, $skin );
 	}
 
 	/**

@@ -137,6 +137,9 @@
 	"HookHandlers": {
 		"main": {
 			"class": "MediaWiki\\Minerva\\Hooks"
+		},
+		"mobilefrontend": {
+			"class": "MediaWiki\\Minerva\\MobileFrontendHooks"
 		}
 	},
 	"Hooks": {
@@ -144,12 +147,8 @@
 		"SkinPageReadyConfig": "main",
 		"UserLogoutComplete": "main",
 		"FetchChangesList": "main",
-		"MobileFrontendFeaturesRegistration": [
-			"MediaWiki\\Minerva\\Hooks::onMobileFrontendFeaturesRegistration"
-		],
-		"RequestContextCreateSkinMobile": [
-			"MediaWiki\\Minerva\\Hooks::onRequestContextCreateSkinMobile"
-		],
+		"MobileFrontendFeaturesRegistration": "mobilefrontend",
+		"RequestContextCreateSkinMobile": "mobilefrontend",
 		"PreferencesGetLayout": "main",
 		"SpecialPageBeforeExecute": "main",
 		"ResourceLoaderGetConfigVars": "main",
