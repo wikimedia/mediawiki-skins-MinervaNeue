@@ -29,7 +29,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
-use MediaWiki\Minerva\MinervaUI;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MWTimestamp;
@@ -38,6 +37,7 @@ use SkinMustache;
 use SkinTemplate;
 use SpecialMobileHistory;
 use SpecialPage;
+use TemplateParser;
 use Title;
 
 /**
@@ -64,6 +64,9 @@ class SkinMinerva extends SkinMustache {
 
 	/** @var array|null */
 	private $contentNavigationUrls;
+
+	/** @var TemplateParser|null */
+	private $templateParser;
 
 	/**
 	 * This variable is lazy loaded, please use getPermissions() getter
@@ -558,16 +561,34 @@ class SkinMinerva extends SkinMustache {
 			 !$nt->isMainPage() ) {
 			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
 			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
-			$html .= Html::element( 'a', [
-				'href' => $nt->getLocalURL( [ 'action' => 'edit', 'section' => $section ] ),
-				'title' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
-				'data-section' => $section,
+			if ( !$this->templateParser ) {
+				$this->templateParser = new TemplateParser( __DIR__ );
+			}
+			$templateParser = $this->templateParser;
+			$html .= $templateParser->processTemplate( 'Button', [
+				'tag-name' => 'a',
+				'data-icon' => [
+					'icon' => 'wikimedia-edit-base20'
+				],
+				'array-attributes' => [
+					[
+						'key' => 'href',
+						'value' => $nt->getLocalURL( [ 'action' => 'edit', 'section' => $section ] ),
+					],
+					[
+						'key' => 'title',
+						'value' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
+					],
+					[
+						'key' => 'data-section',
+						'value' => $section,
+					],
+				],
+				'label' => $message,
 				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
 				// we default to enabled even though this may not be true.
-				'class' => MinervaUI::iconClass(
-					'edit-base20', 'element', 'edit-page mw-ui-icon-flush-right', 'wikimedia'
-				),
-			], $message );
+				'classes' => 'edit-page mw-ui-icon-flush-right',
+			] );
 			$html .= Html::closeElement( 'span' );
 			return $html;
 		}
