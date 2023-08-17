@@ -6,6 +6,12 @@
 	// When cursor is pointer and -webkit-tap-highlight-color is set, the color does not seem to
 	// transition. Clear it.
 	-webkit-tap-highlight-color: transparent;
+
+	.toggle-list-item:hover {
+		// Make the app feel like an app, not a JPEG. When hovering over a menu item, add a little
+		// interactivity.
+		background: @background-color-light;
+	}
 }
 
 // Without the minerva-animations-ready class, DropDownList can appear and
