@@ -125,6 +125,6 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 			$toolbox[$name]['class'] ?? false
 		);
 
-		return $href ? $entry->setIcon( $icon, 'before' )->trackClicks( $name ) : null;
+		return $href ? $entry->setIcon( $icon )->trackClicks( $name ) : null;
 	}
 }

@@ -163,26 +163,14 @@ class SingleMenuEntry implements IMenuEntry {
 	/**
 	 * Set the Menu entry icon
 	 * @param string|null $iconName
-	 * @param string $iconType
-	 * @param string $additionalClassNames Additional classes
 	 * @param string $iconPrefix either `wikimedia` or `minerva`
 	 * @return $this
 	 */
-	public function setIcon( $iconName,
-		$iconType = 'before',
-		$additionalClassNames = '',
-		$iconPrefix = 'minerva'
-	) {
+	public function setIcon( $iconName, $iconPrefix = 'minerva' ) {
 		if ( $iconName !== null ) {
 			$this->attributes['data-icon']['icon'] = $iconPrefix . '-' . $iconName;
 		} else {
 			$this->attributes['data-icon'] = null;
-		}
-		if ( $additionalClassNames ) {
-			$this->attributes['class'] .= ' ' . $additionalClassNames;
-		}
-		if ( $iconType !== 'before' ) {
-			$this->attributes['role'] = 'button';
 		}
 		return $this;
 	}
