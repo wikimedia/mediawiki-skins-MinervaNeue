@@ -31,26 +31,3 @@
 	z-index: @z-indexOccluded;
 	opacity: 0;
 }
-
-.toggle-list__list {
-	background: @background-color-base;
-	// The menu appears over the content and occupies no room within it.
-	position: absolute;
-	//
-	// If max-height is set and the height exceeds it, add a vertical scrollbar.
-	overflow-y: auto;
-	//
-	// The menu floats over content but below overlays.
-	z-index: @z-indexDrawer;
-	//
-	box-shadow: 0 5px 17px 0 rgba( 0, 0, 0, 0.24 ), 0 0 1px #a2a9b1;
-	//
-	visibility: hidden;
-	opacity: 0;
-}
-
-.toggle-list__checkbox:checked ~ .toggle-list__list {
-	// Reveal the list when checked.
-	visibility: visible;
-	opacity: 1;
-}

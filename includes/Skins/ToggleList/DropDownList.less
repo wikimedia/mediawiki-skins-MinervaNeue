@@ -1,6 +1,16 @@
 // A DropDownList is a ToggleList that extends downward.
 
 .toggle-list__list--drop-down {
+	background: @background-color-base;
+	// The menu appears over the content and occupies no room within it.
+	position: absolute;
+	// If max-height is set and the height exceeds it, add a vertical scrollbar.
+	overflow-y: auto;
+	// The menu floats over content but below overlays.
+	z-index: @z-indexDrawer;
+	box-shadow: 0 5px 17px 0 rgba( 0, 0, 0, 0.24 ), 0 0 1px #a2a9b1;
+	visibility: hidden;
+	opacity: 0;
 	transform: translateY( -8px );
 
 	// When cursor is pointer and -webkit-tap-highlight-color is set, the color does not seem to
@@ -29,4 +39,7 @@
 
 .toggle-list__checkbox:checked ~ .toggle-list__list--drop-down {
 	transform: translateY( 0 );
+	// Reveal the list when checked.
+	visibility: visible;
+	opacity: 1;
 }
