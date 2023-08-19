@@ -24,8 +24,8 @@ use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
+use MediaWiki\Title\Title;
 use MessageLocalizer;
-use Title;
 
 class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 

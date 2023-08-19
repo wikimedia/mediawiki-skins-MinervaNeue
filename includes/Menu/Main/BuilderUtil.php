@@ -23,8 +23,8 @@ namespace MediaWiki\Minerva\Menu\Main;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
+use MediaWiki\Title\Title;
 use SpecialPage;
-use Title;
 
 /**
  * Group generators shared between menu builders.

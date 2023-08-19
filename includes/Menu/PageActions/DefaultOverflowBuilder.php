@@ -24,8 +24,8 @@ use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
+use MediaWiki\Title\Title;
 use MessageLocalizer;
-use Title;
 
 class DefaultOverflowBuilder implements IOverflowBuilder {
 

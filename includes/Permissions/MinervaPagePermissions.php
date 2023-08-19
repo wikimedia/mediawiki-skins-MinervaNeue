@@ -29,8 +29,8 @@ use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
-use Title;
 
 /**
  * A wrapper for all available Minerva permissions.

@@ -31,6 +31,7 @@ use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Title\Title;
 use MWTimestamp;
 use RuntimeException;
 use SkinMustache;
@@ -38,7 +39,6 @@ use SkinTemplate;
 use SpecialMobileHistory;
 use SpecialPage;
 use TemplateParser;
-use Title;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!

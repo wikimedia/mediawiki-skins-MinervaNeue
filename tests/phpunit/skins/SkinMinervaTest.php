@@ -3,10 +3,10 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\Minerva\Skins\SkinMinerva;
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use OutputPage;
 use RequestContext;
-use Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
