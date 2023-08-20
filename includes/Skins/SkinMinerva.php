@@ -24,6 +24,7 @@ use ExtensionRegistry;
 use Html;
 use Language;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Html\TemplateParser;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
@@ -38,7 +39,6 @@ use SkinMustache;
 use SkinTemplate;
 use SpecialMobileHistory;
 use SpecialPage;
-use TemplateParser;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!

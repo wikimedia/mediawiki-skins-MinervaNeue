@@ -19,8 +19,8 @@
  */
 namespace MediaWiki\Minerva\Menu\User;
 
+use MediaWiki\Html\TemplateParser;
 use MessageLocalizer;
-use TemplateParser;
 
 /**
  * Director responsible for building the user menu.
