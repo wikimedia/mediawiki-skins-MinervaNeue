@@ -10,6 +10,6 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Antüshi pia|Antüsü pia}}, $1!",
 	"mobile-frontend-main-menu-login": "Ekerotaa süka pünülia",
 	"mobile-frontend-main-menu-settings": "Apansajaa",
-	"mobile-frontend-placeholder": "Achajawaa sünain {{SITENAME}}",
-	"mobile-frontend-random-button": "Eekai saapaain"
+	"mobile-frontend-placeholder": "Achajawaa sulu'u {{SITENAME}}",
+	"mobile-frontend-random-button": "Aneekajia ashajalaa"
 }
