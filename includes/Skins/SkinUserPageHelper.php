@@ -81,8 +81,7 @@ class SkinUserPageHelper {
 	 */
 	private function fetchData() {
 		if ( $this->fetchedData === false ) {
-			if ( $this->title && $this->title->inNamespace( NS_USER ) && !$this->title->isSubpage()
-			) {
+			if ( $this->title && $this->title->inNamespace( NS_USER ) && !$this->title->isSubpage() ) {
 				$this->pageUser = $this->buildPageUserObject( $this->title );
 			}
 			$this->fetchedData = true;

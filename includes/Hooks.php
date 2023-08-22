@@ -181,8 +181,7 @@ class Hooks implements
 		MobileContext $mobileContext, Skin $skin
 	) {
 		// setSkinOptions is not available
-		if ( $skin instanceof SkinMinerva
-		) {
+		if ( $skin instanceof SkinMinerva ) {
 			$services = MediaWikiServices::getInstance();
 			$featureManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
