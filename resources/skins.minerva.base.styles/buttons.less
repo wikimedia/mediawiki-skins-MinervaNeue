@@ -33,7 +33,7 @@
 // that are not scoped in the rule above.
 @media all and ( max-width: @width-breakpoint-desktop ) {
 	.cdx-button.cdx-button--icon-only {
-		span + span {
+		span + span:last-child {
 			.mixin-screen-reader-text();
 		}
 	}

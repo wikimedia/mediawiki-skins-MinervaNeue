@@ -4,6 +4,7 @@
  */
 function getClassesForItem( $item ) {
 	var $parent = $item.parent(),
+		useCodex = mw.loader.getState( 'codex-search-styles' ) !== 'registered',
 		// eslint-disable-next-line no-jquery/no-class-state
 		isPageActionList = $parent.hasClass( 'page-actions-menu__list' ),
 		// eslint-disable-next-line no-jquery/no-class-state
@@ -18,11 +19,18 @@ function getClassesForItem( $item ) {
 	} else if ( isPageActionList ) {
 		return {
 			li: [ 'page-actions-menu__list-item' ],
-			span: [
+			span: useCodex ? [] : [
 				'mw-ui-icon', 'mw-ui-icon-element',
 				'mw-ui-icon-with-label-desktop', 'mw-ui-button', 'mw-ui-quiet'
 			],
-			a: []
+			a: useCodex ? [
+				'cdx-button',
+				'cdx-button--size-large',
+				'cdx-button--fake-button',
+				'cdx-button--fake-button--enabled',
+				'cdx-button--icon-only',
+				'cdx-button--weight-quiet'
+			] : []
 		};
 	} else {
 		return {
@@ -40,8 +48,9 @@ function getClassesForItem( $item ) {
  * @param {string|undefined} id for icon
  */
 function insertIcon( $link, id ) {
+	var useCodex = mw.loader.getState( 'codex-search-styles' ) !== 'registered';
 	var icon = document.createElement( 'span' ),
-		classes = 'mw-ui-icon';
+		classes = useCodex ? 'minerva-icon' : 'mw-ui-icon';
 	if ( id ) {
 		classes += ' mw-ui-icon-portletlink-' + id;
 	}

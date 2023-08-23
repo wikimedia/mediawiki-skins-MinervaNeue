@@ -152,12 +152,12 @@
 				portletLink.addEventListener( 'click', function () {
 					onClick( portletLink, spinner );
 				} );
-				iconElement = portletLink.querySelector( '.mw-ui-icon' );
+				iconElement = portletLink.querySelector( '.mw-ui-icon, .minerva-icon' );
 				if ( iconElement ) {
-					iconElement.classList.add( 'mw-ui-icon-minerva-download' );
+					iconElement.classList.add( 'mw-ui-icon-minerva-download', 'minerva-icon--minerva-download' );
 				}
 				spinner.$el.hide().insertBefore(
-					$( portletLink ).find( '.mw-ui-icon' )
+					$( portletLink ).find( '.mw-ui-icon, .minerva-icon' )
 				);
 			}
 			return portletLink;
