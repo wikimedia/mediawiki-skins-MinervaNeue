@@ -10,7 +10,7 @@ function init() {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$watch = $( '#page-actions-watch' );
 
-	if ( permissions.watch && mw.user.isNamed() ) {
+	if ( permissions.watch ) {
 		require( './watchstar.js' ).init( $watch );
 	}
 

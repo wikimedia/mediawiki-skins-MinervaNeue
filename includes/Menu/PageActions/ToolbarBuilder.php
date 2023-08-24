@@ -146,7 +146,7 @@ class ToolbarBuilder {
 			) );
 		}
 
-		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCH ) ) {
+		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) ) {
 			$group->insertEntry( $this->createWatchPageAction() );
 		}
 
