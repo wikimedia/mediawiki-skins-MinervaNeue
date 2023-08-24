@@ -939,10 +939,12 @@ class SkinMinerva extends SkinMustache {
 	protected function getJsConfigVars(): array {
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
+		$permissions = $this->getPermissions();
 
 		return array_merge( parent::getJsConfigVars(), [
 			'wgMinervaPermissions' => [
-				'watch' => $this->getPermissions()->isAllowed( IMinervaPagePermissions::WATCH ),
+				'watchable' => $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ),
+				'watch' => $permissions->isAllowed( IMinervaPagePermissions::WATCH ),
 			],
 			'wgMinervaFeatures' => $skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),

@@ -176,10 +176,16 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			return $this->isCurrentPageContentModelEditable();
 		}
 
-		if ( $action === self::WATCH ) {
-			return MediaWikiServices::getInstance()->getWatchlistManager()->isWatchable( $this->title )
-				? $this->performer->isAllowedAll( 'viewmywatchlist', 'editmywatchlist' )
-				: false;
+		if ( $action === self::WATCHABLE || $action === self::WATCH ) {
+			$isWatchable = MediaWikiServices::getInstance()->getWatchlistManager()->isWatchable( $this->title );
+
+			if ( $action === self::WATCHABLE ) {
+				return $isWatchable;
+			}
+			if ( $action === self::WATCH ) {
+				return $isWatchable &&
+					$this->performer->isAllowedAll( 'viewmywatchlist', 'editmywatchlist' );
+			}
 		}
 
 		if ( $action === self::SWITCH_LANGUAGE ) {

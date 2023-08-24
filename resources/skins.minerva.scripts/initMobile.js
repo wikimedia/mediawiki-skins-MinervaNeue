@@ -469,7 +469,7 @@ module.exports = function () {
 		} );
 
 		// wire up watch icon if necessary
-		if ( permissions.watch && !mw.user.isNamed() ) {
+		if ( permissions.watchable && !permissions.watch ) {
 			ctaDrawers.initWatchstarCta( $watch );
 		}
 
