@@ -12,13 +12,14 @@
 			"ҒатаУлла",
 			"Soul Train",
 			"З. ӘЙЛЕ",
-			"Айсар"
+			"Айсар",
+			"Sagan"
 		]
 	},
 	"mobile-frontend-cookies-required": "Ҡарап сығыу режимын үҙгәртергә cookie файлы кәрәк. Уны ҡабыҙып, яңынан эшләп ҡарағыҙ.",
 	"mobile-frontend-editor-edit": "Үҙгәртергә",
 	"mobile-frontend-editor-redlink-create": "Бит яһарға",
-	"mobile-frontend-editor-redlink-explain": "Был бит булдырылмаған әле.",
+	"mobile-frontend-editor-redlink-explain": "Был бит әлегә булдырылмаған",
 	"mobile-frontend-editor-redlink-leave": "Юҡ, рәхмәт.",
 	"mobile-frontend-history": "Биттең үҙгәртеү тарихын ҡарағыҙ.",
 	"mobile-frontend-home-button": "Баш бит",
