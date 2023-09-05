@@ -119,6 +119,7 @@
 					"notifications",
 					"associated-pages"
 				],
+				"clientPrefEnabled": true,
 				"responsive": true,
 				"link": {
 					"text-wrapper": {
