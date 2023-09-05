@@ -6,10 +6,6 @@
  * framework or upstreamed from MobileFrotend to core) should be and moved into ./setup.js
  * @todo anything left should be moved to MobileFrontend extension and removed from here.
  */
-// TODO: T319260 - History/arrow icon DOM manipulation can be removed
-// once Codex icons are in place.
-var HISTORY_ICON_CLASS = 'mw-ui-icon-wikimedia-history-base20';
-var HISTORY_ARROW_CLASS = 'mw-ui-icon-mf-expand-gray';
 
 module.exports = function () {
 	var
@@ -186,14 +182,6 @@ module.exports = function () {
 			if ( time.isRecent( delta ) ) {
 				$bar = $lastModifiedLink.closest( '.last-modified-bar' );
 				$bar.addClass( 'active' );
-				// TODO: T319260 - Delete this icon manipulation
-				// on Codex icons are in place.
-				$bar.find( '.' + HISTORY_ICON_CLASS )
-					.addClass( HISTORY_ICON_CLASS.replace( '-base20', '-invert' ) )
-					.removeClass( HISTORY_ICON_CLASS );
-				$bar.find( '.' + HISTORY_ARROW_CLASS )
-					.addClass( HISTORY_ARROW_CLASS.replace( '-gray', '-invert' ) )
-					.removeClass( HISTORY_ARROW_CLASS );
 			}
 
 			$msg = $( '<span>' )

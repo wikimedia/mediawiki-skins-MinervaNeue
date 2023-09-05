@@ -300,7 +300,7 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"variants": [],
-			"selectorWithoutVariant": ".minerva-icon--wikimedia-{name}-base20, .mw-ui-icon-wikimedia-{name}-base20:before",
+			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--wikimedia-{name}-base20",
 			"icons": [
 				"bellOutline"
 			]
@@ -311,7 +311,7 @@
 			]
 		},
 		"skins.minerva.overflow.icons": {
-			"selectorWithoutVariant": ".minerva-icon--minerva-{name}, .mw-ui-icon-minerva-{name}:before",
+			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
@@ -338,8 +338,8 @@
 			]
 		},
 		"skins.minerva.icons.wikimedia": {
-			"selectorWithVariant": ".minerva-icon--wikimedia-{name}-{variant}, .mw-ui-icon-wikimedia-{name}-{variant}:before",
-			"selectorWithoutVariant": ".minerva-icon--wikimedia-{name}-base20, .minerva-icon--minerva-{name}, .mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-icon-minerva-{name}:before, .mw-ui-background-icon-{name}",
+			"selectorWithVariant": ".minerva-icon--{name}-{variant}, .minerva-icon--wikimedia-{name}-{variant}",
+			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--wikimedia-{name}-base20, .minerva-icon--minerva-{name}, .minerva-icon--{name}, .mw-ui-background-icon-{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"variants": {
@@ -373,7 +373,7 @@
 		},
 		"skins.minerva.icons.images.scripts.misc": {
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--minerva-{name}, .mw-ui-icon-minerva-{name}:before",
+			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
 			"defaultColor": "#54595d",
 			"icons": [
 				"download",
@@ -433,14 +433,14 @@
 		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--minerva-{name}, .mw-ui-icon-minerva-{name}:before",
+			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
 			"defaultColor": "#54595d",
 			"icons": [ "sandbox" ],
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--minerva-{name}, .mw-ui-icon-minerva-{name}:before",
+			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
 			"defaultColor": "#54595d",
 			"icons": [
 				"recentChanges",
@@ -452,7 +452,7 @@
 		"skins.minerva.mainMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
-			"selectorWithoutVariant": ".minerva-icon--minerva-{name}, .mw-ui-icon-minerva-{name}:before",
+			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
 			"defaultColor": "#54595d",
 			"useDataURI": false,
 			"icons": [

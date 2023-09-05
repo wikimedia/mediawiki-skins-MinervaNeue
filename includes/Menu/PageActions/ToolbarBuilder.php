@@ -215,7 +215,7 @@ class ToolbarBuilder {
 			$title->getLocalURL( $editArgs ),
 			'edit-page'
 		);
-		$entry->setIcon( $editOrCreate ? 'edit-base20' : 'editLock-base20', 'wikimedia' )
+		$entry->setIcon( $editOrCreate ? 'edit-base20' : 'editLock-base20' )
 			->trackClicks( 'edit' )
 			->setTitle( $this->messageLocalizer->msg( 'mobile-frontend-pageaction-edit-tooltip' ) )
 			->setNodeID( 'ca-edit' );
@@ -263,7 +263,7 @@ class ToolbarBuilder {
 			$btnClass . ' mw-watchlink'
 		);
 		return $entry->trackClicks( $newModeToSet )
-			->setIcon( $icon, 'wikimedia' )
+			->setIcon( $icon )
 			->setTitle( $msg )
 			->setNodeID( 'ca-watch' );
 	}
@@ -280,7 +280,7 @@ class ToolbarBuilder {
 			$this->messageLocalizer->msg( 'minerva-page-actions-history' )->escaped(),
 			$this->getHistoryUrl( $this->title )
 		);
-		$entry->setIcon( 'history-base20', 'wikimedia' )
+		$entry->setIcon( 'history-base20' )
 			->trackClicks( 'history' );
 		return $entry;
 	}
