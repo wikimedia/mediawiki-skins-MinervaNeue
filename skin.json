@@ -301,7 +301,7 @@
 			]
 		},
 		"skins.minerva.overflow.icons": {
-			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
+			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "ResourceLoaderOOUIIconPackModule",
@@ -328,8 +328,8 @@
 			]
 		},
 		"skins.minerva.icons.wikimedia": {
-			"selectorWithVariant": ".minerva-icon--{name}-{variant}, .minerva-icon--wikimedia-{name}-{variant}",
-			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--wikimedia-{name}-base20, .minerva-icon--minerva-{name}, .minerva-icon--{name}, .mw-ui-background-icon-{name}",
+			"selectorWithVariant": ".minerva-icon--{name}-{variant}",
+			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"variants": {
@@ -363,7 +363,7 @@
 		},
 		"skins.minerva.icons.images.scripts.misc": {
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
+			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
 				"download",
@@ -423,7 +423,7 @@
 		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
+			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
 				"sandbox"
@@ -432,7 +432,7 @@
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
+			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
 				"recentChanges",
@@ -444,7 +444,7 @@
 		"skins.minerva.mainMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
-			"selectorWithoutVariant": ".minerva-icon--{name}, .minerva-icon--minerva-{name}",
+			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"useDataURI": false,
 			"icons": [
