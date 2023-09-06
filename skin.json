@@ -22,7 +22,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.41.0"
+		"MediaWiki": ">= 1.41"
 	},
 	"config": {
 		"MinervaDonateLink": {
@@ -283,8 +283,7 @@
 				}
 			},
 			"images": {
-				"toast.mw-notification-type-error, .mw-notification.mw-notification-type-error":
-					"resources/skins.minerva.content.styles.images/error.svg",
+				"toast.mw-notification-type-error, .mw-notification.mw-notification-type-error": "resources/skins.minerva.content.styles.images/error.svg",
 				"a.external, .mw-parser-output a.external": {
 					"file": {
 						"ltr": "resources/skins.minerva.content.styles.images/link-external-ltr.svg",
@@ -436,7 +435,9 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".minerva-icon--minerva-{name}, .mw-ui-icon-minerva-{name}:before",
 			"defaultColor": "#54595d",
-			"icons": [ "sandbox" ],
+			"icons": [
+				"sandbox"
+			],
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
@@ -555,11 +556,15 @@
 		},
 		"skins.minerva.messageBox.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "interface-message-box" ]
+			"features": [
+				"interface-message-box"
+			]
 		},
 		"skins.minerva.categories.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "interface-category" ]
+			"features": [
+				"interface-category"
+			]
 		}
 	},
 	"QUnitTestModule": {
