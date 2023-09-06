@@ -19,7 +19,7 @@
 		left: 55%;
 		top: 43%;
 		font-size: 0.75rem;
-		padding: 0.5rem 0.25rem;
+		padding: 0.25rem;
 		border: 1px solid #fff;
 		border-radius: @border-radius-base;
 		background-color: #72777d;
@@ -31,6 +31,14 @@
 	&[ data-counter-num='0' ]::after {
 		content: none;
 	}
+}
+
+.minerva-icon--bell {
+	.cdx-mixin-css-icon( @cdx-icon-bell, @color-subtle );
+}
+
+.minerva-icon--tray {
+	.cdx-mixin-css-icon( @cdx-icon-tray, @color-subtle );
 }
 
 .mw-echo-notification-badge-nojs {

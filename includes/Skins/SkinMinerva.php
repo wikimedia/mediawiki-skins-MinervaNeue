@@ -1033,7 +1033,6 @@ class SkinMinerva extends SkinMustache {
 
 		if ( $this->getUser()->isRegistered() ) {
 			$styles[] = 'skins.minerva.loggedin.styles';
-			$styles[] = 'skins.minerva.icons.loggedin';
 		}
 
 		// When any of these features are enabled in production

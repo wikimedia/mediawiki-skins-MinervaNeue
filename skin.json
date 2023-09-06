@@ -295,16 +295,6 @@
 				}
 			}
 		},
-		"skins.minerva.icons.loggedin": {
-			"class": "ResourceLoaderOOUIIconPackModule",
-			"useDataURI": false,
-			"defaultColor": "#54595d",
-			"variants": [],
-			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--wikimedia-{name}-base20",
-			"icons": [
-				"bellOutline"
-			]
-		},
 		"skins.minerva.amc.styles": {
 			"styles": [
 				"resources/skins.minerva.amc.styles/index.less"
