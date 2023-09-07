@@ -66,7 +66,7 @@ final class UserMenuDirector {
 				'data-btn' => [
 					'tag-name' => 'label',
 					'data-icon' => [
-						'icon' => 'minerva-userAvatarOutline',
+						'icon' => 'userAvatarOutline',
 					],
 					'classes' => 'toggle-list__toggle',
 					'array-attributes' => [

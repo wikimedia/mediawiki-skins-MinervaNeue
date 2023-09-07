@@ -3,9 +3,9 @@ var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
 ( function () {
 
 	var
-		WATCHED_ICON_CLASS = 'mw-ui-icon-wikimedia-unStar-progressive',
-		TEMP_WATCHED_ICON_CLASS = 'mw-ui-icon-wikimedia-halfStar-progressive',
-		UNWATCHED_ICON_CLASS = 'mw-ui-icon-wikimedia-star-base20';
+		WATCHED_ICON_CLASS = 'minerva-icon--unStar-progressive',
+		TEMP_WATCHED_ICON_CLASS = 'minerva-icon--halfStar-progressive',
+		UNWATCHED_ICON_CLASS = 'minerva-icon--star-base20';
 
 	/**
 	 * Tweaks the global watchstar handler in core to use the correct classes for Minerva.
@@ -24,7 +24,7 @@ var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
 	 * @param {string} expiry
 	 */
 	function toggleClasses( $link, isWatched, expiry ) {
-		var $icon = $link.find( '.minerva-icon, .mw-ui-icon' );
+		var $icon = $link.find( '.minerva-icon' );
 		$icon.removeClass( [ WATCHED_ICON_CLASS, UNWATCHED_ICON_CLASS, TEMP_WATCHED_ICON_CLASS ] )
 			.addClass( function () {
 				var classes = UNWATCHED_ICON_CLASS;

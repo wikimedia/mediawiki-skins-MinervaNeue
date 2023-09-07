@@ -77,7 +77,7 @@
 	 * @param {Icon} spinner
 	 */
 	function onClick( portletItem, spinner ) {
-		var icon = portletItem.querySelector( '.minerva-icon--minerva-download' );
+		var icon = portletItem.querySelector( '.minerva-icon--download' );
 		function doPrint() {
 			printSetTimeoutReference = clearTimeout( printSetTimeoutReference );
 			track( 'minerva.downloadAsPDF', {
@@ -154,7 +154,7 @@
 				} );
 				iconElement = portletLink.querySelector( '.minerva-icon' );
 				if ( iconElement ) {
-					iconElement.classList.add( 'minerva-icon--minerva-download' );
+					iconElement.classList.add( 'minerva-icon--download' );
 				}
 				spinner.$el.hide().insertBefore(
 					$( portletLink ).find( '.minerva-icon' )

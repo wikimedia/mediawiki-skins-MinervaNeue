@@ -20,7 +20,7 @@ class ArticlePage extends MinervaPage {
 	get talk_tab_element() { return $( '.minerva__tab-container a[rel="discussion"]' ); }
 	get mask_element() { return $( '.mw-mf-page-center__mask' ); }
 	get drawer_mask_element() { return $( '.drawer-container__mask--visible' ); }
-	get watched_element() { return $( '.mw-ui-icon-wikimedia-unStar-progressive, .mw-ui-icon-mf-watched' ); }
+	get watched_element() { return $( '.minerva-icon--unStar-progressive, .mw-ui-icon-mf-watched' ); }
 	get menu_button_element() { return $( '#mw-mf-main-menu-button' ); }
 	get search_icon_element() { return $( '#searchIcon' ); }
 	get menu_element() { return $( 'nav' ); }

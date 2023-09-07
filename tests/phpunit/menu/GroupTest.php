@@ -81,7 +81,7 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 						],
 						'classes' => 'menu__item--home',
 						'data-icon' => [
-							'icon' => 'minerva-home',
+							'icon' => 'home',
 						],
 					]
 				 ],
@@ -143,7 +143,7 @@ class GroupTest extends MediaWikiIntegrationTestCase {
 						],
 						'classes' => 'menu__item--nearby',
 						'data-icon' => [
-							'icon' => 'minerva-nearby',
+							'icon' => 'nearby',
 						]
 					]
 				],

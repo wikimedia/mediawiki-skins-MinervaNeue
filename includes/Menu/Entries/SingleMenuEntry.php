@@ -72,7 +72,7 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @return $this
 	 */
 	public function overrideIcon( $icon ) {
-		$this->setIcon( str_replace( 'minerva-', '', $icon ) );
+		$this->setIcon( $icon );
 		return $this;
 	}
 
@@ -163,12 +163,11 @@ class SingleMenuEntry implements IMenuEntry {
 	/**
 	 * Set the Menu entry icon
 	 * @param string|null $iconName
-	 * @param string $iconPrefix either `wikimedia` or `minerva`
 	 * @return $this
 	 */
-	public function setIcon( $iconName, $iconPrefix = 'minerva' ) {
+	public function setIcon( $iconName ) {
 		if ( $iconName !== null ) {
-			$this->attributes['data-icon']['icon'] = $iconPrefix . '-' . $iconName;
+			$this->attributes['data-icon']['icon'] = $iconName;
 		} else {
 			$this->attributes['data-icon'] = null;
 		}

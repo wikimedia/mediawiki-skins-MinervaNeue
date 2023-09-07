@@ -135,7 +135,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getNotificationFallbackButton() {
 		return [
-				'icon' => 'wikimedia-bellOutline-base20',
+				'icon' => 'bellOutline-base20',
 				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
 						[ 'returnto' => $this->getTitle()->getPrefixedText() ]
 				),
@@ -214,7 +214,7 @@ class SkinMinerva extends SkinMustache {
 				return $class !== 'oo-ui-icon-bellOutline';
 			}
 		);
-		$alert['icon'] = 'wikimedia-bellOutline-base20';
+		$alert['icon'] = 'bellOutline-base20';
 		return $alert;
 	}
 
@@ -297,7 +297,7 @@ class SkinMinerva extends SkinMustache {
 			$usermessage = $data['html-user-message'] ?? '';
 			if ( $usermessage ) {
 				$data['html-user-message'] = Html::warningBox(
-					'<span class="minerva-icon minerva-icon--wikimedia-userTalk-warning"></span>&nbsp;'
+					'<span class="minerva-icon minerva-icon--userTalk-warning"></span>&nbsp;'
 						. $usermessage,
 					'minerva-anon-talk-message'
 				);
@@ -312,7 +312,7 @@ class SkinMinerva extends SkinMustache {
 				'data-minerva-search-box' => $data['data-search-box'] + [
 					'data-btn' => [
 						'data-icon' => [
-							'icon' => 'wikimedia-search-base20',
+							'icon' => 'search-base20',
 						],
 						'label' => $this->msg( 'searchbutton' )->escaped(),
 						'classes' => 'skin-minerva-search-trigger',
@@ -326,7 +326,7 @@ class SkinMinerva extends SkinMustache {
 				],
 				'data-minerva-main-menu-btn' => [
 					'data-icon' => [
-						'icon' => 'wikimedia-menu-base20',
+						'icon' => 'menu-base20',
 					],
 					'tag-name' => 'label',
 					'classes' => 'toggle-list__toggle',
@@ -568,7 +568,7 @@ class SkinMinerva extends SkinMustache {
 			$html .= $templateParser->processTemplate( 'Button', [
 				'tag-name' => 'a',
 				'data-icon' => [
-					'icon' => 'wikimedia-edit-base20'
+					'icon' => 'edit-base20'
 				],
 				'array-attributes' => [
 					[

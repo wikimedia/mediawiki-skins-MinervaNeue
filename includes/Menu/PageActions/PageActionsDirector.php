@@ -83,7 +83,7 @@ final class PageActionsDirector {
 				'data-btn' => [
 					'tag-name' => 'label',
 					'data-icon' => [
-						'icon' => 'minerva-ellipsis',
+						'icon' => 'ellipsis',
 					],
 					'classes' => 'toggle-list__toggle',
 					'array-attributes' => [
