@@ -30,6 +30,8 @@
 
 		// "Compare selected revisions" button
 		.mw-history-compareselectedversions-button {
+			.mw-ui-button();
+			.mw-ui-button-colors-primary( @color-progressive, @color-progressive--hover, @color-progressive--active );
 			width: 100%;
 			max-width: 100%;
 			-webkit-appearance: unset;
@@ -75,6 +77,8 @@
 
 	// "Change visibility of selected revisions" button (for admins only)
 	.mw-history-revisiondelete-button {
+		.mw-ui-button();
+		.mw-ui-button-states();
 		background-color: @background-color-lightest;
 		margin-bottom: 1em;
 	}
