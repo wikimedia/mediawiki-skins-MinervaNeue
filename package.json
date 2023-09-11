@@ -8,11 +8,10 @@
 		"lint:styles": "stylelint --cache --report-needless-disables **/*.{css,less}",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"test": "npm run lint && npm run doc && dev-scripts/svg_check.sh",
-		"test:a11y": "npx wmf-a11y --config 'tests/a11y/a11y.config.js'",
 		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/",
 		"doc": "jsdoc -c jsdoc.json",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
-		"selenium-daily": "npm run selenium-test && npx wmf-a11y --config 'tests/a11y/a11y.config.js' --logResults",
+		"selenium-daily": "npm run selenium-test",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js"
 	},
 	"devDependencies": {
@@ -29,7 +28,6 @@
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.15.0",
 		"svgo": "3.0.2",
-		"wdio-mediawiki": "2.1.0",
-		"wmf-a11y": "0.0.0"
+		"wdio-mediawiki": "2.1.0"
 	}
 }
