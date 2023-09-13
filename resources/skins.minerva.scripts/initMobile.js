@@ -12,7 +12,6 @@ module.exports = function () {
 		// eslint-disable-next-line no-restricted-properties
 		mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 		PageHTMLParser = mobile.PageHTMLParser,
-		PageGateway = mobile.PageGateway,
 		LanguageInfo = mobile.LanguageInfo,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		toast = mobile.toast,
@@ -141,7 +140,7 @@ module.exports = function () {
 	// Routes
 	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
 	overlayManager.add( /^\/languages$/, function () {
-		return mobile.languageOverlay( new PageGateway( api ) );
+		return mobile.languageOverlay();
 	} );
 	// Register a LanguageInfo overlay which has no built-in functionality;
 	// a hook is fired when a language is selected, and extensions can respond
@@ -344,7 +343,9 @@ module.exports = function () {
 		const echoBtn = document.querySelector( '.minerva-notifications .mw-echo-notification-badge-nojs' );
 		if ( echoBtn ) {
 			echoBtn.addEventListener( 'click', function ( ev ) {
-				router.navigate( '#/notifications' );
+				router.navigateTo( document.title, {
+					path: '#/notifications'
+				} );
 				// prevent navigation to original Special:Notifications URL
 				// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
 				ev.preventDefault();
