@@ -6,6 +6,7 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "دەسکاری بکە",
+	"mobile-frontend-editor-redlink-leave": "نە، سپاس.",
 	"mobile-frontend-history": "دیرووک دەسکاریەیل ئەی پەڕەیە بۊن.",
 	"mobile-frontend-home-button": "ماڵ",
 	"mobile-frontend-language-article-heading": "زوان",
@@ -14,7 +15,15 @@
 	"mobile-frontend-main-menu-nearby": "لەی نزیکیەیلە",
 	"mobile-frontend-main-menu-settings": "ڕیکخستنەگان",
 	"mobile-frontend-main-menu-watchlist": "پێرست چاودێری",
+	"mobile-frontend-notifications-filter": "پاڵیار",
 	"mobile-frontend-pageaction-edit-tooltip": "بەش پێشەکی ئەی پەڕە وێراشتە بکە.",
 	"mobile-frontend-placeholder": "لە {{SITENAME}} مینە بکە",
-	"mobile-frontend-random-button": "وە ھەڵکەفت"
+	"mobile-frontend-random-button": "وە ھەڵکەفت",
+	"mobile-frontend-user-page-talk": "گەپدان",
+	"minerva-user-menu-button": "مێنووی وەکاربەر",
+	"minerva-user-navigation": "ڕێنیشاندەری وەکاربەر",
+	"minerva-page-actions-overflow": "فێشتر",
+	"minerva-page-actions-language-switcher": "زوانەگان",
+	"minerva-page-actions-history": "دیرووک",
+	"skin-minerva-issue-learn-more": "فێشتر بزان"
 }
