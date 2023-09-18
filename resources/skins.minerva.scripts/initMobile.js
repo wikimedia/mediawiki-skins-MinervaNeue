@@ -343,9 +343,7 @@ module.exports = function () {
 		const echoBtn = document.querySelector( '.minerva-notifications .mw-echo-notification-badge-nojs' );
 		if ( echoBtn ) {
 			echoBtn.addEventListener( 'click', function ( ev ) {
-				router.navigateTo( document.title, {
-					path: '#/notifications'
-				} );
+				router.navigate( '#/notifications' );
 				// prevent navigation to original Special:Notifications URL
 				// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
 				ev.preventDefault();
@@ -428,9 +426,6 @@ module.exports = function () {
 		) {
 			issues.init( overlayManager, currentPageHTMLParser );
 		}
-
-		// deprecation notices
-		mw.log.deprecate( router, 'navigate', router.navigate, 'use navigateTo instead' );
 
 		// If MobileFrontend installed we add a table of contents icon to the table of contents.
 		// This should probably be done in the parser.
