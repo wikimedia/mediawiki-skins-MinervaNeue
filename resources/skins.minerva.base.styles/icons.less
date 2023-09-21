@@ -2,8 +2,13 @@
 
 // NOTE: @param-is-button-icon lets us change the icon color
 // with background-color by using mask-image.
-.minerva-icon--history {
+.minerva-icon--modified-history {
 	.cdx-mixin-css-icon( @cdx-icon-history, @param-is-button-icon: true );
+}
+
+// FIXME: For cached HTML. Can be removed in next deploy.
+.last-modified-bar__content .minerva-icon--history {
+	background-color: transparent;
 }
 
 .minerva-icon--expand {

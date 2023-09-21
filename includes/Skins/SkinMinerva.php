@@ -729,7 +729,7 @@ class SkinMinerva extends SkinMustache {
 
 		return $historyLink + [
 			'historyIcon' => [
-				'icon' => 'history',
+				'icon' => 'modified-history',
 				'size' => 'medium'
 			],
 			'arrowIcon' => [
