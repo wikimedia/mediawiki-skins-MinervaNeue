@@ -1,11 +1,13 @@
+/* stylelint-disable selector-max-id */
 @import '../../../minerva.less/minerva.variables.less';
 @import '../../../minerva.less/minerva.mixins.less';
 
 @dividerHeight: 2px;
 @dividerSpacing: 28px;
 
-// stylelint-disable-next-line selector-max-id
+// FIXME: Remove #page-actions when cache has cleared
 .hatnote,
+.pre-content #p-views,
 .pre-content #page-actions {
 	display: none;
 }

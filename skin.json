@@ -349,6 +349,7 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
 				"edit",
+				"wikiText",
 				"editLock",
 				"history",
 				"language",
@@ -597,6 +598,11 @@
 	"attributes": {
 		"MobileFrontend": {
 			"EditorAvailableSkins": [
+				"minerva"
+			]
+		},
+		"VisualEditor": {
+			"IconSkins": [
 				"minerva"
 			]
 		}
