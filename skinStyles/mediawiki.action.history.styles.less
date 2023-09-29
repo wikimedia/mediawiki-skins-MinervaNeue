@@ -1,9 +1,97 @@
-/* stylelint-disable selector-max-id */
+/* stylelint-disable selector-max-id, no-descending-specificity, unit-disallowed-list */
 
 @import '../minerva.less/minerva.mixins.less';
 @import '../minerva.less/minerva.variables.less';
 @import 'mediawiki.ui/mixins.buttons.less';
 @import 'mediawiki.mixins.less';
+@import 'mediawiki.skin.variables';
+
+/* Simplify default version */
+.mw-mf-amc-disabled {
+	/** compare feature not available */
+	#mw-history-compare input[ type='radio' ],
+	.mw-history-compareselectedversions,
+	/* Header shows date, so this is superfulous. */
+	.mw-changeslist-date,
+	/* current link is hidden as previous link spans entire row. */
+	.mw-history-histlinks-current,
+	/* tools are hidden for historic reasons. Feel free to reconsider. */
+	.mw-tag-markers,
+	/* tools are hidden for historic reasons. Feel free to reconsider. */
+	.mw-usertoollinks,
+	/* tools are hidden for historic reasons. Feel free to reconsider. */
+	.mw-pager-tools {
+		display: none;
+	}
+
+	.mw-changeslist-time {
+		display: block !important;
+	}
+
+	.mw-history-histlinks span {
+		&::before,
+		&::after {
+			content: none !important;
+		}
+	}
+	/* Make the previous link cover the entire row. */
+	.mw-history-histlinks-previous {
+		position: absolute;
+		right: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		color: transparent;
+	}
+
+	&.action-history #pagehistory li {
+		padding: 12px 16px 12px 85px;
+		font-size: 1rem;
+		min-height: 90px;
+
+		.history-user a {
+			color: @color-subtle;
+		}
+
+		.mw-userlink::before {
+			content: '';
+			.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-subtle );
+			margin-right: 8px;
+		}
+
+		.mw-anonuserlink::before {
+			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, @color-subtle );
+		}
+
+		.mw-tempuserlink::before {
+			.cdx-mixin-css-icon( @cdx-icon-user-temporary, @color-subtle );
+		}
+
+		.comment {
+			-webkit-line-clamp: 2;
+			max-height: 2.6em;
+			color: @color-base--subtle;
+			line-height: 1.2;
+			white-space: normal;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			font-size: 0.875rem;
+			font-style: normal;
+		}
+	}
+
+	.mw-diff-bytes,
+	.mw-changeslist-time {
+		position: absolute;
+		top: 12px;
+		left: 16px;
+		font-size: 0.875rem;
+	}
+
+	.mw-diff-bytes {
+		top: 36px;
+	}
+}
 
 .action-history {
 	#mw-content-text > form {
@@ -147,9 +235,16 @@
 	// hide page instructions, article size, double dot separator, thank link
 	.mw-history-legend,
 	.history-size.mw-diff-bytes,
-	.mw-changeslist-separator,
-	abbr {
+	.mw-changeslist-separator {
 		display: none;
+	}
+
+	abbr {
+		background: #eaecf0;
+		border-radius: 2px;
+		font-size: 0.9em;
+		font-weight: bold;
+		padding: 0 6px 1px;
 	}
 
 	// Disable the parentheseses around the undo and rollback link.
@@ -170,7 +265,9 @@
 	.history-user {
 		// (hack) - the history page injects unstyleable whitespace. to keep user aligned with other elements
 		// it most be moved to the left.
-		margin-left: -5px;
+		.mw-mf-amc-enabled & {
+			margin-left: -5px;
+		}
 	}
 
 	.mw-history-undo {

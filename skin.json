@@ -144,6 +144,7 @@
 		}
 	},
 	"Hooks": {
+		"DifferenceEngineViewHeader": "main",
 		"ResourceLoaderRegisterModules": "main",
 		"SkinPageReadyConfig": "main",
 		"UserLogoutComplete": "main",
@@ -492,6 +493,10 @@
 				"mediawiki.page.watch.ajax"
 			],
 			"messages": [
+				"skin-minerva-time-ago-seconds",
+				"skin-minerva-time-ago-days",
+				"skin-minerva-time-ago-months",
+				"skin-minerva-time-ago-years",
 				"echo-badge-count",
 				"mobile-frontend-notifications-filter",
 				"skin-minerva-issue-learn-more",

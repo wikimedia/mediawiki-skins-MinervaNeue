@@ -23,8 +23,10 @@ namespace MediaWiki\Minerva;
 use ChangesList;
 use ChangesListFilterGroup;
 use Config;
+use DifferenceEngine;
 use ExtensionRegistry;
 use Html;
+use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
 use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
@@ -53,6 +55,7 @@ use Wikimedia\Services\NoSuchServiceException;
  *	on<HookName>()
  */
 class Hooks implements
+	DifferenceEngineViewHeaderHook,
 	FetchChangesListHook,
 	OutputPageBodyAttributesHook,
 	ResourceLoaderGetConfigVarsHook,
@@ -328,5 +331,20 @@ class Hooks implements
 			$config['collapsible'] = false;
 			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw="interface"]';
 		}
+	}
+
+	/**
+	 * Force inline diffs on mobile site.
+	 *
+	 * @param DifferenceEngine $differenceEngine
+	 */
+	public function onDifferenceEngineViewHeader( $differenceEngine ) {
+		$skin = $differenceEngine->getSkin();
+		if ( $skin->getSkinName() !== 'minerva' ) {
+			return;
+		}
+		$differenceEngine->setSlotDiffOptions( [
+			'diff-type' => 'inline',
+		] );
 	}
 }

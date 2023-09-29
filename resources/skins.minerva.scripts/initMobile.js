@@ -8,14 +8,15 @@
  */
 
 module.exports = function () {
-	var
+	const
+		ms = require( 'mobile.startup' ),
 		// eslint-disable-next-line no-restricted-properties
 		mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 		PageHTMLParser = mobile.PageHTMLParser,
 		LanguageInfo = mobile.LanguageInfo,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		toast = mobile.toast,
-		time = mobile.time,
+		time = ms.time,
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
 		search = require( './search.js' ),
@@ -245,6 +246,23 @@ module.exports = function () {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.modified-enhancement' ).each( function () {
 			initHistoryLink( $( this ) );
+		} );
+		Array.prototype.forEach.call( document.querySelectorAll( '.mw-diff-timestamp' ), ( tsNode ) => {
+			const ts = tsNode.dataset.timestamp;
+			if ( ts ) {
+				const ago = time.getTimeAgoDelta(
+					parseInt(
+						( new Date( ts ) ).getTime() / 1000,
+						10
+					)
+				);
+				// Supported messages:
+				// * skin-minerva-time-ago-seconds
+				// * skin-minerva-time-ago-days
+				// * skin-minerva-time-ago-months
+				// * skin-minerva-time-ago-years
+				tsNode.textContent = mw.msg( `skin-minerva-time-ago-${ago.unit}`, ago.value );
+			}
 		} );
 	}
 
