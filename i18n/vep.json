@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sebranik",
+			"Игорь Бродский",
+			"Лариса Чиркова"
+		]
+	},
+	"mobile-frontend-editor-edit": "Redaktiruida",
+	"mobile-frontend-history": "Kacu necen lehtpolen tehtud haškud",
+	"mobile-frontend-home-button": "Pälehtpol'",
+	"mobile-frontend-language-article-heading": "Kel'",
+	"mobile-frontend-main-menu-button-tooltip": "Avaita pämenü",
+	"mobile-frontend-main-menu-login": "Tulend",
+	"mobile-frontend-main-menu-logout": "Lähtta",
+	"mobile-frontend-main-menu-nearby": "Läheli",
+	"mobile-frontend-main-menu-settings": "Radpalad",
+	"mobile-frontend-main-menu-watchlist": "Kaclendnimikirjutez",
+	"mobile-frontend-pageaction-edit-tooltip": "Redaktiruida necen lehtpolen päpalad",
+	"mobile-frontend-placeholder": "Ectä {{SAITAN NIMI}}",
+	"mobile-frontend-random-button": "Statjaline"
+}
