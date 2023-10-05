@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-id */
 @import '../../minerva.less/minerva.variables.less';
 
 .heading-holder {
@@ -20,7 +21,9 @@
 	opacity: 0.25;
 }
 
-#page-actions { // stylelint-disable-line selector-max-id
+// FIXME: Remove #page-actions when cache has cleared
+#p-views,
+#page-actions {
 	position: relative;
 }
 
@@ -85,7 +88,9 @@
 // On small devices that don't support Javascript, hide the page actions bar
 @media all and ( max-width: @width-breakpoint-mobile - 1 ) {
 	.client-nojs {
-		#page-actions { // stylelint-disable-line selector-max-id
+		// FIXME: Remove #page-actions when cache has cleared
+		#p-views,
+		#page-actions {
 			display: none;
 		}
 

@@ -135,9 +135,10 @@
 				supportedNamespaces
 			)
 		) {
-
+			// FIXME: Use p-views when cache has cleared.
+			const actionID = document.querySelector( '#p-views' ) ? 'p-views' : 'page-actions';
 			portletLink = mw.util.addPortletLink(
-				overflowList ? 'page-actions-overflow' : 'page-actions',
+				overflowList ? 'page-actions-overflow' : actionID,
 				'#',
 				mw.msg( 'minerva-download' ),
 				// id

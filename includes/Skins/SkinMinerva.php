@@ -124,7 +124,8 @@ class SkinMinerva extends SkinMustache {
 		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
 		$sidebar = $this->buildSidebar();
 		$actions = $nav['actions'] ?? [];
-		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions );
+		$views = $nav['views'] ?? [];
+		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions, $views );
 	}
 
 	/**
