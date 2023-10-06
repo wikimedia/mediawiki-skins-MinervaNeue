@@ -147,8 +147,14 @@ class ToolbarBuilder {
 			) );
 		}
 
-		$watchKey = $key = isset( $actions['watch'] ) ? 'watch' : 'unwatch';
-		$watchData = $actions[ $watchKey ] ?? null;
+		$watchKey = $key = isset( $actions['unwatch'] ) ? 'unwatch' : 'watch';
+		// The watchstar is typically not shown to anonymous users but it is in Minerva.
+		$watchData = $actions[ $watchKey ] ?? [
+			'icon' => 'star',
+			'class' => '',
+			'href' => $this->getLoginUrl( [ 'returnto' => $this->title ] ),
+			'text' => $this->messageLocalizer->msg( 'watch' ),
+		];
 		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) && $watchData ) {
 			$group->insertEntry( $this->createWatchPageAction( $watchKey, $watchData ) );
 		}
