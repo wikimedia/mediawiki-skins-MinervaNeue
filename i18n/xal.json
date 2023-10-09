@@ -1,18 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Huuchin"
+			"Huuchin",
+			"Ukhant Erdemt"
 		]
 	},
 	"mobile-frontend-editor-edit": "Ясвр",
-	"mobile-frontend-home-button": "Герт",
-	"mobile-frontend-language-article-heading": "Бус келәр умшх",
+	"mobile-frontend-history": "Эн халхиг яссна түүкиг үзх",
+	"mobile-frontend-home-button": "Гер",
+	"mobile-frontend-language-article-heading": "Келн",
 	"mobile-frontend-main-menu-button-tooltip": "Нүр цес неех",
 	"mobile-frontend-main-menu-login": "Орх",
 	"mobile-frontend-main-menu-nearby": "Өөрхн",
-	"mobile-frontend-main-menu-settings": "Көгмүд",
+	"mobile-frontend-main-menu-settings": "Тохрмҗ",
 	"mobile-frontend-main-menu-watchlist": "Оврлң",
 	"mobile-frontend-pageaction-edit-tooltip": "Халхин маңна бөлг ясх",
-	"mobile-frontend-placeholder": "{{SITENAME}} дотр хәәх",
-	"mobile-frontend-random-button": "Уршг"
+	"mobile-frontend-placeholder": "{{сайтын нерн}} хәәх",
+	"mobile-frontend-random-button": "санамсрго"
 }
