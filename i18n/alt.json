@@ -10,6 +10,6 @@
 	"mobile-frontend-language-article-heading": "Тил",
 	"mobile-frontend-main-menu-login": "Кирер",
 	"mobile-frontend-main-menu-settings": "Эптештирӱ",
-	"mobile-frontend-placeholder": "Бедреер {{SITENAME}}",
+	"mobile-frontend-placeholder": "{{SITENAME}}-ҥ бедреер",
 	"mobile-frontend-random-button": "Рандом"
 }
