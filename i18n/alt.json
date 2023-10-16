@@ -11,6 +11,6 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Кӱӱнзеп келер!}}, $1!",
 	"mobile-frontend-main-menu-login": "Кирер",
 	"mobile-frontend-main-menu-settings": "Эптештирӱ",
-	"mobile-frontend-placeholder": "Бедреер {{SITENAME}}",
+	"mobile-frontend-placeholder": "{{SITENAME}}-ҥ бедреер",
 	"mobile-frontend-random-button": "Рандом"
 }

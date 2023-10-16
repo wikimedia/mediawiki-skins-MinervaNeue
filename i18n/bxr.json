@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Баир Балданов"
+			"Баир Балданов",
+			"Туяна Балданова"
 		]
 	},
 	"mobile-frontend-history": "Энэ хуудаһанай хубилалтануудай түүхэ хараха",
@@ -10,5 +11,5 @@
 	"mobile-frontend-main-menu-login": "Орохо",
 	"mobile-frontend-main-menu-settings": "Тааруулганууд",
 	"mobile-frontend-placeholder": "{{SITENAME}} сайтһаа бэдэрхэ",
-	"mobile-frontend-random-button": "Ойлгомторгүй"
+	"mobile-frontend-random-button": "Гэнтын"
 }
