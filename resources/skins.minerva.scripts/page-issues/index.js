@@ -1,5 +1,5 @@
 ( function ( M ) {
-	/** @typedef {Object.<number | 'all', IssueSummary[]>} IssueSummaryMap */
+	/** @typedef {Object.<string, IssueSummary[]>} IssueSummaryMap */
 
 	var PageHTMLParser = M.require( 'mobile.startup' ).PageHTMLParser,
 		KEYWORD_ALL_SECTIONS = 'all',
@@ -34,7 +34,7 @@
 	 * @param {OverlayManager} overlayManager
 	 * @ignore
 	 *
-	 * @return {{ambox: jQuery.Object, issueSummaries: IssueSummary[]}}
+	 * @return {{ambox: jQuery, issueSummaries: IssueSummary[]}}
 	 */
 	function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, overlayManager ) {
 		var
@@ -97,7 +97,7 @@
 	 * @param {IssueSummaryMap} allIssues mapping section {number} to {IssueSummary}
 	 * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the
 	 *                                section the issues belong to
-	 * @return {jQuery.Object[]} array of all issues.
+	 * @return {jQuery[]} array of all issues.
 	 */
 	function getIssues( allIssues, section ) {
 		if ( section !== KEYWORD_ALL_SECTIONS ) {
@@ -125,9 +125,7 @@
 	function initPageIssues( overlayManager, pageHTMLParser ) {
 		var
 			section,
-			/** @type {IssueSummary[]} */
 			issueSummaries = [],
-			/** @type {IssueSummaryMap} */
 			allIssues = {},
 			label,
 			$lead = pageHTMLParser.getLeadSectionElement(),

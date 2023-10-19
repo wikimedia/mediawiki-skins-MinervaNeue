@@ -8,7 +8,7 @@
 	/**
 	 * @typedef {Object} IssueSummary
 	 * @property {PageIssue} issue
-	 * @property {jQuery.Object} $el where the issue was extracted from
+	 * @property {jQuery} $el where the issue was extracted from
 	 * @property {string} iconString a string representation of icon.
 	 *  This is kept for template compatibility (our views do not yet support composition).
 	 * @property {string} text HTML string.

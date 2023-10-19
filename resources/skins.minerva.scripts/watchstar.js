@@ -10,7 +10,7 @@ var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
 	/**
 	 * Tweaks the global watchstar handler in core to use the correct classes for Minerva.
 	 *
-	 * @param {jQuery.Object} $icon
+	 * @param {jQuery} $icon
 	 */
 	function init( $icon ) {
 		var $watchlink = $icon.find( 'a' );
@@ -19,7 +19,7 @@ var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
 
 	/**
 	 *
-	 * @param {jQuery.Object} $link
+	 * @param {jQuery} $link
 	 * @param {boolean} isWatched
 	 * @param {string} expiry
 	 */

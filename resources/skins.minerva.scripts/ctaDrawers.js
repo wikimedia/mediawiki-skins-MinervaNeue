@@ -22,7 +22,7 @@ var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
  * that user but to obtain information on them.
  *
  * @ignore
- * @param {jQuery.Object} $redLinks
+ * @param {jQuery} $redLinks
  */
 function initRedlinksCta( $redLinks ) {
 	$redLinks.on( 'click', function ( ev ) {
@@ -53,7 +53,7 @@ function initRedlinksCta( $redLinks ) {
 /**
  * A CtaDrawer should show for anonymous users.
  *
- * @param {jQuery.Object} $watchstar
+ * @param {jQuery} $watchstar
  */
 function initWatchstarCta( $watchstar ) {
 	var watchCtaDrawer;

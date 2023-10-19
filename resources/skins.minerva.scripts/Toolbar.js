@@ -13,7 +13,6 @@
 	/**
 	 * @param {Window} window
 	 * @param {Element} toolbar
-	 * @return {void}
 	 */
 	function bind( window, toolbar ) {
 		var overflowSubmenu = toolbar.querySelector( overflowSubmenuSelector );
@@ -25,7 +24,6 @@
 	/**
 	 * @param {Window} window
 	 * @param {Element} toolbar
-	 * @return {void}
 	 */
 	function render( window, toolbar ) {
 		var overflowList = toolbar.querySelector( overflowListSelector );
@@ -80,7 +78,6 @@
 	 *
 	 * @param {Window} window
 	 * @param {Element|null} overflowList
-	 * @return {void}
 	 */
 	function renderDownloadButton( window, overflowList ) {
 		var downloadPageAction = require( './downloadPageAction.js' ).downloadPageAction,

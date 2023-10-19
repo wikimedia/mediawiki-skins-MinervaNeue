@@ -34,8 +34,6 @@ function testScrollLeftStyle() {
 
 /**
  * When tabs are present and one is selected, scroll the selected tab into view.
- *
- * @return {void}
  */
 function initTabsScrollPosition() {
 	var selectedTab, tabContainer, $tabContainer, maxScrollLeft, leftMostChild, rightMostChild,

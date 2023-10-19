@@ -11,7 +11,7 @@
 	 *
 	 * @ignore
 	 * @param {string} userAgent User Agent
-	 * @return {number|false} An integer.
+	 * @return {number|boolean} Integer version number, or false if not found
 	 */
 	function getAndroidVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
@@ -23,7 +23,7 @@
 	 *
 	 * @ignore
 	 * @param {string} userAgent User Agent
-	 * @return {number|false} An integer.
+	 * @return {number|boolean} Integer version number, or false if not found
 	 */
 	function getChromeVersion( userAgent ) {
 		var match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
@@ -119,7 +119,7 @@
 	 * @param {number[]} supportedNamespaces
 	 * @param {Window} [windowObj] window object
 	 * @param {boolean} [overflowList] Append to overflow list
-	 * @return {jQuery.Object|null}
+	 * @return {jQuery|null}
 	 */
 	function downloadPageAction( page, supportedNamespaces, windowObj, overflowList ) {
 		var

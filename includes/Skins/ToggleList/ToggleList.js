@@ -12,7 +12,6 @@
 	 *
 	 * @param {Window} window
 	 * @param {HTMLElement} component
-	 * @return {void}
 	 */
 	function bind( window, component ) {
 		var

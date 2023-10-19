@@ -1,5 +1,5 @@
 /**
- * @param {jQuery.Object} $item The added list item, or null if no element was added.
+ * @param {jQuery} $item The added list item, or null if no element was added.
  * @return {Object} of arrays with mandatory class names for list item elements.
  */
 function getClassesForItem( $item ) {
@@ -40,7 +40,7 @@ function getClassesForItem( $item ) {
 /**
  * Insert icon into the portlet link.
  *
- * @param {jQuery.Object} $link
+ * @param {jQuery} $link
  * @param {string|undefined} id for icon
  */
 function insertIcon( $link, id ) {

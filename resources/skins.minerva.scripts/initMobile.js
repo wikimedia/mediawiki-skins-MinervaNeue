@@ -166,7 +166,7 @@ module.exports = function () {
 	 * months or years
 	 *
 	 * @ignore
-	 * @param {jQuery.Object} $lastModifiedLink
+	 * @param {jQuery} $lastModifiedLink
 	 */
 	function initHistoryLink( $lastModifiedLink ) {
 		var delta, $msg, $bar,
@@ -225,7 +225,7 @@ module.exports = function () {
 
 	/**
 	 * @method
-	 * @param {jQuery.Object} $lastModifiedLink
+	 * @param {jQuery} $lastModifiedLink
 	 * @ignore
 	 */
 	function initAmcHistoryLink( $lastModifiedLink ) {
@@ -256,7 +256,7 @@ module.exports = function () {
 	 * months or years
 	 *
 	 * @ignore
-	 * @param {jQuery.Object} [$tagline]
+	 * @param {jQuery} [$tagline]
 	 */
 	function initRegistrationDate( $tagline ) {
 		var msg, ts;
@@ -314,8 +314,7 @@ module.exports = function () {
 	/**
 	 * Strip the edit action from red links to nonexistent User namespace pages.
 	 *
-	 * @param {jQuery.Object} $redLinks
-	 * @return {void}
+	 * @param {jQuery} $redLinks
 	 */
 	function initUserRedLinks( $redLinks ) {
 		$redLinks.filter( function ( _, element ) {

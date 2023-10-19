@@ -44,6 +44,7 @@
 		 * "treatment") to callers which is necessary if getBucket(). The downside is that now two
 		 * functions exist where one would suffice.
 		 *
+		 * @private
 		 * @return {string} AB-test bucket, `bucket.UNSAMPLED` by default, `bucket.CONTROL` or
 		 *                  `bucket.TREATMENT` buckets otherwise.
 		 */
@@ -62,6 +63,7 @@
 		/**
 		 * Checks whether or not a user is in the AB-test,
 		 *
+		 * @private
 		 * @return {boolean}
 		 */
 		function isSampled() {
