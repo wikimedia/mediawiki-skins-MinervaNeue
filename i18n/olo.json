@@ -3,7 +3,8 @@
 		"authors": [
 			"Denö",
 			"Ilja.mos",
-			"Mashoi7"
+			"Mashoi7",
+			"Ruppijeva"
 		]
 	},
 	"mobile-frontend-editor-edit": "Kohendele",
@@ -11,7 +12,7 @@
 	"mobile-frontend-editor-redlink-explain": "Tädä sivuu ei ole vie luajittu.",
 	"mobile-frontend-editor-redlink-leave": "Passibo ei.",
 	"mobile-frontend-home-button": "Kodisivule",
-	"mobile-frontend-language-article-heading": "Luve toizel kielel",
+	"mobile-frontend-language-article-heading": "Kieli",
 	"mobile-frontend-main-menu-button-tooltip": "Avua piävalikko",
 	"mobile-frontend-main-menu-login": "Kirjuttai",
 	"mobile-frontend-main-menu-logout": "Kirjuttai iäre",
@@ -20,8 +21,8 @@
 	"mobile-frontend-main-menu-watchlist": "Valvonduluvettelo",
 	"mobile-frontend-meta-data-issues-header-talk": "Täh sivuh näh",
 	"mobile-frontend-pageaction-edit-tooltip": "Kohendele sivun piäalalugu",
-	"mobile-frontend-placeholder": "Eči {{SITENAME}}",
-	"mobile-frontend-random-button": "Satunnaine",
+	"mobile-frontend-placeholder": "Eččo {{VERKOSIVUSTON NIMI}}",
+	"mobile-frontend-random-button": "Piävyndähine",
 	"mobile-frontend-talk-back-to-filepage": "Mene järilleh failah \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Mene järilleh sivule $1."
 }
