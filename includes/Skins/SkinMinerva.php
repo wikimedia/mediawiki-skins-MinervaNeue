@@ -308,7 +308,7 @@ class SkinMinerva extends SkinMustache {
 			$notifications = $data['data-portlets']['data-notifications']['array-items'] ?? [];
 
 			return $data + [
-				'has-minerva-languages' => !empty( $allLanguages ) || !empty( $allVariants ),
+				'has-minerva-languages' => $allLanguages || $allVariants,
 				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
 				'data-minerva-search-box' => $data['data-search-box'] + [
 					'data-btn' => [

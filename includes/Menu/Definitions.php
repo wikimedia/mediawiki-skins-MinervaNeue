@@ -293,7 +293,7 @@ final class Definitions {
 			// unset campaign on login link so as not to interfere with A/B tests
 			unset( $returnToQuery['campaign'] );
 		}
-		if ( !empty( $returnToQuery ) ) {
+		if ( $returnToQuery ) {
 			$ret['returntoquery'] = wfArrayToCgi( $returnToQuery );
 		}
 		return $ret;

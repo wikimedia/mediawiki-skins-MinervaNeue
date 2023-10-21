@@ -57,7 +57,7 @@ final class UserMenuDirector {
 		$templateParser = new TemplateParser( __DIR__ . '/../../Skins' );
 		$toggleID = 'minerva-user-menu-toggle';
 		$checkboxID = 'minerva-user-menu-checkbox';
-		return empty( $entries )
+		return !$entries
 			? null
 			: $templateParser->processTemplate( 'ToggleList', [
 				'class' => 'minerva-user-menu',
