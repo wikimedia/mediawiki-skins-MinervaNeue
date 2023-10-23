@@ -246,7 +246,8 @@ class ToolbarBuilder {
 			'page-actions-watch',
 			$watchData['text'],
 			$watchData['href'],
-			$watchData[ 'class' ]
+			$watchData[ 'class' ],
+			$this->permissions->isAllowed( IMinervaPagePermissions::WATCH )
 		);
 		$icon = $watchData['icon'] ?? '';
 		if ( $icon ) {
