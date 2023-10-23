@@ -4,6 +4,7 @@
 			"Tofeiku"
 		]
 	},
+	"mobile-frontend-history": "ليهت سجاره سونتيڠ لامن اين.",
 	"mobile-frontend-home-button": "اوتام",
 	"mobile-frontend-language-article-heading": "بهاس",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|سلامت داتڠ}}، $1!",
@@ -11,5 +12,6 @@
 	"mobile-frontend-main-menu-login": "لوݢ ماسوق",
 	"mobile-frontend-main-menu-settings": "تتڤن",
 	"mobile-frontend-placeholder": "چاري دالم {{SITENAME}}",
+	"mobile-frontend-random-button": "راوق",
 	"mobile-frontend-user-page-contributions": "سومبڠن"
 }

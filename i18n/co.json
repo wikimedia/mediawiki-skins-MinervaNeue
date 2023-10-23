@@ -5,9 +5,12 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Mudificà",
+	"mobile-frontend-history": "Vede a cronolugia di mudifiche di sta pagina.",
 	"mobile-frontend-home-button": "Pàgina maestra",
 	"mobile-frontend-language-article-heading": "Lingua",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Benvenutu}}, $1!",
 	"mobile-frontend-main-menu-login": "Cunnessione",
-	"mobile-frontend-placeholder": "Circà in {{SITENAME}}"
+	"mobile-frontend-main-menu-settings": "Preferenze",
+	"mobile-frontend-placeholder": "Circà in {{SITENAME}}",
+	"mobile-frontend-random-button": "Casuale"
 }
