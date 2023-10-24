@@ -2,7 +2,6 @@
 
 @import '../minerva.less/minerva.mixins.less';
 @import '../minerva.less/minerva.variables.less';
-@import 'mediawiki.ui/mixins.buttons.less';
 @import 'mediawiki.mixins.less';
 
 .action-history {
@@ -30,8 +29,6 @@
 
 		// "Compare selected revisions" button
 		.mw-history-compareselectedversions-button {
-			.mw-ui-button();
-			.mw-ui-button-colors-primary( @color-progressive, @color-progressive--hover, @color-progressive--active );
 			width: 100%;
 			max-width: 100%;
 			-webkit-appearance: unset;
@@ -77,8 +74,6 @@
 
 	// "Change visibility of selected revisions" button (for admins only)
 	.mw-history-revisiondelete-button {
-		.mw-ui-button();
-		.mw-ui-button-states();
 		background-color: @background-color-lightest;
 		margin-bottom: 1em;
 	}
@@ -177,5 +172,10 @@
 		float: right;
 		// Push the tags down to bottom so undo and tags do not overlay.
 		padding-bottom: 10px;
+
+		a {
+			// Increase touch area of undo button.
+			padding: 5px 8px;
+		}
 	}
 }
