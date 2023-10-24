@@ -549,51 +549,20 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Overrides Skin::doEditSectionLink
-	 * @param Title $nt The title being linked to (may not be the same as
-	 *   the current page, if the section is included from a template)
-	 * @param string $section
-	 * @param string|null $tooltip
-	 * @param Language $lang
-	 * @return string
+	 * Modifies the template data before parsing in SkinMustache.
+	 *
+	 * @inheritDoc
 	 */
-	public function doEditSectionLink( Title $nt, $section, $tooltip, Language $lang ) {
-		if ( $this->getPermissions()->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE ) &&
-			 !$nt->isMainPage() ) {
-			$message = $this->msg( 'mobile-frontend-editor-edit' )->inLanguage( $lang )->text();
-			$html = Html::openElement( 'span', [ 'class' => 'mw-editsection' ] );
-			if ( !$this->templateParser ) {
-				$this->templateParser = new TemplateParser( __DIR__ );
-			}
-			$templateParser = $this->templateParser;
-			$html .= $templateParser->processTemplate( 'Button', [
-				'tag-name' => 'a',
+	final protected function doEditSectionLinksHTML( array $links, Language $lang ) {
+		$transformedLinks = [];
+		foreach ( $links as $key => $link ) {
+			$transformedLinks[] = $link + [
 				'data-icon' => [
-					'icon' => 'edit-base20'
+					'icon' => $link['icon'],
 				],
-				'array-attributes' => [
-					[
-						'key' => 'href',
-						'value' => $nt->getLocalURL( [ 'action' => 'edit', 'section' => $section ] ),
-					],
-					[
-						'key' => 'title',
-						'value' => $this->msg( 'editsectionhint', $tooltip )->inLanguage( $lang )->text(),
-					],
-					[
-						'key' => 'data-section',
-						'value' => $section,
-					],
-				],
-				'label' => $message,
-				// Note visibility of the edit section link button is controlled by .edit-page in ui.less so
-				// we default to enabled even though this may not be true.
-				'classes' => 'edit-page',
-			] );
-			$html .= Html::closeElement( 'span' );
-			return $html;
+			];
 		}
-		return '';
+		return parent::doEditSectionLinksHTML( $transformedLinks, $lang );
 	}
 
 	/**

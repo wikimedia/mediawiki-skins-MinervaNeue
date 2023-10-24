@@ -103,6 +103,7 @@
 			"args": [ {
 				"name": "minerva",
 				"templateDirectory": "includes/Skins",
+				"templateSectionLinks": "SectionLinks",
 				"tempUserBanner": true,
 				"messages": [
 					"variants",
