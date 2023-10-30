@@ -258,6 +258,8 @@ module.exports = function () {
 				);
 				// Supported messages:
 				// * skin-minerva-time-ago-seconds
+				// * skin-minerva-time-ago-minutes
+				// * skin-minerva-time-ago-hours
 				// * skin-minerva-time-ago-days
 				// * skin-minerva-time-ago-months
 				// * skin-minerva-time-ago-years
