@@ -3,11 +3,12 @@
 		"authors": [
 			"AlexandrL714",
 			"Joseph",
-			"Jolka Kaj"
+			"Jolka Kaj",
+			"Oxianboal"
 		]
 	},
-	"mobile-frontend-history": "Пу страницазының тӱзедіглерінің тархынын кӧрерге.",
-	"mobile-frontend-home-button": "Пас",
+	"mobile-frontend-history": "Пу страницазының алызығларының тархынын кӧрерге.",
+	"mobile-frontend-home-button": "Ӧӧн",
 	"mobile-frontend-language-article-heading": "Тіл",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Аалҷы полыңар}}, $1!",
 	"mobile-frontend-main-menu-login": "Кірерге",
