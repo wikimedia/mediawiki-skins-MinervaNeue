@@ -20,6 +20,8 @@
 		},
 		"wmf": {
 			"linkMap": {
+				"Window": "https://developer.mozilla.org/en-US/docs/Web/API/Window",
+				"Element": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
 				"HTMLElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement",
 				"jQuery": "https://api.jquery.com/Types/#jQuery",
 				"Drawer": "https://doc.wikimedia.org/MobileFrontend/master/js/js/Drawer.html",
