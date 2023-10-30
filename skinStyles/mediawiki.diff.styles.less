@@ -41,6 +41,194 @@
 		margin: 0;
 	}
 }
+
+// Will be enhanced with JS
+.mw-diff-timestamp {
+	display: block;
+	min-height: 20px;
+}
+
+.minoredit {
+	margin-right: 8px;
+	background: #eaecf0;
+	border-radius: 2px;
+	font-size: 0.9em;
+	padding: 0 6px 1px;
+}
+
+@media all and ( max-width: @width-breakpoint-desktop ) {
+	//
+	// Navigation links
+	//Reveal the previous and next navigation links
+	//
+	.mw-diff-revision-history-links {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.9em;
+		margin-top: 8px;
+	}
+
+	.mw-diff-revision-history-link-previous {
+		flex-grow: 1;
+		text-align: start;
+	}
+
+	.mw-diff-revision-history-link-next {
+		flex-grow: 1;
+		text-align: end;
+	}
+
+	//
+	// Diff header
+	//
+	.diff-ntitle {
+		text-align: left;
+
+		> div {
+			padding-bottom: 0.5em;
+		}
+
+		// Special case since #mw-diff-ntitle2 is position fixed.
+		#mw-diff-ntitle3 {
+			padding-top: 0.5em;
+		}
+	}
+
+	.minor-edit {
+		display: block;
+	}
+
+	//
+	// date of edit
+	//
+	.mw-diff-timestamp {
+		color: #72777d;
+		height: 1em;
+		line-height: 1em;
+		display: block;
+	}
+
+	.comment {
+		display: block;
+	}
+
+	//
+	// Diff
+	//
+	table.diff {
+		display: block;
+
+		tbody, tr, td {
+			display: block;
+			padding: 0;
+		}
+
+		.diff-otitle {
+			display: none;
+		}
+	}
+
+	//
+	// Sticky User box at bottom of page
+	//
+	#mw-diff-ntitle2 {
+		text-align: left;
+		position: fixed;
+		height: 8em;
+		padding: 1em;
+		background-color: #f8f9fa;
+		border-top: 1px solid #c8ccd1;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.mw-diff-tool {
+		bottom: 7em;
+		position: fixed;
+		z-index: @z-index-above-content;
+		right: 8px;
+	}
+
+	.mw-userlink {
+		&::before {
+			content: '';
+			margin-right: 8px;
+			.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-subtle );
+		}
+
+		&.mw-anonuserlink::before {
+			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, @color-subtle );
+		}
+	}
+
+	.mw-diff-usermetadata {
+		display: block;
+	}
+
+	.mw-diff-userroles {
+		margin-top: 0.7em;
+	}
+
+	.mw-diff-usereditcount {
+		margin-top: 1.2em;
+		display: inline-block;
+
+		span {
+			text-align: center;
+			font-size: 1.85em;
+			color: #72777d;
+			display: block;
+			line-height: 20px;
+		}
+	}
+
+	//
+	// Typography
+	//
+
+	.mw-diff-usermetadata,
+	.mw-diff-timestamp {
+		font-size: 0.7em;
+		text-transform: uppercase;
+	}
+
+	//
+	// HIDDEN UI ELEMENTS
+	//
+	// hidden for now to match historic Special:MobileDiff
+	// Sam Walton's team should enable this as needed.
+	.mw-usertoollinks,
+	#mw-diff-ntitle4,
+	.mw-diff-inline-legend,
+	.mw-diff-inline-header,
+	.mw-diffPage-inlineToggle-container,
+	.ve-init-mw-diffPage-diffMode,
+	.last-modified-bar,
+	#mw-diff-ntitle5,
+	.mw-diff-edit,
+	.mw-diff-undo,
+	table.diff ~ *,
+	.mw-revdelundel-link {
+		display: none !important;
+	}
+
+	#mw-diff-ntitle1 strong {
+		font-weight: normal;
+
+		> a {
+			padding: 0.5em 0;
+			display: block;
+			line-height: 1.6;
+		}
+	}
+
+	// fixed position element should not overlap footer.
+	.mw-footer .post-content {
+		overflow: auto;
+		margin-top: 42px;
+	}
+}
 // stylelint-enable selector-max-id
 
 // Wikitext font size is restored to 100%, as in mediawiki.editfont.styles
