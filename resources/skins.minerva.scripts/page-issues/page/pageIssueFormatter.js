@@ -20,9 +20,7 @@
 				issue.$el.find( '.mbox-text' ),
 			$clickContainer = multiple ? issue.$el.parents( '.mbox-text' ) : issue.$el;
 
-		$issueContainer.prepend(
-			issue.issue.icon.$el.clone()
-		);
+		$issueContainer.prepend( issue.issue.iconElement );
 		$issueContainer.prepend( $learnMoreEl );
 
 		$clickContainer.on( 'click', function () {
@@ -47,7 +45,7 @@
 	}
 
 	module.exports = {
-		insertPageIssueBanner: insertPageIssueBanner,
-		insertPageIssueNotice: insertPageIssueNotice
+		insertPageIssueBanner,
+		insertPageIssueNotice
 	};
 }() );
