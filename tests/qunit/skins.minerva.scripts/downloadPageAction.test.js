@@ -1,38 +1,45 @@
-( function ( M ) {
+( function () {
 	var VALID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
 		VALID_SUPPORTED_NAMESPACES = [ 0 ],
-		mobile = M.require( 'mobile.startup' ),
-		icons = mobile.icons,
+		spinner = () => ( {
+			$el: $( '<span>' )
+		} ),
 		Deferred = $.Deferred,
 		windowChrome = { chrome: true },
 		windowNotChrome = {},
 		downloadAction = require( '../../../resources/skins.minerva.scripts/downloadPageAction.js' ),
 		onClick = downloadAction.test.onClick,
-		isAvailable = downloadAction.test.isAvailable,
-		browser = mobile.Browser.getSingleton(),
-		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
-		Page = mobile.Page;
+		isAvailable = downloadAction.test.isAvailable;
 
+	class Page {
+		constructor( options ) {
+			this.isMissing = options.isMissing;
+			this._isMainPage = !!options.isMainPage;
+		}
+		isMainPage() {
+			return this._isMainPage;
+		}
+		getNamespaceId() {
+			return 0;
+		}
+	}
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
-			this.getOnClickHandler = function () {
-				var portletLink = document.createElement( 'li' ),
-					spinner = icons.spinner();
+			this.getOnClickHandler = function ( onLoadAllImages ) {
+				var portletLink = document.createElement( 'li' );
 
 				return function () {
-					onClick( portletLink, spinner );
+					onClick( portletLink, spinner(), onLoadAllImages );
 				};
 			};
 		}
 	} );
 
 	QUnit.test( '#getOnClickHandler (print after image download)', function ( assert ) {
-		var handler = this.getOnClickHandler(),
+		const
 			d = Deferred(),
+			handler = this.getOnClickHandler( () => d.resolve() ),
 			spy = this.sandbox.stub( window, 'print' );
-
-		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d.resolve() );
-		this.sandbox.stub( lazyImageLoader, 'queryPlaceholders' ).returns( [] );
 
 		handler();
 		d.then( function () {
@@ -43,12 +50,10 @@
 	} );
 
 	QUnit.test( '#getOnClickHandler (print via timeout)', function ( assert ) {
-		var handler = this.getOnClickHandler(),
+		const
 			d = Deferred(),
+			handler = this.getOnClickHandler( () => d.resolve() ),
 			spy = this.sandbox.stub( window, 'print' );
-
-		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d );
-		this.sandbox.stub( lazyImageLoader, 'queryPlaceholders' ).returns( [] );
 
 		window.setTimeout( function () {
 			d.resolve();
@@ -64,12 +69,9 @@
 	} );
 
 	QUnit.test( '#getOnClickHandler (multiple clicks)', function ( assert ) {
-		var handler = this.getOnClickHandler(),
-			d = Deferred(),
+		const d = Deferred(),
+			handler = this.getOnClickHandler( () => d.resolve() ),
 			spy = this.sandbox.stub( window, 'print' );
-
-		this.sandbox.stub( lazyImageLoader, 'loadImages' ).returns( d );
-		this.sandbox.stub( lazyImageLoader, 'queryPlaceholders' ).returns( [] );
 
 		window.setTimeout( function () {
 			d.resolve();
@@ -133,8 +135,7 @@
 	} );
 
 	QUnit.test( 'isAvailable() returns false for iOS', function ( assert ) {
-		this.sandbox.stub( browser, 'isIos' ).returns( true );
-		assert.false( this.isAvailable( VALID_UA ) );
+		assert.false( this.isAvailable( 'ipad' ) );
 	} );
 
 	QUnit.test( 'isAvailable() uses window.chrome to filter certain chrome-like browsers', function ( assert ) {
@@ -188,4 +189,4 @@
 		assert.true( this.isAvailable( 'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-G950U1 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36' ) );
 	} );
 
-}( mw.mobileFrontend ) );
+}() );

@@ -1,9 +1,7 @@
 // eslint-disable-next-line no-restricted-properties
-var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
+var mobile = require( 'mobile.startup' ),
 	drawers = require( './drawers.js' ),
-	CtaDrawer = mobile.CtaDrawer,
-	Button = mobile.Button,
-	Anchor = mobile.Anchor;
+	CtaDrawer = mobile.CtaDrawer;
 
 /**
  * Initialize red links call-to-action
@@ -27,16 +25,16 @@ var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 function initRedlinksCta( $redLinks ) {
 	$redLinks.on( 'click', function ( ev ) {
 		var drawerOptions = {
-				progressiveButton: new Button( {
+				progressiveButton: {
 					progressive: true,
 					label: mw.msg( 'mobile-frontend-editor-redlink-create' ),
 					href: $( this ).attr( 'href' )
-				} ).options,
-				actionAnchor: new Anchor( {
+				},
+				actionAnchor: {
 					progressive: true,
 					label: mw.msg( 'mobile-frontend-editor-redlink-leave' ),
 					additionalClassNames: 'cancel'
-				} ).options,
+				},
 				onBeforeHide: drawers.discardDrawer,
 				content: mw.msg( 'mobile-frontend-editor-redlink-explain' )
 			},

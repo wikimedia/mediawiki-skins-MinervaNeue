@@ -364,56 +364,6 @@
 				"unStar"
 			]
 		},
-		"skins.minerva.icons.images.scripts.misc": {
-			"class": "ResourceLoaderOOUIIconPackModule",
-			"selectorWithoutVariant": ".minerva-icon--{name}",
-			"defaultColor": "#54595d",
-			"icons": [
-				"download",
-				"listBullet"
-			],
-			"variants": []
-		},
-		"skins.minerva.icons.page.issues.uncolored": {
-			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}",
-			"images": {
-				"issue-severity-low-lowColor": "resources/skins.minerva.icons.page.issues.uncolored/issue-severity-low.svg",
-				"issue-type-move-defaultColor": "resources/skins.minerva.icons.page.issues.uncolored/issue-type-move.svg"
-			}
-		},
-		"skins.minerva.icons.page.issues.default.color": {
-			"class": "ResourceLoaderImageModule",
-			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}-defaultColor",
-			"selectorWithVariant": ".mw-ui-icon-minerva-{name}-{variant}",
-			"defaultColor": "#54595d",
-			"variants": {
-				"lowColor": {
-					"color": "#fc3",
-					"global": true
-				},
-				"mediumColor": {
-					"color": "#ff5d01",
-					"global": true
-				},
-				"highColor": {
-					"color": "#d33",
-					"global": true
-				}
-			},
-			"images": {
-				"issue-generic": "resources/skins.minerva.icons.page.issues.default.color/issue-generic.svg"
-			}
-		},
-		"skins.minerva.icons.page.issues.medium.color": {
-			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-minerva-{name}-mediumColor",
-			"defaultColor": "#ff5d01",
-			"images": {
-				"issue-severity-medium": "resources/skins.minerva.icons.page.issues.medium.color/issue-severity-medium.svg",
-				"issue-type-point-of-view": "resources/skins.minerva.icons.page.issues.medium.color/issue-type-point-of-view.svg"
-			}
-		},
 		"skins.minerva.mainPage.styles": {
 			"styles": [
 				"resources/skins.minerva.mainPage.styles/common.less"
@@ -478,10 +428,6 @@
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"mediawiki.cookie",
-				"skins.minerva.icons.images.scripts.misc",
-				"skins.minerva.icons.page.issues.uncolored",
-				"skins.minerva.icons.page.issues.default.color",
-				"skins.minerva.icons.page.issues.medium.color",
 				"skins.minerva.messageBox.styles",
 				"mediawiki.util",
 				"mediawiki.router",
@@ -517,8 +463,7 @@
 				"mobile-frontend-redirected-from"
 			],
 			"styles": [
-				"resources/skins.minerva.scripts/styles.less",
-				"resources/skins.minerva.scripts/page-issues/overlay/pageIssuesOverlay.less"
+				"resources/skins.minerva.scripts/styles.less"
 			],
 			"templates": {
 				"IssueNotice.mustache": "resources/skins.minerva.scripts/page-issues/overlay/IssueNotice.mustache"
