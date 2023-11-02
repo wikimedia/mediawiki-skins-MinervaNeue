@@ -1,16 +1,16 @@
 /* stylelint-disable selector-max-id, no-descending-specificity, unit-disallowed-list */
 
-@import '../minerva.less/minerva.mixins.less';
-@import '../minerva.less/minerva.variables.less';
-@import 'mediawiki.mixins.less';
 @import 'mediawiki.skin.variables';
+@import 'mediawiki.mixins.less';
+@import '../minerva.less/minerva.variables.less';
+@import '../minerva.less/minerva.mixins.less';
 
 /* Simplify default version */
 .mw-mf-amc-disabled {
 	/** compare feature not available */
 	#mw-history-compare input[ type='radio' ],
 	.mw-history-compareselectedversions,
-	/* Header shows date, so this is superfulous. */
+	/* Header shows date, so this is superfluous. */
 	&.action-history .mw-changeslist-date,
 	/* current link is hidden as previous link spans entire row. */
 	.mw-history-histlinks-current,
@@ -71,7 +71,7 @@
 		.comment {
 			-webkit-line-clamp: 2;
 			max-height: 2.6em;
-			color: @color-base--subtle;
+			color: @color-subtle;
 			line-height: 1.2;
 			white-space: normal;
 			display: -webkit-box;
