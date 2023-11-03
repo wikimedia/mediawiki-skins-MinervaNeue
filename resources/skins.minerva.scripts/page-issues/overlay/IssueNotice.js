@@ -1,6 +1,7 @@
-( function () {
-	const
-		mobile = require( 'mobile.startup' ),
+( function ( M ) {
+	var
+		mobile = M.require( 'mobile.startup' ),
+		mfExtend = mobile.mfExtend,
 		View = mobile.View;
 
 	/**
@@ -11,17 +12,18 @@
 	 *
 	 * @param {IssueSummary} props
 	 */
-	class IssueNotice extends View {
-		constructor() {
-			super( { className: 'cleanup' } );
-			this.tagName = 'li';
-			this.template = mw.template.get( 'skins.minerva.scripts', 'IssueNotice.mustache' );
-		}
-		postRender() {
-			super.postRender();
+	function IssueNotice( props ) {
+		View.call( this, props );
+	}
+	mfExtend( IssueNotice, View, {
+		tagName: 'li',
+		template: mw.template.get( 'skins.minerva.scripts', 'IssueNotice.mustache' ),
+		postRender: function () {
+			View.prototype.postRender.apply( this, arguments );
 			this.$el.find( '.issue-notice' ).prepend( this.options.issue.icon.$el );
 		}
-	}
+	} );
 	module.exports = IssueNotice;
 
-}() );
+// eslint-disable-next-line no-restricted-properties
+}( mw.mobileFrontend ) );

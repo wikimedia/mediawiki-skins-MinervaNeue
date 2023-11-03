@@ -176,7 +176,7 @@ Group assignment is universal no matter how many tests are running since both
 Group membership can be debugged from the console via:
 
 ```js
-  const AB = require('skins.minerva.scripts/AB')
+  const AB = mw.mobileFrontend.require('skins.minerva.scripts/AB')
   new AB({
     testName: 'WME.PageIssuesAB',
     samplingRate: mw.config.get( 'wgMinervaABSamplingRate', 0 ),

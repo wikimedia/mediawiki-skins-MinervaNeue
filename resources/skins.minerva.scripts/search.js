@@ -1,9 +1,11 @@
 module.exports = function () {
 	var
-		mobile = require( 'mobile.startup' ),
+		// eslint-disable-next-line no-restricted-properties
+		M = mw.mobileFrontend,
+		mobile = M.require( 'mobile.startup' ),
 		SearchOverlay = mobile.search.SearchOverlay,
 		SearchGateway = mobile.search.SearchGateway,
-		overlayManager = mobile.getOverlayManager(),
+		overlayManager = mobile.OverlayManager.getSingleton(),
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$searchInput = $( '#searchInput' ),
 		placeholder = $searchInput.attr( 'placeholder' ),

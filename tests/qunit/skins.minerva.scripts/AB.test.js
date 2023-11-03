@@ -1,6 +1,7 @@
-( function () {
+( function ( M ) {
 
 	var AB = require( '../../../resources/skins.minerva.scripts/AB.js' ),
+		util = M.require( 'mobile.startup' ).util,
 		defaultConfig = {
 			testName: 'WME.MinervaABTest',
 			samplingRate: 0.5,
@@ -21,7 +22,7 @@
 			i;
 
 		for ( i = 0; i < maxUsers; i++ ) {
-			config = Object.assign( {}, defaultConfig, {
+			config = util.extend( {}, defaultConfig, {
 				sessionId: mw.user.generateRandomSessionId()
 			} );
 			bucketingTest = new AB( config );
@@ -52,4 +53,4 @@
 			true, 'test new treatment group is about 25% (' + userBuckets.treatment / 10 + '%)' );
 	} );
 
-}() );
+}( mw.mobileFrontend ) );

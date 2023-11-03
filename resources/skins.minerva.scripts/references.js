@@ -2,11 +2,12 @@ var drawers = require( './drawers.js' );
 
 module.exports = function () {
 	// eslint-disable-next-line no-restricted-properties
-	var mobile = require( 'mobile.startup' ),
+	var M = mw.mobileFrontend,
+		mobile = M.require( 'mobile.startup' ),
 		references = mobile.references,
 		currentPage = mobile.currentPage(),
 		currentPageHTMLParser = mobile.currentPageHTMLParser(),
-		ReferencesHtmlScraperGateway = mobile.references.ReferencesHtmlScraperGateway,
+		ReferencesHtmlScraperGateway = mobile.ReferencesHtmlScraperGateway,
 		gateway = new ReferencesHtmlScraperGateway( new mw.Api() );
 
 	/**
@@ -59,7 +60,7 @@ module.exports = function () {
 
 	function init() {
 		// Make references clickable and show a drawer when clicked on.
-		$( document ).on( 'click', 'sup.reference a', onClickReference );
+		mobile.util.getDocument().on( 'click', 'sup.reference a', onClickReference );
 	}
 
 	init();

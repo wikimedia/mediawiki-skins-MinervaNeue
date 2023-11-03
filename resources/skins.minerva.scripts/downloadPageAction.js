@@ -1,18 +1,10 @@
-( function ( track ) {
+( function ( M, track ) {
 	var MAX_PRINT_TIMEOUT = 3000,
 		printSetTimeoutReference = 0,
-		mobile = require( 'mobile.startup' );
-
-	/**
-	 * Helper function to detect iOs
-	 *
-	 * @ignore
-	 * @param {string} userAgent User Agent
-	 * @return {boolean}
-	 */
-	function isIos( userAgent ) {
-		return /ipad|iphone|ipod/i.test( userAgent );
-	}
+		mobile = M.require( 'mobile.startup' ),
+		icons = mobile.icons,
+		lazyImageLoader = mobile.lazyImages.lazyImageLoader,
+		browser = mobile.Browser.getSingleton();
 
 	/**
 	 * Helper function to retrieve the Android version
@@ -67,7 +59,7 @@
 			return false;
 		}
 
-		if ( isIos( userAgent ) || chromeVersion === false ||
+		if ( browser.isIos() || chromeVersion === false ||
 			windowObj.chrome === undefined
 		) {
 			// we support only chrome/chromium on desktop/android
@@ -84,7 +76,7 @@
 	 * @param {HTMLElement} portletItem
 	 * @param {Icon} spinner
 	 */
-	function onClick( portletItem, spinner, loadAllImagesInPage ) {
+	function onClick( portletItem, spinner ) {
 		var icon = portletItem.querySelector( '.minerva-icon--download' );
 		function doPrint() {
 			printSetTimeoutReference = clearTimeout( printSetTimeoutReference );
@@ -112,7 +104,8 @@
 			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 			// abort the spinner and print regardless.
 			printSetTimeoutReference = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-			( loadAllImagesInPage || mobile.loadAllImagesInPage )().then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+			lazyImageLoader.loadImages( lazyImageLoader.queryPlaceholders( document.getElementById( 'content' ) ) )
+				.then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 		}
 	}
 
@@ -131,10 +124,10 @@
 	function downloadPageAction( page, supportedNamespaces, windowObj, overflowList ) {
 		var
 			portletLink, iconElement,
-			spinner = ( overflowList ) ? mobile.spinner( {
+			spinner = ( overflowList ) ? icons.spinner( {
 				label: '',
 				isIconOnly: false
-			} ) : mobile.spinner();
+			} ) : icons.spinner();
 
 		if (
 			isAvailable(
@@ -158,7 +151,7 @@
 			);
 			if ( portletLink ) {
 				portletLink.addEventListener( 'click', function () {
-					onClick( portletLink, spinner, mobile.loadAllImagesInPage );
+					onClick( portletLink, spinner );
 				} );
 				iconElement = portletLink.querySelector( '.minerva-icon' );
 				if ( iconElement ) {
@@ -175,12 +168,12 @@
 	}
 
 	module.exports = {
-		downloadPageAction,
+		downloadPageAction: downloadPageAction,
 		test: {
-			isAvailable,
-			onClick
+			isAvailable: isAvailable,
+			onClick: onClick
 		}
 	};
 
 // eslint-disable-next-line no-restricted-properties
-}( mw.track ) );
+}( mw.mobileFrontend, mw.track ) );

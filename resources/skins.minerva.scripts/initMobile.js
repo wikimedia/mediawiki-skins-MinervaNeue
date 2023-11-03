@@ -1,13 +1,21 @@
 /**
  * Initialise code that requires MobileFrontend.
+ *
+ * @todo anything that doesn't require MobileFrontend should be moved into ./setup.js
+ * @todo anything that can be rewritten without MobileFrontend (possibly using new frontend
+ * framework or upstreamed from MobileFrotend to core) should be and moved into ./setup.js
+ * @todo anything left should be moved to MobileFrontend extension and removed from here.
  */
 
 module.exports = function () {
 	const
 		ms = require( 'mobile.startup' ),
-		PageHTMLParser = ms.PageHTMLParser,
+		// eslint-disable-next-line no-restricted-properties
+		mobile = mw.mobileFrontend.require( 'mobile.startup' ),
+		PageHTMLParser = mobile.PageHTMLParser,
+		LanguageInfo = mobile.LanguageInfo,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
-		notifyOnPageReload = ms.notifyOnPageReload,
+		toast = mobile.toast,
 		time = ms.time,
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
@@ -22,10 +30,11 @@ module.exports = function () {
 		ctaDrawers = require( './ctaDrawers.js' ),
 		drawers = require( './drawers.js' ),
 		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
-		overlayManager = ms.getOverlayManager(),
-		currentPage = ms.currentPage(),
-		currentPageHTMLParser = ms.currentPageHTMLParser(),
+		overlayManager = mobile.OverlayManager.getSingleton(),
+		currentPage = mobile.currentPage(),
+		currentPageHTMLParser = mobile.currentPageHTMLParser(),
 		api = new mw.Api(),
+		eventBus = mobile.eventBusSingleton,
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
 
 	/**
@@ -121,27 +130,28 @@ module.exports = function () {
 			return;
 		}
 
-		return ms.mediaViewer.overlay( {
-			api,
+		return mobile.mediaViewer.overlay( {
+			api: api,
 			thumbnails: currentPageHTMLParser.getThumbnails(),
-			title
+			title: title,
+			eventBus: eventBus
 		} );
 	}
 
 	// Routes
 	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
 	overlayManager.add( /^\/languages$/, function () {
-		return ms.languages.languageOverlay();
+		return mobile.languageOverlay();
 	} );
 	// Register a LanguageInfo overlay which has no built-in functionality;
 	// a hook is fired when a language is selected, and extensions can respond
 	// to that hook. See GrowthExperiments WelcomeSurvey feature (in gerrit
 	// Ib558dc7c46cc56ff667957f9126bbe0471d25b8e for example usage).
 	overlayManager.add( /^\/languages\/all$/, function () {
-		return ms.languages.languageInfoOverlay( api, true );
+		return mobile.languageInfoOverlay( new LanguageInfo( api ), true );
 	} );
 	overlayManager.add( /^\/languages\/all\/no-suggestions$/, function () {
-		return ms.languages.languageInfoOverlay( api, false );
+		return mobile.languageInfoOverlay( new LanguageInfo( api ), false );
 	} );
 
 	// Setup
@@ -194,10 +204,10 @@ module.exports = function () {
 	function amcHistoryClickHandler( ev ) {
 		var
 			self = this,
-			amcOutreach = ms.amcOutreach,
+			amcOutreach = mobile.amcOutreach,
 			amcCampaign = amcOutreach.loadCampaign(),
 			onDismiss = function () {
-				notifyOnPageReload( mw.msg( 'mobile-frontend-amc-outreach-dismissed-message' ) );
+				toast.showOnPageReload( mw.msg( 'mobile-frontend-amc-outreach-dismissed-message' ) );
 				window.location = self.href;
 			},
 			drawer = amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' );
@@ -401,7 +411,7 @@ module.exports = function () {
 		// - search
 		search();
 		// - mobile redirect
-		mobileRedirect( ms.amcOutreach, currentPage );
+		mobileRedirect( mobile.amcOutreach, currentPage );
 
 		// Enhance timestamps on last-modified bar and watchlist
 		// to show relative time.
