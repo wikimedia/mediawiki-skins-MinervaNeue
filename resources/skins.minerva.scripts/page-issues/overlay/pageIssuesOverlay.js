@@ -1,6 +1,6 @@
-( function () {
-	const
-		Overlay = require( 'mobile.startup' ).Overlay,
+( function ( M ) {
+	var
+		Overlay = M.require( 'mobile.startup' ).Overlay,
 		IssueList = require( './IssueList.js' ),
 		KEYWORD_ALL_SECTIONS = 'all',
 		NS_MAIN = 0,
@@ -53,4 +53,5 @@
 
 	module.exports = pageIssuesOverlay;
 
-}() );
+// eslint-disable-next-line no-restricted-properties
+}( mw.mobileFrontend ) );

@@ -1,4 +1,4 @@
-( function () {
+( function ( M ) {
 	/**
 	 * @typedef PageIssue
 	 * @property {string} severity A SEVERITY_LEVEL key.
@@ -14,7 +14,7 @@
 	 * @property {string} text HTML string.
 	 */
 
-	var
+	var Icon = M.require( 'mobile.startup' ).Icon,
 		// Icons are matching the type selector below use a TYPE_* icon. When unmatched, the icon is
 		// chosen by severity. Their color is always determined by severity, too.
 		ICON_NAME = {
@@ -169,13 +169,14 @@
 	 * @return {PageIssue}
 	 */
 	function parse( box ) {
-		const severity = parseSeverity( box );
-		const iconElement = document.createElement( 'div' );
-		iconElement.classList.add( `minerva-icon--${iconName( box, severity )}`, 'minerva-ambox-icon' );
+		var severity = parseSeverity( box );
 		return {
-			severity,
+			severity: severity,
 			grouped: parseGroup( box ),
-			iconElement
+			icon: new Icon( {
+				glyphPrefix: 'minerva',
+				icon: iconName( box, severity )
+			} )
 		};
 	}
 
@@ -213,16 +214,16 @@
 	}
 
 	module.exports = {
-		extract,
-		parse,
-		maxSeverity,
-		iconName,
+		extract: extract,
+		parse: parse,
+		maxSeverity: maxSeverity,
+		iconName: iconName,
 		test: {
-			parseSeverity,
-			parseType,
-			parseGroup
+			parseSeverity: parseSeverity,
+			parseType: parseType,
+			parseGroup: parseGroup
 		}
 	};
 
 // eslint-disable-next-line no-restricted-properties
-}() );
+}( mw.mobileFrontend ) );
