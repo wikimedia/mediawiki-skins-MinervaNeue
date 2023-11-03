@@ -24,6 +24,12 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+
+	// T350440: Hide desktop history links on Special:MobileDiff
+	// to avoid duplicate sets of links.
+	.mw-diff-revision-history-links {
+		display: none;
+	}
 }
 
 @media all and ( max-width: @width-breakpoint-tablet ) {
