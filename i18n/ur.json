@@ -48,6 +48,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|رکن}} از $1",
 	"mobile-frontend-user-page-talk": "تبادلۂ خیال",
 	"minerva-user-menu-button": "گوشہ صارف",
+	"minerva-page-actions-editfull": "مکمل صفحہ میں ترمیم",
 	"minerva-page-actions-overflow": "مزید",
 	"minerva-page-actions-language-switcher": "زبانیں",
 	"minerva-page-actions-history": "تاریخچہ",
