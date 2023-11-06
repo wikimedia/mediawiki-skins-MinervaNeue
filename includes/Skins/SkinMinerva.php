@@ -681,6 +681,11 @@ class SkinMinerva extends SkinMustache {
 		) {
 			return null;
 		}
+		// Do not show the last modified bar on diff pages [T350515]
+		$request = $this->getRequest();
+		if ( $request->getText( 'diff' ) ) {
+			return null;
+		}
 
 		$out = $this->getOutput();
 
