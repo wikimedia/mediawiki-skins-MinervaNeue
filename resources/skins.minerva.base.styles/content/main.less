@@ -32,7 +32,7 @@ body {
 }
 
 // Feature phones < 320px viewport receive smaller font.
-@media all and ( max-width: @width-breakpoint-mobile - 1 ) {
+@media all and ( max-width: @min-width-breakpoint-mobile - 1 ) {
 	html {
 		font-size: @font-size-root--feature-phone;
 	}
@@ -66,7 +66,7 @@ body {
 		font-size: @font-size-root * @dynamic-type-scaling-factor;
 	}
 
-	@media all and ( max-width: @width-breakpoint-mobile - 1 ) {
+	@media all and ( max-width: @min-width-breakpoint-mobile - 1 ) {
 		body {
 			font-size: @font-size-root--feature-phone * @dynamic-type-scaling-factor;
 		}

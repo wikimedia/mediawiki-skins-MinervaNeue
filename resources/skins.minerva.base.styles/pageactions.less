@@ -84,8 +84,8 @@
 	}
 }
 
-// On small devices that don't support Javascript, hide the page actions bar
-@media all and ( max-width: @width-breakpoint-mobile - 1 ) {
+// On feature phone devices that don't support JavaScript, hide the page actions bar.
+@media all and ( max-width: @min-width-breakpoint-mobile - 1 ) {
 	.client-nojs {
 		#p-views {
 			display: none;
