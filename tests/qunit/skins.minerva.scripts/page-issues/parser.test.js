@@ -1,8 +1,9 @@
 ( function () {
-	var icon = {},
+	const iconElement = document.createElement( 'div' ),
 		pageIssuesParser = require( '../../../../resources/skins.minerva.scripts/page-issues/parser.js' ),
 		extractMessage = pageIssuesParser.extract;
 
+	iconElement.classList.add( 'minerva-icon--issue-generic-defaultColor', 'minerva-ambox-icon' );
 	QUnit.module( 'Minerva pageIssuesParser' );
 
 	/**
@@ -15,7 +16,7 @@
 		return box;
 	}
 
-	QUnit.test( 'extractMessage', function () {
+	QUnit.test( 'extractMessage', function ( assert ) {
 		[
 			[
 				$( '<div />' ).html(
@@ -24,8 +25,8 @@
 				{
 					issue: {
 						severity: 'DEFAULT',
-						grouped: true,
-						icon: icon
+						iconElement,
+						grouped: true
 					},
 					text: '<p>Smelly</p>'
 				},
@@ -38,16 +39,18 @@
 				{
 					issue: {
 						severity: 'DEFAULT',
-						grouped: false,
-						icon: icon
+						iconElement,
+						grouped: false
 					},
 					text: '<p>Dirty</p>'
 				},
 				'When the box is not child of mw-collapsible-content it !grouped'
 			]
 		].forEach( function ( test ) {
-			sinon.assert.match( // eslint-disable-line no-undef
-				extractMessage( test[ 0 ] ),
+			const msg = extractMessage( test[ 0 ] );
+			delete msg.$el;
+			assert.deepEqual(
+				msg,
 				test[ 1 ],
 				test[ 2 ]
 			);
