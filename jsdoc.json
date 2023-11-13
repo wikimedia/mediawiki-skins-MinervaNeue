@@ -20,6 +20,7 @@
 		},
 		"wmf": {
 			"linkMap": {
+				"Overlay": "https://doc.wikimedia.org/MobileFrontend/master/js/js/Overlay.html",
 				"Window": "https://developer.mozilla.org/en-US/docs/Web/API/Window",
 				"Element": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
 				"HTMLElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement",

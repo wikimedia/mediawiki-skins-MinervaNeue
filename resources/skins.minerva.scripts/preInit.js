@@ -1,11 +1,3 @@
-// FIXME: make this an object with a constructor to facilitate testing
-// (see https://bugzilla.wikimedia.org/show_bug.cgi?id=44264)
-/**
- * mobileFrontend namespace
- *
- * @class mw.mobileFrontend
- * @singleton
- */
 module.exports = function () {
 	var menus = require( './menu.js' );
 
