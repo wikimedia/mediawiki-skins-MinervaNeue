@@ -65,6 +65,7 @@
 	"minerva-skin-desc": "回應式的行動版優先外觀",
 	"skin-minerva-issue-learn-more": "了解更多",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 秒}}前",
+	"skin-minerva-time-ago-minutes": "{{PLURAL:$1|$1}} 分前",
 	"skin-minerva-time-ago-hours": "{{PLURAL:$1|$1 小時}}前",
 	"skin-minerva-time-ago-days": "{{PLURAL:$1|$1 天}}前",
 	"skin-minerva-time-ago-months": "{{PLURAL:$1|$1 個月}}前",
