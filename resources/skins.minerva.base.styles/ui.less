@@ -154,30 +154,25 @@ main {
 	}
 
 	.mw-parser-output {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
+		h1, h2, h3, h4, h5, h6 {
 			display: flex;
+		}
 
-			.mw-headline {
-				flex-grow: 1;
-				flex-basis: 0;
-				margin-left: 0;
-			}
+		.mw-headline {
+			flex-grow: 1;
+			flex-basis: 0;
+			margin-left: 0;
+		}
 
-			.mw-editsection {
-				align-self: center;
-				// Negative margins to prevent the edit icon from affecting the height of the heading
-				margin-top: -1em;
-				margin-bottom: -1em;
-				.cdx-mixin-button-layout-flush( 'end', true, 'large' );
+		.mw-editsection {
+			align-self: center;
+			// Negative margins to prevent the edit icon from affecting the height of the heading
+			margin-top: -1em;
+			margin-bottom: -1em;
+			.cdx-mixin-button-layout-flush( 'end', true, 'large' );
 
-				.cdx-button {
-					font-size: 1rem; // stylelint-disable-line unit-disallowed-list
-				}
+			.cdx-button {
+				font-size: 1rem; // stylelint-disable-line unit-disallowed-list
 			}
 		}
 	}
