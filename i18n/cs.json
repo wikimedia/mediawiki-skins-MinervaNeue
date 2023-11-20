@@ -79,5 +79,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategoriesButton-description": "Zobrazit kategorie stránek",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Vylepšené zpracování problémů stránky",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problémy stránky (Šablona:Cedule) budou zobrazeny uvnitř článku.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Seskupování výsledků podle stránky bohužel v mobilní verzi není k dispozici. Pokud chcete použít funkci seskupování podle stránky, navštivte webovou stránku pro počítače."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Seskupování výsledků podle stránky bohužel v mobilní verzi není k dispozici. Pokud chcete použít funkci seskupování podle stránky, navštivte webovou stránku pro počítače.",
+	"minerva.css": "/* Veškeré zde uvedené CSS bude načítáno uživatelům vzhledu „MinervaNeue“ */",
+	"minerva.js": "/* Veškerý zde uvedený JavaScript bude načítán uživatelům vzhledu „MinervaNeue“ */"
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chuvash2014",
-			"Astahar"
+			"Astahar",
+			"Makarka"
 		]
 	},
 	"mobile-frontend-editor-edit": "Тӳрлет",
@@ -10,6 +11,7 @@
 	"mobile-frontend-home-button": "Килелле",
 	"mobile-frontend-language-article-heading": "Чӗлхе",
 	"mobile-frontend-main-menu-login": "Кĕр",
+	"mobile-frontend-main-menu-nearby": "Ҫумра",
 	"mobile-frontend-main-menu-settings": "Ӗнерлевсем",
 	"mobile-frontend-placeholder": "{{SITENAME}} сайтра шыра",
 	"mobile-frontend-random-button": "Ӑнсӑртран илни"
