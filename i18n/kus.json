@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Awinimi",
 			"Bugirbiig",
 			"Vsambian"
 		]
 	},
+	"minerva-last-modified-date": "Maliŋim maalɛ $1. bɛ $2",
 	"minerva-watchlist-cta": "Kpansim lakir kaŋa nɛ tiakir kanɛ wʋsa bɛ di ni.",
 	"mobile-frontend-editor-edit": "Tiak",
 	"mobile-frontend-editor-redlink-create": "Maalim lakir",
@@ -14,11 +16,14 @@
 	"mobile-frontend-home-button": "Yin/Lɛm yin",
 	"mobile-frontend-language-article-heading": "Buudi pian'uk",
 	"mobile-frontend-languages-not-available": "Lakir kaŋa Kai buud sieba ni.",
+	"mobile-frontend-main-menu-contributions": "Fʋ zugsʋŋɔ",
 	"mobile-frontend-main-menu-login": "Kpɛn'ɛm",
 	"mobile-frontend-main-menu-logout": "Yi",
 	"mobile-frontend-main-menu-nearby": "Yamma",
 	"mobile-frontend-main-menu-settings": "Asʋŋ maalʋg",
+	"mobile-frontend-main-menu-watchlist": "Fʋn na gɔt si'el",
 	"mobile-frontend-meta-data-issues": "Lakir daaŋ",
+	"mobile-frontend-meta-data-issues-categories": "Zi'esim nwa yɛla",
 	"mobile-frontend-meta-data-issues-header": "Lakir daaŋ",
 	"minerva-meta-data-issues-section-header": "Babir daaŋ",
 	"mobile-frontend-placeholder": "Iem {{SITENAME}}",
