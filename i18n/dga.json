@@ -3,14 +3,30 @@
 		"authors": [
 			"Amire80",
 			"Linus Konkor",
-			"Zakaria Tunsung"
+			"Zakaria Tunsung",
+			"Joachim Yirkang"
 		]
 	},
-	"mobile-frontend-history": "Kaa a dabaŋkoroŋ maaleŋ gampɛle .",
+	"minerva-last-modified-date": "Maaleŋ eebo naŋ maale yi $1, a yi a $2 poɔŋ",
+	"minerva-watchlist-cta": "Baŋ kyɛ biŋ a gampɛle ŋa aneŋ kyiloo zaa naŋ be o eŋaŋ.",
+	"mobile-frontend-cookies-required": "Ka fooŋ boɔra ka fo leɛ gaa mobaale foni kaabo, see ka fo taa kookiisi sɛne. Sɔrefo la eŋ a sɛne kyɛ leɛ wa.",
+	"mobile-frontend-editor-edit": "Maale eŋ",
+	"minerva-download": "Daaloodi PDF",
+	"mobile-frontend-editor-redlink-create": "Maale gampɛle",
+	"mobile-frontend-editor-redlink-explain": "A gampɛle ŋa naŋ ba maale sɛne.",
+	"mobile-frontend-editor-redlink-leave": "Bareka kyebe",
+	"mobile-frontend-history": "Kaa a dabaŋkoroŋ maaleŋ gampɛle.",
 	"mobile-frontend-home-button": "Yiri",
 	"mobile-frontend-language-article-heading": "Kɔkɔre",
+	"mobile-frontend-languages-not-available": "A gampɛle ŋa ba kye kɔkɔ zaane eŋaŋ.",
+	"mobile-frontend-main-menu-button-tooltip": "Yuo a mɛnu kpoŋ",
+	"mobile-frontend-main-menu-contributions": "Poɔ mine",
 	"mobile-frontend-main-menu-login": "Kpɛ",
-	"mobile-frontend-main-menu-settings": "Sɛgehe",
+	"mobile-frontend-main-menu-logout": "Kpa kyɛ yi",
+	"mobile-frontend-main-menu-nearby": "Peɛloo",
+	"mobile-frontend-main-menu-settings": "Sɛgeroo",
+	"mobile-frontend-main-menu-watchlist": "Peɛrebo ganlee",
+	"mobile-frontend-meta-data-issues": "Gampɛle Yɛlɛ",
 	"mobile-frontend-placeholder": "Bɔ {{SITENAME}}",
-	"mobile-frontend-random-button": "Bonna"
+	"mobile-frontend-random-button": "Yeni yeni"
 }
