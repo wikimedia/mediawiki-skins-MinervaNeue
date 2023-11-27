@@ -17,6 +17,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|ⴱⵔⵔⴽ}}, $1!",
 	"mobile-frontend-main-menu-button-tooltip": "ⵕⵥⵎ ⵓⵎⵓⵖ ⵏ ⵓⵙⵏⵓⴱⴳ",
 	"mobile-frontend-main-menu-login": "ⴽⵛⵎ",
+	"mobile-frontend-main-menu-nearby": "ⵙ ⵡⴰⴷⴰⵙ",
 	"mobile-frontend-main-menu-settings": "ⵜⵉⵙⵖⴰⵍ",
 	"mobile-frontend-main-menu-watchlist": "ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵔ",
 	"mobile-frontend-meta-data-issues-header-talk": "ⵖⴼ ⵜⵙⵏⴰ ⴰⴷ",
