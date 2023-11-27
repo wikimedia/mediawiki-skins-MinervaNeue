@@ -132,20 +132,17 @@ main {
 	h2 {
 		// Clear table of contents and any other floated elements in desktop Minerva.
 		clear: left;
+	}
 
-		.edit-page {
-			/* stylelint-disable-next-line unit-disallowed-list */
-			font-size: 1rem;
+	// Only reveal section edit links in expanded section headings.
+	// The .section-heading class is only present on mobile.
+	.section-heading {
+		.mw-editsection {
+			visibility: hidden;
 		}
-	}
 
-	.collapsible-heading .edit-page {
-		visibility: hidden;
-	}
-
-	.collapsible-heading.open-block {
-		// Restrict to child so that child section edit links do not get revealed.
-		.edit-page {
+		&.open-block .mw-editsection,
+		.client-nojs & .mw-editsection {
 			visibility: visible;
 		}
 	}
