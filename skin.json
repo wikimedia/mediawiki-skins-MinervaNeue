@@ -22,7 +22,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.41"
+		"MediaWiki": ">= 1.42.0"
 	},
 	"config": {
 		"MinervaDonateLink": {
@@ -100,34 +100,36 @@
 	"ValidSkinNames": {
 		"minerva": {
 			"class": "MediaWiki\\Minerva\\Skins\\SkinMinerva",
-			"args": [ {
-				"name": "minerva",
-				"templateDirectory": "includes/Skins",
-				"templateSectionLinks": "SectionLinks",
-				"tempUserBanner": true,
-				"messages": [
-					"variants",
-					"mobile-frontend-languages-not-available",
-					"minerva-page-actions-language-switcher",
-					"sitetitle",
-					"mainpage",
-					"searchbutton",
-					"minerva-user-navigation",
-					"mobile-frontend-main-menu-button-tooltip",
-					"mobile-frontend-footer-sitename"
-				],
-				"menus": [
-					"notifications",
-					"associated-pages"
-				],
-				"clientPrefEnabled": true,
-				"responsive": true,
-				"link": {
-					"text-wrapper": {
-						"tag": "span"
+			"args": [
+				{
+					"name": "minerva",
+					"templateDirectory": "includes/Skins",
+					"templateSectionLinks": "SectionLinks",
+					"tempUserBanner": true,
+					"messages": [
+						"variants",
+						"mobile-frontend-languages-not-available",
+						"minerva-page-actions-language-switcher",
+						"sitetitle",
+						"mainpage",
+						"searchbutton",
+						"minerva-user-navigation",
+						"mobile-frontend-main-menu-button-tooltip",
+						"mobile-frontend-footer-sitename"
+					],
+					"menus": [
+						"notifications",
+						"associated-pages"
+					],
+					"clientPrefEnabled": true,
+					"responsive": true,
+					"link": {
+						"text-wrapper": {
+							"tag": "span"
+						}
 					}
 				}
-			} ]
+			]
 		}
 	},
 	"AutoloadNamespaces": {
