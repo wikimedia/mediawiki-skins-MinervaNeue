@@ -276,7 +276,7 @@
 			]
 		},
 		"skins.minerva.content.styles.images": {
-			"class": "ResourceLoaderImageModule",
+			"class": "MediaWiki\\ResourceLoader\\ImageModule",
 			"selectorWithoutVariant": "{name}",
 			"selectorWithVariant": "{name}--{variant}",
 			"defaultColor": "#36c",
@@ -308,7 +308,7 @@
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"icons": [
 				"block",
 				"ellipsis",
@@ -350,7 +350,7 @@
 					"global": true
 				}
 			},
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"icons": [
 				"edit",
 				"wikiText",
@@ -377,7 +377,7 @@
 			]
 		},
 		"skins.minerva.personalMenu.icons": {
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
@@ -386,7 +386,7 @@
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
@@ -397,7 +397,7 @@
 			"variants": []
 		},
 		"skins.minerva.mainMenu.icons": {
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"variants": [],
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
@@ -501,13 +501,13 @@
 			]
 		},
 		"skins.minerva.messageBox.styles": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": [
 				"interface-message-box"
 			]
 		},
 		"skins.minerva.categories.styles": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": [
 				"interface-category"
 			]
