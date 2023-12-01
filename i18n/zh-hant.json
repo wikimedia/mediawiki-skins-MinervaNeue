@@ -69,7 +69,7 @@
 	"skin-minerva-time-ago-hours": "{{PLURAL:$1|$1 小時}}前",
 	"skin-minerva-time-ago-days": "{{PLURAL:$1|$1 天}}前",
 	"skin-minerva-time-ago-months": "{{PLURAL:$1|$1 個月}}前",
-	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 年}}前",
+	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1}} 年前",
 	"skin-minerva-mobile-option-MinervaShowCategories": "分類",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "檢視頁面分類",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "已改進頁面問題處理",
