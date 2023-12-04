@@ -7,12 +7,12 @@
 			"Oxianboal"
 		]
 	},
-	"mobile-frontend-history": "Пу страницазының алызығларының тархынын кӧрерге.",
+	"mobile-frontend-history": "Пу страницаның тӱзедіглер тархынын кӧрерге.",
 	"mobile-frontend-home-button": "Ӧӧн",
 	"mobile-frontend-language-article-heading": "Тіл",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Аалҷы полыңар}}, $1!",
 	"mobile-frontend-main-menu-login": "Кірерге",
 	"mobile-frontend-main-menu-settings": "Настройкалар",
-	"mobile-frontend-placeholder": "Тілирге {{SITENAME}}",
+	"mobile-frontend-placeholder": "{{SITENAME}} сайтта тілирге",
 	"mobile-frontend-random-button": "Рандом"
 }
