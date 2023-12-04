@@ -141,35 +141,33 @@ class Hooks implements
 	 */
 	public function onSpecialPageBeforeExecute( $special, $subpage ) {
 		$name = $special->getName();
-		$out = $special->getOutput();
-		$skin = $out->getSkin();
+		if ( !in_array( $name, [ 'Recentchanges', 'Userlogin', 'CreateAccount' ] ) ) {
+			return;
+		}
+		$skin = $special->getSkin();
+		if ( !$skin instanceof SkinMinerva ) {
+			return;
+		}
 		$request = $special->getRequest();
-
-		if ( $skin instanceof SkinMinerva ) {
-			switch ( $name ) {
-				case 'Recentchanges':
-					$isEnhancedDefaultForUser = MediaWikiServices::getInstance()
-						->getUserOptionsLookup()
-						->getBoolOption( $special->getUser(), 'usenewrc' );
-					$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
-					if ( $enhanced ) {
-						$out->addHTML( Html::warningBox(
-							$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )->parse()
-						) );
-					}
-					break;
-				case 'Userlogin':
-				case 'CreateAccount':
-					// Add default warning message to Special:UserLogin and Special:UserCreate
-					// if no warning message set.
-					if (
-						!$request->getVal( 'warning' ) &&
-						!$special->getUser()->isRegistered() &&
-						!$request->wasPosted()
-					) {
-						$request->setVal( 'warning', 'mobile-frontend-generic-login-new' );
-					}
-					break;
+		if ( $name === 'Recentchanges' ) {
+			$isEnhancedDefaultForUser = MediaWikiServices::getInstance()
+				->getUserOptionsLookup()
+				->getBoolOption( $special->getUser(), 'usenewrc' );
+			$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
+			if ( $enhanced ) {
+				$special->getOutput()->addHTML( Html::warningBox(
+					$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )->parse()
+				) );
+			}
+		} else {
+			// Add default warning message to Special:UserLogin and Special:UserCreate
+			// if no warning message set.
+			if (
+				!$request->getVal( 'warning' ) &&
+				!$special->getUser()->isRegistered() &&
+				!$request->wasPosted()
+			) {
+				$request->setVal( 'warning', 'mobile-frontend-generic-login-new' );
 			}
 		}
 	}
