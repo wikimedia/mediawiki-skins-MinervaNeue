@@ -7,8 +7,7 @@ class EditPage extends Page {
 	get displayedContent() { return $( '#mw-content-text .mw-parser-output' ); }
 	get heading() { return $( 'h1.mw-first-heading' ); }
 	// Sync with src/mobile.editor.overlay/EditorOverlayBase.js in MobileFrontend
-	// FIXME: T346184
-	get next() { return $( '.mw-ui-icon-mf-next-invert, .mf-icon-next-invert' ); }
+	get next() { return $( '.mf-icon-next-invert' ); }
 	get save() { return $( 'button.cdx-button' ); }
 
 	openForEditing( title ) {

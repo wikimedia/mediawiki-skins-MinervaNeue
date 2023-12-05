@@ -383,7 +383,8 @@
 			"icons": [
 				"sandbox"
 			],
-			"variants": []
+			"variants": [],
+			"useDataURI": false
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
@@ -394,7 +395,8 @@
 				"specialPages",
 				"speechBubbles"
 			],
-			"variants": []
+			"variants": [],
+			"useDataURI": false
 		},
 		"skins.minerva.mainMenu.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
