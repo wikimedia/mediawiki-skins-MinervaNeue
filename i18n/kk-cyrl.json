@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Arystanbek",
+			"Casserium",
 			"Fontan 030",
 			"Kaztrans",
 			"U.ayaao.p",
@@ -48,6 +49,7 @@
 	"mobile-frontend-user-page-talk": "Талқылауы",
 	"minerva-user-menu-button": "Қатысушы мәзірі",
 	"minerva-user-navigation": "Қатысушы шарлауы",
+	"minerva-page-actions-editfull": "Бүкіл бетті өңдеу",
 	"minerva-page-actions-overflow": "Тағы",
 	"minerva-page-actions-language-switcher": "Тілдер",
 	"minerva-page-actions-history": "Тарихы",
