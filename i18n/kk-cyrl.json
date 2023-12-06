@@ -6,7 +6,8 @@
 			"Kaztrans",
 			"U.ayaao.p",
 			"Wikibilim",
-			"СеніңШешең"
+			"СеніңШешең",
+			"Casserium"
 		]
 	},
 	"minerva-last-modified-date": "Соңғы рет $1, $2 бұрын өңделді",
@@ -48,6 +49,7 @@
 	"mobile-frontend-user-page-talk": "Талқылауы",
 	"minerva-user-menu-button": "Қатысушы мәзірі",
 	"minerva-user-navigation": "Қатысушы шарлауы",
+	"minerva-page-actions-editfull": "Бүкіл бетті өңдеу",
 	"minerva-page-actions-overflow": "Тағы",
 	"minerva-page-actions-language-switcher": "Тілдер",
 	"minerva-page-actions-history": "Тарихы",
