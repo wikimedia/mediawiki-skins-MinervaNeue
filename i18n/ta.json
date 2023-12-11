@@ -8,7 +8,8 @@
 			"Sank",
 			"Shanmugamp7",
 			"Surya Prakash.S.A.",
-			"Siddhan"
+			"Siddhan",
+			"Fahimrazick"
 		]
 	},
 	"mobile-frontend-editor-edit": "தொகு",
@@ -18,7 +19,7 @@
 	"mobile-frontend-logged-in-homepage-notification": "வருக $1",
 	"mobile-frontend-main-menu-button-tooltip": "முதன்மை பட்டியைத் திறக்கவும்",
 	"mobile-frontend-main-menu-contributions": "பங்களிப்புக்கள்",
-	"mobile-frontend-main-menu-login": "உள்நுழை",
+	"mobile-frontend-main-menu-login": "புகுபதிகை",
 	"mobile-frontend-main-menu-logout": "விடுபதிகை",
 	"mobile-frontend-main-menu-nearby": "அருகிலுள்ள",
 	"mobile-frontend-main-menu-settings": "அமைப்புகள்",
@@ -26,7 +27,7 @@
 	"mobile-frontend-meta-data-issues": "இந்த பக்கம் சில பிரச்சனைகளை கொண்டுள்ளது",
 	"mobile-frontend-meta-data-issues-header": "பிரச்னைகள்",
 	"mobile-frontend-pageaction-edit-tooltip": "இப்பக்கத்தின் முதல் பகுதியை தொகுக்கவும்.",
-	"mobile-frontend-placeholder": "{{SITENAME}} - இல் தேடுக",
+	"mobile-frontend-placeholder": "{{SITENAME}} இல் தேடு",
 	"mobile-frontend-random-button": "ஏதோ ஒன்று",
 	"minerva-page-actions-history": "வரலாறு"
 }

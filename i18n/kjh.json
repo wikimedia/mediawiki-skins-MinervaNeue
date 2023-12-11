@@ -12,6 +12,7 @@
 	"mobile-frontend-language-article-heading": "Тіл",
 	"mobile-frontend-logged-in-homepage-notification": "{{GENDER:$1|Аалҷы полыңар}}, $1!",
 	"mobile-frontend-main-menu-login": "Кірерге",
+	"mobile-frontend-main-menu-nearby": "Хости",
 	"mobile-frontend-main-menu-settings": "Настройкалар",
 	"mobile-frontend-placeholder": "{{SITENAME}} сайтта тілирге",
 	"mobile-frontend-random-button": "Рандом"
