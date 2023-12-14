@@ -130,7 +130,7 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @inheritDoc
 	 */
 	public function getCSSClasses(): array {
-		return $this->isJSOnly ? [ 'jsonly' ] : [];
+		return $this->isJSOnly ? [ 'skin-minerva-list-item-jsonly' ] : [];
 	}
 
 	/**
