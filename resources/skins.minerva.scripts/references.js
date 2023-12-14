@@ -16,17 +16,16 @@ module.exports = function () {
 	 * @param {jQuery.Event} ev Click event of the reference element
 	 */
 	function showReference( ev ) {
-		var urlComponents,
-			$dest = $( ev.currentTarget ),
+		var $dest = $( ev.currentTarget ),
 			href = $dest.attr( 'href' );
 
 		ev.preventDefault();
 
 		// If necessary strip the URL portion of the href so we are left with the
 		// fragment
-		urlComponents = href.split( '#' );
-		if ( urlComponents.length > 1 ) {
-			href = '#' + urlComponents[ 1 ];
+		var i = href.indexOf( '#' );
+		if ( i > 0 ) {
+			href = href.slice( i );
 		}
 
 		references.showReference( href, currentPage, $dest.text(),
