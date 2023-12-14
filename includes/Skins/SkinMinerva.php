@@ -434,7 +434,8 @@ class SkinMinerva extends SkinMustache {
 	private function hasPageTabs() {
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
-		$isSpecialPage = $title->isSpecialPage();
+		$isSpecialPageOrHistory = $title->isSpecialPage() ||
+			$this->getRequest()->getText( 'action' ) === 'history';
 		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
 			->getSubjectPage( $title );
 		$isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
@@ -442,7 +443,7 @@ class SkinMinerva extends SkinMustache {
 				$this->hasPageActions() && !$isMainPageTalk &&
 				$skinOptions->get( SkinOptions::TALK_AT_TOP )
 			) || (
-				$isSpecialPage &&
+				$isSpecialPageOrHistory &&
 				$skinOptions->get( SkinOptions::TABS_ON_SPECIALS )
 			);
 	}
