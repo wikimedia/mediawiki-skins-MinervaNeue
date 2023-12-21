@@ -306,6 +306,7 @@ class SkinMinerva extends SkinMustache {
 			$allLanguages = $data['data-portlets']['data-languages']['array-items'] ?? [];
 			$allVariants = $data['data-portlets']['data-variants']['array-items'] ?? [];
 			$notifications = $data['data-portlets']['data-notifications']['array-items'] ?? [];
+			$associatedPages = $data['data-portlets']['data-associated-pages'] ?? [];
 
 			return $data + [
 				'has-minerva-languages' => $allLanguages || $allVariants,
@@ -361,7 +362,7 @@ class SkinMinerva extends SkinMustache {
 				'data-minerva-notifications' => $notifications ? [
 					'array-buttons' => $this->getNotificationButtons( $notifications ),
 				] : null,
-				'data-minerva-tabs' => $this->getTabsData( $nav ),
+				'data-minerva-tabs' => $this->getTabsData( $nav, $associatedPages ),
 				'data-minerva-page-actions' => $this->getPageActions( $nav ),
 				'data-minerva-secondary-actions' => $this->getSecondaryActions( $nav ),
 				'html-minerva-subject-link' => $this->getSubjectPage(),
@@ -450,15 +451,17 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * @param array $contentNavigationUrls
+	 * @param array $associatedPages - data-associated-pages from template data, currently only used for ID
 	 * @return array
 	 */
-	private function getTabsData( array $contentNavigationUrls ) {
+	private function getTabsData( array $contentNavigationUrls, array $associatedPages ) {
 		$hasPageTabs = $this->hasPageTabs();
 		if ( !$hasPageTabs ) {
 			return [];
 		}
 		return $contentNavigationUrls ? [
 			'items' => array_values( $contentNavigationUrls['associated-pages'] ),
+			'id' => $associatedPages['id'] ?? null,
 		] : [];
 	}
 

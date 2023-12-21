@@ -3,9 +3,11 @@
  * @return {Object} of arrays with mandatory class names for list item elements.
  */
 function getClassesForItem( $item ) {
-	var $parent = $item.parent(),
+	const $parent = $item.parent(),
 		// eslint-disable-next-line no-jquery/no-class-state
 		isPageActionList = $parent.hasClass( 'page-actions-menu__list' ),
+		// eslint-disable-next-line no-jquery/no-class-state
+		isTabContainer = $parent.hasClass( 'minerva__tab-container' ),
 		// eslint-disable-next-line no-jquery/no-class-state
 		isToggleList = $parent.hasClass( 'toggle-list__list' );
 
@@ -27,6 +29,12 @@ function getClassesForItem( $item ) {
 				'cdx-button--icon-only',
 				'cdx-button--weight-quiet'
 			]
+		};
+	} else if ( isTabContainer ) {
+		return {
+			li: [ 'minerva__tab' ],
+			span: [],
+			a: []
 		};
 	} else {
 		return {
@@ -66,13 +74,20 @@ function hookHandler( listItem, data ) {
 
 	if ( listItem && !listItem.dataset.minervaPortlet ) {
 		$item = $( listItem );
+
+		// add the corresponding classes
 		classes = getClassesForItem( $item );
 		$item.addClass( classes.li );
 		$a = $item.find( 'a' );
 		$a.addClass( classes.a );
 		$item.find( 'a > span' ).addClass( classes.span );
+
 		listItem.dataset.minervaPortlet = true;
-		if ( classes.span.indexOf( 'minerva-icon' ) === -1 ) {
+
+		// if the list item is not itself an icon, add the corresponding icon
+		// (except tabs, which do not have icons)
+		if ( classes.span.indexOf( 'minerva-icon' ) === -1 &&
+			classes.li.indexOf( 'minerva__tab' ) === -1 ) {
 			insertIcon( $a, id );
 		}
 	}
