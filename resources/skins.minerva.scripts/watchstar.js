@@ -1,4 +1,4 @@
-var watchstar = mw.loader.require( 'mediawiki.page.watch.ajax' ).watchstar;
+var watchstar = require( 'mediawiki.page.watch.ajax' ).watchstar;
 
 ( function () {
 
