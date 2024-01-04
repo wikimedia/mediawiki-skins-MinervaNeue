@@ -45,6 +45,130 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'Minerva.SkinOptions', $mockOptions );
 	}
 
+	public static function provideHasPageActions() {
+		return [
+			[ NS_MAIN, 'test', 'view', true ],
+			[ NS_SPECIAL, 'test', 'view', false ],
+			[ NS_MAIN, 'Main Page', 'view', false ],
+			[ NS_MAIN, 'test', 'history', false ]
+		];
+	}
+
+	/**
+	 * @dataProvider provideHasPageActions
+	 * @covers ::hasPageActions
+	 */
+	public function testHasPageActions( int $namespace, string $title, string $action, bool $expected ) {
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( $namespace, $title ) );
+		$context->setActionName( $action );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$this->assertEquals( $expected, TestingAccessWrapper::newFromObject( $skin )->hasPageActions() );
+	}
+
+	public static function provideHasPageTabs() {
+		return [
+			[ [ SkinOptions::TABS_ON_SPECIALS => false ], NS_MAIN, 'test', 'view', true ],
+			[ [ SkinOptions::TABS_ON_SPECIALS => false ], NS_MAIN, 'Main Page', 'view', false ],
+			[ [ SkinOptions::TABS_ON_SPECIALS => false ], NS_TALK, 'Main Page', 'view', false ],
+			[ [ SkinOptions::TALK_AT_TOP => false ], NS_MAIN, 'test', 'view', false ],
+			[ [ SkinOptions::TALK_AT_TOP => false ], NS_SPECIAL, 'test', 'view', true ],
+			[ [ SkinOptions::TALK_AT_TOP => false ], NS_MAIN, 'test', 'history', true ],
+		];
+	}
+
+	/**
+	 * @dataProvider provideHasPageTabs
+	 * @covers ::hasPageTabs
+	 */
+	public function testHasPageTabs( array $options, int $namespace, string $title, string $action, bool $expected ) {
+		// both tabs on specials and talk at top default to true
+		$this->overrideSkinOptions( $options );
+
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( $namespace, $title ) );
+		$context->setActionName( $action );
+
+		// hasPageTabs gets the action directly from the request rather than the context so we set it here as well
+		$context->getRequest()->setVal( 'action', $action );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$this->assertEquals( $expected, TestingAccessWrapper::newFromObject( $skin )->hasPageTabs() );
+	}
+
+	/**
+	 * @covers ::getTabsData
+	 */
+	public function testGetTabsData() {
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$contentNavigationUrls = [ 'associated-pages' => [ 'testkey' => 'testvalue' ] ];
+		$associatedPages = [ 'id' => 'test' ];
+		$data = TestingAccessWrapper::newFromObject( $skin )->getTabsData( $contentNavigationUrls, $associatedPages );
+
+		$this->assertEquals( [ 'items' => [ 'testvalue' ], 'id' => 'test' ], $data );
+	}
+
+	/**
+	 * @covers ::getTabsData when hasPageTabs is false
+	 */
+	public function testGetTabsDataNoPageTabs() {
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$contentNavigationUrls = [ 'associated-pages' => [ 'testkey' => 'testvalue' ] ];
+		$associatedPages = [ 'id' => 'test' ];
+		$data = TestingAccessWrapper::newFromObject( $skin )->getTabsData( $contentNavigationUrls, $associatedPages );
+
+		$this->assertEquals( [], $data );
+	}
+
+	/**
+	 * @covers ::getTabsData when contentNavigationUrls is empty
+	 */
+	public function testGetTabsDataNoContentNavigationUrls() {
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$contentNavigationUrls = [];
+		$associatedPages = [ 'id' => 'test' ];
+		$data = TestingAccessWrapper::newFromObject( $skin )->getTabsData( $contentNavigationUrls, $associatedPages );
+
+		$this->assertEquals( [], $data );
+	}
+
+	/**
+	 * @covers ::getTabsData when associatedPages has no id
+	 */
+	public function testGetTabsDataNoId() {
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$contentNavigationUrls = [ 'associated-pages' => [ 'testkey' => 'testvalue' ] ];
+		$associatedPages = [];
+		$data = TestingAccessWrapper::newFromObject( $skin )->getTabsData( $contentNavigationUrls, $associatedPages );
+
+		$this->assertEquals( [ 'items' => [ 'testvalue' ], 'id' => null ], $data );
+	}
+
 	/**
 	 * @covers ::setContext
 	 * @covers ::hasCategoryLinks
