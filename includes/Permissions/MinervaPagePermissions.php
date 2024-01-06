@@ -19,10 +19,10 @@
  */
 namespace MediaWiki\Minerva\Permissions;
 
-use Config;
-use ConfigException;
 use ContentHandler;
 use IContextSource;
+use MediaWiki\Config\Config;
+use MediaWiki\Config\ConfigException;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;

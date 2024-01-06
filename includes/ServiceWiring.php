@@ -35,6 +35,7 @@ use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MediaWiki\SpecialPage\SpecialPage;
 
 return [
 	'Minerva.Menu.Definitions' => static function ( MediaWikiServices $services ): Definitions {

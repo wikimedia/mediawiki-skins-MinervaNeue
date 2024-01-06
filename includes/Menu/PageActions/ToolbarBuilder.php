@@ -30,13 +30,13 @@ use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Watchlist\WatchlistManager;
 use MessageLocalizer;
 use SpecialMobileHistory;
-use SpecialPage;
-use User;
 
 class ToolbarBuilder {
 

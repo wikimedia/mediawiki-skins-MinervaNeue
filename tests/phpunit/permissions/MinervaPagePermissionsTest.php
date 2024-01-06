@@ -3,7 +3,7 @@
 namespace MediaWiki\Minerva;
 
 use ContentHandler;
-use HashConfig;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;

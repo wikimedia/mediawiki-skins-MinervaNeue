@@ -22,30 +22,30 @@ namespace MediaWiki\Minerva;
 
 use ChangesList;
 use ChangesListFilterGroup;
-use Config;
 use DifferenceEngine;
 use ExtensionRegistry;
-use Html;
+use MediaWiki\Config\Config;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
 use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\User;
 use MobileContext;
 use OldChangesList;
-use OutputPage;
 use Skin;
-use SpecialPage;
-use User;
 use Wikimedia\Services\NoSuchServiceException;
 
 /**

@@ -3,9 +3,9 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\Minerva\Skins\SkinMinerva;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
-use OutputPage;
 use RequestContext;
 use Wikimedia\TestingAccessWrapper;
 

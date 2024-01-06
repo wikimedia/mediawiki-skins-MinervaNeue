@@ -22,9 +22,9 @@ namespace MediaWiki\Minerva\Skins;
 
 use IContextSource;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserNameUtils;
-use User;
 
 class SkinUserPageHelper {
 	/**

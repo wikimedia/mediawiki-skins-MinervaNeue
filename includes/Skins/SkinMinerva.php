@@ -21,9 +21,9 @@
 namespace MediaWiki\Minerva\Skins;
 
 use ExtensionRegistry;
-use Html;
 use Language;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Html\Html;
 use MediaWiki\Html\TemplateParser;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
@@ -32,13 +32,13 @@ use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use MWTimestamp;
+use MediaWiki\Utils\MWTimestamp;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
 use SpecialMobileHistory;
-use SpecialPage;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!

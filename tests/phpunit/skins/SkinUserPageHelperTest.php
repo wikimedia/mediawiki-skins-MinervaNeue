@@ -4,9 +4,9 @@ namespace MediaWiki\Minerva;
 
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
-use User;
 
 /**
  * @group MinervaNeue
