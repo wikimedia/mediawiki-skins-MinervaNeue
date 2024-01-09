@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Olve Utne"
+			"Olve Utne",
+			"JuovakenSammal"
 		]
 	},
+	"mobile-frontend-home-button": "Hiäjbmije",
 	"mobile-frontend-language-article-heading": "Giälla"
 }
