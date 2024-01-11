@@ -9,36 +9,6 @@
 		padding-bottom: 6px;
 		display: inline-block;
 
-		&:last-child {
-			margin-right: 0;
-		}
-
-		// note core doesn't use BEM.
-		&.selected {
-			border-bottom: @border-width-thick @border-style-base #54595d;
-		}
-	}
-
-	// FIXME - this is to be removed in ~a week once the cache has refreshed and there are no more unnested links
-	a.minerva__tab {
-		color: @color-subtle;
-
-		&:visited,
-		&:hover,
-		&:active {
-			text-decoration: none;
-		}
-
-		&.new,
-		&.new:visited,
-		&.new:hover,
-		&.new:active {
-			color: @color-link-new;
-		}
-	}
-
-	// FIXME - once the cache is cleared, remove the li specification and incorporate these back into .minerva__tab
-	li.minerva__tab {
 		a {
 			color: @color-subtle;
 		}
@@ -54,6 +24,15 @@
 		&.new a:hover,
 		&.new a:active {
 			color: @color-link-new;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		// note core doesn't use BEM.
+		&.selected {
+			border-bottom: @border-width-thick @border-style-base #54595d;
 		}
 	}
 }
