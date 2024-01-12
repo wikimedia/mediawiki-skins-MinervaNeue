@@ -154,6 +154,24 @@
 		position: fixed;
 		z-index: @z-index-above-content;
 		right: 8px;
+
+		.jquery-confirmable-interface {
+			background-color: @background-color-interactive-subtle;
+			border: @border-subtle;
+			padding: @spacing-50;
+		}
+
+		.jquery-confirmable-element {
+			~ .jquery-confirmable-interface {
+				display: none;
+			}
+
+			&.hidden {
+				~ .jquery-confirmable-interface {
+					display: block;
+				}
+			}
+		}
 	}
 
 	.mw-userlink {
