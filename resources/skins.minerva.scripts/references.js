@@ -1,7 +1,7 @@
 var drawers = require( './drawers.js' );
 
 module.exports = function () {
-	// eslint-disable-next-line no-restricted-properties
+
 	var mobile = require( 'mobile.startup' ),
 		references = mobile.references,
 		currentPage = mobile.currentPage(),

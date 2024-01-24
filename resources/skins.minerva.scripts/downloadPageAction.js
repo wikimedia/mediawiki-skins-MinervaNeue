@@ -83,6 +83,7 @@
 	 *
 	 * @param {HTMLElement} portletItem
 	 * @param {Icon} spinner
+	 * @param {Function} [loadAllImagesInPage]
 	 */
 	function onClick( portletItem, spinner, loadAllImagesInPage ) {
 		var icon = portletItem.querySelector( '.minerva-icon--download' );
@@ -182,5 +183,4 @@
 		}
 	};
 
-// eslint-disable-next-line no-restricted-properties
 }( mw.track ) );

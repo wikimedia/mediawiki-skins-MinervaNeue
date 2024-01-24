@@ -171,7 +171,7 @@
 	function parse( box ) {
 		const severity = parseSeverity( box );
 		const iconElement = document.createElement( 'div' );
-		iconElement.classList.add( `minerva-icon--${iconName( box, severity )}`, 'minerva-ambox-icon' );
+		iconElement.classList.add( `minerva-icon--${ iconName( box, severity ) }`, 'minerva-ambox-icon' );
 		return {
 			severity,
 			grouped: parseGroup( box ),
@@ -224,5 +224,4 @@
 		}
 	};
 
-// eslint-disable-next-line no-restricted-properties
 }() );

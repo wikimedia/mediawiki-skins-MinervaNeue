@@ -55,10 +55,10 @@ function insertIcon( $link, id ) {
 	var icon = document.createElement( 'span' ),
 		classes = 'minerva-icon';
 	if ( id ) {
-		classes += ` minerva-icon-portletlink-${id}`;
+		classes += ` minerva-icon-portletlink-${ id }`;
 		// FIXME: Please remove when following URL returns zero results:
 		// https://global-search.toolforge.org/?q=mw-ui-icon-portletlink&regex=1&namespaces=&title=
-		classes += ` mw-ui-icon-portletlink-${id}`;
+		classes += ` mw-ui-icon-portletlink-${ id }`;
 	}
 	icon.setAttribute( 'class', classes );
 	$link.prepend( icon );

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-restricted-properties
 var mobile = require( 'mobile.startup' ),
 	drawers = require( './drawers.js' ),
 	CtaDrawer = mobile.CtaDrawer;

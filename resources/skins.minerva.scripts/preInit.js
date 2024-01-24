@@ -26,5 +26,5 @@ module.exports = function () {
 			mw.notify( $msg );
 		}
 	}( mw.config.get( 'wgRedirectedFrom' ) ) );
-	/* eslint-enable no-console */
+
 };

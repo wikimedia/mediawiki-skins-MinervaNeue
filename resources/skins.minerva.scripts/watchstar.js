@@ -18,7 +18,6 @@ var watchstar = require( 'mediawiki.page.watch.ajax' ).watchstar;
 	}
 
 	/**
-	 *
 	 * @param {jQuery} $link
 	 * @param {boolean} isWatched
 	 * @param {string} expiry

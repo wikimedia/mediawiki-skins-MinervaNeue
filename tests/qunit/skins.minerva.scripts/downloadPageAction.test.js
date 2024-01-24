@@ -16,9 +16,11 @@
 			this.isMissing = options.isMissing;
 			this._isMainPage = !!options.isMainPage;
 		}
+
 		isMainPage() {
 			return this._isMainPage;
 		}
+
 		getNamespaceId() {
 			return 0;
 		}

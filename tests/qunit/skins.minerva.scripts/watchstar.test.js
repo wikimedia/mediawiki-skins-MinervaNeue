@@ -9,7 +9,7 @@
 	QUnit.module( 'Minerva Watchstar' );
 
 	function createElemWithClass( cssClass, iconClass ) {
-		const $icon = $( '<span>' ).addClass( `minerva-icon ${iconClass}` );
+		const $icon = $( '<span>' ).addClass( `minerva-icon ${ iconClass }` );
 		return $( '<div/>' ).addClass( cssClass ).append( $icon );
 	}
 

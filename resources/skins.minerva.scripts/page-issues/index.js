@@ -200,5 +200,3 @@ module.exports = {
 		insertBannersOrNotice: insertBannersOrNotice
 	}
 };
-
-// eslint-disable-next-line no-restricted-properties
