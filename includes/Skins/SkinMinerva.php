@@ -423,6 +423,10 @@ class SkinMinerva extends SkinMustache {
 		return $btns;
 	}
 
+	private function isHistoryPage() {
+		return $this->getRequest()->getText( 'action' ) === 'history';
+	}
+
 	/**
 	 * Tabs are available if a page has page actions but is not the talk page of
 	 * the main page.
@@ -436,7 +440,7 @@ class SkinMinerva extends SkinMustache {
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
 		$isSpecialPageOrHistory = $title->isSpecialPage() ||
-			$this->getRequest()->getText( 'action' ) === 'history';
+			$this->isHistoryPage();
 		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
 			->getSubjectPage( $title );
 		$isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
@@ -656,14 +660,23 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * Checks if the Special:History page is being used.
+	 * @param Title $title The Title object of the page being viewed
+	 * @return bool
+	 */
+	private function shouldUseSpecialHistory( Title $title ) {
+		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
+			SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->getUser() );
+	}
+
+	/**
 	 * Get the URL for the history page for the given title using Special:History
 	 * when available.
 	 * @param Title $title The Title object of the page being viewed
 	 * @return string
 	 */
 	protected function getHistoryUrl( Title $title ) {
-		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->getUser() ) ?
+		return $this->shouldUseSpecialHistory( $title ) ?
 			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
 			$title->getLocalURL( [ 'action' => 'history' ] );
 	}
@@ -1019,6 +1032,9 @@ class SkinMinerva extends SkinMustache {
 		// and move the associated LESS file inside `skins.minerva.amc.styles`
 		// into a more appropriate module.
 		if (
+			// T356117 - enable on all special pages - some special pages e.g. Special:Contribute have tabs.
+			$title->isSpecialPage() ||
+			( $this->isHistoryPage() && !$this->shouldUseSpecialHistory( $title ) ) ||
 			$skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
 			$skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ||
