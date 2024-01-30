@@ -591,6 +591,7 @@ class SkinMinerva extends SkinMustache {
 		if ( $this->getUser()->isRegistered() ) {
 			$className .= ' is-authenticated';
 		}
+
 		// The new treatment should only apply to the main namespace
 		if (
 			$title->getNamespace() === NS_MAIN &&
@@ -598,7 +599,28 @@ class SkinMinerva extends SkinMustache {
 		) {
 			$className .= ' issues-group-B';
 		}
+
 		return $className;
+	}
+
+	/**
+	 * Provides skin-specific modifications to the HTML element attributes
+	 *
+	 * Currently only used for adding the night mode class
+	 *
+	 * @return array
+	 */
+	public function getHtmlElementAttributes() {
+		$attributes = parent::getHtmlElementAttributes();
+		$skinOptions = $this->getSkinOptions();
+
+		// check to see if night mode is enabled via query params
+		$forceNightMode = $this->getContext()->getRequest()->getBool( 'minervanightmode' );
+		if ( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode ) {
+			$attributes['class'] .= ' skin-night-mode-clientpref-1';
+		}
+
+		return $attributes;
 	}
 
 	/**

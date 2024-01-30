@@ -95,6 +95,11 @@
 		},
 		"MinervaABSamplingRate": {
 			"value": 0
+		},
+		"MinervaNightMode": {
+			"value": {
+				"base": false
+			}
 		}
 	},
 	"ValidSkinNames": {

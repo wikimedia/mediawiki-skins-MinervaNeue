@@ -242,6 +242,7 @@ class Hooks implements
 						self::FEATURE_OVERFLOW_PAGE_ACTIONS
 					),
 				SkinOptions::TABS_ON_SPECIALS => true,
+				SkinOptions::NIGHT_MODE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaNightMode' ),
 			] );
 			( new HookRunner( $services->getHookContainer() ) )->onSkinMinervaOptionsInit( $skin, $skinOptions );
 		}

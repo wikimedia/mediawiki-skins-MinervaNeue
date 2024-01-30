@@ -170,6 +170,43 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @covers ::getHtmlElementAttributes when night mode is not enabled via feature flag or query params
+	 */
+	public function testGetHtmlElementAttributesNoNightMode() {
+		$skin = new SkinMinerva();
+
+		$classes = $skin->getHtmlElementAttributes()['class'];
+		$this->assertStringNotContainsString( 'skin-night-mode-clientpref-1', $classes );
+	}
+
+	/**
+	 * @covers ::getHtmlElementAttributes when night mode is enabled via feature flag
+	 */
+	public function testGetHtmlElementAttributesNightMode() {
+		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
+
+		$skin = new SkinMinerva();
+
+		$classes = $skin->getHtmlElementAttributes()['class'];
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-1', $classes );
+	}
+
+	/**
+	 * @covers ::getHtmlElementAttributes when night mode is enabled via query params
+	 */
+	public function testGetHtmlElementAttributesNightModeQueryParam() {
+		$context = new RequestContext();
+		$request = $context->getRequest();
+		$request->setVal( 'minervanightmode', '1' );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$classes = $skin->getHtmlElementAttributes()['class'];
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-1', $classes );
+	}
+
+	/**
 	 * @covers ::setContext
 	 * @covers ::hasCategoryLinks
 	 */

@@ -36,6 +36,7 @@ final class SkinOptions {
 	public const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
 	public const PERSONAL_MENU = 'personalMenu';
 	public const SINGLE_ECHO_BUTTON = 'echo';
+	public const NIGHT_MODE = 'nightMode';
 
 	/**
 	 * Note stable skin options default to true for desktop-Minerva and are expected to be
@@ -68,6 +69,8 @@ final class SkinOptions {
 		self::MAIN_MENU_EXPANDED => true,
 		/** whether Echo should be replaced with a single button */
 		self::SINGLE_ECHO_BUTTON => false,
+		/** whether night mode is available to the user */
+		self::NIGHT_MODE => false,
 	];
 
 	/**
