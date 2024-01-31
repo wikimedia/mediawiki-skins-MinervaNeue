@@ -9,5 +9,7 @@
 	"mobile-frontend-language-article-heading": "Ləlang",
 	"mobile-frontend-main-menu-login": "Łatwa kopa maika laysins",
 	"mobile-frontend-main-menu-nearby": "Wik saya",
-	"mobile-frontend-placeholder": "Nanich-łatawa kopa {{SITENAME}}"
+	"mobile-frontend-main-menu-settings": "Kanawi pik-ikta",
+	"mobile-frontend-placeholder": "Nanich-łatawa kopa {{SITENAME}}",
+	"mobile-frontend-random-button": "Nsaika pik ixt ikta"
 }
