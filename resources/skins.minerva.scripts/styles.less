@@ -21,8 +21,8 @@
 	right: 0;
 	opacity: 0;
 	bottom: 0;
-	background: @semiTransparent;
-	z-index: @z-indexAboveContent;
+	background: @opaque;
+	z-index: @z-index-above-content;
 	// don't use display: none because it's not animatable
 	visibility: hidden;
 	transition: opacity @transition-duration-base ease-in-out;
@@ -37,7 +37,7 @@
 
 // Last modified bar styles
 .last-modified-bar.active {
-	background-color: @lastModifiedBarActiveBackgroundColor;
+	background-color: @background-color-last-modified-bar-active;
 	color: @color-inverted;
 
 	.last-modified-text-accent,

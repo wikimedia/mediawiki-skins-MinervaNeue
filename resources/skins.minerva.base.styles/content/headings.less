@@ -40,17 +40,17 @@
 
 .mw-heading1,
 h1 {
-	font-size: @fontSizeH1;
+	font-size: @font-size-h1;
 }
 
 .mw-heading2,
 h2 {
-	font-size: @fontSizeH2;
+	font-size: @font-size-h2;
 }
 
 .mw-heading3,
 h3 {
-	font-size: @fontSizeH3;
+	font-size: @font-size-h3;
 	font-weight: bold;
 }
 
@@ -95,13 +95,13 @@ h3, h4, h5, h6 {
 	.mw-heading5,
 	.mw-heading6,
 	h2, h3, h4, h5, h6 {
-		padding: @headingMargin 0;
+		padding: @margin-heading 0;
 	}
 
 	// `h3`s need extra `margin-top` after paragraphs, see T219572.
 	p + .mw-heading3,
 	p + h3 {
-		margin-top: @headingMargin * 3;
+		margin-top: @margin-heading * 3;
 	}
 
 	// Override the styles above for `hN` nested inside `.mw-heading`, as used on wikitext pages.

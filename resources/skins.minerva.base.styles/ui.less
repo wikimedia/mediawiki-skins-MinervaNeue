@@ -64,7 +64,7 @@ main {
 	width: 100%;
 	border-spacing: 0;
 	border-collapse: collapse;
-	height: @siteHeaderHeight;
+	height: @height-site-header;
 	white-space: nowrap;
 	// When banners are present we want to easily distinguish between them and the header so add border
 	border-top: @border-subtle;
@@ -152,7 +152,7 @@ main {
 	.mw-parser-output > h2,
 	.section-heading {
 		border-bottom: @border-width-base @border-style-base #eaecf0;
-		margin-bottom: @headingMargin;
+		margin-bottom: @margin-heading;
 	}
 
 	.mw-parser-output {
@@ -204,8 +204,8 @@ main {
 .content h2.list-header,
 .list-header,
 .mw-revision {
-	padding-left: @contentPadding;
-	padding-right: @contentPadding;
+	padding-left: @padding-content;
+	padding-right: @padding-content;
 }
 
 .image-list,
@@ -217,7 +217,7 @@ main {
 #mw-content-text > form > .oo-ui-widget,
 .content,
 .post-content {
-	margin: 0 @contentMargin;
+	margin: 0 @margin-content;
 }
 
 // T217197
@@ -243,8 +243,8 @@ main {
 	.overlay .panel,
 	/* language overlay / MobileSpecialPageFeed */
 	.list-header {
-		padding-left: @contentPaddingTablet;
-		padding-right: @contentPaddingTablet;
+		padding-left: @padding-content-tablet;
+		padding-right: @padding-content-tablet;
 	}
 }
 /* stylelint-enable no-descending-specificity */

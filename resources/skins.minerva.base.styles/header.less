@@ -1,6 +1,6 @@
 .header-container {
 	border-bottom: @border-subtle;
-	padding: 0 @contentPadding;
+	padding: 0 @padding-content;
 
 	&.header-chrome {
 		background-color: @background-color-light;
@@ -61,14 +61,14 @@
 		.branding-box {
 			// Handle logos that are larger than the set branding box width
 			// This will also cause the searchbox overlay to be misaligned with the .minerva-heading searchbox
-			min-width: @brandingBoxWidth;
+			min-width: @width-branding-box;
 			width: auto;
 		}
 
 		.search-box {
 			display: block;
-			width: @searchBoxWidth;
-			max-width: @searchBoxWidth;
+			width: @width-search-box;
+			max-width: @width-search-box;
 		}
 	}
 }

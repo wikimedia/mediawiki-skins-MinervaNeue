@@ -17,26 +17,26 @@
 }
 
 .overlay-header {
-	height: @overlayHeaderHeight;
+	height: @height-overlay-header;
 
 	.header-chrome & {
-		height: @siteHeaderHeight;
+		height: @height-site-header;
 	}
 
 	.mw-ui-anchor {
-		height: @overlayHeaderHeight;
+		height: @height-overlay-header;
 
 		.header-chrome & {
-			height: @siteHeaderHeight;
+			height: @height-site-header;
 		}
 	}
 
 	.cdx-button {
-		height: @overlayHeaderHeight;
+		height: @height-overlay-header;
 	}
 
 	.overlay-title {
-		padding: @headerVerticalPadding 0;
+		padding: @padding-vertical-header 0;
 
 		&:last-child {
 			// Reserve space to the right in case the search form in the header or
@@ -49,10 +49,10 @@
 }
 
 .overlay-header-container + .overlay-content {
-	padding-top: @overlayHeaderHeight;
+	padding-top: @height-overlay-header;
 
 	.header-chrome& {
-		padding-top: @siteHeaderHeight;
+		padding-top: @height-site-header;
 	}
 }
 
@@ -60,6 +60,6 @@
 	.overlay-header {
 		// Make sure the close button and secondary button icon images are aligned
 		// with the content.
-		max-width: @contentMaxWidthTablet + ( 2 * @width-icon-gutter );
+		max-width: @max-width-content-tablet + ( 2 * @width-icon-gutter );
 	}
 }
