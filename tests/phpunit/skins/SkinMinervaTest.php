@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Minerva;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
@@ -176,7 +177,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = new SkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringNotContainsString( 'skin-night-mode-clientpref-1', $classes );
+		$this->assertStringNotContainsString( 'skin-night-mode-clientpref-', $classes );
 	}
 
 	/**
@@ -188,7 +189,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = new SkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-1', $classes );
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-2', $classes );
 	}
 
 	/**
@@ -203,7 +204,22 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-1', $classes );
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-2', $classes );
+	}
+
+	/**
+	 * @covers ::getHtmlElementAttributes when night mode is enabled and the value is not default
+	 */
+	public function testGetHtmlElementAttributesNightModeUserOption() {
+		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
+
+		$skin = new SkinMinerva();
+
+		$user = $skin->getUser();
+		MediaWikiServices::getInstance()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
+
+		$classes = $skin->getHtmlElementAttributes()['class'];
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
 	}
 
 	/**
