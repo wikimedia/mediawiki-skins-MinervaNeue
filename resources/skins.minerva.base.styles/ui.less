@@ -18,8 +18,8 @@ html {
 }
 
 body {
-	background-color: @background-color-base;
-	color: @color-base;
+	background-color: var( --background-color-base );
+	color: var( --color-base );
 	// Support All Browsers: Remove `margin` (normalized)
 	margin: 0;
 }
@@ -31,13 +31,13 @@ main {
 
 .mw-body {
 	// avoid margin collapsing (see T147956)
-	border-top: @border-width-base @border-style-base @border-color-transparent;
+	border-top: @border-width-base @border-style-base var( --border-color-transparent );
 	padding-bottom: 32px;
 }
 
 .overlay-enabled,
 .mw-body {
-	background-color: @background-color-base;
+	background-color: var( --background-color-base );
 }
 
 // If footer has last modified list item (Desktop MinervaNeue ?useformat=desktop&useskin=minerva),
@@ -94,7 +94,7 @@ main {
 	@size-modifier-border: unit( 1 / @font-size-browser, em );
 	@padding-vertical-search: 8px - @border-width-base;
 	@padding-start-search-icon: @size-icon-search + ( 2 * @size-icon-search-gutter ) - @size-modifier-border;
-	background-color: @background-color-base; // Support Fennec, Opera Mini: Remove default background, see T38490.
+	background-color: var( --background-color-base ); // Support Fennec, Opera Mini: Remove default background, see T38490.
 	background-position: left @size-icon-search-gutter center;
 	background-repeat: no-repeat;
 	background-size: @size-icon-search;
@@ -103,7 +103,7 @@ main {
 	width: 100%;
 	margin-top: 0;
 	height: 2.25em;
-	border: @border-width-base @border-style-base @border-color-inverted;
+	border: @border-width-base @border-style-base var( --border-color-inverted );
 	border-radius: @border-radius-base;
 	padding: @padding-vertical-search 0 @padding-vertical-search @padding-start-search-icon;
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.05 );
@@ -124,8 +124,8 @@ main {
 // Provide focus styles only in non-JS and overlay to prevent double transition.
 .client-nojs .search-box .search:focus,
 .search-overlay .search-box .search:focus {
-	border-color: @border-color-progressive--focus;
-	box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus, 0 1px 1px rgba( 0, 0, 0, 0.05 );
+	border-color: var( --border-color-progressive--focus );
+	box-shadow: @box-shadow-inset-small var( --box-shadow-color-progressive--focus ), 0 1px 1px rgba( 0, 0, 0, 0.05 );
 }
 
 .content {

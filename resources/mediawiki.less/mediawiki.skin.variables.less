@@ -25,19 +25,19 @@
 // FIXME: Use WikimediaUI Base's OS specific default sans-serif fonts.
 @font-family-sans: @font-family-sans--fallback;
 
-// Overrides for non-Codex variables:
-
-// == Colors ==
-@color-link: #36c;
-@color-link--visited: #795cb2;
-@color-link--active: #faa700;
-// Link colors for new or missing articles, also known as “Red links”.
-// https://www.wikidata.org/wiki/Q13417974#sitelinks-wikipedia
-@color-link-new: #d33;
-@color-link-new--visited: #a55858;
-// Link colors for a power user feature to highlight links to other projects.
-// In Vector 2022 we unify these colors by default for simpler orientation by average users.
-// It's still possible to overwrite the styles per user.
-@color-link-external: #36c;
-@color-link-external--visited: #795cb2;
-@color-link-external--active: #faa700;
+/**
+ * Link styles are defined in MediaWiki core.
+ * These variables are first defined in core/resources/src/mediawiki.less/mediawiki.skin.defaults.less
+ * Then they're overridden here for night mode compatibility
+ * Then they're fed back into MediaWiki core & extensions
+ * through the usage of @import "mediawiki.skin.variables.less".
+ * 🙃
+ **/
+@color-link: var(--color-link);
+@color-link--visited: var( --color-visited);
+@color-link--active: var(--color-progressive--active);
+@color-link-new: var(--color-link-red);
+@color-link-new--visited: var(--color-link-red--visited);
+@color-link-external: var(--color-link-external);
+@color-link-external--visited: var(--color-link-external--visited);
+@color-link-external--active: var(--color-link-external--active);

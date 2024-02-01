@@ -5,8 +5,8 @@
 .last-modified-bar {
 	display: block;
 	border-bottom: @border-subtle;
-	background-color: @background-color-light;
-	color: @color-subtle;
+	background-color: var( --background-color-interactive );
+	color: var( --color-subtle );
 	padding-top: @icon-padding-medium;
 	padding-bottom: @icon-padding-medium;
 	font-size: @font-size-minerva-small;
@@ -17,11 +17,11 @@
 	a:visited,
 	.last-modified-text-accent {
 		// Note: This can be progressively enhanced in skins.minerva.scripts to provide 'recently edited' state.
-		color: @color-subtle;
+		color: var( --color-subtle );
 	}
 
 	.minerva-icon {
-		background-color: @color-subtle;
+		background-color: var( --color-subtle );
 	}
 }
 

@@ -50,7 +50,7 @@
 // specificty conflicts e.g. with tablesorter (T205945)
 .wikitable {
 	border: @border-width-base @border-style-base #54595d;
-	// Note older browsers will fall back to @border-color-subtle
+	// Note older browsers will fall back to var(--border-color-subtle)
 	border-color: fade( #54595d, 30 );
 
 	// We only style cells that are direct children of the wikitable table since
@@ -60,7 +60,7 @@
 	> * > tr > th,
 	> * > tr > td {
 		border: @border-width-base @border-style-base #54595d;
-		// Note older browsers will fall back to @border-color-subtle
+		// Note older browsers will fall back to var(--border-color-subtle)
 		border-color: fade( #54595d, 30 );
 		padding: 0.2em;
 	}
@@ -68,7 +68,7 @@
 	// Make headings distinguishable
 	> tr > th,
 	> * > tr > th {
-		background-color: @background-color-light;
+		background-color: var( --background-color-interactive );
 		text-align: center;
 	}
 }

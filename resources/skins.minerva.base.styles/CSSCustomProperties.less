@@ -1,0 +1,78 @@
+/**
+ * Minerva CSS Custom properties
+ * ----------------------------
+ * Please be aware that these properties are accessible via *any* client-side code.
+ * These variables should mirror Codex design token names and values:
+ * https://doc.wikimedia.org/codex/latest/design-tokens
+ * Only include properties that are required for client-side modification.
+ *
+ * @private - Currently, these variables are only intended for use by Minerva,
+ *            however, they are designed to mimic the naming convention in Codex tokens
+ *            in order to facilitate an eventual migration to a centralized source.
+ * @experimental
+ * @since February 2024 (MediaWiki 1.43)
+ */
+
+@import 'mediawiki.skin.variables.less';
+@import '../../minerva.less/minerva.variables.less';
+
+:root {
+	/* Standard Codex colors */
+	--background-color-base: @background-color-base;
+	--background-color-destructive: @background-color-destructive;
+	--background-color-interactive: @background-color-interactive;
+	--background-color-interactive-subtle: @background-color-interactive-subtle;
+	--background-color-progressive-subtle: @background-color-progressive-subtle;
+	--border-color-base: @border-color-base;
+	--border-color-inverted: @border-color-inverted;
+	--border-color-progressive--focus: @border-color-progressive--focus;
+	--border-color-subtle: @border-color-subtle;
+	--border-color-transparent: @border-color-transparent;
+	--box-shadow-color-progressive--focus: @box-shadow-color-progressive--focus;
+	--color-base: @color-base;
+	--color-inverted: @color-inverted;
+	--color-subtle: @color-subtle;
+
+	// NOTE: The following link colors are fed *back* into MediaWiki core
+	// by being used in mediawiki.skin.variables.less.
+	--color-progressive: @color-progressive;
+	--color-visited: @color-visited;
+	--color-progressive--active: @color-progressive--active;
+	--color-link: @color-progressive;
+	--color-link-red: @color-link-red;
+	--color-link-red--visited: @color-link-red--visited;
+	--color-link-external: @color-progressive;
+	--color-link-external--visited: @color-visited;
+	--color-link-external--active: @color-progressive--active;
+
+	/* Minerva specific colors */
+	// FIXME: Replace with Codex drop shadows
+	--box-shadow-color-drawer: rgba( 0, 0, 0, 0.35 );
+}
+
+/**
+ * Placeholder Night mode color palette.
+ * NOTE: These values are temporarily hard coded.
+ */
+.night-mode-palette() {
+	--color-base: #eaecf0;
+	--color-subtle: #c8ccd1;
+	--color-link: #69f;
+	--color-link-red: #ff4242;
+	--color-progressive: #69f;
+	--background-color-destructive: #ff4242;
+	--color-progressive--active: #94b8ff;
+	--background-color-base: #202122;
+	--color-visited: #9781bd;
+	--background-color-interactive: #2e3136;
+}
+
+html.skin-night-mode-clientpref-1 {
+	.night-mode-palette();
+}
+
+@media ( prefers-color-scheme: dark ) {
+	html.skin-night-mode-clientpref-2 {
+		.night-mode-palette();
+	}
+}

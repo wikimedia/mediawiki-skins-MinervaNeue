@@ -52,7 +52,7 @@
 		min-height: 90px;
 
 		.history-user a {
-			color: @color-subtle;
+			color: var( --color-subtle );
 
 			bdi {
 				word-break: break-word;
@@ -61,22 +61,22 @@
 
 		.mw-userlink::before {
 			content: '';
-			.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-subtle );
+			.cdx-mixin-css-icon( @cdx-icon-user-avatar, var(--color-subtle) );
 			margin-right: 8px;
 		}
 
 		.mw-anonuserlink::before {
-			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, @color-subtle );
+			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, var(--color-subtle) );
 		}
 
 		.mw-tempuserlink::before {
-			.cdx-mixin-css-icon( @cdx-icon-user-temporary, @color-subtle );
+			.cdx-mixin-css-icon( @cdx-icon-user-temporary, var(--color-subtle) );
 		}
 
 		.comment {
 			-webkit-line-clamp: 2;
 			max-height: 2.6em;
-			color: @color-subtle;
+			color: var( --color-subtle );
 			line-height: 1.4;
 			white-space: normal;
 			display: -webkit-box;
@@ -119,7 +119,7 @@
 
 	// The large "Compare selected revisions" button container
 	.mw-history-compareselectedversions {
-		background: @background-color-base;
+		background: var( --background-color-base );
 		.position-sticky();
 		top: 0;
 		z-index: @z-index-above-content;
@@ -171,7 +171,7 @@
 
 	// "Change visibility of selected revisions" button (for admins only)
 	.mw-history-revisiondelete-button {
-		background-color: @background-color-lightest;
+		background-color: var( --background-color-interactive-subtle );
 		margin-bottom: 1em;
 	}
 
