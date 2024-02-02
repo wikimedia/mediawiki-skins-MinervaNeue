@@ -35,6 +35,7 @@ use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
@@ -57,6 +58,7 @@ use Wikimedia\Services\NoSuchServiceException;
 class Hooks implements
 	DifferenceEngineViewHeaderHook,
 	FetchChangesListHook,
+	GetPreferencesHook,
 	OutputPageBodyAttributesHook,
 	ResourceLoaderGetConfigVarsHook,
 	ResourceLoaderRegisterModulesHook,
@@ -90,6 +92,22 @@ class Hooks implements
 				]
 			] );
 		}
+	}
+
+	/**
+	 * Adds Minerva-specific user preferences that can only be accessed via API
+	 *
+	 * @param User $user user whose preferences are being modified
+	 * @param array[] &$prefs preferences description array, to be fed to a HTMLForm object
+	 */
+	public function onGetPreferences( $user, &$prefs ): void {
+		$minervaPrefs = [
+			'minerva-night-mode' => [
+				'type' => 'api'
+			],
+		];
+
+		$prefs += $minervaPrefs;
 	}
 
 	/**

@@ -159,6 +159,7 @@
 		"FetchChangesList": "main",
 		"MobileFrontendFeaturesRegistration": "mobilefrontend",
 		"RequestContextCreateSkinMobile": "mobilefrontend",
+		"GetPreferences": "main",
 		"PreferencesGetLayout": "main",
 		"SpecialPageBeforeExecute": "main",
 		"ResourceLoaderGetConfigVars": "main",
@@ -568,6 +569,9 @@
 				"minerva"
 			]
 		}
+	},
+	"DefaultUserOptions": {
+		"minerva-night-mode": 2
 	},
 	"manifest_version": 2
 }

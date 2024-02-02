@@ -617,7 +617,11 @@ class SkinMinerva extends SkinMustache {
 		// check to see if night mode is enabled via query params
 		$forceNightMode = $this->getContext()->getRequest()->getBool( 'minervanightmode' );
 		if ( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode ) {
-			$attributes['class'] .= ' skin-night-mode-clientpref-1';
+			$user = $this->getUser();
+			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
+			$value = $optionsManager->getOption( $user, 'minerva-night-mode' );
+
+			$attributes['class'] .= " skin-night-mode-clientpref-$value";
 		}
 
 		return $attributes;
