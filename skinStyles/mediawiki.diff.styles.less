@@ -157,7 +157,7 @@
 		right: 8px;
 
 		.jquery-confirmable-interface {
-			background-color: @background-color-interactive-subtle;
+			background-color: var( --background-color-interactive-subtle );
 			border: @border-subtle;
 			padding: @spacing-50;
 		}
@@ -179,11 +179,11 @@
 		&::before {
 			content: '';
 			margin-right: 8px;
-			.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-subtle );
+			.cdx-mixin-css-icon( @cdx-icon-user-avatar, var(--color-subtle) );
 		}
 
 		&.mw-anonuserlink::before {
-			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, @color-subtle );
+			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, var(--color-subtle) );
 		}
 	}
 

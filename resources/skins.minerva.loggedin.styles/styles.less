@@ -1,7 +1,7 @@
 @import '../../minerva.less/minerva.variables.less';
 
 .minerva-icon--bellOutline-base20 {
-	.cdx-mixin-css-icon( @cdx-icon-bell-outline, @color-subtle );
+	.cdx-mixin-css-icon( @cdx-icon-bell-outline, var(--color-subtle) );
 }
 
 //
@@ -20,8 +20,8 @@
 //
 .mw-mf .mw-echo-unseen-notifications {
 	margin: auto;
-	background: @background-color-light;
-	color: @color-subtle;
+	background: var( --background-color-interactive );
+	color: var( --color-subtle );
 	cursor: pointer;
 
 	.minerva-icon--circle {
@@ -30,7 +30,7 @@
 		margin: auto;
 		height: @icon-size-medium;
 		width: @icon-size-medium;
-		background: @background-color-destructive;
+		background: var( --background-color-destructive );
 		border-color: @border-color-destructive;
 
 		&::before {
@@ -39,7 +39,7 @@
 	}
 
 	&::after {
-		color: @color-inverted;
+		color: var( --color-inverted );
 		content: attr( data-counter-text );
 		position: absolute;
 		left: 0;

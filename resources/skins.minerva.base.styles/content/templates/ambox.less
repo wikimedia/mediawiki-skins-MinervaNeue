@@ -26,8 +26,8 @@ table.ambox {
 .client-js .ambox {
 	cursor: pointer;
 	width: auto;
-	background: @background-color-lightest;
-	color: @color-subtle;
+	background: var( --background-color-interactive-subtle );
+	color: var( --color-subtle );
 	margin-bottom: 1px;
 
 	tbody {
@@ -128,7 +128,7 @@ table.ambox {
 			height: 100%;
 			box-sizing: content-box; // explicitly setting box-sizing so padding extends beyond 100%.
 			padding-left: 4em;
-			background: linear-gradient( to right, fade( @background-color-lightest, 0 ) 0, @background-color-lightest 3em );
+			background: linear-gradient( to right, transparent 0, var( --background-color-interactive-subtle ) 3em );
 		}
 	}
 
