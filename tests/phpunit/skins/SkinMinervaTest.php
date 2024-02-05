@@ -193,12 +193,27 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getHtmlElementAttributes when night mode is enabled via query params
+	 * @covers ::getHtmlElementAttributes when night mode is set via query params
 	 */
 	public function testGetHtmlElementAttributesNightModeQueryParam() {
 		$context = new RequestContext();
 		$request = $context->getRequest();
 		$request->setVal( 'minervanightmode', '1' );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
+
+		$classes = $skin->getHtmlElementAttributes()['class'];
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-1', $classes );
+	}
+
+	/**
+	 * @covers ::getHtmlElementAttributes when night mode is set via query params to an invalid option
+	 */
+	public function testGetHtmlElementAttributesNightModeQueryParamInvalid() {
+		$context = new RequestContext();
+		$request = $context->getRequest();
+		$request->setVal( 'minervanightmode', '3' );
 
 		$skin = new SkinMinerva();
 		$skin->setContext( $context );
@@ -214,6 +229,26 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
 
 		$skin = new SkinMinerva();
+
+		$user = $skin->getUser();
+		MediaWikiServices::getInstance()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
+
+		$classes = $skin->getHtmlElementAttributes()['class'];
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
+	}
+
+	/**
+	 * @covers ::getHtmlElementAttributes when night mode is enabled with non-default, and query param is invalid
+	 */
+	public function testGetHtmlElementAttributesNightModeUserOptionQueryParamInvalid() {
+		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
+
+		$context = new RequestContext();
+		$request = $context->getRequest();
+		$request->setVal( 'minervanightmode', '3' );
+
+		$skin = new SkinMinerva();
+		$skin->setContext( $context );
 
 		$user = $skin->getUser();
 		MediaWikiServices::getInstance()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );

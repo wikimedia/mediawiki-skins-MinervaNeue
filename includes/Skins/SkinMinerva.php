@@ -614,12 +614,17 @@ class SkinMinerva extends SkinMustache {
 		$attributes = parent::getHtmlElementAttributes();
 		$skinOptions = $this->getSkinOptions();
 
-		// check to see if night mode is enabled via query params
-		$forceNightMode = $this->getContext()->getRequest()->getBool( 'minervanightmode' );
-		if ( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode ) {
+		// check to see if night mode is enabled via query params or by config
+		$forceNightMode = $this->getContext()->getRequest()->getIntOrNull( 'minervanightmode' );
+		if ( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null ) {
 			$user = $this->getUser();
 			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 			$value = $optionsManager->getOption( $user, 'minerva-night-mode' );
+
+			// if forcing a (valid) setting via query params, take priority over the user option
+			if ( $forceNightMode !== null && in_array( $forceNightMode, [ 0, 1, 2 ] ) ) {
+				$value = $forceNightMode;
+			}
 
 			$attributes['class'] .= " skin-night-mode-clientpref-$value";
 		}
