@@ -615,8 +615,19 @@ class SkinMinerva extends SkinMustache {
 		$skinOptions = $this->getSkinOptions();
 
 		// check to see if night mode is enabled via query params or by config
-		$forceNightMode = $this->getContext()->getRequest()->getIntOrNull( 'minervanightmode' );
-		if ( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null ) {
+		$webRequest = $this->getContext()->getRequest();
+		$forceNightMode = $webRequest->getIntOrNull( 'minervanightmode' );
+
+		// get skin config of night mode to check what is execluded
+		$nightModeConfig = $this->getConfig()->get( 'MinervaNightModeOptions' );
+		$featuresHelper = new FeaturesHelper();
+		$shouldDisableNightMode = $featuresHelper->shouldDisableNightMode( $nightModeConfig,
+			$webRequest,
+			$this->getContext()->getTitle()
+		);
+
+		if ( !$shouldDisableNightMode &&
+			( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null ) ) {
 			$user = $this->getUser();
 			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 			$value = $optionsManager->getOption( $user, 'minerva-night-mode' );
@@ -625,8 +636,7 @@ class SkinMinerva extends SkinMustache {
 			if ( $forceNightMode !== null && in_array( $forceNightMode, [ 0, 1, 2 ] ) ) {
 				$value = $forceNightMode;
 			}
-
-			$attributes['class'] .= " skin-night-mode-clientpref-$value";
+			$attributes[ 'class' ] .= " skin-night-mode-clientpref-$value";
 		}
 
 		return $attributes;
