@@ -1,4 +1,4 @@
-// stylelint-disable selector-max-id
+/* stylelint-disable selector-max-id */
 @import '../minerva.less/minerva.variables.less';
 
 // Override MobileFrontend styles (can be weakened/removed when MobileDiff no longer exists)
@@ -244,7 +244,6 @@
 		}
 	}
 }
-// stylelint-enable selector-max-id
 
 // Wikitext font size is restored to 100%, as in mediawiki.editfont.styles
 .diff-addedline,
@@ -257,3 +256,11 @@
 .mw-diff-inline-context {
 	font-size: 100%;
 }
+
+.mw-article-diff {
+	#firstHeading {
+		font-size: 1.5em;
+	}
+}
+
+/* stylelint-enable selector-max-id */
