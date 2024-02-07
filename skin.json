@@ -270,6 +270,7 @@
 		"skins.minerva.base.styles": {
 			"class": "MediaWiki\\Minerva\\ResourceLoaderSkinModule",
 			"features": [
+				"normalize",
 				"accessibility",
 				"i18n-ordered-lists",
 				"content-body",
