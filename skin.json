@@ -462,6 +462,7 @@
 				"mediawiki.page.watch.ajax"
 			],
 			"messages": [
+				"skin-minerva-night-mode-unavailable",
 				"skin-minerva-time-ago-seconds",
 				"skin-minerva-time-ago-minutes",
 				"skin-minerva-time-ago-hours",
@@ -492,6 +493,7 @@
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/setup.js",
+				"resources/skins.minerva.scripts/reportIfNightModeWasDisabledOnPage.js",
 				"resources/skins.minerva.scripts/addPortletLink.js",
 				"resources/skins.minerva.scripts/initMobile.js",
 				"resources/skins.minerva.scripts/searchSuggestReveal.js",
@@ -537,6 +539,7 @@
 		"localBasePath": "",
 		"remoteSkinPath": "MinervaNeue",
 		"dependencies": [
+			"mediawiki.cookie",
 			"skins.minerva.messageBox.styles",
 			"mobile.startup",
 			"mediawiki.user",
@@ -545,6 +548,7 @@
 		],
 		"packageFiles": [
 			"tests/qunit/skins.minerva.scripts/index.js",
+			"tests/qunit/skins.minerva.scripts/integration.test.js",
 			"resources/skins.minerva.scripts/page-issues/parser.js",
 			"resources/skins.minerva.scripts/downloadPageAction.js",
 			"resources/skins.minerva.scripts/AB.js",
