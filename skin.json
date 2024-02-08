@@ -105,10 +105,7 @@
 			"value": {
 				"exclude": {
 					"mainpage": false,
-					"querystring": {
-						"action": "(history|edit)",
-						"diff": ".+"
-					},
+					"querystring": {},
 					"namespaces": [],
 					"pagetitles": []
 				}
