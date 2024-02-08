@@ -100,6 +100,20 @@
 			"value": {
 				"base": false
 			}
+		},
+		"MinervaNightModeOptions": {
+			"value": {
+				"exclude": {
+					"mainpage": false,
+					"querystring": {
+						"action": "(history|edit)",
+						"diff": ".+"
+					},
+					"namespaces": [],
+					"pagetitles": []
+				}
+			},
+			"description": "options for configuring where Night Mode should and should not apply. More details can be found in Hooks::shouldDisableNightMode PHP documentation."
 		}
 	},
 	"ValidSkinNames": {
