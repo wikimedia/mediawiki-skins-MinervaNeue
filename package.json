@@ -29,7 +29,7 @@
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.13.0",
 		"svgo": "2.8.0",
-		"wdio-mediawiki": "2.1.0",
+		"wdio-mediawiki": "2.5.0",
 		"wmf-a11y": "0.0.0"
 	}
 }
