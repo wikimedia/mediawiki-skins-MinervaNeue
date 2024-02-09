@@ -38,7 +38,7 @@ class LanguagesHelper {
 	 * @param OutputPage $out Output page to fetch language links
 	 */
 	public function __construct( OutputPage $out ) {
-		$this->hasLanguages = !empty( $out->getLanguageLinks() );
+		$this->hasLanguages = $out->getLanguageLinks() !== [];
 	}
 
 	/**
