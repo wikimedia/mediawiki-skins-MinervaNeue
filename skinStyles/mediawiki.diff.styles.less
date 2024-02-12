@@ -264,4 +264,10 @@
 	}
 }
 
+// Bug: T357213 - always show patrol link. Previews are hidden by default
+// on mobile, but we trust patrollers to only patrol diffs that do not require
+// viewing the preview.
+.patrollink.patrollink-diffonly {
+	display: block;
+}
 /* stylelint-enable selector-max-id */
