@@ -253,7 +253,10 @@ module.exports = function () {
 				// * skin-minerva-time-ago-days
 				// * skin-minerva-time-ago-months
 				// * skin-minerva-time-ago-years
-				tsNode.textContent = mw.msg( `skin-minerva-time-ago-${ ago.unit }`, ago.value );
+				tsNode.textContent = mw.msg(
+					`skin-minerva-time-ago-${ ago.unit }`,
+					mw.language.convertNumber( ago.value )
+				);
 			}
 		} );
 	}
