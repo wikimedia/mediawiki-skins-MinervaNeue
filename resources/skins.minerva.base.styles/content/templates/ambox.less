@@ -26,7 +26,8 @@ table.ambox {
 .client-js .ambox {
 	cursor: pointer;
 	width: auto;
-	background: var( --background-color-interactive-subtle );
+	// !important needed to override core ambox styles
+	background: var( --background-color-interactive-subtle ) !important;
 	color: var( --color-subtle );
 	margin-bottom: 1px;
 
