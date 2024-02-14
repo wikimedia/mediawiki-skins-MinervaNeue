@@ -626,8 +626,9 @@ class SkinMinerva extends SkinMustache {
 			$this->getContext()->getTitle()
 		);
 
-		if ( !$shouldDisableNightMode &&
-			( $skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null ) ) {
+		if (
+			$skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null
+		) {
 			$user = $this->getUser();
 			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 			$value = $optionsManager->getOption( $user, 'minerva-night-mode' );
@@ -636,6 +637,14 @@ class SkinMinerva extends SkinMustache {
 			if ( $forceNightMode !== null && in_array( $forceNightMode, [ 0, 1, 2 ] ) ) {
 				$value = $forceNightMode;
 			}
+
+			// For T356653 add a class to the page to allow the client to detect we've
+			// intentionally disabled night mode.
+			if ( $shouldDisableNightMode ) {
+				$attributes[ 'class' ] .= ' skin-night-mode-page-disabled';
+				return $attributes;
+			}
+
 			$attributes[ 'class' ] .= " skin-night-mode-clientpref-$value";
 		}
 
