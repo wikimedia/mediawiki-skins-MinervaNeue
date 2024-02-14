@@ -49,11 +49,12 @@
 	"mobile-frontend-user-page-talk": "Müzakirə",
 	"minerva-user-menu-button": "İstifadəçi menyusu",
 	"minerva-user-navigation": "İstifadəçi naviqasiyası",
-	"minerva-page-actions-editfull": "Tam səhifəni redaktə edin",
+	"minerva-page-actions-editfull": "Bütün səhifəni redaktə et",
 	"minerva-page-actions-overflow": "Daha çox",
 	"minerva-page-actions-language-switcher": "Dillər",
 	"minerva-page-actions-history": "Tarixçə",
 	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Müzakirə]]",
+	"minerva-skin-desc": "Responsiv mobil dizayn",
 	"skin-minerva-issue-learn-more": "Daha ətraflı",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 saniyə}} əvvəl",
 	"skin-minerva-time-ago-minutes": "{{PLURAL:$1|$1 dəqiqə}} əvvəl",
@@ -64,6 +65,8 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kateqoriyalar",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Səhifələrin kateqoriyalarına baxmaq",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Təkmilləşdirilmiş səhifə problemləri yaxşılaşdırılması",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Səhifə problemləri (Şablon:ambox) məqaləyə daxil ediləcək.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Təəssüf ki, nəticələrin səhifəyə görə qruplaşdırılması mobil cihazlar üçün mövcud deyil. Əgər səhifəyə görə qruplaşdırma funksiyasından istifadə etmək istəyirsinizsə, xahiş olunur, saytın iş masası versiyasına daxil olun.",
-	"minerva.css": "/* Buradakı bütün CSS MinervaNeue istifadəçiləri üçün yüklənəcək */"
+	"minerva.css": "/* Buradakı bütün CSS MinervaNeue istifadəçiləri üçün yüklənəcək */",
+	"minerva.js": "/* Buradakı JavaScript MinervaNeue istifadəçiləri üçün yüklənəcək */"
 }
