@@ -196,6 +196,9 @@
 			"mobile.init.styles": [
 				"skinStyles/mobile.init.styles/mobile.less"
 			],
+			"mobile.mediaViewer": [
+				"skinStyles/mobile.mediaViewer.less"
+			],
 			"mobile.special.nearby.styles": [
 				"skinStyles/mobile.special.nearby.styles.less"
 			],
