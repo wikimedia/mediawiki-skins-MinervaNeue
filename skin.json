@@ -578,6 +578,11 @@
 		"includes/ServiceWiring.php"
 	],
 	"attributes": {
+		"DarkMode": {
+			"Disabled": [
+				"minerva"
+			]
+		},
 		"MobileFrontend": {
 			"EditorAvailableSkins": [
 				"minerva"
