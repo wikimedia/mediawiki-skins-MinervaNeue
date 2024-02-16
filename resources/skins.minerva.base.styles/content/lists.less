@@ -44,4 +44,14 @@ dl {
 	dt {
 		font-weight: bold;
 	}
+
+	/*
+	 * Historically Minerva used a CSS reset to reset the margin of dd elements to 0.
+	 * The main use case here is talk pages which can have significant intendation levels.
+	 * This should likely be reconsidered for appropriate semantic use of dd elements and
+	 * scoped to talk pages at a later date.
+	 */
+	dd {
+		margin: 0;
+	}
 }
