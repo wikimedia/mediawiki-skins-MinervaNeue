@@ -11,10 +11,11 @@
  *            in order to facilitate an eventual migration to a centralized source.
  * @experimental
  * @since February 2024 (MediaWiki 1.43)
+ * This file is kept separate from the skin.less to avoid the side effects of CSS variable conversion
+ * that occurs to LESS variables when importing mediawiki.skin.variables.
+ * We import mediawiki.skin.defaults to obtain the original unmodified values for these CSS variables.
  */
-
-@import 'mediawiki.skin.variables.less';
-@import '../../minerva.less/minerva.variables.less';
+@import 'mediawiki.skin.defaults.less';
 
 :root {
 	/* Standard Codex colors */
@@ -87,10 +88,6 @@
 	--color-link-external--active: #2a4b8d;
 	--color-link--visited: #977dbd;
 	--box-shadow-color-drawer: #afb6e9;
-}
-
-.night-mode-invert() {
-	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
 html.skin-night-mode-clientpref-1 {

@@ -33,8 +33,14 @@
  * through the usage of @import "mediawiki.skin.variables.less".
  * 🙃
  **/
-// FIXME: Uncomment out color-subtle when T356540 has been resolved.
-// @color-subtle: var(--color-subtle);
+@color-subtle: var(--color-subtle);
+@color-error: var(--color-error);
+// Can be uncommented with https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Flow/+/1005204 is merged.
+//@color-progressive: --var(color-progressive);
+//@color-destructive: --var(color-destructive);
+@color-inverted:  --var(color-inverted);
+@color-base: var(--color-base);
+@background-color-progressive-subtle: var(--background-color-progressive-subtle);
 @color-link: var(--color-link);
 @color-link--visited: var( --color-visited);
 @color-link--active: var(--color-progressive--active);
@@ -43,3 +49,19 @@
 @color-link-external: var(--color-link-external);
 @color-link-external--visited: var(--color-link-external--visited);
 @color-link-external--active: var(--color-link-external--active);
+@background-color-base: var(--background-color-base);
+@background-color-destructive: var(--background-color-destructive);
+@background-color-interactive: var(--background-color-interactive);
+@background-color-interactive-subtle: var(--background-color-interactive-subtle);
+@border-color-base: var(--border-color-base);
+@border-color-inverted: var(--border-color-inverted);
+@border-color-muted: var(--border-color-muted);
+@border-color-progressive--focus: var(--border-color-progressive--focus);
+@border-color-subtle: var(--border-color-subtle);
+@border-color-transparent: var(--border-color-transparent);
+@box-shadow-color-progressive--focus: var(--box-shadow-color-progressive--focus);
+@color-visited: var(--color-visited);
+@color-progressive--active: var(--color-progressive--active);
+@color-link-red: var(--color-link-red);
+@color-link-red--visited: var(--color-link-red--visited);
+@color-link--active: var(--color-link--active);

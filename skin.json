@@ -292,8 +292,8 @@
 				"interface-core"
 			],
 			"styles": [
-				"resources/skins.minerva.base.styles/skin.less",
-				"resources/skins.minerva.base.styles/content/index.less"
+				"resources/skins.minerva.base.styles/CSSCustomProperties.less",
+				"resources/skins.minerva.base.styles/skin.less"
 			]
 		},
 		"skins.minerva.content.styles.images": {
