@@ -20,7 +20,7 @@
 // Import the Codex design tokens from the “WikimediaUI” theme.
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui.less';
 
-:root {
+.light-mode-palette() {
 	/* Standard Codex colors */
 	--background-color-base: @background-color-base;
 	--background-color-destructive: @background-color-destructive;
@@ -59,6 +59,18 @@
 	--box-shadow-color-drawer: rgba( 0, 0, 0, 0.35 );
 }
 
+:root {
+	color-scheme: dark light;
+	.light-mode-palette();
+}
+
+/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
+.skin-invert {
+	color-scheme: light;
+	.light-mode-palette();
+	filter: invert( 1 ) hue-rotate( 180deg );
+}
+
 /**
  * Placeholder Night mode color palette.
  * NOTE: These values are temporarily hard coded.
@@ -94,6 +106,7 @@
 }
 
 html.skin-night-mode-clientpref-1 {
+	color-scheme: dark;
 	.night-mode-palette();
 }
 
