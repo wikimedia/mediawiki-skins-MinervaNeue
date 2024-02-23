@@ -64,13 +64,6 @@
 	.light-mode-palette();
 }
 
-/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
-.skin-invert {
-	color-scheme: light;
-	.light-mode-palette();
-	filter: invert( 1 ) hue-rotate( 180deg );
-}
-
 /**
  * Placeholder Night mode color palette.
  * NOTE: These values are temporarily hard coded.
@@ -105,13 +98,29 @@
 	--box-shadow-color-drawer: #afb6e9;
 }
 
+.night-mode-invert() {
+	color-scheme: light;
+	.light-mode-palette();
+	filter: invert( 1 ) hue-rotate( 180deg );
+}
+
 html.skin-night-mode-clientpref-1 {
 	color-scheme: dark;
 	.night-mode-palette();
+
+	/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
+	.skin-invert {
+		.night-mode-invert();
+	}
 }
 
 @media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 {
 		.night-mode-palette();
+
+		/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
+		.skin-invert {
+			.night-mode-invert();
+		}
 	}
 }
