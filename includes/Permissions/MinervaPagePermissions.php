@@ -24,6 +24,7 @@ use IContextSource;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Content\IContentHandlerFactory;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\Authority;
@@ -140,8 +141,6 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @throws ConfigException
 	 */
 	public function isAllowed( $action ) {
-		global $wgHideInterlanguageLinks;
-
 		if ( !$this->title ) {
 			return false;
 		}
@@ -150,7 +149,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		// the "switch-language" button. But disable "edit" and "watch" actions.
 		if ( $this->title->isMainPage() ) {
 			if ( $action === self::SWITCH_LANGUAGE ) {
-				return !$wgHideInterlanguageLinks;
+				return !$this->config->get( MainConfigNames::HideInterlanguageLinks );
 			}
 			// Only the talk page is allowed on the main page provided user is registered.
 			// talk page permission is disabled on mobile for anons
@@ -194,7 +193,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		}
 
 		if ( $action === self::SWITCH_LANGUAGE ) {
-			if ( $wgHideInterlanguageLinks ) {
+			if ( $this->config->get( MainConfigNames::HideInterlanguageLinks ) ) {
 				return false;
 			}
 			return $this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ) ||

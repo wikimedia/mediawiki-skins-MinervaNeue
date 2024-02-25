@@ -3,8 +3,8 @@
 namespace MediaWiki\Minerva;
 
 use ContentHandler;
-use MediaWiki\Config\HashConfig;
 use MediaWiki\Content\IContentHandlerFactory;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Permissions\Authority;
@@ -22,14 +22,19 @@ use RequestContext;
 class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	use MockAuthorityTrait;
 
+	protected function setUp(): void {
+		$this->overrideConfigValues( [
+			MainConfigNames::HideInterlanguageLinks => false
+		] );
+	}
+
 	private function buildPermissionsObject(
 		Title $title,
 		$actions = null, /* unused */
 		array $options = [],
 		ContentHandler $contentHandler = null,
 		Authority $user = null,
-		$hasOtherLanguagesOrVariants = false,
-		$alwaysShowLanguageButton = true
+		$hasOtherLanguagesOrVariants = false
 	) {
 		$languageHelper = $this->createMock( LanguagesHelper::class );
 		$languageHelper->method( 'doesTitleHasLanguagesOrVariants' )
@@ -56,9 +61,6 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		// Force a content model to avoid DB queries.
 		$title->setContentModel( CONTENT_MODEL_WIKITEXT );
 		$context->setTitle( $title );
-		$context->setConfig( new HashConfig( [
-			'MinervaAlwaysShowLanguageButton' => $alwaysShowLanguageButton
-		] ) );
 		$context->setAuthority( $user );
 
 		$permissionManager = $this->getServiceContainer()->getPermissionManager();
@@ -186,7 +188,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::isAllowed
 	 */
 	public function testGlobalHideLanguageLinksTakesPrecedenceOnMainPage() {
-		$this->setMwGlobals( [ 'wgHideInterlanguageLinks' => true ] );
+		$this->overrideConfigValues( [ MainConfigNames::HideInterlanguageLinks => true ] );
 		$perms = $this->buildPermissionsObject( Title::newMainPage() );
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) );
 	}
@@ -197,7 +199,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::isAllowed
 	 */
 	public function testGlobalHideLanguageLinksTakesPrecedence() {
-		$this->setMwGlobals( [ 'wgHideInterlanguageLinks' => true ] );
+		$this->overrideConfigValues( [ MainConfigNames::HideInterlanguageLinks => true ] );
 		$perms = $this->buildPermissionsObject( Title::makeTitle( NS_MAIN, 'Test' ) );
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) );
 	}
@@ -223,14 +225,16 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 			->method( 'getContentModel' )
 			->willReturn( CONTENT_MODEL_WIKITEXT );
 
+		$this->overrideConfigValues( [
+			'MinervaAlwaysShowLanguageButton' => $minervaAlwaysShowLanguageButton
+		] );
 		$permissions = $this->buildPermissionsObject(
 			$title,
 			null,
 			[],
 			null,
 			null,
-			$hasLanguagesOrVariants,
-			$minervaAlwaysShowLanguageButton
+			$hasLanguagesOrVariants
 		);
 
 		$actual = $permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE );
