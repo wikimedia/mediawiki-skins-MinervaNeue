@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Minerva;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
@@ -231,7 +230,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = new SkinMinerva();
 
 		$user = $skin->getUser();
-		MediaWikiServices::getInstance()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
+		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
 		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
@@ -251,7 +250,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 
 		$user = $skin->getUser();
-		MediaWikiServices::getInstance()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
+		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
 		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
