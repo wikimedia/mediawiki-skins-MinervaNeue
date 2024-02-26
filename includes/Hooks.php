@@ -43,10 +43,12 @@ use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MobileContext;
 use OldChangesList;
 use Skin;
+use Wikimedia\Rdbms\ConfiguredReadOnlyMode;
 use Wikimedia\Services\NoSuchServiceException;
 
 /**
@@ -67,6 +69,17 @@ class Hooks implements
 	UserLogoutCompleteHook
 {
 	public const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
+
+	private ConfiguredReadOnlyMode $configuredReadOnlyMode;
+	private UserOptionsLookup $userOptionsLookup;
+
+	public function __construct(
+		ConfiguredReadOnlyMode $configuredReadOnlyMode,
+		UserOptionsLookup $userOptionsLookup
+	) {
+		$this->configuredReadOnlyMode = $configuredReadOnlyMode;
+		$this->userOptionsLookup = $userOptionsLookup;
+	}
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.
@@ -168,8 +181,7 @@ class Hooks implements
 		}
 		$request = $special->getRequest();
 		if ( $name === 'Recentchanges' ) {
-			$isEnhancedDefaultForUser = MediaWikiServices::getInstance()
-				->getUserOptionsLookup()
+			$isEnhancedDefaultForUser = $this->userOptionsLookup
 				->getBoolOption( $special->getUser(), 'usenewrc' );
 			$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
 			if ( $enhanced ) {
@@ -298,7 +310,7 @@ class Hooks implements
 		if ( $skin === 'minerva' ) {
 			// This is to let the UI adjust itself to a wiki that is always read-only.
 			// Ignore temporary read-only on live wikis, requires heavy DB check (T233458).
-			$roConf = MediaWikiServices::getInstance()->getConfiguredReadOnlyMode();
+			$roConf = $this->configuredReadOnlyMode;
 			$vars += [
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
 				'wgMinervaReadOnly' => $roConf->isReadOnly(),
