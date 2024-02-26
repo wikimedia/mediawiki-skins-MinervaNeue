@@ -24,13 +24,13 @@ use IContextSource;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Content\IContentHandlerFactory;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
+use MediaWiki\Watchlist\WatchlistManager;
 
 /**
  * A wrapper for all available Minerva permissions.
@@ -77,6 +77,8 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 
 	private UserFactory $userFactory;
 
+	private WatchlistManager $watchlistManager;
+
 	/**
 	 * Initialize internal Minerva Permissions system
 	 * @param SkinOptions $skinOptions
@@ -84,19 +86,22 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @param PermissionManager $permissionManager
 	 * @param IContentHandlerFactory $contentHandlerFactory
 	 * @param UserFactory $userFactory
+	 * @param WatchlistManager $watchlistManager
 	 */
 	public function __construct(
 		SkinOptions $skinOptions,
 		LanguagesHelper $languagesHelper,
 		PermissionManager $permissionManager,
 		IContentHandlerFactory $contentHandlerFactory,
-		UserFactory $userFactory
+		UserFactory $userFactory,
+		WatchlistManager $watchlistManager
 	) {
 		$this->skinOptions = $skinOptions;
 		$this->languagesHelper = $languagesHelper;
 		$this->permissionManager = $permissionManager;
 		$this->contentHandlerFactory = $contentHandlerFactory;
 		$this->userFactory = $userFactory;
+		$this->watchlistManager = $watchlistManager;
 	}
 
 	/**
@@ -177,7 +182,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		}
 
 		if ( $action === self::WATCHABLE || $action === self::WATCH ) {
-			$isWatchable = MediaWikiServices::getInstance()->getWatchlistManager()->isWatchable( $this->title );
+			$isWatchable = $this->watchlistManager->isWatchable( $this->title );
 
 			if ( $action === self::WATCHABLE ) {
 				return $isWatchable;
