@@ -11,64 +11,30 @@
  *            in order to facilitate an eventual migration to a centralized source.
  * @experimental
  * @since February 2024 (MediaWiki 1.43)
- * This file is kept separate from the skin.less to avoid the side effects of CSS variable conversion
- * that occurs to LESS variables when importing mediawiki.skin.variables.
- * We import mediawiki.skin.defaults to obtain the original unmodified values for these CSS variables.
  */
-@import 'mediawiki.skin.defaults.less';
 
-// Import the Codex design tokens from the “WikimediaUI” theme.
-@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-experimental.less';
 
-.light-mode-palette() {
-	/* Standard Codex colors */
-	--background-color-base: @background-color-base;
-	--background-color-destructive: @background-color-destructive;
-	--background-color-interactive: @background-color-interactive;
-	--background-color-interactive-subtle: @background-color-interactive-subtle;
-	--background-color-progressive-subtle: @background-color-progressive-subtle;
-	--border-color-base: @border-color-base;
-	--border-color-inverted: @border-color-inverted;
-	--border-color-muted: @border-color-muted;
-	--border-color-progressive--focus: @border-color-progressive--focus;
-	--border-color-subtle: @border-color-subtle;
-	--border-color-transparent: @border-color-transparent;
-	--box-shadow-color-progressive--focus: @box-shadow-color-progressive--focus;
-	--color-base: @color-base;
-	--color-error: @color-error;
-	--color-inverted: @color-inverted;
-	--color-subtle: @color-subtle;
-	--color-emphasized: @color-emphasized;
+/**
+ * The following line groups the .skin-invert selector along with the :root selector.
+ * (From the theme-wikimedia-ui-experimental.less import above).
+ * This ensures that the light-mode color palette is always associated with the .skin-invert class.
+ */
 
-	// NOTE: The following link colors are fed *back* into MediaWiki core
-	// by being used in mediawiki.skin.variables.less.
-	--color-progressive: @color-progressive;
-	--color-visited: @color-visited;
-	--color-progressive--active: @color-progressive--active;
-	--color-link: @color-progressive;
-	--color-link-red: @color-link-red;
-	--color-link-red--visited: @color-link-red--visited;
-	--color-link-external: @color-progressive;
-	--color-link-external--visited: @color-visited;
-	--color-link-external--active: @color-progressive--active;
-	--color-link--visited: @color-visited;
-	// T357381: Note Minerva uses a different active color then the standard one.
-	--color-link--active: #faa700;
+/* stylelint-disable-next-line */
+.skin-invert:extend(:root) {}
+/**
+ * As with the .skin-invert class, .notheme should also reset the CSS variables to the default light theme.
+ */
 
-	/* Minerva specific colors */
-	// FIXME: Replace with Codex drop shadows
-	--box-shadow-color-drawer: rgba( 0, 0, 0, 0.35 );
-}
-
-:root {
-	.light-mode-palette();
-}
+/* stylelint-disable-next-line */
+.notheme:extend(:root) {}
 
 /**
  * Placeholder Night mode color palette.
  * NOTE: These values are temporarily hard coded.
  */
-.night-mode-palette() {
+.mixin-night-mode-palette() {
 	--color-base: #f8f9fa;
 	--color-subtle: #d4d5d5;
 	--color-link: #6e85d8;
@@ -95,35 +61,47 @@
 	--color-link-external--visited: #b97876;
 	--color-link-external--active: #2a4b8d;
 	--color-link--visited: #977dbd;
-	--box-shadow-color-drawer: #afb6e9;
+	--box-shadow-color-drawer: #000;
 	--color-emphasized: #fff;
 }
 
-.night-mode-invert() {
+/**
+ * Forced night mode.
+ *
+ * Applies the night mode color palette per the users explicit preference,
+ * regardless of system settings.
+ */
+html.skin-night-mode-clientpref-1 {
+	color-scheme: dark;
+	.mixin-night-mode-palette();
+}
+
+html.skin-night-mode-clientpref-1 .skin-invert {
 	color-scheme: light;
-	.light-mode-palette();
-	// Keep in sync with .night-mode-invert-image() mixin.
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
-html.skin-night-mode-clientpref-1 {
-	color-scheme: dark;
-	.night-mode-palette();
-
-	/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
-	.skin-invert {
-		.night-mode-invert();
-	}
+html.skin-night-mode-clientpref-1 .notheme {
+	color-scheme: light;
 }
 
+/**
+ * Auto night mode.
+ *
+ * Applies the night mode color palette only in response to system settings.
+ */
 @media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 {
 		color-scheme: light dark;
-		.night-mode-palette();
+		.mixin-night-mode-palette();
+	}
 
-		/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
-		.skin-invert {
-			.night-mode-invert();
-		}
+	html.skin-night-mode-clientpref-2 .notheme {
+		color-scheme: light;
+	}
+
+	html.skin-night-mode-clientpref-2 .skin-invert {
+		color-scheme: light;
+		filter: invert( 1 ) hue-rotate( 180deg );
 	}
 }

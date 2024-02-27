@@ -12,8 +12,13 @@
  */
 @import 'mediawiki.skin.defaults.less';
 
-// Import the Codex design tokens from the “WikimediaUI” theme.
-@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui.less';
+/**
+ * Codex experiment design tokens.
+ * This is imported using the "(reference)" option to avoid duplicating the :root block which
+ * contains CSS custom properties. However, it still imports the Less variables, which are
+ * then propagated to anyone using `@import 'mediawiki.skin.variables.less'`;
+ */
+@import ( reference ) 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-experimental.less';
 
 // Overrides for Codex tokens:
 
@@ -26,43 +31,15 @@
 @font-family-sans: @font-family-sans--fallback;
 
 /**
- * Link styles are defined in MediaWiki core.
- * These variables are first defined in core/resources/src/mediawiki.less/mediawiki.skin.defaults.less
- * Then they're overridden here for night mode compatibility
- * Then they're fed back into MediaWiki core & extensions
- * through the usage of @import "mediawiki.skin.variables.less".
- * 🙃
+ * == Non-standard variable names ==
+ * These variables don't correspond to Codex variables.
+ * TODO: Determine whether any of these are actually used in practice.
  **/
-@color-subtle: var(--color-subtle);
-@color-error: var(--color-error);
-@color-progressive: var(--color-progressive);
-@color-destructive: var(--color-destructive);
-@color-inverted:  var(--color-inverted);
-@color-base: var(--color-base);
-@background-color-progressive-subtle: var(--background-color-progressive-subtle);
-@color-link: var(--color-link);
+@color-link: var( --color-progressive );
 @color-link--visited: var( --color-visited);
 @color-link--active: var(--color-progressive--active);
 @color-link-new: var(--color-link-red);
 @color-link-new--visited: var(--color-link-red--visited);
-@color-link-external: var(--color-link-external);
-@color-link-external--visited: var(--color-link-external--visited);
-@color-link-external--active: var(--color-link-external--active);
-@background-color-base: var(--background-color-base);
-@background-color-destructive: var(--background-color-destructive);
-@background-color-interactive: var(--background-color-interactive);
-@background-color-interactive-subtle: var(--background-color-interactive-subtle);
-@background-color-notice-subtle: var(--background-color-notice-subtle);
-@border-color-base: var(--border-color-base);
-@border-color-inverted: var(--border-color-inverted);
-@border-color-muted: var(--border-color-muted);
-@border-color-progressive--focus: var(--border-color-progressive--focus);
-@border-color-subtle: var(--border-color-subtle);
-@border-color-transparent: var(--border-color-transparent);
-@box-shadow-color-progressive--focus: var(--box-shadow-color-progressive--focus);
-@color-visited: var(--color-visited);
-@color-progressive--active: var(--color-progressive--active);
-@color-link-red: var(--color-link-red);
-@color-link-red--visited: var(--color-link-red--visited);
-@color-link--active: var(--color-link--active);
-@color-emphasized: var(--color-emphasized);
+@color-link-external: var( --color-progressive );
+@color-link-external--visited: var( --color-visited );
+@color-link-external--active:  var(--color-progressive--active);

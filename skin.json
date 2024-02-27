@@ -155,6 +155,9 @@
 			]
 		}
 	},
+	"SkinCodexThemes": {
+		"minerva": "experimental"
+	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Minerva\\": "includes/"
 	},
