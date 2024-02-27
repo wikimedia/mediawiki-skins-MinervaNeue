@@ -162,7 +162,8 @@ return [
 			$services->getService( 'Minerva.LanguagesHelper' ),
 			$services->getPermissionManager(),
 			$services->getContentHandlerFactory(),
-			$services->getUserFactory()
+			$services->getUserFactory(),
+			$services->getWatchlistManager()
 		);
 		// TODO: This should not be allowed, this is basically global $wgTitle and $wgUser.
 		$permissions->setContext( RequestContext::getMain() );

@@ -74,7 +74,8 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 			$languageHelper,
 			$permissionManager,
 			$contentHandlerFactory,
-			$this->createMock( UserFactory::class )
+			$this->createMock( UserFactory::class ),
+			$this->getServiceContainer()->getWatchlistManager()
 		) )->setContext( $context );
 	}
 
