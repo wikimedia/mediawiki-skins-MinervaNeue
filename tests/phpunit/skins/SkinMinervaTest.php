@@ -188,7 +188,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = new SkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-2', $classes );
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
 	}
 
 	/**
@@ -218,7 +218,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-2', $classes );
+		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
 	}
 
 	/**
