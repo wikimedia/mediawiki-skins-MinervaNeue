@@ -78,3 +78,12 @@
 .night-mode-invert-image() {
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
+
+/** This mixin should only be used where it's safe to do so. It should not be applied
+to content which may have important information. */
+.night-mode-strip-all-colors-when-safe() {
+	background: inherit !important;
+	color: inherit !important;
+	/* If a border is defined retain it but make it black. If no border this won't do anything. */
+	border-color: var( --border-color-subtle ) !important;
+}

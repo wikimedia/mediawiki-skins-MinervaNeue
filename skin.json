@@ -388,6 +388,7 @@
 			]
 		},
 		"skins.minerva.mainPage.styles": {
+			"class": "MediaWiki\\Minerva\\ResourceLoaderSkinModule",
 			"styles": [
 				"resources/skins.minerva.mainPage.styles/common.less"
 			]
