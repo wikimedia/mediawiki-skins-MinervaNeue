@@ -595,7 +595,7 @@
 		}
 	},
 	"DefaultUserOptions": {
-		"minerva-night-mode": 2
+		"minerva-night-mode": 0
 	},
 	"manifest_version": 2
 }
