@@ -61,7 +61,6 @@
 }
 
 :root {
-	color-scheme: dark light;
 	.light-mode-palette();
 }
 
@@ -119,6 +118,7 @@ html.skin-night-mode-clientpref-1 {
 
 @media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 {
+		color-scheme: light dark;
 		.night-mode-palette();
 
 		/** Content that uses the mw-invert class is inverted and the light mode palette should be used. */
