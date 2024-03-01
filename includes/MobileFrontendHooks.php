@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Minerva;
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Config\ConfigFactory;
 use MobileContext;
 use MobileFrontend\Features\Feature;
 use MobileFrontend\Features\FeaturesManager;
@@ -19,6 +19,13 @@ class MobileFrontendHooks implements
 	MobileFrontendFeaturesRegistrationHook,
 	RequestContextCreateSkinMobileHook
 {
+	private ConfigFactory $configFactory;
+
+	public function __construct(
+		ConfigFactory $configFactory
+	) {
+		$this->configFactory = $configFactory;
+	}
 
 	/**
 	 * Register mobile web beta features
@@ -28,8 +35,7 @@ class MobileFrontendHooks implements
 	 * @param FeaturesManager $featureManager
 	 */
 	public function onMobileFrontendFeaturesRegistration( FeaturesManager $featureManager ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'minerva' );
+		$config = $this->configFactory->makeConfig( 'minerva' );
 
 		try {
 			$featureManager->registerFeature(

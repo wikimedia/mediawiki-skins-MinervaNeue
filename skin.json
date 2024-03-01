@@ -156,10 +156,17 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "MediaWiki\\Minerva\\Hooks"
+			"class": "MediaWiki\\Minerva\\Hooks",
+			"services": [
+				"ConfiguredReadOnlyMode",
+				"UserOptionsLookup"
+			]
 		},
 		"mobilefrontend": {
-			"class": "MediaWiki\\Minerva\\MobileFrontendHooks"
+			"class": "MediaWiki\\Minerva\\MobileFrontendHooks",
+			"services": [
+				"ConfigFactory"
+			]
 		}
 	},
 	"Hooks": {
