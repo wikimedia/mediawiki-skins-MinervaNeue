@@ -68,13 +68,14 @@ return [
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
 		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
+		$userIdentityUtils = $services->getUserIdentityUtils();
 		$showMobileOptions = $options->get( SkinOptions::MOBILE_OPTIONS );
 		$user = $context->getUser();
 		// Add a donate link (see https://phabricator.wikimedia.org/T219793)
 		$showDonateLink = $options->get( SkinOptions::SHOW_DONATE );
 		$builder = $options->get( SkinOptions::MAIN_MENU_EXPANDED ) ?
 			new AdvancedMainMenuBuilder( $showMobileOptions, $showDonateLink, $definitions ) :
-			new DefaultMainMenuBuilder( $showMobileOptions, $showDonateLink, $user, $definitions );
+			new DefaultMainMenuBuilder( $showMobileOptions, $showDonateLink, $user, $definitions, $userIdentityUtils );
 
 		return new MainMenuDirector( $builder );
 	},
