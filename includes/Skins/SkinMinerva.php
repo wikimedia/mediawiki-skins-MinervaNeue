@@ -136,10 +136,10 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getNotificationFallbackButton() {
 		return [
-				'icon' => 'bellOutline-base20',
-				'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
-						[ 'returnto' => $this->getTitle()->getPrefixedText() ]
-				),
+			'icon' => 'bellOutline-base20',
+			'href' => SpecialPage::getTitleFor( 'Mytalk' )->getLocalURL(
+				[ 'returnto' => $this->getTitle()->getPrefixedText() ]
+			),
 		];
 	}
 
@@ -538,7 +538,8 @@ class SkinMinerva extends SkinMustache {
 				case NS_FILE_TALK:
 					$msg = 'mobile-frontend-talk-back-to-filepage';
 					break;
-				default: // generic (all other NS)
+				default:
+					// generic (all other NS)
 					$msg = 'mobile-frontend-talk-back-to-page';
 			}
 			$subjectPage = $services->getNamespaceInfo()->getSubjectPage( $title );
