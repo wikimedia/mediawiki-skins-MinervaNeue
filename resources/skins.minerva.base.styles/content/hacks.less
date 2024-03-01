@@ -184,3 +184,21 @@ FIXME: Review all of these hacks to see if they still apply.
 		}
 	}
 }
+
+/* General case that templates/extensions can opt into */
+.skin-nightmode-reset-color,
+/* T357735 */
+.quotebox,
+/* T357726 */
+.side-box, .side-box *,
+/* T358012 */
+.navbox-even, .navbox-abovebelow, .navbox-title {
+	background: inherit !important;
+	color: inherit !important;
+}
+
+/* T358385 */
+[ bgcolor ] {
+	// Important: this should correspond with the light mode theme version of color-base
+	color: #333;
+}
