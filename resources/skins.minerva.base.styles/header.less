@@ -75,6 +75,13 @@
 
 // Night mode
 html.skin-night-mode-clientpref-1 {
+	// The following icons use background-image instead of mask-image.
+	// These can be removed if a fix for T358246 is found.
+	.minerva-icon.minerva-icon--search-base20,
+	.minerva-icon.minerva-icon--search,
+	.page-actions-menu__list .minerva-icon,
+	.mw-editsection .minerva-icon,
+	.toggle-list .minerva-icon,
 	.branding-box img {
 		.night-mode-invert-image();
 	}
@@ -82,6 +89,11 @@ html.skin-night-mode-clientpref-1 {
 
 @media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 {
+		.minerva-icon.minerva-icon--search-base20,
+		.minerva-icon.minerva-icon--search,
+		.page-actions-menu__list .minerva-icon,
+		.mw-editsection .minerva-icon,
+		.toggle-list .minerva-icon,
 		.branding-box img {
 			.night-mode-invert-image();
 		}
