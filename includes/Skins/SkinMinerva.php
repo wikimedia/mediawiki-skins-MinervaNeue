@@ -22,9 +22,11 @@ namespace MediaWiki\Minerva\Skins;
 
 use ExtensionRegistry;
 use Language;
+use MediaWiki\Cache\GenderCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Html\Html;
 use MediaWiki\Html\TemplateParser;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
@@ -32,8 +34,11 @@ use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
+use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\Utils\MWTimestamp;
 use RuntimeException;
 use SkinMustache;
@@ -74,6 +79,40 @@ class SkinMinerva extends SkinMustache {
 	 * @var IMinervaPagePermissions
 	 */
 	private $permissions;
+
+	private GenderCache $genderCache;
+
+	private LinkRenderer $linkRenderer;
+
+	private NamespaceInfo $namespaceInfo;
+
+	private RevisionLookup $revisionLookup;
+
+	private UserOptionsManager $userOptionsManager;
+
+	/**
+	 * @param GenderCache $genderCache
+	 * @param LinkRenderer $linkRenderer
+	 * @param NamespaceInfo $namespaceInfo
+	 * @param RevisionLookup $revisionLookup
+	 * @param UserOptionsManager $userOptionsManager
+	 * @param array $options
+	 */
+	public function __construct(
+		GenderCache $genderCache,
+		LinkRenderer $linkRenderer,
+		NamespaceInfo $namespaceInfo,
+		RevisionLookup $revisionLookup,
+		UserOptionsManager $userOptionsManager,
+		$options = []
+	) {
+		parent::__construct( $options );
+		$this->genderCache = $genderCache;
+		$this->linkRenderer = $linkRenderer;
+		$this->namespaceInfo = $namespaceInfo;
+		$this->revisionLookup = $revisionLookup;
+		$this->userOptionsManager = $userOptionsManager;
+	}
 
 	/**
 	 * @return SkinOptions
@@ -441,8 +480,7 @@ class SkinMinerva extends SkinMustache {
 		$skinOptions = $this->getSkinOptions();
 		$isSpecialPageOrHistory = $title->isSpecialPage() ||
 			$this->isHistoryPage();
-		$subjectPage = MediaWikiServices::getInstance()->getNamespaceInfo()
-			->getSubjectPage( $title );
+		$subjectPage = $this->namespaceInfo->getSubjectPage( $title );
 		$isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
 		return (
 				$this->hasPageActions() && !$isMainPageTalk &&
@@ -519,7 +557,6 @@ class SkinMinerva extends SkinMustache {
 	 * @return string
 	 */
 	protected function getSubjectPage() {
-		$services = MediaWikiServices::getInstance();
 		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
 
@@ -542,9 +579,9 @@ class SkinMinerva extends SkinMustache {
 					// generic (all other NS)
 					$msg = 'mobile-frontend-talk-back-to-page';
 			}
-			$subjectPage = $services->getNamespaceInfo()->getSubjectPage( $title );
+			$subjectPage = $this->namespaceInfo->getSubjectPage( $title );
 
-			return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			return $this->linkRenderer->makeLink(
 				$subjectPage,
 				$this->msg( $msg, $title->getText() )->text(),
 				[
@@ -631,8 +668,7 @@ class SkinMinerva extends SkinMustache {
 			$skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null
 		) {
 			$user = $this->getUser();
-			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-			$value = $optionsManager->getOption( $user, 'minerva-night-mode' );
+			$value = $this->userOptionsManager->getOption( $user, 'minerva-night-mode' );
 
 			// if forcing a (valid) setting via query params, take priority over the user option
 			if ( $forceNightMode !== null && in_array( $forceNightMode, [ 0, 1, 2 ] ) ) {
@@ -764,8 +800,7 @@ class SkinMinerva extends SkinMustache {
 			$timestamp = $out->getRevisionTimestamp();
 			if ( !$timestamp ) {
 				# No cached timestamp, load it from the database
-				$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
-				$timestamp = $revisionLookup->getTimestampFromId( $out->getRevisionId() );
+				$timestamp = $this->revisionLookup->getTimestampFromId( $out->getRevisionId() );
 			}
 			$historyLink = $this->getRelativeHistoryLink( $title, $timestamp );
 		}
@@ -789,16 +824,14 @@ class SkinMinerva extends SkinMustache {
 	 *   exists in the database or is hidden from public view.
 	 */
 	private function getRevisionEditorData( LinkTarget $title ) {
-		$services = MediaWikiServices::getInstance();
-		$rev = $services->getRevisionLookup()
-			->getRevisionByTitle( $title );
+		$rev = $this->revisionLookup->getRevisionByTitle( $title );
 		$result = [];
 		if ( $rev ) {
 			$revUser = $rev->getUser();
 			// Note the user will only be returned if that information is public
 			if ( $revUser ) {
 				$editorName = $revUser->getName();
-				$editorGender = $services->getGenderCache()->getGenderOf( $revUser, __METHOD__ );
+				$editorGender = $this->genderCache->getGenderOf( $revUser, __METHOD__ );
 				$result += [
 					'data-user-name' => $editorName,
 					'data-user-gender' => $editorGender,
@@ -821,7 +854,6 @@ class SkinMinerva extends SkinMustache {
 
 			if ( $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser() && is_string( $fromDate ) ) {
 				$fromDateTs = wfTimestamp( TS_UNIX, $fromDate );
-				$genderCache = MediaWikiServices::getInstance()->getGenderCache();
 
 				// This is shown when js is disabled. js enhancement made due to caching
 				$tagline = $this->msg( 'mobile-frontend-user-page-member-since',
@@ -831,7 +863,7 @@ class SkinMinerva extends SkinMustache {
 				// Define html attributes for usage with js enhancement (unix timestamp, gender)
 				$attrs = [ 'id' => 'tagline-userpage',
 					'data-userpage-registration-date' => $fromDateTs,
-					'data-userpage-gender' => $genderCache->getGenderOf( $pageUser, __METHOD__ ) ];
+					'data-userpage-gender' => $this->genderCache->getGenderOf( $pageUser, __METHOD__ ) ];
 			}
 		} else {
 			$title = $this->getTitle();
@@ -937,14 +969,13 @@ class SkinMinerva extends SkinMustache {
 
 		$services = MediaWikiServices::getInstance();
 		$skinOptions = $this->getSkinOptions();
-		$namespaceInfo = $services->getNamespaceInfo();
 		/** @var \MediaWiki\Minerva\LanguagesHelper $languagesHelper */
 		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 		$buttons = [];
 		// always add a button to link to the talk page
 		// it will link to the wikitext talk page
 		$title = $this->getTitle();
-		$subjectPage = Title::newFromLinkTarget( $namespaceInfo->getSubjectPage( $title ) );
+		$subjectPage = Title::newFromLinkTarget( $this->namespaceInfo->getSubjectPage( $title ) );
 		$talkAtBottom = !$skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		if ( !$this->getUserPageHelper()->isUserPage() &&
@@ -961,7 +992,7 @@ class SkinMinerva extends SkinMustache {
 
 			if ( isset( $namespaces[$talkId] ) ) {
 				$talkButton = $namespaces[$talkId];
-				$talkTitle = Title::newFromLinkTarget( $namespaceInfo->getTalkPage( $title ) );
+				$talkTitle = Title::newFromLinkTarget( $this->namespaceInfo->getTalkPage( $title ) );
 
 				$buttons['talk'] = $this->getTalkButton( $talkTitle, $talkButton['text'] );
 			}

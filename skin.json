@@ -116,6 +116,13 @@
 	"ValidSkinNames": {
 		"minerva": {
 			"class": "MediaWiki\\Minerva\\Skins\\SkinMinerva",
+			"services": [
+				"GenderCache",
+				"LinkRenderer",
+				"NamespaceInfo",
+				"RevisionLookup",
+				"UserOptionsManager"
+			],
 			"args": [
 				{
 					"name": "minerva",

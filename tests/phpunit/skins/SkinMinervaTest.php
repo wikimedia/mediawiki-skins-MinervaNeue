@@ -36,6 +36,17 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		'value' => "Your alerts",
 	];
 
+	private function newSkinMinerva() {
+		$services = $this->getServiceContainer();
+		return new SkinMinerva(
+			$services->getGenderCache(),
+			$services->getLinkRenderer(),
+			$services->getNamespaceInfo(),
+			$services->getRevisionLookup(),
+			$services->getUserOptionsManager()
+		);
+	}
+
 	/**
 	 * @param array $options
 	 */
@@ -63,7 +74,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context->setTitle( Title::makeTitle( $namespace, $title ) );
 		$context->setActionName( $action );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$this->assertEquals( $expected, TestingAccessWrapper::newFromObject( $skin )->hasPageActions() );
@@ -95,7 +106,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		// hasPageTabs gets the action directly from the request rather than the context so we set it here as well
 		$context->getRequest()->setVal( 'action', $action );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$this->assertEquals( $expected, TestingAccessWrapper::newFromObject( $skin )->hasPageTabs() );
@@ -108,7 +119,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context = new RequestContext();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$contentNavigationUrls = [ 'associated-pages' => [ 'testkey' => 'testvalue' ] ];
@@ -125,7 +136,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context = new RequestContext();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$contentNavigationUrls = [ 'associated-pages' => [ 'testkey' => 'testvalue' ] ];
@@ -142,7 +153,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context = new RequestContext();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$contentNavigationUrls = [];
@@ -159,7 +170,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context = new RequestContext();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$contentNavigationUrls = [ 'associated-pages' => [ 'testkey' => 'testvalue' ] ];
@@ -173,7 +184,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getHtmlElementAttributes when night mode is not enabled via feature flag or query params
 	 */
 	public function testGetHtmlElementAttributesNoNightMode() {
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
 		$this->assertStringNotContainsString( 'skin-night-mode-clientpref-', $classes );
@@ -185,7 +196,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	public function testGetHtmlElementAttributesNightMode() {
 		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
 		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
@@ -199,7 +210,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$request = $context->getRequest();
 		$request->setVal( 'minervanightmode', '1' );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
@@ -214,7 +225,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$request = $context->getRequest();
 		$request->setVal( 'minervanightmode', '3' );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
@@ -227,7 +238,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	public function testGetHtmlElementAttributesNightModeUserOption() {
 		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 
 		$user = $skin->getUser();
 		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
@@ -246,7 +257,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$request = $context->getRequest();
 		$request->setVal( 'minervanightmode', '3' );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$user = $skin->getUser();
@@ -272,7 +283,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Test' ) );
 		$context->setOutput( $outputPage );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 		$skin = TestingAccessWrapper::newFromObject( $skin );
 
@@ -300,7 +311,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Test' ) );
 		$context->setOutput( $outputPage );
 
-		$skin = new SkinMinerva();
+		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
 
 		$skin = TestingAccessWrapper::newFromObject( $skin );
