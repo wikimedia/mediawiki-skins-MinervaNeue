@@ -8,7 +8,6 @@ use MediaWiki\Languages\LanguageConverterFactory;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
-use PHPUnit\Framework\MockObject\Invocation;
 
 /**
  * @package Tests\MediaWiki\Minerva
@@ -34,20 +33,18 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * Build test Title object
 	 * @param bool $hasVariants
-	 * @param Invocation|null $matcher
 	 * @return Title
 	 */
-	private function getTitle( $hasVariants, Invocation $matcher = null ) {
+	private function getTitle( $hasVariants ) {
 		$languageMock = $this->createMock( Language::class );
 		$langConv = $this->createMock( ILanguageConverter::class );
-		$langConv->expects( $matcher ?? $this->any() )->method( 'hasVariants' )->willReturn( $hasVariants );
+		$langConv->method( 'hasVariants' )->willReturn( $hasVariants );
 		$langConvFactory = $this->createMock( LanguageConverterFactory::class );
 		$langConvFactory->method( 'getLanguageConverter' )->with( $languageMock )->willReturn( $langConv );
 		$this->setService( 'LanguageConverterFactory', $langConvFactory );
 
 		$title = $this->createMock( Title::class );
-		$title->expects( $matcher ?? $this->any() )
-			->method( 'getPageLanguage' )
+		$title->method( 'getPageLanguage' )
 			->willReturn( $languageMock );
 
 		return $title;
