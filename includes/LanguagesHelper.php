@@ -19,7 +19,7 @@
  */
 namespace MediaWiki\Minerva;
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Languages\LanguageConverterFactory;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
 
@@ -29,15 +29,22 @@ use MediaWiki\Title\Title;
  */
 class LanguagesHelper {
 
+	private LanguageConverterFactory $languageConverterFactory;
+
 	/**
 	 * @var bool
 	 */
 	private $hasLanguages;
 
 	/**
+	 * @param LanguageConverterFactory $languageConverterFactory
 	 * @param OutputPage $out Output page to fetch language links
 	 */
-	public function __construct( OutputPage $out ) {
+	public function __construct(
+		LanguageConverterFactory $languageConverterFactory,
+		OutputPage $out
+	) {
+		$this->languageConverterFactory = $languageConverterFactory;
 		$this->hasLanguages = $out->getLanguageLinks() !== [];
 	}
 
@@ -50,8 +57,7 @@ class LanguagesHelper {
 		if ( $this->hasLanguages ) {
 			return true;
 		}
-		$langConv = MediaWikiServices::getInstance()->getLanguageConverterFactory()
-			->getLanguageConverter( $title->getPageLanguage() );
+		$langConv = $this->languageConverterFactory->getLanguageConverter( $title->getPageLanguage() );
 		return $langConv->hasVariants();
 	}
 }

@@ -151,8 +151,11 @@ return [
 			RequestContext::getMain()
 		);
 	},
-	'Minerva.LanguagesHelper' => static function (): LanguagesHelper {
-		return new LanguagesHelper( RequestContext::getMain()->getOutput() );
+	'Minerva.LanguagesHelper' => static function ( MediaWikiServices $services ): LanguagesHelper {
+		return new LanguagesHelper(
+			$services->getLanguageConverterFactory(),
+			RequestContext::getMain()->getOutput()
+		);
 	},
 	'Minerva.SkinOptions' => static function (): SkinOptions {
 		return new SkinOptions();
