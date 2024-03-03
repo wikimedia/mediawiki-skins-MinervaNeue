@@ -19,6 +19,16 @@
  */
 namespace MediaWiki\Minerva;
 
+use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\Hooks\HookRunner;
+use MediaWiki\Minerva\Skins\SkinMinerva;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserNameUtils;
+use MobileContext;
+use Skin;
+
 /**
  * A wrapper for all available Skin options.
  */
@@ -73,6 +83,20 @@ final class SkinOptions {
 		self::NIGHT_MODE => false,
 	];
 
+	private HookContainer $hookContainer;
+	private UserFactory $userFactory;
+	private UserNameUtils $userNameUtils;
+
+	public function __construct(
+		HookContainer $hookContainer,
+		UserFactory $userFactory,
+		UserNameUtils $userNameUtils
+	) {
+		$this->hookContainer = $hookContainer;
+		$this->userFactory = $userFactory;
+		$this->userNameUtils = $userNameUtils;
+	}
+
 	/**
 	 * override an existing option or options with new values
 	 * @param array $options
@@ -117,5 +141,80 @@ final class SkinOptions {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Set the skin options for Minerva
+	 *
+	 * @param MobileContext $mobileContext
+	 * @param Skin $skin
+	 */
+	public function setMinervaSkinOptions(
+		MobileContext $mobileContext, Skin $skin
+	) {
+		// setSkinOptions is not available
+		if ( $skin instanceof SkinMinerva ) {
+			$services = MediaWikiServices::getInstance();
+			$featureManager = $services
+				->getService( 'MobileFrontend.FeaturesManager' );
+			$title = $skin->getTitle();
+
+			// T245162 - this should only apply if the context relates to a page view.
+			// Examples:
+			// - parsing wikitext during an REST response
+			// - a ResourceLoader response
+			if ( $title !== null ) {
+				// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
+				// be true on user pages and user talk pages for all users
+				//
+				// For some reason using $services->getService( 'SkinUserPageHelper' )
+				// here results in a circular dependency error which is why
+				// SkinUserPageHelper is being instantiated instead.
+				$relevantUserPageHelper = new SkinUserPageHelper(
+					$this->userNameUtils,
+					$this->userFactory,
+					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title,
+					$mobileContext
+				);
+
+				$isUserPage = $relevantUserPageHelper->isUserPage();
+				$isUserPageAccessible = $relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
+				$isUserPageOrUserTalkPage = $isUserPage && $isUserPageAccessible;
+			} else {
+				// If no title this must be false
+				$isUserPageOrUserTalkPage = false;
+			}
+
+			$isBeta = $mobileContext->isBetaGroupMember();
+			$this->setMultiple( [
+				self::SHOW_DONATE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
+				self::TALK_AT_TOP => $isUserPageOrUserTalkPage ?
+					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
+				self::BETA_MODE
+					=> $isBeta,
+				self::CATEGORIES
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategories' ),
+				self::PAGE_ISSUES
+					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
+				self::MOBILE_OPTIONS => true,
+				self::PERSONAL_MENU => $featureManager->isFeatureAvailableForCurrentUser(
+					'MinervaPersonalMenu'
+				),
+				self::MAIN_MENU_EXPANDED => $featureManager->isFeatureAvailableForCurrentUser(
+					'MinervaAdvancedMainMenu'
+				),
+				// In mobile, always resort to single icon.
+				self::SINGLE_ECHO_BUTTON => true,
+				self::HISTORY_IN_PAGE_ACTIONS => $isUserPageOrUserTalkPage ?
+					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
+				self::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
+					true : $featureManager->isFeatureAvailableForCurrentUser(
+						Hooks::FEATURE_OVERFLOW_PAGE_ACTIONS
+					),
+				self::TABS_ON_SPECIALS => true,
+				self::NIGHT_MODE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaNightMode' ),
+			] );
+			( new HookRunner( $this->hookContainer ) )->onSkinMinervaOptionsInit( $skin, $this );
+		}
 	}
 }

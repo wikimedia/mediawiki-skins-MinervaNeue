@@ -3,6 +3,7 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\Config\ConfigFactory;
+use MediaWiki\MediaWikiServices;
 use MobileContext;
 use MobileFrontend\Features\Feature;
 use MobileFrontend\Features\FeaturesManager;
@@ -117,6 +118,7 @@ class MobileFrontendHooks implements
 	public function onRequestContextCreateSkinMobile(
 		MobileContext $mobileContext, Skin $skin
 	) {
-		Hooks::setMinervaSkinOptions( $mobileContext, $skin );
+		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+		$skinOptions->setMinervaSkinOptions( $mobileContext, $skin );
 	}
 }

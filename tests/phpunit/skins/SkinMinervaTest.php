@@ -51,7 +51,12 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @param array $options
 	 */
 	private function overrideSkinOptions( $options ) {
-		$mockOptions = new SkinOptions();
+		$services = $this->getServiceContainer();
+		$mockOptions = new SkinOptions(
+			$services->getHookContainer(),
+			$services->getUserFactory(),
+			$services->getUserNameUtils()
+		);
 		$mockOptions->setMultiple( $options );
 		$this->setService( 'Minerva.SkinOptions', $mockOptions );
 	}
