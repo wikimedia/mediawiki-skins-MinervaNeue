@@ -193,8 +193,10 @@ FIXME: Review all of these hacks to see if they still apply.
 .side-box, .side-box *,
 /* T358012 */
 .navbox-even, .navbox-abovebelow, .navbox-title {
-	background: inherit !important;
-	color: inherit !important;
+	&:not( .notheme ) {
+		background: inherit !important;
+		color: inherit !important;
+	}
 }
 
 /* T358385 */
