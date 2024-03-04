@@ -15,6 +15,12 @@
 
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-experimental.less';
 
+:root {
+	--minerva-diff-addedline: @color-success;
+	--minerva-diff-deletedline: @color-destructive;
+	--box-shadow-color-drawer: rgba( 0, 0, 0, 0.35 );
+}
+
 /**
  * The following line groups the .skin-invert selector along with the :root selector.
  * (From the theme-wikimedia-ui-experimental.less import above).
@@ -54,7 +60,7 @@
 	--border-color-subtle: #d4d5d5;
 	--border-color-transparent: transparent;
 	--box-shadow-color-progressive--focus: #afb6e9;
-	--color-error: #e45d52;
+	--color-error: #f8a397;
 	--color-inverted: #f8f9fa;
 	--color-link-red--visited: #b97876;
 	--color-link-external: #6e85d8;
@@ -63,6 +69,22 @@
 	--color-link--visited: #977dbd;
 	--box-shadow-color-drawer: #000;
 	--color-emphasized: #fff;
+
+	// Message box colors. [[T358402#9598616]]
+	--background-color-error-subtle: #70231f;
+	--background-color-warning-subtle: #4f3a1a;
+	--background-color-success-subtle: #194538;
+	--background-color-notice-subtle: #202122;
+	--border-color-error: #e45d52;
+	--border-color-warning: #ad822b;
+	--border-color-success: #0f9b7a;
+	--border-color-notice: #72777d;
+	--color-warning: #e7b032;
+	--color-success: #74c9ac;
+	--color-notice: #f8f9fa;
+
+	--minerva-diff-deletedline: #886525;
+	--minerva-diff-addedline: #36c;
 }
 
 /**
