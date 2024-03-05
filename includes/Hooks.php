@@ -28,6 +28,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
 use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
+use MediaWiki\Hook\PreferencesGetLayoutHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -62,6 +63,7 @@ class Hooks implements
 	FetchChangesListHook,
 	GetPreferencesHook,
 	OutputPageBodyAttributesHook,
+	PreferencesGetLayoutHook,
 	ResourceLoaderGetConfigVarsHook,
 	ResourceLoaderRegisterModulesHook,
 	SkinPageReadyConfigHook,
@@ -130,12 +132,11 @@ class Hooks implements
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PreferencesGetLayout
 	 *
 	 * @param bool &$useMobileLayout
-	 * @param Skin|string $skin
+	 * @param string $skinName
+	 * @param array $skinProperties
 	 */
-	public static function onPreferencesGetLayout( &$useMobileLayout, $skin ) {
-		if ( $skin instanceof Skin && $skin->getSkinName() === 'minerva' ) {
-			$useMobileLayout = true;
-		} elseif ( is_string( $skin ) && $skin === 'minerva' ) {
+	public function onPreferencesGetLayout( &$useMobileLayout, $skinName, $skinProperties = [] ) {
+		if ( $skinName === 'minerva' ) {
 			$useMobileLayout = true;
 		}
 	}
