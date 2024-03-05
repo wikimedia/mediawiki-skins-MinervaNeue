@@ -36,13 +36,13 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	 * @return Title
 	 */
 	private function getTitle( $hasVariants ) {
-		$languageMock = $this->createMock( Language::class );
 		$langConv = $this->createMock( ILanguageConverter::class );
 		$langConv->method( 'hasVariants' )->willReturn( $hasVariants );
 		$langConvFactory = $this->createMock( LanguageConverterFactory::class );
-		$langConvFactory->method( 'getLanguageConverter' )->with( $languageMock )->willReturn( $langConv );
+		$langConvFactory->method( 'getLanguageConverter' )->willReturn( $langConv );
 		$this->setService( 'LanguageConverterFactory', $langConvFactory );
 
+		$languageMock = $this->createMock( Language::class );
 		$title = $this->createMock( Title::class );
 		$title->method( 'getPageLanguage' )
 			->willReturn( $languageMock );
@@ -69,8 +69,8 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 		$helper = new LanguagesHelper( $this->getOutput( [] ) );
 
 		$this->assertFalse( $helper->doesTitleHasLanguagesOrVariants(
-			$this->getTitle( false ), $this->once() ) );
+			$this->getTitle( false ) ) );
 		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants(
-			$this->getTitle( true ), $this->once() ) );
+			$this->getTitle( true ) ) );
 	}
 }
