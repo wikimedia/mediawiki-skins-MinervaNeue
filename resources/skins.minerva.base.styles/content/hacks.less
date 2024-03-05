@@ -191,29 +191,57 @@ FIXME: Review all of these hacks to see if they still apply.
 	color: #333;
 }
 
-/* T357453 - attempt to strip colors from the majority of infoboxes in night mode (unless notheme specified) */
-// please forgive me for bypassing the linter there is no easy way to keep all of the infobox classes grouped without
-// stylelint-disable no-descending-specificity
 html.skin-night-mode-clientpref-1 {
+	/* T357453 - attempt to strip colors from the majority of infoboxes in night mode (unless notheme specified) */
+	// please forgive me for bypassing the linter there is no easy way to keep all of the infobox classes grouped without
+	// stylelint-disable no-descending-specificity
 	.infobox td,
 	.infobox th,
 	.infobox-above,
 	/* itwiki */.sinottico th,
-	.infobox-header {
+	.infobox-header,
+	/* T358164 General case that templates/extensions can opt into */
+	.skin-nightmode-reset-color,
+	/* T357735 */
+	.quotebox,
+	/* T357726 */
+	.side-box,
+	.side-box div,
+	/* T358012 */
+	.navbox,
+	.navbox-subgroup,
+	.navbox-group,
+	.navbox-even,
+	.navbox-abovebelow,
+	.navbox-title {
 		&:not( .notheme ) {
 			.night-mode-strip-all-colors-when-safe();
 		}
 	}
 }
 
-/* T357453 - for automatic as well */
 @media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 {
+		/* T357453 */
 		.infobox td,
 		.infobox th,
 		.infobox-above,
 		/* itwiki */.sinottico th,
-		.infobox-header {
+		.infobox-header,
+		/* T358164 General case that templates/extensions can opt into */
+		.skin-nightmode-reset-color,
+		/* T357735 */
+		.quotebox,
+		/* T357726 */
+		.side-box,
+		.side-box div,
+		/* T358012 */
+		.navbox,
+		.navbox-subgroup,
+		.navbox-group,
+		.navbox-even,
+		.navbox-abovebelow,
+		.navbox-title {
 			&:not( .notheme ) {
 				.night-mode-strip-all-colors-when-safe();
 			}
