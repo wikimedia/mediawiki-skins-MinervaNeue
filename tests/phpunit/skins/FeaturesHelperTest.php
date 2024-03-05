@@ -46,10 +46,10 @@ class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Minerva\Skins\FeaturesHelper::shouldDisableNightMode
 	 */
 	public function testShouldDisableNightModeExcluded(
-		array $options, WebRequest $request, Title $title = null, bool $expeted = false ) {
+		array $options, WebRequest $request, Title $title = null, bool $expected = false ) {
 		$featuresHelper = new FeaturesHelper();
 		$shouldDisableNightMode = $featuresHelper->shouldDisableNightMode( $options, $request, $title );
-		$this->assertSame( $expeted, $shouldDisableNightMode );
+		$this->assertSame( $expected, $shouldDisableNightMode );
 	}
 
 	/**
