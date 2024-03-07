@@ -15,31 +15,17 @@
 
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-experimental.less';
 
-:root {
+// :extend merges this :root selector into the one provided by theme-wikimedia-ui-experimental.less.
+:root:extend( :root ) {
 	--minerva-diff-addedline: @color-success;
 	--minerva-diff-deletedline: @color-destructive;
 	--box-shadow-color-drawer: rgba( 0, 0, 0, 0.35 );
 }
 
 /**
- * The following line groups the .skin-invert selector along with the :root selector.
- * (From the theme-wikimedia-ui-experimental.less import above).
- * This ensures that the light-mode color palette is always associated with the .skin-invert class.
- */
-
-/* stylelint-disable-next-line */
-.skin-invert:extend(:root) {}
-/**
- * As with the .skin-invert class, .notheme should also reset the CSS variables to the default light theme.
- */
-
-/* stylelint-disable-next-line */
-.notheme:extend(:root) {}
-
-/**
- * Placeholder Night mode color palette.
- * NOTE: These values are temporarily hard coded.
- */
+* Placeholder Night mode color palette.
+* NOTE: These values are temporarily hard coded.
+*/
 .mixin-night-mode-palette() {
 	--color-base: #f8f9fa;
 	--color-subtle: #d4d5d5;
@@ -88,44 +74,57 @@
 }
 
 /**
- * Forced night mode.
- *
- * Applies the night mode color palette per the users explicit preference,
- * regardless of system settings.
- */
+* == Forced night mode ==
+* Applies the night mode color palette per the users explicit preference,
+* regardless of system settings.
+*/
 html.skin-night-mode-clientpref-1 {
 	color-scheme: dark;
 	.mixin-night-mode-palette();
 }
 
-html.skin-night-mode-clientpref-1 .skin-invert {
-	color-scheme: light;
-	filter: invert( 1 ) hue-rotate( 180deg );
-}
-
-html.skin-night-mode-clientpref-1 .notheme {
-	color-scheme: light;
-	color: var( --color-base );
-}
-
 /**
- * Auto night mode.
- *
- * Applies the night mode color palette only in response to system settings.
- */
+* == Auto night mode ==
+* Applies the night mode color palette only in response to system settings.
+*/
 @media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 {
 		color-scheme: light dark;
 		.mixin-night-mode-palette();
 	}
+}
 
-	html.skin-night-mode-clientpref-2 .notheme {
-		color-scheme: light;
-		color: var( --color-base );
-	}
+/**
+* == Night-mode helpers ==
+* The following classes are provided to help third-parties deal with night mode when using the
+* CSS color variables is not feasible.
+*
+* .skin-invert - This class implements an inverted night-mode effect on applied elements using
+*     a CSS filter instead of CSS custom properties. For this effect to work, the light mode palette
+*     has to be applied to avoid inverting night-mode colors.
+*
+* .notheme - This class prevents night mode from being applied to a specific element. It needs the
+*     the light mode color palette, and includes an opinionated color: var( --color-base ); rule
+*     since the main assumption underlying the light theme is black text.
+*/
 
+/* stylelint-disable-next-line block-no-empty */
+.skin-invert:extend( :root ),
+.notheme:extend( :root ) {
+}
+
+.skin-invert,
+.notheme {
+	color-scheme: light;
+	color: var( --color-base );
+}
+
+html.skin-night-mode-clientpref-1 .skin-invert {
+	filter: invert( 1 ) hue-rotate( 180deg );
+}
+
+@media ( prefers-color-scheme: dark ) {
 	html.skin-night-mode-clientpref-2 .skin-invert {
-		color-scheme: light;
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
 }
