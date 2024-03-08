@@ -31,17 +31,24 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * Build test Title object
+	 * Build test LanguageConverterFactory object
 	 * @param bool $hasVariants
-	 * @return Title
+	 * @return LanguageConverterFactory
 	 */
-	private function getTitle( $hasVariants ) {
+	private function getLanguageConverterFactory( $hasVariants ) {
 		$langConv = $this->createMock( ILanguageConverter::class );
 		$langConv->method( 'hasVariants' )->willReturn( $hasVariants );
 		$langConvFactory = $this->createMock( LanguageConverterFactory::class );
 		$langConvFactory->method( 'getLanguageConverter' )->willReturn( $langConv );
-		$this->setService( 'LanguageConverterFactory', $langConvFactory );
 
+		return $langConvFactory;
+	}
+
+	/**
+	 * Build test Title object
+	 * @return Title
+	 */
+	private function getTitle() {
 		$languageMock = $this->createMock( Language::class );
 		$title = $this->createMock( Title::class );
 		$title->method( 'getPageLanguage' )
@@ -55,10 +62,19 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::doesTitleHasLanguagesOrVariants
 	 */
 	public function testReturnsWhenOutputPageHasLangLinks() {
-		$helper = new LanguagesHelper( $this->getOutput( [ 'pl:StronaTestowa', 'en:TestPage' ] ) );
+		$helper = new LanguagesHelper(
+			$this->getLanguageConverterFactory( false ),
+			$this->getOutput( [ 'pl:StronaTestowa', 'en:TestPage' ] )
+		);
 
-		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants( $this->getTitle( false ) ) );
-		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants( $this->getTitle( true ) ) );
+		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants( $this->getTitle() ) );
+
+		$helper = new LanguagesHelper(
+			$this->getLanguageConverterFactory( true ),
+			$this->getOutput( [ 'pl:StronaTestowa', 'en:TestPage' ] )
+		);
+
+		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants( $this->getTitle() ) );
 	}
 
 	/**
@@ -66,11 +82,20 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::doesTitleHasLanguagesOrVariants
 	 */
 	public function testReturnsWhenOutputDoesNotHaveLangLinks() {
-		$helper = new LanguagesHelper( $this->getOutput( [] ) );
+		$helper = new LanguagesHelper(
+			$this->getLanguageConverterFactory( false ),
+			$this->getOutput( [] )
+		);
 
 		$this->assertFalse( $helper->doesTitleHasLanguagesOrVariants(
-			$this->getTitle( false ) ) );
+			$this->getTitle() ) );
+
+		$helper = new LanguagesHelper(
+			$this->getLanguageConverterFactory( true ),
+			$this->getOutput( [] )
+		);
+
 		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants(
-			$this->getTitle( true ) ) );
+			$this->getTitle() ) );
 	}
 }
