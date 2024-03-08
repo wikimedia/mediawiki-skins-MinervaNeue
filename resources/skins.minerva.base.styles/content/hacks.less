@@ -192,6 +192,12 @@ FIXME: Review all of these hacks to see if they still apply.
 }
 
 html.skin-night-mode-clientpref-1 {
+	// These colors become !important in night mode to avoid color contrast issues.
+	.infobox:not( .notheme ) {
+		color: var( --color-base ) !important;
+		background-color: var( --background-color-interactive-subtle ) !important;
+	}
+
 	/* T357453 - attempt to strip colors from the majority of infoboxes in night mode (unless notheme specified) */
 	// please forgive me for bypassing the linter there is no easy way to keep all of the infobox classes grouped without
 	// stylelint-disable no-descending-specificity
@@ -245,6 +251,12 @@ html.skin-night-mode-clientpref-1 {
 			&:not( .notheme ) {
 				.night-mode-strip-all-colors-when-safe();
 			}
+		}
+
+		// These colors become !important in night mode to avoid color contrast issues.
+		.infobox:not( .notheme ) {
+			color: var( --color-base ) !important;
+			background-color: var( --background-color-interactive-subtle ) !important;
 		}
 	}
 }
