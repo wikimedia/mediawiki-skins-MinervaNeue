@@ -3,9 +3,9 @@ A file for css that corrects known rendering issues on known Wikimedia wikis.
 
 the following definitions exist to deal with certain inline styles
 present in wikitext.
-This file should not need to exist
-It will become redundant when the following RFC is resolved:
-https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
+
+This selectors used here should reflect the list on:
+https://www.mediawiki.org/wiki/Recommendations_for_mobile_friendly_articles_on_Wikimedia_wikis#Use_standardized_class_names_in_HTML_markup_for_components_in_templates_across_projects
 
 FIXME: Review all of these hacks to see if they still apply.
 */
@@ -193,6 +193,9 @@ FIXME: Review all of these hacks to see if they still apply.
 
 html.skin-night-mode-clientpref-1 {
 	// These colors become !important in night mode to avoid color contrast issues.
+	.hatnote:not( .notheme ),
+	.dablink:not( .notheme ),
+	.rellink:not( .notheme ),
 	.infobox:not( .notheme ) {
 		color: var( --color-base ) !important;
 		background-color: var( --background-color-interactive-subtle ) !important;
@@ -208,6 +211,8 @@ html.skin-night-mode-clientpref-1 {
 	.infobox-header,
 	/* T358164 General case that templates/extensions can opt into */
 	.skin-nightmode-reset-color,
+	.navigation-box,
+	.metadata,
 	/* T357735 */
 	.quotebox,
 	/* T357726 */
@@ -236,6 +241,8 @@ html.skin-night-mode-clientpref-1 {
 		.infobox-header,
 		/* T358164 General case that templates/extensions can opt into */
 		.skin-nightmode-reset-color,
+		.navigation-box,
+		.metadata,
 		/* T357735 */
 		.quotebox,
 		/* T357726 */
@@ -254,6 +261,9 @@ html.skin-night-mode-clientpref-1 {
 		}
 
 		// These colors become !important in night mode to avoid color contrast issues.
+		.hatnote:not( .notheme ),
+		.dablink:not( .notheme ),
+		.rellink:not( .notheme ),
 		.infobox:not( .notheme ) {
 			color: var( --color-base ) !important;
 			background-color: var( --background-color-interactive-subtle ) !important;
