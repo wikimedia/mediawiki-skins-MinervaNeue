@@ -57,7 +57,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 
 		$contentHandlerFactory = $this->createMock( IContentHandlerFactory::class );
 
-		$contentHandlerFactory->expects( $this->any() )
+		$contentHandlerFactory->expects( $this->once() )
 			->method( 'getContentHandler' )
 			->willReturn( $contentHandler );
 
@@ -210,7 +210,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
-		$title->expects( $this->any() )
+		$title->expects( $this->once() )
 			->method( 'getContentModel' )
 			->willReturn( CONTENT_MODEL_WIKITEXT );
 
@@ -251,7 +251,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$title->expects( $this->once() )
 			->method( 'isMainPage' )
 			->willReturn( false );
-		$title->expects( $this->any() )
+		$title->expects( $this->once() )
 			->method( 'getContentModel' )
 			->willReturn( CONTENT_MODEL_UNKNOWN );
 
@@ -280,10 +280,10 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testMoveAndDeleteAndProtectAllowedForUserWithPermissions() {
 		$title = $this->createMock( Title::class );
-		$title->expects( $this->any() )
+		$title
 			->method( 'exists' )
 			->willReturn( true );
-		$title->expects( $this->any() )
+		$title->expects( $this->once() )
 			->method( 'getContentModel' )
 			->willReturn( CONTENT_MODEL_WIKITEXT );
 
