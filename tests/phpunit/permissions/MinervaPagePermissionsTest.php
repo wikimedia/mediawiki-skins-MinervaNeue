@@ -165,8 +165,8 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 
 	public static function switchLanguagePageActionProvider() {
 		return [
-			[ true,  false, true ],
-			[ false, true,  true ],
+			[ true, false, true ],
+			[ false, true, true ],
 			[ false, false, false ],
 		];
 	}

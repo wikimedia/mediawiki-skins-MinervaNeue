@@ -315,98 +315,98 @@ class SkinMinerva extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-			$data = parent::getTemplateData();
-			$skinOptions = $this->getSkinOptions();
-			// FIXME: Can we use $data instead of calling buildContentNavigationUrls ?
-			$nav = $this->contentNavigationUrls;
-			if ( $nav === null ) {
-				throw new RuntimeException( 'contentNavigationUrls was not set as expected.' );
-			}
-			if ( !$this->hasCategoryLinks() ) {
-				unset( $data['html-categories'] );
-			}
+		$data = parent::getTemplateData();
+		$skinOptions = $this->getSkinOptions();
+		// FIXME: Can we use $data instead of calling buildContentNavigationUrls ?
+		$nav = $this->contentNavigationUrls;
+		if ( $nav === null ) {
+			throw new RuntimeException( 'contentNavigationUrls was not set as expected.' );
+		}
+		if ( !$this->hasCategoryLinks() ) {
+			unset( $data['html-categories'] );
+		}
 
-			// Special handling for certain pages.
-			// This is technical debt that should be upstreamed to core.
-			$isUserPage = $this->getUserPageHelper()->isUserPage();
-			$isUserPageAccessible = $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser();
-			if ( $isUserPage && $isUserPageAccessible ) {
-				$data['html-title-heading'] = $this->getUserPageHeadingHtml( $data['html-title-heading' ] );
-			}
+		// Special handling for certain pages.
+		// This is technical debt that should be upstreamed to core.
+		$isUserPage = $this->getUserPageHelper()->isUserPage();
+		$isUserPageAccessible = $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser();
+		if ( $isUserPage && $isUserPageAccessible ) {
+			$data['html-title-heading'] = $this->getUserPageHeadingHtml( $data['html-title-heading' ] );
+		}
 
-			$usermessage = $data['html-user-message'] ?? '';
-			if ( $usermessage ) {
-				$data['html-user-message'] = Html::warningBox(
-					'<span class="minerva-icon minerva-icon--userTalk-warning"></span>&nbsp;'
-						. $usermessage,
-					'minerva-anon-talk-message'
-				);
-			}
-			$allLanguages = $data['data-portlets']['data-languages']['array-items'] ?? [];
-			$allVariants = $data['data-portlets']['data-variants']['array-items'] ?? [];
-			$notifications = $data['data-portlets']['data-notifications']['array-items'] ?? [];
-			$associatedPages = $data['data-portlets']['data-associated-pages'] ?? [];
+		$usermessage = $data['html-user-message'] ?? '';
+		if ( $usermessage ) {
+			$data['html-user-message'] = Html::warningBox(
+				'<span class="minerva-icon minerva-icon--userTalk-warning"></span>&nbsp;'
+					. $usermessage,
+				'minerva-anon-talk-message'
+			);
+		}
+		$allLanguages = $data['data-portlets']['data-languages']['array-items'] ?? [];
+		$allVariants = $data['data-portlets']['data-variants']['array-items'] ?? [];
+		$notifications = $data['data-portlets']['data-notifications']['array-items'] ?? [];
+		$associatedPages = $data['data-portlets']['data-associated-pages'] ?? [];
 
-			return $data + [
-				'has-minerva-languages' => $allLanguages || $allVariants,
-				'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
-				'data-minerva-search-box' => $data['data-search-box'] + [
-					'data-btn' => [
-						'data-icon' => [
-							'icon' => 'search-base20',
-						],
-						'label' => $this->msg( 'searchbutton' )->escaped(),
-						'classes' => 'skin-minerva-search-trigger',
-						'array-attributes' => [
-							[
-								'key' => 'id',
-								'value' => 'searchIcon',
-							]
-						]
-					],
-				],
-				'data-minerva-main-menu-btn' => [
+		return $data + [
+			'has-minerva-languages' => $allLanguages || $allVariants,
+			'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ),
+			'data-minerva-search-box' => $data['data-search-box'] + [
+				'data-btn' => [
 					'data-icon' => [
-						'icon' => 'menu-base20',
+						'icon' => 'search-base20',
 					],
-					'tag-name' => 'label',
-					'classes' => 'toggle-list__toggle',
+					'label' => $this->msg( 'searchbutton' )->escaped(),
+					'classes' => 'skin-minerva-search-trigger',
 					'array-attributes' => [
 						[
-							'key' => 'for',
-							'value' => 'main-menu-input',
-						],
-						[
 							'key' => 'id',
-							'value' => 'mw-mf-main-menu-button',
-						],
-						[
-							'key' => 'aria-hidden',
-							'value' => 'true',
-						],
-						[
-							'key' => 'data-event-name',
-							'value' => 'ui.mainmenu',
-						],
-					],
-					'text' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->escaped(),
+							'value' => 'searchIcon',
+						]
+					]
 				],
-				'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
-					$nav,
-					$this->buildSidebar()
-				)['items'],
-				'html-minerva-tagline' => $this->getTaglineHtml(),
-				'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
-				'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
-				'data-minerva-notifications' => $notifications ? [
-					'array-buttons' => $this->getNotificationButtons( $notifications ),
-				] : null,
-				'data-minerva-tabs' => $this->getTabsData( $nav, $associatedPages ),
-				'data-minerva-page-actions' => $this->getPageActions( $nav ),
-				'data-minerva-secondary-actions' => $this->getSecondaryActions( $nav ),
-				'html-minerva-subject-link' => $this->getSubjectPage(),
-				'data-minerva-history-link' => $this->getHistoryLink( $this->getTitle() ),
-			];
+			],
+			'data-minerva-main-menu-btn' => [
+				'data-icon' => [
+					'icon' => 'menu-base20',
+				],
+				'tag-name' => 'label',
+				'classes' => 'toggle-list__toggle',
+				'array-attributes' => [
+					[
+						'key' => 'for',
+						'value' => 'main-menu-input',
+					],
+					[
+						'key' => 'id',
+						'value' => 'mw-mf-main-menu-button',
+					],
+					[
+						'key' => 'aria-hidden',
+						'value' => 'true',
+					],
+					[
+						'key' => 'data-event-name',
+						'value' => 'ui.mainmenu',
+					],
+				],
+				'text' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->escaped(),
+			],
+			'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
+				$nav,
+				$this->buildSidebar()
+			)['items'],
+			'html-minerva-tagline' => $this->getTaglineHtml(),
+			'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
+			'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
+			'data-minerva-notifications' => $notifications ? [
+				'array-buttons' => $this->getNotificationButtons( $notifications ),
+			] : null,
+			'data-minerva-tabs' => $this->getTabsData( $nav, $associatedPages ),
+			'data-minerva-page-actions' => $this->getPageActions( $nav ),
+			'data-minerva-secondary-actions' => $this->getSecondaryActions( $nav ),
+			'html-minerva-subject-link' => $this->getSubjectPage(),
+			'data-minerva-history-link' => $this->getHistoryLink( $this->getTitle() ),
+		];
 	}
 
 	/**
@@ -462,6 +462,9 @@ class SkinMinerva extends SkinMustache {
 		return $btns;
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function isHistoryPage() {
 		return $this->getRequest()->getText( 'action' ) === 'history';
 	}

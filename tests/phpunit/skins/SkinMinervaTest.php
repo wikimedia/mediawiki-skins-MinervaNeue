@@ -360,7 +360,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			// CIRCLE
 			//
 			[
-	[
+				[
 					'tag-name' => 'a',
 					'classes' => 'mw-echo-notifications-badge mw-echo-notification-badge-nojs '
 						. ' mw-echo-unseen-notifications',
