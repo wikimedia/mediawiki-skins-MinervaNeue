@@ -229,6 +229,11 @@ html.skin-night-mode-clientpref-1 {
 			.night-mode-strip-all-colors-when-safe();
 		}
 	}
+
+	// T358797 - if a background color is specified, assume they wanted the day mode font color
+	.mw-parser-output [ style*='background' ] {
+		color: #333; // not !important so that if a color is also specified it will take priority
+	}
 }
 
 @media ( prefers-color-scheme: dark ) {
@@ -267,6 +272,11 @@ html.skin-night-mode-clientpref-1 {
 		.infobox:not( .notheme ) {
 			color: var( --color-base ) !important;
 			background-color: var( --background-color-interactive-subtle ) !important;
+		}
+
+		// T358797 - if a background color is specified, assume they wanted the day mode font color
+		.mw-parser-output [ style*='background' ] {
+			color: #333; // not !important so that if a color is also specified it will take priority
 		}
 	}
 }
