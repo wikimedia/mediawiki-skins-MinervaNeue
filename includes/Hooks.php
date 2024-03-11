@@ -32,9 +32,7 @@ use MediaWiki\Hook\PreferencesGetLayoutHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
-use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Context;
@@ -46,7 +44,6 @@ use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
-use MobileContext;
 use OldChangesList;
 use Skin;
 use Wikimedia\Rdbms\ConfiguredReadOnlyMode;
@@ -204,82 +201,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Set the skin options for Minerva
-	 *
-	 * @param MobileContext $mobileContext
-	 * @param Skin $skin
-	 */
-	public static function setMinervaSkinOptions(
-		MobileContext $mobileContext, Skin $skin
-	) {
-		// setSkinOptions is not available
-		if ( $skin instanceof SkinMinerva ) {
-			$services = MediaWikiServices::getInstance();
-			$featureManager = $services
-				->getService( 'MobileFrontend.FeaturesManager' );
-			$skinOptions = $services->getService( 'Minerva.SkinOptions' );
-			$title = $skin->getTitle();
-
-			// T245162 - this should only apply if the context relates to a page view.
-			// Examples:
-			// - parsing wikitext during an REST response
-			// - a ResourceLoader response
-			if ( $title !== null ) {
-				// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
-				// be true on user pages and user talk pages for all users
-				//
-				// For some reason using $services->getService( 'SkinUserPageHelper' )
-				// here results in a circular dependency error which is why
-				// SkinUserPageHelper is being instantiated instead.
-				$relevantUserPageHelper = new SkinUserPageHelper(
-					$services->getUserNameUtils(),
-					$services->getUserFactory(),
-					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title,
-					$mobileContext
-				);
-
-				$isUserPage = $relevantUserPageHelper->isUserPage();
-				$isUserPageAccessible = $relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
-				$isUserPageOrUserTalkPage = $isUserPage && $isUserPageAccessible;
-			} else {
-				// If no title this must be false
-				$isUserPageOrUserTalkPage = false;
-			}
-
-			$isBeta = $mobileContext->isBetaGroupMember();
-			$skinOptions->setMultiple( [
-				SkinOptions::SHOW_DONATE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
-				SkinOptions::TALK_AT_TOP => $isUserPageOrUserTalkPage ?
-					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
-				SkinOptions::BETA_MODE
-					=> $isBeta,
-				SkinOptions::CATEGORIES
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategories' ),
-				SkinOptions::PAGE_ISSUES
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
-				SkinOptions::MOBILE_OPTIONS => true,
-				SkinOptions::PERSONAL_MENU => $featureManager->isFeatureAvailableForCurrentUser(
-					'MinervaPersonalMenu'
-				),
-				SkinOptions::MAIN_MENU_EXPANDED => $featureManager->isFeatureAvailableForCurrentUser(
-					'MinervaAdvancedMainMenu'
-				),
-				// In mobile, always resort to single icon.
-				SkinOptions::SINGLE_ECHO_BUTTON => true,
-				SkinOptions::HISTORY_IN_PAGE_ACTIONS => $isUserPageOrUserTalkPage ?
-					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
-				SkinOptions::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
-					true : $featureManager->isFeatureAvailableForCurrentUser(
-						self::FEATURE_OVERFLOW_PAGE_ACTIONS
-					),
-				SkinOptions::TABS_ON_SPECIALS => true,
-				SkinOptions::NIGHT_MODE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaNightMode' ),
-			] );
-			( new HookRunner( $services->getHookContainer() ) )->onSkinMinervaOptionsInit( $skin, $skinOptions );
-		}
-	}
-
-	/**
 	 * UserLogoutComplete hook handler.
 	 * Resets skin options if a user logout occurs - this is necessary as the
 	 * RequestContextCreateSkinMobile hook runs before the UserLogout hook.
@@ -291,7 +212,8 @@ class Hooks implements
 	public function onUserLogoutComplete( $user, &$inject_html, $oldName ) {
 		try {
 			$ctx = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-			self::setMinervaSkinOptions( $ctx, $ctx->getSkin() );
+			$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
+			$skinOptions->setMinervaSkinOptions( $ctx, $ctx->getSkin() );
 		} catch ( NoSuchServiceException $ex ) {
 			// MobileFrontend not installed. Not important.
 		}

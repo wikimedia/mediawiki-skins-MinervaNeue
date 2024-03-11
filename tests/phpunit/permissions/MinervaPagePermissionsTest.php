@@ -4,6 +4,7 @@ namespace MediaWiki\Minerva;
 
 use ContentHandler;
 use MediaWiki\Content\IContentHandlerFactory;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
@@ -11,6 +12,7 @@ use MediaWiki\Permissions\Authority;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserNameUtils;
 use MediaWiki\Watchlist\WatchlistManager;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
@@ -42,7 +44,11 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$user ??= $this->mockRegisteredNullAuthority();
 		$contentHandler = $contentHandler ??
 			$this->getMockForAbstractClass( ContentHandler::class, [], '', false );
-		$skinOptions = new SkinOptions();
+		$skinOptions = new SkinOptions(
+			$this->createMock( HookContainer::class ),
+			$this->createMock( UserFactory::class ),
+			$this->createMock( UserNameUtils::class )
+		);
 		if ( $options ) {
 			$skinOptions->setMultiple( $options );
 		}

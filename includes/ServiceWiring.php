@@ -157,8 +157,12 @@ return [
 			RequestContext::getMain()->getOutput()
 		);
 	},
-	'Minerva.SkinOptions' => static function (): SkinOptions {
-		return new SkinOptions();
+	'Minerva.SkinOptions' => static function ( MediaWikiServices $services ): SkinOptions {
+		return new SkinOptions(
+			$services->getHookContainer(),
+			$services->getUserFactory(),
+			$services->getUserNameUtils()
+		);
 	},
 	'Minerva.Permissions' => static function ( MediaWikiServices $services ): IMinervaPagePermissions {
 		$permissions = new MinervaPagePermissions(
