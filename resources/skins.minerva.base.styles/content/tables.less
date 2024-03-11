@@ -49,8 +49,10 @@
 // Compare with mediawiki.legacy/shared.css
 // Move out of .content selector to avoid increased
 // specificty conflicts e.g. with tablesorter (T205945)
+// FIXME: Replace this with content-tables.
 .wikitable {
 	background-color: var( --background-color-base ); // T358449
+	color: var( --color-base ); // T357998
 	border: @border-width-base @border-style-base #54595d;
 	// Note older browsers will fall back to var(--border-color-subtle)
 	border-color: fade( #54595d, 30 );
