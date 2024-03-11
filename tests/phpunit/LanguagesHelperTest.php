@@ -58,44 +58,28 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @dataProvider provideDoesTitleHasLanguagesOrVariants
+	 * @param bool $hasVariants
+	 * @param array $langLinks
+	 * @param bool $expected
 	 * @covers ::__construct
 	 * @covers ::doesTitleHasLanguagesOrVariants
 	 */
-	public function testReturnsWhenOutputPageHasLangLinks() {
+	public function testDoesTitleHasLanguagesOrVariants( bool $hasVariants, array $langLinks, bool $expected ) {
 		$helper = new LanguagesHelper(
-			$this->getLanguageConverterFactory( false ),
-			$this->getOutput( [ 'pl:StronaTestowa', 'en:TestPage' ] )
+			$this->getLanguageConverterFactory( $hasVariants ),
+			$this->getOutput( $langLinks )
 		);
 
-		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants( $this->getTitle() ) );
-
-		$helper = new LanguagesHelper(
-			$this->getLanguageConverterFactory( true ),
-			$this->getOutput( [ 'pl:StronaTestowa', 'en:TestPage' ] )
-		);
-
-		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants( $this->getTitle() ) );
+		$this->assertSame( $expected, $helper->doesTitleHasLanguagesOrVariants( $this->getTitle() ) );
 	}
 
-	/**
-	 * @covers ::__construct
-	 * @covers ::doesTitleHasLanguagesOrVariants
-	 */
-	public function testReturnsWhenOutputDoesNotHaveLangLinks() {
-		$helper = new LanguagesHelper(
-			$this->getLanguageConverterFactory( false ),
-			$this->getOutput( [] )
-		);
-
-		$this->assertFalse( $helper->doesTitleHasLanguagesOrVariants(
-			$this->getTitle() ) );
-
-		$helper = new LanguagesHelper(
-			$this->getLanguageConverterFactory( true ),
-			$this->getOutput( [] )
-		);
-
-		$this->assertTrue( $helper->doesTitleHasLanguagesOrVariants(
-			$this->getTitle() ) );
+	public static function provideDoesTitleHasLanguagesOrVariants() {
+		return [
+			[ false, [ 'pl:StronaTestowa', 'en:TestPage' ], true ],
+			[ true, [ 'pl:StronaTestowa', 'en:TestPage' ], true ],
+			[ false, [], false ],
+			[ true, [], true ],
+		];
 	}
 }
