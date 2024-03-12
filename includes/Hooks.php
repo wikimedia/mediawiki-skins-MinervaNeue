@@ -31,7 +31,6 @@ use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\PreferencesGetLayoutHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
@@ -70,15 +69,18 @@ class Hooks implements
 	public const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
 	private ConfiguredReadOnlyMode $configuredReadOnlyMode;
+	private SkinOptions $skinOptions;
 	private UserOptionsLookup $userOptionsLookup;
 	private ?MobileContext $mobileContext;
 
 	public function __construct(
 		ConfiguredReadOnlyMode $configuredReadOnlyMode,
+		SkinOptions $skinOptions,
 		UserOptionsLookup $userOptionsLookup,
 		?MobileContext $mobileContext
 	) {
 		$this->configuredReadOnlyMode = $configuredReadOnlyMode;
+		$this->skinOptions = $skinOptions;
 		$this->userOptionsLookup = $userOptionsLookup;
 		$this->mobileContext = $mobileContext;
 	}
@@ -214,8 +216,7 @@ class Hooks implements
 	 */
 	public function onUserLogoutComplete( $user, &$inject_html, $oldName ) {
 		if ( $this->mobileContext ) {
-			$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
-			$skinOptions->setMinervaSkinOptions( $this->mobileContext, $this->mobileContext->getSkin() );
+			$this->skinOptions->setMinervaSkinOptions( $this->mobileContext, $this->mobileContext->getSkin() );
 		}
 	}
 
@@ -253,10 +254,9 @@ class Hooks implements
 	 */
 	public function onOutputPageBodyAttributes( $out, $skin, &$bodyAttrs ): void {
 		$classes = $out->getProperty( 'bodyClassName' );
-		$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
 		$isMinerva = $skin instanceof SkinMinerva;
 
-		if ( $isMinerva && $skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ) {
+		if ( $isMinerva && $this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ) {
 			// Class is used when page actions is modified to contain more elements
 			$classes .= ' minerva--history-page-action-enabled';
 		}

@@ -169,6 +169,7 @@
 			"class": "MediaWiki\\Minerva\\Hooks",
 			"services": [
 				"ConfiguredReadOnlyMode",
+				"Minerva.SkinOptions",
 				"UserOptionsLookup"
 			],
 			"optional_services": [
@@ -178,7 +179,8 @@
 		"mobilefrontend": {
 			"class": "MediaWiki\\Minerva\\MobileFrontendHooks",
 			"services": [
-				"ConfigFactory"
+				"ConfigFactory",
+				"Minerva.SkinOptions"
 			]
 		}
 	},
