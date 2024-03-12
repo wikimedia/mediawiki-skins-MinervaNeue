@@ -170,6 +170,9 @@
 			"services": [
 				"ConfiguredReadOnlyMode",
 				"UserOptionsLookup"
+			],
+			"optional_services": [
+				"MobileFrontend.Context"
 			]
 		},
 		"mobilefrontend": {

@@ -44,10 +44,10 @@ use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
+use MobileContext;
 use OldChangesList;
 use Skin;
 use Wikimedia\Rdbms\ConfiguredReadOnlyMode;
-use Wikimedia\Services\NoSuchServiceException;
 
 /**
  * Hook handlers for Minerva skin.
@@ -71,13 +71,16 @@ class Hooks implements
 
 	private ConfiguredReadOnlyMode $configuredReadOnlyMode;
 	private UserOptionsLookup $userOptionsLookup;
+	private ?MobileContext $mobileContext;
 
 	public function __construct(
 		ConfiguredReadOnlyMode $configuredReadOnlyMode,
-		UserOptionsLookup $userOptionsLookup
+		UserOptionsLookup $userOptionsLookup,
+		?MobileContext $mobileContext
 	) {
 		$this->configuredReadOnlyMode = $configuredReadOnlyMode;
 		$this->userOptionsLookup = $userOptionsLookup;
+		$this->mobileContext = $mobileContext;
 	}
 
 	/**
@@ -210,12 +213,9 @@ class Hooks implements
 	 * @param string $oldName
 	 */
 	public function onUserLogoutComplete( $user, &$inject_html, $oldName ) {
-		try {
-			$ctx = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+		if ( $this->mobileContext ) {
 			$skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
-			$skinOptions->setMinervaSkinOptions( $ctx, $ctx->getSkin() );
-		} catch ( NoSuchServiceException $ex ) {
-			// MobileFrontend not installed. Not important.
+			$skinOptions->setMinervaSkinOptions( $this->mobileContext, $this->mobileContext->getSkin() );
 		}
 	}
 
