@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Minerva\Skins;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 
@@ -34,7 +35,11 @@ class FeaturesHelper {
 			// only one check to make
 			return $exclusions[ 'mainpage' ] ?? false;
 		} elseif ( $title != null && $canonicalTitle != null && $canonicalTitle->isSpecialPage() ) {
-			$canonicalTitle->fixSpecialName();
+			$spFactory = MediaWikiServices::getInstance()->getSpecialPageFactory();
+			[ $canonicalName, $par ] = $spFactory->resolveAlias( $canonicalTitle->getDBKey() );
+			if ( $canonicalName ) {
+				$canonicalTitle = Title::makeTitle( NS_SPECIAL, $canonicalName );
+			}
 		}
 
 		//
@@ -43,6 +48,9 @@ class FeaturesHelper {
 		// Now we have the canonical title and the exclusions link we look for any matches.
 		$pageTitles = $exclusions[ 'pagetitles' ] ?? [];
 		foreach ( $pageTitles as $titleText ) {
+			// use strtolower to make sure the config passed for special pages
+			// is case insensitive, so it does not generate a wrong special page title
+			$titleText = $canonicalTitle->isSpecialPage() ? strtolower( $titleText ) : $titleText;
 			$excludedTitle = Title::newFromText( $titleText );
 
 			if ( $canonicalTitle != null && $canonicalTitle->equals( $excludedTitle ) ) {
