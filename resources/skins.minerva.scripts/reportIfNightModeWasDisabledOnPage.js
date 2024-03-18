@@ -16,20 +16,20 @@ function reportIfNightModeWasDisabledOnPage( doc ) {
 		return false;
 	}
 	// Cast to string.
-	let userExpectedNightMode = `${ mw.user.options.get( 'minerva-night-mode' ) }`;
+	let userExpectedNightMode = `${ mw.user.options.get( 'minerva-theme' ) }`;
 	if ( !mw.user.isNamed() ) {
 		// bit more convoulated here and will break with upstream changes...
 		// this is protected by an integration test in integration.test.js
 		const cookieValue = mw.cookie.get( 'mwclientpreferences' ) || '';
-		const match = cookieValue.match( /skin-night-mode-clientpref-(\d)/ );
+		const match = cookieValue.match( /skin-theme-clientpref-(\S+)/ );
 		if ( match ) {
 			// we found something in the cookie.
 			userExpectedNightMode = match[ 1 ];
 		}
 	}
-	if ( userExpectedNightMode === '1' ) {
+	if ( userExpectedNightMode === 'night' ) {
 		return reportDisabled();
-	} else if ( userExpectedNightMode === '2' && matchMedia( '( prefers-color-scheme: dark )' ).matches ) {
+	} else if ( userExpectedNightMode === 'os' && matchMedia( '( prefers-color-scheme: dark )' ).matches ) {
 		return reportDisabled();
 	} else {
 		return false;

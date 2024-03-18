@@ -8,11 +8,11 @@ QUnit.module( 'Minerva (integration)', function () {
 	QUnit.test( '[T356653] Client preferences: Check assumptions about the cookie it writes to', function ( assert ) {
 		mw.cookie.set( 'mwclientpreferences', '' );
 		this.sandbox.stub( mw.user, 'isAnon' ).returns( true );
-		document.documentElement.setAttribute( 'class', 'skin-night-mode-clientpref-0' );
-		mw.user.clientPrefs.set( 'skin-night-mode', '1' );
+		document.documentElement.setAttribute( 'class', 'skin-theme-clientpref-day' );
+		mw.user.clientPrefs.set( 'skin-theme', 'night' );
 		assert.strictEqual(
 			mw.cookie.get( 'mwclientpreferences' ),
-			'skin-night-mode-clientpref-1'
+			'skin-theme-clientpref-night'
 		);
 	} );
 } );

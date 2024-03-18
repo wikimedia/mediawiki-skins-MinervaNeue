@@ -645,6 +645,26 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * Converts "1", "2", and "0" to equivalent values.
+	 *
+	 * @return string
+	 */
+	private static function resolveNightModeQueryValue( string $value ) {
+		switch ( $value ) {
+			case 'day':
+			case 'night':
+			case 'os':
+				return $value;
+			case '1':
+				return 'night';
+			case '2':
+				return 'os';
+			default:
+				return 'day';
+		}
+	}
+
+	/**
 	 * Provides skin-specific modifications to the HTML element attributes
 	 *
 	 * Currently only used for adding the night mode class
@@ -657,7 +677,7 @@ class SkinMinerva extends SkinMustache {
 
 		// check to see if night mode is enabled via query params or by config
 		$webRequest = $this->getContext()->getRequest();
-		$forceNightMode = $webRequest->getIntOrNull( 'minervanightmode' );
+		$forceNightMode = $webRequest->getText( 'minervanightmode' );
 
 		// get skin config of night mode to check what is execluded
 		$nightModeConfig = $this->getConfig()->get( 'MinervaNightModeOptions' );
@@ -668,14 +688,14 @@ class SkinMinerva extends SkinMustache {
 		);
 
 		if (
-			$skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null
+			$skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== ''
 		) {
 			$user = $this->getUser();
-			$value = $this->userOptionsManager->getOption( $user, 'minerva-night-mode' );
+			$value = $this->userOptionsManager->getOption( $user, 'minerva-theme' );
 
 			// if forcing a (valid) setting via query params, take priority over the user option
-			if ( $forceNightMode !== null && in_array( $forceNightMode, [ 0, 1, 2 ] ) ) {
-				$value = $forceNightMode;
+			if ( $forceNightMode !== null && in_array( $forceNightMode, [ '1', '0', '2', 'day', 'night', 'os' ] ) ) {
+				$value = self::resolveNightModeQueryValue( $forceNightMode );
 			}
 
 			// For T356653 add a class to the page to allow the client to detect we've
@@ -685,7 +705,7 @@ class SkinMinerva extends SkinMustache {
 				return $attributes;
 			}
 
-			$attributes[ 'class' ] .= " skin-night-mode-clientpref-$value";
+			$attributes[ 'class' ] .= " skin-theme-clientpref-$value";
 		}
 
 		return $attributes;

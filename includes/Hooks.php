@@ -119,7 +119,7 @@ class Hooks implements
 	 */
 	public function onGetPreferences( $user, &$prefs ): void {
 		$minervaPrefs = [
-			'minerva-night-mode' => [
+			'minerva-theme' => [
 				'type' => 'api'
 			],
 		];

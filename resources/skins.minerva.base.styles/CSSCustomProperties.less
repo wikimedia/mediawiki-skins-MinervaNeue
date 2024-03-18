@@ -78,7 +78,7 @@
 * Applies the night mode color palette per the users explicit preference,
 * regardless of system settings.
 */
-html.skin-night-mode-clientpref-1 {
+html.skin-theme-clientpref-night {
 	color-scheme: dark;
 	.mixin-night-mode-palette();
 }
@@ -88,7 +88,7 @@ html.skin-night-mode-clientpref-1 {
 * Applies the night mode color palette only in response to system settings.
 */
 @media ( prefers-color-scheme: dark ) {
-	html.skin-night-mode-clientpref-2 {
+	html.skin-theme-clientpref-os {
 		color-scheme: light dark;
 		.mixin-night-mode-palette();
 	}
@@ -119,12 +119,12 @@ html.skin-night-mode-clientpref-1 {
 	color: var( --color-base );
 }
 
-html.skin-night-mode-clientpref-1 .skin-invert {
+html.skin-theme-clientpref-night .skin-invert {
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
 @media ( prefers-color-scheme: dark ) {
-	html.skin-night-mode-clientpref-2 .skin-invert {
+	html.skin-theme-clientpref-os .skin-invert {
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
 }

@@ -6,11 +6,11 @@ const nightModeDisabledDoc = document.createElement( 'html' );
 nightModeDisabledDoc.setAttribute( 'class', 'skin-night-mode-page-disabled' );
 
 const userOptionsEnabled = new Map();
-userOptionsEnabled.set( 'minerva-night-mode', '1' );
+userOptionsEnabled.set( 'minerva-theme', 'night' );
 const userOptionsDisabled = new Map();
-userOptionsDisabled.set( 'minerva-night-mode', '0' );
+userOptionsDisabled.set( 'minerva-theme', 'day' );
 const userOptionsAutomatic = new Map();
-userOptionsAutomatic.set( 'minerva-night-mode', '2' );
+userOptionsAutomatic.set( 'minerva-theme', 'os' );
 
 const notify = () => {};
 const msg = () => {};
@@ -73,7 +73,7 @@ describe( 'reportIfNightModeWasDisabledOnPage.js', () => {
 			msg,
 			notify,
 			cookie: {
-				get: () => 'skin-night-mode-clientpref-1'
+				get: () => 'skin-theme-clientpref-night'
 			},
 			user: {
 				isNamed: () => false,

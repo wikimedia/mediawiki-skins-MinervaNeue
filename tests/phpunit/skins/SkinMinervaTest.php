@@ -192,7 +192,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = $this->newSkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringNotContainsString( 'skin-night-mode-clientpref-', $classes );
+		$this->assertStringNotContainsString( 'skin-theme-clientpref-', $classes );
 	}
 
 	/**
@@ -204,7 +204,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = $this->newSkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
+		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
 	}
 
 	/**
@@ -219,7 +219,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-1', $classes );
+		$this->assertStringContainsString( 'skin-theme-clientpref-night', $classes );
 	}
 
 	/**
@@ -234,7 +234,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
+		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
 	}
 
 	/**
@@ -246,10 +246,10 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin = $this->newSkinMinerva();
 
 		$user = $skin->getUser();
-		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
+		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-theme', 'day' );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
+		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
 	}
 
 	/**
@@ -266,10 +266,10 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$skin->setContext( $context );
 
 		$user = $skin->getUser();
-		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-night-mode', 0 );
+		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-theme', 'day' );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-night-mode-clientpref-0', $classes );
+		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
 	}
 
 	/**
