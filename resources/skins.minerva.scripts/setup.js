@@ -3,7 +3,6 @@
  * It should run without errors even if MobileFrontend is not installed.
  */
 var ms = require( 'mobile.startup' ),
-	nightModeClasses = require( './nightModeClasses.js' ),
 	reportIfNightModeWasDisabledOnPage = require( './reportIfNightModeWasDisabledOnPage.js' ),
 	addPortletLink = require( './addPortletLink.js' ),
 	teleportTarget = require( 'mediawiki.page.ready' ).teleportTarget;
@@ -43,7 +42,6 @@ function init() {
 	reportIfNightModeWasDisabledOnPage(
 		document.documentElement, mw.user.options, mw.user.isNamed()
 	);
-	nightModeClasses();
 }
 
 init();

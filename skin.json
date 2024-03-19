@@ -519,7 +519,6 @@
 			},
 			"packageFiles": [
 				"resources/skins.minerva.scripts/setup.js",
-				"resources/skins.minerva.scripts/nightModeClasses.js",
 				"resources/skins.minerva.scripts/reportIfNightModeWasDisabledOnPage.js",
 				"resources/skins.minerva.scripts/addPortletLink.js",
 				"resources/skins.minerva.scripts/initMobile.js",
