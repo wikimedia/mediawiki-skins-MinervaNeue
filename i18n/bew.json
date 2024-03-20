@@ -4,7 +4,7 @@
 			"Bangrapip"
 		]
 	},
-	"minerva-last-modified-date": "Paling akir dipermak per $1, $2",
+	"minerva-last-modified-date": "Paling belakangan dipermak per $1, $2",
 	"minerva-watchlist-cta": "Tetep lacak ni halaman èn semua perobahannya.",
 	"mobile-frontend-cookies-required": "Kuki dibutuhin bakal ngeganti mode tampang. Padol dah, nyalain tu dulu èn jal lagi.",
 	"mobile-frontend-editor-edit": "Permak",
@@ -24,7 +24,7 @@
 	"mobile-frontend-main-menu-settings": "Penyetèlan",
 	"mobile-frontend-main-menu-watchlist": "Daptar pantengan",
 	"mobile-frontend-meta-data-issues": "Masalah halaman",
-	"mobile-frontend-meta-data-issues-categories": "Pasal ni katègori",
+	"mobile-frontend-meta-data-issues-categories": "Pasal ni bangsaan",
 	"mobile-frontend-meta-data-issues-header": "Masalah halaman",
 	"minerva-meta-data-issues-section-header": "Masalah bagèan",
 	"mobile-frontend-notifications-filter": "Saringan",
@@ -50,8 +50,8 @@
 	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Perhadring]]",
 	"minerva-skin-desc": "Kulit pertama bakal pesawat nyang ngewaro",
 	"skin-minerva-issue-learn-more": "Belajarin lebi lanjut",
-	"skin-minerva-mobile-option-MinervaShowCategories": "Katègori",
-	"skin-minerva-mobile-option-MinervaShowCategories-description": "Deleng katègori halaman",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Bangsaan",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Deleng bangsaan halaman",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Penanganan masalah halaman nyang ditingkatin",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Masalah halaman (Blatan:ambox) bakal disebarisin di makalah.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Sayangnya, nglompokin hasil berales halaman kaga' bisa di pesawat. Kalo mau paké keboléan kelompokin berales halaman, padol dah, saba pelampang kumpiuternya."
