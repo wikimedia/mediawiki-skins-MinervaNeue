@@ -35,22 +35,8 @@
 			content: none !important;
 		}
 	}
-	/* Make the previous link cover the entire row. */
-	.mw-history-histlinks-previous {
-		position: absolute;
-		right: 0;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		color: transparent;
-		z-index: @z-index-above-content;
-	}
 
 	&.action-history #pagehistory li {
-		padding: 12px 16px 12px 85px;
-		font-size: 1rem;
-		min-height: 90px;
-
 		.history-user a {
 			color: var( --color-subtle );
 
@@ -58,46 +44,6 @@
 				word-break: break-word;
 			}
 		}
-
-		.mw-userlink::before {
-			content: '';
-			.cdx-mixin-css-icon( @cdx-icon-user-avatar, var(--color-subtle) );
-			margin-right: 8px;
-		}
-
-		.mw-anonuserlink::before {
-			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, var(--color-subtle) );
-		}
-
-		.mw-tempuserlink::before {
-			.cdx-mixin-css-icon( @cdx-icon-user-temporary, var(--color-subtle) );
-		}
-
-		.comment {
-			-webkit-line-clamp: 2;
-			max-height: 2.6em;
-			color: var( --color-subtle );
-			line-height: 1.4;
-			white-space: normal;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			font-size: 0.875rem;
-			font-style: normal;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-
-	.mw-diff-bytes,
-	.mw-changeslist-time {
-		position: absolute;
-		top: 12px;
-		left: 16px;
-		font-size: 0.875rem;
-	}
-
-	.mw-diff-bytes {
-		top: 36px;
 	}
 }
 
