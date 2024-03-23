@@ -32,6 +32,7 @@ use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
+use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\SpecialPage\SpecialPage;
@@ -63,16 +64,11 @@ class SkinMinerva extends SkinMustache {
 	/** @var array|null */
 	private $contentNavigationUrls;
 
-	/**
-	 * This variable is lazy loaded, please use getPermissions() getter
-	 * @see SkinMinerva::getPermissions()
-	 * @var IMinervaPagePermissions
-	 */
-	private $permissions;
-
 	private GenderCache $genderCache;
 
 	private LinkRenderer $linkRenderer;
+
+	private IMinervaPagePermissions $permissions;
 
 	private SkinOptions $skinOptions;
 
@@ -85,6 +81,7 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * @param GenderCache $genderCache
 	 * @param LinkRenderer $linkRenderer
+	 * @param MinervaPagePermissions $permissions
 	 * @param SkinOptions $skinOptions
 	 * @param NamespaceInfo $namespaceInfo
 	 * @param RevisionLookup $revisionLookup
@@ -94,6 +91,7 @@ class SkinMinerva extends SkinMustache {
 	public function __construct(
 		GenderCache $genderCache,
 		LinkRenderer $linkRenderer,
+		MinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
 		NamespaceInfo $namespaceInfo,
 		RevisionLookup $revisionLookup,
@@ -103,6 +101,8 @@ class SkinMinerva extends SkinMustache {
 		parent::__construct( $options );
 		$this->genderCache = $genderCache;
 		$this->linkRenderer = $linkRenderer;
+		$this->permissions = $permissions
+			->setContext( $this->getContext() );
 		$this->skinOptions = $skinOptions;
 		$this->namespaceInfo = $namespaceInfo;
 		$this->revisionLookup = $revisionLookup;
@@ -490,21 +490,6 @@ class SkinMinerva extends SkinMustache {
 			'items' => array_values( $contentNavigationUrls['associated-pages'] ),
 			'id' => $associatedPages['id'] ?? null,
 		] : [];
-	}
-
-	/**
-	 * Lazy load the permissions object. We don't want to initialize it as it requires many
-	 * dependencies, sometimes some of those dependencies cannot be fulfilled (like missing Title
-	 * object)
-	 * @return IMinervaPagePermissions
-	 */
-	private function getPermissions(): IMinervaPagePermissions {
-		if ( $this->permissions === null ) {
-			$this->permissions = MediaWikiServices::getInstance()
-				->getService( 'Minerva.Permissions' )
-				->setContext( $this->getContext() );
-		}
-		return $this->permissions;
 	}
 
 	/**
@@ -975,7 +960,7 @@ class SkinMinerva extends SkinMustache {
 		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		if ( !$this->getUserPageHelper()->isUserPage() &&
-			$this->getPermissions()->isTalkAllowed() && $talkAtBottom &&
+			$this->permissions->isTalkAllowed() && $talkAtBottom &&
 			// When showing talk at the bottom we restrict this so it is not shown to anons
 			// https://phabricator.wikimedia.org/T54165
 			// This whole code block can be removed when SkinOptions::TALK_AT_TOP is always true
@@ -1006,12 +991,10 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	protected function getJsConfigVars(): array {
-		$permissions = $this->getPermissions();
-
 		return array_merge( parent::getJsConfigVars(), [
 			'wgMinervaPermissions' => [
-				'watchable' => $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ),
-				'watch' => $permissions->isAllowed( IMinervaPagePermissions::WATCH ),
+				'watchable' => $this->permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ),
+				'watch' => $this->permissions->isAllowed( IMinervaPagePermissions::WATCH ),
 			],
 			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
