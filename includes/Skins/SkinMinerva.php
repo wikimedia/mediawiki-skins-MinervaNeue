@@ -60,9 +60,6 @@ class SkinMinerva extends SkinMustache {
 	/** @var string Name of this used template */
 	public $template = 'MinervaTemplate';
 
-	/** @var SkinOptions */
-	private $skinOptions;
-
 	/** @var array|null */
 	private $contentNavigationUrls;
 
@@ -77,6 +74,8 @@ class SkinMinerva extends SkinMustache {
 
 	private LinkRenderer $linkRenderer;
 
+	private SkinOptions $skinOptions;
+
 	private NamespaceInfo $namespaceInfo;
 
 	private RevisionLookup $revisionLookup;
@@ -86,6 +85,7 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * @param GenderCache $genderCache
 	 * @param LinkRenderer $linkRenderer
+	 * @param SkinOptions $skinOptions
 	 * @param NamespaceInfo $namespaceInfo
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserOptionsManager $userOptionsManager
@@ -94,6 +94,7 @@ class SkinMinerva extends SkinMustache {
 	public function __construct(
 		GenderCache $genderCache,
 		LinkRenderer $linkRenderer,
+		SkinOptions $skinOptions,
 		NamespaceInfo $namespaceInfo,
 		RevisionLookup $revisionLookup,
 		UserOptionsManager $userOptionsManager,
@@ -102,19 +103,10 @@ class SkinMinerva extends SkinMustache {
 		parent::__construct( $options );
 		$this->genderCache = $genderCache;
 		$this->linkRenderer = $linkRenderer;
+		$this->skinOptions = $skinOptions;
 		$this->namespaceInfo = $namespaceInfo;
 		$this->revisionLookup = $revisionLookup;
 		$this->userOptionsManager = $userOptionsManager;
-	}
-
-	/**
-	 * @return SkinOptions
-	 */
-	private function getSkinOptions() {
-		if ( !$this->skinOptions ) {
-			$this->skinOptions = MediaWikiServices::getInstance()->getService( 'Minerva.SkinOptions' );
-		}
-		return $this->skinOptions;
 	}
 
 	/**
@@ -266,7 +258,6 @@ class SkinMinerva extends SkinMustache {
 				$contentNavigationUrls['associated-pages'][ $id ]['rel'] = 'discussion';
 			}
 		}
-		$skinOptions = $this->getSkinOptions();
 		$this->contentNavigationUrls = $contentNavigationUrls;
 
 		//
@@ -278,7 +269,7 @@ class SkinMinerva extends SkinMustache {
 			if ( count( $contentNavigationUrls['notifications'] ) === 0 ) {
 				// Shown to logged in users when Echo is not installed:
 				$contentNavigationUrls['notifications']['mytalks'] = $this->getNotificationFallbackButton();
-			} elseif ( $skinOptions->get( SkinOptions::SINGLE_ECHO_BUTTON ) ) {
+			} elseif ( $this->skinOptions->get( SkinOptions::SINGLE_ECHO_BUTTON ) ) {
 				// Combine notification icons. Minerva only shows one entry point to notifications.
 				// This can be reconsidered with a solution to https://phabricator.wikimedia.org/T142981
 				$alert = $contentNavigationUrls['notifications']['notifications-alert'] ?? null;
@@ -309,7 +300,6 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public function getTemplateData(): array {
 		$data = parent::getTemplateData();
-		$skinOptions = $this->getSkinOptions();
 		// FIXME: Can we use $data instead of calling buildContentNavigationUrls ?
 		$nav = $this->contentNavigationUrls;
 		if ( $nav === null ) {
@@ -390,7 +380,7 @@ class SkinMinerva extends SkinMustache {
 			)['items'],
 			'html-minerva-tagline' => $this->getTaglineHtml(),
 			'html-minerva-user-menu' => $this->getPersonalToolsMenu( $nav['user-menu'] ),
-			'is-minerva-beta' => $this->getSkinOptions()->get( SkinOptions::BETA_MODE ),
+			'is-minerva-beta' => $this->skinOptions->get( SkinOptions::BETA_MODE ),
 			'data-minerva-notifications' => $notifications ? [
 				'array-buttons' => $this->getNotificationButtons( $notifications ),
 			] : null,
@@ -473,17 +463,16 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function hasPageTabs() {
 		$title = $this->getTitle();
-		$skinOptions = $this->getSkinOptions();
 		$isSpecialPageOrHistory = $title->isSpecialPage() ||
 			$this->isHistoryPage();
 		$subjectPage = $this->namespaceInfo->getSubjectPage( $title );
 		$isMainPageTalk = Title::newFromLinkTarget( $subjectPage )->isMainPage();
 		return (
 				$this->hasPageActions() && !$isMainPageTalk &&
-				$skinOptions->get( SkinOptions::TALK_AT_TOP )
+				$this->skinOptions->get( SkinOptions::TALK_AT_TOP )
 			) || (
 				$isSpecialPageOrHistory &&
-				$skinOptions->get( SkinOptions::TABS_ON_SPECIALS )
+				$this->skinOptions->get( SkinOptions::TABS_ON_SPECIALS )
 			);
 	}
 
@@ -554,12 +543,11 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getSubjectPage() {
 		$title = $this->getTitle();
-		$skinOptions = $this->getSkinOptions();
 
 		// If it's a talk page, add a link to the main namespace page
 		// In AMC we do not need to do this as there is an easy way back to the article page
 		// via the talk/article tabs.
-		if ( $title->isTalkPage() && !$skinOptions->get( SkinOptions::TALK_AT_TOP ) ) {
+		if ( $title->isTalkPage() && !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ) {
 			// if it's a talk page for which we have a special message, use it
 			switch ( $title->getNamespace() ) {
 				case NS_USER_TALK:
@@ -613,9 +601,8 @@ class SkinMinerva extends SkinMustache {
 	 * @return string
 	 */
 	public function getPageClasses( $title ) {
-		$skinOptions = $this->getSkinOptions();
 		$className = parent::getPageClasses( $title );
-		$className .= ' ' . ( $skinOptions->get( SkinOptions::BETA_MODE )
+		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::BETA_MODE )
 				? 'beta' : 'stable' );
 
 		if ( $title->isMainPage() ) {
@@ -629,7 +616,7 @@ class SkinMinerva extends SkinMustache {
 		// The new treatment should only apply to the main namespace
 		if (
 			$title->getNamespace() === NS_MAIN &&
-			$skinOptions->get( SkinOptions::PAGE_ISSUES )
+			$this->skinOptions->get( SkinOptions::PAGE_ISSUES )
 		) {
 			$className .= ' issues-group-B';
 		}
@@ -666,7 +653,6 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public function getHtmlElementAttributes() {
 		$attributes = parent::getHtmlElementAttributes();
-		$skinOptions = $this->getSkinOptions();
 
 		// check to see if night mode is enabled via query params or by config
 		$webRequest = $this->getContext()->getRequest();
@@ -681,7 +667,7 @@ class SkinMinerva extends SkinMustache {
 		);
 
 		if (
-			$skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== ''
+			$this->skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== ''
 		) {
 			$user = $this->getUser();
 			$value = $this->userOptionsManager->getOption( $user, 'minerva-theme' );
@@ -709,8 +695,7 @@ class SkinMinerva extends SkinMustache {
 	 * @return bool
 	 */
 	private function hasCategoryLinks() {
-		$skinOptions = $this->getSkinOptions();
-		if ( !$skinOptions->get( SkinOptions::CATEGORIES ) ) {
+		if ( !$this->skinOptions->get( SkinOptions::CATEGORIES ) ) {
 			return false;
 		}
 		$categoryLinks = $this->getOutput()->getCategoryLinks();
@@ -980,7 +965,6 @@ class SkinMinerva extends SkinMustache {
 		}
 
 		$services = MediaWikiServices::getInstance();
-		$skinOptions = $this->getSkinOptions();
 		/** @var \MediaWiki\Minerva\LanguagesHelper $languagesHelper */
 		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 		$buttons = [];
@@ -988,7 +972,7 @@ class SkinMinerva extends SkinMustache {
 		// it will link to the wikitext talk page
 		$title = $this->getTitle();
 		$subjectPage = Title::newFromLinkTarget( $this->namespaceInfo->getSubjectPage( $title ) );
-		$talkAtBottom = !$skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
+		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
 		if ( !$this->getUserPageHelper()->isUserPage() &&
 			$this->getPermissions()->isTalkAllowed() && $talkAtBottom &&
@@ -1022,7 +1006,6 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	protected function getJsConfigVars(): array {
-		$skinOptions = $this->getSkinOptions();
 		$permissions = $this->getPermissions();
 
 		return array_merge( parent::getJsConfigVars(), [
@@ -1030,7 +1013,7 @@ class SkinMinerva extends SkinMustache {
 				'watchable' => $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ),
 				'watch' => $permissions->isAllowed( IMinervaPagePermissions::WATCH ),
 			],
-			'wgMinervaFeatures' => $skinOptions->getAll(),
+			'wgMinervaFeatures' => $this->skinOptions->getAll(),
 			'wgMinervaDownloadNamespaces' => $this->getConfig()->get( 'MinervaDownloadNamespaces' ),
 		] );
 	}
@@ -1082,7 +1065,6 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getSkinStyles(): array {
 		$title = $this->getTitle();
-		$skinOptions = $this->getSkinOptions();
 		$request = $this->getRequest();
 		$requestAction = $this->getContext()->getActionName();
 		$viewAction = $requestAction === 'view';
@@ -1128,10 +1110,10 @@ class SkinMinerva extends SkinMustache {
 			// T356117 - enable on all special pages - some special pages e.g. Special:Contribute have tabs.
 			$title->isSpecialPage() ||
 			( $this->isHistoryPage() && !$this->shouldUseSpecialHistory( $title ) ) ||
-			$skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
-			$skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
-			$skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ||
-			$skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
+			$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
+			$this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ||
+			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 		) {
 			// SkinOptions::PERSONAL_MENU + SkinOptions::TOOLBAR_SUBMENU uses ToggleList
 			// SkinOptions::TALK_AT_TOP uses tabs.less
@@ -1139,22 +1121,22 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.amc.styles';
 		}
 
-		if ( $skinOptions->get( SkinOptions::PERSONAL_MENU ) ) {
+		if ( $this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ) {
 			// If ever enabled as the default, please remove the duplicate icons
 			// inside skins.minerva.mainMenu.icons. See comment for MAIN_MENU_EXPANDED
 			$styles[] = 'skins.minerva.personalMenu.icons';
 		}
 
 		if (
-			$skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED )
+			$this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED )
 		) {
 			// If ever enabled as the default, please review skins.minerva.mainMenu.icons
 			// and remove any unneeded icons
 			$styles[] = 'skins.minerva.mainMenu.advanced.icons';
 		}
 		if (
-			$skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
-			$skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
+			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
+			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 		) {
 			// SkinOptions::PERSONAL_MENU requires the `userTalk` icon.
 			// SkinOptions::TOOLBAR_SUBMENU requires the rest of the icons including `overflow`.
