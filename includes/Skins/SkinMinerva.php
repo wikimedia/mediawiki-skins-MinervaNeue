@@ -979,7 +979,10 @@ class SkinMinerva extends SkinMustache {
 			}
 		}
 
-		if ( $languagesHelper->doesTitleHasLanguagesOrVariants( $title ) && $title->isMainPage() ) {
+		if (
+			$languagesHelper->doesTitleHasLanguagesOrVariants( $this->getOutput(), $title ) &&
+			$title->isMainPage()
+		) {
 			$buttons['language'] = $this->getLanguageButton();
 		}
 

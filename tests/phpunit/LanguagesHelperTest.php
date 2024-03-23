@@ -67,11 +67,13 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testDoesTitleHasLanguagesOrVariants( bool $hasVariants, array $langLinks, bool $expected ) {
 		$helper = new LanguagesHelper(
-			$this->getLanguageConverterFactory( $hasVariants ),
-			$this->getOutput( $langLinks )
+			$this->getLanguageConverterFactory( $hasVariants )
 		);
 
-		$this->assertSame( $expected, $helper->doesTitleHasLanguagesOrVariants( $this->getTitle() ) );
+		$this->assertSame( $expected, $helper->doesTitleHasLanguagesOrVariants(
+			$this->getOutput( $langLinks ),
+			$this->getTitle()
+		) );
 	}
 
 	public static function provideDoesTitleHasLanguagesOrVariants() {

@@ -156,8 +156,7 @@ return [
 	},
 	'Minerva.LanguagesHelper' => static function ( MediaWikiServices $services ): LanguagesHelper {
 		return new LanguagesHelper(
-			$services->getLanguageConverterFactory(),
-			RequestContext::getMain()->getOutput()
+			$services->getLanguageConverterFactory()
 		);
 	},
 	'Minerva.SkinOptions' => static function ( MediaWikiServices $services ): SkinOptions {

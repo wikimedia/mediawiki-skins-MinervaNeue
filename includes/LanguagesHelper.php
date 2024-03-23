@@ -32,29 +32,25 @@ class LanguagesHelper {
 	private LanguageConverterFactory $languageConverterFactory;
 
 	/**
-	 * @var bool
-	 */
-	private $hasLanguages;
-
-	/**
 	 * @param LanguageConverterFactory $languageConverterFactory
-	 * @param OutputPage $out Output page to fetch language links
 	 */
 	public function __construct(
-		LanguageConverterFactory $languageConverterFactory,
-		OutputPage $out
+		LanguageConverterFactory $languageConverterFactory
 	) {
 		$this->languageConverterFactory = $languageConverterFactory;
-		$this->hasLanguages = $out->getLanguageLinks() !== [];
 	}
 
 	/**
 	 * Whether the Title is also available in other languages or variants
+	 * @param OutputPage $out Output page to fetch language links
 	 * @param Title $title
 	 * @return bool
 	 */
-	public function doesTitleHasLanguagesOrVariants( Title $title ) {
-		if ( $this->hasLanguages ) {
+	public function doesTitleHasLanguagesOrVariants(
+		OutputPage $out,
+		Title $title
+	) {
+		if ( $out->getLanguageLinks() !== [] ) {
 			return true;
 		}
 		$langConv = $this->languageConverterFactory->getLanguageConverter( $title->getPageLanguage() );
