@@ -23,9 +23,6 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
-use MediaWiki\Minerva\Skins\SkinUserPageHelper;
-use MediaWiki\User\UserFactory;
-use MediaWiki\User\UserNameUtils;
 use MobileContext;
 use Skin;
 
@@ -84,17 +81,11 @@ final class SkinOptions {
 	];
 
 	private HookContainer $hookContainer;
-	private UserFactory $userFactory;
-	private UserNameUtils $userNameUtils;
 
 	public function __construct(
-		HookContainer $hookContainer,
-		UserFactory $userFactory,
-		UserNameUtils $userNameUtils
+		HookContainer $hookContainer
 	) {
 		$this->hookContainer = $hookContainer;
-		$this->userFactory = $userFactory;
-		$this->userNameUtils = $userNameUtils;
 	}
 
 	/**
@@ -166,14 +157,7 @@ final class SkinOptions {
 			if ( $title !== null ) {
 				// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
 				// be true on user pages and user talk pages for all users
-				//
-				// For some reason using $services->getService( 'SkinUserPageHelper' )
-				// here results in a circular dependency error which is why
-				// SkinUserPageHelper is being instantiated instead.
-				$relevantUserPageHelper = ( new SkinUserPageHelper(
-					$this->userFactory,
-					$this->userNameUtils
-				) )
+				$relevantUserPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' )
 					->setContext( $mobileContext )
 					->setTitle(
 						$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title

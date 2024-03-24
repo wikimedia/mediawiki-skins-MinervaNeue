@@ -12,7 +12,6 @@ use MediaWiki\Permissions\Authority;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
-use MediaWiki\User\UserNameUtils;
 use MediaWiki\Watchlist\WatchlistManager;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
@@ -45,9 +44,7 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$contentHandler = $contentHandler ??
 			$this->getMockForAbstractClass( ContentHandler::class, [], '', false );
 		$skinOptions = new SkinOptions(
-			$this->createMock( HookContainer::class ),
-			$this->createMock( UserFactory::class ),
-			$this->createMock( UserNameUtils::class )
+			$this->createMock( HookContainer::class )
 		);
 		if ( $options ) {
 			$skinOptions->setMultiple( $options );
