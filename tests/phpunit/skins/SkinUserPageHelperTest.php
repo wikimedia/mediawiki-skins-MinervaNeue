@@ -24,9 +24,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
-			$title
+			$this->getServiceContainer()->getUserFactory()
 		);
+		$helper->setTitle( $title );
 		$this->assertFalse( $helper->isUserPage() );
 	}
 
@@ -40,9 +40,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
-			$title
+			$this->getServiceContainer()->getUserFactory()
 		);
+		$helper->setTitle( $title );
 		$this->assertNull( $helper->getPageUser() );
 		$this->assertFalse( $helper->isUserPage() );
 	}
@@ -56,9 +56,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
-			$title
+			$this->getServiceContainer()->getUserFactory()
 		);
+		$helper->setTitle( $title );
 		$this->assertFalse( $helper->isUserPage() );
 	}
 
@@ -72,9 +72,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
-			$title
+			$this->getServiceContainer()->getUserFactory()
 		);
+		$helper->setTitle( $title );
 		$this->assertTrue( $helper->isUserPage() );
 	}
 
@@ -88,9 +88,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$this->getServiceContainer()->getUserFactory(),
-			$title
+			$this->getServiceContainer()->getUserFactory()
 		);
+		$helper->setTitle( $title );
 		$this->assertFalse( $helper->isUserPage() );
 	}
 
@@ -113,9 +113,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$userFactory,
-			$title
+			$userFactory
 		);
+		$helper->setTitle( $title );
 		$this->assertFalse( $helper->isUserPage() );
 	}
 
@@ -151,9 +151,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$userFactory,
-			$titleMock
+			$userFactory
 		);
+		$helper->setTitle( $titleMock );
 		$helper->isUserPage();
 		$helper->isUserPage();
 		$helper->getPageUser();
@@ -178,9 +178,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $user );
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$userFactory,
-			$title
+			$userFactory
 		);
+		$helper->setTitle( $title );
 		$this->assertTrue( $helper->isUserPage() );
 		$this->assertEquals( $user->getId(), $helper->getPageUser()->getId() );
 	}
@@ -209,9 +209,9 @@ class SkinUserPageHelperTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $secondUser );
 		$helper = new SkinUserPageHelper(
 			$this->getServiceContainer()->getUserNameUtils(),
-			$userFactory,
-			$secondUserTitle
+			$userFactory
 		);
+		$helper->setTitle( $secondUserTitle );
 		$this->assertTrue( $helper->isUserPage() );
 		$this->assertNotEquals( $user->getId(), $helper->getPageUser()->getId() );
 		$this->assertNotEquals( $helper->getPageUser()->getUserPage(), $userTitle );

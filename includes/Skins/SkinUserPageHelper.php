@@ -30,17 +30,22 @@ class SkinUserPageHelper {
 	/**
 	 * @var UserNameUtils
 	 */
-	private $userNameUtils;
+	private UserNameUtils $userNameUtils;
 
 	/**
 	 * @var UserFactory
 	 */
-	private $userFactory;
+	private UserFactory $userFactory;
+
+	/**
+	 * @var IContextSource
+	 */
+	private IContextSource $context;
 
 	/**
 	 * @var Title|null
 	 */
-	private $title;
+	private ?Title $title;
 
 	/**
 	 * @var bool
@@ -53,26 +58,33 @@ class SkinUserPageHelper {
 	private $pageUser;
 
 	/**
-	 * @var IContextSource|null
-	 */
-	private $context;
-
-	/**
 	 * @param UserNameUtils $userNameUtils
 	 * @param UserFactory $userFactory
-	 * @param Title|null $title
-	 * @param IContextSource|null $context
 	 */
 	public function __construct(
 		UserNameUtils $userNameUtils,
-		UserFactory $userFactory,
-		Title $title = null,
-		IContextSource $context = null
+		UserFactory $userFactory
 	) {
 		$this->userNameUtils = $userNameUtils;
 		$this->userFactory = $userFactory;
-		$this->title = $title;
+	}
+
+	/**
+	 * @param IContextSource $context
+	 * @return $this
+	 */
+	public function setContext( IContextSource $context ) {
 		$this->context = $context;
+		return $this;
+	}
+
+	/**
+	 * @param Title|null $title
+	 * @return $this
+	 */
+	public function setTitle( ?Title $title ) {
+		$this->title = $title;
+		return $this;
 	}
 
 	/**

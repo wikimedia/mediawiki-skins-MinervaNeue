@@ -94,17 +94,13 @@ return [
 				$title = SpecialPage::getTitleFor( 'Badtitle' );
 			}
 			$user = $context->getUser();
-			$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' );
+			$userPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' )
+				->setContext( $context )
+				->setTitle( $title->inNamespace( NS_USER_TALK ) ?
+					$context->getSkin()->getRelevantTitle()->getSubjectPage() :
+					$title
+				);
 			$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
-
-			$relevantUserPageHelper = $title->inNamespace( NS_USER_TALK ) ?
-				new SkinUserPageHelper(
-					$services->getUserNameUtils(),
-					$services->getUserFactory(),
-					$context->getSkin()->getRelevantTitle()->getSubjectPage(),
-					$context
-				) :
-				$userPageHelper;
 
 			$permissions = $services->getService( 'Minerva.Permissions' )
 				->setContext( $context );
@@ -117,14 +113,14 @@ return [
 				$context,
 				$permissions,
 				$skinOptions,
-				$relevantUserPageHelper,
+				$userPageHelper,
 				$languagesHelper,
 				new ServiceOptions( PageActionsMenu\ToolbarBuilder::CONSTRUCTOR_OPTIONS,
 					$services->getMainConfig() ),
 				$watchlistManager
 			);
 			if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
-				$overflowBuilder = $relevantUserPageHelper->isUserPage() ?
+				$overflowBuilder = $userPageHelper->isUserPage() ?
 					new PageActionsMenu\UserNamespaceOverflowBuilder(
 						$title,
 						$context,
@@ -149,9 +145,7 @@ return [
 	'Minerva.SkinUserPageHelper' => static function ( MediaWikiServices $services ): SkinUserPageHelper {
 		return new SkinUserPageHelper(
 			$services->getUserNameUtils(),
-			$services->getUserFactory(),
-			RequestContext::getMain()->getSkin()->getRelevantTitle(),
-			RequestContext::getMain()
+			$services->getUserFactory()
 		);
 	},
 	'Minerva.LanguagesHelper' => static function ( MediaWikiServices $services ): LanguagesHelper {
