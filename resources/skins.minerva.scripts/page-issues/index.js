@@ -1,19 +1,19 @@
 /** @typedef {Object.<string, IssueSummary[]>} IssueSummaryMap */
 
-var PageHTMLParser = require( 'mobile.startup' ).PageHTMLParser,
-	KEYWORD_ALL_SECTIONS = 'all',
-	config = mw.config,
-	NS_MAIN = 0,
-	NS_CATEGORY = 14,
-	CURRENT_NS = config.get( 'wgNamespaceNumber' ),
-	features = mw.config.get( 'wgMinervaFeatures', {} ),
-	pageIssuesParser = require( './parser.js' ),
-	pageIssuesOverlay = require( './overlay/pageIssuesOverlay.js' ),
-	pageIssueFormatter = require( './page/pageIssueFormatter.js' ),
-	// When the query string flag is set force on new treatment.
-	// When wgMinervaPageIssuesNewTreatment is the default this line can be removed.
-	QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' ),
-	newTreatmentEnabled = features.pageIssues || QUERY_STRING_FLAG;
+const PageHTMLParser = require( 'mobile.startup' ).PageHTMLParser;
+const KEYWORD_ALL_SECTIONS = 'all';
+const config = mw.config;
+const NS_MAIN = 0;
+const NS_CATEGORY = 14;
+const CURRENT_NS = config.get( 'wgNamespaceNumber' );
+const features = mw.config.get( 'wgMinervaFeatures', {} );
+const pageIssuesParser = require( './parser.js' );
+const pageIssuesOverlay = require( './overlay/pageIssuesOverlay.js' );
+const pageIssueFormatter = require( './page/pageIssueFormatter.js' );
+// When the query string flag is set force on new treatment.
+// When wgMinervaPageIssuesNewTreatment is the default this line can be removed.
+const QUERY_STRING_FLAG = mw.util.getParamValue( 'minerva-issues' );
+const newTreatmentEnabled = features.pageIssues || QUERY_STRING_FLAG;
 
 /**
  * Render a banner in a containing element.
@@ -36,26 +36,21 @@ var PageHTMLParser = require( 'mobile.startup' ).PageHTMLParser,
  * @return {{ambox: jQuery, issueSummaries: IssueSummary[]}}
  */
 function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, overlayManager ) {
-	var
-		$metadata,
-		issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section,
-		selector = [ '.ambox', '.tmbox', '.cmbox', '.fmbox' ].join( ',' ),
-		issueSummaries = [];
+	const issueUrl = section === KEYWORD_ALL_SECTIONS ? '#/issues/' + KEYWORD_ALL_SECTIONS : '#/issues/' + section;
+	const selector = [ '.ambox', '.tmbox', '.cmbox', '.fmbox' ].join( ',' );
+	const issueSummaries = [];
 
-	if ( section === KEYWORD_ALL_SECTIONS ) {
-		$metadata = pageHTMLParser.$el.find( selector );
-	} else {
+	const $metadata = section === KEYWORD_ALL_SECTIONS ?
+		pageHTMLParser.$el.find( selector ) :
 		// find heading associated with the section
-		$metadata = pageHTMLParser.findChildInSectionLead( parseInt( section, 10 ), selector );
-	}
+		pageHTMLParser.findChildInSectionLead( parseInt( section, 10 ), selector );
 	// clean it up a little
 	$metadata.find( '.NavFrame' ).remove();
 	$metadata.each( function () {
-		var issueSummary,
-			$this = $( this );
+		const $this = $( this );
 
 		if ( $this.find( selector ).length === 0 ) {
-			issueSummary = pageIssuesParser.extract( $this );
+			const issueSummary = pageIssuesParser.extract( $this );
 			// Some issues after "extract" has been run will have no text.
 			// For example in Template:Talk header the table will be removed and no issue found.
 			// These should not be rendered.
@@ -67,10 +62,10 @@ function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, over
 
 	if ( inline ) {
 		issueSummaries.forEach( function ( issueSummary, i ) {
-			var isGrouped = issueSummary.issue.grouped,
-				lastIssueIsGrouped = issueSummaries[ i - 1 ] &&
-					issueSummaries[ i - 1 ].issue.grouped,
-				multiple = isGrouped && !lastIssueIsGrouped;
+			const isGrouped = issueSummary.issue.grouped;
+			const lastIssueIsGrouped = issueSummaries[ i - 1 ] &&
+				issueSummaries[ i - 1 ].issue.grouped;
+			const multiple = isGrouped && !lastIssueIsGrouped;
 			// only render the first grouped issue of each group
 			pageIssueFormatter.insertPageIssueBanner(
 				issueSummary,
@@ -122,14 +117,12 @@ function getIssues( allIssues, section ) {
  * @param {PageHTMLParser} pageHTMLParser
  */
 function initPageIssues( overlayManager, pageHTMLParser ) {
-	var
-		section,
-		issueSummaries = [],
-		allIssues = {},
-		label,
-		$lead = pageHTMLParser.getLeadSectionElement(),
-		issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || !$lead,
-		inline = newTreatmentEnabled && CURRENT_NS === 0;
+	let section;
+	let issueSummaries = [];
+	const allIssues = {};
+	const $lead = pageHTMLParser.getLeadSectionElement();
+	const issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || !$lead;
+	const inline = newTreatmentEnabled && CURRENT_NS === 0;
 
 	// set A-B test class.
 	// When wgMinervaPageIssuesNewTreatment is the default this can be removed.
@@ -144,7 +137,7 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 			section, inline, overlayManager ).issueSummaries;
 		allIssues[ section ] = issueSummaries;
 	} else if ( CURRENT_NS === NS_MAIN ) {
-		label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
+		const label = mw.msg( 'mobile-frontend-meta-data-issues-header' );
 		if ( issueOverlayShowAll ) {
 			section = KEYWORD_ALL_SECTIONS;
 			issueSummaries = insertBannersOrNotice(
@@ -163,10 +156,10 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 				// for sections.
 				pageHTMLParser.$el.find( PageHTMLParser.HEADING_SELECTOR ).each(
 					function ( i, headingEl ) {
-						var $headingEl = $( headingEl ),
-							// section number is absent on protected pages, when this is the case
-							// use i, otherwise icon will not show (T340910)
-							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' ) || i;
+						const $headingEl = $( headingEl );
+						// section number is absent on protected pages, when this is the case
+						// use i, otherwise icon will not show (T340910)
+						const sectionNum = $headingEl.find( '.edit-page' ).data( 'section' ) || i;
 
 						// Note certain headings matched using
 						// PageHTMLParser.HEADING_SELECTOR may not be headings and will

@@ -1,9 +1,8 @@
-const
-	Overlay = require( 'mobile.startup' ).Overlay,
-	IssueList = require( './IssueList.js' ),
-	KEYWORD_ALL_SECTIONS = 'all',
-	NS_MAIN = 0,
-	NS_CATEGORY = 14;
+const Overlay = require( 'mobile.startup' ).Overlay;
+const IssueList = require( './IssueList.js' );
+const KEYWORD_ALL_SECTIONS = 'all';
+const NS_MAIN = 0;
+const NS_CATEGORY = 14;
 
 /**
  * Overlay for displaying page issues
@@ -14,15 +13,14 @@ const
  * @return {Overlay}
  */
 function pageIssuesOverlay( issues, section, namespaceID ) {
-	var overlay,
-		// Note only the main namespace is expected to make use of section issues, so the
-		// heading will always be minerva-meta-data-issues-section-header regardless of
-		// namespace.
-		headingText = section === '0' || section === KEYWORD_ALL_SECTIONS ?
-			getNamespaceHeadingText( namespaceID ) :
-			mw.msg( 'minerva-meta-data-issues-section-header' );
+	// Note only the main namespace is expected to make use of section issues, so the
+	// heading will always be minerva-meta-data-issues-section-header regardless of
+	// namespace.
+	const headingText = section === '0' || section === KEYWORD_ALL_SECTIONS ?
+		getNamespaceHeadingText( namespaceID ) :
+		mw.msg( 'minerva-meta-data-issues-section-header' );
 
-	overlay = new Overlay( {
+	const overlay = new Overlay( {
 		className: 'overlay overlay-issues',
 		heading: '<strong>' + headingText + '</strong>'
 	} );

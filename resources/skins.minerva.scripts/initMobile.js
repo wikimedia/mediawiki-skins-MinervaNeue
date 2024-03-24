@@ -40,12 +40,12 @@ module.exports = function () {
 			return;
 		}
 
-		var el = ev.target.closest( PageHTMLParser.THUMB_SELECTOR );
+		const el = ev.target.closest( PageHTMLParser.THUMB_SELECTOR );
 		if ( !el ) {
 			return;
 		}
 
-		var thumb = currentPageHTMLParser.getThumbnail( $( el ) );
+		const thumb = currentPageHTMLParser.getThumbnail( $( el ) );
 		if ( !thumb ) {
 			return;
 		}
@@ -82,7 +82,7 @@ module.exports = function () {
 	function initButton() {
 		// This catches language selectors in page actions and in secondary actions (e.g. Main Page)
 		// eslint-disable-next-line no-jquery/no-global-selector
-		var $primaryBtn = $( '.language-selector' );
+		const $primaryBtn = $( '.language-selector' );
 
 		if ( $primaryBtn.length ) {
 			// We only bind the click event to the first language switcher in page
@@ -160,21 +160,17 @@ module.exports = function () {
 	 * @param {jQuery} $lastModifiedLink
 	 */
 	function initHistoryLink( $lastModifiedLink ) {
-		var delta, $msg, $bar,
-			ts, username, gender;
-
-		ts = $lastModifiedLink.data( 'timestamp' );
-		username = $lastModifiedLink.data( 'user-name' ) || false;
-		gender = $lastModifiedLink.data( 'user-gender' );
-
+		const ts = $lastModifiedLink.data( 'timestamp' );
 		if ( ts ) {
-			delta = time.getTimeAgoDelta( parseInt( ts, 10 ) );
+			const username = $lastModifiedLink.data( 'user-name' ) || false;
+			const gender = $lastModifiedLink.data( 'user-gender' );
+			const delta = time.getTimeAgoDelta( parseInt( ts, 10 ) );
 			if ( time.isRecent( delta ) ) {
-				$bar = $lastModifiedLink.closest( '.last-modified-bar' );
+				const $bar = $lastModifiedLink.closest( '.last-modified-bar' );
 				$bar.addClass( 'active' );
 			}
 
-			$msg = $( '<span>' )
+			const $msg = $( '<span>' )
 				// The new element should maintain the non-js element's CSS classes.
 				.attr( 'class', $lastModifiedLink.attr( 'class' ) )
 				.html(
@@ -192,15 +188,14 @@ module.exports = function () {
 	 * @param {jQuery.Event} ev
 	 */
 	function amcHistoryClickHandler( ev ) {
-		var
-			self = this,
-			amcOutreach = ms.amcOutreach,
-			amcCampaign = amcOutreach.loadCampaign(),
-			onDismiss = function () {
-				notifyOnPageReload( mw.msg( 'mobile-frontend-amc-outreach-dismissed-message' ) );
-				window.location = self.href;
-			},
-			drawer = amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' );
+		const self = this;
+		const amcOutreach = ms.amcOutreach;
+		const amcCampaign = amcOutreach.loadCampaign();
+		const onDismiss = function () {
+			notifyOnPageReload( mw.msg( 'mobile-frontend-amc-outreach-dismissed-message' ) );
+			window.location = self.href;
+		};
+		const drawer = amcCampaign.showIfEligible( amcOutreach.ACTIONS.onHistoryLink, onDismiss, currentPage.title, 'action=history' );
 
 		if ( drawer ) {
 			ev.preventDefault();
@@ -272,12 +267,10 @@ module.exports = function () {
 	 * @param {jQuery} [$tagline]
 	 */
 	function initRegistrationDate( $tagline ) {
-		var msg, ts;
-
-		ts = $tagline.data( 'userpage-registration-date' );
+		const ts = $tagline.data( 'userpage-registration-date' );
 
 		if ( ts ) {
-			msg = time.getRegistrationMessage( ts, $tagline.data( 'userpage-gender' ) );
+			const msg = time.getRegistrationMessage( ts, $tagline.data( 'userpage-gender' ) );
 			$tagline.text( msg );
 		}
 	}
@@ -318,9 +311,8 @@ module.exports = function () {
 	 * @return {boolean}
 	 */
 	function isUserUri( url ) {
-		var
-			title = TitleUtil.newFromUri( url ),
-			namespace = title ? title.getNamespaceId() : undefined;
+		const title = TitleUtil.newFromUri( url );
+		const namespace = title ? title.getNamespaceId() : undefined;
 		return namespace === namespaceIDs.user;
 	}
 
@@ -334,7 +326,7 @@ module.exports = function () {
 			// Filter out non-User namespace pages.
 			return isUserUri( element.href );
 		} ).each( function ( _, element ) {
-			var uri = new mw.Uri( element.href );
+			const uri = new mw.Uri( element.href );
 			if ( uri.query.action !== 'edit' ) {
 				// Nothing to strip.
 				return;
@@ -371,12 +363,11 @@ module.exports = function () {
 	}
 
 	$( function () {
-		var
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$watch = $( '#page-actions-watch' ),
-			toolbarElement = document.querySelector( Toolbar.selector ),
-			userMenu = document.querySelector( '.minerva-user-menu' ), // See UserMenuDirector.
-			navigationDrawer = document.querySelector( '.navigation-drawer' );
+		// eslint-disable-next-line no-jquery/no-global-selector
+		const $watch = $( '#page-actions-watch' );
+		const toolbarElement = document.querySelector( Toolbar.selector );
+		const userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
+		const navigationDrawer = document.querySelector( '.navigation-drawer' );
 
 		// The `minerva-animations-ready` class can be used by clients to prevent unwanted
 		// CSS transitions from firing on page load in some browsers (see
@@ -388,7 +379,7 @@ module.exports = function () {
 
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.mw-mf-page-center__mask' ).on( 'click', function ( ev ) {
-			var path = router.getPath();
+			const path = router.getPath();
 			// avoid jumping to the top of the page and polluting history by avoiding the
 			// resetting of the hash unless the hash is being utilised (T237015).
 			if ( !path ) {
@@ -423,7 +414,7 @@ module.exports = function () {
 		}
 		if ( navigationDrawer ) {
 			ToggleList.bind( window, navigationDrawer );
-			var navigationDrawerMask = navigationDrawer.querySelector( '.main-menu-mask' );
+			const navigationDrawerMask = navigationDrawer.querySelector( '.main-menu-mask' );
 			// The 'for' attribute is used to close the drawer when the mask is clicked without JS
 			// Since we are using JS to enhance the drawer behavior, we need to
 			// remove the attribute to prevent the drawer from being toggled twice
@@ -454,12 +445,12 @@ module.exports = function () {
 			}
 
 			// Mutate TOC.
-			var $toctitle = $container.find( '.toctitle' );
+			const $toctitle = $container.find( '.toctitle' );
 			$( '<span>' ).addClass( 'toc-title-icon' ).prependTo( $toctitle );
 			$( '<span>' ).addClass( 'toc-title-state-icon' ).appendTo( $toctitle );
 
 			// Init red links.
-			var $redLinks = currentPageHTMLParser.getRedLinks();
+			const $redLinks = currentPageHTMLParser.getRedLinks();
 			ctaDrawers.initRedlinksCta(
 				$redLinks.filter( function ( _, element ) {
 					// Filter out local User namespace pages.

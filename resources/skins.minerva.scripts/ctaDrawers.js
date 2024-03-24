@@ -1,6 +1,6 @@
-var mobile = require( 'mobile.startup' ),
-	drawers = require( './drawers.js' ),
-	CtaDrawer = mobile.CtaDrawer;
+const mobile = require( 'mobile.startup' );
+const drawers = require( './drawers.js' );
+const CtaDrawer = mobile.CtaDrawer;
 
 /**
  * Initialize red links call-to-action
@@ -23,7 +23,7 @@ var mobile = require( 'mobile.startup' ),
  */
 function initRedlinksCta( $redLinks ) {
 	$redLinks.on( 'click', function ( ev ) {
-		var drawerOptions = {
+		const drawerOptions = {
 				progressiveButton: {
 					progressive: true,
 					label: mw.msg( 'mobile-frontend-editor-redlink-create' ),
@@ -53,7 +53,7 @@ function initRedlinksCta( $redLinks ) {
  * @param {jQuery} $watchstar
  */
 function initWatchstarCta( $watchstar ) {
-	var watchCtaDrawer;
+	let watchCtaDrawer;
 	// show a CTA for anonymous users
 	$watchstar.on( 'click', function ( ev ) {
 		if ( !watchCtaDrawer ) {

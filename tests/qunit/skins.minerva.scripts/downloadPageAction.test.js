@@ -1,15 +1,15 @@
 ( function () {
-	var VALID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36',
-		VALID_SUPPORTED_NAMESPACES = [ 0 ],
-		spinner = () => ( {
-			$el: $( '<span>' )
-		} ),
-		Deferred = $.Deferred,
-		windowChrome = { chrome: true },
-		windowNotChrome = {},
-		downloadAction = require( '../../../resources/skins.minerva.scripts/downloadPageAction.js' ),
-		onClick = downloadAction.test.onClick,
-		isAvailable = downloadAction.test.isAvailable;
+	const VALID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36';
+	const VALID_SUPPORTED_NAMESPACES = [ 0 ];
+	const spinner = () => ( {
+		$el: $( '<span>' )
+	} );
+	const Deferred = $.Deferred;
+	const windowChrome = { chrome: true };
+	const windowNotChrome = {};
+	const downloadAction = require( '../../../resources/skins.minerva.scripts/downloadPageAction.js' );
+	const onClick = downloadAction.test.onClick;
+	const isAvailable = downloadAction.test.isAvailable;
 
 	class Page {
 		constructor( options ) {
@@ -28,7 +28,7 @@
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
 			this.getOnClickHandler = function ( onLoadAllImages ) {
-				var portletLink = document.createElement( 'li' );
+				const portletLink = document.createElement( 'li' );
 
 				return function () {
 					onClick( portletLink, spinner(), onLoadAllImages );
@@ -91,7 +91,7 @@
 
 	QUnit.module( 'isAvailable()', {
 		beforeEach: function () {
-			var page = new Page( {
+			const page = new Page( {
 				id: 0,
 				title: 'Test',
 				isMissing: false,
@@ -118,7 +118,7 @@
 	} );
 
 	QUnit.test( 'isAvailable() handles missing pages', function ( assert ) {
-		var page = new Page( {
+		const page = new Page( {
 			id: 0,
 			title: 'Missing',
 			isMissing: true
@@ -127,7 +127,7 @@
 	} );
 
 	QUnit.test( 'isAvailable() handles properly main page', function ( assert ) {
-		var page = new Page( {
+		const page = new Page( {
 			id: 0,
 			title: 'Test',
 			isMissing: false,

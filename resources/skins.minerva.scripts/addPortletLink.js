@@ -3,13 +3,13 @@
  * @return {Object} of arrays with mandatory class names for list item elements.
  */
 function getClassesForItem( $item ) {
-	const $parent = $item.parent(),
-		// eslint-disable-next-line no-jquery/no-class-state
-		isPageActionList = $parent.hasClass( 'page-actions-menu__list' ),
-		// eslint-disable-next-line no-jquery/no-class-state
-		isTabContainer = $parent.hasClass( 'minerva__tab-container' ),
-		// eslint-disable-next-line no-jquery/no-class-state
-		isToggleList = $parent.hasClass( 'toggle-list__list' );
+	const $parent = $item.parent();
+	// eslint-disable-next-line no-jquery/no-class-state
+	const isPageActionList = $parent.hasClass( 'page-actions-menu__list' );
+	// eslint-disable-next-line no-jquery/no-class-state
+	const isTabContainer = $parent.hasClass( 'minerva__tab-container' );
+	// eslint-disable-next-line no-jquery/no-class-state
+	const isToggleList = $parent.hasClass( 'toggle-list__list' );
 
 	if ( isToggleList ) {
 		return {
@@ -52,8 +52,8 @@ function getClassesForItem( $item ) {
  * @param {string|undefined} id for icon
  */
 function insertIcon( $link, id ) {
-	var icon = document.createElement( 'span' ),
-		classes = 'minerva-icon';
+	const icon = document.createElement( 'span' );
+	let classes = 'minerva-icon';
 	if ( id ) {
 		classes += ` minerva-icon-portletlink-${ id }`;
 		// FIXME: Please remove when following URL returns zero results:
@@ -69,16 +69,14 @@ function insertIcon( $link, id ) {
  * @param {Object} data
  */
 function hookHandler( listItem, data ) {
-	var $item, $a, classes,
-		id = data.id;
-
 	if ( listItem && !listItem.dataset.minervaPortlet ) {
-		$item = $( listItem );
+		const id = data.id;
+		const $item = $( listItem );
 
 		// add the corresponding classes
-		classes = getClassesForItem( $item );
+		const classes = getClassesForItem( $item );
 		$item.addClass( classes.li );
-		$a = $item.find( 'a' );
+		const $a = $item.find( 'a' );
 		$a.addClass( classes.a );
 		$item.find( 'a > span' ).addClass( classes.span );
 

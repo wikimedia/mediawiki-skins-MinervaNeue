@@ -1,7 +1,7 @@
 ( function ( track ) {
-	var MAX_PRINT_TIMEOUT = 3000,
-		printSetTimeoutReference = 0,
-		mobile = require( 'mobile.startup' );
+	const MAX_PRINT_TIMEOUT = 3000;
+	let printSetTimeoutReference = 0;
+	const mobile = require( 'mobile.startup' );
 
 	/**
 	 * Helper function to detect iOs
@@ -22,7 +22,7 @@
 	 * @return {number|boolean} Integer version number, or false if not found
 	 */
 	function getAndroidVersion( userAgent ) {
-		var match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
+		const match = userAgent.toLowerCase().match( /android\s(\d\.]*)/ );
 		return match ? parseInt( match[ 1 ] ) : false;
 	}
 
@@ -34,7 +34,7 @@
 	 * @return {number|boolean} Integer version number, or false if not found
 	 */
 	function getChromeVersion( userAgent ) {
-		var match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
+		const match = userAgent.toLowerCase().match( /chrom(e|ium)\/(\d+)\./ );
 		return match ? parseInt( match[ 2 ] ) : false;
 	}
 
@@ -50,8 +50,8 @@
 	 * @return {boolean}
 	 */
 	function isAvailable( windowObj, page, userAgent, supportedNamespaces ) {
-		var androidVersion = getAndroidVersion( userAgent ),
-			chromeVersion = getChromeVersion( userAgent );
+		const androidVersion = getAndroidVersion( userAgent );
+		const chromeVersion = getChromeVersion( userAgent );
 
 		if ( typeof window.print !== 'function' ) {
 			// T309591: No window.print support
@@ -86,7 +86,7 @@
 	 * @param {Function} [loadAllImagesInPage]
 	 */
 	function onClick( portletItem, spinner, loadAllImagesInPage ) {
-		var icon = portletItem.querySelector( '.minerva-icon--download' );
+		const icon = portletItem.querySelector( '.minerva-icon--download' );
 		function doPrint() {
 			printSetTimeoutReference = clearTimeout( printSetTimeoutReference );
 			track( 'minerva.downloadAsPDF', {
@@ -131,12 +131,10 @@
 	 * @return {jQuery|null}
 	 */
 	function downloadPageAction( page, supportedNamespaces, windowObj, overflowList ) {
-		var
-			portletLink, iconElement,
-			spinner = ( overflowList ) ? mobile.spinner( {
-				label: '',
-				isIconOnly: false
-			} ) : mobile.spinner();
+		const spinner = ( overflowList ) ? mobile.spinner( {
+			label: '',
+			isIconOnly: false
+		} ) : mobile.spinner();
 
 		if (
 			isAvailable(
@@ -146,7 +144,7 @@
 		) {
 			// FIXME: Use p-views when cache has cleared.
 			const actionID = document.querySelector( '#p-views' ) ? 'p-views' : 'page-actions';
-			portletLink = mw.util.addPortletLink(
+			const portletLink = mw.util.addPortletLink(
 				overflowList ? 'page-actions-overflow' : actionID,
 				'#',
 				mw.msg( 'minerva-download' ),
@@ -162,7 +160,7 @@
 				portletLink.addEventListener( 'click', function () {
 					onClick( portletLink, spinner, mobile.loadAllImagesInPage );
 				} );
-				iconElement = portletLink.querySelector( '.minerva-icon' );
+				const iconElement = portletLink.querySelector( '.minerva-icon' );
 				if ( iconElement ) {
 					iconElement.classList.add( 'minerva-icon--download' );
 				}
