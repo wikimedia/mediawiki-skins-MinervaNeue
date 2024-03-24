@@ -120,6 +120,7 @@
 				"GenderCache",
 				"LinkRenderer",
 				"Minerva.LanguagesHelper",
+				"Minerva.Menu.Definitions",
 				"Minerva.Permissions",
 				"Minerva.SkinOptions",
 				"Minerva.SkinUserPageHelper",

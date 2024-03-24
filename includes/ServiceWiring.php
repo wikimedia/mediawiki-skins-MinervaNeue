@@ -27,9 +27,6 @@ use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
-use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
-use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
-use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
@@ -41,25 +38,6 @@ return [
 	'Minerva.Menu.Definitions' => static function ( MediaWikiServices $services ): Definitions {
 		return new Definitions(
 			$services->getSpecialPageFactory()
-		);
-	},
-	'Minerva.Menu.UserMenuDirector' => static function ( MediaWikiServices $services ): UserMenuDirector {
-		$context = RequestContext::getMain();
-		$options = $services->getService( 'Minerva.SkinOptions' );
-		$definitions = $services->getService( 'Minerva.Menu.Definitions' )
-			->setContext( $context );
-
-		$builder = $options->get( SkinOptions::PERSONAL_MENU ) ?
-			new AdvancedUserMenuBuilder(
-				$context,
-				$context->getUser(),
-				$definitions
-			) :
-			new DefaultUserMenuBuilder();
-
-		return new UserMenuDirector(
-			$builder,
-			$context->getSkin()
 		);
 	},
 	'Minerva.Menu.MainDirector' => static function ( MediaWikiServices $services ): MainMenuDirector {

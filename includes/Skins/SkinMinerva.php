@@ -29,8 +29,11 @@ use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
+use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
+use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
+use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
@@ -71,6 +74,8 @@ class SkinMinerva extends SkinMustache {
 
 	private LanguagesHelper $languagesHelper;
 
+	private Definitions $definitions;
+
 	private IMinervaPagePermissions $permissions;
 
 	private SkinOptions $skinOptions;
@@ -87,6 +92,7 @@ class SkinMinerva extends SkinMustache {
 	 * @param GenderCache $genderCache
 	 * @param LinkRenderer $linkRenderer
 	 * @param LanguagesHelper $languagesHelper
+	 * @param Definitions $definitions
 	 * @param MinervaPagePermissions $permissions
 	 * @param SkinOptions $skinOptions
 	 * @param SkinUserPageHelper $skinUserPageHelper
@@ -99,6 +105,7 @@ class SkinMinerva extends SkinMustache {
 		GenderCache $genderCache,
 		LinkRenderer $linkRenderer,
 		LanguagesHelper $languagesHelper,
+		Definitions $definitions,
 		MinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
 		SkinUserPageHelper $skinUserPageHelper,
@@ -111,6 +118,8 @@ class SkinMinerva extends SkinMustache {
 		$this->genderCache = $genderCache;
 		$this->linkRenderer = $linkRenderer;
 		$this->languagesHelper = $languagesHelper;
+		$this->definitions = $definitions
+			->setContext( $this->getContext() );
 		$this->permissions = $permissions
 			->setContext( $this->getContext() );
 		$this->skinOptions = $skinOptions;
@@ -530,9 +539,18 @@ class SkinMinerva extends SkinMustache {
 	 * @return string|null
 	 */
 	private function getPersonalToolsMenu( array $personalUrls ) {
-		$services = MediaWikiServices::getInstance();
-		/** @var UserMenuDirector $userMenuDirector */
-		$userMenuDirector = $services->getService( 'Minerva.Menu.UserMenuDirector' );
+		$builder = $this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ?
+			new AdvancedUserMenuBuilder(
+				$this->getContext(),
+				$this->getUser(),
+				$this->definitions
+			) :
+			new DefaultUserMenuBuilder();
+
+		$userMenuDirector = new UserMenuDirector(
+			$builder,
+			$this->getContext()->getSkin()
+		);
 		return $userMenuDirector->renderMenuData( $personalUrls );
 	}
 
