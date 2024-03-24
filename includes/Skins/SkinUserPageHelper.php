@@ -28,14 +28,14 @@ use MediaWiki\User\UserNameUtils;
 
 class SkinUserPageHelper {
 	/**
-	 * @var UserNameUtils
-	 */
-	private UserNameUtils $userNameUtils;
-
-	/**
 	 * @var UserFactory
 	 */
 	private UserFactory $userFactory;
+
+	/**
+	 * @var UserNameUtils
+	 */
+	private UserNameUtils $userNameUtils;
 
 	/**
 	 * @var IContextSource
@@ -58,15 +58,15 @@ class SkinUserPageHelper {
 	private $pageUser;
 
 	/**
-	 * @param UserNameUtils $userNameUtils
 	 * @param UserFactory $userFactory
+	 * @param UserNameUtils $userNameUtils
 	 */
 	public function __construct(
-		UserNameUtils $userNameUtils,
-		UserFactory $userFactory
+		UserFactory $userFactory,
+		UserNameUtils $userNameUtils
 	) {
-		$this->userNameUtils = $userNameUtils;
 		$this->userFactory = $userFactory;
+		$this->userNameUtils = $userNameUtils;
 	}
 
 	/**
