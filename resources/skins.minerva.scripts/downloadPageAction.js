@@ -113,7 +113,8 @@
 			// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
 			// abort the spinner and print regardless.
 			printSetTimeoutReference = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-			( loadAllImagesInPage || mobile.loadAllImagesInPage )().then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+			( loadAllImagesInPage || mobile.loadAllImagesInPage )()
+				.then( doPrintBeforeTimeout, doPrintBeforeTimeout );
 		}
 	}
 

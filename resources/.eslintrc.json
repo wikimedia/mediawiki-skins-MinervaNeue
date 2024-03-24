@@ -13,6 +13,7 @@
 	},
 	"rules": {
 		"jsdoc/no-undefined-types": "off",
+		"max-len": "error",
 		"mediawiki/class-doc": "off",
 		"no-restricted-properties": [
 			"error",

@@ -164,8 +164,8 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 				pageHTMLParser.$el.find( PageHTMLParser.HEADING_SELECTOR ).each(
 					function ( i, headingEl ) {
 						var $headingEl = $( headingEl ),
-							// section number is absent on protected pages, when this is the case use i,
-							// otherwise icon will not show (T340910)
+							// section number is absent on protected pages, when this is the case
+							// use i, otherwise icon will not show (T340910)
 							sectionNum = $headingEl.find( '.edit-page' ).data( 'section' ) || i;
 
 						// Note certain headings matched using
