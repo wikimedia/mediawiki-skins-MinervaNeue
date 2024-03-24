@@ -54,8 +54,10 @@ const iSayOkayInTheConfirmDialog = () => {
 };
 const theTextOfTheFirstHeadingShouldBe = async ( title ) => {
 	await ArticlePage.first_heading_element.waitForDisplayed();
+	title = mw.util.escapeRegExp( title );
 	assert.match(
 		await ArticlePage.first_heading_element.getText(),
+		// eslint-disable-next-line security/detect-non-literal-regexp
 		new RegExp( `.*${ title }$` )
 	);
 };
