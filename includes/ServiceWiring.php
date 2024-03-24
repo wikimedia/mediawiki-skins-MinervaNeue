@@ -40,15 +40,15 @@ use MediaWiki\SpecialPage\SpecialPage;
 return [
 	'Minerva.Menu.Definitions' => static function ( MediaWikiServices $services ): Definitions {
 		return new Definitions(
-			RequestContext::getMain(),
 			$services->getSpecialPageFactory()
 		);
 	},
 	'Minerva.Menu.UserMenuDirector' => static function ( MediaWikiServices $services ): UserMenuDirector {
-		$options = $services->getService( 'Minerva.SkinOptions' );
-		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
-
 		$context = RequestContext::getMain();
+		$options = $services->getService( 'Minerva.SkinOptions' );
+		$definitions = $services->getService( 'Minerva.Menu.Definitions' )
+			->setContext( $context );
+
 		$builder = $options->get( SkinOptions::PERSONAL_MENU ) ?
 			new AdvancedUserMenuBuilder(
 				$context,
@@ -66,7 +66,8 @@ return [
 		$context = RequestContext::getMain();
 		/** @var SkinOptions $options */
 		$options = $services->getService( 'Minerva.SkinOptions' );
-		$definitions = $services->getService( 'Minerva.Menu.Definitions' );
+		$definitions = $services->getService( 'Minerva.Menu.Definitions' )
+			->setContext( $context );
 		$userIdentityUtils = $services->getUserIdentityUtils();
 		$showMobileOptions = $options->get( SkinOptions::MOBILE_OPTIONS );
 		$user = $context->getUser();

@@ -34,23 +34,29 @@ use Message;
  */
 final class Definitions {
 
-	private UserIdentity $user;
-	private IContextSource $context;
 	private SpecialPageFactory $specialPageFactory;
+	private IContextSource $context;
+	private UserIdentity $user;
 
 	/**
 	 * Initialize definitions helper class
 	 *
-	 * @param IContextSource $context
 	 * @param SpecialPageFactory $specialPageFactory
 	 */
 	public function __construct(
-		IContextSource $context,
 		SpecialPageFactory $specialPageFactory
 	) {
-		$this->user = $context->getUser();
-		$this->context = $context;
 		$this->specialPageFactory = $specialPageFactory;
+	}
+
+	/**
+	 * @param IContextSource $context
+	 * @return $this
+	 */
+	public function setContext( IContextSource $context ) {
+		$this->context = $context;
+		$this->user = $context->getUser();
+		return $this;
 	}
 
 	/**
