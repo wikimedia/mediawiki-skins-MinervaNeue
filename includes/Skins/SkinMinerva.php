@@ -25,7 +25,6 @@ use Language;
 use MediaWiki\Cache\GenderCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Html\Html;
-use MediaWiki\Html\TemplateParser;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
@@ -65,13 +64,7 @@ class SkinMinerva extends SkinMustache {
 	private $skinOptions;
 
 	/** @var array|null */
-	private $sidebarCachedResult;
-
-	/** @var array|null */
 	private $contentNavigationUrls;
-
-	/** @var TemplateParser|null */
-	private $templateParser;
 
 	/**
 	 * This variable is lazy loaded, please use getPermissions() getter
@@ -889,8 +882,7 @@ class SkinMinerva extends SkinMustache {
 					'data-userpage-gender' => $this->genderCache->getGenderOf( $pageUser, __METHOD__ ) ];
 			}
 		} else {
-			$title = $this->getTitle();
-			if ( $title ) {
+			if ( $this->getTitle() ) {
 				$out = $this->getOutput();
 				$tagline = $out->getProperty( 'wgMFDescription' );
 			}
@@ -1030,7 +1022,6 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	protected function getJsConfigVars(): array {
-		$title = $this->getTitle();
 		$skinOptions = $this->getSkinOptions();
 		$permissions = $this->getPermissions();
 
