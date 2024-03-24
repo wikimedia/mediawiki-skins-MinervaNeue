@@ -25,6 +25,7 @@ use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MobileContext;
+use OutOfBoundsException;
 use Skin;
 
 /**
@@ -99,7 +100,7 @@ final class SkinOptions {
 	public function setMultiple( array $options ) {
 		foreach ( $options as $option => $value ) {
 			if ( !array_key_exists( $option, $this->skinOptions ) ) {
-				throw new \OutOfBoundsException( "SkinOption $option is not defined" );
+				throw new OutOfBoundsException( "SkinOption $option is not defined" );
 			}
 		}
 		$this->skinOptions = array_merge( $this->skinOptions, $options );
@@ -112,7 +113,7 @@ final class SkinOptions {
 	 */
 	public function get( $key ) {
 		if ( !array_key_exists( $key, $this->skinOptions ) ) {
-			throw new \OutOfBoundsException( "SkinOption $key doesn't exist" );
+			throw new OutOfBoundsException( "SkinOption $key doesn't exist" );
 		}
 		return $this->skinOptions[$key];
 	}

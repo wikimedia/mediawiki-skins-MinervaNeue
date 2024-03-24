@@ -3,6 +3,7 @@
 namespace MediaWiki\Minerva\Skins;
 
 use MediaWiki\Request\WebRequest;
+use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Title\Title;
 
 class FeaturesHelper {
@@ -27,8 +28,8 @@ class FeaturesHelper {
 	 * @internal only for use inside tests.
 	 */
 	public function shouldDisableNightMode( array $options, WebRequest $request, Title $title = null ) {
-		return class_exists( 'MediaWiki\Skins\Vector\ConfigHelper' ) ?
-			\MediaWiki\Skins\Vector\ConfigHelper::shouldDisable(
-				$options, $request, $title ) : false;
+		return class_exists( ConfigHelper::class ) ?
+			ConfigHelper::shouldDisable( $options, $request, $title ) :
+			false;
 	}
 }

@@ -23,7 +23,11 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
-use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
+use MediaWiki\Minerva\Menu\PageActions\DefaultOverflowBuilder;
+use MediaWiki\Minerva\Menu\PageActions\EmptyOverflowBuilder;
+use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
+use MediaWiki\Minerva\Menu\PageActions\ToolbarBuilder;
+use MediaWiki\Minerva\Menu\PageActions\UserNamespaceOverflowBuilder;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
@@ -38,7 +42,7 @@ return [
 		);
 	},
 	'Minerva.Menu.PageActionsDirector' =>
-		static function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {
+		static function ( MediaWikiServices $services ): PageActionsDirector {
 			/**
 			 * @var SkinOptions $skinOptions
 			 * @var SkinMinerva $skin
@@ -65,7 +69,7 @@ return [
 
 			$watchlistManager = $services->getWatchlistManager();
 
-			$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
+			$toolbarBuilder = new ToolbarBuilder(
 				$title,
 				$user,
 				$context,
@@ -73,28 +77,28 @@ return [
 				$skinOptions,
 				$userPageHelper,
 				$languagesHelper,
-				new ServiceOptions( PageActionsMenu\ToolbarBuilder::CONSTRUCTOR_OPTIONS,
+				new ServiceOptions( ToolbarBuilder::CONSTRUCTOR_OPTIONS,
 					$services->getMainConfig() ),
 				$watchlistManager
 			);
 			if ( $skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
 				$overflowBuilder = $userPageHelper->isUserPage() ?
-					new PageActionsMenu\UserNamespaceOverflowBuilder(
+					new UserNamespaceOverflowBuilder(
 						$title,
 						$context,
 						$permissions,
 						$languagesHelper
 					) :
-					new PageActionsMenu\DefaultOverflowBuilder(
+					new DefaultOverflowBuilder(
 						$title,
 						$context,
 						$permissions
 					);
 			} else {
-				$overflowBuilder = new PageActionsMenu\EmptyOverflowBuilder();
+				$overflowBuilder = new EmptyOverflowBuilder();
 			}
 
-			return new PageActionsMenu\PageActionsDirector(
+			return new PageActionsDirector(
 				$toolbarBuilder,
 				$overflowBuilder,
 				$context

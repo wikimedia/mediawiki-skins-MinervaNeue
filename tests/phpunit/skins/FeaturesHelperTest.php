@@ -6,6 +6,7 @@ use MediaWiki\Minerva\Skins\FeaturesHelper;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
+use RequestContext;
 
 /**
  * @group MinervaNeue
@@ -25,9 +26,9 @@ class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 				]
 			]
 		];
-		$context = new \RequestContext();
+		$context = new RequestContext();
 		$request = $context->getRequest();
-		$editContext = new \RequestContext();
+		$editContext = new RequestContext();
 		$editRequest = $context->getRequest();
 		$editRequest->setVal( 'action', 'edit' );
 		$mainTitle = Title::makeTitle( NS_MAIN, 'Main Page' );
@@ -67,7 +68,7 @@ class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 				]
 			]
 		];
-		$context = new \RequestContext();
+		$context = new RequestContext();
 		$request = $context->getRequest();
 		$includedTitle = Title::makeTitle( NS_MAIN, 'Included Page' );
 		$featuresHelper = new FeaturesHelper();
