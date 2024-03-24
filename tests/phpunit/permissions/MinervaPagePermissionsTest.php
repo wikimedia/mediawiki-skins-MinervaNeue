@@ -8,6 +8,7 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
@@ -44,7 +45,8 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		$contentHandler = $contentHandler ??
 			$this->getMockForAbstractClass( ContentHandler::class, [], '', false );
 		$skinOptions = new SkinOptions(
-			$this->createMock( HookContainer::class )
+			$this->createMock( HookContainer::class ),
+			$this->createMock( SkinUserPageHelper::class )
 		);
 		if ( $options ) {
 			$skinOptions->setMultiple( $options );

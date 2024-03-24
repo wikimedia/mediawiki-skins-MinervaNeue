@@ -23,6 +23,7 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MobileContext;
 use Skin;
 
@@ -81,11 +82,14 @@ final class SkinOptions {
 	];
 
 	private HookContainer $hookContainer;
+	private SkinUserPageHelper $skinUserPageHelper;
 
 	public function __construct(
-		HookContainer $hookContainer
+		HookContainer $hookContainer,
+		SkinUserPageHelper $skinUserPageHelper
 	) {
 		$this->hookContainer = $hookContainer;
+		$this->skinUserPageHelper = $skinUserPageHelper;
 	}
 
 	/**
@@ -157,14 +161,14 @@ final class SkinOptions {
 			if ( $title !== null ) {
 				// T232653: TALK_AT_TOP, HISTORY_IN_PAGE_ACTIONS, TOOLBAR_SUBMENU should
 				// be true on user pages and user talk pages for all users
-				$relevantUserPageHelper = $services->getService( 'Minerva.SkinUserPageHelper' )
+				$this->skinUserPageHelper
 					->setContext( $mobileContext )
 					->setTitle(
 						$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
 					);
 
-				$isUserPage = $relevantUserPageHelper->isUserPage();
-				$isUserPageAccessible = $relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
+				$isUserPage = $this->skinUserPageHelper->isUserPage();
+				$isUserPageAccessible = $this->skinUserPageHelper->isUserPageAccessibleToCurrentUser();
 				$isUserPageOrUserTalkPage = $isUserPage && $isUserPageAccessible;
 			} else {
 				// If no title this must be false

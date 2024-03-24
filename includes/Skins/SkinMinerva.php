@@ -75,6 +75,8 @@ class SkinMinerva extends SkinMustache {
 
 	private SkinOptions $skinOptions;
 
+	private SkinUserPageHelper $skinUserPageHelper;
+
 	private NamespaceInfo $namespaceInfo;
 
 	private RevisionLookup $revisionLookup;
@@ -87,6 +89,7 @@ class SkinMinerva extends SkinMustache {
 	 * @param LanguagesHelper $languagesHelper
 	 * @param MinervaPagePermissions $permissions
 	 * @param SkinOptions $skinOptions
+	 * @param SkinUserPageHelper $skinUserPageHelper
 	 * @param NamespaceInfo $namespaceInfo
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserOptionsManager $userOptionsManager
@@ -98,6 +101,7 @@ class SkinMinerva extends SkinMustache {
 		LanguagesHelper $languagesHelper,
 		MinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
+		SkinUserPageHelper $skinUserPageHelper,
 		NamespaceInfo $namespaceInfo,
 		RevisionLookup $revisionLookup,
 		UserOptionsManager $userOptionsManager,
@@ -110,6 +114,9 @@ class SkinMinerva extends SkinMustache {
 		$this->permissions = $permissions
 			->setContext( $this->getContext() );
 		$this->skinOptions = $skinOptions;
+		$this->skinUserPageHelper = $skinUserPageHelper
+			->setContext( $this->getContext() )
+			->setTitle( $this->getTitle() );
 		$this->namespaceInfo = $namespaceInfo;
 		$this->revisionLookup = $revisionLookup;
 		$this->userOptionsManager = $userOptionsManager;
@@ -128,7 +135,7 @@ class SkinMinerva extends SkinMustache {
 	 * @return bool
 	 */
 	private function hasSecondaryActions() {
-		return !$this->getUserPageHelper()->isUserPage();
+		return !$this->skinUserPageHelper->isUserPage();
 	}
 
 	/**
@@ -317,8 +324,8 @@ class SkinMinerva extends SkinMustache {
 
 		// Special handling for certain pages.
 		// This is technical debt that should be upstreamed to core.
-		$isUserPage = $this->getUserPageHelper()->isUserPage();
-		$isUserPageAccessible = $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser();
+		$isUserPage = $this->skinUserPageHelper->isUserPage();
+		$isUserPageAccessible = $this->skinUserPageHelper->isUserPageAccessibleToCurrentUser();
 		if ( $isUserPage && $isUserPageAccessible ) {
 			$data['html-title-heading'] = $this->getUserPageHeadingHtml( $data['html-title-heading' ] );
 		}
@@ -698,15 +705,6 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * @return SkinUserPageHelper
-	 */
-	public function getUserPageHelper() {
-		return MediaWikiServices::getInstance()->getService( 'Minerva.SkinUserPageHelper' )
-			->setContext( $this->getContext() )
-			->setTitle( $this->getTitle() );
-	}
-
-	/**
 	 * Get a history link which describes author and relative time of last edit
 	 * @param Title $title The Title object of the page being viewed
 	 * @param string $timestamp
@@ -842,11 +840,11 @@ class SkinMinerva extends SkinMustache {
 	protected function getTaglineHtml() {
 		$tagline = '';
 
-		if ( $this->getUserPageHelper()->isUserPage() ) {
-			$pageUser = $this->getUserPageHelper()->getPageUser();
+		if ( $this->skinUserPageHelper->isUserPage() ) {
+			$pageUser = $this->skinUserPageHelper->getPageUser();
 			$fromDate = $pageUser->getRegistration();
 
-			if ( $this->getUserPageHelper()->isUserPageAccessibleToCurrentUser() && is_string( $fromDate ) ) {
+			if ( $this->skinUserPageHelper->isUserPageAccessibleToCurrentUser() && is_string( $fromDate ) ) {
 				$fromDateTs = wfTimestamp( TS_UNIX, $fromDate );
 
 				// This is shown when js is disabled. js enhancement made due to caching
@@ -884,7 +882,7 @@ class SkinMinerva extends SkinMustache {
 				'id' => 'firstHeading',
 				'class' => 'firstHeading mw-first-heading mw-minerva-user-heading',
 			],
-			$this->getUserPageHelper()->getPageUser()->getName()
+			$this->skinUserPageHelper->getPageUser()->getName()
 		);
 	}
 
@@ -964,7 +962,7 @@ class SkinMinerva extends SkinMustache {
 		$subjectPage = Title::newFromLinkTarget( $this->namespaceInfo->getSubjectPage( $title ) );
 		$talkAtBottom = !$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$subjectPage->isMainPage();
-		if ( !$this->getUserPageHelper()->isUserPage() &&
+		if ( !$this->skinUserPageHelper->isUserPage() &&
 			$this->permissions->isTalkAllowed() && $talkAtBottom &&
 			// When showing talk at the bottom we restrict this so it is not shown to anons
 			// https://phabricator.wikimedia.org/T54165
@@ -1081,7 +1079,7 @@ class SkinMinerva extends SkinMustache {
 
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
-		} elseif ( $this->getUserPageHelper()->isUserPage() ) {
+		} elseif ( $this->skinUserPageHelper->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
 		}
 

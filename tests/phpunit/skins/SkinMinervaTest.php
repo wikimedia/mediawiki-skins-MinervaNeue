@@ -44,6 +44,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getService( 'Minerva.LanguagesHelper' ),
 			$services->getService( 'Minerva.Permissions' ),
 			$services->getService( 'Minerva.SkinOptions' ),
+			$services->getService( 'Minerva.SkinUserPageHelper' ),
 			$services->getNamespaceInfo(),
 			$services->getRevisionLookup(),
 			$services->getUserOptionsManager()
@@ -56,7 +57,8 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	private function overrideSkinOptions( $options ) {
 		$services = $this->getServiceContainer();
 		$mockOptions = new SkinOptions(
-			$services->getHookContainer()
+			$services->getHookContainer(),
+			$services->getService( 'Minerva.SkinUserPageHelper' )
 		);
 		$mockOptions->setMultiple( $options );
 		$this->setService( 'Minerva.SkinOptions', $mockOptions );

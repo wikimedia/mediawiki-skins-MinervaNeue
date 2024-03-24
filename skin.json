@@ -122,6 +122,7 @@
 				"Minerva.LanguagesHelper",
 				"Minerva.Permissions",
 				"Minerva.SkinOptions",
+				"Minerva.SkinUserPageHelper",
 				"NamespaceInfo",
 				"RevisionLookup",
 				"UserOptionsManager"

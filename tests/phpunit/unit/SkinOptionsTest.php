@@ -3,6 +3,7 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWikiUnitTestCase;
 use OutOfBoundsException;
 
@@ -15,7 +16,8 @@ class SkinOptionsTest extends MediaWikiUnitTestCase {
 
 	private function newSkinOptions() {
 		return new SkinOptions(
-			$this->createMock( HookContainer::class )
+			$this->createMock( HookContainer::class ),
+			$this->createMock( SkinUserPageHelper::class )
 		);
 	}
 

@@ -155,7 +155,8 @@ return [
 	},
 	'Minerva.SkinOptions' => static function ( MediaWikiServices $services ): SkinOptions {
 		return new SkinOptions(
-			$services->getHookContainer()
+			$services->getHookContainer(),
+			$services->getService( 'Minerva.SkinUserPageHelper' )
 		);
 	},
 	'Minerva.Permissions' => static function ( MediaWikiServices $services ): IMinervaPagePermissions {
