@@ -3,31 +3,6 @@
 @import '../../minerva.less/minerva.mixins.less';
 @import 'mediawiki.mixins.less';
 
-.mw-mf-special-page {
-	#bodyContent.content {
-		max-width: none;
-		margin: 0;
-		width: auto;
-
-		ul {
-			list-style: none;
-			padding: 0;
-		}
-
-		// override core .content li rule
-		.page-header-bar li {
-			margin-bottom: 0;
-		}
-
-		.mw-mf-history-wrap-link {
-			@media all and ( min-width: @width-breakpoint-desktop ) {
-				margin: 0;
-				max-width: none;
-			}
-		}
-	}
-}
-
 .ns-special {
 	.mw-body .mw-first-heading {
 		font-size: 1.5em;
@@ -116,6 +91,80 @@ html.mw-mf-amc-clientpref-0 {
 		#p-associated-pages .minerva__tab:nth-child( 3 ),
 		#p-associated-pages .minerva__tab:nth-child( 4 ) {
 			display: none;
+		}
+	}
+}
+
+body.mw-special-Newpages {
+	.mw-contributions-list {
+		padding: 0;
+		margin: 0;
+
+		li {
+			.changeslist-row();
+		}
+	}
+
+	.mw-index-pager-list-header {
+		.changeslist-header();
+		box-sizing: border-box;
+	}
+
+	.mw-newpages-pagename {
+		font-weight: bold;
+	}
+
+	.mw-newpages-time,
+	.mw-userlink,
+	.mw-newpages-pagename {
+		display: block;
+	}
+
+	.comment,
+	.mw-userlink,
+	.mw-usertoollinks {
+		float: left;
+		padding: 0;
+	}
+
+	.comment {
+		clear: both;
+	}
+
+	.mw-usertoollinks {
+		margin-left: 8px;
+	}
+
+	.mw-changeslist-date {
+		display: none;
+	}
+
+	.mw-changeslist-time {
+		display: inline-block;
+	}
+}
+
+.mw-mf-special-page {
+	#bodyContent.content {
+		max-width: none;
+		margin: 0;
+		width: auto;
+
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		// override core .content li rule
+		.page-header-bar li {
+			margin-bottom: 0;
+		}
+
+		.mw-mf-history-wrap-link {
+			@media all and ( min-width: @width-breakpoint-desktop ) {
+				margin: 0;
+				max-width: none;
+			}
 		}
 	}
 }
