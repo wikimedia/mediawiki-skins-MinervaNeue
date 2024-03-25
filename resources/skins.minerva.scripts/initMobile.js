@@ -444,7 +444,12 @@ module.exports = function () {
 		// setup toc icons
 		mw.hook( 'wikipage.content' ).add( function ( $container ) {
 			// If the MMV module is missing or disabled from the page, initialise our version
-			if ( desktopMMV === null || desktopMMV === 'registered' ) {
+			if (
+				desktopMMV === null ||
+				desktopMMV === 'registered' &&
+				// T360781
+				$container &&
+				$container[ 0 ] ) {
 				initMediaViewer( $container[ 0 ] );
 			}
 
