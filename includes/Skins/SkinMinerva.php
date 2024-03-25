@@ -908,16 +908,13 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function getUserPageHeadingHtml( $heading ) {
 		// The heading is just the username without namespace
-		// This is escaped as a precaution (user name should be safe).
-		return Html::rawElement( 'h1',
+		return Html::element( 'h1',
 			// These IDs and classes should match Skin::getTemplateData
 			[
 				'id' => 'firstHeading',
 				'class' => 'firstHeading mw-first-heading mw-minerva-user-heading',
 			],
-			htmlspecialchars(
-				$this->getUserPageHelper()->getPageUser()->getName()
-			)
+			$this->getUserPageHelper()->getPageUser()->getName()
 		);
 	}
 
