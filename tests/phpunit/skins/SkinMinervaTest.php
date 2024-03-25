@@ -48,6 +48,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getService( 'Minerva.SkinUserPageHelper' ),
 			$services->getNamespaceInfo(),
 			$services->getRevisionLookup(),
+			$services->getUserIdentityUtils(),
 			$services->getUserOptionsManager()
 		);
 	}

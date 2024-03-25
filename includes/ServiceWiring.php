@@ -23,9 +23,6 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
-use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
-use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
-use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions as PageActionsMenu;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
@@ -39,23 +36,6 @@ return [
 		return new Definitions(
 			$services->getSpecialPageFactory()
 		);
-	},
-	'Minerva.Menu.MainDirector' => static function ( MediaWikiServices $services ): MainMenuDirector {
-		$context = RequestContext::getMain();
-		/** @var SkinOptions $options */
-		$options = $services->getService( 'Minerva.SkinOptions' );
-		$definitions = $services->getService( 'Minerva.Menu.Definitions' )
-			->setContext( $context );
-		$userIdentityUtils = $services->getUserIdentityUtils();
-		$showMobileOptions = $options->get( SkinOptions::MOBILE_OPTIONS );
-		$user = $context->getUser();
-		// Add a donate link (see https://phabricator.wikimedia.org/T219793)
-		$showDonateLink = $options->get( SkinOptions::SHOW_DONATE );
-		$builder = $options->get( SkinOptions::MAIN_MENU_EXPANDED ) ?
-			new AdvancedMainMenuBuilder( $showMobileOptions, $showDonateLink, $definitions ) :
-			new DefaultMainMenuBuilder( $showMobileOptions, $showDonateLink, $user, $definitions, $userIdentityUtils );
-
-		return new MainMenuDirector( $builder );
 	},
 	'Minerva.Menu.PageActionsDirector' =>
 		static function ( MediaWikiServices $services ): PageActionsMenu\PageActionsDirector {

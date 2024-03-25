@@ -30,6 +30,8 @@ use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
+use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
+use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
@@ -43,6 +45,7 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsManager;
+use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\Utils\MWTimestamp;
 use RuntimeException;
 use SkinMustache;
@@ -86,6 +89,8 @@ class SkinMinerva extends SkinMustache {
 
 	private RevisionLookup $revisionLookup;
 
+	private UserIdentityUtils $userIdentityUtils;
+
 	private UserOptionsManager $userOptionsManager;
 
 	/**
@@ -98,6 +103,7 @@ class SkinMinerva extends SkinMustache {
 	 * @param SkinUserPageHelper $skinUserPageHelper
 	 * @param NamespaceInfo $namespaceInfo
 	 * @param RevisionLookup $revisionLookup
+	 * @param UserIdentityUtils $userIdentityUtils
 	 * @param UserOptionsManager $userOptionsManager
 	 * @param array $options
 	 */
@@ -111,6 +117,7 @@ class SkinMinerva extends SkinMustache {
 		SkinUserPageHelper $skinUserPageHelper,
 		NamespaceInfo $namespaceInfo,
 		RevisionLookup $revisionLookup,
+		UserIdentityUtils $userIdentityUtils,
 		UserOptionsManager $userOptionsManager,
 		$options = []
 	) {
@@ -128,6 +135,7 @@ class SkinMinerva extends SkinMustache {
 			->setTitle( $this->getTitle() );
 		$this->namespaceInfo = $namespaceInfo;
 		$this->revisionLookup = $revisionLookup;
+		$this->userIdentityUtils = $userIdentityUtils;
 		$this->userOptionsManager = $userOptionsManager;
 	}
 
@@ -515,21 +523,28 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Initalized main menu. Please use getter.
-	 * @var MainMenuDirector
-	 */
-	private $mainMenu;
-
-	/**
 	 * Build the Main Menu Director by passing the skin options
 	 *
 	 * @return MainMenuDirector
 	 */
 	protected function getMainMenu(): MainMenuDirector {
-		if ( !$this->mainMenu ) {
-			$this->mainMenu = MediaWikiServices::getInstance()->getService( 'Minerva.Menu.MainDirector' );
-		}
-		return $this->mainMenu;
+		$showMobileOptions = $this->skinOptions->get( SkinOptions::MOBILE_OPTIONS );
+		// Add a donate link (see https://phabricator.wikimedia.org/T219793)
+		$showDonateLink = $this->skinOptions->get( SkinOptions::SHOW_DONATE );
+		$builder = $this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED ) ?
+			new AdvancedMainMenuBuilder(
+				$showMobileOptions,
+				$showDonateLink,
+				$this->definitions
+			) :
+			new DefaultMainMenuBuilder(
+				$showMobileOptions,
+				$showDonateLink,
+				$this->getUser(),
+				$this->definitions,
+				$this->userIdentityUtils
+			);
+		return new MainMenuDirector( $builder );
 	}
 
 	/**

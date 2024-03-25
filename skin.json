@@ -126,6 +126,7 @@
 				"Minerva.SkinUserPageHelper",
 				"NamespaceInfo",
 				"RevisionLookup",
+				"UserIdentityUtils",
 				"UserOptionsManager"
 			],
 			"args": [
