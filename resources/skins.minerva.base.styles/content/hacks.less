@@ -12,26 +12,12 @@ FIXME: Review all of these hacks to see if they still apply.
 @import '../../../minerva.less/minerva.variables.less';
 @import '../../../minerva.less/minerva.mixins.less';
 @import 'templates/ambox.less';
-@import 'templates/reflist.less';
-
-.collapsible td {
-	width: auto !important;
-}
 
 .content {
 	.vertical-navbox,
 	.navbox {
 		display: none;
 	}
-
-	// stylelint-disable selector-max-id
-	#coordinates,
-	/* Hide article badges, clean-up notices, stub notices, and navigation boxes */
-	.topicon {
-		// It's important as some of these are tables which become display: table on larger screens
-		display: none !important;
-	}
-	// stylelint-enable selector-max-id
 
 	table,
 	.infobox {
@@ -108,27 +94,6 @@ FIXME: Review all of these hacks to see if they still apply.
 	}
 }
 
-// FIXME: Remove when filetoc is stripped from file pages a la table of contents (toc)
-#filetoc { // stylelint-disable-line selector-max-id
-	display: none;
-}
-
-/* T36878: Set an optimal width for a column.
- * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
- * https://developer.mozilla.org/en-US/docs/CSS/column-width
- */
-.references-column-count,
-.column-count {
-	-moz-column-width: 35em;
-	-webkit-column-width: 35em;
-	column-width: 35em;
-}
-
-// When JavaScript is disabled clarify to the user which reference they clicked on
-.references li:target {
-	background-color: var( --background-color-progressive-subtle );
-}
-
 .hatnote,
 .dablink,
 .rellink {
@@ -157,16 +122,6 @@ FIXME: Review all of these hacks to see if they still apply.
 // Hacks to render galleries and multicol tables better on mobile
 @media all and ( max-width: @width-breakpoint-tablet ) {
 	.content {
-		table {
-			// Make {{col-beg}}, {{col-break}}, and {{col-end}} templates display single column tables
-			&.multicol {
-				> tr > td,
-				> tbody > tr > td {
-					display: block !important;
-					width: auto !important;
-				}
-			}
-		}
 		// Deal with Template:Multiple_image.  T38030 and T148505
 		.thumb .thumbinner {
 			.flex-display( flex );
