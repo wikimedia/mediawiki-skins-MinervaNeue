@@ -106,13 +106,16 @@ return [
 				) :
 				$userPageHelper;
 
+			$permissions = $services->getService( 'Minerva.Permissions' )
+				->setContext( $context );
+
 			$watchlistManager = $services->getWatchlistManager();
 
 			$toolbarBuilder = new PageActionsMenu\ToolbarBuilder(
 				$title,
 				$user,
 				$context,
-				$services->getService( 'Minerva.Permissions' ),
+				$permissions,
 				$skinOptions,
 				$relevantUserPageHelper,
 				$languagesHelper,
@@ -125,13 +128,13 @@ return [
 					new PageActionsMenu\UserNamespaceOverflowBuilder(
 						$title,
 						$context,
-						$services->getService( 'Minerva.Permissions' ),
+						$permissions,
 						$languagesHelper
 					) :
 					new PageActionsMenu\DefaultOverflowBuilder(
 						$title,
 						$context,
-						$services->getService( 'Minerva.Permissions' )
+						$permissions
 					);
 			} else {
 				$overflowBuilder = new PageActionsMenu\EmptyOverflowBuilder();
@@ -165,7 +168,7 @@ return [
 		);
 	},
 	'Minerva.Permissions' => static function ( MediaWikiServices $services ): IMinervaPagePermissions {
-		$permissions = new MinervaPagePermissions(
+		return new MinervaPagePermissions(
 			$services->getService( 'Minerva.SkinOptions' ),
 			$services->getService( 'Minerva.LanguagesHelper' ),
 			$services->getPermissionManager(),
@@ -173,8 +176,5 @@ return [
 			$services->getUserFactory(),
 			$services->getWatchlistManager()
 		);
-		// TODO: This should not be allowed, this is basically global $wgTitle and $wgUser.
-		$permissions->setContext( RequestContext::getMain() );
-		return $permissions;
 	}
 ];
