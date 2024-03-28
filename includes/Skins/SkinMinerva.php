@@ -471,7 +471,7 @@ class SkinMinerva extends SkinMustache {
 	 * @return bool
 	 */
 	private function isHistoryPage() {
-		return $this->getRequest()->getText( 'action' ) === 'history';
+		return $this->getRequest()->getRawVal( 'action' ) === 'history';
 	}
 
 	/**
@@ -672,7 +672,7 @@ class SkinMinerva extends SkinMustache {
 
 		// check to see if night mode is enabled via query params or by config
 		$webRequest = $this->getContext()->getRequest();
-		$forceNightMode = $webRequest->getText( 'minervanightmode' );
+		$forceNightMode = $webRequest->getRawVal( 'minervanightmode' );
 
 		// get skin config of night mode to check what is execluded
 		$nightModeConfig = $this->getConfig()->get( 'MinervaNightModeOptions' );
@@ -683,7 +683,7 @@ class SkinMinerva extends SkinMustache {
 		);
 
 		if (
-			$this->skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== ''
+			$this->skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null
 		) {
 			$user = $this->getUser();
 			$value = $this->userOptionsManager->getOption( $user, 'minerva-theme' );
@@ -797,7 +797,7 @@ class SkinMinerva extends SkinMustache {
 		}
 		// Do not show the last modified bar on diff pages [T350515]
 		$request = $this->getRequest();
-		if ( $request->getText( 'diff' ) ) {
+		if ( $request->getCheck( 'diff' ) ) {
 			return null;
 		}
 
@@ -1089,7 +1089,7 @@ class SkinMinerva extends SkinMustache {
 		// and inside the fallback editor styles to action=edit page.
 		if (
 			$title->getNamespace() !== NS_MAIN ||
-			$request->getText( 'oldid' ) ||
+			$request->getCheck( 'oldid' ) ||
 			!$viewAction
 		) {
 			$styles[] = 'skins.minerva.messageBox.styles';
