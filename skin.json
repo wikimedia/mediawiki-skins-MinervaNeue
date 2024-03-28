@@ -119,6 +119,7 @@
 			"services": [
 				"GenderCache",
 				"LinkRenderer",
+				"Minerva.SkinOptions",
 				"NamespaceInfo",
 				"RevisionLookup",
 				"UserOptionsManager"
