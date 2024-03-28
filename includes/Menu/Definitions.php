@@ -26,7 +26,6 @@ use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Title\Title;
-use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\UserIdentity;
 use Message;
 
@@ -35,42 +34,23 @@ use Message;
  */
 final class Definitions {
 
-	/**
-	 * @var UserIdentity
-	 */
-	private $user;
-
-	/**
-	 * @var IContextSource
-	 */
-	private $context;
-
-	/**
-	 * @var SpecialPageFactory
-	 */
-	private $specialPageFactory;
-
-	/**
-	 * @var UserOptionsLookup
-	 */
-	private $userOptionsLookup;
+	private UserIdentity $user;
+	private IContextSource $context;
+	private SpecialPageFactory $specialPageFactory;
 
 	/**
 	 * Initialize definitions helper class
 	 *
 	 * @param IContextSource $context
-	 * @param SpecialPageFactory $factory
-	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param SpecialPageFactory $specialPageFactory
 	 */
 	public function __construct(
 		IContextSource $context,
-		SpecialPageFactory $factory,
-		UserOptionsLookup $userOptionsLookup
+		SpecialPageFactory $specialPageFactory
 	) {
 		$this->user = $context->getUser();
 		$this->context = $context;
-		$this->specialPageFactory = $factory;
-		$this->userOptionsLookup = $userOptionsLookup;
+		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	/**

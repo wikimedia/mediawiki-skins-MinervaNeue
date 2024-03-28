@@ -41,8 +41,7 @@ return [
 	'Minerva.Menu.Definitions' => static function ( MediaWikiServices $services ): Definitions {
 		return new Definitions(
 			RequestContext::getMain(),
-			$services->getSpecialPageFactory(),
-			$services->getUserOptionsLookup()
+			$services->getSpecialPageFactory()
 		);
 	},
 	'Minerva.Menu.UserMenuDirector' => static function ( MediaWikiServices $services ): UserMenuDirector {
