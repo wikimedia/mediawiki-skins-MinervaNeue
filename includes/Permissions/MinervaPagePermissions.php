@@ -27,6 +27,7 @@ use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\Title;
@@ -50,6 +51,8 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 	 * @var Authority
 	 */
 	private $performer;
+
+	private OutputPage $out;
 
 	/**
 	 * @var ContentHandler
@@ -113,6 +116,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		$this->title = $context->getTitle();
 		$this->config = $context->getConfig();
 		$this->performer = $context->getAuthority();
+		$this->out = $context->getOutput();
 		// Title may be undefined in certain contexts (T179833)
 		// TODO: Check if this is still true if we always pass a context instead of using global one
 		if ( $this->title ) {
@@ -196,7 +200,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			if ( $this->config->get( MainConfigNames::HideInterlanguageLinks ) ) {
 				return false;
 			}
-			return $this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->title ) ||
+			return $this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->out, $this->title ) ||
 				$this->config->get( 'MinervaAlwaysShowLanguageButton' );
 		}
 
