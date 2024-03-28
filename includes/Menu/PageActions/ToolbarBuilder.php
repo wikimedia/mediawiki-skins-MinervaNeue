@@ -166,12 +166,11 @@ class ToolbarBuilder {
 			$group->insertEntry( $this->getHistoryPageAction( $historyView ) );
 		}
 
-		$isUserPage = $this->relevantUserPageHelper->isUserPage();
+		$user = $this->relevantUserPageHelper->getPageUser();
 		$isUserPageAccessible = $this->relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
-		if ( $isUserPage && $isUserPageAccessible ) {
+		if ( $user && $isUserPageAccessible ) {
 			// T235681: Contributions icon should be added to toolbar on user pages
 			// and user talk pages for all users
-			$user = $this->relevantUserPageHelper->getPageUser();
 			$group->insertEntry( $this->createContributionsPageAction( $user ) );
 		}
 

@@ -27,7 +27,7 @@ class FeaturesHelper {
 	 * @return bool
 	 * @internal only for use inside tests.
 	 */
-	public function shouldDisableNightMode( array $options, WebRequest $request, Title $title = null ) {
+	public function shouldDisableNightMode( array $options, WebRequest $request, Title $title = null ): bool {
 		return class_exists( ConfigHelper::class ) ?
 			ConfigHelper::shouldDisable( $options, $request, $title ) :
 			false;
