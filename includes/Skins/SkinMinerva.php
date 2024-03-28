@@ -69,7 +69,8 @@ class SkinMinerva extends SkinMustache {
 	public $template = 'MinervaTemplate';
 
 	/** @var array|null */
-	private $contentNavigationUrls;
+	private ?array $contentNavigationUrls;
+
 	private GenderCache $genderCache;
 	private LinkRenderer $linkRenderer;
 	private LanguagesHelper $languagesHelper;

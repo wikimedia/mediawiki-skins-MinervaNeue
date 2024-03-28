@@ -40,46 +40,18 @@ use SpecialMobileHistory;
 
 class ToolbarBuilder {
 
-	/**
-	 * @var User Currently logged in user
-	 */
-	private $user;
-	/**
-	 * @var Title Article title user is currently browsing
-	 */
-	private $title;
-
+	/** @var Title Article title user is currently browsing */
+	private Title $title;
+	/** @var User Currently logged in user */
+	private User $user;
 	private IContextSource $context;
-
-	/**
-	 * @var IMinervaPagePermissions
-	 */
-	private $permissions;
-
-	/**
-	 * @var SkinOptions
-	 */
-	private $skinOptions;
-
-	/**
-	 * @var SkinUserPageHelper
-	 */
-	private $relevantUserPageHelper;
-
-	/**
-	 * @var LanguagesHelper
-	 */
-	private $languagesHelper;
-
-	/**
-	 * @var bool Correlates to $wgWatchlistExpiry feature flag.
-	 */
-	private $watchlistExpiryEnabled;
-
-	/**
-	 * @var WatchlistManager
-	 */
-	private $watchlistManager;
+	private IMinervaPagePermissions $permissions;
+	private SkinOptions $skinOptions;
+	private SkinUserPageHelper $relevantUserPageHelper;
+	private LanguagesHelper $languagesHelper;
+	/** @var bool Correlates to $wgWatchlistExpiry feature flag. */
+	private bool $watchlistExpiryEnabled;
+	private WatchlistManager $watchlistManager;
 
 	/**
 	 * ServiceOptions needed.
@@ -286,7 +258,7 @@ class ToolbarBuilder {
 	 * @param Title $title The Title object of the page being viewed
 	 * @return string
 	 */
-	protected function getHistoryUrl( Title $title ) {
+	protected function getHistoryUrl( Title $title ): string {
 		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
 			   SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->user ) ?
 			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
@@ -298,7 +270,7 @@ class ToolbarBuilder {
 	 * @param array $query
 	 * @return string
 	 */
-	private function getLoginUrl( $query ) {
+	private function getLoginUrl( $query ): string {
 		return SpecialPage::getTitleFor( 'Userlogin' )->getLocalURL( $query );
 	}
 }
