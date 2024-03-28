@@ -170,12 +170,14 @@ final class SkinOptions {
 				// For some reason using $services->getService( 'SkinUserPageHelper' )
 				// here results in a circular dependency error which is why
 				// SkinUserPageHelper is being instantiated instead.
-				$relevantUserPageHelper = new SkinUserPageHelper(
+				$relevantUserPageHelper = ( new SkinUserPageHelper(
 					$this->userNameUtils,
-					$this->userFactory,
-					$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title,
-					$mobileContext
-				);
+					$this->userFactory
+				) )
+					->setContext( $mobileContext )
+					->setTitle(
+						$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
+					);
 
 				$isUserPage = $relevantUserPageHelper->isUserPage();
 				$isUserPageAccessible = $relevantUserPageHelper->isUserPageAccessibleToCurrentUser();

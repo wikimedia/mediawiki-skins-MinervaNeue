@@ -701,7 +701,9 @@ class SkinMinerva extends SkinMustache {
 	 * @return SkinUserPageHelper
 	 */
 	public function getUserPageHelper() {
-		return MediaWikiServices::getInstance()->getService( 'Minerva.SkinUserPageHelper' );
+		return MediaWikiServices::getInstance()->getService( 'Minerva.SkinUserPageHelper' )
+			->setContext( $this->getContext() )
+			->setTitle( $this->getTitle() );
 	}
 
 	/**
