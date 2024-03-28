@@ -28,6 +28,7 @@ use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
@@ -68,6 +69,8 @@ class SkinMinerva extends SkinMustache {
 
 	private LinkRenderer $linkRenderer;
 
+	private LanguagesHelper $languagesHelper;
+
 	private IMinervaPagePermissions $permissions;
 
 	private SkinOptions $skinOptions;
@@ -81,6 +84,7 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * @param GenderCache $genderCache
 	 * @param LinkRenderer $linkRenderer
+	 * @param LanguagesHelper $languagesHelper
 	 * @param MinervaPagePermissions $permissions
 	 * @param SkinOptions $skinOptions
 	 * @param NamespaceInfo $namespaceInfo
@@ -91,6 +95,7 @@ class SkinMinerva extends SkinMustache {
 	public function __construct(
 		GenderCache $genderCache,
 		LinkRenderer $linkRenderer,
+		LanguagesHelper $languagesHelper,
 		MinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
 		NamespaceInfo $namespaceInfo,
@@ -101,6 +106,7 @@ class SkinMinerva extends SkinMustache {
 		parent::__construct( $options );
 		$this->genderCache = $genderCache;
 		$this->linkRenderer = $linkRenderer;
+		$this->languagesHelper = $languagesHelper;
 		$this->permissions = $permissions
 			->setContext( $this->getContext() );
 		$this->skinOptions = $skinOptions;
@@ -949,9 +955,6 @@ class SkinMinerva extends SkinMustache {
 			return null;
 		}
 
-		$services = MediaWikiServices::getInstance();
-		/** @var \MediaWiki\Minerva\LanguagesHelper $languagesHelper */
-		$languagesHelper = $services->getService( 'Minerva.LanguagesHelper' );
 		$buttons = [];
 		// always add a button to link to the talk page
 		// it will link to the wikitext talk page
@@ -980,7 +983,7 @@ class SkinMinerva extends SkinMustache {
 		}
 
 		if (
-			$languagesHelper->doesTitleHasLanguagesOrVariants( $this->getOutput(), $title ) &&
+			$this->languagesHelper->doesTitleHasLanguagesOrVariants( $this->getOutput(), $title ) &&
 			$title->isMainPage()
 		) {
 			$buttons['language'] = $this->getLanguageButton();

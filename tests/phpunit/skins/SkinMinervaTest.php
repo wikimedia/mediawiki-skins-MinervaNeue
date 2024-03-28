@@ -41,6 +41,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		return new SkinMinerva(
 			$services->getGenderCache(),
 			$services->getLinkRenderer(),
+			$services->getService( 'Minerva.LanguagesHelper' ),
 			$services->getService( 'Minerva.Permissions' ),
 			$services->getService( 'Minerva.SkinOptions' ),
 			$services->getNamespaceInfo(),
