@@ -144,8 +144,8 @@ return [
 		},
 	'Minerva.SkinUserPageHelper' => static function ( MediaWikiServices $services ): SkinUserPageHelper {
 		return new SkinUserPageHelper(
-			$services->getUserNameUtils(),
-			$services->getUserFactory()
+			$services->getUserFactory(),
+			$services->getUserNameUtils()
 		);
 	},
 	'Minerva.LanguagesHelper' => static function ( MediaWikiServices $services ): LanguagesHelper {

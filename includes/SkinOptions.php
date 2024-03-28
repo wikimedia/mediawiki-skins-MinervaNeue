@@ -171,8 +171,8 @@ final class SkinOptions {
 				// here results in a circular dependency error which is why
 				// SkinUserPageHelper is being instantiated instead.
 				$relevantUserPageHelper = ( new SkinUserPageHelper(
-					$this->userNameUtils,
-					$this->userFactory
+					$this->userFactory,
+					$this->userNameUtils
 				) )
 					->setContext( $mobileContext )
 					->setTitle(
