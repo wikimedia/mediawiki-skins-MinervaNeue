@@ -2,10 +2,9 @@
 
 const PageHTMLParser = require( 'mobile.startup' ).PageHTMLParser;
 const KEYWORD_ALL_SECTIONS = 'all';
-const config = mw.config;
 const NS_MAIN = 0;
 const NS_CATEGORY = 14;
-const CURRENT_NS = config.get( 'wgNamespaceNumber' );
+const CURRENT_NS = mw.config.get( 'wgNamespaceNumber' );
 const features = mw.config.get( 'wgMinervaFeatures', {} );
 const pageIssuesParser = require( './parser.js' );
 const pageIssuesOverlay = require( './overlay/pageIssuesOverlay.js' );

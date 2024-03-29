@@ -10,11 +10,7 @@ function init() {
 	// This controls the drawer like behaviour of notifications
 	// on tablet in mobile mode.
 	mw.hook( 'echo.mobile' ).add( function ( isOpen ) {
-		if ( isOpen ) {
-			$( document.body ).addClass( BODY_NOTIFICATIONS_REVEAL_CLASS );
-		} else {
-			$( document.body ).removeClass( BODY_NOTIFICATIONS_REVEAL_CLASS );
-		}
+		$( document.body ).toggleClass( BODY_NOTIFICATIONS_REVEAL_CLASS, isOpen );
 	} );
 }
 

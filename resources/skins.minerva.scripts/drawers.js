@@ -9,7 +9,7 @@ const BODY_CLASS_SCROLL_LOCKED = 'has-drawer--with-scroll-locked';
  */
 function discardDrawer( drawer ) {
 	// remove the class
-	$drawerContainer.removeClass( [ BODY_CLASS_SCROLL_LOCKED ] );
+	$drawerContainer.removeClass( BODY_CLASS_SCROLL_LOCKED );
 	// FIXME: queue removal from DOM (using setTimeout so that any animations have time to run)
 	// This works around an issue in MobileFrontend that the Drawer onBeforeHide method is
 	// called /before/ the animation for closing has completed. This needs to be accounted
