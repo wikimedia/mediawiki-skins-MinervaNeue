@@ -7,8 +7,8 @@
 		"ecmaVersion": 2018
 	},
 	"rules": {
-		"es-x/no-rest-spread-properties": "off",
-		"es-x/no-async-functions": "off"
+		"es-x/no-async-functions": "off",
+		"es-x/no-rest-spread-properties": "off"
 	},
 	"env": {
 		"es6": true,

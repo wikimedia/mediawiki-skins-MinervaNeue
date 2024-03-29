@@ -12,6 +12,8 @@
 		"require": "readonly"
 	},
 	"rules": {
+		"jsdoc/no-undefined-types": "off",
+		"mediawiki/class-doc": "off",
 		"no-restricted-properties": [
 			"error",
 			{
@@ -31,17 +33,15 @@
 				"message": "The method `always` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
 			}
 		],
-		"unit-disallowed-list": "off",
-		"object-property-newline": "error",
-		"mediawiki/class-doc": "off",
 		"no-underscore-dangle": "off",
-		"jsdoc/no-undefined-types": "off",
-		"no-var": "off"
+		"no-var": "off",
+		"object-property-newline": "error",
+		"unit-disallowed-list": "off"
 	},
 	"overrides": [
 		{
-			"files": [ ".eslintrc.json" ],
 			"extends": "wikimedia/server",
+			"files": [ ".eslintrc.json" ],
 			"rules": {
 				"compat/compat": "off"
 			}
