@@ -167,12 +167,15 @@ final class SkinOptions {
 						$title->inNamespace( NS_USER_TALK ) ? $title->getSubjectPage() : $title
 					);
 
+				$isDiffLink = $mobileContext->getRequest()->getCheck( 'diff' );
 				$isUserPage = $this->skinUserPageHelper->isUserPage();
 				$isUserPageAccessible = $this->skinUserPageHelper->isUserPageAccessibleToCurrentUser();
 				$isUserPageOrUserTalkPage = $isUserPage && $isUserPageAccessible;
+				$requiresHistoryLink = $isUserPageOrUserTalkPage || $isDiffLink;
 			} else {
 				// If no title this must be false
 				$isUserPageOrUserTalkPage = false;
+				$requiresHistoryLink = false;
 			}
 
 			$isBeta = $mobileContext->isBetaGroupMember();
@@ -195,7 +198,7 @@ final class SkinOptions {
 				),
 				// In mobile, always resort to single icon.
 				self::SINGLE_ECHO_BUTTON => true,
-				self::HISTORY_IN_PAGE_ACTIONS => $isUserPageOrUserTalkPage ?
+				self::HISTORY_IN_PAGE_ACTIONS => $requiresHistoryLink ?
 					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
 				self::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
 					true : $featureManager->isFeatureAvailableForCurrentUser(
