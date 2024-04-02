@@ -70,7 +70,10 @@ module.exports = function () {
 	 * @param {HTMLElement} container Container to search within
 	 */
 	function initMediaViewer( container ) {
-		container.addEventListener( 'click', onClickImage );
+		// T360781 Ensure correct type before using `addEventListener`.
+		if ( container instanceof HTMLElement ) {
+			container.addEventListener( 'click', onClickImage );
+		}
 	}
 
 	/**
@@ -435,12 +438,7 @@ module.exports = function () {
 		// setup toc icons
 		mw.hook( 'wikipage.content' ).add( function ( $container ) {
 			// If the MMV module is missing or disabled from the page, initialise our version
-			if (
-				desktopMMV === null ||
-				desktopMMV === 'registered' &&
-				// T360781
-				$container &&
-				$container[ 0 ] ) {
+			if ( desktopMMV === null || desktopMMV === 'registered' ) {
 				initMediaViewer( $container[ 0 ] );
 			}
 
