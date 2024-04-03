@@ -135,6 +135,18 @@
 					"templateDirectory": "includes/Skins",
 					"templateSectionLinks": "SectionLinks",
 					"tempUserBanner": true,
+					"scripts": [
+						"skins.minerva.scripts"
+					],
+					"styles": [
+						"skins.minerva.base.styles",
+						"skins.minerva.content.styles.images",
+						"mediawiki.hlist",
+						"skins.minerva.codex.styles",
+						"skins.minerva.icons.wikimedia",
+						"skins.minerva.mainMenu.icons",
+						"skins.minerva.mainMenu.styles"
+					],
 					"messages": [
 						"variants",
 						"mobile-frontend-languages-not-available",
@@ -565,6 +577,13 @@
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": [
 				"interface-category"
+			]
+		},
+		"skins.minerva.codex.styles": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxButton"
 			]
 		}
 	},

@@ -1067,11 +1067,9 @@ class SkinMinerva extends SkinMustache {
 				'jquery.makeCollapsible.styles',
 			] );
 		}
-		$modules['styles']['core'] = $this->getSkinStyles();
 
-		$modules['minerva'] = [
-			'skins.minerva.scripts'
-		];
+		$modules['styles']['skin.page'] = $this->getPageSpecificStyles();
+		$modules['styles']['skin.features'] = $this->getFeatureSpecificStyles();
 
 		return $modules;
 	}
@@ -1085,20 +1083,12 @@ class SkinMinerva extends SkinMustache {
 	 *
 	 * @return array
 	 */
-	protected function getSkinStyles(): array {
+	protected function getPageSpecificStyles() {
+		$styles = [];
 		$title = $this->getTitle();
 		$request = $this->getRequest();
 		$requestAction = $this->getContext()->getActionName();
 		$viewAction = $requestAction === 'view';
-		$styles = [
-			'skins.minerva.base.styles',
-			'skins.minerva.content.styles.images',
-			'mediawiki.hlist',
-			'codex-search-styles',
-			'skins.minerva.icons.wikimedia',
-			'skins.minerva.mainMenu.icons',
-			'skins.minerva.mainMenu.styles',
-		];
 
 		// Warning box styles are needed when reviewing old revisions
 		// and inside the fallback editor styles to action=edit page.
@@ -1114,10 +1104,6 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.mainPage.styles';
 		} elseif ( $this->skinUserPageHelper->isUserPage() ) {
 			$styles[] = 'skins.minerva.userpage.styles';
-		}
-
-		if ( $this->hasCategoryLinks() ) {
-			$styles[] = 'skins.minerva.categories.styles';
 		}
 
 		if ( $this->getUser()->isRegistered() ) {
@@ -1143,6 +1129,25 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.amc.styles';
 		}
 
+		return $styles;
+	}
+
+	/**
+	 * Provide styles required to present the server rendered page with related features in this skin.
+	 * Additional styles may be loaded dynamically by the client.
+	 *
+	 *  Any styles returned by this method are loaded on the critical rendering path as linked
+	 *  stylesheets. I.e., they are required to load on the client before first paint.
+	 *
+	 * @return array
+	 */
+	protected function getFeatureSpecificStyles() {
+		$styles = [];
+
+		if ( $this->hasCategoryLinks() ) {
+			$styles[] = 'skins.minerva.categories.styles';
+		}
+
 		if ( $this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ) {
 			// If ever enabled as the default, please remove the duplicate icons
 			// inside skins.minerva.mainMenu.icons. See comment for MAIN_MENU_EXPANDED
@@ -1156,6 +1161,7 @@ class SkinMinerva extends SkinMustache {
 			// and remove any unneeded icons
 			$styles[] = 'skins.minerva.mainMenu.advanced.icons';
 		}
+
 		if (
 			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
 			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
