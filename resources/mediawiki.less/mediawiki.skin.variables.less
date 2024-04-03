@@ -13,12 +13,10 @@
 @import 'mediawiki.skin.defaults.less';
 
 /**
- * Codex experiment design tokens.
- * This is imported using the "(reference)" option to avoid duplicating the :root block which
- * contains CSS custom properties. However, it still imports the Less variables, which are
- * then propagated to anyone using `@import 'mediawiki.skin.variables.less'`;
+ * Codex experiment design tokens. This imports Less variables, some of which refer to CSS variables.
+ * The CSS variable values are imported in CSSCustomProperties.less.
  */
-@import ( reference ) 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-experimental.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-codex-wikimedia-experimental.less';
 
 // Overrides for Codex tokens:
 
