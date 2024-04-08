@@ -128,10 +128,6 @@ class LanguageSelectorEntry implements IMenuEntry {
 						'value' => 'menu.languages',
 					],
 					[
-						'key' => 'role',
-						'value' => 'button',
-					],
-					[
 						'key' => 'title',
 						'value' => $msg,
 					],
