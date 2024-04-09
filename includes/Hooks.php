@@ -196,7 +196,7 @@ class Hooks implements
 			// Add default warning message to Special:UserLogin and Special:UserCreate
 			// if no warning message set.
 			if (
-				!$request->getVal( 'warning' ) &&
+				!$request->getCheck( 'warning' ) &&
 				!$special->getUser()->isRegistered() &&
 				!$request->wasPosted()
 			) {
