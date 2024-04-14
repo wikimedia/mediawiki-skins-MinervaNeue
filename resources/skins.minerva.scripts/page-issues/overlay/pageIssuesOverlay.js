@@ -1,8 +1,9 @@
 const Overlay = require( 'mobile.startup' ).Overlay;
 const IssueList = require( './IssueList.js' );
 const KEYWORD_ALL_SECTIONS = 'all';
-const NS_MAIN = 0;
-const NS_CATEGORY = 14;
+const namespaceIds = mw.config.get( 'wgNamespaceIds' );
+const NS_MAIN = namespaceIds[ '' ];
+const NS_CATEGORY = namespaceIds.category;
 
 /**
  * Overlay for displaying page issues
