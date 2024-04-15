@@ -76,3 +76,46 @@
 		max-height: 2.6em;
 	}
 }
+
+/* Watchlist with AMC disabled */
+html.mw-mf-amc-clientpref-0 body.mw-special-Watchlist {
+	#mw-content-subtitle {
+		margin: 0;
+	}
+
+	.watchlistDetails,
+	.mw-rcfilters-head,
+	.mw-fr-reviewlink,
+	.mw-rcfilters-spinner,
+	.mw-rcfilters-container {
+		display: none;
+	}
+
+	.mw-rcfilters-ui-changesListWrapperWidget {
+		border-top: 1px solid @border-color-subtle;
+		margin: 20px 0 0;
+		width: 100%;
+		max-width: none;
+	}
+
+	@media screen and ( min-width: @width-breakpoint-desktop ) {
+		.mw-changeslist {
+			margin-left: auto;
+			margin-right: auto;
+			width: 90%;
+			max-width: @max-width-content-tablet;
+		}
+	}
+}
+
+/* Hide edit raw watchlist and clear watchlist options for non-advanced logged in users */
+html.mw-mf-amc-clientpref-0 {
+	body.mw-special-Watchlist,
+	body.mw-special-EditWatchlist {
+		/* Hide third and forth tabs */
+		#p-associated-pages .minerva__tab:nth-child( 3 ),
+		#p-associated-pages .minerva__tab:nth-child( 4 ) {
+			display: none;
+		}
+	}
+}
