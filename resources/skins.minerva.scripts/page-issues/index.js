@@ -2,8 +2,9 @@
 
 const PageHTMLParser = require( 'mobile.startup' ).PageHTMLParser;
 const KEYWORD_ALL_SECTIONS = 'all';
-const NS_MAIN = 0;
-const NS_CATEGORY = 14;
+const namespaceIds = mw.config.get( 'wgNamespaceIds' );
+const NS_MAIN = namespaceIds[ '' ];
+const NS_CATEGORY = namespaceIds.category;
 const CURRENT_NS = mw.config.get( 'wgNamespaceNumber' );
 const features = mw.config.get( 'wgMinervaFeatures', {} );
 const pageIssuesParser = require( './parser.js' );
@@ -121,7 +122,7 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 	const allIssues = {};
 	const $lead = pageHTMLParser.getLeadSectionElement();
 	const issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || !$lead;
-	const inline = newTreatmentEnabled && CURRENT_NS === 0;
+	const inline = newTreatmentEnabled && CURRENT_NS === NS_MAIN;
 
 	// set A-B test class.
 	// When wgMinervaPageIssuesNewTreatment is the default this can be removed.
