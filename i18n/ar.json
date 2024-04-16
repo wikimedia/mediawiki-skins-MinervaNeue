@@ -15,7 +15,8 @@
 			"ديفيد",
 			"زكريا",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"أيوب"
 		]
 	},
 	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، في $2",
@@ -33,7 +34,7 @@
 	"mobile-frontend-languages-not-available": "هذه الصفحة غير متوفرة بلغات أخرى.",
 	"mobile-frontend-main-menu-button-tooltip": "افتح القائمة الرئيسية",
 	"mobile-frontend-main-menu-contributions": "مساهمات",
-	"mobile-frontend-main-menu-login": "دخول",
+	"mobile-frontend-main-menu-login": "تسجيل الدخول",
 	"mobile-frontend-main-menu-logout": "خروج",
 	"mobile-frontend-main-menu-nearby": "بالقرب من هنا",
 	"mobile-frontend-main-menu-settings": "الإعدادات",
