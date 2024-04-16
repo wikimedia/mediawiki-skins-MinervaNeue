@@ -19,7 +19,7 @@
 	QUnit.test( 'extractMessage', function ( assert ) {
 		[
 			[
-				$( '<div />' ).html(
+				$( '<div>' ).html(
 					'<div class="mbox-text">Smelly</div>'
 				).appendTo( '<div class="mw-collapsible-content" />' ),
 				{
@@ -33,7 +33,7 @@
 				'When the box is a child of mw-collapsible-content it grouped'
 			],
 			[
-				$( '<div />' ).html(
+				$( '<div>' ).html(
 					'<div class="mbox-text">Dirty</div>'
 				),
 				{

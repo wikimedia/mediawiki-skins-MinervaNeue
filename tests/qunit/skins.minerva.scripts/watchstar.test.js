@@ -10,7 +10,7 @@
 
 	function createElemWithClass( cssClass, iconClass ) {
 		const $icon = $( '<span>' ).addClass( `minerva-icon ${ iconClass }` );
-		return $( '<div/>' ).addClass( cssClass ).append( $icon );
+		return $( '<div>' ).addClass( cssClass ).append( $icon );
 	}
 
 	QUnit.test( 'toggleClasses() from watched to unwatched', function ( assert ) {
