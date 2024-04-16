@@ -231,13 +231,7 @@ ul.mw-contributions-list li .mw-rollback-link {
 
 		.mw-history-histlinks-previous,
 		.mw-changeslist-diff {
-			position: absolute;
-			right: 0;
-			left: 0;
-			top: 0;
-			bottom: 0;
-			color: transparent;
-			z-index: @z-index-above-content;
+			.changeslist-make-row-linkable();
 		}
 
 		/** Reduce clutter on mobile devices. Users can use "Use desktop site" to reveal these. */
