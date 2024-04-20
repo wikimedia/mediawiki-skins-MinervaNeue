@@ -131,6 +131,7 @@
 			"args": [
 				{
 					"name": "minerva",
+					"supportsMwHeading": true,
 					"templateDirectory": "includes/Skins",
 					"templateSectionLinks": "SectionLinks",
 					"tempUserBanner": true,
