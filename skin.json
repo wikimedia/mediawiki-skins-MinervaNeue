@@ -135,6 +135,7 @@
 					"templateDirectory": "includes/Skins",
 					"templateSectionLinks": "SectionLinks",
 					"tempUserBanner": true,
+					"wrapSiteNotice": true,
 					"scripts": [
 						"skins.minerva.scripts"
 					],
