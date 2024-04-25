@@ -32,10 +32,6 @@ class ResourceLoaderSkinModule extends ResourceLoader\SkinModule {
 	 */
 	protected function getLessVars( ResourceLoader\Context $context ) {
 		$lessVars = parent::getLessVars( $context );
-		$lessVars += [
-			'wgMinervaApplyKnownTemplateHacks' =>
-				$this->getConfig()->get( 'MinervaApplyKnownTemplateHacks' ),
-		];
 		return $lessVars;
 	}
 }

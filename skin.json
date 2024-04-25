@@ -38,9 +38,6 @@
 		"MinervaEnableSiteNotice": {
 			"value": true
 		},
-		"MinervaApplyKnownTemplateHacks": {
-			"value": true
-		},
 		"MinervaAlwaysShowLanguageButton": {
 			"value": true
 		},
