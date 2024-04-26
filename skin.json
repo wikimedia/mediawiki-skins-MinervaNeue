@@ -107,7 +107,7 @@
 					"pagetitles": []
 				}
 			},
-			"description": "options for configuring where Night Mode should and should not apply. More details can be found in Hooks::shouldDisableNightMode PHP documentation."
+			"description": "options for configuring where Dark/Night Mode should and should not apply. More details can be found in Hooks::shouldDisableNightMode PHP documentation."
 		}
 	},
 	"ValidSkinNames": {
