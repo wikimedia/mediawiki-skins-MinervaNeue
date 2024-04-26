@@ -636,10 +636,6 @@ class SkinMinerva extends SkinMustache {
 		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::BETA_MODE )
 				? 'beta' : 'stable' );
 
-		if ( $title->isMainPage() ) {
-			$className .= ' page-Main_Page ';
-		}
-
 		if ( $this->getUser()->isRegistered() ) {
 			$className .= ' is-authenticated';
 		}
