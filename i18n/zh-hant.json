@@ -3,6 +3,7 @@
 		"authors": [
 			"A2093064",
 			"Bowleerin",
+			"Cookai1205",
 			"Cwlin0416",
 			"Kly",
 			"LNDDYL",
@@ -75,5 +76,5 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "已改進頁面問題處理",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "頁面問題（模板:ambox）會內聯至條目裡。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很不幸地，依照頁面的分組結果在移動裝置上不可用。若您想要使用依照頁面功能的群組，請訪問適用於桌上型電腦的網站。",
-	"skin-minerva-night-mode-unavailable": "頁面僅適用於「日間」色彩主題。"
+	"skin-minerva-night-mode-unavailable": "頁面僅能使用「淺色」色彩主題。"
 }

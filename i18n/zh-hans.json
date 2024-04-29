@@ -90,7 +90,7 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "改进的页面问题处理",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "页面问题(Template:ambox)将内联在文章中。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很遗憾，按页面分组结果在移动设备上不可用。如果您想使用“按页面分组”功能，请访问桌面版。",
-	"skin-minerva-night-mode-unavailable": "页面仅在日间颜色主题上可用。",
+	"skin-minerva-night-mode-unavailable": "页面仅在“浅色”颜色主题下可用。",
 	"minerva.css": "/* 这里放置的CSS将应用于MinervaNeue皮肤 */",
 	"minerva.js": "/* 这里的任何JavaScript将为使用MinervaNeue皮肤的用户加载 */"
 }

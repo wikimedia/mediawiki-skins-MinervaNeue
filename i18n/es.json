@@ -5,6 +5,7 @@
 			"Benfutbol10",
 			"Ciencia Al Poder",
 			"Dgstranz",
+			"Eulalio",
 			"Fitoschido",
 			"Ihojose",
 			"Jackiezelaya",
@@ -73,6 +74,7 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Tratamiento de problemas de la página mejorados",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemas de la página (Plantilla:Aviso) se alineará en el artículo.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Desafortunadamente, la agrupación de resultados por página no se encuentra disponible en dispositivos móviles. Si te gustaría utilizar el grupo por característica de página por favor visita el sitio de escritorio.",
+	"skin-minerva-night-mode-unavailable": "Página sólo disponible en el tema de color \"Claro\".",
 	"minerva.css": "/* Todo el CSS colocado aquí será cargado para los usuarios que usen la apariencia MinervaNeue */",
 	"minerva.js": "/* Todo el código JavaScript escrito aquí se cargará para todos los usuarios de la apariencia MinervaNeue */"
 }
