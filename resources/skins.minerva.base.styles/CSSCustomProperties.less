@@ -16,9 +16,8 @@
 @import 'mediawiki.skin.variables.less';
 
 // Import CSS variable values from Codex
-// TODO in the future this should be managed by MW core instead
-@import ( less ) 'mediawiki.skin.codex-design-tokens/theme-codex-wikimedia-experimental.css';
-@import 'mediawiki.skin.codex-design-tokens/theme-codex-wikimedia-mode-dark.less';
+@import ( less ) 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-root.css';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
 
 // :extend merges this :root selector into the one provided by theme-codex-wikimedia-experimental.less.
 :root:extend( :root ) {
