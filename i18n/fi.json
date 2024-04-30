@@ -86,5 +86,7 @@
 	"minerva-skin-desc": "Responsiivinen mobiililaitteille suunniteltu ulkoasu",
 	"skin-minerva-issue-learn-more": "Lisätietoja",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Luokat",
-	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näytä sivun luokat"
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näytä sivun luokat",
+	"minerva.css": "/* Tämä sivu sisältää MinervaNeue-ulkoasua muuttavia tyylejä. */",
+	"minerva.js": "/* Tämän sivun JavaScript-koodi liitetään MinervaNeue-tyyliin */"
 }
