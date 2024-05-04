@@ -253,9 +253,6 @@
 				"skinStyles/mediawiki.interface.helpers.styles.less"
 			],
 			"mediawiki.rcfilters.highlightCircles.seenunseen.styles": [],
-			"ext.confirmEdit.fancyCaptcha.styles": [
-				"skinStyles/ext.confirmEdit.fancyCaptcha.styles/minerva.less"
-			],
 			"mobile.special.mobileoptions.styles": [
 				"skinStyles/mobile.special.mobileoptions.styles/minerva.less"
 			],
