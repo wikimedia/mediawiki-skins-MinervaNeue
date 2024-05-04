@@ -314,7 +314,7 @@
 	},
 	"ResourceModules": {
 		"skins.minerva.base.styles": {
-			"class": "MediaWiki\\Minerva\\ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": [
 				"normalize",
 				"accessibility",
@@ -421,7 +421,7 @@
 			]
 		},
 		"skins.minerva.mainPage.styles": {
-			"class": "MediaWiki\\Minerva\\ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"styles": [
 				"resources/skins.minerva.mainPage.styles/common.less"
 			]
