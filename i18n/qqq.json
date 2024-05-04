@@ -39,7 +39,6 @@
 	"mobile-frontend-meta-data-issues-categories": "Label to appear in button that opens issue overlay on categories.",
 	"mobile-frontend-meta-data-issues-header": "Heading for overlay listing all cleanup templates\n{{Identical|Issue}}",
 	"minerva-meta-data-issues-section-header": "Heading for overlay listing all cleanup templates in a section \n{{Identical|Issue}}",
-	"mobile-frontend-notifications-filter": "Caption of the button on the notifications page that opens the filter panel",
 	"mobile-frontend-pageaction-edit-tooltip": "Tooltip that appears when you hover over the edit icon at the top of the page in the page action bar.",
 	"mobile-frontend-placeholder": "Phrase used to prompt user to use search interface for mobile full screen search\n{{Identical|Search}}",
 	"mobile-frontend-random-button": "This appears in the mobile web menu, which appears when tapping the three stripes at the top corner.\n\nThis button takes the user to a random page.\n{{Identical|Random}}",
