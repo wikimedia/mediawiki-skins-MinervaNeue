@@ -52,7 +52,7 @@ final class SkinOptions {
 	 * overridden on mobile.
 	 * @var array skin specific options, initialized with default values
 	 */
-	private $skinOptions = [
+	private array $skinOptions = [
 		self::BETA_MODE => false,
 		self::SHOW_DONATE => true,
 		/**
@@ -97,7 +97,7 @@ final class SkinOptions {
 	 * override an existing option or options with new values
 	 * @param array $options
 	 */
-	public function setMultiple( array $options ) {
+	public function setMultiple( array $options ): void {
 		foreach ( $options as $option => $value ) {
 			if ( !array_key_exists( $option, $this->skinOptions ) ) {
 				throw new OutOfBoundsException( "SkinOption $option is not defined" );
@@ -111,7 +111,7 @@ final class SkinOptions {
 	 * @param string $key
 	 * @return bool
 	 */
-	public function get( $key ) {
+	public function get( string $key ): bool {
 		if ( !array_key_exists( $key, $this->skinOptions ) ) {
 			throw new OutOfBoundsException( "SkinOption $key doesn't exist" );
 		}
@@ -122,7 +122,7 @@ final class SkinOptions {
 	 * Get all skin options
 	 * @return array
 	 */
-	public function getAll() {
+	public function getAll(): array {
 		return $this->skinOptions;
 	}
 
@@ -130,7 +130,7 @@ final class SkinOptions {
 	 * Return whether any of the skin options have been set
 	 * @return bool
 	 */
-	public function hasSkinOptions() {
+	public function hasSkinOptions(): bool {
 		foreach ( $this->skinOptions as $key => $val ) {
 			if ( $val ) {
 				return true;
@@ -147,7 +147,7 @@ final class SkinOptions {
 	 */
 	public function setMinervaSkinOptions(
 		MobileContext $mobileContext, Skin $skin
-	) {
+	): void {
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
 			$services = MediaWikiServices::getInstance();

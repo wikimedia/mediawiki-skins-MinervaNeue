@@ -24,28 +24,25 @@ use MediaWiki\User\UserIdentity;
  * Note this is used by Extension:GrowthExperiments
  */
 final class ProfileMenuEntry implements IProfileMenuEntry {
-	/**
-	 * @var UserIdentity
-	 */
-	private $user;
+	private UserIdentity $user;
 
 	/**
 	 * Code used to track clicks on the link to profile page
 	 * @var string|null
 	 */
-	private $profileTrackingCode = null;
+	private ?string $profileTrackingCode = null;
 
 	/**
 	 * Custom profile URL, can be used to override where the profile link href
 	 * @var string|null
 	 */
-	private $customProfileURL = null;
+	private ?string $customProfileURL = null;
 
 	/**
 	 * Custom profile label, can be used to override the profile label
 	 * @var string|null
 	 */
-	private $customProfileLabel = null;
+	private ?string $customProfileLabel = null;
 
 	/**
 	 * @param UserIdentity $user Currently logged in user/anon
@@ -57,7 +54,7 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 	/**
 	 * @inheritDoc
 	 */
-	public function getName() {
+	public function getName(): string {
 		return 'profile';
 	}
 
