@@ -14,18 +14,8 @@
  */
 
 @import 'mediawiki.skin.variables.less';
-
-// Import CSS variable values from Codex
-@import ( less ) 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-root.css';
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
-
-// :extend merges this :root selector into the one provided by theme-codex-wikimedia-experimental.less.
-:root:extend( :root ) {
-	// <T361717>FIXME: These can be removed when T361717 is resolved.
-	--minerva-diff-addedline: @color-success;
-	--minerva-diff-deletedline: @color-destructive;
-	// </T361717>
-}
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-reset.less';
 
 /**
 * Placeholder Night mode color palette.
@@ -74,9 +64,20 @@ html.skin-theme-clientpref-night {
 *     since the main assumption underlying the light theme is black text.
 */
 
-/* stylelint-disable-next-line block-no-empty */
-.skin-invert:extend( :root ),
-.notheme:extend( :root ) {
+/**
+ * Light mode
+ *
+ * Applies the light mode color palette by default
+ * or with the .skin-invert, or .notheme classes
+ */
+:root,
+.skin-invert,
+.notheme {
+	.cdx-mode-reset();
+	// <T361717>FIXME: These can be removed when T361717 is resolved.
+	--minerva-diff-addedline: @color-success;
+	--minerva-diff-deletedline: @color-destructive;
+	// </T361717>
 }
 
 .skin-invert,
