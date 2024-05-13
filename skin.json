@@ -402,6 +402,10 @@
 				"warning": {
 					"color": "#fc3",
 					"global": true
+				},
+				"disabled": {
+					"color": "#72777d",
+					"global": true
 				}
 			},
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",

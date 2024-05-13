@@ -56,7 +56,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 		$this->title = $title;
 		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
 		$this->messageLocalizer = $messageLocalizer;
-		$this->icon = 'language-base20';
+		$this->icon = $doesPageHaveLanguages ? 'language-base20' : 'language-disabled';
 		$this->label = $label;
 		$this->classes = $classes;
 	}

@@ -16,9 +16,10 @@
 }
 
 // used to disable the languages icon.
-.language-selector.disabled {
+.cdx-button.language-selector.disabled {
 	cursor: default;
-	opacity: 0.25;
+	// has to be !important to override the cdx-button selector
+	color: @color-disabled !important;
 }
 
 #p-views {
