@@ -46,7 +46,7 @@
 	"mobile-frontend-pageaction-edit-tooltip": "Tooltip that appears when you hover over the edit icon at the top of the page in the page action bar.",
 	"mobile-frontend-placeholder": "Phrase used to prompt user to use search interface for mobile full screen search\n{{Identical|Search}}",
 	"mobile-frontend-random-button": "This appears in the mobile web menu, which appears when tapping the three stripes at the top corner.\n\nThis button takes the user to a random page.\n{{Identical|Random}}",
-	"mobile-frontend-redirected-from": "Toast message informing the user that they were redirected from their original page. Parameters:\n* $1 - the original page title from which the user was redirected",
+	"mobile-frontend-redirected-from": "Toast message informing the user that they were redirected from their original page. Parameters:\n* $1 - the original page title from which the user was redirected\n\nSimilar to {{msg-mw|Redirectedfrom}}",
 	"mobile-frontend-talk-back-to-filepage": "Used as label for link from file talk page to file page. Parameters:\n* $1 - page title",
 	"mobile-frontend-talk-back-to-page": "Used as generic label for link from talk page to subject page. Parameters:\n* $1 - page title",
 	"mobile-frontend-talk-back-to-projectpage": "Used as label for link from project talk page to project page. Parameters:\n* $1 - page title",

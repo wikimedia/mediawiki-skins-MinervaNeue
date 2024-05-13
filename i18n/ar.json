@@ -16,7 +16,8 @@
 			"علاء",
 			"محمد أحمد عبد الفتاح",
 			"FShbib",
-			"أيوب"
+			"أيوب",
+			"Hubaishan"
 		]
 	},
 	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، في $2",
@@ -29,7 +30,7 @@
 	"mobile-frontend-editor-redlink-explain": "هذه الصفحة لم يتم إنشاؤها بعد.",
 	"mobile-frontend-editor-redlink-leave": "لا، شكرا.",
 	"mobile-frontend-history": "اعرض تاريخ تعديل هذه الصفحة.",
-	"mobile-frontend-home-button": "الصفحة الرئيسية",
+	"mobile-frontend-home-button": "الصفحة الرئيسة",
 	"mobile-frontend-language-article-heading": "اللغة",
 	"mobile-frontend-languages-not-available": "هذه الصفحة غير متوفرة بلغات أخرى.",
 	"mobile-frontend-main-menu-button-tooltip": "افتح القائمة الرئيسية",
