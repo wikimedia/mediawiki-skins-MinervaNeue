@@ -55,7 +55,9 @@ final class AuthMenuEntry extends CompositeMenuEntry implements IProfileMenuEntr
 	/**
 	 * @inheritDoc
 	 */
-	public function overrideProfileURL( $customURL, $customLabel = null, $trackingCode = null ) {
+	public function overrideProfileURL(
+		$customURL, $customLabel = null, $trackingCode = null
+	): self {
 		$this->profileMenuEntry->overrideProfileURL( $customURL, $customLabel, $trackingCode );
 		return $this;
 	}

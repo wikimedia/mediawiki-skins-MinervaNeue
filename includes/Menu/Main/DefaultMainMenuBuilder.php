@@ -32,27 +32,10 @@ use MediaWiki\User\UserIdentityUtils;
  */
 final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
-	/**
-	 * @var bool
-	 */
-	private $showMobileOptions;
-
-	/**
-	 * @var bool
-	 */
-	private $showDonateLink;
-
-	/**
-	 * Currently logged in user
-	 * @var User
-	 */
-	private $user;
-
-	/**
-	 * @var Definitions
-	 */
-	private $definitions;
-
+	private bool $showMobileOptions;
+	private bool $showDonateLink;
+	private User $user;
+	private Definitions $definitions;
 	private UserIdentityUtils $userIdentityUtils;
 
 	/**

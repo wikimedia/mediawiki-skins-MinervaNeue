@@ -61,7 +61,9 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 	/**
 	 * @inheritDoc
 	 */
-	public function overrideProfileURL( $customURL, $customLabel = null, $trackingCode = null ) {
+	public function overrideProfileURL(
+		$customURL, $customLabel = null, $trackingCode = null
+	): self {
 		$this->customProfileURL = $customURL;
 		$this->customProfileLabel = $customLabel;
 		$this->profileTrackingCode = $trackingCode;

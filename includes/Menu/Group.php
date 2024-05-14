@@ -27,15 +27,9 @@ use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
  * Model for a menu that can be presented in a skin.
  */
 final class Group {
-	/**
-	 * @var IMenuEntry[]
-	 */
-	private $entries = [];
-
-	/**
-	 * @var string
-	 */
-	private $id;
+	/** @var IMenuEntry[] */
+	private array $entries = [];
+	private string $id;
 
 	/**
 	 * @param string $id of the menu defaults to null (optional)
@@ -49,7 +43,7 @@ final class Group {
 	 *
 	 * @return string
 	 */
-	public function getId() {
+	public function getId(): string {
 		return $this->id;
 	}
 
@@ -114,7 +108,7 @@ final class Group {
 	 * @param IMenuEntry $entry
 	 * @throws DomainException When the entry already exists
 	 */
-	public function insertEntry( IMenuEntry $entry ) {
+	public function insertEntry( IMenuEntry $entry ): void {
 		$this->throwIfNotUnique( $entry->getName() );
 		$this->entries[] = $entry;
 	}

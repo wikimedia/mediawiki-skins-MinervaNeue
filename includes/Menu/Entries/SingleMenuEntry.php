@@ -155,7 +155,7 @@ class SingleMenuEntry implements IMenuEntry {
 	 * pass the tracking code as string
 	 * @return $this
 	 */
-	public function trackClicks( $eventName ) {
+	public function trackClicks( $eventName ): self {
 		$this->attributes['data-event-name'] = 'menu.' . $eventName;
 		return $this;
 	}
@@ -165,7 +165,7 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param string|null $iconName
 	 * @return $this
 	 */
-	public function setIcon( $iconName ) {
+	public function setIcon( $iconName ): self {
 		if ( $iconName !== null ) {
 			$this->attributes['data-icon']['icon'] = $iconName;
 		} else {
