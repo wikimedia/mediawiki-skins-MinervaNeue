@@ -67,6 +67,7 @@
 
 		if ( mwUri.query.title ) {
 			// True if input starts with wgScriptPath.
+			// eslint-disable-next-line security/detect-non-literal-regexp
 			const regExp = new RegExp( '^' + mw.util.escapeRegExp( mw.config.get( 'wgScriptPath' ) ) + '/' );
 
 			// URL has a nonempty `title` query parameter like `/w/index.php?title=Foo`. The script
@@ -81,6 +82,7 @@
 		} else {
 			// True if input starts with wgArticlePath and ends with a nonempty page title. The
 			// first matching group (index 1) is the page title.
+			// eslint-disable-next-line security/detect-non-literal-regexp
 			const regExp = new RegExp( '^' + mw.util.escapeRegExp( mw.config.get( 'wgArticlePath' ) ).replace( '\\$1', '(.+)' ) );
 
 			// No title query parameter is present so the URL may be "pretty" like `/wiki/Foo`.

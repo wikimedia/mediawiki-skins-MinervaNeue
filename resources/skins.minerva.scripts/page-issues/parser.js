@@ -70,6 +70,7 @@
 	const TYPE_REGEX = {
 		// recommended (opt-in) / en, es / ru, it (long term only recommended should be used)
 		MOVE: /mobile-issue-move|ambox-converted|ambox-move|ambox-merge|avviso-struttura/,
+		// eslint-disable-next-line security/detect-non-literal-regexp
 		POINT_OF_VIEW: new RegExp( [
 			// recommended (opt-in)
 			'mobile-issue-pov',
