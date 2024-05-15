@@ -562,9 +562,10 @@
 			]
 		},
 		"skins.minerva.messageBox.styles": {
-			"class": "MediaWiki\\ResourceLoader\\SkinModule",
-			"features": [
-				"interface-message-box"
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxMessage"
 			]
 		},
 		"skins.minerva.categories.styles": {
@@ -577,7 +578,8 @@
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"codexStyleOnly": true,
 			"codexComponents": [
-				"CdxButton"
+				"CdxButton",
+				"CdxMessage"
 			]
 		}
 	},
