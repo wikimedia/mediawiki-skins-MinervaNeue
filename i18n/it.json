@@ -53,7 +53,7 @@
 	"minerva-page-actions-overflow": "Altro",
 	"minerva-page-actions-language-switcher": "Lingue",
 	"minerva-page-actions-history": "Cronologia",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Discussione]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Discussione]",
 	"skin-minerva-issue-learn-more": "Ulteriori informazioni",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 secondo|$1 secondi}} fa",
 	"skin-minerva-time-ago-minutes": "{{PLURAL:$1|$1 minuto|$1 minuti}} fa",
