@@ -37,6 +37,9 @@
 html.skin-theme-clientpref-night {
 	color-scheme: dark;
 	.mixin-night-mode-palette();
+	// T363911 Temporarily override Codex variable for Vector night mode release
+	// Remove after task has been resolved and new color is available in Codex.
+	--color-link-red: #b97876;
 }
 
 /**
@@ -47,6 +50,9 @@ html.skin-theme-clientpref-night {
 	html.skin-theme-clientpref-os {
 		color-scheme: light dark;
 		.mixin-night-mode-palette();
+		// T363911 Temporarily override Codex variable for Vector night mode release
+		// Remove after task has been resolved and new color is available in Codex.
+		--color-link-red: #b97876;
 	}
 }
 
