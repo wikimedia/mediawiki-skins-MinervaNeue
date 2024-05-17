@@ -95,7 +95,9 @@
 		},
 		"MinervaNightMode": {
 			"value": {
-				"base": false
+				"base": false,
+				"loggedin": false,
+				"amc": true
 			}
 		},
 		"MinervaNightModeOptions": {
