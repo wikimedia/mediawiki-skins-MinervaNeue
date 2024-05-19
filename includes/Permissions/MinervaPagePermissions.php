@@ -20,10 +20,10 @@
 namespace MediaWiki\Minerva\Permissions;
 
 use ContentHandler;
-use IContextSource;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Content\IContentHandlerFactory;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\SkinOptions;
