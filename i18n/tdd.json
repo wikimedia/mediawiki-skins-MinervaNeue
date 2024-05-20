@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Aey Tai Nuea",
-			"咽頭べさ"
+			"咽頭べさ",
+			"AeyTaiNuea"
 		]
 	},
 	"minerva-talk-add-topic": "ᥗᥦᥛᥴᥔᥬᥱ ᥞᥨᥝᥴᥑᥩᥲ",
@@ -13,7 +14,7 @@
 	"mobile-frontend-main-menu-contributions": "ᥘᥩᥒᥲᥑᥝᥲᥞᥨᥛᥲ",
 	"mobile-frontend-main-menu-login": "ᥘᥩᥐᥳ ᥟᥤᥢᥱ",
 	"mobile-frontend-main-menu-logout": "ᥘᥩᥐᥳᥟᥩᥐᥳ",
-	"mobile-frontend-main-menu-nearby": "ᥞᥤᥛᥰᥓᥛᥴ",
+	"mobile-frontend-main-menu-nearby": "ᥞᥤᥛᥰ ᥓᥛ",
 	"mobile-frontend-main-menu-settings": "ᥐᥣᥢ ᥖᥒᥲ",
 	"mobile-frontend-main-menu-watchlist": "ᥔᥥᥢᥲᥛᥣᥭᥴᥙᥬᥳᥖᥨᥭᥰ",
 	"mobile-frontend-meta-data-issues": "ᥑᥩᥲᥑᥢᥴ ᥢᥣᥲᥘᥤᥐᥲ",
@@ -34,7 +35,7 @@
 	"minerva-page-actions-protect": "ᥞᥥᥳᥐᥒᥲ",
 	"minerva-page-actions-logs": "ᥔᥣᥭᥴᥛᥣᥭᥴ",
 	"minerva-page-actions-wikibase": "{{WBREPONAME}} ᥛᥤᥱᥐᥤᥰ",
-	"minerva-page-actions-language-switcher": "ᥚᥣᥱᥔᥣᥱᥐᥣᥛᥰ",
+	"minerva-page-actions-language-switcher": "ᥚᥣᥱ ᥔᥣᥱ ᥑᥣᥛᥰ",
 	"minerva-page-actions-history": "ᥙᥪᥢᥰ",
 	"skin-minerva-mobile-option-MinervaShowCategories": "ᥙᥫᥒᥴᥗᥣᥢᥲ"
 }
