@@ -75,7 +75,7 @@
 	"minerva-page-actions-overflow": "更多",
 	"minerva-page-actions-language-switcher": "语言",
 	"minerva-page-actions-history": "历史",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|讨论]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web 讨论]",
 	"minerva-skin-desc": "响应式布局的移动平台首选皮肤",
 	"skin-minerva-issue-learn-more": "了解更多",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1秒}}前",
