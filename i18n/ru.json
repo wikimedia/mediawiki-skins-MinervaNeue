@@ -66,7 +66,7 @@
 	"minerva-page-actions-overflow": "Ещё",
 	"minerva-page-actions-language-switcher": "Языки",
 	"minerva-page-actions-history": "История",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Обсуждение]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Обсуждение]",
 	"minerva-skin-desc": "Первая адаптивная мобильная тема оформления",
 	"skin-minerva-issue-learn-more": "Узнать больше",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 секунда|$1 секунды|$1 секунд}} назад",
@@ -79,5 +79,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Посмотреть категории страниц",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Улучшенное обнаружение проблем страницы",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемы со страницей (Шаблон:ambox) будут вписаны в статью.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных устройствах. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных устройствах. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию.",
+	"skin-minerva-night-mode-unavailable": "Страница доступна только в цветовой теме «Светлая»."
 }
