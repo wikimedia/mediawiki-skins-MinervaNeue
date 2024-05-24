@@ -60,6 +60,12 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Page issues (Template:ambox) will be inlined in the article.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Unfortunately, grouping results by page is not available on mobile. If you would like to use the group by page feature please visit the desktop site.",
 	"skin-minerva-night-mode-unavailable": "Page only available in \"Light\" color theme.",
+	"skin-minerva-night-mode-launch-title": "Wikipedia's new colors",
+	"skin-minerva-night-mode-launch-subtitle": "Try dark mode today",
+	"skin-minerva-night-mode-launch-description-night": "Wikipedia's color has changed because your device is set to dark mode. You can change color preference at any time in Settings.",
+	"skin-minerva-night-mode-launch-description-day": "Wikipedia is now available in a \"dark\" color schema. Try it out by tapping \"Settings\" in the main menu.",
+	"skin-minerva-night-mode-launch-settings-label": "Go to settings",
+	"skin-minerva-night-mode-launch-close-label": "Close",
 	"minerva.css": "/* All CSS here will be loaded for users of the MinervaNeue skin */",
 	"minerva.js": "/* All JavaScript here will be loaded for users of the MinervaNeue skin */"
 }
