@@ -431,6 +431,30 @@
 				"resources/skins.minerva.userpage.styles/userpage.less"
 			]
 		},
+		"skins.minerva.DarkModeLaunchBanner": {
+			"packageFiles": [
+				"resources/skins.minerva.DarkModeLaunchBanner/DarkModeLaunchBanner.js"
+			],
+			"styles": [
+				"resources/skins.minerva.DarkModeLaunchBanner/DarkModeLaunchBanner.less"
+			],
+			"dependencies": [ "skins.minerva.DarkModeLaunchBanner.codexModules" ],
+			"messages": [
+				"skin-minerva-night-mode-launch-title",
+				"skin-minerva-night-mode-launch-subtitle",
+				"skin-minerva-night-mode-launch-description-night",
+				"skin-minerva-night-mode-launch-description-day",
+				"skin-minerva-night-mode-launch-settings-label",
+				"skin-minerva-night-mode-launch-close-label"
+			]
+		},
+		"skins.minerva.DarkModeLaunchBanner.codexModules": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxDialog"
+			]
+		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"selectorWithoutVariant": ".minerva-icon--{name}",
