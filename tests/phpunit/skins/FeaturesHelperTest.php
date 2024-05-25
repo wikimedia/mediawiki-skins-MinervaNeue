@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Minerva;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Minerva\Skins\FeaturesHelper;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
-use RequestContext;
 
 /**
  * @group MinervaNeue

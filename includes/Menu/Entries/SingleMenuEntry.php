@@ -17,7 +17,7 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
-use Message;
+use MediaWiki\Message\Message;
 
 /**
  * Model for a simple menu entries with label and icon

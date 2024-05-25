@@ -4,6 +4,7 @@ namespace MediaWiki\Minerva;
 
 use ContentHandler;
 use MediaWiki\Content\IContentHandlerFactory;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
@@ -15,7 +16,6 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\UserFactory;
 use MediaWiki\Watchlist\WatchlistManager;
 use MediaWikiIntegrationTestCase;
-use RequestContext;
 
 /**
  * @group MinervaNeue

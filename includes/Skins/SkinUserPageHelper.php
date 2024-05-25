@@ -20,7 +20,7 @@
 
 namespace MediaWiki\Minerva\Skins;
 
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
