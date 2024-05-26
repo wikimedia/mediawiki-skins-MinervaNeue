@@ -49,6 +49,8 @@ class SkinUserPageHelper {
 
 	public function setTitle( ?Title $title ): self {
 		$this->title = $title;
+		$this->fetchedData = false;
+		$this->pageUser = null;
 		return $this;
 	}
 
