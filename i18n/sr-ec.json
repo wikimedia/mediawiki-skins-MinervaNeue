@@ -68,6 +68,13 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Побољшан третман проблема са страницом",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблеми са страницом (Шаблон:ambox) биће уметнути у чланак.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Груписање резултата по страници није доступно на мобилним уређајима. Ако желите да користите функцију, посетите сајт за рачунаре.",
+	"skin-minerva-night-mode-unavailable": "Страница доступна само у светлој теми.",
+	"skin-minerva-night-mode-launch-title": "Нове боје Википедије",
+	"skin-minerva-night-mode-launch-subtitle": "Пробајте тамну тему",
+	"skin-minerva-night-mode-launch-description-night": "Боја Википедије се променила зато што је Ваш уређај подешен на тамну тему. Ово можете променити у сваком тренутку у подешавањима.",
+	"skin-minerva-night-mode-launch-description-day": "Википедија сада има тамну тему. Да је пробате тапните на подешавања у главном менију.",
+	"skin-minerva-night-mode-launch-settings-label": "Подешавања",
+	"skin-minerva-night-mode-launch-close-label": "Затвори",
 	"minerva.css": "/* CSS постављен овде учитаће се свим корисницима Минерва (ново) теме */",
 	"minerva.js": "/* JavaScript постављен овде учитаће се свим корисницима Минерва (ново) теме */"
 }

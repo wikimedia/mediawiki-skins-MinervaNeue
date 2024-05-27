@@ -47,7 +47,7 @@
 	"minerva-page-actions-overflow": "Повеќе",
 	"minerva-page-actions-language-switcher": "Јазици",
 	"minerva-page-actions-history": "Историја",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Разговор]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Разговор]",
 	"skinname-minerva": "Минерва Ново",
 	"minerva-skin-desc": "Одѕивно руво за првенствено мобилна употреба.",
 	"skin-minerva-issue-learn-more": "Дознајте повеќе",
@@ -63,6 +63,12 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемите со страницата (Предлошка:ambox) ќе бидат вметнати во редовите на статијата.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "За жал, групирањето на исходни ставки по страница е недостапно за мобилен уред. За таа цел, ќе мора да отворите од сметач.",
 	"skin-minerva-night-mode-unavailable": "Страница е достапна само во бојниот изглед „Светол“.",
+	"skin-minerva-night-mode-launch-title": "Новите бои на Википедија",
+	"skin-minerva-night-mode-launch-subtitle": "Пробајте го темниот режим денес",
+	"skin-minerva-night-mode-launch-description-night": "Бојата на Википедија е променета бидејќи вашиот уред е ставен во темен режим. Бојата можете да ја смените во Нагодувањата во секое време.",
+	"skin-minerva-night-mode-launch-description-day": "Википедија сега е достапна во „темна“ бојна шема. Пробајте ја допирајќи на „Нагодувања“ во главното мени.",
+	"skin-minerva-night-mode-launch-settings-label": "Оди во нагодувањата",
+	"skin-minerva-night-mode-launch-close-label": "Затвори",
 	"minerva.css": "/* Тука поставениот CSS се однесува на корисниците на рувото „MinervaNeue“ */",
 	"minerva.js": "/* Сиот тука поставен JavaScript ќе им се вчитува на корисниците што го користат рувото „MinervaNeue“ */"
 }

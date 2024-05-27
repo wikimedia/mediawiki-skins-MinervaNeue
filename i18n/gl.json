@@ -52,7 +52,7 @@
 	"minerva-page-actions-overflow": "Máis",
 	"minerva-page-actions-language-switcher": "Linguas",
 	"minerva-page-actions-history": "Historial",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Conversa]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Conversa]",
 	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Un tema reactivo para dispositivos móbiles",
 	"skin-minerva-issue-learn-more": "Máis información",
@@ -68,6 +68,12 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Os problemas da páxina (Modelo:ambox) incluiranse no artigo.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Desafortunadamente, a agrupación de resultados por páxina non está dispoñible no móbil. Se queres usar a función de grupo por páxina, visita o sitio de escritorio.",
 	"skin-minerva-night-mode-unavailable": "A páxina só está dispoñible no tema \"Claro\".",
+	"skin-minerva-night-mode-launch-title": "As novas cores da Wikipedia",
+	"skin-minerva-night-mode-launch-subtitle": "Proba agora o modo escuro",
+	"skin-minerva-night-mode-launch-description-night": "A cor da Wikipedia cambiou porque o teu dispositivo está configurado no modo escuro. Podes cambiar a preferencia de cor en calquera momento na configuración.",
+	"skin-minerva-night-mode-launch-description-day": "A Wikipedia xa está dispoñible nun esquema de cores \"escuras\". Próbao tocando en \"Configuración\" no menú principal.",
+	"skin-minerva-night-mode-launch-settings-label": "Ir á configuración",
+	"skin-minerva-night-mode-launch-close-label": "Pechar",
 	"minerva.css": "/* O CSS colocado aquí afectará aos usuarios da aparencia MinervaNeue */",
 	"minerva.js": "/* O código JavaScript colocado aquí cargarase para os usuarios que utilicen a aparencia MinervaNeue */"
 }

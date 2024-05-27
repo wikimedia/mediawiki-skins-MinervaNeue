@@ -79,5 +79,11 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Geliştirilmiş sayfa sorunları iyileştirmesi",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sayfa sorunları (Şablon:ambox) maddede belirtilmiş olacaktır.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Maalesef, sonuçları sayfaya göre gruplandırma mobil cihazda mevcut değil. Grup olarak sayfa özelliğini kullanmak istiyorsanız, lütfen masaüstü sitesini ziyaret edin.",
-	"skin-minerva-night-mode-unavailable": "Sayfa yalnızca \"Açık\" renk temasında vardır."
+	"skin-minerva-night-mode-unavailable": "Sayfa yalnızca \"Açık\" renk temasında vardır.",
+	"skin-minerva-night-mode-launch-title": "Vikipedi'nin yeni renkleri",
+	"skin-minerva-night-mode-launch-subtitle": "Karanlık kipi bugün deneyin",
+	"skin-minerva-night-mode-launch-description-night": "Aygıtınız karanlık kipe ayarlandığından Vikipedi'nin rengi değişti. Renk seçeneğinizi istediğiniz zaman Ayarlar'dan değiştirebilirsiniz.",
+	"skin-minerva-night-mode-launch-description-day": "Vikipedi artık \"koyu\" renk şemasıyla sunuluyor. Ana menüdeki \"Ayarlar\"a dokunarak deneyin.",
+	"skin-minerva-night-mode-launch-settings-label": "Ayarlara git",
+	"skin-minerva-night-mode-launch-close-label": "Kapat"
 }

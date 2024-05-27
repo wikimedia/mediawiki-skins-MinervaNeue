@@ -6,6 +6,7 @@
 			"BerryAVGN",
 			"Biathlon",
 			"Cinemantique",
+			"Dirruw'o",
 			"DmitTrix",
 			"Facenapalm",
 			"Kareyac",
@@ -80,5 +81,10 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Улучшенное обнаружение проблем страницы",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемы со страницей (Шаблон:ambox) будут вписаны в статью.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных устройствах. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию.",
-	"skin-minerva-night-mode-unavailable": "Страница доступна только в цветовой теме «Светлая»."
+	"skin-minerva-night-mode-unavailable": "Страница доступна только в цветовой теме «Светлая».",
+	"skin-minerva-night-mode-launch-title": "Новые темы Википедии",
+	"skin-minerva-night-mode-launch-subtitle": "Попробуйте темный режим сегодня",
+	"skin-minerva-night-mode-launch-description-night": "Цвет Википедии изменился, поскольку на вашем устройстве установлен темный режим. Вы можете изменить предпочтения цвета в любое время в настройках.",
+	"skin-minerva-night-mode-launch-settings-label": "Перейти к настройкам",
+	"skin-minerva-night-mode-launch-close-label": "Закрыть"
 }

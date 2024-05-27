@@ -53,7 +53,7 @@
 	"minerva-page-actions-overflow": "Daha çox",
 	"minerva-page-actions-language-switcher": "Dillər",
 	"minerva-page-actions-history": "Tarixçə",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Müzakirə]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Müzakirə]",
 	"minerva-skin-desc": "Responsiv mobil dizayn",
 	"skin-minerva-issue-learn-more": "Daha ətraflı",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 saniyə}} əvvəl",
@@ -68,6 +68,12 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Səhifə problemləri (Şablon:ambox) məqaləyə daxil ediləcək.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Təəssüf ki, nəticələrin səhifəyə görə qruplaşdırılması mobil cihazlar üçün mövcud deyil. Əgər səhifəyə görə qruplaşdırma funksiyasından istifadə etmək istəyirsinizsə, xahiş olunur, saytın iş masası versiyasına daxil olun.",
 	"skin-minerva-night-mode-unavailable": "Səhifə yalnız \"Gündüz\" temasında mövcuddur.",
+	"skin-minerva-night-mode-launch-title": "Vikipediyanın yeni rəngləri",
+	"skin-minerva-night-mode-launch-subtitle": "Gecə rejimini sınayın",
+	"skin-minerva-night-mode-launch-description-night": "Cihazınız tünd rejimə keçdiyi üçün Vikipediyanın rəngi dəyişib. Rəng seçimlərini istənilən vaxt Parametrlərdə dəyişə bilərsiniz.",
+	"skin-minerva-night-mode-launch-description-day": "Vikipediya indi \"tünd\" rəng sxemində mövcuddur. Əsas menyuda \"Parametrlər\"ə klikləməklə bunu sınayın.",
+	"skin-minerva-night-mode-launch-settings-label": "Parametrlərə gedin",
+	"skin-minerva-night-mode-launch-close-label": "Bağla",
 	"minerva.css": "/* Buradakı bütün CSS MinervaNeue istifadəçiləri üçün yüklənəcək */",
 	"minerva.js": "/* Buradakı JavaScript MinervaNeue istifadəçiləri üçün yüklənəcək */"
 }
