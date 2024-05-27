@@ -4,12 +4,12 @@
 			"BivutiChakma"
 		]
 	},
-	"mobile-frontend-history": "𑄃𑄬𑄭 𑄇𑄉𑄮𑄎𑄮𑄢𑄴 𑄥𑄮𑄢𑄴 𑄉𑄮𑄌𑄴𑄬 𑄣𑄬𑄊𑄚𑄨 𑄘𑄬𑄊",
+	"mobile-frontend-history": "𑄃𑄬𑄭 𑄛𑄘𑄖𑄴 𑄥𑄮𑄢𑄴 𑄉𑄮𑄌𑄴𑄬 𑄣𑄬𑄊𑄚𑄨 𑄘𑄬𑄊",
 	"mobile-frontend-home-button": "𑄟𑄪𑄢𑄴𑄊𑄧𑄢𑄴",
 	"mobile-frontend-language-article-heading": "𑄞𑄌𑄴",
 	"mobile-frontend-main-menu-login": "𑄣𑄧𑄉𑄴 𑄃𑄨𑄚𑄴",
 	"mobile-frontend-main-menu-nearby": "𑄇𑄭𑄛𑄨𑄎𑄬",
 	"mobile-frontend-main-menu-settings": "𑄥𑄬𑄑𑄨𑄁𑄥𑄴",
-	"mobile-frontend-placeholder": "𑄖𑄮𑄉𑄚 {{𑄥𑄭𑄑𑄴𑄚𑄋𑄴}}",
+	"mobile-frontend-placeholder": "𑄖𑄮𑄉𑄚 {{SITENAME}}",
 	"mobile-frontend-random-button": "𑄇𑄨𑄌𑄴𑄥𑄨𑄁 𑄝𑄨𑄌𑄴𑄥𑄨𑄁"
 }
