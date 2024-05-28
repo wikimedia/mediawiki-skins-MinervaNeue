@@ -151,7 +151,7 @@ final class SkinOptions {
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
 			$services = MediaWikiServices::getInstance();
-			$featureManager = $services
+			$featuresManager = $services
 				->getService( 'MobileFrontend.FeaturesManager' );
 			$title = $skin->getTitle();
 
@@ -181,32 +181,32 @@ final class SkinOptions {
 
 			$isBeta = $mobileContext->isBetaGroupMember();
 			$this->setMultiple( [
-				self::SHOW_DONATE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
+				self::SHOW_DONATE => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
 				self::TALK_AT_TOP => $isUserPageOrUserTalkPage ?
-					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
+					true : $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
 				self::BETA_MODE
 					=> $isBeta,
 				self::CATEGORIES
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategories' ),
+					=> $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategories' ),
 				self::PAGE_ISSUES
-					=> $featureManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
+					=> $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
 				self::MOBILE_OPTIONS => true,
-				self::PERSONAL_MENU => $featureManager->isFeatureAvailableForCurrentUser(
+				self::PERSONAL_MENU => $featuresManager->isFeatureAvailableForCurrentUser(
 					'MinervaPersonalMenu'
 				),
-				self::MAIN_MENU_EXPANDED => $featureManager->isFeatureAvailableForCurrentUser(
+				self::MAIN_MENU_EXPANDED => $featuresManager->isFeatureAvailableForCurrentUser(
 					'MinervaAdvancedMainMenu'
 				),
 				// In mobile, always resort to single icon.
 				self::SINGLE_ECHO_BUTTON => true,
 				self::HISTORY_IN_PAGE_ACTIONS => $requiresHistoryLink ?
-					true : $featureManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
+					true : $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
 				self::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
-					true : $featureManager->isFeatureAvailableForCurrentUser(
+					true : $featuresManager->isFeatureAvailableForCurrentUser(
 						Hooks::FEATURE_OVERFLOW_PAGE_ACTIONS
 					),
 				self::TABS_ON_SPECIALS => true,
-				self::NIGHT_MODE => $featureManager->isFeatureAvailableForCurrentUser( 'MinervaNightMode' ),
+				self::NIGHT_MODE => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaNightMode' ),
 			] );
 			( new HookRunner( $this->hookContainer ) )->onSkinMinervaOptionsInit( $skin, $this );
 		}
