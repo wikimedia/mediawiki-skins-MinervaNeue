@@ -72,6 +72,12 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemy ze stroną (Szablon:ambox) będą wyświetlane wewnątrz artykułu.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Niestety, grupowanie wyników według stron nie jest dostępne w wersji mobilnej. Jeżeli chcesz korzystać z tej funkcji, przejdź do wersji standardowej strony.",
 	"skin-minerva-night-mode-unavailable": "Ta strona jest dostępna wyłącznie w motywie jasnym.",
+	"skin-minerva-night-mode-launch-title": "Nowe kolory Wikipedii",
+	"skin-minerva-night-mode-launch-subtitle": "Wypróbuj tryb ciemny",
+	"skin-minerva-night-mode-launch-description-night": "Motyw kolorystyczny Wikipedii uległ zmianie, ponieważ twoje urządzenie jest ustawione na tryb ciemny. Możesz zmienić preferencje motywu w ustawieniach.",
+	"skin-minerva-night-mode-launch-description-day": "Wikipedia jest teraz dostępna w ciemnym motywie. Wypróbuj go, stukając przycisk ustawień w menu głównym.",
+	"skin-minerva-night-mode-launch-settings-label": "Przejdź do ustawień",
+	"skin-minerva-night-mode-launch-close-label": "Zamknij",
 	"minerva.css": "/* Umieszczony tutaj kod CSS zostanie załadowany przez użytkowników korzystających ze skórki MinervaNeue */",
 	"minerva.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany przez użytkowników korzystających ze skórki MinervaNeue */"
 }

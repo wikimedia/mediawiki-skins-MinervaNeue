@@ -65,5 +65,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "पृष्ठों की श्रेणियां देखें",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "पृष्ठ समस्या उपचार में सुधार",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "पृष्ठ की समस्याओं (Template:ambox) को लेख में इनलाइन कर दिया जाएगा।",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "बदकिस्मती से, मोबाइल पर परिणामों का समूहन संभव नहीं है। अगर आप पृष्ठ के आधार पर समूहन सुविधा का उपयोग करना चाहते हैं कृपया डेस्कटॉप साइट पर जाएँ।"
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "बदकिस्मती से, मोबाइल पर परिणामों का समूहन संभव नहीं है। अगर आप पृष्ठ के आधार पर समूहन सुविधा का उपयोग करना चाहते हैं कृपया डेस्कटॉप साइट पर जाएँ।",
+	"skin-minerva-night-mode-launch-close-label": "बंद करें"
 }

@@ -60,8 +60,8 @@
 	"minerva-page-actions-overflow": "更多",
 	"minerva-page-actions-language-switcher": "語言",
 	"minerva-page-actions-history": "歷史",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|討論]]",
-	"skinname-minerva": "Minerva",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web 討論]",
+	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "回應式的行動版優先外觀",
 	"skin-minerva-issue-learn-more": "了解更多",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 秒}}前",
@@ -75,5 +75,7 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "已改進頁面問題處理",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "頁面問題（模板:ambox）會內聯至條目裡。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很不幸地，依照頁面的分組結果在移動裝置上不可用。若您想要使用依照頁面功能的群組，請訪問適用於桌上型電腦的網站。",
-	"skin-minerva-night-mode-unavailable": "頁面僅能使用「淺色」色彩主題。"
+	"skin-minerva-night-mode-unavailable": "頁面僅能使用「淺色」色彩主題。",
+	"minerva.css": "/* 此處所有的 CSS 都會在使用者使用 MinervaNeue 外觀時載入 */",
+	"minerva.js": "/* 此處所有的 JavaScript 都會在使用者使用 MinervaNeue 外觀時載入 */"
 }
