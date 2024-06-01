@@ -232,10 +232,9 @@ class Hooks implements
 		if ( $skin === 'minerva' ) {
 			// This is to let the UI adjust itself to a wiki that is always read-only.
 			// Ignore temporary read-only on live wikis, requires heavy DB check (T233458).
-			$roConf = $this->configuredReadOnlyMode;
 			$vars += [
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
-				'wgMinervaReadOnly' => $roConf->isReadOnly(),
+				'wgMinervaReadOnly' => $this->configuredReadOnlyMode->isReadOnly(),
 			];
 		}
 	}

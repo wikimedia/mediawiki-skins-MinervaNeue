@@ -144,8 +144,7 @@ final class SkinOptions {
 	): void {
 		// setSkinOptions is not available
 		if ( $skin instanceof SkinMinerva ) {
-			$services = MediaWikiServices::getInstance();
-			$featuresManager = $services
+			$featuresManager = MediaWikiServices::getInstance()
 				->getService( 'MobileFrontend.FeaturesManager' );
 			$title = $skin->getTitle();
 

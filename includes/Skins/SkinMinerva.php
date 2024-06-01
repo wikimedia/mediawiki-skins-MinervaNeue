@@ -700,8 +700,7 @@ class SkinMinerva extends SkinMustache {
 			return null;
 		}
 		// Do not show the last modified bar on diff pages [T350515]
-		$request = $this->getRequest();
-		if ( $request->getCheck( 'diff' ) ) {
+		if ( $this->getRequest()->getCheck( 'diff' ) ) {
 			return null;
 		}
 
@@ -971,9 +970,6 @@ class SkinMinerva extends SkinMustache {
 	protected function getPageSpecificStyles(): array {
 		$styles = [];
 		$title = $this->getTitle();
-		$request = $this->getRequest();
-		$requestAction = $this->getActionName();
-		$viewAction = $requestAction === 'view';
 
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
