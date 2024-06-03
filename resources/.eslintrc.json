@@ -35,7 +35,6 @@
 			}
 		],
 		"no-underscore-dangle": "off",
-		"no-var": "error",
 		"object-property-newline": "error",
 		"unit-disallowed-list": "off"
 	},

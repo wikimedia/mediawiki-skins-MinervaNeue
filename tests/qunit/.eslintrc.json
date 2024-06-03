@@ -6,7 +6,6 @@
 	],
 	"rules": {
 		"no-jquery/no-parse-html-literal": "off",
-		"no-restricted-properties": "off",
-		"no-var": "error"
+		"no-restricted-properties": "off"
 	}
 }
