@@ -30,33 +30,6 @@
 }
 
 /**
-* == Forced night mode ==
-* Applies the night mode color palette per the users explicit preference,
-* regardless of system settings.
-*/
-html.skin-theme-clientpref-night {
-	color-scheme: dark;
-	.mixin-night-mode-palette();
-	// T363911 Temporarily override Codex variable for Vector night mode release
-	// Remove after task has been resolved and new color is available in Codex.
-	--color-link-red: #b97876;
-}
-
-/**
-* == Auto night mode ==
-* Applies the night mode color palette only in response to system settings.
-*/
-@media ( prefers-color-scheme: dark ) {
-	html.skin-theme-clientpref-os {
-		color-scheme: light dark;
-		.mixin-night-mode-palette();
-		// T363911 Temporarily override Codex variable for Vector night mode release
-		// Remove after task has been resolved and new color is available in Codex.
-		--color-link-red: #b97876;
-	}
-}
-
-/**
 * == Night-mode helpers ==
 * The following classes are provided to help third-parties deal with night mode when using the
 * CSS color variables is not feasible.
@@ -92,16 +65,64 @@ html.skin-theme-clientpref-night {
 	color: @color-base;
 }
 
-// T365102 invert class specifically for image related elements
-html.skin-theme-clientpref-night .skin-invert-image img,
-html.skin-theme-clientpref-night .skin-invert {
-	filter: invert( 1 ) hue-rotate( 180deg );
+/**
+* == Forced night mode ==
+* Applies the night mode color palette per the users explicit preference,
+* regardless of system settings.
+*/
+html.skin-theme-clientpref-night {
+	color-scheme: dark;
+	.mixin-night-mode-palette();
+	// T363911 Temporarily override Codex variable for Vector night mode release
+	// Remove after task has been resolved and new color is available in Codex.
+	--color-link-red: #b97876;
+
+	.skin-invert,
+	.skin-invert-image img,
+	/* Special treatment of inverted OOUI icons, see T365764 */
+	.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ),
+	.oo-ui-indicatorElement-indicator {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+
+	/* Do not apply invert to elements that are inside a notheme or a skin-invert class to avoid inversion in light theme or
+	double inversion in an already inverted element */
+	.skin-invert,
+	.notheme {
+		.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ),
+		.oo-ui-indicatorElement-indicator {
+			filter: none !important;
+		}
+	}
 }
 
+/**
+* == Auto night mode ==
+* Applies the night mode color palette only in response to system settings.
+*/
 @media ( prefers-color-scheme: dark ) {
-	// T365102 invert class specifically for image related elements
-	html.skin-theme-clientpref-os .skin-invert-image img,
-	html.skin-theme-clientpref-os .skin-invert {
-		filter: invert( 1 ) hue-rotate( 180deg );
+	html.skin-theme-clientpref-os {
+		color-scheme: light dark;
+		.mixin-night-mode-palette();
+		// T363911 Temporarily override Codex variable for Vector night mode release
+		// Remove after task has been resolved and new color is available in Codex.
+		--color-link-red: #b97876;
+
+		.skin-invert,
+		.skin-invert-image img,
+		.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ),
+		.oo-ui-indicatorElement-indicator {
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+
+		/* Do not apply invert to elements that are inside a notheme or a skin-invert class to avoid inversion in light theme or
+		double inversion in an already inverted element */
+		.skin-invert,
+		.notheme {
+			.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ),
+			.oo-ui-indicatorElement-indicator {
+				filter: none !important;
+			}
+		}
 	}
 }
