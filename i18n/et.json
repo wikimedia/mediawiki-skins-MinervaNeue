@@ -58,6 +58,13 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategooriad",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näita lehekülgede kategooriaid.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Mobiilivaates kahjuks ei saa tulemusi lehekülje kaupa rühmitada. Kui soovid lehekülje kaupa rühmitamise funktsiooni kasutada, siis palun külasta saiti lauaarvuti vaates.",
+	"skin-minerva-night-mode-unavailable": "Lehekülg on saadaval ainult heleda kujundusega.",
+	"skin-minerva-night-mode-launch-title": "Vikipeedia uued värvid",
+	"skin-minerva-night-mode-launch-subtitle": "Proovi tumedat režiimi",
+	"skin-minerva-night-mode-launch-description-night": "Vikipeedia värv muutus, sest su seadmes on valitud tume režiim. Saad sätetes värvieelistusi igal ajal muuta.",
+	"skin-minerva-night-mode-launch-description-day": "Vikipeedias on nüüd saadaval tume värviskeem. Selle järeleproovimiseks puuduta peamenüüs nuppu \"Sätted\".",
+	"skin-minerva-night-mode-launch-settings-label": "Mine sätetesse",
+	"skin-minerva-night-mode-launch-close-label": "Sule",
 	"minerva.css": "/* Siin asuv kaskaadilaadistik laaditakse kõigi kujunduse MinervaNeue kasutajate jaoks. */",
 	"minerva.js": "/* Siin asuv JavaScript laaditakse kõigi kujunduse MinervaNeue kasutajate jaoks. */"
 }

@@ -48,7 +48,7 @@
 	"minerva-page-actions-overflow": "Âtro",
 	"minerva-page-actions-language-switcher": "Léngoe",
 	"minerva-page-actions-history": "Cronologîa",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Discusción]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Discusción]",
 	"minerva-skin-desc": "'Na prìmma skin reatîva pe apægi mòbili",
 	"skin-minerva-issue-learn-more": "Pe savéine de ciù",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 segóndo|$1 segóndi}} fa",
@@ -62,5 +62,11 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Gestión megioâ di problêmi de pàgine",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "I problêmi da pàgina (Template:ambox) saiàn inserîi inta vôxe.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Pe desdìccia a fonçión \"ragrùppa pe pàgina\" a no l'é disponìbile inta versción mòbile. Se ti ti vêu dêuviâla, ti ti gh'æ da vixitâ o scîto inta versción desktop.",
-	"skin-minerva-night-mode-unavailable": "Pàgina disponìbile sôlo inti coî do têma \"Giórno\"."
+	"skin-minerva-night-mode-unavailable": "Pàgina disponìbile sôlo inti coî do têma \"Giórno\".",
+	"skin-minerva-night-mode-launch-title": "I nêuvi coî de Wikipedia",
+	"skin-minerva-night-mode-launch-subtitle": "Prêuva òua a modalitæ néutte",
+	"skin-minerva-night-mode-launch-description-night": "O cô de Wikipedia o l'é cangiòu scicómme o dispoxitîvo o l'é inpostòu a-a modalitæ néutte. L'é poscìbile cangiâ e preferénse de cô inte ògni moménto da-e Inpostaçioìn.",
+	"skin-minerva-night-mode-launch-description-day": "Òua Wikipedia a l'é disponìbile co-in schêma de coî \"néutte\". Provælo sciacàndo \"Inpostaçioìn\" into menù prinçipâ.",
+	"skin-minerva-night-mode-launch-settings-label": "Vànni a-e inpostaçioìn",
+	"skin-minerva-night-mode-launch-close-label": "Særa"
 }
