@@ -34,7 +34,6 @@
 				"message": "The method `always` if used with Deferred objects is incompatible with ES6 Promises. Please use `then`."
 			}
 		],
-		"no-underscore-dangle": "off",
 		"object-property-newline": "error",
 		"unit-disallowed-list": "off"
 	},

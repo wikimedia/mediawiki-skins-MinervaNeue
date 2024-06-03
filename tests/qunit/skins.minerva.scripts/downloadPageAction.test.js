@@ -14,10 +14,12 @@
 	class Page {
 		constructor( options ) {
 			this.isMissing = options.isMissing;
+			// eslint-disable-next-line no-underscore-dangle
 			this._isMainPage = !!options.isMainPage;
 		}
 
 		isMainPage() {
+			// eslint-disable-next-line no-underscore-dangle
 			return this._isMainPage;
 		}
 
