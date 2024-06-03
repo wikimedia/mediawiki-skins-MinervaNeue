@@ -9,7 +9,7 @@
 
 	QUnit.module( 'Minerva AB-test' );
 
-	QUnit.test( 'Bucketing test', function ( assert ) {
+	QUnit.test( 'Bucketing test', ( assert ) => {
 		const userBuckets = {
 			unsampled: 0,
 			control: 0,

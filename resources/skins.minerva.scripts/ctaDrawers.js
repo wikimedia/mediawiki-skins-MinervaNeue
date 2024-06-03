@@ -55,7 +55,7 @@ function initRedlinksCta( $redLinks ) {
 function initWatchstarCta( $watchstar ) {
 	let watchCtaDrawer;
 	// show a CTA for anonymous users
-	$watchstar.on( 'click', function ( ev ) {
+	$watchstar.on( 'click', ( ev ) => {
 		if ( !watchCtaDrawer ) {
 			watchCtaDrawer = CtaDrawer( {
 				content: mw.msg( 'minerva-watchlist-cta' ),

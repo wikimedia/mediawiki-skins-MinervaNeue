@@ -98,7 +98,7 @@ function hookHandler( listItem, data ) {
 function init() {
 	Array.prototype.forEach.call(
 		document.querySelectorAll( '.mw-list-item-js' ),
-		function ( item ) {
+		( item ) => {
 			hookHandler( item, {
 				id: item.getAttribute( 'id' )
 			} );

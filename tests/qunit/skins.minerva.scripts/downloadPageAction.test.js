@@ -46,7 +46,7 @@
 			spy = this.sandbox.stub( window, 'print' );
 
 		handler();
-		d.then( function () {
+		d.then( () => {
 			assert.strictEqual( spy.callCount, 1, 'Print occurred.' );
 		} );
 
@@ -59,12 +59,12 @@
 			handler = this.getOnClickHandler( () => d.resolve() ),
 			spy = this.sandbox.stub( window, 'print' );
 
-		window.setTimeout( function () {
+		window.setTimeout( () => {
 			d.resolve();
 		}, 3400 );
 
 		handler();
-		d.then( function () {
+		d.then( () => {
 			assert.strictEqual( spy.callCount, 1,
 				'Print was called once despite loadImages resolving after MAX_PRINT_TIMEOUT' );
 		} );
@@ -77,13 +77,13 @@
 			handler = this.getOnClickHandler( () => d.resolve() ),
 			spy = this.sandbox.stub( window, 'print' );
 
-		window.setTimeout( function () {
+		window.setTimeout( () => {
 			d.resolve();
 		}, 3400 );
 
 		handler();
 		handler();
-		d.then( function () {
+		d.then( () => {
 			assert.strictEqual( spy.callCount, 1,
 				'Print was called once despite multiple clicks' );
 		} );
@@ -119,7 +119,7 @@
 		assert.false( isAvailable( windowChrome, this.page, VALID_UA, [ 9999 ] ) );
 	} );
 
-	QUnit.test( 'isAvailable() handles missing pages', function ( assert ) {
+	QUnit.test( 'isAvailable() handles missing pages', ( assert ) => {
 		const page = new Page( {
 			id: 0,
 			title: 'Missing',
@@ -128,7 +128,7 @@
 		assert.false( isAvailable( windowChrome, page, VALID_UA, VALID_SUPPORTED_NAMESPACES ) );
 	} );
 
-	QUnit.test( 'isAvailable() handles properly main page', function ( assert ) {
+	QUnit.test( 'isAvailable() handles properly main page', ( assert ) => {
 		const page = new Page( {
 			id: 0,
 			title: 'Test',

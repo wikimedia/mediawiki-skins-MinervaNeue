@@ -66,7 +66,7 @@ function init() {
 		dialogCloseButton = templateElement.querySelector( '.cdx-dialog__header__close-button' ),
 		primaryActionButton = templateElement.querySelector( '.cdx-dialog__footer__primary-action' );
 
-	dialogOverlay.addEventListener( 'click', function ( e ) {
+	dialogOverlay.addEventListener( 'click', ( e ) => {
 		if ( e.target === dialogOverlay ) {
 			closeModal();
 		}

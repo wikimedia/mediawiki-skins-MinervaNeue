@@ -46,11 +46,11 @@ function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, over
 		pageHTMLParser.findChildInSectionLead( parseInt( section, 10 ), selector );
 	// clean it up a little
 	$metadata.find( '.NavFrame' ).remove();
-	$metadata.each( function () {
-		const $this = $( this );
+	$metadata.each( ( _i, el ) => {
+		const $el = $( el );
 
-		if ( $this.find( selector ).length === 0 ) {
-			const issueSummary = pageIssuesParser.extract( $this );
+		if ( $el.find( selector ).length === 0 ) {
+			const issueSummary = pageIssuesParser.extract( $el );
 			// Some issues after "extract" has been run will have no text.
 			// For example in Template:Talk header the table will be removed and no issue found.
 			// These should not be rendered.
@@ -61,7 +61,7 @@ function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, over
 	} );
 
 	if ( inline ) {
-		issueSummaries.forEach( function ( issueSummary, i ) {
+		issueSummaries.forEach( ( issueSummary, i ) => {
 			const isGrouped = issueSummary.issue.grouped;
 			const lastIssueIsGrouped = issueSummaries[ i - 1 ] &&
 				issueSummaries[ i - 1 ].issue.grouped;
@@ -101,9 +101,7 @@ function getIssues( allIssues, section ) {
 	// It will only exist when Minerva has been run in desktop mode.
 	// If it's absent, we'll reduce all the other lists into one.
 	return allIssues[ KEYWORD_ALL_SECTIONS ] || Object.keys( allIssues ).reduce(
-		function ( all, key ) {
-			return all.concat( allIssues[ key ] );
-		},
+		( all, key ) => all.concat( allIssues[ key ] ),
 		[]
 	);
 }
@@ -155,7 +153,7 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 				// parse other sections but only in group B. In treatment A no issues are shown
 				// for sections.
 				pageHTMLParser.$el.find( PageHTMLParser.HEADING_SELECTOR ).each(
-					function ( i, headingEl ) {
+					( i, headingEl ) => {
 						const $headingEl = $( headingEl );
 						// section number is absent on protected pages, when this is the case
 						// use i, otherwise icon will not show (T340910)
@@ -180,11 +178,9 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 	}
 
 	// Setup the overlay route.
-	overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), function ( s ) {
-		return pageIssuesOverlay(
-			getIssues( allIssues, s ), s, CURRENT_NS
-		);
-	} );
+	overlayManager.add( new RegExp( '^/issues/(\\d+|' + KEYWORD_ALL_SECTIONS + ')$' ), ( s ) => pageIssuesOverlay(
+		getIssues( allIssues, s ), s, CURRENT_NS
+	) );
 }
 
 module.exports = {

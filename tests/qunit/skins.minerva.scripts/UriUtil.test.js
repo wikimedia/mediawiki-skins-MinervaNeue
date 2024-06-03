@@ -11,7 +11,7 @@
 		}
 	} );
 
-	QUnit.test( '.isInternal()', function ( assert ) {
+	QUnit.test( '.isInternal()', ( assert ) => {
 		assert.true(
 			UriUtil.isInternal( new mw.Uri( '/relative' ) ),
 			'relative URLs are internal'

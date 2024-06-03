@@ -157,7 +157,7 @@
 				overflowList ? null : document.getElementById( 'page-actions-watch' )
 			);
 			if ( portletLink ) {
-				portletLink.addEventListener( 'click', function () {
+				portletLink.addEventListener( 'click', () => {
 					onClick( portletLink, spinner, mobile.loadAllImagesInPage );
 				} );
 				const iconElement = portletLink.querySelector( '.minerva-icon' );

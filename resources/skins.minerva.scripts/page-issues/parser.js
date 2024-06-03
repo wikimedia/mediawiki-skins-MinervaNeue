@@ -108,7 +108,7 @@
 	 */
 	function parseSeverity( box ) {
 		let severity;
-		const identified = Object.keys( SEVERITY_REGEX ).some( function ( key ) {
+		const identified = Object.keys( SEVERITY_REGEX ).some( ( key ) => {
 			const regex = SEVERITY_REGEX[ key ];
 			severity = key;
 			return regex.test( box.className );
@@ -123,7 +123,7 @@
 	 */
 	function parseType( box, severity ) {
 		let identifiedType;
-		const identified = Object.keys( TYPE_REGEX ).some( function ( type ) {
+		const identified = Object.keys( TYPE_REGEX ).some( ( type ) => {
 			const regex = TYPE_REGEX[ type ];
 			identifiedType = type;
 			return regex.test( box.className );
@@ -159,9 +159,7 @@
 	 * @return {string} The greatest SEVERITY_LEVEL key.
 	 */
 	function maxSeverity( severityLevels ) {
-		return severityLevels.reduce( function ( max, severity ) {
-			return SEVERITY_LEVEL[ max ] > SEVERITY_LEVEL[ severity ] ? max : severity;
-		}, 'DEFAULT' );
+		return severityLevels.reduce( ( max, severity ) => SEVERITY_LEVEL[ max ] > SEVERITY_LEVEL[ severity ] ? max : severity, 'DEFAULT' );
 	}
 
 	/**
@@ -190,11 +188,11 @@
 		const SELECTOR = '.mbox-text, .ambox-text';
 		const $container = $( '<div>' );
 
-		$box.find( SELECTOR ).each( function () {
-			const $this = $( this );
+		$box.find( SELECTOR ).each( ( _i, el ) => {
+			const $el = $( el );
 			// Clean up talk page boxes
-			$this.find( 'table, .noprint' ).remove();
-			const contents = $this.html();
+			$el.find( 'table, .noprint' ).remove();
+			const contents = $el.html();
 
 			if ( contents ) {
 				$( '<p>' ).html( contents ).appendTo( $container );

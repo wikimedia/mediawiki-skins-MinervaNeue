@@ -14,7 +14,7 @@ function discardDrawer( drawer ) {
 	// This works around an issue in MobileFrontend that the Drawer onBeforeHide method is
 	// called /before/ the animation for closing has completed. This needs to be accounted
 	// for in Drawer so this function can be synchronous.
-	setTimeout( function () {
+	setTimeout( () => {
 		// detach the node from the DOM. Use detach rather than remove to allow reuse without
 		// losing any existing events.
 		drawer.$el.detach();
@@ -37,7 +37,7 @@ function displayDrawer( drawer, options ) {
 	$drawerContainer.append( drawer.$el );
 	drawer.show();
 	if ( options.hideOnScroll ) {
-		$( window ).one( 'scroll.drawer', function () {
+		$( window ).one( 'scroll.drawer', () => {
 			drawer.hide();
 		} );
 	}

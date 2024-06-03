@@ -24,14 +24,14 @@
 
 	QUnit.module( 'Minerva pageIssues' );
 
-	QUnit.test( 'insertBannersOrNotice() should add a "learn more" message', function ( assert ) {
+	QUnit.test( 'insertBannersOrNotice() should add a "learn more" message', ( assert ) => {
 		assert.true( /⧼skin-minerva-issue-learn-more⧽/.test( processedAmbox.html() ) );
 	} );
 
-	QUnit.test( 'insertBannersOrNotice() should add an icon', function ( assert ) {
+	QUnit.test( 'insertBannersOrNotice() should add an icon', ( assert ) => {
 		assert.true( /(minerva-icon)/.test( processedAmbox.html() ) );
 	} );
-	QUnit.test( 'clicking on the product of insertBannersOrNotice() should trigger a URL change', function ( assert ) {
+	QUnit.test( 'clicking on the product of insertBannersOrNotice() should trigger a URL change', ( assert ) => {
 		processedAmbox.click();
 		assert.strictEqual( window.location.hash, '#/issues/' + SECTION );
 	} );
