@@ -135,7 +135,7 @@ class SkinMinerva extends SkinMustache {
 	private function hasPageActions(): bool {
 		$title = $this->getTitle();
 		return !$title->isSpecialPage() && !$title->isMainPage() &&
-			$this->getContext()->getActionName() === 'view';
+			$this->getActionName() === 'view';
 	}
 
 	/**
@@ -149,8 +149,7 @@ class SkinMinerva extends SkinMustache {
 	 * @return bool
 	 */
 	private function isFallbackEditor(): bool {
-		$action = $this->getContext()->getActionName();
-		return $action === 'edit';
+		return $this->getActionName() === 'edit';
 	}
 
 	/**
@@ -554,7 +553,7 @@ class SkinMinerva extends SkinMustache {
 
 		$userMenuDirector = new UserMenuDirector(
 			$builder,
-			$this->getContext()->getSkin()
+			$this->getSkin()
 		);
 		return $userMenuDirector->renderMenuData( $personalUrls );
 	}
@@ -672,7 +671,7 @@ class SkinMinerva extends SkinMustache {
 		$attributes = parent::getHtmlElementAttributes();
 
 		// check to see if night mode is enabled via query params or by config
-		$webRequest = $this->getContext()->getRequest();
+		$webRequest = $this->getRequest();
 		$forceNightMode = $webRequest->getRawVal( 'minervanightmode' );
 
 		// get skin config of night mode to check what is execluded
@@ -680,7 +679,7 @@ class SkinMinerva extends SkinMustache {
 		$featuresHelper = new FeaturesHelper();
 		$shouldDisableNightMode = $featuresHelper->shouldDisableNightMode( $nightModeConfig,
 			$webRequest,
-			$this->getContext()->getTitle()
+			$this->getTitle()
 		);
 
 		if (
@@ -792,7 +791,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getHistoryLink( Title $title ): ?array {
 		if ( !$title->exists() ||
-			$this->getContext()->getActionName() !== 'view'
+			$this->getActionName() !== 'view'
 		) {
 			return null;
 		}
@@ -1039,7 +1038,7 @@ class SkinMinerva extends SkinMustache {
 		// enable toggling of the filters.
 		// Long term this won't be necessary when T111565 is resolved and a
 		// more general solution can be used.
-		if ( $this->getContext()->getActionName() !== 'history' ) {
+		if ( $this->getActionName() !== 'history' ) {
 			// dequeue default content modules (toc, collapsible, etc.)
 			$modules['content'] = array_diff( $modules['content'], [
 				// T111565
@@ -1073,7 +1072,7 @@ class SkinMinerva extends SkinMustache {
 		$styles = [];
 		$title = $this->getTitle();
 		$request = $this->getRequest();
-		$requestAction = $this->getContext()->getActionName();
+		$requestAction = $this->getActionName();
 		$viewAction = $requestAction === 'view';
 
 		// Warning box styles are needed when reviewing old revisions
