@@ -4,7 +4,8 @@
 			"CorrelMoris38",
 			"Jilorisa",
 			"Meqqal",
-			"Jjurieee"
+			"Jjurieee",
+			"Rumandawi"
 		]
 	},
 	"minerva-last-modified-date": "Tohuri noidit id $1, ontok $2",
@@ -53,8 +54,8 @@
 	"minerva-skin-desc": "Kulit koiso mudah alih ii responsif",
 	"skin-minerva-issue-learn-more": "Pinsingilo lobi gumu",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 second|$1 seconds}} ditinu",
-	"skin-minerva-time-ago-minutes": "{{PLURAL:$1|$1 minit|$1 minit}} ditinu",
-	"skin-minerva-time-ago-hours": "{{PLURAL:$1|$1 jaam|$1 jaam}} ditinu",
+	"skin-minerva-time-ago-minutes": "{{PLURAL:$1|$1 minit|$1 minit}} nakatalib",
+	"skin-minerva-time-ago-hours": "{{PLURAL:$1|$1 jaam|$1 jaam}} nakatalib",
 	"skin-minerva-time-ago-days": "{{PLURAL:$1|$1 tadau|$1 tadau}} nakatalib",
 	"skin-minerva-time-ago-months": "{{PLURAL:$1|$1 wulan|$1 wulan}} nakatalib",
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 toun|$1 toun}} nakatalib",
