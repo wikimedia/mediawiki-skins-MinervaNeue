@@ -92,11 +92,15 @@ html.skin-theme-clientpref-night {
 	color: var( --color-base );
 }
 
+// T365102 invert class specifically for image related elements
+html.skin-theme-clientpref-night .skin-invert-image img,
 html.skin-theme-clientpref-night .skin-invert {
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
 @media ( prefers-color-scheme: dark ) {
+	// T365102 invert class specifically for image related elements
+	html.skin-theme-clientpref-os .skin-invert-image img,
 	html.skin-theme-clientpref-os .skin-invert {
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
