@@ -56,12 +56,12 @@
 	}
 }
 
-@media screen and ( min-width: @width-breakpoint-tablet ) {
+@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 	.minerva-header {
 		.branding-box {
 			// Handle logos that are larger than the set branding box width
 			// This will also cause the searchbox overlay to be misaligned with the .minerva-heading searchbox
-			min-width: @width-branding-box;
+			min-width: @min-width-branding-box-ems;
 			width: auto;
 		}
 
@@ -69,6 +69,15 @@
 			display: block;
 			width: @width-search-box;
 			max-width: @width-search-box;
+		}
+	}
+}
+
+/* FIXME: Remove when T366859 has been addressed */
+@media screen and ( min-width: 720px ) {
+	.minerva-header {
+		.branding-box {
+			min-width: @T366859-min-width-branding-box-ems;
 		}
 	}
 }
