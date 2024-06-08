@@ -27,13 +27,12 @@ use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
-use MediaWiki\Minerva\Menu\PageActions\PageActionsDirector;
+use MediaWiki\Minerva\Menu\PageActions\PageActions;
 use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\DefaultUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
@@ -75,6 +74,7 @@ class SkinMinerva extends SkinMustache {
 	private LinkRenderer $linkRenderer;
 	private LanguagesHelper $languagesHelper;
 	private Definitions $definitions;
+	private PageActions $pageActions;
 	private IMinervaPagePermissions $permissions;
 	private SkinOptions $skinOptions;
 	private SkinUserPageHelper $skinUserPageHelper;
@@ -88,6 +88,7 @@ class SkinMinerva extends SkinMustache {
 	 * @param LinkRenderer $linkRenderer
 	 * @param LanguagesHelper $languagesHelper
 	 * @param Definitions $definitions
+	 * @param PageActions $pageActions
 	 * @param MinervaPagePermissions $permissions
 	 * @param SkinOptions $skinOptions
 	 * @param SkinUserPageHelper $skinUserPageHelper
@@ -102,6 +103,7 @@ class SkinMinerva extends SkinMustache {
 		LinkRenderer $linkRenderer,
 		LanguagesHelper $languagesHelper,
 		Definitions $definitions,
+		PageActions $pageActions,
 		MinervaPagePermissions $permissions,
 		SkinOptions $skinOptions,
 		SkinUserPageHelper $skinUserPageHelper,
@@ -117,6 +119,7 @@ class SkinMinerva extends SkinMustache {
 		$this->languagesHelper = $languagesHelper;
 		$this->definitions = $definitions
 			->setContext( $this->getContext() );
+		$this->pageActions = $pageActions;
 		$this->permissions = $permissions
 			->setContext( $this->getContext() );
 		$this->skinOptions = $skinOptions;
@@ -162,9 +165,8 @@ class SkinMinerva extends SkinMustache {
 		if ( $this->isFallbackEditor() || !$this->hasPageActions() ) {
 			return null;
 		}
-		$services = MediaWikiServices::getInstance();
-		/** @var PageActionsDirector $pageActionsDirector */
-		$pageActionsDirector = $services->getService( 'Minerva.Menu.PageActionsDirector' );
+
+		$pageActionsDirector = $this->pageActions->getPageActionsDirector( $this->getContext() );
 		$sidebar = $this->buildSidebar();
 		$actions = $nav['actions'] ?? [];
 		$views = $nav['views'] ?? [];

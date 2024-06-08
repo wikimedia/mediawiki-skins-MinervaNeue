@@ -120,6 +120,7 @@
 				"LinkRenderer",
 				"Minerva.LanguagesHelper",
 				"Minerva.Menu.Definitions",
+				"Minerva.Menu.PageActions",
 				"Minerva.Permissions",
 				"Minerva.SkinOptions",
 				"Minerva.SkinUserPageHelper",
