@@ -65,7 +65,7 @@
 	"minerva-page-actions-overflow": "Plus",
 	"minerva-page-actions-language-switcher": "Langues",
 	"minerva-page-actions-history": "Historique",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Discussion]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Discussion]",
 	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Un habillage réactif conçu pour les mobiles",
 	"skin-minerva-issue-learn-more": "En savoir plus",
@@ -83,6 +83,9 @@
 	"skin-minerva-night-mode-unavailable": "Page disponible uniquement avec le thème de couleur « Jour ».",
 	"skin-minerva-night-mode-launch-title": "Les nouvelles couleurs de Wikipédia",
 	"skin-minerva-night-mode-launch-subtitle": "Essayez le mode sombre aujourd'hui",
+	"skin-minerva-night-mode-launch-description-night": "La couleur de Wikipédia a changé car votre appareil est réglé en mode sombre. Vous pouvez modifier vos préférences de couleur à tout moment dans les Paramètres.",
+	"skin-minerva-night-mode-launch-description-day": "Wikipédia est désormais disponible dans un schéma de couleurs « sombres ». Essayez-le en appuyant sur « Paramètres » dans le menu principal.",
+	"skin-minerva-night-mode-launch-settings-label": "Aller dans les paramètres",
 	"skin-minerva-night-mode-launch-close-label": "Fermer",
 	"minerva.css": "/* Tout CSS placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */",
 	"minerva.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */"

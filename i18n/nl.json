@@ -33,7 +33,7 @@
 	"mobile-frontend-main-menu-login": "Aanmelden",
 	"mobile-frontend-main-menu-logout": "Afmelden",
 	"mobile-frontend-main-menu-nearby": "In de buurt",
-	"mobile-frontend-main-menu-settings": "Instellingen",
+	"mobile-frontend-main-menu-settings": "Voorkeuren",
 	"mobile-frontend-main-menu-watchlist": "Volglijst",
 	"mobile-frontend-meta-data-issues": "Paginaproblemen",
 	"mobile-frontend-meta-data-issues-categories": "Over deze categorie",
@@ -67,5 +67,9 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Categorieën",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Toon paginacategorieën",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Helaas is het groeperen van resultaten per pagina niet beschikbaar in de mobiele weergave. Als u deze functionaliteit wilt gebruiken, bezoek dan de desktop weergave.",
-	"skin-minerva-night-mode-unavailable": "Pagina alleen beschikbaar in het kleurenthema \"Licht\"."
+	"skin-minerva-night-mode-unavailable": "Pagina alleen beschikbaar in het kleurenthema \"Licht\".",
+	"skin-minerva-night-mode-launch-title": "Wikipedia's nieuwe kleuren",
+	"skin-minerva-night-mode-launch-subtitle": "Probeer de donkere modus vandaag",
+	"skin-minerva-night-mode-launch-settings-label": "Naar de instellingen",
+	"skin-minerva-night-mode-launch-close-label": "Sluiten"
 }
