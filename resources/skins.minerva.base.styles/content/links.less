@@ -10,7 +10,7 @@
  * This can be removed when Minerva uses ResourceLoaderSkinModule `elements` feature.
 */
 a:not( [ href ] ) {
-	color: var( --color-base );
+	color: @color-base;
 	/* The anchor is functionally a link so show a hand cursor. */
 	cursor: pointer;
 }
@@ -26,13 +26,13 @@ a {
 	/* :visited code block can be removed
 	 * when Minerva uses ResourceLoaderSkinModule `elements` feature. */
 	&:visited {
-		color: var( --color-visited );
+		color: @color-visited;
 	}
 
 	/* :active code block can be removed
 	 * when Minerva uses ResourceLoaderSkinModule `elements` feature. */
 	&:active {
-		color: var( --color-progressive--active );
+		color: @color-progressive--active;
 	}
 
 	/* :hover code block can be removed

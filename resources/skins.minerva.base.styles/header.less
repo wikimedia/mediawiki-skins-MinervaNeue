@@ -3,7 +3,7 @@
 	padding: 0 @padding-content;
 
 	&.header-chrome {
-		background-color: var( --background-color-interactive );
+		background-color: @background-color-interactive;
 		border: 0;
 		box-shadow: inset 0 -1px 3px rgba( 0, 0, 0, 0.08 );
 	}
@@ -22,7 +22,7 @@
 			margin-left: 5px;
 			font-size: 1em;
 			text-decoration: none;
-			color: var( --color-base );
+			color: @color-base;
 
 			span {
 				line-height: 0;
@@ -34,7 +34,7 @@
 			}
 
 			sup {
-				color: var( --color-subtle );
+				color: @color-subtle;
 				display: none;
 
 				.beta & {

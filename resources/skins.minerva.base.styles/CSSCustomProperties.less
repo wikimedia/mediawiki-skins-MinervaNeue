@@ -66,7 +66,7 @@ html.skin-theme-clientpref-night {
 *     has to be applied to avoid inverting night-mode colors.
 *
 * .notheme - This class prevents night mode from being applied to a specific element. It needs the
-*     the light mode color palette, and includes an opinionated color: var( --color-base ); rule
+*     the light mode color palette, and includes an opinionated color: @color-base; rule
 *     since the main assumption underlying the light theme is black text.
 */
 
@@ -89,7 +89,7 @@ html.skin-theme-clientpref-night {
 .skin-invert,
 .notheme {
 	color-scheme: light;
-	color: var( --color-base );
+	color: @color-base;
 }
 
 // T365102 invert class specifically for image related elements

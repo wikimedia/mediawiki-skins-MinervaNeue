@@ -27,8 +27,8 @@ table.ambox {
 	cursor: pointer;
 	width: auto;
 	// !important needed to override core ambox styles
-	background: var( --background-color-interactive-subtle ) !important;
-	color: var( --color-subtle );
+	background: @background-color-interactive-subtle !important;
+	color: @color-subtle;
 	margin-bottom: 1px;
 
 	tbody {
@@ -129,7 +129,7 @@ table.ambox {
 			height: 100%;
 			box-sizing: content-box; // explicitly setting box-sizing so padding extends beyond 100%.
 			padding-left: 4em;
-			background: linear-gradient( to right, transparent 0, var( --background-color-interactive-subtle ) 3em );
+			background: linear-gradient( to right, transparent 0, @background-color-interactive-subtle 3em );
 		}
 	}
 
