@@ -52,7 +52,7 @@
 	"minerva-page-actions-overflow": "Mer",
 	"minerva-page-actions-language-switcher": "Språk",
 	"minerva-page-actions-history": "Historikk",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Diskusjon]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Diskusjon]",
 	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Ei responsiv drakt for mobil-først.",
 	"skin-minerva-issue-learn-more": "Lær mer",
@@ -68,6 +68,12 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sideproblemer (Mal:ambox) vises i artikkelteksten.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Dessverre er ikke gruppering av resultater tilgjengelig på mobil. Om du ønsker å bruke denne funksjonen, besøk datamaskinversjonen av nettstedet.",
 	"skin-minerva-night-mode-unavailable": "Siden er kun tilgjengelig med fargetemaet «Lys».",
+	"skin-minerva-night-mode-launch-title": "Wikipedias nye farger",
+	"skin-minerva-night-mode-launch-subtitle": "Prøv mørk modus i dag",
+	"skin-minerva-night-mode-launch-description-night": "Wikipedias farger har endret seg fordi enheten din er satt til å bruke mørk modus. Du kan endre fargepreferansene dine når som helst i innstillingene.",
+	"skin-minerva-night-mode-launch-description-day": "Wikipedia er nå tilgjengelig i mørke farger. Prøv det ved å trykke på «Innstillinger» i hovedmenyen.",
+	"skin-minerva-night-mode-launch-settings-label": "Gå til innstillingene",
+	"skin-minerva-night-mode-launch-close-label": "Lukk",
 	"minerva.css": "/* CSS i denne fila vil gjelde alle som bruker drakta MinervaNeue */",
 	"minerva.js": "/* Javascript i denne fila vil gjelde for brukere av drakta MinervaNeue */"
 }
