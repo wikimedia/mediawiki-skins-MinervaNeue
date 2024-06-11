@@ -93,7 +93,7 @@ ul.mw-contributions-list li > * {
 }
 
 .mw-plusminus-null {
-	color: var( --color-subtle );
+	color: @color-subtle;
 }
 
 /*
@@ -147,8 +147,8 @@ ul.mw-contributions-list li .mw-rollback-link {
 		// Since the user link is split over two lines,
 		// add the background color on the bdi instead
 		bdi {
-			// var(--background-color-interactive)
-			background-color: var( --background-color-interactive );
+			// @background-color-interactive
+			background-color: @background-color-interactive;
 			padding: 2px 8px 2px 8px;
 			border-radius: @border-radius-base;
 		}
@@ -187,12 +187,12 @@ ul.mw-contributions-list li .mw-rollback-link {
 			float: none;
 
 			a {
-				color: var( --color-subtle );
+				color: @color-subtle;
 			}
 		}
 
 		.mw-userlink {
-			color: var( --color-subtle );
+			color: @color-subtle;
 			display: block;
 
 			bdi {
@@ -261,7 +261,7 @@ ul.mw-contributions-list li .mw-rollback-link {
 			.comment {
 				-webkit-line-clamp: 2;
 				max-height: 2.6em;
-				color: var( --color-subtle );
+				color: @color-subtle;
 				line-height: 1.4;
 				white-space: normal;
 				display: -webkit-box;
@@ -274,16 +274,16 @@ ul.mw-contributions-list li .mw-rollback-link {
 
 			.mw-userlink::before {
 				content: '';
-				.cdx-mixin-css-icon( @cdx-icon-user-avatar, var(--color-subtle) );
+				.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-subtle );
 				margin-right: 8px;
 			}
 
 			.mw-anonuserlink::before {
-				.cdx-mixin-css-icon( @cdx-icon-user-anonymous, var(--color-subtle) );
+				.cdx-mixin-css-icon( @cdx-icon-user-anonymous, @color-subtle );
 			}
 
 			.mw-tempuserlink::before {
-				.cdx-mixin-css-icon( @cdx-icon-user-temporary, var(--color-subtle) );
+				.cdx-mixin-css-icon( @cdx-icon-user-temporary, @color-subtle );
 			}
 		}
 	}

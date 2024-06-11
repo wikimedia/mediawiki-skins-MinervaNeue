@@ -19,7 +19,7 @@
 
 .minoredit {
 	margin-right: 8px;
-	background: var( --background-color-interactive );
+	background: @background-color-interactive;
 	border-radius: 2px;
 	font-size: 0.9em;
 	padding: 0 6px 1px;
@@ -120,7 +120,7 @@
 		right: 8px;
 
 		.jquery-confirmable-interface {
-			background-color: var( --background-color-interactive-subtle );
+			background-color: @background-color-interactive-subtle;
 			border: @border-subtle;
 			padding: @spacing-50;
 		}
@@ -142,11 +142,11 @@
 		&::before {
 			content: '';
 			margin-right: 8px;
-			.cdx-mixin-css-icon( @cdx-icon-user-avatar, var(--color-subtle) );
+			.cdx-mixin-css-icon( @cdx-icon-user-avatar, @color-subtle);
 		}
 
 		&.mw-anonuserlink::before {
-			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, var(--color-subtle) );
+			.cdx-mixin-css-icon( @cdx-icon-user-anonymous, @color-subtle);
 		}
 	}
 

@@ -6,7 +6,7 @@
 	position: relative;
 
 	.tagline {
-		color: var( --color-subtle );
+		color: @color-subtle;
 		font-size: @font-size-tag-line;
 	}
 }
@@ -28,7 +28,7 @@
 
 .page-actions-menu {
 	box-sizing: border-box;
-	border-top: @border-width-base @border-style-base var( --border-color-muted );
+	border-top: @border-width-base @border-style-base @border-color-muted;
 	border-bottom: @border-subtle;
 	margin-top: -@border-width-base; // Offset top border.
 }
@@ -47,7 +47,7 @@
 	overflow: hidden;
 
 	.cdx-button {
-		color: var( --color-subtle ) !important;
+		color: @color-subtle !important;
 		font-weight: 500;
 	}
 }
