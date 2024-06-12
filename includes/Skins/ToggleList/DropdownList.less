@@ -8,7 +8,8 @@
 	overflow-y: auto;
 	// The menu floats over content but below overlays.
 	z-index: @z-index-drawer;
-	box-shadow: 0 5px 17px 0 rgba( 0, 0, 0, 0.24 ), 0 0 1px #a2a9b1;
+	// Two box-shadows: first creates a drop-shadow, second acts as a subtle border.
+	box-shadow: 0 5px 17px 0 rgba( 0, 0, 0, 0.24 ), 0 0 1px @border-color-base;
 	visibility: hidden;
 	opacity: 0;
 	transform: translateY( -8px );
