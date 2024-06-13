@@ -163,11 +163,26 @@ main {
 	}
 
 	.mw-parser-output {
+		// We want to apply display: flex to the heading wrapper elements to style them right (T305971),
+		// but not to the heading text elements, because it results in bad text layout (T367468).
+		// This turns out to be difficult, because mobile/desktop, legacy/modern/unwrapped headings,
+		// and DiscussionTools/normal page generate a lot of different combinations of HTML markup.
+
+		// Support modern headings, DiscussionTools, and mobile mode
 		.mw-heading,
-		h1, h2, h3, h4, h5, h6 {
+		.section-heading {
 			display: flex;
 		}
 
+		// Support desktop Minerva legacy headings (this can only be done with a :has() selector,
+		// there's no other way to distinguish them from unwrapped headings, even though it lacks
+		// support for some browsers). Will be no longer needed when legacy headings are gone.
+		// FIXME: Remove this block when $wgParserEnableLegacyHeadingDOM is removed.
+		:is( h1, h2, h3, h4, h5, h6 ):has( .mw-headline ) {
+			display: flex;
+		}
+
+		// FIXME: Remove `.mw-headline` when $wgParserEnableLegacyHeadingDOM is removed.
 		h1, h2, h3, h4, h5, h6,
 		.mw-headline {
 			flex-grow: 1;
