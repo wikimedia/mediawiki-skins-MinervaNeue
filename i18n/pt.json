@@ -53,7 +53,7 @@
 	"minerva-page-actions-overflow": "Mais",
 	"minerva-page-actions-language-switcher": "Línguas",
 	"minerva-page-actions-history": "Histórico",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Discussão]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Discussão]",
 	"minerva-skin-desc": "Um tema inicial de resposta rápida para telemóveis",
 	"skin-minerva-issue-learn-more": "Saiba mais",
 	"skin-minerva-time-ago-seconds": "há {{PLURAL:$1|um segundo|$1 segundos}}",
@@ -66,5 +66,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Mostra as categorias das páginas",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Tratamento melhorado de problemas de páginas",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemas de páginas (Template:ambox) serão incluídos nas linhas do artigo.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Infelizmente, o agrupamento de resultados por página não está disponível na versão de acesso móvel. Se pretende usar a funcionalidade de agrupamento por página visite a versão do ''site'' para acesso por computador de secretária."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Infelizmente, o agrupamento de resultados por página não está disponível na versão de acesso móvel. Se pretende usar a funcionalidade de agrupamento por página visite a versão do ''site'' para acesso por computador de secretária.",
+	"skin-minerva-night-mode-unavailable": "Página só disponível no tema de cores \"Claro\"."
 }
