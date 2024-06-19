@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amankel'dy",
 			"Arystanbek",
 			"Casserium",
 			"Fontan 030",
@@ -60,5 +61,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Беттердің санаттарын қарау",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Жақсартылған бет мәселелерін өңдеу",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Бетке қатысты мәселелер (Үлгі:ambox) мақалаға қосылады.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Өкінішке орай, ұялы телефондарда нәтижелерді бет бойынша топтау мүмкін емес. Бұл мүмкіндікті пайдаланғыңыз келсе жұмыс үстелі нұсқасына кіріңіз."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Өкінішке орай, ұялы телефондарда нәтижелерді бет бойынша топтау мүмкін емес. Бұл мүмкіндікті пайдаланғыңыз келсе жұмыс үстелі нұсқасына кіріңіз.",
+	"skin-minerva-night-mode-launch-subtitle": "Бүгін қараңғы күйді қосып көріңіз"
 }
