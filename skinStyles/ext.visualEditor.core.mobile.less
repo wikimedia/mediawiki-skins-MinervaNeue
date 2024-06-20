@@ -1,0 +1,30 @@
+@import 'mediawiki.skin.variables.less';
+
+/**
+ * FIXME: The following styles should be removed
+ * once https://gerrit.wikimedia.org/r/c/VisualEditor/VisualEditor/+/1048068 is merged.
+ */
+
+.skin-theme-clientpref-night {
+	.ve-ui-mobileContext {
+		background: @background-color-base;
+	}
+
+	.ve-ce-branchNode-blockSlug,
+	body p.ve-ce-branchNode-newSlug {
+		background-color: rgba( 241, 247, 251, 0.1 );
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	html.skin-theme-clientpref-os {
+		.ve-ui-mobileContext {
+			background: @background-color-base;
+		}
+
+		.ve-ce-branchNode-blockSlug,
+		body p.ve-ce-branchNode-newSlug {
+			background-color: rgba( 241, 247, 251, 0.1 );
+		}
+	}
+}
