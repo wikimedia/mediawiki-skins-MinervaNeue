@@ -172,6 +172,8 @@ main {
 		.mw-heading,
 		.section-heading {
 			display: flex;
+			// T356513: display after floated elements
+			min-width: fit-content;
 		}
 
 		// Support desktop Minerva legacy headings (this can only be done with a :has() selector,
