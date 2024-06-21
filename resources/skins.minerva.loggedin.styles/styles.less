@@ -4,6 +4,19 @@
 	.cdx-mixin-css-icon( @cdx-icon-bell-outline, @color-subtle);
 }
 
+// Change color of notification icon to match inverted icons in dark-mode.
+.skin-theme-clientpref-night {
+	.minerva-icon--bellOutline-base20 {
+		background-color: @border-color-interactive;
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	.skin-theme-clientpref-os {
+		background-color: @border-color-interactive;
+	}
+}
+
 //
 // Technical debt relating to Minerva mobile having a single
 // Echo icon rather than 2.
