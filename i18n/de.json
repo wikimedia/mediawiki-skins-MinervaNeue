@@ -73,8 +73,8 @@
 	"skin-minerva-night-mode-unavailable": "Seite nur im Farbschema „Hell“ verfügbar.",
 	"skin-minerva-night-mode-launch-title": "Die neuen Farben von Wikipedia",
 	"skin-minerva-night-mode-launch-subtitle": "Probiere noch heute den Dunkelmodus aus",
-	"skin-minerva-night-mode-launch-description-night": "Die Farbe von Wikipedia hat sich geändert, weil dein Gerät auf den Dunkelmodus eingestellt ist. Du kannst die Farbeinstellungen jederzeit in den Einstellungen ändern.",
-	"skin-minerva-night-mode-launch-description-day": "Wikipedia ist jetzt in einem „dunklen“ Farbschema verfügbar. Probiere es aus, indem du im Hauptmenü auf „Einstellungen“ tippst.",
+	"skin-minerva-night-mode-launch-description-night": "Wikipedia ist jetzt im Dunkelmodus verfügbar. {{#FORMAL|Probiere es aus, indem du im Hauptmenü auf „Einstellungen“ tippst|Probieren Sie es aus, indem Sie im Hauptmenü auf „Einstellungen“ tippen}}.",
+	"skin-minerva-night-mode-launch-description-day": "Wikipedia ist jetzt im Dunkelmodus verfügbar. {{#FORMAL|Probiere es aus, indem du im Hauptmenü auf „Einstellungen“ tippst|Probieren Sie es aus, indem Sie im Hauptmenü auf „Einstellungen“ tippen}}.",
 	"skin-minerva-night-mode-launch-settings-label": "Gehe zu den Einstellungen",
 	"skin-minerva-night-mode-launch-close-label": "Schließen"
 }

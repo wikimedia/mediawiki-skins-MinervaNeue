@@ -7,6 +7,7 @@
 			"Chidananda Kampa",
 			"Kiranpoojary",
 			"Lokesha kunchadka",
+			"Mahaveer Indra",
 			"VASANTH S.N.",
 			"Vishwanatha Badikana"
 		]
@@ -23,5 +24,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "ಈ ಪುಟೊದ ಪ್ರಮುಕೊ ವಿಬಾಗೊನು ಸಂಪೊಲಿಪುಲೆ.",
 	"mobile-frontend-placeholder": "{{SITENAME}}ನ್ ನಾಡ್‍ಲೆ",
 	"mobile-frontend-random-button": "ಒವ್ವಾಂಡಲ",
-	"minerva-page-actions-overflow": "ನನಾತ್"
+	"minerva-page-actions-overflow": "ನನಾತ್",
+	"skin-minerva-night-mode-launch-settings-label": "ಸೆಟ್ಟಿಂಗ್‍ಗ್ ಪೋಲೆ"
 }
