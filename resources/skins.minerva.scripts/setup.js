@@ -1,6 +1,7 @@
 /**
  * This setups the Minerva skin.
  * It should run without errors even if MobileFrontend is not installed.
+ * @ignore
  */
 const ms = require( 'mobile.startup' );
 const reportIfNightModeWasDisabledOnPage = require( './reportIfNightModeWasDisabledOnPage.js' );

@@ -6,7 +6,8 @@ const
 /**
  * IssueList
  *
- * @class IssueList
+ * @class
+ * @ignore
  * @extends View
  *
  * @param {IssueSummary} issues

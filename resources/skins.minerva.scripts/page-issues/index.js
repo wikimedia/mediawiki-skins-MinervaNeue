@@ -1,4 +1,7 @@
-/** @typedef {Object.<string, IssueSummary[]>} IssueSummaryMap */
+/**
+ * @typedef {Object.<string, IssueSummary[]>} IssueSummaryMap
+ * @ignore
+ */
 
 const PageHTMLParser = require( 'mobile.startup' ).PageHTMLParser;
 const KEYWORD_ALL_SECTIONS = 'all';
@@ -88,7 +91,9 @@ function insertBannersOrNotice( pageHTMLParser, labelText, section, inline, over
 /**
  * Obtains the list of issues for the current page and provided section
  *
- * @param {IssueSummaryMap} allIssues mapping section {number} to {IssueSummary}
+ * @ignore
+ * @param {IssueSummaryMap} allIssues Mapping section {number}
+ *  to {IssueSummary}
  * @param {number|string} section either KEYWORD_ALL_SECTIONS or a number relating to the
  *                                section the issues belong to
  * @return {jQuery[]} array of all issues.
