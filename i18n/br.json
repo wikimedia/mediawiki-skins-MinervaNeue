@@ -66,5 +66,11 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Tretamant kudennoù ar bajenn gwellaet",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Enlinnennet e vo kudennoù ar bajenn (Patrom:ambox) er pennad.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Siwazh, ne c’heller ket strollañ an disoc’hoù dre bajenn gant an hezoug. Mar kirit ober gant ar fonksionelezh strollañ dre bajenn grit mar plij gant al lec’hienn vurev.",
-	"skin-minerva-night-mode-unavailable": "Pajenn hegerz e tem liv \"Light\" hepken."
+	"skin-minerva-night-mode-unavailable": "Pajenn hegerz e tem liv \"Light\" hepken.",
+	"skin-minerva-night-mode-launch-title": "Livioù nevez Wikipedia",
+	"skin-minerva-night-mode-launch-subtitle": "Esaeit mod teñval hiviz",
+	"skin-minerva-night-mode-launch-description-night": "Bremañ e c’heller ober gant Wikipedia er mod teñval. Esaeit anezhañ dre bouezañ war \"Arventennoù\" el lañser pennañ.",
+	"skin-minerva-night-mode-launch-description-day": "Bremañ e c’heller ober gant Wikipedia er mod teñval. Esaeit anezhañ dre bouezañ war \"Arventennoù\" el lañser pennañ.",
+	"skin-minerva-night-mode-launch-settings-label": "Mont d’an arventennoù",
+	"skin-minerva-night-mode-launch-close-label": "Serriñ"
 }
