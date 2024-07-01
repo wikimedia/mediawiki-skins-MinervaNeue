@@ -4,7 +4,7 @@ const BODY_CLASS_SCROLL_LOCKED = 'has-drawer--with-scroll-locked';
 /**
  * Discard a drawer from display on the page.
  *
- * @ignore
+ * @private
  * @param {Drawer} drawer
  */
 function discardDrawer( drawer ) {
@@ -23,6 +23,7 @@ function discardDrawer( drawer ) {
 
 /**
  * Lock scroll of viewport.
+ * @ignore
  */
 function lockScroll() {
 	$drawerContainer.addClass( BODY_CLASS_SCROLL_LOCKED );
@@ -32,6 +33,7 @@ function lockScroll() {
  * @param {Drawer} drawer to display
  * @param {Object} options for display
  * @param {boolean} options.hideOnScroll whether a scroll closes the drawer
+ * @ignore
  */
 function displayDrawer( drawer, options ) {
 	$drawerContainer.append( drawer.$el );
@@ -43,7 +45,7 @@ function displayDrawer( drawer, options ) {
 	}
 }
 module.exports = {
-	displayDrawer: displayDrawer,
-	lockScroll: lockScroll,
-	discardDrawer: discardDrawer
+	displayDrawer,
+	lockScroll,
+	discardDrawer
 };

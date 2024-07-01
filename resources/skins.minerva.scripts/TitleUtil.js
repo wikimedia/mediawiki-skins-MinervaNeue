@@ -37,6 +37,7 @@ const UriUtil = require( './UriUtil.js' );
  *
  * This function doesn't throw. `null` is returned for any unparseable input.
  *
+ * @ignore
  * @param {mw.Uri|Object|string} [uri] Passed to Uri.
  * @param {Object|boolean} [options] Passed to Uri.
  * @param {Object|boolean} [options.validateReadOnlyLink] If true, only links that would show a
@@ -131,5 +132,5 @@ function isReadOnlyUri( uri ) {
 }
 
 module.exports = {
-	newFromUri: newFromUri
+	newFromUri
 };

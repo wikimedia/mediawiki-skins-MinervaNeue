@@ -1,11 +1,13 @@
 /**
  * @typedef PageIssue
+ * @ignore
  * @property {string} severity A SEVERITY_LEVEL key.
  * @property {boolean} grouped True if part of a group of multiple issues, false if singular.
  * @property {Icon} icon
  */
 /**
  * @typedef {Object} IssueSummary
+ * @ignore
  * @property {PageIssue} issue
  * @property {jQuery} $el where the issue was extracted from
  * @property {string} iconString a string representation of icon.
@@ -104,6 +106,7 @@ const TYPE_SEVERITY = {
 /**
  * @param {Element} box
  * @return {string} An SEVERITY_SELECTOR key.
+ * @private
  */
 function parseSeverity( box ) {
 	let severity;
@@ -119,6 +122,7 @@ function parseSeverity( box ) {
  * @param {Element} box
  * @param {string} severity An SEVERITY_LEVEL key.
  * @return {{name: string, severity: string}} An ICON_NAME.
+ * @private
  */
 function parseType( box, severity ) {
 	let identifiedType;
@@ -136,12 +140,14 @@ function parseType( box, severity ) {
 /**
  * @param {Element} box
  * @return {boolean} True if part of a group of multiple issues, false if singular.
+ * @private
  */
 function parseGroup( box ) {
 	return !!box.parentNode && GROUPED_PARENT_REGEX.test( box.parentNode.className );
 }
 
 /**
+ * @ignore
  * @param {Element} box
  * @param {string} severity An SEVERITY_LEVEL key.
  * @return {string} A severity or type ISSUE_ICON.
@@ -154,6 +160,7 @@ function iconName( box, severity ) {
 }
 
 /**
+ * @ignore
  * @param {string[]} severityLevels an array of SEVERITY_KEY values.
  * @return {string} The greatest SEVERITY_LEVEL key.
  */
@@ -162,6 +169,7 @@ function maxSeverity( severityLevels ) {
 }
 
 /**
+ * @ignore
  * @param {Element} box
  * @return {PageIssue}
  */
@@ -180,6 +188,7 @@ function parse( box ) {
  * Extract a summary message from a cleanup template generated element that is
  * friendly for mobile display.
  *
+ * @ignore
  * @param {Object} $box element to extract the message from
  * @return {IssueSummary}
  */

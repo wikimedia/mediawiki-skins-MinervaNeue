@@ -20,6 +20,7 @@
  *     https://en.wikipedia.org/
  *     https://en.wikipedia.org/wiki/Bar
  *
+ * @ignore
  * @param {mw.Uri} uri
  * @return {boolean}
  */
@@ -33,5 +34,5 @@ function isInternal( uri ) {
 }
 
 module.exports = {
-	isInternal: isInternal
+	isInternal
 };

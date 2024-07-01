@@ -18,7 +18,7 @@ const CtaDrawer = mobile.CtaDrawer;
  * will be red. In both cases, another user follows this link, not to edit create a page for
  * that user but to obtain information on them.
  *
- * @ignore
+ * @private
  * @param {jQuery} $redLinks
  */
 function initRedlinksCta( $redLinks ) {
@@ -51,6 +51,7 @@ function initRedlinksCta( $redLinks ) {
  * A CtaDrawer should show for anonymous users.
  *
  * @param {jQuery} $watchstar
+ * @ignore
  */
 function initWatchstarCta( $watchstar ) {
 	let watchCtaDrawer;

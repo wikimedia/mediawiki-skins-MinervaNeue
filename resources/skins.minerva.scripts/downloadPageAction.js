@@ -81,6 +81,7 @@ function isAvailable( windowObj, page, userAgent, supportedNamespaces ) {
 /**
  * onClick handler for button that invokes print function
  *
+ * @private
  * @param {HTMLElement} portletItem
  * @param {Icon} spinner
  * @param {Function} [loadAllImagesInPage]
@@ -124,6 +125,7 @@ function onClick( portletItem, spinner, loadAllImagesInPage ) {
  * Calling this method has side effects:
  * It calls mw.util.addPortletLink and may inject an element into the page.
  *
+ * @ignore
  * @param {Page} page
  * @param {number[]} supportedNamespaces
  * @param {Window} [windowObj] window object

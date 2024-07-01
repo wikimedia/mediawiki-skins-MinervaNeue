@@ -7,6 +7,7 @@ const UNWATCHED_ICON_CLASS = 'minerva-icon--star-base20';
  * Tweaks the global watchstar handler in core to use the correct classes for Minerva.
  *
  * @param {jQuery} $icon
+ * @ignore
  */
 function init( $icon ) {
 	const $watchlink = $icon.find( 'a' );
@@ -17,6 +18,7 @@ function init( $icon ) {
  * @param {jQuery} $link
  * @param {boolean} isWatched
  * @param {string} expiry
+ * @private
  */
 function toggleClasses( $link, isWatched, expiry ) {
 	const $icon = $link.find( '.minerva-icon' );
