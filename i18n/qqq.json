@@ -59,7 +59,7 @@
 	"minerva-page-actions-overflow": "In the secondary page menu, short text describing the button that triggers the drop-down menu\n{{Identical|More}}",
 	"minerva-page-actions-language-switcher": "In the secondary page menu, the language switcher item button label\n{{Identical|Language}}",
 	"minerva-page-actions-history": "In the secondary page menu, a short label for the history link",
-	"minerva-prefs-talkpage": "Link to Moderator Tools's talk page which is shown before the preview link in skin preferences.",
+	"minerva-prefs-talkpage": "Link to Minerva Neue talk page which is shown before the preview link in skin preferences.",
 	"skinname-minerva": "{{name}}",
 	"minerva-skin-desc": "{{desc|name=Minerva Neue|url=https://www.mediawiki.org/wiki/Skin:Minerva_Neue|what=skin}}",
 	"skin-minerva-issue-learn-more": "Label for link that allows expanding of ambox issue templates.",
