@@ -15,7 +15,6 @@ const bucket = {
  * Buckets users based on params and exposes an `isSampled` and `getBucket` method.
  *
  * @ignore
- * @ignore
  * @param {Object} config Configuration object for AB test.
  * @param {string} config.testName
  * @param {number} config.samplingRate Sampling rate for the AB-test.
