@@ -69,7 +69,7 @@ html.skin-theme-clientpref-night {
 	.skin-invert,
 	.skin-invert-image img,
 	/* Special treatment of inverted OOUI icons, see T365764 */
-	.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ),
+	.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert ),
 	.oo-ui-indicatorElement-indicator {
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
@@ -78,7 +78,7 @@ html.skin-theme-clientpref-night {
 	double inversion in an already inverted element */
 	.skin-invert,
 	.notheme {
-		.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ),
+		.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert ),
 		.oo-ui-indicatorElement-indicator {
 			filter: none !important;
 		}
