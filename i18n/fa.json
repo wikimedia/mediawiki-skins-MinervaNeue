@@ -64,7 +64,7 @@
 	"minerva-page-actions-overflow": "بیشتر",
 	"minerva-page-actions-language-switcher": "زبان‌ها",
 	"minerva-page-actions-history": "تاریخچه",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|بحث]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue بحث]",
 	"skinname-minerva": "مینروانوئه",
 	"minerva-skin-desc": "پوستۀ واکنش‌گرای موبایل",
 	"skin-minerva-issue-learn-more": "بیشتر بدانید",
@@ -78,5 +78,12 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "نمایش رده‌های صفحات",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "مشکلات بهبود یافته در صفحه",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "مشکلات صفحه (الگو:ambox) لابه‌لای متن مقاله نمایش می‌یابند.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "متأسفانه، دسته‌بندی نتایج بر اساس صفحه در نسخهٔ موبایل ممکن نیست. اگر می‌خواهید نتایج را بر اساس صفحه دسته‌بندی کنید لطفاً نسخهٔ رایانه را بازدید کنید."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "متأسفانه، دسته‌بندی نتایج بر اساس صفحه در نسخهٔ موبایل ممکن نیست. اگر می‌خواهید نتایج را بر اساس صفحه دسته‌بندی کنید لطفاً نسخهٔ رایانه را بازدید کنید.",
+	"skin-minerva-night-mode-unavailable": "این صفحه فقط در تم رنگ «روشن» موجود است.",
+	"skin-minerva-night-mode-launch-title": "رنگ‌های جدید ویکی‌پدیا",
+	"skin-minerva-night-mode-launch-subtitle": "اکنون حالت تاریک را امتحان کنید",
+	"skin-minerva-night-mode-launch-description-night": "ویکی‌پدیا اکنون در حالت تاریک در دسترس است. با ضربه زدن روی «تنظیمات» در منوی اصلی آن را امتحان کنید.",
+	"skin-minerva-night-mode-launch-description-day": "ویکی‌پدیا اکنون در حالت تاریک در دسترس است. با ضربه زدن روی «تنظیمات» در منوی اصلی آن را امتحان کنید.",
+	"skin-minerva-night-mode-launch-settings-label": "رفتن به تنظیمات",
+	"skin-minerva-night-mode-launch-close-label": "بستن"
 }

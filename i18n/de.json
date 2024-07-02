@@ -56,7 +56,7 @@
 	"minerva-page-actions-overflow": "Mehr",
 	"minerva-page-actions-language-switcher": "Sprachen",
 	"minerva-page-actions-history": "Versionsgeschichte",
-	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Diskussion]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Diskussion]",
 	"minerva-skin-desc": "Stellt eine responsive und für mobile Endgeräte geeignete Benutzeroberfläche bereit",
 	"skin-minerva-issue-learn-more": "Mehr erfahren",
 	"skin-minerva-time-ago-seconds": "Vor {{PLURAL:$1|$1 Sekunde|$1 Sekunden}}",

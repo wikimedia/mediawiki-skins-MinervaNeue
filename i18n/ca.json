@@ -10,6 +10,7 @@
 			"Macofe",
 			"Mguix",
 			"Paucabot",
+			"Pginer",
 			"QuimGil",
 			"Skurz0",
 			"Vriullop"
@@ -55,5 +56,12 @@
 	"minerva-page-actions-history": "Historial",
 	"skin-minerva-issue-learn-more": "Més informació",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Categories",
-	"skin-minerva-mobile-option-MinervaShowCategories-description": "Mostra les categories de les pàgines"
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Mostra les categories de les pàgines",
+	"skin-minerva-night-mode-unavailable": "La pàgina només està disponible en el tema de color \"Clar\".",
+	"skin-minerva-night-mode-launch-title": "Els nous colors de la Viquipèdia",
+	"skin-minerva-night-mode-launch-subtitle": "Prova el mode fosc avui",
+	"skin-minerva-night-mode-launch-description-night": "La Viquipèdia ja està disponible en mode fosc. Proveu-ho seleccionant \"Configuració\" al menú principal.",
+	"skin-minerva-night-mode-launch-description-day": "La Viquipèdia ja està disponible en mode fosc. Proveu-ho seleccionant \"Configuració\" al menú principal.",
+	"skin-minerva-night-mode-launch-settings-label": "Ves a la configuració",
+	"skin-minerva-night-mode-launch-close-label": "Tanca"
 }

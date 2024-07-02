@@ -65,7 +65,7 @@
 	"minerva-page-actions-overflow": "Daha fazla",
 	"minerva-page-actions-language-switcher": "Diller",
 	"minerva-page-actions-history": "Geçmiş",
-	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Moderator_Tools/Content_moderation_on_mobile_web Tartışma]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Tartışma]",
 	"minerva-skin-desc": "Duyarlı bir mobil ilk görünümü",
 	"skin-minerva-issue-learn-more": "Daha fazla bilgi",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1 saniye}} önce",
