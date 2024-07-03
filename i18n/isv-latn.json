@@ -5,11 +5,11 @@
 		]
 	},
 	"mobile-frontend-history": "Pokazati historiju versij tutoj stranice.",
-	"mobile-frontend-home-button": "Glavna stranica",
+	"mobile-frontend-home-button": "Glavna",
 	"mobile-frontend-language-article-heading": "Jezyk",
 	"mobile-frontend-main-menu-login": "Prijaviti se",
 	"mobile-frontend-main-menu-nearby": "Poblizu",
 	"mobile-frontend-main-menu-settings": "Nastavjenja",
 	"mobile-frontend-placeholder": "Iskati v {{GRAMMAR:locative|{{SITENAME}}}}",
-	"mobile-frontend-random-button": "Slučajna stranica"
+	"mobile-frontend-random-button": "Slučajna"
 }
