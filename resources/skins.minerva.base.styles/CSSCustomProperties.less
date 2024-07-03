@@ -62,25 +62,27 @@
 * Applies the night mode color palette per the users explicit preference,
 * regardless of system settings.
 */
-html.skin-theme-clientpref-night {
-	color-scheme: dark;
-	.mixin-night-mode-palette();
+@media screen {
+	html.skin-theme-clientpref-night {
+		color-scheme: dark;
+		.mixin-night-mode-palette();
 
-	.skin-invert,
-	.skin-invert-image img,
-	/* Special treatment of inverted OOUI icons, see T365764 */
-	.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert ),
-	.oo-ui-indicatorElement-indicator {
-		filter: invert( 1 ) hue-rotate( 180deg );
-	}
-
-	/* Do not apply invert to elements that are inside a notheme or a skin-invert class to avoid inversion in light theme or
-	double inversion in an already inverted element */
-	.skin-invert,
-	.notheme {
+		.skin-invert,
+		.skin-invert-image img,
+		/* Special treatment of inverted OOUI icons, see T365764 */
 		.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert ),
 		.oo-ui-indicatorElement-indicator {
-			filter: none !important;
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+
+		/* Do not apply invert to elements that are inside a notheme or a skin-invert class to avoid inversion in light theme or
+		double inversion in an already inverted element */
+		.skin-invert,
+		.notheme {
+			.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ):not( .oo-ui-image-invert ):not( .mw-no-invert ),
+			.oo-ui-indicatorElement-indicator {
+				filter: none !important;
+			}
 		}
 	}
 }
@@ -89,7 +91,7 @@ html.skin-theme-clientpref-night {
 * == Auto night mode ==
 * Applies the night mode color palette only in response to system settings.
 */
-@media ( prefers-color-scheme: dark ) {
+@media screen and ( prefers-color-scheme: dark ) {
 	html.skin-theme-clientpref-os {
 		color-scheme: light dark;
 		.mixin-night-mode-palette();
