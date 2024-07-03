@@ -36,21 +36,16 @@
 	/* stylelint-enable no-descending-specificity */
 }
 
-/* As in Vector, indenting of definition lists, and bolding of definition terms is generically useful */
 dl {
-	margin: 0.2em 0 0.5em 1em;
+	/* Unlike other lists, a definition list has no left margin, only definition items do */
+	margin: 0.2em 0 0.5em 0;
 
+	/* As in Vector, indenting of definition items, and bolding of definition terms is generically useful */
 	dt {
 		font-weight: bold;
 	}
 
-	/*
-	 * Historically Minerva used a CSS reset to reset the margin of dd elements to 0.
-	 * The main use case here is talk pages which can have significant intendation levels.
-	 * This should likely be reconsidered for appropriate semantic use of dd elements and
-	 * scoped to talk pages at a later date.
-	 */
 	dd {
-		margin: 0;
+		margin: 0 0 0 1em;
 	}
 }
