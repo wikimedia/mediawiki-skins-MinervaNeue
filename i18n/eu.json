@@ -13,6 +13,7 @@
 		]
 	},
 	"minerva-last-modified-date": "Azken aldaketa $1(e)an, $2(e)tan",
+	"minerva-watchlist-cta": "Orrialde hau eta bertan egindako aldaketak jarraitu.",
 	"minerva-talk-add-topic": "Eztabaida gehitu",
 	"mobile-frontend-cookies-required": "Cookie-ak behar dira ikuspegi moduak aldatzeko. Gaitu itzazu eta saiatu berriro.",
 	"mobile-frontend-editor-edit": "Aldatu",
@@ -34,6 +35,7 @@
 	"mobile-frontend-meta-data-issues": "Orriaren arazoak",
 	"mobile-frontend-meta-data-issues-categories": "Kategoria honi buruz",
 	"mobile-frontend-meta-data-issues-header": "Orrialdearen arazoak",
+	"minerva-meta-data-issues-section-header": "Arazoak atalean",
 	"mobile-frontend-meta-data-issues-header-talk": "Orrialde honi buruz",
 	"mobile-frontend-meta-data-issues-talk": "Eztabaida orrialde honi buruz",
 	"mobile-frontend-notifications-filter": "Iragazkia",
@@ -50,5 +52,16 @@
 	"mobile-frontend-user-page-contributions": "Ekarpenak",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Batu da}} $1",
 	"mobile-frontend-user-page-talk": "Eztabaida",
-	"minerva-skin-desc": "Harkorra eta mugikorra den lehenengo azala."
+	"minerva-user-menu-button": "Erabiltzailearen menua",
+	"minerva-user-navigation": "Erabiltzailearen nabigazioa",
+	"minerva-page-actions-overflow": "Gehiago",
+	"minerva-page-actions-language-switcher": "Hizkuntzak",
+	"minerva-page-actions-history": "Historia",
+	"minerva-skin-desc": "Harkorra eta mugikorra den lehenengo azala.",
+	"skin-minerva-issue-learn-more": "Gehiago ikasi",
+	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoriak",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Orrialdeen kategoriak ikusi",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Orrialde arazoen trataera hobetua",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Orrialdearen arazoak (Txantiloi:ambox) artikuluaren barruan lerro artean erakutsiko dira.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Tamalez, mugikorrean ezin dira emaitzak orrialdeka taldekatu. Taldekatze tresna erabili nahi bazenu bisita ezazu mahaigaineko bertsioa."
 }

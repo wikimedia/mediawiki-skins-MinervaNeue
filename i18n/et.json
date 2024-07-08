@@ -45,6 +45,7 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Registreerunud}}: $1",
 	"mobile-frontend-user-page-talk": "Arutelu",
 	"minerva-user-menu-button": "Kasutaja menüü",
+	"minerva-user-navigation": "Kasutaja navigatsioon",
 	"minerva-page-actions-overflow": "Veel",
 	"minerva-page-actions-info": "Lehekülje teave",
 	"minerva-page-actions-permalink": "Püsilink",
