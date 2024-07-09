@@ -216,7 +216,7 @@ final class Definitions {
 	public function insertRecentChanges( Group $group ): void {
 		$entry = $this->buildMenuEntry(
 			'recentchanges',
-			$this->context->msg( 'recentchanges' )->escaped(),
+			$this->context->msg( 'recentchanges' )->text(),
 			SpecialPage::getTitleFor( 'Recentchanges' )->getLocalURL(),
 			'',
 			'recentChanges',
