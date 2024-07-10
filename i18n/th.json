@@ -9,7 +9,8 @@
 			"Kaoavi",
 			"Octahedron80",
 			"Patsagorn Y.",
-			"Trisorn Triboon"
+			"Trisorn Triboon",
+			"RidJasper"
 		]
 	},
 	"minerva-last-modified-date": "แก้ไขล่าสุดเมื่อ $1 เวลา $2",
@@ -44,7 +45,7 @@
 	"mobile-frontend-talk-back-to-page": "กลับไปที่หน้า \"$1\"",
 	"mobile-frontend-talk-back-to-projectpage": "กลับไปที่หน้าโครงการ \"$1\"",
 	"mobile-frontend-talk-back-to-userpage": "กลับไปที่หน้าผู้ใช้ของ \"{{GENDER:$1|$1}}\"",
-	"mobile-frontend-user-button-tooltip": "แสดงประกาศของฉัน",
+	"mobile-frontend-user-button-tooltip": "แสดงการแจ้งเตือนของฉัน",
 	"mobile-frontend-user-newmessages": "คุณมีสารใหม่บนหน้าคุยของคุณ",
 	"mobile-frontend-user-page-contributions": "การมีส่วนร่วม",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|เข้าร่วมเมื่อ}} $1",
