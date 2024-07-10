@@ -50,7 +50,7 @@
 	"minerva-page-actions-overflow": "Eambbo",
 	"minerva-page-actions-language-switcher": "Gielat",
 	"minerva-page-actions-history": "Historjá",
-	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|Ságastallan]]",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Ságastallan]",
 	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Dohkálaš olggosoainnihahte telefovdna ",
 	"skin-minerva-issue-learn-more": "Oahpa eambbo",
@@ -64,5 +64,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Čájet siidduid kategoriijaid",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Buoriduvvon siido váttisvuođat",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Váttisvuođat siiddus (Mála:ambox) čájehuvvo artihkkalis",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Dađibahábut ii sáhte bohtosiid juohkit joavkkuide telefuvnnas. Jus áiggut dan funkšuvnna atnit, fertet neahttasiiddu ohcat dihtorveršuvnnas."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Dađibahábut ii sáhte bohtosiid juohkit joavkkuide telefuvnnas. Jus áiggut dan funkšuvnna atnit, fertet neahttasiiddu ohcat dihtorveršuvnnas.",
+	"skin-minerva-night-mode-launch-settings-label": "Mana ásahusaide",
+	"skin-minerva-night-mode-launch-close-label": "Gidde"
 }
