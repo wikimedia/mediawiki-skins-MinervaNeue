@@ -6,7 +6,8 @@
 			"MIKHEIL",
 			"SHOTHA",
 			"Tokoko",
-			"Გიო ოქრო"
+			"Გიო ოქრო",
+			"Mehman (WMF)"
 		]
 	},
 	"minerva-last-modified-date": "ბოლოს დარედაქტირდა $1-ში, $2-ზე",
@@ -47,7 +48,7 @@
 	"mobile-frontend-user-button-tooltip": "მაჩვენე შეტყობინებები",
 	"mobile-frontend-user-newmessages": "განხილვის გვერდზე ახალი შეტყობინებები გაქვთ",
 	"mobile-frontend-user-page-contributions": "წვლილი",
-	"mobile-frontend-user-page-member-since": "შემოერთების თარიღი: $1",
+	"mobile-frontend-user-page-member-since": "{{GENDER:$2|შემოერთების}} თარიღი: $1",
 	"mobile-frontend-user-page-talk": "განხილვა",
 	"minerva-user-menu-button": "მომხმარებლის მენიუ",
 	"minerva-user-navigation": "მომხმარებლის ნავიგაცია",
