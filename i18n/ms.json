@@ -46,6 +46,7 @@
 	"mobile-frontend-user-page-talk": "Perbincangan",
 	"minerva-user-menu-button": "Menu pengguna",
 	"minerva-user-navigation": "Pandu arah pengguna",
+	"minerva-page-actions-editfull": "Sunting laman penuh",
 	"minerva-page-actions-overflow": "Lagi",
 	"minerva-page-actions-language-switcher": "Bahasa",
 	"minerva-page-actions-history": "Sejarah",
@@ -56,5 +57,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Lihat kategori halaman",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Pembaikian masalah halaman yang dipertingkatkan",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Masalah halaman (Templat:ambox) akan disebariskan dalam rencana.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Malangnya, mengelompokkan hasil mengikut laman tidak tersedia dalam mudah alih. Jika anda ingin menggunakan ciri kelompok mengikut laman, sila kunjungi tapak atas meja."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Malangnya, mengelompokkan hasil mengikut laman tidak tersedia dalam mudah alih. Jika anda ingin menggunakan ciri kelompok mengikut laman, sila kunjungi tapak atas meja.",
+	"minerva.css": "/* Semua CSS di sini akan dimuatkan untuk pengguna kekulit MinervaNeue */",
+	"minerva.js": "/* Semua JavaScript di sini akan dimuatkan untuk pengguna kekulit MinervaNeue */"
 }
