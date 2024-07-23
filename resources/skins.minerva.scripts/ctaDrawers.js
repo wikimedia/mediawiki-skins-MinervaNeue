@@ -61,13 +61,13 @@ function initWatchstarCta( $watchstar ) {
 			watchCtaDrawer = CtaDrawer( {
 				content: mw.msg( 'minerva-watchlist-cta' ),
 				queryParams: {
-					warning: 'mobile-frontend-watchlist-purpose',
+					notice: 'mobile-frontend-watchlist-purpose',
 					campaign: 'mobile_watchPageActionCta',
 					returntoquery: 'article_action=watch'
 				},
 				onBeforeHide: drawers.discardDrawer,
 				signupQueryParams: {
-					warning: 'mobile-frontend-watchlist-signup-action'
+					notice: 'mobile-frontend-watchlist-signup-action'
 				}
 			} );
 		}

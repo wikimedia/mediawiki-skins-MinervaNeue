@@ -193,14 +193,15 @@ class Hooks implements
 				) );
 			}
 		} else {
-			// Add default warning message to Special:UserLogin and Special:UserCreate
-			// if no warning message set.
+			// Add default notice message to Special:UserLogin and Special:UserCreate
+			// if no warning or notice message is set.
 			if (
 				!$request->getCheck( 'warning' ) &&
+				!$request->getCheck( 'notice' ) &&
 				!$special->getUser()->isRegistered() &&
 				!$request->wasPosted()
 			) {
-				$request->setVal( 'warning', 'mobile-frontend-generic-login-new' );
+				$request->setVal( 'notice', 'mobile-frontend-generic-login-new' );
 			}
 		}
 	}
