@@ -81,9 +81,9 @@
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Maalesef, sonuçları sayfaya göre gruplandırma mobil cihazda mevcut değil. Grup olarak sayfa özelliğini kullanmak istiyorsanız, lütfen masaüstü sitesini ziyaret edin.",
 	"skin-minerva-night-mode-unavailable": "Sayfa yalnızca \"Açık\" renk temasında vardır.",
 	"skin-minerva-night-mode-launch-title": "Vikipedi'nin yeni renkleri",
-	"skin-minerva-night-mode-launch-subtitle": "Karanlık kipi bugün deneyin",
-	"skin-minerva-night-mode-launch-description-night": "Vikipedi artık karanlık kipte kullanılabilir. Ana menüdeki \"Ayarlar\"a dokunarak deneyin.",
-	"skin-minerva-night-mode-launch-description-day": "Vikipedi artık karanlık kipte kullanılabilir. Ana menüdeki \"Ayarlar\"a dokunarak deneyin.",
+	"skin-minerva-night-mode-launch-subtitle": "Koyu kipi bugün deneyin",
+	"skin-minerva-night-mode-launch-description-night": "Vikipedi artık koyu kipte kullanılabilir. Ana menüdeki \"Ayarlar\"a dokunarak deneyin.",
+	"skin-minerva-night-mode-launch-description-day": "Vikipedi artık koyu kipte kullanılabilir. Ana menüdeki \"Ayarlar\"a dokunarak deneyin.",
 	"skin-minerva-night-mode-launch-settings-label": "Ayarlara git",
 	"skin-minerva-night-mode-launch-close-label": "Kapat"
 }

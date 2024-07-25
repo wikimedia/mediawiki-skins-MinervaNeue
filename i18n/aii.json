@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"ColumbaBush"
+			"ColumbaBush",
+			"ܐܢܐ"
 		]
 	},
+	"mobile-frontend-history": "ܚܙܝ ܬܫܥܝܬܐ ܕܗܕܐ ܦܐܬܐ",
 	"mobile-frontend-home-button": "ܒܝܬܐ",
 	"mobile-frontend-language-article-heading": "ܠܫܢܐ"
 }
