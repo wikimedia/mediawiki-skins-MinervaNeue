@@ -33,6 +33,7 @@ function testScrollLeftStyle() {
 
 /**
  * When tabs are present and one is selected, scroll the selected tab into view.
+ *
  * @ignore
  */
 function initTabsScrollPosition() {

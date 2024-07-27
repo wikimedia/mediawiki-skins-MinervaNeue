@@ -7,6 +7,8 @@
 		"mw": "readonly"
 	},
 	"rules": {
-		"camelcase": "off"
+		"camelcase": "off",
+		"implicit-arrow-linebreak": "warn",
+		"no-mixed-spaces-and-tabs": "warn"
 	}
 }

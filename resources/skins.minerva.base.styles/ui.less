@@ -13,7 +13,6 @@ body {
 html {
 	font-size: @font-size-root;
 	// Support Safari: Prevent font scaling in landscape
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	-webkit-text-size-adjust: none;
 }
 
@@ -185,7 +184,12 @@ main {
 		}
 
 		// FIXME: Remove `.mw-headline` when $wgParserEnableLegacyHeadingDOM is removed.
-		h1, h2, h3, h4, h5, h6,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
 		.mw-headline {
 			flex-grow: 1;
 			flex-basis: 0;

@@ -97,6 +97,7 @@ function hookHandler( listItem, data ) {
 /**
  * Init portlet link items added by gadgets prior to Minerva
  * loading.
+ *
  * @ignore
  */
 function init() {

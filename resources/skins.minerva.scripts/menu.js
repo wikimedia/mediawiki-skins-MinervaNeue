@@ -2,6 +2,7 @@ const BODY_NOTIFICATIONS_REVEAL_CLASS = 'navigation-enabled secondary-navigation
 
 /**
  * Wire up the main menu
+ *
  * @ignore
  */
 function init() {

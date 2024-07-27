@@ -23,6 +23,7 @@ function discardDrawer( drawer ) {
 
 /**
  * Lock scroll of viewport.
+ *
  * @ignore
  */
 function lockScroll() {

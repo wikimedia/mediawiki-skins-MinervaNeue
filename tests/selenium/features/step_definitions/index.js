@@ -41,7 +41,7 @@ const { defineSupportCode } = require( '@cucumber/cucumber' ),
 		iShouldNotSeeTheNotificationsOverlay
 	} = require( './notification_steps' );
 
-defineSupportCode( function ( { Then, When, Given } ) {
+defineSupportCode( ( { Then, When, Given } ) => {
 
 	// Editor steps
 	Given( /^I click the edit button$/, iClickTheEditButton );

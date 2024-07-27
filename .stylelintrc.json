@@ -7,7 +7,6 @@
 		"declaration-no-important": null,
 		"declaration-property-unit-disallowed-list": null,
 		"selector-class-pattern": null,
-		"stylistic/selector-list-comma-newline-after": null,
 		"value-keyword-case": null
 	}
 }
