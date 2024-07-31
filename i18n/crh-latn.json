@@ -21,5 +21,6 @@
 	"mobile-frontend-talk-back-to-filepage": "“$1” faylına keri qayt.",
 	"mobile-frontend-talk-back-to-page": "“$1” saifesine keri qayt.",
 	"mobile-frontend-talk-back-to-userpage": "“{{GENDER:$1|$1}}” qullanıcı saifesine keri qayt.",
-	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|qoşuldı}}"
+	"mobile-frontend-user-page-member-since": "$1 {{GENDER:$2|qoşuldı}}",
+	"minerva-page-actions-editfull": "Bütün saifeni deñiştir"
 }
