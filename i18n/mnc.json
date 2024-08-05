@@ -9,8 +9,12 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ",
+	"mobile-frontend-history": "ere justan i kūbuliha suduri be tuwambi.",
+	"mobile-frontend-home-button": "boo",
 	"mobile-frontend-language-article-heading": "Gisun",
-	"mobile-frontend-main-menu-settings": "ᡳᠨᠰᡨᡝᠯᠯᡝᠨ",
+	"mobile-frontend-main-menu-login": "dosimbi",
+	"mobile-frontend-main-menu-nearby": "hanci",
+	"mobile-frontend-main-menu-settings": "setting",
 	"mobile-frontend-placeholder": "{{SITENAME}} be baimbi",
-	"mobile-frontend-random-button": "Random (ᡵᠠᠨᡩᠣᠮ)"
+	"mobile-frontend-random-button": "random"
 }
