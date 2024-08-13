@@ -16,10 +16,13 @@
 		overflow: auto;
 	}
 
-	h1,
-	h2 {
-		// Important given we have no idea which rules special pages are enforcing
-		font-family: @font-family-base !important;
+	.pre-content h1,
+	.content .mw-heading1,
+	.content h1,
+	.content .mw-heading2,
+	.content h2 {
+		// Consistent header font across special pages
+		font-family: @font-family-base;
 	}
 
 	.content-header {
