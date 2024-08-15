@@ -60,6 +60,9 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Izboljšano odpravljanje težav s stranjo",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Težave s stranjo (Predloga:Ambox) bodo vključene v članek.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Združevanje zadetkov po straneh pri mobilnem dostopu žal ni mogoče. Če želite uporabljati \nmožnost združevanja po straneh, pojdite na namizno različico tega spletnega mesta.",
+	"skin-minerva-night-mode-launch-subtitle": "Preizkusite temni način še danes",
+	"skin-minerva-night-mode-launch-description-night": "Wikipedija je zdaj na voljo v temnem načinu. Preizkusite ga tako, da tapnete »Nastavitve« v glavnem meniju.",
+	"skin-minerva-night-mode-launch-description-day": "Wikipedija je zdaj na voljo v temnem načinu. Preizkusite ga tako, da tapnete »Nastavitve« v glavnem meniju.",
 	"minerva.css": "/* Za uporabnike preobleke MinervaNeue se bo naložil ves CSS tukaj */",
 	"minerva.js": "/* Za uporabnike preobleke MinervaNeue se bo naložil ves JavaScript tukaj */"
 }
