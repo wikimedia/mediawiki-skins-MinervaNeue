@@ -316,6 +316,9 @@
 			],
 			"mobile.special.pagefeed.styles": [
 				"skinStyles/mobile.special.pagefeed.styles.less"
+			],
+			"+ext.CodeMirror.v6.visualEditor": [
+				"skinStyles/ext.visualEditor.codeMirror.less"
 			]
 		}
 	},
