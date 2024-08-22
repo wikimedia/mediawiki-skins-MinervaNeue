@@ -22,7 +22,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.42.0"
+		"MediaWiki": ">= 1.43"
 	},
 	"config": {
 		"MinervaDonateLink": {
@@ -451,7 +451,9 @@
 			"styles": [
 				"resources/skins.minerva.DarkModeLaunchBanner/DarkModeLaunchBanner.less"
 			],
-			"dependencies": [ "skins.minerva.DarkModeLaunchBanner.codexModules" ],
+			"dependencies": [
+				"skins.minerva.DarkModeLaunchBanner.codexModules"
+			],
 			"messages": [
 				"skin-minerva-night-mode-launch-title",
 				"skin-minerva-night-mode-launch-subtitle",
