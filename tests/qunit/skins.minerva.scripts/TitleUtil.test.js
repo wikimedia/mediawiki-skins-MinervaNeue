@@ -1,5 +1,5 @@
 ( function () {
-	const TitleUtil = require( 'skins.minerva.scripts/TitleUtil.js' );
+	const TitleUtil = require( '../../../resources/skins.minerva.scripts/TitleUtil.js' );
 	const mwUriOrg = mw.Uri;
 
 	QUnit.module( 'Minerva TitleUtil', QUnit.newMwEnvironment( {

@@ -1,6 +1,6 @@
 ( function () {
 	const iconElement = document.createElement( 'div' ),
-		pageIssuesParser = require( 'skins.minerva.scripts/page-issues/parser.js' ),
+		pageIssuesParser = require( '../../../../resources/skins.minerva.scripts/page-issues/parser.js' ),
 		extractMessage = pageIssuesParser.extract;
 
 	iconElement.classList.add( 'minerva-icon--issue-generic-defaultColor', 'minerva-ambox-icon' );
