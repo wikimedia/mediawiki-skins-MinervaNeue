@@ -46,7 +46,9 @@ function init() {
 	);
 }
 
-init();
+if ( !window.QUnit ) {
+	init();
+}
 
 module.exports = {
 	// Version number allows breaking changes to be detected by other extensions
