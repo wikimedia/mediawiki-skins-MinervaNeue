@@ -1,6 +1,6 @@
 /* eslint-disable no-jquery/no-class-state */
 ( function () {
-	const watchstar = require( 'skins.minerva.scripts/watchstar.js' );
+	const watchstar = require( '../../../resources/skins.minerva.scripts/watchstar.js' );
 	const toggleClasses = watchstar.test.toggleClasses;
 	const WATCHED_CLASS = watchstar.test.WATCHED_ICON_CLASS;
 	const TEMP_WATCHED_CLASS = watchstar.test.TEMP_WATCHED_ICON_CLASS;

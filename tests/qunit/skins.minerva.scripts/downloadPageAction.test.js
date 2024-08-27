@@ -7,7 +7,7 @@
 	const Deferred = $.Deferred;
 	const windowChrome = { chrome: true };
 	const windowNotChrome = {};
-	const downloadAction = require( 'skins.minerva.scripts/downloadPageAction.js' );
+	const downloadAction = require( '../../../resources/skins.minerva.scripts/downloadPageAction.js' );
 	const onClick = downloadAction.test.onClick;
 	const isAvailable = downloadAction.test.isAvailable;
 
