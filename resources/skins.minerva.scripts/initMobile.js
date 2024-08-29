@@ -95,7 +95,9 @@ module.exports = function () {
 				if ( $primaryBtn.attr( 'href' ) || $primaryBtn.find( 'a' ).length ) {
 					router.navigate( '/languages' );
 				} else {
-					mw.notify( mw.msg( 'mobile-frontend-languages-not-available' ) );
+					mw.notify( mw.msg( 'mobile-frontend-languages-not-available' ), {
+						tag: 'languages-not-available'
+					} );
 				}
 			} );
 		}
