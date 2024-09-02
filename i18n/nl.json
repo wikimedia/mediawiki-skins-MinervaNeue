@@ -39,6 +39,7 @@
 	"mobile-frontend-meta-data-issues": "Paginaproblemen",
 	"mobile-frontend-meta-data-issues-categories": "Over deze categorie",
 	"mobile-frontend-meta-data-issues-header": "Paginaproblemen",
+	"minerva-meta-data-issues-section-header": "Sectieproblemen",
 	"mobile-frontend-meta-data-issues-header-talk": "Over deze pagina",
 	"mobile-frontend-meta-data-issues-talk": "Over deze overlegpagina",
 	"mobile-frontend-notifications-filter": "Filter",
@@ -78,8 +79,11 @@
 	"minerva-talk-full-page": "Als wikipagina lezen",
 	"minerva-talk-topic-feedback": "Nieuw onderwerp aan de overlegpagina toegevoegd!",
 	"minerva-talk-reply-success": "Uw reactie is op de overlegpagina opgeslagen.",
+	"minerva-skin-desc": "Een responsieve vormgeving die mobiele apparaten voorop stelt",
 	"skin-minerva-issue-learn-more": "Meer leren",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Categorieën",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Toon paginacategorieën",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Verbeterde behandeling van paginaproblemen",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Meldingen over problemen met de pagina (Sjabloon:ambox) worden in het artikel ingevoegd.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Helaas is het groeperen van resultaten per pagina niet beschikbaar in de mobiele weergave. Als u deze functionaliteit wilt gebruiken, bezoek dan de desktop weergave."
 }
