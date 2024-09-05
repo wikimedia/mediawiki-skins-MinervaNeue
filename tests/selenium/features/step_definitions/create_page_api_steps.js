@@ -36,12 +36,12 @@ const iAmInAWikiThatHasCategories = ( title ) => {
 		await bot.edit( title, wikitext );
 	} );
 
-	browser.call( () =>
+	browser.call(
 		// The category overlay uses the category API
 		// which will only return results if the job queue has completed.
 		// Run before continuing!
-		 RunJobs.run()
-	 );
+		() => RunJobs.run()
+	);
 };
 
 const iAmOnAPageThatHasTheFollowingEdits = function ( table ) {
