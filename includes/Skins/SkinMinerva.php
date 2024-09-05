@@ -170,14 +170,6 @@ class SkinMinerva extends SkinMustache {
 		$sidebar = $this->buildSidebar();
 		$actions = $nav['actions'] ?? [];
 		$views = $nav['views'] ?? [];
-		// See T66315: Wikibase link is being moved to the otherprojects sidebar.
-		// Since the other projects are not displayed in Minerva, we must manually add it back to the toolbox.
-		$wikibaseLink = array_filter( $sidebar[ 'wikibase-otherprojects' ] ?? [], static function ( $sitelink ) {
-			return $sitelink[ 'id' ] === 't-wikibase';
-		} );
-		if ( $wikibaseLink ) {
-			$sidebar['TOOLBOX']['wikibase'] = $wikibaseLink[0];
-		}
 		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions, $views );
 	}
 
