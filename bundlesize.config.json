@@ -26,13 +26,5 @@
 	{
 		"resourceModule": "skins.minerva.scripts",
 		"maxSize": "14.5KB"
-	},
-	{
-		"resourceModule": "skins.minerva.DarkModeLaunchBanner",
-		"maxSize": "3.3KB"
-	},
-	{
-		"resourceModule": "skins.minerva.DarkModeLaunchBanner.codexModules",
-		"maxSize": "3.3KB"
 	}
 ]
