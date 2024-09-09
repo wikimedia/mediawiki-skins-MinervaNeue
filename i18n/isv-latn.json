@@ -60,11 +60,5 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Ulěpšeny podhod k problemam s stranicami",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemy s straniceju (Template:ambox) budut vpisane v članok.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Na žalost, grupovanje rezultatov po stranici jest nedostupno na mobilnyh aparatah. Ako hočete upotrěbiti tu funkciju, prějdite na stacionarnoju versiju sajta.",
-	"skin-minerva-night-mode-unavailable": "Stranica dostupna samo v kolornoj temě «Světla».",
-	"skin-minerva-night-mode-launch-title": "Nove kolory Vikipedije",
-	"skin-minerva-night-mode-launch-subtitle": "Poprobujte temny režim dnes",
-	"skin-minerva-night-mode-launch-description-night": "Vikipedija jest tutčas dostupna i v temnom režimu. Natisknite «Nastavjenja» v glavnom menu, da byste go izprobovali.",
-	"skin-minerva-night-mode-launch-description-day": "Vikipedija jest tutčas dostupna i v temnom režimu. Natisknite «Nastavjenja» v glavnom menu, da byste go izprobovali.",
-	"skin-minerva-night-mode-launch-settings-label": "Prějdti k nastavjenjam",
-	"skin-minerva-night-mode-launch-close-label": "Zatvoriti"
+	"skin-minerva-night-mode-unavailable": "Stranica dostupna samo v kolornoj temě «Světla»."
 }

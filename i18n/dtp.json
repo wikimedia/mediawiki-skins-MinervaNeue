@@ -66,12 +66,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Isu liwang (Templat:ambox) nopo nga posoruludon id suang rencana.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Sundung do ingkaa, au milo do popotimung aasil tumanud liwang di au pointounda id suang do mudah alih. Nung manu kou momoguno kowoowoyoo tinimungan tumanud liwang, intangai koiyonon id sakai mija.",
 	"skin-minerva-night-mode-unavailable": "Liwang nopo nga kiharo tema wotik do \"atalang\".",
-	"skin-minerva-night-mode-launch-title": "Wotik kawaawagu do Wikipedia",
-	"skin-minerva-night-mode-launch-subtitle": "Umbalai mod totuong baino",
-	"skin-minerva-night-mode-launch-description-night": "Nokosimban no wotik o Wikipedia tu notantu o peranti dokoyu kumaa mod totuong. Milo kou monimban diti soira nopo id panarampasan.",
-	"skin-minerva-night-mode-launch-description-day": "Milo nodi o mod wotik \"otuong\" o Wikipedia. Umbalai miampai mongoi id \"panarampasan\" id menu gulu.",
-	"skin-minerva-night-mode-launch-settings-label": "Ongoi id panarampasan",
-	"skin-minerva-night-mode-launch-close-label": "Tabanai",
 	"minerva.css": "/* All CSS here will be loaded for users of the MinervaNeue skin */",
 	"minerva.js": "/* All JavaScript here will be loaded for users of the MinervaNeue skin */"
 }

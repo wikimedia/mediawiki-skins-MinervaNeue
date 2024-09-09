@@ -64,12 +64,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Masalah halaman (Templat:ambox) akan disebariskan dalam rencana.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Malangnya, mengelompokkan hasil mengikut laman tidak tersedia dalam mudah alih. Jika anda ingin menggunakan ciri kelompok mengikut laman, sila kunjungi tapak atas meja.",
 	"skin-minerva-night-mode-unavailable": "Laman hanya tersedia dalam tema warna \"Cerah\".",
-	"skin-minerva-night-mode-launch-title": "Warna baru Wikipedia",
-	"skin-minerva-night-mode-launch-subtitle": "Cuba mod gelap hari ini",
-	"skin-minerva-night-mode-launch-description-night": "Wikipedia kini tersedia dalam mod gelap. Cuba dengan mengetik \"Tetapan\" dalam menu utama.",
-	"skin-minerva-night-mode-launch-description-day": "Wikipedia kini tersedia dalam mod gelap. Cuba dengan mengetik pada \"Tetapan\" dalam menu main.",
-	"skin-minerva-night-mode-launch-settings-label": "Pergi ke Tetapan",
-	"skin-minerva-night-mode-launch-close-label": "Tutup",
 	"minerva.css": "/* Semua CSS di sini akan dimuatkan untuk pengguna kekulit MinervaNeue */",
 	"minerva.js": "/* Semua JavaScript di sini akan dimuatkan untuk pengguna kekulit MinervaNeue */"
 }

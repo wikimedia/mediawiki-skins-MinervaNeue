@@ -61,11 +61,5 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "تم تحسين معالجة مشاكل الصفحة",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "راح نضمن موضوعات الصفحة (قالب:صندوق رسالة مقالة) في المقالة.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "لسوء الحظ، تجميع النتائج حسب الصفحة مو متاح على النقال، إذا كنت ترغب في استخدام ميزة المجموعة حسب الصفحة فتُرجَى زيارة موقع سطح المكتب.",
-	"skin-minerva-night-mode-unavailable": "الصفحه موجوده بس بالثيم \"الفاتح\".",
-	"skin-minerva-night-mode-launch-title": "الوان ويكيبيديا الجديده",
-	"skin-minerva-night-mode-launch-subtitle": "جرب الدارك ثيم اليوم",
-	"skin-minerva-night-mode-launch-description-night": "ويكيبيديا توفرت بالدارك ثيم. جربه من \"الاعدادات\" عالصفحه الرئيسيه.",
-	"skin-minerva-night-mode-launch-description-day": "ويكيبيديا توفرت بالدارك ثيم. جربه من \"الاعدادات\" عالصفحه الرئيسيه.",
-	"skin-minerva-night-mode-launch-settings-label": "روح للاعدادات",
-	"skin-minerva-night-mode-launch-close-label": "سد"
+	"skin-minerva-night-mode-unavailable": "الصفحه موجوده بس بالثيم \"الفاتح\"."
 }

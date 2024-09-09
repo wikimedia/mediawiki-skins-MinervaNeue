@@ -70,12 +70,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Τυχόν προβλήματα με την σελίδα (Template:ambox) θα υπογραμμιστούν στο άρθρο.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Δυστυχώς, η ομαδοποίηση αποτελεσμάτων ανά σελίδα δεν είναι διαθέσιμη σε κινητά. Εάν θέλετε να χρησιμοποιήσετε τη δυνατότητα ομάδας ανά σελίδα, επισκεφτείτε τον ιστότοπο για υπολογιστές.",
 	"skin-minerva-night-mode-unavailable": "Η σελίδα είναι διαθέσιμη μόνο με θέμα χρώματος «Φωτεινό».",
-	"skin-minerva-night-mode-launch-title": "Τα νέα χρώματα της Wikipedia",
-	"skin-minerva-night-mode-launch-subtitle": "Δοκιμάστε σήμερα τη σκοτεινή λειτουργία.",
-	"skin-minerva-night-mode-launch-description-night": "Η Wikipedia είναι πλέον διαθέσιμη σε σκοτεινή λειτουργία. Δοκίμασε το πατώντας τις «Ρυθμίσεις» στο κύριο μενού.",
-	"skin-minerva-night-mode-launch-description-day": "Η Wikipedia είναι πλέον διαθέσιμη σε σκοτεινή λειτουργία. Δοκίμασε το πατώντας το \"Ρυθμίσεις\" στο κύριο μενού.",
-	"skin-minerva-night-mode-launch-settings-label": "Πηγαίνετε στις Ρυθμίσεις",
-	"skin-minerva-night-mode-launch-close-label": "Κλείσιμο",
 	"minerva.css": "/* Όλα τα CSS εδώ θα φορτώσουν για χρήστες του MinervaNeue skin */",
 	"minerva.js": "/* Όλη η JavaScript εδώ θα φορτωθεί για χρήστες που χρησιμοποιούν το MinervaNeue skin */"
 }

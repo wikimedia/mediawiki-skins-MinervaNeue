@@ -66,11 +66,5 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 वर्ष|$1 वर्षहरू}} पहिले",
 	"skin-minerva-mobile-option-MinervaShowCategories": "श्रेणीहरू",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "पृष्ठहरूको श्रेणीहरू हेर्नुहोस्",
-	"skin-minerva-night-mode-unavailable": "पृष्ठ \"हल्का\" रङ विषयवस्तुमा मात्र उपलब्ध छ।",
-	"skin-minerva-night-mode-launch-title": "विकिपिडियाका नयाँ रङहरू",
-	"skin-minerva-night-mode-launch-subtitle": "अहिल्यै अँध्यारो शैली प्रयोग गरी हेर्नुहोस्",
-	"skin-minerva-night-mode-launch-description-night": "विकिपिडिया हाल अँध्यारो शैलीमा उपलब्ध छ। मुख्य मेनुमा \"सेटिङहरू\" मा ट्याप गरि यसलाई प्रयास गर्नुहोस्।",
-	"skin-minerva-night-mode-launch-description-day": "विकिपिडिया हाल अँध्यारो शैलीमा उपलब्ध छ। मुख्य मेनुमा \"सेटिङहरू\" मा ट्याप गरि यसलाई प्रयास गर्नुहोस्।",
-	"skin-minerva-night-mode-launch-settings-label": "सेटिङहरूमा जानुहोस्",
-	"skin-minerva-night-mode-launch-close-label": "बन्द गर्नुहोस्"
+	"skin-minerva-night-mode-unavailable": "पृष्ठ \"हल्का\" रङ विषयवस्तुमा मात्र उपलब्ध छ।"
 }

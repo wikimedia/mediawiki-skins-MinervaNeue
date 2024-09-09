@@ -67,12 +67,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "გვერდის პრობლემები (თარგი:ambox) წარმოდგენილი იქნება სტატიაში.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "სამწუხაროდ, გვერდის მიხედვით შედეგების დაჯგუფება მობილური ვერსიისათვის ხელმისაწვდომი არ არის. თუკი ამ ფუნქციის გამოყენება გსურთ, ეწვიეთ დესკტოპის ვერსიას.",
 	"skin-minerva-night-mode-unavailable": "გვერდი ხელმისაწვდომია მხოლოდ „ნათელ“ ფერში.",
-	"skin-minerva-night-mode-launch-title": "ვიკიპედიის ახალი ფერები",
-	"skin-minerva-night-mode-launch-subtitle": "გამოსცადეთ ბნელი რეჟიმი დღესვე",
-	"skin-minerva-night-mode-launch-description-night": "ვიკიპედია უკვე ხელმისაწვდომია ბნელ რეჟიმში. გამოსცადეთ იგი მთავარ მენიუში „კონფიგურაციაზე“ დაჭერით.",
-	"skin-minerva-night-mode-launch-description-day": "ვიკიპედია უკვე ხელმისაწვდომია ბნელ რეჟიმში. გამოსცადეთ იგი მთავარ მენიუში „კონფიგურაციაზე“ დაჭერით.",
-	"skin-minerva-night-mode-launch-settings-label": "კონფიგურაციაში გადასვლა",
-	"skin-minerva-night-mode-launch-close-label": "დახურვა",
 	"minerva.css": "/* აქ მოცემული ყველა CSS ჩაიტვირთება MinervaNeue გარეკანის ყველა მომხმარებლისათვის */",
 	"minerva.js": "/* აქ მოცემული ყველა JavaScript ჩაიტვირთება MinervaNeue გარეკანის ყველა მომხმარებლისათვის */"
 }

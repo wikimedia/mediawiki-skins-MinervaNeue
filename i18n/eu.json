@@ -68,11 +68,5 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Orrialde arazoen trataera hobetua",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Orrialdearen arazoak (Txantiloi:ambox) artikuluaren barruan lerro artean erakutsiko dira.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Tamalez, mugikorrean ezin dira emaitzak orrialdeka taldekatu. Taldekatze tresna erabili nahi bazenu bisita ezazu mahaigaineko bertsioa.",
-	"skin-minerva-night-mode-unavailable": "Orrialde hau kolore eskema \"Argian\" baino ez dago eskuragarri.",
-	"skin-minerva-night-mode-launch-title": "Wikipediaren kolore berriak",
-	"skin-minerva-night-mode-launch-subtitle": "Probatu modu iluna gaur bertan",
-	"skin-minerva-night-mode-launch-description-night": "Wikipedia orain modu ilunean dago eskuragarri. Probatu dezakezu \"Hobespenak\" aukeratuz menu nagusian.",
-	"skin-minerva-night-mode-launch-description-day": "Wikipedia orain modu ilunean dago eskuragarri. Probatu dezakezu \"Hobespenak\" aukeratuz menu nagusian.",
-	"skin-minerva-night-mode-launch-settings-label": "Joan hobespenetara",
-	"skin-minerva-night-mode-launch-close-label": "Itxi"
+	"skin-minerva-night-mode-unavailable": "Orrialde hau kolore eskema \"Argian\" baino ez dago eskuragarri."
 }

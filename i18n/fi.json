@@ -76,12 +76,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Luokat",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näytä sivun luokat",
 	"skin-minerva-night-mode-unavailable": "Sivu saatavilla vain vaaleasssa väriteemassa.",
-	"skin-minerva-night-mode-launch-title": "Wikipedian uudet värit",
-	"skin-minerva-night-mode-launch-subtitle": "Kokeile tummaa tilaa",
-	"skin-minerva-night-mode-launch-description-night": "Wikipedia on nyt saatavilla tummassa tilassa. Kokeile painamalla \"Asetukset\" päävalikossa.",
-	"skin-minerva-night-mode-launch-description-day": "Wikipedia on nyt saatavilla tummassa tilassa. Kokeile painamalla \"Asetukset\" päävalikossa.",
-	"skin-minerva-night-mode-launch-settings-label": "Mene asetuksiin",
-	"skin-minerva-night-mode-launch-close-label": "Sulje",
 	"minerva.css": "/* Tämä sivu sisältää MinervaNeue-ulkoasua muuttavia tyylejä. */",
 	"minerva.js": "/* Tämän sivun JavaScript-koodi liitetään MinervaNeue-tyyliin */"
 }

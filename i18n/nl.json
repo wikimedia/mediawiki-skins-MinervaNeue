@@ -72,11 +72,5 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Verbeterde behandeling van paginaproblemen",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Meldingen over problemen met de pagina (Sjabloon:ambox) worden in het artikel ingevoegd.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Helaas is het groeperen van resultaten per pagina niet beschikbaar in de mobiele weergave. Als u deze functionaliteit wilt gebruiken, bezoek dan de desktop weergave.",
-	"skin-minerva-night-mode-unavailable": "Pagina alleen beschikbaar in het kleurenthema \"Licht\".",
-	"skin-minerva-night-mode-launch-title": "Wikipedia's nieuwe kleuren",
-	"skin-minerva-night-mode-launch-subtitle": "Probeer de donkere modus vandaag",
-	"skin-minerva-night-mode-launch-description-night": "Wikipedia is nu beschikbaar in de donkere modus. Probeer het uit door te tikken op “Instellingen” in het hoofdmenu.",
-	"skin-minerva-night-mode-launch-description-day": "Wikipedia is nu beschikbaar in de donkere modus. Probeer het uit door te tikken op “Instellingen” in het hoofdmenu.",
-	"skin-minerva-night-mode-launch-settings-label": "Naar de instellingen",
-	"skin-minerva-night-mode-launch-close-label": "Sluiten"
+	"skin-minerva-night-mode-unavailable": "Pagina alleen beschikbaar in het kleurenthema \"Licht\"."
 }

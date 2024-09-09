@@ -68,12 +68,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Səhifə problemləri (Şablon:ambox) məqaləyə daxil ediləcək.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Təəssüf ki, nəticələrin səhifəyə görə qruplaşdırılması mobil cihazlar üçün mövcud deyil. Əgər səhifəyə görə qruplaşdırma funksiyasından istifadə etmək istəyirsinizsə, xahiş olunur, saytın iş masası versiyasına daxil olun.",
 	"skin-minerva-night-mode-unavailable": "Səhifə yalnız \"Gündüz\" temasında mövcuddur.",
-	"skin-minerva-night-mode-launch-title": "Vikipediyanın yeni rəngləri",
-	"skin-minerva-night-mode-launch-subtitle": "Gecə rejimini sınayın",
-	"skin-minerva-night-mode-launch-description-night": "Vikipediya indi \"tünd\" rəng sxemində mövcuddur. Əsas menyuda \"Parametrlər\"ə klikləməklə bunu sınayın.",
-	"skin-minerva-night-mode-launch-description-day": "Vikipediya indi \"tünd\" rəng sxemində mövcuddur. Əsas menyuda \"Parametrlər\"ə klikləməklə bunu sınayın.",
-	"skin-minerva-night-mode-launch-settings-label": "Parametrlərə gedin",
-	"skin-minerva-night-mode-launch-close-label": "Bağla",
 	"minerva.css": "/* Buradakı bütün CSS MinervaNeue istifadəçiləri üçün yüklənəcək */",
 	"minerva.js": "/* Buradakı JavaScript MinervaNeue istifadəçiləri üçün yüklənəcək */"
 }

@@ -67,12 +67,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sideproblemer (Mal:ambox) vises i artikkelteksten.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Dessverre er ikke gruppering av resultater tilgjengelig på mobil. Om du ønsker å bruke denne funksjonen, besøk datamaskinversjonen av nettstedet.",
 	"skin-minerva-night-mode-unavailable": "Siden er kun tilgjengelig med fargetemaet «Lys».",
-	"skin-minerva-night-mode-launch-title": "Wikipedias nye farger",
-	"skin-minerva-night-mode-launch-subtitle": "Prøv mørk modus i dag",
-	"skin-minerva-night-mode-launch-description-night": "Wikipedia er nå tilgjengelig i mørk modus. Prøv den ut ved å trykke på «Innstillinger» i hovedmenyen.",
-	"skin-minerva-night-mode-launch-description-day": "Wikipedia er nå tilgjengelig i mørk modus. Prøv den ut ved å trykke på «Innstillinger» i hovedmenyen.",
-	"skin-minerva-night-mode-launch-settings-label": "Gå til innstillingene",
-	"skin-minerva-night-mode-launch-close-label": "Lukk",
 	"minerva.css": "/* CSS i denne fila vil gjelde alle som bruker drakta MinervaNeue */",
 	"minerva.js": "/* Javascript i denne fila vil gjelde for brukere av drakta MinervaNeue */"
 }
