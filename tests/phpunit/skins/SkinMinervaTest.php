@@ -91,6 +91,49 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, TestingAccessWrapper::newFromObject( $skin )->hasPageActions() );
 	}
 
+	public function provideMoveWikibaseLinkToToolbox() {
+		// We still need to test this case whilst T66315 is partially rolled out with a feature flag
+		yield "wikibase link already in toolbar" => [ [
+			'TOOLBOX' => [
+				'wikibase' => [
+					'id' => 't-wikibase',
+				]
+			],
+			'wikibase-otherprojects' => [
+			]
+		], true ];
+		yield "wikibase link in other projects" => [ [
+			'TOOLBOX' => [
+			],
+			'wikibase-otherprojects' => [
+				[],
+				[
+					'id' => 't-wikibase',
+				]
+			]
+		], true ];
+		yield "no wikibase item connected" => [ [
+			'TOOLBOX' => [
+			],
+			'wikibase-otherprojects' => [
+			]
+		], false ];
+		yield "no sidebar exists" => [ [], false ];
+	}
+
+	/**
+	 * @dataProvider provideMoveWikibaseLinkToToolbox
+	 * @covers ::moveWikibaseLinkToToolbox
+	 */
+	public function testMoveWikibaseLinkToToolbox( array $sidebar, bool $linkExists ) {
+		$sidebar = SkinMinerva::moveWikibaseLinkToToolbox( $sidebar );
+		if ( $linkExists ) {
+			$this->assertArrayHasKey( 'wikibase', $sidebar['TOOLBOX'] );
+		} else {
+			$this->assertArrayNotHasKey( 'wikibase', $sidebar['TOOLBOX'] ?? [] );
+		}
+	}
+
 	public static function provideHasPageTabs() {
 		return [
 			[ [ SkinOptions::TABS_ON_SPECIALS => false ], NS_MAIN, 'test', 'view', true ],
