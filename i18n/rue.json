@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Constraque",
 			"Dicto23456",
 			"Gazeb",
 			"Gramo6",
@@ -9,6 +10,7 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Редагувати",
+	"mobile-frontend-editor-redlink-explain": "Тоту сторінку іщі не было вытворено.",
 	"mobile-frontend-history": "Зобразити історію едітовань той сторінкы.",
 	"mobile-frontend-home-button": "Домів",
 	"mobile-frontend-language-article-heading": "Бесїда",
