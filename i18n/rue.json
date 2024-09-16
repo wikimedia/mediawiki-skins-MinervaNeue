@@ -5,10 +5,12 @@
 			"Gazeb",
 			"Gramo6",
 			"KHMELNYTSKYIA",
-			"Vlad5250"
+			"Vlad5250",
+			"Constraque"
 		]
 	},
 	"mobile-frontend-editor-edit": "Редагувати",
+	"mobile-frontend-editor-redlink-explain": "Тоту сторінку іщі не было вытворено.",
 	"mobile-frontend-history": "Зобразити історію едітовань той сторінкы.",
 	"mobile-frontend-home-button": "Домів",
 	"mobile-frontend-language-article-heading": "Бесїда",
