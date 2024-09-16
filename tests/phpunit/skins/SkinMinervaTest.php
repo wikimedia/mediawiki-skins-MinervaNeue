@@ -112,6 +112,18 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 				]
 			]
 		], true ];
+		yield "wikibase item exists in both toolbar and in other projects" => [ [
+			'TOOLBOX' => [
+				'wikibase' => [
+					'id' => 't-wikibase',
+				],
+			],
+			'wikibase-otherprojects' => [
+				[
+					'id' => 't-wikibase',
+				]
+			]
+		], true ];
 		yield "no wikibase item connected" => [ [
 			'TOOLBOX' => [
 			],
@@ -129,8 +141,10 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$sidebar = SkinMinerva::moveWikibaseLinkToToolbox( $sidebar );
 		if ( $linkExists ) {
 			$this->assertArrayHasKey( 'wikibase', $sidebar['TOOLBOX'] );
+			$this->assertEquals( 'wikibase', array_key_last( $sidebar['TOOLBOX'] ) );
 		} else {
 			$this->assertArrayNotHasKey( 'wikibase', $sidebar['TOOLBOX'] ?? [] );
+			$this->assertNotEquals( 'wikibase', array_key_last( $sidebar['TOOLBOX'] ?? [] ) );
 		}
 	}
 
