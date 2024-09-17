@@ -19,11 +19,8 @@
 			text-decoration: none;
 		}
 
-		&.new a,
-		&.new a:visited,
-		&.new a:hover,
-		&.new a:active {
-			color: @color-link-new;
+		&.new a {
+			.cdx-mixin-link-red();
 		}
 
 		&:last-child {

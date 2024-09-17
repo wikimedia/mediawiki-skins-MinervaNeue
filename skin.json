@@ -331,7 +331,6 @@
 				"i18n-ordered-lists",
 				"content-body",
 				"content-tables",
-				"content-links",
 				"interface-core"
 			],
 			"styles": [
