@@ -3,23 +3,37 @@
 	overflow-x: auto;
 
 	.minerva__tab {
-		font-size: @font-size-tag-line;
 		margin: 0 10px 0 0;
-		font-weight: bold;
 		padding-bottom: 6px;
 		display: inline-block;
 
-		a {
+		// TODO: 'a' selector after caching
+		a,
+		.minerva__tab-text {
+			font-size: @font-size-tag-line;
+			font-weight: bold;
 			color: @color-subtle;
-		}
-
-		a:visited,
-		a:hover,
-		a:active {
 			text-decoration: none;
+
+			&.new {
+				color: @color-link-red;
+			}
 		}
 
-		&.new a {
+		// TODO: Remove entire selector after caching
+		// Currently needed to override default link styles
+		a:not( [ role='button' ] ) {
+			&:link,
+			&:visited,
+			&:hover,
+			&:active {
+				color: @color-subtle;
+				text-decoration: none !important;
+			}
+		}
+
+		// TODO: Remove entire selector after caching
+		&.new a:not( [ role='button' ] ) {
 			.cdx-mixin-link-red();
 		}
 

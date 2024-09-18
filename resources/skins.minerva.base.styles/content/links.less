@@ -19,11 +19,11 @@ a:not( [ href ] ) {
 }
 
 /* This not does apply to links with role button per discussion on T373989 */
-a:not( [ role='button' ] ) {
+a:not( [ role='button' ] ):not( .minerva__tab-text ) {
 	.cdx-mixin-link-base();
 }
 
-a.new {
+a:not( [ role='button' ] ):not( .minerva__tab-text ).new {
 	.cdx-mixin-link-red();
 }
 
