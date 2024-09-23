@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Akwugo",
+			"Goodymeraj",
 			"Oby Ezeilo",
 			"Pasjoesscc",
 			"Tochiprecious",
@@ -19,6 +20,7 @@
 	"mobile-frontend-language-article-heading": "Asụsụ",
 	"mobile-frontend-main-menu-contributions": "Mmètàrà",
 	"mobile-frontend-main-menu-login": "Banye",
+	"mobile-frontend-main-menu-nearby": "Na nso nso",
 	"mobile-frontend-main-menu-settings": "Nhaziga",
 	"mobile-frontend-main-menu-watchlist": "Ùlìle",
 	"mobile-frontend-placeholder": "Chọọ na {{SITENAME}}",
