@@ -28,7 +28,7 @@
 	"mobile-frontend-meta-data-issues-header": "Problemy s straniceju",
 	"minerva-meta-data-issues-section-header": "Problemy s razdělom",
 	"mobile-frontend-pageaction-edit-tooltip": "Praviti vvodny razděl tutoj stranice",
-	"mobile-frontend-placeholder": "Iskati v {{GRAMMAR:locative|{{SITENAME}}}}",
+	"mobile-frontend-placeholder": "Iskati na sajtu {{SITENAME}}",
 	"mobile-frontend-random-button": "Slučajna",
 	"mobile-frontend-redirected-from": "Prěnapravjeno s «[[$1]]»",
 	"mobile-frontend-talk-back-to-filepage": "Vrnuti se k fajlu «$1».",
