@@ -91,6 +91,10 @@ main {
 	}
 }
 
+.search-box {
+	position: relative;
+}
+
 // Search input
 // Used in minerva header and search overlay header
 .search-box .search {
@@ -100,9 +104,6 @@ main {
 	@padding-vertical-search: 8px - @border-width-base;
 	@padding-start-search-icon: @size-icon-search + ( 2 * @size-icon-search-gutter ) - @size-modifier-border;
 	background-color: @background-color-base; // Support Fennec, Opera Mini: Remove default background, see T38490.
-	background-position: left @size-icon-search-gutter center;
-	background-repeat: no-repeat;
-	background-size: @size-icon-search;
 	// Support Safari: Get rid of rounded corners.
 	-webkit-appearance: none;
 	width: 100%;
@@ -117,6 +118,8 @@ main {
 	transition-property: border-color, box-shadow;
 	transition-duration: @transition-duration-medium;
 	font: inherit;
+	// Disable search background for cached HTML.
+	mask-image: none;
 
 	// [T139928] Hide all pseudo-elements added to search inputs in WebKit.
 	&::-webkit-search-decoration,
@@ -125,6 +128,15 @@ main {
 	&::-webkit-search-results-decoration {
 		display: none;
 	}
+}
+
+.search-box-icon-overlay {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	left: 8px;
+	top: 0;
+	bottom: 0;
 }
 
 // Provide focus styles only in non-JS and overlay to prevent double transition.

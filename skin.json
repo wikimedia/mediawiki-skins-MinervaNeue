@@ -372,6 +372,7 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"useMaskImage": true,
 			"icons": [
 				"block",
 				"ellipsis",
@@ -395,29 +396,11 @@
 			]
 		},
 		"skins.minerva.icons.wikimedia": {
-			"selectorWithVariant": ".minerva-icon--{name}-{variant}",
-			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--{name}",
+			"selectorWithoutVariant": ".minerva-icon--{name}-base20, .minerva-icon--{name}-disabled, .minerva-icon--{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
-			"variants": {
-				"progressive": {
-					"color": "#36c",
-					"global": true
-				},
-				"invert": {
-					"color": "#fff",
-					"global": true
-				},
-				"warning": {
-					"color": "#fc3",
-					"global": true
-				},
-				"disabled": {
-					"color": "#72777d",
-					"global": true
-				}
-			},
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"useMaskImage": true,
 			"icons": [
 				"edit",
 				"wikiText",
@@ -445,16 +428,17 @@
 		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"useMaskImage": true,
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
 				"sandbox"
 			],
-			"variants": [],
 			"useDataURI": false
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"useMaskImage": true,
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"icons": [
@@ -467,7 +451,7 @@
 		},
 		"skins.minerva.mainMenu.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
-			"variants": [],
+			"useMaskImage": true,
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
 			"useDataURI": false,
