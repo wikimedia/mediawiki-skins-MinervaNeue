@@ -18,13 +18,16 @@ a:not( [ href ] ) {
 	cursor: pointer;
 }
 
-/* This not does apply to links with role button per discussion on T373989 */
-a:not( [ role='button' ] ):not( .minerva__tab-text ) {
-	.cdx-mixin-link-base();
-}
+footer,
+.mw-body-content {
+	/* This not does apply to links with role button per discussion on T373989 */
+	a:not( [ role='button' ] ):not( .mw-selflink ):not( .cdx-card ) {
+		.cdx-mixin-link-base();
 
-a:not( [ role='button' ] ):not( .minerva__tab-text ).new {
-	.cdx-mixin-link-red();
+		&.new {
+			.cdx-mixin-link-red();
+		}
+	}
 }
 
 // External links
