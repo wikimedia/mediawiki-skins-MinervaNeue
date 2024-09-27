@@ -7,34 +7,15 @@
 		padding-bottom: 6px;
 		display: inline-block;
 
-		// TODO: 'a' selector after caching
-		a,
 		.minerva__tab-text {
 			font-size: @font-size-tag-line;
 			font-weight: bold;
 			color: @color-subtle;
 			text-decoration: none;
-
-			&.new {
-				color: @color-link-red;
-			}
 		}
 
-		// TODO: Remove entire selector after caching
-		// Currently needed to override default link styles
-		a:not( [ role='button' ] ) {
-			&:link,
-			&:visited,
-			&:hover,
-			&:active {
-				color: @color-subtle;
-				text-decoration: none !important;
-			}
-		}
-
-		// TODO: Remove entire selector after caching
-		&.new a:not( [ role='button' ] ) {
-			.cdx-mixin-link-red();
+		&.new .minerva__tab-text {
+			color: @color-link-red;
 		}
 
 		&:last-child {
