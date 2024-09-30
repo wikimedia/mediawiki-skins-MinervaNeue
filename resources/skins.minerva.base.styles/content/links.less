@@ -18,8 +18,11 @@ a:not( [ href ] ) {
 	cursor: pointer;
 }
 
+/* stylelint-disable selector-max-id */
 footer,
-.mw-body-content {
+.cdx-message,
+.mw-body-content,
+#mw-content-subtitle {
 	/* This not does apply to links with role button per discussion on T373989 */
 	a:not( [ role='button' ] ):not( .mw-selflink ):not( .cdx-card ) {
 		.cdx-mixin-link-base();
@@ -29,6 +32,7 @@ footer,
 		}
 	}
 }
+/* stylelint-enable selector-max-id */
 
 // External links
 // Use of `a` element selector due to its widespread usage and for limiting generic class scope.
@@ -53,4 +57,5 @@ a.external {
 	display: block;
 	font-size: @font-size-minerva-small;
 	margin-top: 1.5em;
+	.cdx-mixin-link-base();
 }
