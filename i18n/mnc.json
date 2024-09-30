@@ -5,7 +5,8 @@
 			"Chulsu463",
 			"Foavi33",
 			"Obonggi",
-			"Amire80"
+			"Amire80",
+			"MiiCii"
 		]
 	},
 	"mobile-frontend-editor-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ",
@@ -16,5 +17,6 @@
 	"mobile-frontend-main-menu-nearby": "hanci",
 	"mobile-frontend-main-menu-settings": "setting",
 	"mobile-frontend-placeholder": "{{SITENAME}} be baimbi",
-	"mobile-frontend-random-button": "random"
+	"mobile-frontend-random-button": "random",
+	"minerva-page-actions-overflow": "Ele"
 }
