@@ -14,7 +14,7 @@ describe( 'User:<username>', () => {
 	} );
 
 	// </username>@en.m.wikipedia.beta.wmflabs.org
-	// Skipped on 2023-04-06 because of T293084
+	// Skipped on 2023-04-11 in 905565 because of T293084
 	it.skip( 'Check components in user page', async () => {
 		await iShouldBeOnMyUserPage();
 		await thereShouldBeALinkToMyTalkPage();

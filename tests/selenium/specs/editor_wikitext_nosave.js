@@ -18,7 +18,7 @@ describe( 'Wikitext Editor', () => {
 	} );
 
 	// @smoke
-	// Skipped on 2022-12-07 because of T313775
+	// Skipped on 2022-12-07 in 865667 because of T313775
 	it.skip( 'Closing editor (overlay button)', () => {
 		iClickTheEditButton();
 		iSeeTheWikitextEditorOverlay();
@@ -27,6 +27,7 @@ describe( 'Wikitext Editor', () => {
 	} );
 
 	// FIXME T348539
+	// Skipped on 2023-11-27 in 977779 because of T348539
 	it.skip( 'Closing editor (browser button)', async () => {
 		await iClickTheEditButton();
 		await iSeeTheWikitextEditorOverlay();
