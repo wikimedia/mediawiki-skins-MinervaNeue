@@ -2,6 +2,15 @@
 @import '../../../minerva.less/minerva.variables.less';
 @import '../../../minerva.less/minerva.mixins.less';
 
+/* This not does apply to links with role button per discussion on T373989 */
+a:where( :not( [ role='button' ] ) ) {
+	.cdx-mixin-link-base();
+}
+
+a:where( .new:not( [ role='button' ] ) ) {
+	.cdx-mixin-link-red();
+}
+
 /**
  * Note that certain links may not have an href selector.
  * It is particularly important on wikis for example inside navbox's that these
@@ -17,22 +26,6 @@ a:not( [ href ] ) {
 	/* The anchor is functionally a link so show a hand cursor. */
 	cursor: pointer;
 }
-
-/* stylelint-disable selector-max-id */
-footer,
-.cdx-message,
-.mw-body-content,
-#mw-content-subtitle {
-	/* This not does apply to links with role button per discussion on T373989 */
-	a:not( [ role='button' ] ):not( .mw-selflink ):not( .cdx-card ) {
-		.cdx-mixin-link-base();
-
-		&.new {
-			.cdx-mixin-link-red();
-		}
-	}
-}
-/* stylelint-enable selector-max-id */
 
 // External links
 // Use of `a` element selector due to its widespread usage and for limiting generic class scope.
