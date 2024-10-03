@@ -24,6 +24,7 @@
 	color: @color-subtle;
 	cursor: pointer;
 
+	/* FIXME: Mimics the Codex icon mixin. This should be replaced when T376497 is resolved. */
 	.minerva-icon--circle {
 		border-radius: @border-radius-circle;
 		border: @border-width-thick @border-style-base #54595d;
@@ -32,6 +33,8 @@
 		width: @icon-size-medium;
 		background: @background-color-destructive;
 		border-color: @border-color-destructive;
+		-webkit-mask-image: none;
+		mask-image: none;
 
 		&::before {
 			content: none;
