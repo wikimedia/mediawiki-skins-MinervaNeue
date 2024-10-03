@@ -372,6 +372,7 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"variants": [],
 			"useMaskImage": true,
 			"icons": [
 				"block",
@@ -400,6 +401,7 @@
 			"useDataURI": false,
 			"defaultColor": "#54595d",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"variants": [],
 			"useMaskImage": true,
 			"icons": [
 				"edit",
@@ -428,6 +430,7 @@
 		},
 		"skins.minerva.personalMenu.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"variants": [],
 			"useMaskImage": true,
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
@@ -451,6 +454,7 @@
 		},
 		"skins.minerva.mainMenu.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"variants": [],
 			"useMaskImage": true,
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"defaultColor": "#54595d",
