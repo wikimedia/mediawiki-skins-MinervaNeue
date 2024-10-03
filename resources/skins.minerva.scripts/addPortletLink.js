@@ -35,7 +35,7 @@ function getClassesForItem( $item ) {
 		return {
 			li: [ 'minerva__tab' ],
 			span: [],
-			a: []
+			a: [ 'minerva__tab-text' ]
 		};
 	} else {
 		return {
