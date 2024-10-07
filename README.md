@@ -60,18 +60,6 @@ Controls whether the category button should be displayed.
 
 When enabled a donate link will be added to the main menu. The donate link uses the `sitesupport` and `sitesupport-url` mediawiki messages.
 
-#### $wgMinervaPageIssuesNewTreatment
-
-* Type: `Array`
-* Default:
-```php
-  [
-    'base' => false,
-    'beta' => true,
-  ]
-```
-Controls whether page issues should be replaced with a "Page issues" link (false) or displayed inline (true).
-
 #### $wgMinervaTalkAtTop
 
 * Type: `Array`

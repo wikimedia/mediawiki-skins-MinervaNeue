@@ -71,8 +71,6 @@
 	"skin-minerva-time-ago-years": "Text that displays the age of the diff. Parameters:\n* $1 - number of years",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Label for categories mobile web beta feature.\n{{Identical|Category}}",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Description label for categories mobile web beta feature.",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Title for page issues feature flag displayed in Special:MobileOptions",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Description shown on Special:MobileOptions for page issues beta feature.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Warning message when informing about the lack of the '''group results by page''' feature availability on the mobile site. Message should recommend visiting desktop site to access grouping results by page.",
 	"skin-minerva-night-mode-unavailable": "Informs reader if page could not be rendered in preferred dark mode theme.",
 	"minerva.css": "{{optional}}\n{{related/css}}",
