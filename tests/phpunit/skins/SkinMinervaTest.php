@@ -435,7 +435,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 						],
 					],
 					'data-icon' => [
-						'icon' => 'bellOutline-base20'
+						'icon' => 'bellOutline'
 					],
 					'label' => 'Alerts (13)',
 				],
@@ -448,7 +448,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 						'class' => 'mw-list-item',
 						'array-links' => [
 							[
-								'icon' => 'bellOutline-base20',
+								'icon' => 'bellOutline',
 								'array-attributes' => [
 									self::ATTRIBUTE_NOTIFICATION_HREF,
 									self::ATTRIBUTE_NOTIFICATION_DATA_COUNTER_TEXT,

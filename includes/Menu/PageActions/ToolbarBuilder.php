@@ -198,7 +198,7 @@ class ToolbarBuilder {
 		);
 		$iconFallback = $key === 'viewsource' ? 'editLock' : 'edit';
 		$icon = $editAction['icon'] ?? $iconFallback;
-		$entry->setIcon( $icon . '-base20' )
+		$entry->setIcon( $icon )
 			->trackClicks( $key )
 			->setTitle( $this->context->msg( 'tooltip-' . $id ) )
 			->setNodeID( $id );
@@ -243,7 +243,7 @@ class ToolbarBuilder {
 			$historyAction['href'],
 		);
 		$icon = $historyAction['icon'] ?? 'history';
-		$entry->setIcon( $icon . '-base20' )
+		$entry->setIcon( $icon )
 			->trackClicks( 'history' );
 		return $entry;
 	}

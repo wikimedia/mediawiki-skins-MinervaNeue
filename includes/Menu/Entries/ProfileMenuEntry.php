@@ -84,7 +84,7 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 		$username = $this->user->getName();
 		return [ [
 			'data-icon' => [
-				'icon' => 'userAvatar-base20',
+				'icon' => 'userAvatar',
 			],
 			'label' => $this->customProfileLabel ?? $username,
 			'array-attributes' => [
