@@ -223,9 +223,6 @@ class ToolbarBuilder {
 			$this->permissions->isAllowed( IMinervaPagePermissions::WATCH )
 		);
 		$icon = $watchData['icon'] ?? '';
-		if ( $icon ) {
-			$icon .= $watchKey === 'unwatch' ? '-progressive' : '-base20';
-		}
 		return $entry->trackClicks( $watchKey )
 			->setIcon( $icon )
 			->setTitle( $this->context->msg( $watchKey ) )

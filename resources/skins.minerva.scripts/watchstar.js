@@ -1,7 +1,7 @@
 const watchstar = require( 'mediawiki.page.watch.ajax' ).watchstar;
-const WATCHED_ICON_CLASS = 'minerva-icon--unStar-progressive';
-const TEMP_WATCHED_ICON_CLASS = 'minerva-icon--halfStar-progressive';
-const UNWATCHED_ICON_CLASS = 'minerva-icon--star-base20';
+const WATCHED_ICON_CLASS = 'minerva-icon--unStar';
+const TEMP_WATCHED_ICON_CLASS = 'minerva-icon--halfStar';
+const UNWATCHED_ICON_CLASS = 'minerva-icon--star';
 
 /**
  * Tweaks the global watchstar handler in core to use the correct classes for Minerva.
