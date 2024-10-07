@@ -5,7 +5,8 @@
 			"Hanna Tardos",
 			"Hunyadym",
 			"Rodrigo",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Ewithu"
 		]
 	},
 	"minerva-last-modified-date": "Utoljára szerkesztve $1, $2-kor",
@@ -16,7 +17,7 @@
 	"minerva-download": "Letöltés PDF-ben",
 	"mobile-frontend-editor-redlink-create": "Lap létrehozása",
 	"mobile-frontend-editor-redlink-explain": "Ezt a lapot még nem hozták létre.",
-	"mobile-frontend-editor-redlink-leave": "Nem, köszönöm.",
+	"mobile-frontend-editor-redlink-leave": "Köszönöm, nem.",
 	"mobile-frontend-history": "A lap szerkesztési előzményeinek megtekintése.",
 	"mobile-frontend-home-button": "Kezdőlap",
 	"mobile-frontend-language-article-heading": "Nyelv",
@@ -76,5 +77,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategóriák",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "A lapok kategóriáinak megjelenítése",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Fejlesztett lapprobléma-kezelés",
+	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "A lapok problémajelzései (Sablon:ambox) be a szócikk tartalmának szerves részeként fognak megjelenni.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Sajnos az eredmények oldal szerinti csoportosítása nem érhető el mobilon. Ha szeretnéd használni a szerkesztések csoportosítása oldal szerint funkciót, kérjük, látogasd meg az asztali változatot."
 }
