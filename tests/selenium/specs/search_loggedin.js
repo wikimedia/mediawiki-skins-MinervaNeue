@@ -17,6 +17,7 @@ const {
 // @test2.m.wikipedia.org @vagrant @login
 describe( 'Search', () => {
 	// FIXME: T334634
+	// Skipped on 2023-11-27 in 977621 because of T334634
 	it.skip( 'Clicking on a watchstar toggles the watchstar', async () => {
 		await iAmUsingTheMobileSite();
 		await pageExists( 'Selenium search test' );
