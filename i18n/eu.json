@@ -65,8 +65,6 @@
 	"skin-minerva-time-ago-years": "Orain dela {{PLURAL:$1|urte bat|$1 urte}}",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoriak",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Orrialdeen kategoriak ikusi",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Orrialde arazoen trataera hobetua",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Orrialdearen arazoak (Txantiloi:ambox) artikuluaren barruan lerro artean erakutsiko dira.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Tamalez, mugikorrean ezin dira emaitzak orrialdeka taldekatu. Taldekatze tresna erabili nahi bazenu bisita ezazu mahaigaineko bertsioa.",
 	"skin-minerva-night-mode-unavailable": "Orrialde hau kolore eskema \"Argian\" baino ez dago eskuragarri."
 }

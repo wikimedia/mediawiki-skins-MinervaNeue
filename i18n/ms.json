@@ -60,8 +60,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 tahun}} lalu",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategori",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Lihat kategori halaman",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Pembaikian masalah halaman yang dipertingkatkan",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Masalah halaman (Templat:ambox) akan disebariskan dalam rencana.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Malangnya, mengelompokkan hasil mengikut laman tidak tersedia dalam mudah alih. Jika anda ingin menggunakan ciri kelompok mengikut laman, sila kunjungi tapak atas meja.",
 	"skin-minerva-night-mode-unavailable": "Laman hanya tersedia dalam tema warna \"Cerah\".",
 	"minerva.css": "/* Semua CSS di sini akan dimuatkan untuk pengguna kekulit MinervaNeue */",

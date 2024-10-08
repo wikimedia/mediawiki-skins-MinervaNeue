@@ -58,8 +58,6 @@
 	"skin-minerva-time-ago-years": "صارله {{PLURAL:$1|سنه|سنتين|$1 سنين|$1 سنه}}",
 	"skin-minerva-mobile-option-MinervaShowCategories": "تصنيفات",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "عرض تصنيفات الصفحات",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "تم تحسين معالجة مشاكل الصفحة",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "راح نضمن موضوعات الصفحة (قالب:صندوق رسالة مقالة) في المقالة.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "لسوء الحظ، تجميع النتائج حسب الصفحة مو متاح على النقال، إذا كنت ترغب في استخدام ميزة المجموعة حسب الصفحة فتُرجَى زيارة موقع سطح المكتب.",
 	"skin-minerva-night-mode-unavailable": "الصفحه موجوده بس بالثيم \"الفاتح\"."
 }

@@ -65,8 +65,6 @@
 	"skin-minerva-time-ago-years": "пре {{PLURAL:$1|$1 године|$1 година}}",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Категорије",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Приказује категорије страница",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Побољшан третман проблема са страницом",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблеми са страницом (Шаблон:ambox) биће уметнути у чланак.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Груписање резултата по страници није доступно на мобилним уређајима. Ако желите да користите функцију, посетите сајт за рачунаре.",
 	"skin-minerva-night-mode-unavailable": "Страница доступна само у светлој теми.",
 	"minerva.css": "/* CSS постављен овде учитаће се свим корисницима Минерва (ново) теме */",

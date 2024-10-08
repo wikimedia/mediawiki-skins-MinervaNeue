@@ -63,8 +63,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 წლის|$1 წლის}} წინ",
 	"skin-minerva-mobile-option-MinervaShowCategories": "კატეგორიები",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "გვერდების კატეგორიების ხილვა",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "გვერდების პრობლემათა გაუმჯობესებული გამოვლენა",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "გვერდის პრობლემები (თარგი:ambox) წარმოდგენილი იქნება სტატიაში.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "სამწუხაროდ, გვერდის მიხედვით შედეგების დაჯგუფება მობილური ვერსიისათვის ხელმისაწვდომი არ არის. თუკი ამ ფუნქციის გამოყენება გსურთ, ეწვიეთ დესკტოპის ვერსიას.",
 	"skin-minerva-night-mode-unavailable": "გვერდი ხელმისაწვდომია მხოლოდ „ნათელ“ ფერში.",
 	"minerva.css": "/* აქ მოცემული ყველა CSS ჩაიტვირთება MinervaNeue გარეკანის ყველა მომხმარებლისათვის */",

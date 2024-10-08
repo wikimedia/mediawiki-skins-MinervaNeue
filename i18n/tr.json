@@ -76,8 +76,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 yıl}} önce",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategoriler",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Sayfanın kategorilerini görüntüle",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Geliştirilmiş sayfa sorunları iyileştirmesi",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sayfa sorunları (Şablon:ambox) maddede belirtilmiş olacaktır.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Maalesef, sonuçları sayfaya göre gruplandırma mobil cihazda mevcut değil. Grup olarak sayfa özelliğini kullanmak istiyorsanız, lütfen masaüstü sitesini ziyaret edin.",
 	"skin-minerva-night-mode-unavailable": "Sayfa yalnızca \"Açık\" renk temasında vardır."
 }

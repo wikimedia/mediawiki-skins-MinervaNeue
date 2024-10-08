@@ -59,8 +59,6 @@
 	"skin-minerva-time-ago-years": "пред {{PLURAL:$1|$1 година|$1 години}}",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Погл. категории на страници",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Подобрено справување со проблеми на страницата",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемите со страницата (Предлошка:ambox) ќе бидат вметнати во редовите на статијата.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "За жал, групирањето на исходни ставки по страница е недостапно за мобилен уред. За таа цел, ќе мора да отворите од сметач.",
 	"skin-minerva-night-mode-unavailable": "Страница е достапна само во бојниот изглед „Светол“.",
 	"minerva.css": "/* Тука поставениот CSS се однесува на корисниците на рувото „MinervaNeue“ */",

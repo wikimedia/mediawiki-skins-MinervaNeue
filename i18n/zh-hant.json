@@ -74,8 +74,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1}} 年前",
 	"skin-minerva-mobile-option-MinervaShowCategories": "分類",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "檢視頁面分類",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "已改進頁面問題處理",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "頁面問題（模板:ambox）會內聯至條目裡。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "很不幸地，依照頁面的分組結果在移動裝置上不可用。若您想要使用依照頁面功能的群組，請訪問適用於桌上型電腦的網站。",
 	"skin-minerva-night-mode-unavailable": "頁面僅能使用「淺色」色彩主題。",
 	"minerva.css": "/* 此處所有的 CSS 都會在使用者使用 MinervaNeue 外觀時載入 */",

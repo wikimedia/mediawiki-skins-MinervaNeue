@@ -63,8 +63,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 år}} sedan",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorier",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Visa kategorier över sidor",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Förbättrad behandling av sidproblem",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sidproblem (Template:ambox) kommer att visas i artikeln.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Tyvärr är inte grupperade resultat tillgängligt på mobiler. Besök datorwebbplatsen om du vill använda sidgrupperingsfunktionen.",
 	"skin-minerva-night-mode-unavailable": "Sidan är endast tillgänglig i ljust färgtema.",
 	"minerva.css": "/* All CSS här kommer att läsas in för de som använder utseendet MinervaNeue */",

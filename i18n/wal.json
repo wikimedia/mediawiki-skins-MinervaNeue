@@ -58,8 +58,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 layttaa|$1 layttatu}}ppe kase",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Moodettata",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Sinttatu moodettata be'a",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Lo'ida sinttatu allaalliyaa ohettaa",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Sinttaa attamoti hagan (Template\n:ambox) kaalloososona.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Qaadana xayidi, ayfeta mobaaliyan mooddiyoogee beettibeenna. Neeni sinttaa eeshshan mooddanawu koyykko komppiiteriya hanotaa sohuwaa xomoosa.",
 	"skin-minerva-night-mode-unavailable": "Sinttay 'Kawushsha' meraa bessiyagaa xallan de'ees."
 }

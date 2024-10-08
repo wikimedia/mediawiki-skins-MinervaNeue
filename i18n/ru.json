@@ -79,8 +79,6 @@
 	"skin-minerva-time-ago-years": "$1 {{PLURAL:$1|год|года|лет}} назад",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Посмотреть категории страниц",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Улучшенное обнаружение проблем страницы",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Проблемы со страницей (Шаблон:ambox) будут вписаны в статью.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "К сожалению, группировка результатов по странице недоступна на мобильных устройствах. Если вы хотите использовать эту функцию, пожалуйста, посетите настольную версию.",
 	"skin-minerva-night-mode-unavailable": "Страница доступна только в цветовой теме «Светлая»."
 }

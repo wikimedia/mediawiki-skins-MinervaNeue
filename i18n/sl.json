@@ -57,8 +57,6 @@
 	"skin-minerva-issue-learn-more": "Več o tem",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorije",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Prikaži kategorije strani",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Izboljšano odpravljanje težav s stranjo",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Težave s stranjo (Predloga:Ambox) bodo vključene v članek.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Združevanje zadetkov po straneh pri mobilnem dostopu žal ni mogoče. Če želite uporabljati \nmožnost združevanja po straneh, pojdite na namizno različico tega spletnega mesta.",
 	"minerva.css": "/* Za uporabnike preobleke MinervaNeue se bo naložil ves CSS tukaj */",
 	"minerva.js": "/* Za uporabnike preobleke MinervaNeue se bo naložil ves JavaScript tukaj */"

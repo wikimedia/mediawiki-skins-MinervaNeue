@@ -70,8 +70,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 năm}} trước",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Thể loại",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Xem thể loại của trang",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Hiển thị vấn đề tại trang tốt hơn",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Vấn đề về trang (Bản mẫu:ambox) sẽ được hiển thị ngay trong bài.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Thật không may, kết quả gom nhóm theo trang không hiển thị được trên di động. Nếu bạn muốn sử dụng tính năng gom nhóm theo trang vui lòng dùng phiên bản máy tính để bàn.",
 	"skin-minerva-night-mode-unavailable": "Trang chỉ có sẵn trong chủ đề màu \"Sáng\".",
 	"minerva.css": "/* Tất cả mã CSS tại đây sẽ được tải khi người dùng sử dụng giao diện MinervaNeue */",

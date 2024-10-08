@@ -66,8 +66,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 έτος|$1 έτη}} πριν",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Κατηγορίες",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Προβολή κατηγοριών των σελίδων",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Προβλήματα διαχείρησης για βελτίωση σελίδας",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Τυχόν προβλήματα με την σελίδα (Template:ambox) θα υπογραμμιστούν στο άρθρο.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Δυστυχώς, η ομαδοποίηση αποτελεσμάτων ανά σελίδα δεν είναι διαθέσιμη σε κινητά. Εάν θέλετε να χρησιμοποιήσετε τη δυνατότητα ομάδας ανά σελίδα, επισκεφτείτε τον ιστότοπο για υπολογιστές.",
 	"skin-minerva-night-mode-unavailable": "Η σελίδα είναι διαθέσιμη μόνο με θέμα χρώματος «Φωτεινό».",
 	"minerva.css": "/* Όλα τα CSS εδώ θα φορτώσουν για χρήστες του MinervaNeue skin */",

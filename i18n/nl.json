@@ -69,8 +69,6 @@
 	"skin-minerva-time-ago-years": "{{PLURAL:$1|$1 jaar}} geleden",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Categorieën",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Toon paginacategorieën",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Verbeterde behandeling van paginaproblemen",
-	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Meldingen over problemen met de pagina (Sjabloon:ambox) worden in het artikel ingevoegd.",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Helaas is het groeperen van resultaten per pagina niet beschikbaar in de mobiele weergave. Als u deze functionaliteit wilt gebruiken, bezoek dan de desktop weergave.",
 	"skin-minerva-night-mode-unavailable": "Pagina alleen beschikbaar in het kleurenthema \"Licht\"."
 }
