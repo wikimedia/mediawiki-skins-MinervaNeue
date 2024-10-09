@@ -8,10 +8,16 @@
 	"mobile-frontend-history": "ታሪክ ተዕዲል እላ ገጽ አርኤ",
 	"mobile-frontend-home-button": "መበገሲ",
 	"mobile-frontend-language-article-heading": "ሉቀት",
+	"mobile-frontend-main-menu-contributions": "ሙሳሃማት",
 	"mobile-frontend-main-menu-login": "እብ መንጋኣት እተው",
 	"mobile-frontend-main-menu-nearby": "ስምጥ",
 	"mobile-frontend-main-menu-settings": "ቃነዮት",
 	"mobile-frontend-placeholder": "ዲብ {{SITENAME}} ሕዛው",
 	"mobile-frontend-random-button": "ስድፋ",
-	"minerva-page-actions-overflow": "ዚያደት"
+	"mobile-frontend-user-page-contributions": "ሙሳሃማት",
+	"mobile-frontend-user-page-talk": "ህድግ",
+	"minerva-page-actions-overflow": "ዚያደት",
+	"minerva-page-actions-language-switcher": "ሉቃት",
+	"minerva-page-actions-history": "ታሪኽ",
+	"skin-minerva-mobile-option-MinervaShowCategories": "ክፋላት"
 }
