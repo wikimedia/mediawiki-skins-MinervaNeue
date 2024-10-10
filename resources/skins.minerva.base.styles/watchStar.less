@@ -1,7 +1,10 @@
-.minerva-animations-ready .mw-watchlink {
+.mw-watchlink {
 	.minerva-icon {
 		transform: rotate( 0deg );
-		transition: transform 0.5s;
+
+		.minerva-animations-ready & {
+			transition: transform 0.5s;
+		}
 	}
 
 	.minerva-icon--unStar {
