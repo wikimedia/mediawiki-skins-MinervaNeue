@@ -123,6 +123,10 @@ ul.mw-contributions-list li .mw-rollback-link {
 	display: block;
 }
 
+.mw-special-Watchlist .mw-userlink {
+	padding-top: 0.5em;
+}
+
 // On Watchlist and RecentChanges the user is on a separate line per T236328.
 // This does not apply to the history page.
 // It is unnecessary on Special:Contributions since all contributions are by the same user.
@@ -131,6 +135,7 @@ ul.mw-contributions-list li .mw-rollback-link {
 	.mw-userlink,
 	.mw-usertoollinks {
 		float: none;
+		clear: both;
 	}
 
 	.mw-userlink::before,
@@ -181,8 +186,6 @@ ul.mw-contributions-list li .mw-rollback-link {
 		}
 
 		.mw-title {
-			/* Negative margin to counteract &lrm; tags providing enforced spacing. */
-			margin: 0 0 -1em;
 			display: block;
 			float: none;
 
@@ -198,6 +201,10 @@ ul.mw-contributions-list li .mw-rollback-link {
 			bdi {
 				word-break: break-word;
 			}
+		}
+
+		.mw-changeslist-links > span {
+			display: none;
 		}
 
 		/* disable pseudo UI */
