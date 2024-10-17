@@ -8,7 +8,7 @@
 	},
 	"mobile-frontend-editor-edit": "Edita",
 	"mobile-frontend-home-button": "Paje prima",
-	"mobile-frontend-language-article-heading": "Leje en un otra lingua",
+	"mobile-frontend-language-article-heading": "Lingua",
 	"mobile-frontend-main-menu-button-tooltip": "Abri la menu xef",
 	"mobile-frontend-main-menu-login": "Autentici",
 	"mobile-frontend-main-menu-nearby": "Prosima",
@@ -16,5 +16,6 @@
 	"mobile-frontend-main-menu-watchlist": "Lista de pajes monitorida",
 	"mobile-frontend-pageaction-edit-tooltip": "Edita la parte inisial de esta paje",
 	"mobile-frontend-placeholder": "Xerca en {{SITENAME}}",
-	"mobile-frontend-random-button": "Acaso"
+	"mobile-frontend-random-button": "Acaso",
+	"minerva-page-actions-overflow": "Plu"
 }
