@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Minerva;
 
-use ContentHandler;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\HookContainer\HookContainer;

@@ -19,9 +19,9 @@
  */
 namespace MediaWiki\Minerva\Permissions;
 
-use ContentHandler;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Content\IContentHandlerFactory;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\MainConfigNames;

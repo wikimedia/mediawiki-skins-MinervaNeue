@@ -20,11 +20,10 @@
 
 namespace MediaWiki\Minerva\Skins;
 
-use ExtensionRegistry;
-use Language;
 use MediaWiki\Cache\GenderCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Html\Html;
+use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Minerva\LanguagesHelper;
@@ -39,6 +38,7 @@ use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\NamespaceInfo;
