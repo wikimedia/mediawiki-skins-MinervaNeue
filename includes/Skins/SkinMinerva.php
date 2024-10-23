@@ -136,8 +136,7 @@ class SkinMinerva extends SkinMustache {
 	 * @return bool
 	 */
 	private function hasPageActions(): bool {
-		$title = $this->getTitle();
-		return !$title->isSpecialPage() && !$title->isMainPage() &&
+		return !$this->getTitle()->isSpecialPage() &&
 			$this->getActionName() === 'view';
 	}
 
@@ -484,6 +483,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	private function hasPageTabs(): bool {
 		$title = $this->getTitle();
+
 		$isSpecialPageOrHistory = $title->isSpecialPage() ||
 			$this->isHistoryPage();
 		$subjectPage = $this->namespaceInfo->getSubjectPage( $title );

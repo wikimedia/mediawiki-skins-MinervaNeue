@@ -5,6 +5,7 @@ namespace MediaWiki\Minerva;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\TestingAccessWrapper;
@@ -14,6 +15,9 @@ use Wikimedia\TestingAccessWrapper;
  * @group MinervaNeue
  */
 class SkinMinervaTest extends MediaWikiIntegrationTestCase {
+
+	use MockAuthorityTrait;
+
 	private const ATTRIBUTE_NOTIFICATION_HREF = [
 		'key' => 'href',
 		'value' => '/wiki/Special:Notifications',
@@ -68,7 +72,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		return [
 			[ NS_MAIN, 'test', 'view', true ],
 			[ NS_SPECIAL, 'test', 'view', false ],
-			[ NS_MAIN, 'Main Page', 'view', false ],
 			[ NS_MAIN, 'test', 'history', false ]
 		];
 	}
@@ -160,6 +163,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	public function testGetTabsDataNoPageTabs() {
 		$context = new RequestContext();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
+		$context->setActionName( 'view' );
 
 		$skin = $this->newSkinMinerva();
 		$skin->setContext( $context );
@@ -492,5 +496,31 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected['data-attributes'] ?? [], $btns[0]['data-attributes'] ?? [] );
 		$this->assertEquals( $expected['data-icon'] ?? [], $btns[0]['data-icon'] ?? [] );
 		$this->assertEquals( $expected['data-label'] ?? '', $btns[0]['data-label'] ?? '' );
+	}
+
+	/**
+	 * @covers ::getSecondaryActions
+	 */
+	public function testMainPageTalkButton() {
+		$mainPageTitle = Title::makeTitle( NS_MAIN, 'Main Page' );
+		$mainPageTitle->setContentModel( CONTENT_MODEL_WIKITEXT );
+
+		$context = RequestContext::getMain();
+		$context->setTitle( $mainPageTitle );
+		$context->setActionName( 'view' );
+		$context->setAuthority( $this->mockRegisteredUltimateAuthority() );
+		$context->setSkin( $this->newSkinMinerva() );
+		$skin = TestingAccessWrapper::newFromObject( $context->getSkin() );
+		$contentNavigationUrls = [ 'associated-pages' => [ 'talk' => [ 'text' => 'discuss' ] ] ];
+
+		// Registered users have talk button on mainpage
+		$actions = $skin->getSecondaryActions( $contentNavigationUrls );
+		$this->assertArrayHasKey( 'talk', $actions );
+		$this->assertSame( [ 'array-attributes', 'tag-name', 'classes', 'label' ], array_keys( $actions['talk'] ), );
+
+		// Unregistered users do not have talk button on mainpage
+		$context->setAuthority( $this->mockAnonUltimateAuthority() );
+		$actions = $skin->getSecondaryActions( $contentNavigationUrls );
+		$this->assertArrayNotHasKey( 'talk', $actions );
 	}
 }
