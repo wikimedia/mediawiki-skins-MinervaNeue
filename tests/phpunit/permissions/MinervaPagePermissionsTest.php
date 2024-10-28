@@ -33,8 +33,8 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	private function buildPermissionsObject(
 		Title $title,
 		array $options = [],
-		ContentHandler $contentHandler = null,
-		Authority $user = null,
+		?ContentHandler $contentHandler = null,
+		?Authority $user = null,
 		$hasOtherLanguagesOrVariants = false
 	) {
 		$languageHelper = $this->createMock( LanguagesHelper::class );
