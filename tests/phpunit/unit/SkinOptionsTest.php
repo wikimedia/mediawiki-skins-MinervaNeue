@@ -14,7 +14,7 @@ use OutOfBoundsException;
  */
 class SkinOptionsTest extends MediaWikiUnitTestCase {
 
-	private function newSkinOptions() {
+	private function newSkinOptions(): SkinOptions {
 		return new SkinOptions(
 			$this->createMock( HookContainer::class ),
 			$this->createMock( SkinUserPageHelper::class )

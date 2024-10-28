@@ -36,7 +36,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		'value' => "Your alerts",
 	];
 
-	private function newSkinMinerva() {
+	private function newSkinMinerva(): SkinMinerva {
 		$services = $this->getServiceContainer();
 		return new SkinMinerva(
 			$services->getGenderCache(),
@@ -54,10 +54,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	/**
-	 * @param array $options
-	 */
-	private function overrideSkinOptions( $options ) {
+	private function overrideSkinOptions( array $options ): void {
 		$services = $this->getServiceContainer();
 		$mockOptions = new SkinOptions(
 			$services->getHookContainer(),
@@ -303,8 +300,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideHasCategoryLinks
-	 * @param array $categoryLinks
-	 * @param bool $expected
 	 * @covers ::setContext
 	 * @covers ::hasCategoryLinks
 	 */
