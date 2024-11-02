@@ -24,17 +24,6 @@ A file for css that optimises the Minerva skin on larger devices.
 	}
 	// stylelint-enable selector-max-id
 
-	figure[ typeof~='mw:File/Thumb' ],
-	figure[ typeof~='mw:File/Frame' ] {
-		clear: right;
-		clear: inline-end;
-		float: right;
-		float: inline-end;
-		margin-left: 1.4em;
-		margin-right: 0;
-		margin-inline: 1.4em 0;
-	}
-
 	.content {
 		// Classes added by thumbnails
 		// e.g. [[File:Scholars mate animation.gif|frame|left|"[[Scholar's mate]]"]]
@@ -44,6 +33,13 @@ A file for css that optimises the Minerva skin on larger devices.
 		figure[ typeof~='mw:File/Frame' ],
 		.thumb {
 			max-width: calc( @max-width-breakpoint-mobile - @margin-content );
+			clear: right;
+			clear: inline-end;
+			float: right;
+			float: inline-end;
+			margin-left: 1.4em;
+			margin-right: 0;
+			margin-inline: 1.4em 0;
 
 			&.mw-halign-left,
 			&.tleft {
