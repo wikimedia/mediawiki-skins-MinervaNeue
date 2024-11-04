@@ -11,7 +11,8 @@
 			"WTM",
 			"Woytecr",
 			"Msz2001",
-			"Tsca"
+			"Tsca",
+			"Tar Lócesilion"
 		]
 	},
 	"minerva-last-modified-date": "Ostatnio edytowano $1 o $2",
@@ -79,7 +80,6 @@
 	"minerva-talk-full-page": "Przeczytaj jak stronę wiki",
 	"minerva-talk-topic-feedback": "Nowy temat dodano na stronę dyskusji!",
 	"minerva-talk-reply-success": "Twoja odpowiedź została zapisana na stronie dyskusji.",
-	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Responsywna skórka przeznaczona dla urządzeń mobilnych",
 	"skin-minerva-issue-learn-more": "Dowiedz się więcej",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorie",

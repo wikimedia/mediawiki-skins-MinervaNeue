@@ -6,7 +6,8 @@
 			"Jopparn",
 			"Lokal Profil",
 			"Sabelöga",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lejonel"
 		]
 	},
 	"minerva-last-modified-date": "Senast redigerad den $1, kl $2",
@@ -74,7 +75,6 @@
 	"minerva-talk-full-page": "Läs som wikisida",
 	"minerva-talk-topic-feedback": "Nytt ämne lades till på diskussionssidan!",
 	"minerva-talk-reply-success": "Ditt svar sparades på diskussionssidan.",
-	"skinname-minerva": "MinervaNeue",
 	"minerva-skin-desc": "Ett responsivt mobilutseende.",
 	"skin-minerva-issue-learn-more": "Läs mer",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorier",
