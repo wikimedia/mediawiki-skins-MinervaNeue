@@ -100,6 +100,23 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @covers ::getDefaultModules
+	 */
+	public function testGetDefaultModules() {
+		$context = new RequestContext();
+		$context->setTitle( Title::makeTitle( 0, 'Hello' ) );
+		$context->setActionName( 'view' );
+
+		$skinFactory = $this->getServiceContainer()->getSkinFactory();
+		$skin = $skinFactory->makeSkin( 'minerva' );
+
+		$skin->setContext( $context );
+
+		$this->assertContains( 'skins.minerva.styles', $skin->getDefaultModules()['styles']['skin'],
+								'Check entry point' );
+	}
+
+	/**
 	 * @dataProvider provideHasPageTabs
 	 * @covers ::hasPageTabs
 	 */
