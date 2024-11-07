@@ -489,7 +489,6 @@
 				"skins.minerva.mainMenu.icons",
 				"skins.minerva.mainMenu.styles",
 				"mediawiki.cookie",
-				"skins.minerva.messageBox.styles",
 				"mediawiki.util",
 				"mediawiki.router",
 				"mediawiki.Title",
@@ -560,13 +559,6 @@
 				"watchstar.js"
 			]
 		},
-		"skins.minerva.messageBox.styles": {
-			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"codexStyleOnly": true,
-			"codexComponents": [
-				"CdxMessage"
-			]
-		},
 		"skins.minerva.categories.styles": {
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": [
@@ -577,8 +569,7 @@
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"codexStyleOnly": true,
 			"codexComponents": [
-				"CdxButton",
-				"CdxMessage"
+				"CdxButton"
 			]
 		}
 	},
@@ -587,7 +578,6 @@
 		"remoteSkinPath": "MinervaNeue/tests/qunit/skins.minerva.scripts",
 		"dependencies": [
 			"mediawiki.cookie",
-			"skins.minerva.messageBox.styles",
 			"skins.minerva.scripts",
 			"mobile.startup",
 			"mediawiki.user",
