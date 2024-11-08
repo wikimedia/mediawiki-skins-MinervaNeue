@@ -21,10 +21,13 @@ a:where( .new:not( [ role='button' ] ) ) {
 a.mw-selflink,
 a:not( [ href ] ) {
 	color: @color-base;
-	font-weight: bold;
-	text-decoration: inherit;
 	/* The anchor is functionally a link so show a hand cursor. */
 	cursor: pointer;
+}
+
+a.mw-selflink {
+	font-weight: bold;
+	text-decoration: inherit;
 }
 
 // External links
