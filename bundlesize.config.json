@@ -4,6 +4,10 @@
 		"maxSize": "9.5KB"
 	},
 	{
+		"resourceModule": "skins.minerva.styles",
+		"maxSize": "9.8KB"
+	},
+	{
 		"resourceModule": "skins.minerva.content.styles.images",
 		"maxSize": "0.3KB"
 	},
