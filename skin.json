@@ -145,8 +145,7 @@
 						"skins.minerva.content.styles.images",
 						"mediawiki.hlist",
 						"skins.minerva.codex.styles",
-						"skins.minerva.icons.wikimedia",
-						"skins.minerva.mainMenu.icons"
+						"skins.minerva.icons"
 					],
 					"messages": [
 						"variants",
@@ -412,7 +411,40 @@
 				"userGroup"
 			]
 		},
+		"skins.minerva.icons": {
+			"selectorWithoutVariant": ".minerva-icon--{name}",
+			"useDataURI": false,
+			"defaultColor": "#54595d",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+			"variants": [],
+			"useMaskImage": true,
+			"icons": [
+				"edit",
+				"wikiText",
+				"editLock",
+				"history",
+				"language",
+				"menu",
+				"search",
+				"userAvatar",
+				"userTalk",
+				"star",
+				"halfStar",
+				"unStar",
+				"die",
+				"heart",
+				"home",
+				"logIn",
+				"logOut",
+				"mapPin",
+				"settings",
+				"userContributions",
+				"unStar",
+				"watchlist"
+			]
+		},
 		"skins.minerva.icons.wikimedia": {
+			"deprecated": "Retained for caching reasons. Please use skins.minerva.icons instead.",
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
@@ -469,6 +501,7 @@
 			"useDataURI": false
 		},
 		"skins.minerva.mainMenu.icons": {
+			"deprecated": "Retained for caching reasons. Please use skins.minerva.icons instead.",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"variants": [],
 			"useMaskImage": true,
@@ -503,8 +536,8 @@
 			"localBasePath": "resources/skins.minerva.scripts",
 			"remoteSkinPath": "MinervaNeue/resources/skins.minerva.scripts",
 			"dependencies": [
-				"skins.minerva.mainMenu.icons",
-				"skins.minerva.mainMenu.styles",
+				"skins.minerva.icons",
+				"skins.minerva.styles",
 				"mediawiki.cookie",
 				"skins.minerva.messageBox.styles",
 				"mediawiki.util",
