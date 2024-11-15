@@ -1077,16 +1077,6 @@ class SkinMinerva extends SkinMustache {
 		$requestAction = $this->getActionName();
 		$viewAction = $requestAction === 'view';
 
-		// Warning box styles are needed when reviewing old revisions
-		// and inside the fallback editor styles to action=edit page.
-		if (
-			$title->getNamespace() !== NS_MAIN ||
-			$request->getCheck( 'oldid' ) ||
-			!$viewAction
-		) {
-			$styles[] = 'skins.minerva.messageBox.styles';
-		}
-
 		if ( $title->isMainPage() ) {
 			$styles[] = 'skins.minerva.mainPage.styles';
 		} elseif ( $this->skinUserPageHelper->isUserPage() ) {
