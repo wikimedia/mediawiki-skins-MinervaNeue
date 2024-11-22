@@ -227,9 +227,6 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
-			"ext.visualEditor.core.mobile": [
-				"skinStyles/ext.visualEditor.core.mobile.less"
-			],
 			"ext.echo.styles.badge": [
 				"skinStyles/ext.echo.styles.badge.less"
 			],
