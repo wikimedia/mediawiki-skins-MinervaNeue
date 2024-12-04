@@ -1,9 +1,5 @@
 [
 	{
-		"resourceModule": "skins.minerva.base.styles",
-		"maxSize": "9.6KB"
-	},
-	{
 		"resourceModule": "skins.minerva.styles",
 		"maxSize": "10.1KB"
 	},
@@ -16,20 +12,8 @@
 		"maxSize": "0.3KB"
 	},
 	{
-		"resourceModule": "skins.minerva.icons.wikimedia",
-		"maxSize": "0.5KB"
-	},
-	{
-		"resourceModule": "skins.minerva.mainMenu.icons",
-		"maxSize": "0.4KB"
-	},
-	{
 		"resourceModule": "skins.minerva.icons",
 		"maxSize": "0.6KB"
-	},
-	{
-		"resourceModule": "skins.minerva.mainMenu.styles",
-		"maxSize": "1.1KB"
 	},
 	{
 		"resourceModule": "skins.minerva.scripts",
