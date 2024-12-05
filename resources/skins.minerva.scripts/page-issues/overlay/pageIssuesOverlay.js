@@ -1,5 +1,5 @@
 const Overlay = require( 'mobile.startup' ).Overlay;
-const IssueList = require( './IssueList.js' );
+const issueList = require( './IssueList.js' );
 const KEYWORD_ALL_SECTIONS = 'all';
 const namespaceIds = mw.config.get( 'wgNamespaceIds' );
 const NS_MAIN = namespaceIds[ '' ];
@@ -26,7 +26,7 @@ function pageIssuesOverlay( issues, section, namespaceID ) {
 	return Overlay.make( {
 		className: 'overlay overlay-issues',
 		heading: `<strong>${ headingText }</strong>`
-	}, new IssueList( issues ) );
+	}, issueList( issues ) );
 }
 
 /**
