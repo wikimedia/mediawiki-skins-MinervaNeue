@@ -23,15 +23,10 @@ function pageIssuesOverlay( issues, section, namespaceID ) {
 		getNamespaceHeadingText( namespaceID ) :
 		mw.msg( 'minerva-meta-data-issues-section-header' );
 
-	const overlay = new Overlay( {
+	return Overlay.make( {
 		className: 'overlay overlay-issues',
-		heading: '<strong>' + headingText + '</strong>'
-	} );
-
-	overlay.$el.find( '.overlay-content' ).append(
-		new IssueList( issues ).$el
-	);
-	return overlay;
+		heading: `<strong>${ headingText }</strong>`
+	}, new IssueList( issues ) );
 }
 
 /**

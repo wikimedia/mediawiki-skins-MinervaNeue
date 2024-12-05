@@ -12,16 +12,24 @@ const
  *
  * @param {IssueSummary} issues
  */
-function IssueList( issues ) {
-	this.issues = issues;
-	View.call( this, { className: 'cleanup' } );
+class IssueList extends View {
+	constructor( issues ) {
+		super( {
+			className: 'cleanup',
+			issues
+		} );
+	}
+
+	get tagName() {
+		return 'ul';
+	}
+
+	postRender() {
+		super.postRender();
+		this.append(
+			( this.options.issues || [] ).map( ( issue ) => new IssueNotice( issue ).$el )
+		);
+	}
 }
-OO.inheritClass( IssueList, View );
-IssueList.prototype.tagName = 'ul';
-IssueList.prototype.postRender = function () {
-	View.prototype.postRender.apply( this, arguments );
-	this.append(
-		( this.issues || [] ).map( ( issue ) => new IssueNotice( issue ).$el )
-	);
-};
+
 module.exports = IssueList;
