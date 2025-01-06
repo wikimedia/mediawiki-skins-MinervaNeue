@@ -188,7 +188,9 @@ class Hooks implements
 				->getBoolOption( $special->getUser(), 'usenewrc' );
 			$enhanced = $request->getBool( 'enhanced', $isEnhancedDefaultForUser );
 			if ( $enhanced ) {
-				$special->getOutput()->addHTML( Html::warningBox(
+				$out = $special->getOutput();
+				$out->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
+				$out->addHTML( Html::warningBox(
 					$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )->parse()
 				) );
 			}
