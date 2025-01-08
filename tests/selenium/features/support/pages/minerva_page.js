@@ -41,7 +41,7 @@ class MinervaPage extends Page {
 	async setCookie( name, value ) {
 		const currentPage = await browser.getUrl();
 		if ( !currentPage.includes( await browser.options.baseUrl ) ) {
-			this.open();
+			await this.open();
 		}
 
 		const cookie = await browser.getCookies( [ name ] );
