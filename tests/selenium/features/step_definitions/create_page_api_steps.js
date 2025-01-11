@@ -44,7 +44,7 @@ const iAmInAWikiThatHasCategories = ( title ) => {
 	);
 };
 
-const iAmOnAPageThatHasTheFollowingEdits = function ( table ) {
+const iAmOnAPageThatHasTheFollowingEdits = async function ( table ) {
 	const randomString = Math.random().toString( 36 ).slice( 7 ),
 		pageTitle = `Selenium_diff_test_${ randomString }`,
 		edits = table.rawTable.map( ( row, i ) => [ i === 0 ? 'create' : 'edit', pageTitle, row[ 0 ] ] );
@@ -63,7 +63,7 @@ const iAmOnAPageThatHasTheFollowingEdits = function ( table ) {
 	} );
 
 	browser.call( () => RunJobs.run() );
-	ArticlePage.open( pageTitle );
+	await ArticlePage.open( pageTitle );
 };
 
 const iGoToAPageThatHasLanguages = () => {
@@ -80,15 +80,15 @@ const iGoToAPageThatHasLanguages = () => {
 	} );
 };
 
-const watch = ( title ) => {
+const watch = async ( title ) => {
 	// Ideally this would use the API but mwbot / Selenium's API can't do this right now
 	// So we run the non-js workflow.
 	const page = new Page();
-	page.openTitle( title, { action: 'watch' } );
+	await page.openTitle( title, { action: 'watch' } );
 	$( '#mw-content-text button[type="submit"]' ).waitForDisplayed();
 	$( '#mw-content-text button[type="submit"]' ).click();
 	waitForPropagation( 10000 );
-	page.openTitle( title );
+	await page.openTitle( title );
 };
 
 const iAmViewingAWatchedPage = () => {
