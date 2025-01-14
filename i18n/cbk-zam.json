@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aristorkle"
+		]
+	},
+	"mobile-frontend-home-button": "Principia",
+	"mobile-frontend-language-article-heading": "Lenguaje",
+	"mobile-frontend-main-menu-nearby": "Cerca",
+	"mobile-frontend-placeholder": "Busca na {{SITENAME}}"
+}
