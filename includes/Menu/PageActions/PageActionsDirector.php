@@ -96,7 +96,7 @@ final class PageActionsDirector {
 					],
 					// class = toggle-list__toggle {{toggleClass}}
 					// data-event-name="{{analyticsEventName}}">
-					'label' => $this->messageLocalizer->msg( 'minerva-page-actions-overflow' ),
+					'label' => $this->messageLocalizer->msg( 'minerva-page-actions-overflow' )->text(),
 				],
 				'listID' => $overflowMenu->getId(),
 				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',
