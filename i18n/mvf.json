@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anand.orkhon",
 			"Enkhsaihan2005",
 			"Wikibilig"
 		]
@@ -12,5 +13,6 @@
 	"mobile-frontend-main-menu-nearby": "ᠣᠶᠢᠷ᠎ᠠ",
 	"mobile-frontend-main-menu-settings": "ᠲᠣᠬᠢᠷᠠᠭ᠎ᠠ",
 	"mobile-frontend-placeholder": "ᠬᠠᠢᠢᠬᠤ {{SITENAME}}",
-	"mobile-frontend-random-button": "ᠰᠠᠨᠠᠮᠰᠠᠷ ᠦᠭᠡᠶ"
+	"mobile-frontend-random-button": "ᠰᠠᠨᠠᠮᠰᠠᠷ ᠦᠭᠡᠶ",
+	"minerva-page-actions-overflow": "ᠳᠡᠯᠭᠡᠷᠡᠩᠭᠦᠢ"
 }
