@@ -40,9 +40,11 @@ ul {
 	background-color: @background-color-base;
 }
 
+// Bottom dock only supported with JavaScript enabled.
 // If footer has last modified list item (Desktop MinervaNeue ?useformat=desktop&useskin=minerva),
 // hide it (T173545).
 // stylelint-disable-next-line selector-max-id
+.mw-portlet-dock-bottom,
 .navigation-drawer--loading,
 #footer-info-lastmod {
 	display: none;
