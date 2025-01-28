@@ -1,7 +1,6 @@
 'use strict';
 
-const assert = require( 'assert' ),
-	MWBot = require( 'mwbot' ),
+const MWBot = require( 'mwbot' ),
 	Api = require( 'wdio-mediawiki/Api' ),
 	ArticlePageWithOverlay = require( '../support/pages/article_page_with_overlay' ),
 	{ ArticlePage, UserLoginPage } = require( '../support/world.js' );
@@ -60,7 +59,7 @@ const iAmOnPage = async ( article ) => {
 const iAmLoggedIn = async () => {
 	await UserLoginPage.open();
 	await UserLoginPage.loginAdmin();
-	assert.strictEqual( await ArticlePage.is_authenticated_element.isExisting(), true );
+	await expect( ArticlePage.is_authenticated_element ).toExist();
 };
 
 const iAmLoggedIntoTheMobileWebsite = async () => {
@@ -90,8 +89,8 @@ const iShouldSeeAToastNotification = async () => {
 
 const iShouldSeeAToastNotificationWithMessage = async ( msg ) => {
 	await iShouldSeeAToastNotification();
-	const notificationBody = await ArticlePage.notification_element.$( '.mw-notification-content' ).getText();
-	assert.strictEqual( await notificationBody.includes( msg ), true );
+	const notificationBody = await ArticlePage.notification_element.$( '.mw-notification-content' );
+	await expect( notificationBody ).toHaveTextContaining( msg );
 };
 
 const iClickTheBrowserBackButton = async () => {
@@ -106,7 +105,7 @@ const iClickTheOverlayCloseButton = () => {
 
 const iSeeAnOverlay = async () => {
 	await ArticlePageWithOverlay.overlay_element.waitForDisplayed();
-	assert.strictEqual( await ArticlePageWithOverlay.overlay_element.isDisplayed(), true );
+	await expect( ArticlePageWithOverlay.overlay_element ).toBeDisplayed();
 };
 
 const iDoNotSeeAnOverlay = async () => {
@@ -114,7 +113,7 @@ const iDoNotSeeAnOverlay = async () => {
 	await browser.waitUntil(
 		async () => !( await ArticlePageWithOverlay.overlay_element.isDisplayed() )
 	);
-	assert.strictEqual( await ArticlePageWithOverlay.overlay_element.isDisplayed(), false );
+	await expect( ArticlePageWithOverlay.overlay_element ).not.toBeDisplayed();
 };
 
 const iAmUsingMobileScreenResolution = async () => {
