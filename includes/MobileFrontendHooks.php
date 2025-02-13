@@ -71,6 +71,13 @@ class MobileFrontendHooks implements
 			);
 			$featuresManager->registerFeature(
 				new Feature(
+					'MinervaDonateBanner',
+					'skin-minerva',
+					$config->get( 'MinervaDonateBanner' )
+				)
+			);
+			$featuresManager->registerFeature(
+				new Feature(
 					'MinervaHistoryInPageActions',
 					'skin-minerva',
 					$config->get( 'MinervaHistoryInPageActions' )

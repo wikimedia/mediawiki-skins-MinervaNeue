@@ -25,6 +25,11 @@
 		"MediaWiki": ">= 1.43"
 	},
 	"config": {
+		"MinervaDonateBanner": {
+			"value": {
+				"base": false
+			}
+		},
 		"MinervaDonateLink": {
 			"value": {
 				"base": false
@@ -155,7 +160,12 @@
 						"mainpage",
 						"searchbutton",
 						"minerva-user-navigation",
-						"mobile-frontend-main-menu-button-tooltip"
+						"mobile-frontend-main-menu-button-tooltip",
+						"mobile-frontend-footer-sitename",
+						"skin-minerva-donate-banner-message",
+						"skin-minerva-donate-banner-subtitle",
+						"skin-minerva-donate-banner-url",
+						"skin-minerva-donate-banner-gif"
 					],
 					"menus": [
 						"notifications",

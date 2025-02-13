@@ -420,8 +420,9 @@ class SkinMinerva extends SkinMustache {
 			],
 			'data-minerva-main-menu' => $this->getMainMenu()->getMenuData(
 				$navUserMenu,
-				$this->buildSidebar()
+				$this->buildSidebar(),
 			)['items'],
+			'data-donation-banner' => $this->skinOptions->get( SkinOptions::SHOW_DONATE_BANNER ),
 			'html-minerva-tagline' => $this->getTaglineHtml(),
 			'html-minerva-user-menu' => $this->getPersonalToolsMenu( $navUserMenu ),
 			'is-minerva-beta' => $this->skinOptions->get( SkinOptions::BETA_MODE ),

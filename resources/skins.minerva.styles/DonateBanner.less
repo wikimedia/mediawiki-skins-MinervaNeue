@@ -1,0 +1,53 @@
+.donate-banner {
+	position: relative;
+	padding: 0.75em 0.875em;
+	display: flex;
+	align-items: center;
+	background-color: @background-color-base;
+	border-top: @border-color-muted;
+	color: @color-subtle;
+	font-size: @font-size-minerva-small;
+	font-weight: bold;
+	.text-overflow( @visible: false );
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.donate-banner__link {
+	display: flex;
+	text-decoration: none;
+
+	&:where( :not( [ role='button' ] ) ):hover {
+		color: @color-progressive--hover;
+		text-decoration: none;
+	}
+}
+
+.donate-banner__text-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.donate-banner__text {
+	display: block;
+	margin-bottom: 15px;
+}
+
+.donate-banner__subtitle {
+	display: block;
+	max-width: 175px;
+	color: @color-subtle;
+	font-weight: normal;
+	white-space: normal;
+	word-wrap: break-word;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.donate-banner__gif {
+	width: 75px;
+}
