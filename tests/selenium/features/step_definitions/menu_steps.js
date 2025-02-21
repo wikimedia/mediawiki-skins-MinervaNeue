@@ -1,10 +1,9 @@
 'use strict';
 
-const assert = require( 'assert' );
 const { ArticlePage } = require( '../support/world.js' );
 
 const iSeeALinkToAboutPage = async () => {
-	assert.strictEqual( await ArticlePage.menu_element.$( '*=About' ).isDisplayed(), true );
+	await expect( ArticlePage.menu_element.$( '*=About' ) ).toBeDisplayed();
 };
 
 const iClickOnTheMainNavigationButton = async () => {
@@ -21,13 +20,14 @@ const iShouldSeeLogoutLinkInMenu = async () => {
 };
 
 const iShouldSeeALinkInMenu = async ( text ) => {
-	assert.strictEqual( await ArticlePage.menu_element.$( `span=${ text }` ).isDisplayed(),
-		true, `Link to ${ text } is visible.` );
+	await expect( ArticlePage.menu_element.$( `span=${ text }` ) ).toBeDisplayed(
+		{ message: `Link to ${ text } is visible.` }
+	);
 };
 
 const iShouldSeeALinkToDisclaimer = async () => {
 	await ArticlePage.menu_element.$( 'span=Disclaimers' ).waitForDisplayed();
-	assert.strictEqual( await ArticlePage.menu_element.$( 'span=Disclaimers' ).isDisplayed(), true );
+	await expect( ArticlePage.menu_element.$( 'span=Disclaimers' ) ).toBeDisplayed();
 };
 
 module.exports = {

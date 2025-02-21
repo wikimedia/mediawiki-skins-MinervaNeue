@@ -1,6 +1,5 @@
 'use strict';
 
-const assert = require( 'assert' );
 const { ArticlePageWithEditorOverlay, ArticlePage } = require( '../support/world.js' );
 
 const iClickTheEditButton = async () => {
@@ -53,16 +52,16 @@ const iSayOkayInTheConfirmDialog = () => {
 const theTextOfTheFirstHeadingShouldBe = async ( title ) => {
 	await ArticlePage.first_heading_element.waitForDisplayed();
 	title = mw.util.escapeRegExp( title );
-	assert.match(
-		await ArticlePage.first_heading_element.getText(),
+	await expect(
+		ArticlePage.first_heading_element ).toHaveTextMatching(
 		// eslint-disable-next-line security/detect-non-literal-regexp
 		new RegExp( `.*${ title }$` )
 	);
 };
-const thereShouldBeARedLinkWithText = ( text ) => {
+const thereShouldBeARedLinkWithText = async ( text ) => {
 	ArticlePage.red_link_element.waitForExist();
-	assert.strictEqual(
-		ArticlePage.red_link_element.getText(),
+	await expect(
+		ArticlePage.red_link_element ).toHaveText(
 		text
 	);
 };

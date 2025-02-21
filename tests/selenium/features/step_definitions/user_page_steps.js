@@ -1,6 +1,5 @@
 'use strict';
 
-const assert = require( 'assert' );
 const { ArticlePage } = require( '../support/world.js' );
 const { iAmOnPage } = require( './common_steps' );
 const { theTextOfTheFirstHeadingShouldBe } = require( './editor_steps' );
@@ -16,10 +15,11 @@ const iShouldBeOnMyUserPage = async () => {
 };
 
 const thereShouldBeALinkToMyContributions = async () => {
-	assert.strictEqual( await ArticlePage.contributions_link_element.isDisplayed(), true );
+	await expect( ArticlePage.contributions_link_element ).toBeDisplayed();
 };
+
 const thereShouldBeALinkToMyTalkPage = async () => {
-	assert.strictEqual( await ArticlePage.talk_tab_element.isDisplayed(), true );
+	await expect( ArticlePage.talk_tab_element ).toBeDisplayed();
 };
 
 module.exports = { iVisitMyUserPage, iShouldBeOnMyUserPage,

@@ -1,18 +1,18 @@
 'use strict';
 
-const assert = require( 'assert' );
 const { ArticlePage } = require( '../support/world.js' );
 
-const theWatchstarShouldNotBeSelected = () => {
+const theWatchstarShouldNotBeSelected = async () => {
 	ArticlePage.watch_element.waitForExist();
-	assert.strictEqual( ArticlePage.watched_element.isExisting(), false,
-		'the watched element should not be present' );
+	await expect( ArticlePage.watched_element ).not.toExist(
+		{ message: 'the watched element should not be present' }
+	);
 };
 
 const theWatchstarShouldBeSelected = async () => {
 	await ArticlePage.watched_element.waitForExist();
 	const watchstar = await ArticlePage.watched_element;
-	assert.strictEqual( await watchstar.isDisplayed(), true );
+	await expect( watchstar ).toBeDisplayed();
 };
 
 const iClickTheWatchstar = async () => {
