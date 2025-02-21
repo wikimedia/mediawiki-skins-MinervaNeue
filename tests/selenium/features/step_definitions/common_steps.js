@@ -103,19 +103,6 @@ const iClickTheOverlayCloseButton = () => {
 	ArticlePageWithOverlay.overlay_close_element.click();
 };
 
-const iSeeAnOverlay = async () => {
-	await ArticlePageWithOverlay.overlay_element.waitForDisplayed();
-	await expect( ArticlePageWithOverlay.overlay_element ).toBeDisplayed();
-};
-
-const iDoNotSeeAnOverlay = async () => {
-	await waitForPropagation( 5000 );
-	await browser.waitUntil(
-		async () => !( await ArticlePageWithOverlay.overlay_element.isDisplayed() )
-	);
-	await expect( ArticlePageWithOverlay.overlay_element ).not.toBeDisplayed();
-};
-
 const iAmUsingMobileScreenResolution = async () => {
 	await browser.setWindowSize( 320, 480 );
 };
@@ -123,7 +110,6 @@ const iAmUsingMobileScreenResolution = async () => {
 module.exports = {
 	waitForPropagation,
 	iAmUsingMobileScreenResolution,
-	iSeeAnOverlay, iDoNotSeeAnOverlay,
 	iClickTheOverlayCloseButton,
 	iClickTheBrowserBackButton,
 	createPage, createPages,

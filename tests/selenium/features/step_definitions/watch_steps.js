@@ -2,13 +2,6 @@
 
 const { ArticlePage } = require( '../support/world.js' );
 
-const theWatchstarShouldNotBeSelected = async () => {
-	ArticlePage.watch_element.waitForExist();
-	await expect( ArticlePage.watched_element ).not.toExist(
-		{ message: 'the watched element should not be present' }
-	);
-};
-
 const theWatchstarShouldBeSelected = async () => {
 	await ArticlePage.watched_element.waitForExist();
 	const watchstar = await ArticlePage.watched_element;
@@ -28,5 +21,5 @@ const iClickTheUnwatchStar = () => {
 };
 
 module.exports = {
-	theWatchstarShouldNotBeSelected, theWatchstarShouldBeSelected,
+	theWatchstarShouldBeSelected,
 	iClickTheWatchstar, iClickTheUnwatchStar };
