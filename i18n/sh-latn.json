@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BadDog",
 			"Winston Sung"
 		]
 	},
@@ -36,7 +37,7 @@
 	"mobile-frontend-talk-back-to-projectpage": "Nazad na projektnu stranicu \"$1\".",
 	"mobile-frontend-talk-back-to-userpage": "Nazad na stranicu {{GENDER:$1|korisnika|korisnice}} \"$1\".",
 	"mobile-frontend-user-button-tooltip": "Prikaži moje obavijesti",
-	"mobile-frontend-user-newmessages": "Imate nove poruke na Vašoj razgovornoj stranici",
+	"mobile-frontend-user-newmessages": "Imate nove poruke na Vašoj stranici za razgovor",
 	"mobile-frontend-user-page-contributions": "Doprinosi",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Pridružio|Pridružila}} se $1",
 	"mobile-frontend-user-page-talk": "Razgovor",

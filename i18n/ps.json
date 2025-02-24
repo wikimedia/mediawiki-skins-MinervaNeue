@@ -31,8 +31,8 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} پلټل",
 	"mobile-frontend-random-button": "ناټاکلی",
 	"mobile-frontend-redirected-from": "د \"[[$1]]\" څخه راوګرځول شو",
-	"mobile-frontend-talk-back-to-page": "و \"$1\" مخ ته وروګرځي.",
-	"mobile-frontend-talk-back-to-userpage": "بيرته د «{{GENDER:$1|$1}}» مخ ته وروګرځي.",
+	"mobile-frontend-talk-back-to-page": "د \"$1\" مخ ته ورستنیدل.",
+	"mobile-frontend-talk-back-to-userpage": "د \"{{GENDER:$1|$1}}\" کارن‌مخ ته ورستنیدل.",
 	"mobile-frontend-user-page-contributions": "ونډې",
 	"mobile-frontend-user-page-talk": "خبرې اترې",
 	"minerva-page-actions-overflow": "نور"
