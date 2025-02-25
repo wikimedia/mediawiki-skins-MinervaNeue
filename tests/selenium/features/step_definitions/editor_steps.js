@@ -49,27 +49,9 @@ const iSayOkayInTheConfirmDialog = () => {
 	}, 2000 );
 	browser.acceptAlert();
 };
-const theTextOfTheFirstHeadingShouldBe = async ( title ) => {
-	await ArticlePage.first_heading_element.waitForDisplayed();
-	title = mw.util.escapeRegExp( title );
-	await expect(
-		ArticlePage.first_heading_element ).toHaveTextMatching(
-		// eslint-disable-next-line security/detect-non-literal-regexp
-		new RegExp( `.*${ title }$` )
-	);
-};
-const thereShouldBeARedLinkWithText = async ( text ) => {
-	ArticlePage.red_link_element.waitForExist();
-	await expect(
-		ArticlePage.red_link_element ).toHaveText(
-		text
-	);
-};
 
 module.exports = {
 	iClickTheEditButton, iSeeTheWikitextEditorOverlay, iClearTheEditor,
-	thereShouldBeARedLinkWithText,
 	iDoNotSeeTheWikitextEditorOverlay,
-	iTypeIntoTheEditor, iClickContinue, iClickSubmit, iSayOkayInTheConfirmDialog,
-	theTextOfTheFirstHeadingShouldBe
+	iTypeIntoTheEditor, iClickContinue, iClickSubmit, iSayOkayInTheConfirmDialog
 };
