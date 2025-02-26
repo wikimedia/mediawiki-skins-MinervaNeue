@@ -155,8 +155,7 @@
 						"mainpage",
 						"searchbutton",
 						"minerva-user-navigation",
-						"mobile-frontend-main-menu-button-tooltip",
-						"mobile-frontend-footer-sitename"
+						"mobile-frontend-main-menu-button-tooltip"
 					],
 					"menus": [
 						"notifications",
