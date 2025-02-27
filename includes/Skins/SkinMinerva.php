@@ -234,10 +234,8 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	private function getNotificationCircleButton( array $alert, bool $hasUnseenNotices ): array {
-		$alertCount = $alert['data']['counter-num'] ?? 0;
 		$linkClass = $alert['link-class'] ?? [];
 		$hasSeenAlerts = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
-		$alertText = $alert['data']['counter-text'] ?? $alertCount;
 		$alert['icon'] = 'circle';
 		$alert['class'] = 'notification-count';
 		if ( $hasSeenAlerts || $hasUnseenNotices ) {
