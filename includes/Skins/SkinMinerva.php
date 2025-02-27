@@ -203,15 +203,18 @@ class SkinMinerva extends SkinMustache {
 	 * @return array
 	 */
 	private function getCombinedNotificationButton( array $alert, array $notice ) {
+		// Start by just copying alert data
+		$combinedNotification = $alert;
 		// Sum the notifications from the two original buttons
 		$notifCount = ( $alert['data']['counter-num'] ?? 0 ) + ( $notice['data']['counter-num'] ?? 0 );
-		$alert['data']['counter-num'] = $notifCount;
+		$combinedNotification['data']['counter-num'] = $notifCount;
 		// @phan-suppress-next-line PhanUndeclaredClassReference
 		if ( class_exists( NotificationController::class ) ) {
-			// @phan-suppress-next-line PhanUndeclaredClassMethod
-			$alert['data']['counter-text'] = NotificationController::formatNotificationCount( $notifCount );
+			$combinedNotification['data']['counter-text'] =
+				// @phan-suppress-next-line PhanUndeclaredClassMethod
+				NotificationController::formatNotificationCount( $notifCount );
 		} else {
-			$alert['data']['counter-text'] = $notifCount;
+			$combinedNotification['data']['counter-text'] = $notifCount;
 		}
 
 		$linkClassAlert = $alert['link-class'] ?? [];
@@ -225,9 +228,9 @@ class SkinMinerva extends SkinMustache {
 		if ( $notifCount > 0 && $hasUnseenAlerts ) {
 			$linkClass = $notice['link-class'] ?? [];
 			$hasUnseenNotices = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
-			return $this->getNotificationCircleButton( $alert, $hasUnseenNotices );
+			return $this->getNotificationCircleButton( $combinedNotification, $hasUnseenNotices );
 		} else {
-			return $this->getNotificationButton( $alert );
+			return $this->getNotificationButton( $combinedNotification );
 		}
 	}
 
@@ -238,37 +241,37 @@ class SkinMinerva extends SkinMustache {
 	 * be treated the same but we'd need to talk to a designer about consolidating these
 	 * before making such a decision.
 	 *
-	 * @param array $alert
+	 * @param array $notification
 	 * @param bool $hasUnseenNotices does the user have unseen notices?
 	 * @return array
 	 */
-	private function getNotificationCircleButton( array $alert, bool $hasUnseenNotices ) {
-		$linkClass = $alert['link-class'] ?? [];
+	private function getNotificationCircleButton( array $notification, bool $hasUnseenNotices ) {
+		$linkClass = $notification['link-class'] ?? [];
 		$hasSeenAlerts = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
-		$alert['icon'] = 'circle';
-		$alert['class'] = 'notification-count';
+		$notification['icon'] = 'circle';
+		$notification['class'] = 'notification-count';
 		if ( $hasSeenAlerts || $hasUnseenNotices ) {
-			$alert['class'] .= ' notification-unseen mw-echo-unseen-notifications';
+			$notification['class'] .= ' notification-unseen mw-echo-unseen-notifications';
 		}
-		return $alert;
+		return $notification;
 	}
 
 	/**
 	 * Removes the OOUI icon class and adds Minerva notification classes.
 	 *
-	 * @param array $alert
+	 * @param array $notification
 	 * @return array
 	 */
-	private function getNotificationButton( array $alert ) {
-		$linkClass = $alert['link-class'];
-		$alert['link-class'] = array_filter(
+	private function getNotificationButton( array $notification ) {
+		$linkClass = $notification['link-class'];
+		$notification['link-class'] = array_filter(
 			$linkClass,
 			static function ( $class ) {
 				return $class !== 'oo-ui-icon-bellOutline';
 			}
 		);
-		$alert['icon'] = 'bellOutline-base20';
-		return $alert;
+		$notification['icon'] = 'bellOutline';
+		return $notification;
 	}
 
 	/**
