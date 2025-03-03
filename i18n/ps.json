@@ -4,7 +4,8 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
 			"Amjad Khan",
 			"Baloch Khan",
-			"Af420"
+			"Af420",
+			"شاه زمان پټان"
 		]
 	},
 	"minerva-last-modified-date": "فعاله خبرې اترې",
@@ -23,7 +24,7 @@
 	"mobile-frontend-main-menu-login": "ننوتل",
 	"mobile-frontend-main-menu-logout": "وتل",
 	"mobile-frontend-main-menu-nearby": "نژدې",
-	"mobile-frontend-main-menu-settings": "امستنې",
+	"mobile-frontend-main-menu-settings": "اوڼنې",
 	"mobile-frontend-main-menu-watchlist": "کتنلړ",
 	"mobile-frontend-meta-data-issues": "د مخ ستونزې",
 	"mobile-frontend-meta-data-issues-categories": "د دې وېشنيزې په اړه",
@@ -33,8 +34,8 @@
 	"mobile-frontend-placeholder": "{{SITENAME}} پلټل",
 	"mobile-frontend-random-button": "ناټاکلی",
 	"mobile-frontend-redirected-from": "د \"[[$1]]\" څخه راوګرځول شو",
-	"mobile-frontend-talk-back-to-page": "و \"$1\" مخ ته وروګرځي.",
-	"mobile-frontend-talk-back-to-userpage": "بيرته د «{{GENDER:$1|$1}}» مخ ته وروګرځي.",
+	"mobile-frontend-talk-back-to-page": "د \"$1\" مخ ته ورستنیدل.",
+	"mobile-frontend-talk-back-to-userpage": "د \"{{GENDER:$1|$1}}\" کارن‌مخ ته ورستنیدل.",
 	"mobile-frontend-user-page-contributions": "ونډې",
 	"mobile-frontend-user-page-talk": "خبرې اترې",
 	"minerva-page-actions-overflow": "نور"
