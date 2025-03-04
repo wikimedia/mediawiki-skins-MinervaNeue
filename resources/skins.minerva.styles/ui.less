@@ -93,9 +93,9 @@ ul {
 // Search input
 // Used in minerva header and search overlay header
 .search-box .search {
-	@size-icon-search: unit( 18 / @font-size-browser, em );
-	@size-icon-search-gutter: unit( 8 / @font-size-browser, em );
-	@size-modifier-border: unit( 1 / @font-size-browser, em );
+	@size-icon-search: unit( ( 18 / @font-size-browser ), em );
+	@size-icon-search-gutter: unit( ( 8 / @font-size-browser ), em );
+	@size-modifier-border: unit( ( 1 / @font-size-browser ), em );
 	@padding-vertical-search: 8px - @border-width-base;
 	@padding-start-search-icon: @size-icon-search + ( 2 * @size-icon-search-gutter ) - @size-modifier-border;
 	background-color: @background-color-base; // Support Fennec, Opera Mini: Remove default background, see T38490.
