@@ -423,7 +423,9 @@ class SkinMinerva extends SkinMustache {
 				$navUserMenu,
 				$this->buildSidebar(),
 			)['items'],
-			'data-donation-banner' => $this->skinOptions->get( SkinOptions::SHOW_DONATE_BANNER ),
+			// Refer to https://phabricator.wikimedia.org/T388036#10608151 for the following line:
+			'data-donation-banner' => $this->skinOptions->get( SkinOptions::SHOW_DONATE_BANNER ) &&
+				$this->getUser()->isAnon(),
 			'html-minerva-tagline' => $this->getTaglineHtml(),
 			'html-minerva-user-menu' => $this->getPersonalToolsMenu( $navUserMenu ),
 			'is-minerva-beta' => $this->skinOptions->get( SkinOptions::BETA_MODE ),
