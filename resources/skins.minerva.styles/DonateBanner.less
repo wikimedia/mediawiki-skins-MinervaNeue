@@ -18,6 +18,9 @@
 .donate-banner__link {
 	display: flex;
 	text-decoration: none;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
 
 	&:where( :not( [ role='button' ] ) ):hover {
 		color: @color-progressive--hover;
@@ -28,6 +31,8 @@
 .donate-banner__text-container {
 	display: flex;
 	flex-direction: column;
+	flex-grow: 1;
+	max-width: 200px;
 }
 
 .donate-banner__text {
@@ -37,7 +42,6 @@
 
 .donate-banner__subtitle {
 	display: block;
-	max-width: 175px;
 	color: @color-subtle;
 	font-weight: normal;
 	white-space: normal;
@@ -50,4 +54,5 @@
 
 .donate-banner__gif {
 	width: 75px;
+	flex-shrink: 0;
 }
