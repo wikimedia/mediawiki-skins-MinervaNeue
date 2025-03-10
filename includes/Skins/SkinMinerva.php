@@ -412,10 +412,6 @@ class SkinMinerva extends SkinMustache {
 						'key' => 'aria-hidden',
 						'value' => 'true',
 					],
-					[
-						'key' => 'data-event-name',
-						'value' => 'ui.mainmenu',
-					],
 				],
 				'text' => $this->msg( 'mobile-frontend-main-menu-button-tooltip' )->escaped(),
 			],
@@ -481,6 +477,7 @@ class SkinMinerva extends SkinMustache {
 			}
 			$btns[] = [
 				'tag-name' => 'a',
+				'isButton' => true,
 				// FIXME: Move preg_replace when Echo no longer provides this class.
 				'classes' => preg_replace( '/oo-ui-icon-(bellOutline|tray)/', '', $classes ),
 				'array-attributes' => $attributes,
@@ -964,6 +961,7 @@ class SkinMinerva extends SkinMustache {
 				]
 			],
 			'tag-name' => 'a',
+			'isButton' => true,
 			'classes' => 'language-selector button',
 			'label' => $this->msg( 'mobile-frontend-language-article-heading' )->text()
 		];
@@ -988,6 +986,7 @@ class SkinMinerva extends SkinMustache {
 				]
 			],
 			'tag-name' => 'a',
+			'isButton' => true,
 			'classes' => 'talk button',
 			'label' => $label,
 		];
