@@ -201,23 +201,19 @@ class SkinMinerva extends SkinMustache {
 		} else {
 			$combinedNotification['data']['counter-text'] = $notifCount;
 		}
-		// This text is not shown, but re-use the counter text for accessibility.
-		$combinedNotification['text'] = $alert['data']['counter-text'];
 
 		$linkClassAlert = $alert['link-class'] ?? [];
-		$linkClassNotice = $notice['link-class'] ?? [];
-		$hasUnseenAlerts = is_array( $linkClassAlert ) &&
-			in_array( 'mw-echo-unseen-notifications', $linkClassAlert );
-		$hasUnseenNotices = is_array( $linkClassNotice ) &&
-			in_array( 'mw-echo-unseen-notifications', $linkClassNotice );
+		$hasUnseenAlerts = is_array( $linkClassAlert ) && in_array( 'mw-echo-unseen-notifications', $linkClassAlert );
 		// The circle should only appear if there are unseen notifications.
 		// Once the notifications are seen (by opening the notification drawer)
 		// then the icon reverts to a gray circle, but on page refresh
 		// it should revert back to a bell icon.
 		// If you try and change this behaviour, at time of writing
 		// (December 2022) JavaScript will correct it.
-		if ( $notifCount > 0 && ( $hasUnseenAlerts || $hasUnseenNotices ) ) {
-			return $this->getNotificationCircleButton( $combinedNotification );
+		if ( $notifCount > 0 && $hasUnseenAlerts ) {
+			$linkClass = $notice['link-class'] ?? [];
+			$hasUnseenNotices = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
+			return $this->getNotificationCircleButton( $combinedNotification, $hasUnseenNotices );
 		} else {
 			return $this->getNotificationButton( $combinedNotification );
 		}
@@ -231,15 +227,17 @@ class SkinMinerva extends SkinMustache {
 	 * before making such a decision.
 	 *
 	 * @param array $notification
+	 * @param bool $hasUnseenNotices does the user have unseen notices?
 	 * @return array
 	 */
-	private function getNotificationCircleButton( array $notification ): array {
-		$notification['icon'] = 'circle';
+	private function getNotificationCircleButton( array $notification, bool $hasUnseenNotices ): array {
 		$linkClass = $notification['link-class'] ?? [];
-		$linkClass[] = 'notification-count';
-		$linkClass[] = 'notification-unseen';
-		$linkClass[] = 'mw-echo-unseen-notifications';
-		$notification['link-class'] = $linkClass;
+		$hasSeenAlerts = is_array( $linkClass ) && in_array( 'mw-echo-unseen-notifications', $linkClass );
+		$notification['icon'] = 'circle';
+		$notification['class'] = 'notification-count';
+		if ( $hasSeenAlerts || $hasUnseenNotices ) {
+			$notification['class'] .= ' notification-unseen mw-echo-unseen-notifications';
+		}
 		return $notification;
 	}
 
