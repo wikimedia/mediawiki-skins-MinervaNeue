@@ -166,7 +166,8 @@
 						"skin-minerva-donate-banner-message",
 						"skin-minerva-donate-banner-subtitle",
 						"skin-minerva-donate-banner-url",
-						"skin-minerva-donate-banner-gif"
+						"skin-minerva-donate-banner-gif",
+						"skin-minerva-donate-banner-reduced-motion"
 					],
 					"menus": [
 						"notifications",

@@ -1,5 +1,11 @@
+// Position .donate-banner far outside the viewport initially.
+// This ensures the native lazy loading works correctly, as the `loading="lazy"` attribute
+// only takes effect when the image is outside the viewport. Using `display: none` or
+// `visibility: hidden` would prevent lazy loading from working as intended.
+// When the menu opens, the banner's position will be reset by the checkbox pattern.
 .donate-banner {
-	position: relative;
+	position: absolute;
+	top: 10000px;
 	padding: 0.75em 0.875em;
 	display: flex;
 	align-items: center;
@@ -12,6 +18,11 @@
 
 	&:hover {
 		text-decoration: none;
+	}
+	// stylelint-disable-next-line selector-max-id
+	#main-menu-input:checked ~ #mw-mf-page-left & {
+		position: relative;
+		top: auto;
 	}
 }
 

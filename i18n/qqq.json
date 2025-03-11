@@ -76,6 +76,7 @@
 	"skin-minerva-donate-banner-message": "{{notranslate}}",
 	"skin-minerva-donate-banner-subtitle": "{{notranslate}}",
 	"skin-minerva-donate-banner-gif": "{{notranslate}}",
+	"skin-minerva-donate-banner-reduced-motion": "{{notranslate}}",
 	"skin-minerva-donate-banner-url": "{{notranslate}}",
 	"minerva.css": "{{optional}}\n{{related/css}}",
 	"minerva.js": "{{optional}}\n{{related/js}}"
