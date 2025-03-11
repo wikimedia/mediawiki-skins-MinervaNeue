@@ -87,6 +87,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 		return [
 			[
 				'tag-name' => 'a',
+				'isButton' => true,
 				'classes' => $switcherClasses,
 				'label' => $msg,
 				'data-icon' => [

@@ -35,6 +35,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		'data-icon' => [
 			'icon' => 'home',
 		],
+		'isButton' => true,
 	];
 	private const MAIN_MENU_HOME = [
 		'name' => 'home',
@@ -48,6 +49,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			'item-id' => 'page-actions-overflow',
 			'checkboxID' => 'page-actions-overflow-checkbox',
 			'toggleID' => 'page-actions-overflow-toggle',
+			'event' => 'ui.overflowmenu',
 			'data-btn' => [
 				'tag-name' => 'label',
 				'data-icon' => [
@@ -66,10 +68,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 					[
 						'key' => 'aria-hidden',
 						'value' => 'true',
-					],
-					[
-						'key' => 'data-event-name',
-						'value' => 'ui.overflowmenu',
 					],
 				],
 				'label' => '(minerva-page-actions-overflow)',
@@ -701,10 +699,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 						'key' => 'aria-hidden',
 						'value' => 'true',
 					],
-					[
-						'key' => 'data-event-name',
-						'value' => 'ui.mainmenu',
-					],
 				],
 				'text' => '(mobile-frontend-main-menu-button-tooltip)',
 			],
@@ -785,7 +779,8 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		// Registered users have talk button on mainpage
 		$actions = $skin->getSecondaryActions( $contentNavigationUrls );
 		$this->assertArrayHasKey( 'talk', $actions );
-		$this->assertSame( [ 'array-attributes', 'tag-name', 'classes', 'label' ], array_keys( $actions['talk'] ), );
+		$this->assertSame( [ 'array-attributes', 'tag-name',
+			'isButton', 'classes', 'label' ], array_keys( $actions['talk'] ), );
 
 		// Unregistered users do not have talk button on mainpage
 		$context->setAuthority( $this->mockAnonUltimateAuthority() );
