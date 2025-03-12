@@ -4,8 +4,13 @@
 			"Rdwnnr"
 		]
 	},
+	"mobile-frontend-history": "ᨕᨗᨈᨕᨗ ᨑᨗᨓᨐ ᨄᨉᨙᨌᨙᨂᨛᨊ ᨒᨛᨇᨕᨙ᨞",
 	"mobile-frontend-home-button": "ᨓᨈᨇᨚᨒ",
+	"mobile-frontend-language-article-heading": "ᨅᨔ",
 	"mobile-frontend-main-menu-login": "ᨒᨚ ᨈᨆ",
+	"mobile-frontend-main-menu-nearby": "ᨆᨔᨛᨉᨙ",
 	"mobile-frontend-main-menu-settings": "ᨕᨄᨂᨈᨚᨑᨚᨂᨛ",
-	"mobile-frontend-random-button": "ᨔᨛᨅᨑ"
+	"mobile-frontend-placeholder": "ᨔᨄ ᨑᨗ {{SITENAME}}",
+	"mobile-frontend-random-button": "ᨔᨛᨅᨑ",
+	"minerva-page-actions-overflow": "ᨄᨙᨆᨛ"
 }
