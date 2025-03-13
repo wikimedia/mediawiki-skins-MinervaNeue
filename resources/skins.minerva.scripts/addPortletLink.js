@@ -8,6 +8,8 @@ function getClassesForItem( $item ) {
 	// eslint-disable-next-line no-jquery/no-class-state
 	const isPageActionList = $parent.hasClass( 'page-actions-menu__list' );
 	// eslint-disable-next-line no-jquery/no-class-state
+	const isIconOnlyList = $parent.hasClass( 'minerva-icon-only-menu' );
+	// eslint-disable-next-line no-jquery/no-class-state
 	const isTabContainer = $parent.hasClass( 'minerva__tab-container' );
 	// eslint-disable-next-line no-jquery/no-class-state
 	const isToggleList = $parent.hasClass( 'toggle-list__list' );
@@ -18,9 +20,9 @@ function getClassesForItem( $item ) {
 			span: [ 'toggle-list-item__label' ],
 			a: [ 'toggle-list-item__anchor' ]
 		};
-	} else if ( isPageActionList ) {
+	} else if ( isPageActionList || isIconOnlyList ) {
 		return {
-			li: [ 'page-actions-menu__list-item' ],
+			li: [ isPageActionList ? 'page-actions-menu__list-item' : '' ],
 			span: [],
 			a: [
 				'cdx-button',
