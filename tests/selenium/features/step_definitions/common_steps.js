@@ -3,6 +3,7 @@
 const MWBot = require( 'mwbot' ),
 	Api = require( 'wdio-mediawiki/Api' ),
 	ArticlePageWithOverlay = require( '../support/pages/article_page_with_overlay' ),
+	Util = require( 'wdio-mediawiki/Util' ),
 	{ ArticlePage, UserLoginPage } = require( '../support/world.js' );
 
 const createPages = async ( pages ) => {
@@ -42,7 +43,7 @@ const iAmInBetaMode = async () => {
 const iAmOnPage = async ( article ) => {
 	await ArticlePage.open( article );
 	// Make sure the article opened and JS loaded.
-	await ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
+	await Util.waitForModuleState( 'skins.minerva.scripts' );
 };
 
 const iAmLoggedIn = async () => {

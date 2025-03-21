@@ -30,9 +30,9 @@ class EditPage extends Page {
 
 	async edit( name, content ) {
 		await this.openForEditing( name );
-		this.content.setValue( content );
-		this.next.click();
-		this.save.click();
+		await this.content.setValue( content );
+		await this.next.click();
+		await this.save.click();
 		browser.acceptAlert();
 	}
 }

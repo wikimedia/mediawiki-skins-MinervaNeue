@@ -1,6 +1,7 @@
 'use strict';
 
 const { ArticlePage } = require( '../support/world.js' );
+const Util = require( 'wdio-mediawiki/Util' );
 
 const theWatchstarShouldBeSelected = async () => {
 	await ArticlePage.watched_element.waitForExist();
@@ -9,13 +10,13 @@ const theWatchstarShouldBeSelected = async () => {
 };
 
 const iClickTheWatchstar = async () => {
-	await ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
+	await Util.waitForModuleState( 'skins.minerva.scripts' );
 	await ArticlePage.watch_element.waitForExist();
 	await ArticlePage.watch_element.click();
 };
 
 const iClickTheUnwatchStar = async () => {
-	await ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
+	await Util.waitForModuleState( 'skins.minerva.scripts' );
 	await ArticlePage.watched_element.waitForExist();
 	await ArticlePage.watched_element.click();
 };

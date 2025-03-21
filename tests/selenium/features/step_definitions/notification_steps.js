@@ -1,6 +1,7 @@
 'use strict';
 
 const ArticlePage = require( '../support/pages/article_page' );
+const Util = require( 'wdio-mediawiki/Util' );
 const { iClickTheOverlayCloseButton } = require( './common_steps' );
 
 const iHaveNoNotifications = async () => {
@@ -11,7 +12,7 @@ const iHaveNoNotifications = async () => {
 };
 
 const iClickOnTheNotificationIcon = async () => {
-	await ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
+	await Util.waitForModuleState( 'skins.minerva.scripts' );
 	await ArticlePage.notifications_button_element.waitForDisplayed();
 	await ArticlePage.notifications_button_element.click();
 };
