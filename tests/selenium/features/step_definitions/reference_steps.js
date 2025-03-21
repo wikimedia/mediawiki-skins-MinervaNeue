@@ -17,7 +17,10 @@ const iClickOnAReference = async () => {
 };
 
 const iClickOnANestedReference = async () => {
-	await ArticlePage.drawer_reference_element.waitForDisplayed();
+	await ArticlePage.drawer_reference_element.waitForClickable();
+	// Wait for a short while to allow event listeners to be registered on the nested reference.
+	// eslint-disable-next-line wdio/no-pause
+	await browser.pause( 100 );
 	await ArticlePage.drawer_reference_element.click();
 };
 
