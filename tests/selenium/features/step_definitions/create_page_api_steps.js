@@ -7,7 +7,6 @@ const { ArticlePage } = require( '../support/world' ),
 	MWBot = require( 'mwbot' ),
 	{
 		iAmOnPage,
-		waitForPropagation,
 		createPages,
 		createPage
 	} = require( './common_steps' );
@@ -28,9 +27,6 @@ const iAmInAWikiThatHasCategories = async ( title ) => {
 		[ 'create', 'Category:Selenium hidden category', '__HIDDENCAT__' ]
 	] );
 
-	// A pause is necessary to let the categories register with database before trying to use
-	// them in an article
-	await waitForPropagation( 5000 );
 	const bot = await Api.bot();
 	await bot.edit( title, wikitext );
 
@@ -75,7 +71,6 @@ const watch = async ( title ) => {
 	await page.openTitle( title, { action: 'watch' } );
 	await $( '#mw-content-text button[type="submit"]' ).waitForDisplayed();
 	await $( '#mw-content-text button[type="submit"]' ).click();
-	await waitForPropagation( 10000 );
 	await page.openTitle( title );
 };
 
@@ -85,10 +80,8 @@ const iAmViewingAWatchedPage = async () => {
 	await watch( title );
 	// navigate away from page
 	await iAmOnPage( 'Main Page' );
-	await waitForPropagation( 5000 );
 	// and back to page
 	await iAmOnPage( title );
-	await waitForPropagation( 5000 );
 };
 
 const iAmViewingAnUnwatchedPage = async () => {
@@ -105,7 +98,6 @@ const iAmOnATalkPageWithNoTalkTopics = async () => {
 };
 
 module.exports = {
-	waitForPropagation,
 	iAmOnAPageThatHasTheFollowingEdits,
 	iAmOnATalkPageWithNoTalkTopics,
 	iAmViewingAWatchedPage,

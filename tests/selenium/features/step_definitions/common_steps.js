@@ -5,13 +5,6 @@ const MWBot = require( 'mwbot' ),
 	ArticlePageWithOverlay = require( '../support/pages/article_page_with_overlay' ),
 	{ ArticlePage, UserLoginPage } = require( '../support/world.js' );
 
-const waitForPropagation = async ( timeMs ) => {
-	// wait 2 seconds so the change can propogate.
-	// Replace this with a more dynamic statement.
-	// eslint-disable-next-line wdio/no-pause
-	await browser.pause( timeMs );
-};
-
 const createPages = async ( pages ) => {
 	const summary = 'edit by selenium test';
 	const bot = new MWBot();
@@ -65,14 +58,10 @@ const iAmLoggedIntoTheMobileWebsite = async () => {
 
 const pageExists = async ( title ) => {
 	await createPage( title, 'Page created by Selenium browser test.' );
-	// wait 2 seconds so the change can propogate.
-	await waitForPropagation( 2000 );
 };
 
 const pageExistsWithText = async ( title, text ) => {
 	await createPage( title, text );
-	// wait 2 seconds so the change can propogate.
-	await waitForPropagation( 2000 );
 };
 
 const iAmOnAPageThatDoesNotExist = () => iAmOnPage( `NewPage ${ new Date() }` );
@@ -92,7 +81,6 @@ const iClickTheBrowserBackButton = async () => {
 };
 
 const iClickTheOverlayCloseButton = async () => {
-	await waitForPropagation( 2000 );
 	await ArticlePageWithOverlay.overlay_close_element.waitForDisplayed();
 	await ArticlePageWithOverlay.overlay_close_element.click();
 };
@@ -102,7 +90,6 @@ const iAmUsingMobileScreenResolution = async () => {
 };
 
 module.exports = {
-	waitForPropagation,
 	iAmUsingMobileScreenResolution,
 	iClickTheOverlayCloseButton,
 	iClickTheBrowserBackButton,
