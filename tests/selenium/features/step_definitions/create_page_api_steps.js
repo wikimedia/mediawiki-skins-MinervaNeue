@@ -12,7 +12,7 @@ const { ArticlePage } = require( '../support/world' ),
 		createPage
 	} = require( './common_steps' );
 
-const iAmInAWikiThatHasCategories = ( title ) => {
+const iAmInAWikiThatHasCategories = async ( title ) => {
 	const msg = 'This page is used by Selenium to test category related features.',
 		wikitext = `
             ${ msg }
@@ -22,7 +22,7 @@ const iAmInAWikiThatHasCategories = ( title ) => {
             [[Category:Selenium hidden category]]
         `;
 
-	createPages( [
+	await createPages( [
 		[ 'create', 'Category:Selenium artifacts', msg ],
 		[ 'create', 'Category:Test category', msg ],
 		[ 'create', 'Category:Selenium hidden category', '__HIDDENCAT__' ]
@@ -30,18 +30,14 @@ const iAmInAWikiThatHasCategories = ( title ) => {
 
 	// A pause is necessary to let the categories register with database before trying to use
 	// them in an article
-	waitForPropagation( 5000 );
-	browser.call( async () => {
-		const bot = await Api.bot();
-		await bot.edit( title, wikitext );
-	} );
+	await waitForPropagation( 5000 );
+	const bot = await Api.bot();
+	await bot.edit( title, wikitext );
 
-	browser.call(
-		// The category overlay uses the category API
-		// which will only return results if the job queue has completed.
-		// Run before continuing!
-		() => RunJobs.run()
-	);
+	// The category overlay uses the category API
+	// which will only return results if the job queue has completed.
+	// Run before continuing!
+	RunJobs.run();
 };
 
 const iAmOnAPageThatHasTheFollowingEdits = async function ( table ) {
@@ -49,35 +45,27 @@ const iAmOnAPageThatHasTheFollowingEdits = async function ( table ) {
 		pageTitle = `Selenium_diff_test_${ randomString }`,
 		edits = table.rawTable.map( ( row, i ) => [ i === 0 ? 'create' : 'edit', pageTitle, row[ 0 ] ] );
 
-	browser.call( () => {
-		const bot = new MWBot();
-		return bot.loginGetEditToken( {
-			username: browser.options.username,
-			password: browser.options.password,
-			apiUrl: `${ browser.options.baseUrl }/api.php`
-		} )
-			.then( () => bot.batch( edits ) )
-			.catch( ( err ) => {
-				throw err;
-			} );
+	const bot = new MWBot();
+	await bot.loginGetEditToken( {
+		username: browser.options.username,
+		password: browser.options.password,
+		apiUrl: `${ browser.options.baseUrl }/api.php`
 	} );
 
-	browser.call( () => RunJobs.run() );
+	await bot.batch( edits );
+
+	RunJobs.run();
 	await ArticlePage.open( pageTitle );
 };
 
-const iGoToAPageThatHasLanguages = () => {
+const iGoToAPageThatHasLanguages = async () => {
 	const wikitext = `This page is used by Selenium to test language related features.
 
 	[[es:Selenium language test page]]
 `;
 
-	browser.call( () => {
-		createPage( 'Selenium language test page', wikitext );
-	} );
-	browser.call( () => {
-		iAmOnPage( 'Selenium language test page' );
-	} );
+	await createPage( 'Selenium language test page', wikitext );
+	await iAmOnPage( 'Selenium language test page' );
 };
 
 const watch = async ( title ) => {
@@ -85,22 +73,22 @@ const watch = async ( title ) => {
 	// So we run the non-js workflow.
 	const page = new Page();
 	await page.openTitle( title, { action: 'watch' } );
-	$( '#mw-content-text button[type="submit"]' ).waitForDisplayed();
-	$( '#mw-content-text button[type="submit"]' ).click();
-	waitForPropagation( 10000 );
+	await $( '#mw-content-text button[type="submit"]' ).waitForDisplayed();
+	await $( '#mw-content-text button[type="submit"]' ).click();
+	await waitForPropagation( 10000 );
 	await page.openTitle( title );
 };
 
-const iAmViewingAWatchedPage = () => {
+const iAmViewingAWatchedPage = async () => {
 	const title = `I am on the "Selenium mobile watched page test ${ Date.now() }`;
-	browser.call( () => createPage( title, 'watch test' ) );
-	watch( title );
+	await createPage( title, 'watch test' );
+	await watch( title );
 	// navigate away from page
-	iAmOnPage( 'Main Page' );
-	waitForPropagation( 5000 );
+	await iAmOnPage( 'Main Page' );
+	await waitForPropagation( 5000 );
 	// and back to page
-	iAmOnPage( title );
-	waitForPropagation( 5000 );
+	await iAmOnPage( title );
+	await waitForPropagation( 5000 );
 };
 
 const iAmViewingAnUnwatchedPage = async () => {
@@ -109,11 +97,11 @@ const iAmViewingAnUnwatchedPage = async () => {
 	await iAmOnPage( title );
 };
 
-const iAmOnATalkPageWithNoTalkTopics = () => {
+const iAmOnATalkPageWithNoTalkTopics = async () => {
 	const title = `Selenium talk test ${ new Date() }`;
 
-	createPage( title, 'Selenium' );
-	iAmOnPage( `Talk:${ title }` );
+	await createPage( title, 'Selenium' );
+	await iAmOnPage( `Talk:${ title }` );
 };
 
 module.exports = {

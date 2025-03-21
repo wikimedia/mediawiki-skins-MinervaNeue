@@ -14,10 +14,10 @@ const iClickTheWatchstar = async () => {
 	await ArticlePage.watch_element.click();
 };
 
-const iClickTheUnwatchStar = () => {
-	ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
-	ArticlePage.watched_element.waitForExist();
-	ArticlePage.watched_element.click();
+const iClickTheUnwatchStar = async () => {
+	await ArticlePage.waitUntilResourceLoaderModuleReady( 'skins.minerva.scripts' );
+	await ArticlePage.watched_element.waitForExist();
+	await ArticlePage.watched_element.click();
 };
 
 module.exports = {

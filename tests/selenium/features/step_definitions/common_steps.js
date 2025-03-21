@@ -12,42 +12,38 @@ const waitForPropagation = async ( timeMs ) => {
 	await browser.pause( timeMs );
 };
 
-const createPages = ( pages ) => {
+const createPages = async ( pages ) => {
 	const summary = 'edit by selenium test';
-	browser.call( () => {
-		const bot = new MWBot();
-		return bot.loginGetEditToken( {
-			username: browser.options.username,
-			password: browser.options.password,
-			apiUrl: `${ browser.options.baseUrl }/api.php`
-		} )
-			.then( () => bot.batch(
-				pages.map( ( page ) => [ 'create' ].concat( page ).concat( [ summary ] ) )
-			).catch( ( err ) => {
-				if ( err.code === 'articleexists' ) {
-					return;
-				}
-				throw err;
-			} ) )
-			.catch( ( err ) => {
-				throw err;
-			} );
+	const bot = new MWBot();
+	await bot.loginGetEditToken( {
+		username: browser.options.username,
+		password: browser.options.password,
+		apiUrl: `${ browser.options.baseUrl }/api.php`
 	} );
+
+	try {
+		await bot.batch(
+			pages.map( ( page ) => [ 'create' ].concat( page ).concat( [ summary ] ) )
+		);
+	} catch ( err ) {
+		if ( err.code === 'articleexists' ) {
+			return;
+		}
+		throw err;
+	}
 };
 
-const createPage = ( title, wikitext ) => {
-	browser.call( async () => {
-		const bot = await Api.bot();
-		await bot.edit( title, wikitext );
-	} );
+const createPage = async ( title, wikitext ) => {
+	const bot = await Api.bot();
+	await bot.edit( title, wikitext );
 };
 
 const iAmUsingTheMobileSite = async () => {
 	await ArticlePage.setMobileMode();
 };
 
-const iAmInBetaMode = () => {
-	ArticlePage.setBetaMode();
+const iAmInBetaMode = async () => {
+	await ArticlePage.setBetaMode();
 };
 
 const iAmOnPage = async ( article ) => {
@@ -68,17 +64,15 @@ const iAmLoggedIntoTheMobileWebsite = async () => {
 };
 
 const pageExists = async ( title ) => {
-	await browser.call( async () => await createPage( title, 'Page created by Selenium browser test.' )
-	);
+	await createPage( title, 'Page created by Selenium browser test.' );
 	// wait 2 seconds so the change can propogate.
 	await waitForPropagation( 2000 );
 };
 
-const pageExistsWithText = ( title, text ) => {
-	browser.call( () => createPage( title, text )
-	);
+const pageExistsWithText = async ( title, text ) => {
+	await createPage( title, text );
 	// wait 2 seconds so the change can propogate.
-	waitForPropagation( 2000 );
+	await waitForPropagation( 2000 );
 };
 
 const iAmOnAPageThatDoesNotExist = () => iAmOnPage( `NewPage ${ new Date() }` );
@@ -97,10 +91,10 @@ const iClickTheBrowserBackButton = async () => {
 	await browser.back();
 };
 
-const iClickTheOverlayCloseButton = () => {
-	waitForPropagation( 2000 );
-	ArticlePageWithOverlay.overlay_close_element.waitForDisplayed();
-	ArticlePageWithOverlay.overlay_close_element.click();
+const iClickTheOverlayCloseButton = async () => {
+	await waitForPropagation( 2000 );
+	await ArticlePageWithOverlay.overlay_close_element.waitForDisplayed();
+	await ArticlePageWithOverlay.overlay_close_element.click();
 };
 
 const iAmUsingMobileScreenResolution = async () => {

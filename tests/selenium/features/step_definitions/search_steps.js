@@ -24,8 +24,8 @@ const iClickASearchWatchstar = async () => {
 	await iSeeSearchResults();
 	const watchThisArticle = ArticlePageWithOverlay.overlay_element
 		.$( '.watch-this-article' );
-	watchThisArticle.waitForExist( 5000 );
-	watchThisArticle.click();
+	await watchThisArticle.waitForExist( 5000 );
+	await watchThisArticle.click();
 };
 
 module.exports = {

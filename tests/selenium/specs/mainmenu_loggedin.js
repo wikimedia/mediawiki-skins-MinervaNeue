@@ -23,9 +23,10 @@ describe( 'Menus open correct page for anonymous users', () => {
 		await iShouldSeeALinkToDisclaimer();
 		await iShouldSeeAUserPageLinkInMenu();
 		await iSeeALinkToAboutPage();
-		[ 'Home', 'Random', 'Settings', 'Watchlist' ].forEach( async ( label ) => {
-			await iShouldSeeALinkInMenu( label );
-		} );
+
+		const labels = [ 'Home', 'Random', 'Settings', 'Watchlist' ];
+		await Promise.all( labels.map( ( label ) => iShouldSeeALinkInMenu( label ) ) );
+
 		await iShouldSeeLogoutLinkInMenu();
 		try {
 			await iShouldSeeALinkInMenu( 'Nearby' );

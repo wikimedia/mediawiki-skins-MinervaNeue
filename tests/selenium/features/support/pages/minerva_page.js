@@ -56,20 +56,20 @@ class MinervaPage extends Page {
 	/**
 	 * Set the mobile cookie
 	 */
-	setMobileMode() {
-		this.setCookie( 'mf_useformat', 'true' );
+	async setMobileMode() {
+		await this.setCookie( 'mf_useformat', 'true' );
 	}
 
 	/**
 	 * Set the beta cookie
 	 */
-	setBetaMode() {
-		this.setCookie( 'optin', 'beta' );
+	async setBetaMode() {
+		await this.setCookie( 'optin', 'beta' );
 	}
 
-	waitUntilResourceLoaderModuleReady( moduleName ) {
-		browser.waitUntil( () => {
-			const state = browser.execute( ( m ) => mw.loader.getState( m ), moduleName );
+	async waitUntilResourceLoaderModuleReady( moduleName ) {
+		await browser.waitUntil( async () => {
+			const state = await browser.execute( ( m ) => mw.loader.getState( m ), moduleName );
 			return state === 'ready';
 		} );
 	}
