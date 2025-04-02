@@ -532,7 +532,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 				[
 					'tag-name' => 'a',
 					'classes' => 'mw-echo-notifications-badge mw-echo-notification-badge-nojs '
-						. ' mw-echo-unseen-notifications',
+						. 'mw-echo-unseen-notifications',
 					'array-attributes' => [
 						self::ATTRIBUTE_NOTIFICATION_HREF,
 						self::ATTRIBUTE_NOTIFICATION_DATA_COUNTER_TEXT,
@@ -563,8 +563,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 									self::ATTRIBUTE_NOTIFICATION_TITLE,
 									[
 										'key' => 'class',
-										'value' => 'mw-echo-notifications-badge '
-											. 'mw-echo-notification-badge-nojs oo-ui-icon-bellOutline '
+										'value' => 'mw-echo-notifications-badge mw-echo-notification-badge-nojs '
 											. 'mw-echo-unseen-notifications',
 									],
 								],
