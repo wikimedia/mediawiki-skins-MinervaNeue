@@ -49,11 +49,17 @@ const iAmOnPage = async ( article ) => {
 const iAmLoggedIn = async () => {
 	await UserLoginPage.open();
 	await UserLoginPage.loginAdmin();
+	// The order here is important as logging in on mobile on beta cluster
+	// to workaround https://phabricator.wikimedia.org/T389889 where login
+	// sometimes results in `Error: Cannot submit login form`
+	// (No active login attempt is in progress for your session)
+	await iAmUsingTheMobileSite();
+	// A new navigation is needed to make sure we are in mobile and logged in
+	await ArticlePage.open( 'Main_Page' );
 	await expect( ArticlePage.is_authenticated_element ).toExist();
 };
 
 const iAmLoggedIntoTheMobileWebsite = async () => {
-	await iAmUsingTheMobileSite();
 	await iAmLoggedIn();
 };
 
