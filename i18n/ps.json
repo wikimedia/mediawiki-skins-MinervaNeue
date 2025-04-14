@@ -8,10 +8,10 @@
 			"شاه زمان پټان"
 		]
 	},
-	"minerva-last-modified-date": "وروستی سمون په $1 نېته په $2 بجو شوی",
-	"minerva-watchlist-cta": "د دې مخ او د هغې د بدلونو څار وکړئ.",
+	"minerva-last-modified-date": "وروستی سمون په $1 نېټه په $2 بجو شوی",
+	"minerva-watchlist-cta": "د دې مخ او د هغې د بدلونونو څار وکړئ.",
 	"minerva-talk-add-topic": "خبري آترې ورګډول",
-	"mobile-frontend-cookies-required": "د ليد بڼې لپاره کوکيز اړين دی.\nمهرباني وکړئ، چارن يې کړئ او بيا هڅه وکړئ.",
+	"mobile-frontend-cookies-required": "د ليد بڼې لپاره کوکيز اړين دي.\nمهرباني وکړئ، چارن يې کړئ او بيا هڅه وکړئ.",
 	"mobile-frontend-editor-edit": "سمول",
 	"minerva-download": "پي‌ډي‌اېف کښته کول",
 	"mobile-frontend-editor-redlink-create": "مخ جوړول",
@@ -55,5 +55,5 @@
 	"skin-minerva-issue-learn-more": "نور مالومات",
 	"skin-minerva-mobile-option-MinervaShowCategories": "وېشنيزې",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "مخونو وېشنيزې کتل",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "له بده مرغه، د مخ له مخې د ډلبندي کولو پايلې په موبايل کې د لاسرسي وړ نه دی. که تاسو د مخ له مخې د ډلبندۍ بڼه کارول غواړئ، نو مهرباني وکړئ، ډېسکټاپ بڼه وگورئ."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "له بده مرغه، د مخ له مخې د ډلبندي کولو پايلې په موبايل کې د لاسرسي وړ نه دي. که تاسو د مخ له مخې د ډلبندۍ بڼه کارول غواړئ؛ نو مهرباني وکړئ، ډېسکټاپ بڼه وگورئ."
 }
