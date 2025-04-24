@@ -7,10 +7,16 @@
 const ms = require( 'mobile.startup' );
 const reportIfNightModeWasDisabledOnPage = require( './reportIfNightModeWasDisabledOnPage.js' );
 const addPortletLink = require( './addPortletLink.js' );
-const teleportTarget = require( 'mediawiki.page.ready' ).teleportTarget;
+const { teleportTarget, enableSearchDialog } = require( 'mediawiki.page.ready' );
+const config = require( './config.json' );
 
 function init() {
 	const permissions = mw.config.get( 'wgMinervaPermissions' ) || {};
+	const searchIcon = document.querySelector( '#searchIcon' );
+	if ( config.MinervaTypeahead && config.MinervaTypeahead.enabled && searchIcon ) {
+		enableSearchDialog( searchIcon );
+	}
+
 	// eslint-disable-next-line no-jquery/no-global-selector
 	const $watch = $( '#page-actions-watch' );
 
@@ -26,10 +32,6 @@ function init() {
 	// Setup Minerva with MobileFrontend
 	if ( ms && !ms.stub ) {
 		require( './initMobile.js' )();
-	} else {
-		// MOBILEFRONTEND IS NOT INSTALLED.
-		// setup search for desktop Minerva at mobile resolution without MobileFrontend.
-		require( './searchSuggestReveal.js' )();
 	}
 
 	// This hot fix should be reviewed and possibly removed circa January 2021.

@@ -274,11 +274,14 @@ class SkinMinerva extends SkinMustache {
 		$notifications = $data['data-portlets']['data-notifications']['array-items'] ?? [];
 		$associatedPages = $data['data-portlets']['data-associated-pages'] ?? [];
 		$associatedPagesPortletData = $this->mapPortletData( $associatedPages );
+		$typeaheadConfig = $this->getConfig()->get( 'MinervaTypeahead' );
+		$useTypeahead = $typeaheadConfig && $typeaheadConfig[ 'enabled' ];
 
 		return $data + [
 			'has-minerva-languages' => $allLanguages || $allVariants,
 			'array-minerva-banners' => $this->prepareBanners( $data['html-site-notice'] ?? '' ),
 			'data-minerva-search-box' => $data['data-search-box'] + [
+				'is-typeahead' => $useTypeahead,
 				'data-btn' => [
 					'data-icon' => [
 						'icon' => 'search',

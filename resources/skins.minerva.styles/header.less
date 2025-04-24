@@ -55,6 +55,14 @@
 	#searchInput { // stylelint-disable-line selector-max-id
 		cursor: text;
 	}
+
+	// FIXME: #searchInput for cached HTML
+	// stylelint-disable-next-line selector-max-id
+	.cdx-text-input #searchInput,
+	.cdx-text-input__input {
+		padding-left: 60px;
+		line-height: 1;
+	}
 }
 
 @media screen and ( min-width: @min-width-breakpoint-tablet ) {
