@@ -40,14 +40,14 @@ use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
+use MediaWiki\Skin\SkinMustache;
+use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\Utils\MWTimestamp;
-use SkinMustache;
-use SkinTemplate;
 use SpecialMobileHistory;
 
 /**

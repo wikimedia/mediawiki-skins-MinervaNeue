@@ -3,13 +3,13 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\Config\ConfigFactory;
+use MediaWiki\Skin\Skin;
 use MobileContext;
 use MobileFrontend\Features\Feature;
 use MobileFrontend\Features\FeaturesManager;
 use MobileFrontend\Hooks\MobileFrontendFeaturesRegistrationHook;
 use MobileFrontend\Hooks\RequestContextCreateSkinMobileHook;
 use RuntimeException;
-use Skin;
 
 /**
  * Hooks from MobileFrontend extension,

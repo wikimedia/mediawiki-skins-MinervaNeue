@@ -24,9 +24,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Hooks\HookRunner;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
+use MediaWiki\Skin\Skin;
 use MobileContext;
 use OutOfBoundsException;
-use Skin;
 
 /**
  * A wrapper for all available Skin options.

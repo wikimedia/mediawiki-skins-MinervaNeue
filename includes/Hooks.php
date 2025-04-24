@@ -20,8 +20,6 @@
 
 namespace MediaWiki\Minerva;
 
-use ChangesList;
-use ChangesListFilterGroup;
 use DifferenceEngine;
 use MediaWiki\Config\Config;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
@@ -33,19 +31,21 @@ use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\RecentChanges\ChangesList;
+use MediaWiki\RecentChanges\ChangesListFilterGroup;
+use MediaWiki\RecentChanges\OldChangesList;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
+use MediaWiki\Skin\Skin;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MobileContext;
-use OldChangesList;
-use Skin;
 use Wikimedia\Rdbms\ConfiguredReadOnlyMode;
 
 /**
