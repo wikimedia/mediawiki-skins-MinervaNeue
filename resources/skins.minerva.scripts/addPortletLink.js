@@ -89,8 +89,8 @@ function hookHandler( listItem, data ) {
 
 		// if the list item is not itself an icon, add the corresponding icon
 		// (except tabs, which do not have icons)
-		if ( classes.span.indexOf( 'minerva-icon' ) === -1 &&
-			classes.li.indexOf( 'minerva__tab' ) === -1 ) {
+		if ( !classes.span.includes( 'minerva-icon' ) &&
+			!classes.li.includes( 'minerva__tab' ) ) {
 			insertIcon( $a, id );
 		}
 	}
