@@ -485,7 +485,6 @@
 				"mediawiki.util",
 				"mediawiki.router",
 				"mediawiki.Title",
-				"mediawiki.Uri",
 				"mobile.startup",
 				"mediawiki.user",
 				"mediawiki.storage",
@@ -574,8 +573,7 @@
 			"skins.minerva.scripts",
 			"mobile.startup",
 			"mediawiki.user",
-			"mediawiki.experiments",
-			"mediawiki.Uri"
+			"mediawiki.experiments"
 		],
 		"scripts": [
 			"integration.test.js",
