@@ -120,7 +120,8 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getNamespaceInfo(),
 			$services->getRevisionLookup(),
 			$services->getUserIdentityUtils(),
-			$services->getUserOptionsManager()
+			$services->getUserOptionsManager(),
+			$services->getService( 'Vector.ConfigHelper' )
 		);
 	}
 

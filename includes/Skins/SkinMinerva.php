@@ -42,6 +42,7 @@ use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
+use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
@@ -78,6 +79,7 @@ class SkinMinerva extends SkinMustache {
 	private RevisionLookup $revisionLookup;
 	private UserIdentityUtils $userIdentityUtils;
 	private UserOptionsManager $userOptionsManager;
+	private FeaturesHelper $featuresHelper;
 
 	/**
 	 * @param GenderCache $genderCache
@@ -92,6 +94,7 @@ class SkinMinerva extends SkinMustache {
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserIdentityUtils $userIdentityUtils
 	 * @param UserOptionsManager $userOptionsManager
+	 * @param ConfigHelper|null $configHelper
 	 * @param array $options
 	 */
 	public function __construct(
@@ -107,6 +110,7 @@ class SkinMinerva extends SkinMustache {
 		RevisionLookup $revisionLookup,
 		UserIdentityUtils $userIdentityUtils,
 		UserOptionsManager $userOptionsManager,
+		?ConfigHelper $configHelper,
 		$options = []
 	) {
 		parent::__construct( $options );
@@ -126,6 +130,7 @@ class SkinMinerva extends SkinMustache {
 		$this->revisionLookup = $revisionLookup;
 		$this->userIdentityUtils = $userIdentityUtils;
 		$this->userOptionsManager = $userOptionsManager;
+		$this->featuresHelper = new FeaturesHelper( $configHelper );
 	}
 
 	/**
@@ -705,8 +710,7 @@ class SkinMinerva extends SkinMustache {
 
 		// get skin config of night mode to check what is execluded
 		$nightModeConfig = $this->getConfig()->get( 'MinervaNightModeOptions' );
-		$featuresHelper = new FeaturesHelper();
-		$shouldDisableNightMode = $featuresHelper->shouldDisableNightMode( $nightModeConfig,
+		$shouldDisableNightMode = $this->featuresHelper->shouldDisableNightMode( $nightModeConfig,
 			$webRequest,
 			$this->getTitle()
 		);

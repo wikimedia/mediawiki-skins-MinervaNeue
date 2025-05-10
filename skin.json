@@ -136,6 +136,9 @@
 				"UserIdentityUtils",
 				"UserOptionsManager"
 			],
+			"optional_services": [
+				"Vector.ConfigHelper"
+			],
 			"args": [
 				{
 					"name": "minerva",
