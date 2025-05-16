@@ -39,9 +39,6 @@ class FeaturesHelper {
 		if ( $this->configHelper ) {
 			return $this->configHelper->shouldDisable( $options, $request, $title );
 		}
-		return class_exists( ConfigHelper::class ) ?
-			// @phan-suppress-next-line PhanStaticCallToNonStatic
-			ConfigHelper::shouldDisable( $options, $request, $title ) :
-			false;
+		return false;
 	}
 }
