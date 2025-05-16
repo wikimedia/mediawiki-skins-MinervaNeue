@@ -348,6 +348,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 				'icon' => 'home',
 				'href' => '/wiki/Home',
 				'rel' => 'main',
+				'array-attributes' => [],
 			]
 		], $data );
 	}
@@ -712,9 +713,27 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( '<div class="tagline">A description</div>', $data['html-minerva-tagline'] );
 		$this->assertTrue( isset( $data['html-minerva-user-menu'] ) );
 		$this->assertFalse( $data['is-minerva-beta'] );
-		$this->assertEquals( [
-			'id' => 'p-associated-pages',
-			'items' => [
+
+		$minervaTabs = $data['data-minerva-tabs'];
+
+		// extract array-attributes since they may or may not be red links
+		// so direct comparisons can't reliably be made and we only want to
+		// check the shape.
+		$tabItemsWithoutAttributes = array_map( static function ( $item ) {
+			unset( $item['array-attributes'] );
+			return $item;
+		}, $minervaTabs['items'] );
+		$minervaTabAttributes = array_map( static function ( $item ) {
+			return array_map( static function ( $attr ) {
+				return $attr[ 'key' ];
+			}, $item['array-attributes'] );
+		}, $minervaTabs['items'] );
+		$this->assertEquals(
+			'p-associated-pages',
+			$minervaTabs['id']
+		);
+		$this->assertEquals(
+			[
 				[
 					'class' => 'selected mw-list-item',
 					'text' => '(nstab-main)',
@@ -730,10 +749,15 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 					'href' => $title->getTalkPage()->getLocalURL(
 						'action=edit&redlink=1'
 					),
-					'rel' => 'discussion'
+					'rel' => 'discussion',
 				]
 			],
-		], $data['data-minerva-tabs'] );
+			$tabItemsWithoutAttributes
+		);
+		$this->assertContains( 'title', $minervaTabAttributes[ 0 ], 'title found in attributes' );
+		$this->assertContains( 'accesskey', $minervaTabAttributes[ 0 ], 'accesskey found in attributes' );
+		$this->assertContains( 'title', $minervaTabAttributes[ 1 ], 'title found in attributes' );
+		$this->assertContains( 'accesskey', $minervaTabAttributes[ 1 ], 'accesskey found in attributes' );
 		$this->assertEquals( self::PAGE_ACTIONS, $data['data-minerva-page-actions'] );
 		$this->assertEquals( [], $data['data-minerva-secondary-actions'] );
 		$this->assertSame( '', $data['html-minerva-subject-link'] );

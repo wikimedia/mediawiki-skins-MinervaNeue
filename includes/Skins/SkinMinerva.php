@@ -227,13 +227,19 @@ class SkinMinerva extends SkinMustache {
 				'context' => $item[ 'name' ] ?? null,
 			];
 			$attributes = $itemData['array-attributes' ] ?? [];
-			foreach ( $attributes as $attrDefinition ) {
+			$attributesNew = [];
+			foreach ( $attributes as $key => $attrDefinition ) {
 				$key = $attrDefinition[ 'key' ];
 				if ( in_array( $key, [ 'href', 'rel' ] ) ) {
 					$data[ $key ] = $attrDefinition[ 'value' ];
+				} elseif ( $key !== 'class' ) {
+					// ignore class name but copy across other attributes
+					$attributesNew[] = $attrDefinition;
 				}
 			}
-			$nav[ $item[ 'name' ] ] = $data;
+			$nav[ $item[ 'name' ] ] = $data + [
+				'array-attributes' => $attributesNew,
+			];
 		}
 		return $nav;
 	}
