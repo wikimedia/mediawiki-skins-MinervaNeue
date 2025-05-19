@@ -22,7 +22,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:MinervaNeue",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.44"
+		"MediaWiki": ">= 1.45"
 	},
 	"config": {
 		"MinervaDonateBanner": {
@@ -142,7 +142,6 @@
 			"args": [
 				{
 					"name": "minerva",
-					"supportsMwHeading": true,
 					"templateDirectory": "includes/Skins",
 					"templateSectionLinks": "SectionLinks",
 					"tempUserBanner": true,
