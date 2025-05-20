@@ -45,7 +45,6 @@ final class SkinOptions {
 	public const TABS_ON_SPECIALS = 'tabsOnSpecials';
 	public const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
 	public const PERSONAL_MENU = 'personalMenu';
-	public const SINGLE_ECHO_BUTTON = 'echo';
 	public const NIGHT_MODE = 'nightMode';
 
 	/**
@@ -78,8 +77,6 @@ final class SkinOptions {
 		self::PERSONAL_MENU => true,
 		/** whether to show a main menu with additional items */
 		self::MAIN_MENU_EXPANDED => true,
-		/** whether Echo should be replaced with a single button */
-		self::SINGLE_ECHO_BUTTON => false,
 		/** whether night mode is available to the user */
 		self::NIGHT_MODE => false,
 	];
@@ -200,8 +197,6 @@ final class SkinOptions {
 				self::MAIN_MENU_EXPANDED => $featuresManager->isFeatureAvailableForCurrentUser(
 					'MinervaAdvancedMainMenu'
 				),
-				// In mobile, always resort to single icon.
-				self::SINGLE_ECHO_BUTTON => true,
 				self::HISTORY_IN_PAGE_ACTIONS => $requiresHistoryLink ?
 					true : $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),
 				self::TOOLBAR_SUBMENU => $isUserPageOrUserTalkPage ?
