@@ -9,6 +9,7 @@ module.exports = function () {
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		notifyOnPageReload = ms.notifyOnPageReload,
 		time = ms.time,
+		DateFormatter = require( 'mediawiki.DateFormatter' ),
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
 		config = require( './config.json' ),
@@ -235,23 +236,7 @@ module.exports = function () {
 		Array.prototype.forEach.call( document.querySelectorAll( '.mw-diff-timestamp' ), ( tsNode ) => {
 			const ts = tsNode.dataset.timestamp;
 			if ( ts ) {
-				const ago = time.getTimeAgoDelta(
-					parseInt(
-						( new Date( ts ) ).getTime() / 1000,
-						10
-					)
-				);
-				// Supported messages:
-				// * skin-minerva-time-ago-seconds
-				// * skin-minerva-time-ago-minutes
-				// * skin-minerva-time-ago-hours
-				// * skin-minerva-time-ago-days
-				// * skin-minerva-time-ago-months
-				// * skin-minerva-time-ago-years
-				tsNode.textContent = mw.msg(
-					`skin-minerva-time-ago-${ ago.unit }`,
-					mw.language.convertNumber( ago.value )
-				);
+				tsNode.textContent = DateFormatter.formatRelativeTimeOrDate( new Date( ts ) );
 			}
 		} );
 	}
