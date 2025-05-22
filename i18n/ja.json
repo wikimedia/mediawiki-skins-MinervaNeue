@@ -69,7 +69,7 @@
 	"minerva-page-actions-language-switcher": "言語",
 	"minerva-page-actions-history": "履歴",
 	"minerva-prefs-talkpage": "[[mw:Talk:Moderator Tools/Content moderation on mobile web|議論]]",
-	"minerva-skin-desc": "レスポンシブなモバイル用スキン",
+	"minerva-skin-desc": "レスポンシブ対応のモバイル優先外装",
 	"skin-minerva-issue-learn-more": "詳細",
 	"skin-minerva-time-ago-seconds": "{{PLURAL:$1|$1}}秒前",
 	"skin-minerva-time-ago-minutes": "{{PLURAL:$1|$1}}分前",
@@ -82,6 +82,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "ページの問題処理の改良",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "ページの問題 (Template:ambox) は記事上でリンク表示します。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、モバイルビューでは複数の変更をページごとにまとめて表示することはできません。ページごとにまとめて表示する機能を利用したい場合はデスクトップサイトにアクセスしてください。",
-	"minerva.css": "/* ここに記述したCSSは、ミネルバスキンの利用者に読み込まれます　*/",
-	"minerva.js": "/* ここに記述したJavaScriptは、ミネルバスキンの利用者に読み込まれます　*/"
+	"minerva.css": "/* ここに記述したCSSは、ミネルバ外装の利用者に読み込まれます　*/",
+	"minerva.js": "/* ここに記述したJavaScriptは、ミネルバ外装の利用者に読み込まれます　*/"
 }
