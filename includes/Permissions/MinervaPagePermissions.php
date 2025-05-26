@@ -220,11 +220,7 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 		}
 
 		// For content types with custom action=edit handlers, let them do their thing
-		if ( array_key_exists( 'edit', $this->contentHandler->getActionOverrides() ?? [] ) ) {
-			return true;
-		}
-
-		return false;
+		return array_key_exists( 'edit', $this->contentHandler->getActionOverrides() ?? [] );
 	}
 
 	/**

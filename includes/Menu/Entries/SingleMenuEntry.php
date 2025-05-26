@@ -113,10 +113,7 @@ class SingleMenuEntry implements IMenuEntry {
 		if ( $trackable ) {
 			$entry->trackClicks( $name );
 		}
-		if ( $icon === null ) {
-			$icon = $name;
-		}
-		$entry->setIcon( $icon );
+		$entry->setIcon( $icon ?? $name );
 		return $entry;
 	}
 
