@@ -132,24 +132,15 @@ class SkinMinerva extends SkinMustache {
 		$this->featuresHelper = new FeaturesHelper( $configHelper );
 	}
 
-	/**
-	 * @return bool
-	 */
 	private function hasPageActions(): bool {
 		return !$this->getTitle()->isSpecialPage() &&
 			$this->getActionName() === 'view';
 	}
 
-	/**
-	 * @return bool
-	 */
 	private function hasSecondaryActions(): bool {
 		return !$this->skinUserPageHelper->isUserPage();
 	}
 
-	/**
-	 * @return bool
-	 */
 	private function isFallbackEditor(): bool {
 		return $this->getActionName() === 'edit';
 	}
@@ -174,8 +165,6 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * A notification icon that links to Special:Mytalk when Echo is not installed.
 	 * Consider upstreaming this to core or removing at a future date.
-	 *
-	 * @return array
 	 */
 	private function getNotificationFallbackButton(): array {
 		return [
@@ -395,9 +384,6 @@ class SkinMinerva extends SkinMustache {
 		return $btns;
 	}
 
-	/**
-	 * @return bool
-	 */
 	private function isHistoryPage(): bool {
 		return $this->getRequest()->getRawVal( 'action' ) === 'history';
 	}
@@ -408,8 +394,6 @@ class SkinMinerva extends SkinMustache {
 	 *
 	 * Special pages have tabs if SkinOptions::TABS_ON_SPECIALS is enabled.
 	 * This is used by Extension:GrowthExperiments
-	 *
-	 * @return bool
 	 */
 	private function hasPageTabs(): bool {
 		$title = $this->getTitle();
@@ -445,8 +429,6 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Build the Main Menu Director by passing the skin options
-	 *
-	 * @return MainMenuDirector
 	 */
 	protected function getMainMenu(): MainMenuDirector {
 		$showMobileOptions = $this->skinOptions->get( SkinOptions::MOBILE_OPTIONS );
@@ -490,9 +472,6 @@ class SkinMinerva extends SkinMustache {
 		return $userMenuDirector->renderMenuData( $personalUrls );
 	}
 
-	/**
-	 * @return string
-	 */
 	protected function getSubjectPage(): string {
 		$title = $this->getTitle();
 
@@ -596,8 +575,6 @@ class SkinMinerva extends SkinMustache {
 	 * Provides skin-specific modifications to the HTML element attributes
 	 *
 	 * Currently only used for adding the night mode class
-	 *
-	 * @return array
 	 */
 	public function getHtmlElementAttributes(): array {
 		$attributes = parent::getHtmlElementAttributes();
@@ -639,7 +616,6 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Whether the output page contains category links and the category feature is enabled.
-	 * @return bool
 	 */
 	private function hasCategoryLinks(): bool {
 		if ( !$this->skinOptions->get( SkinOptions::CATEGORIES ) ) {
@@ -853,7 +829,6 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Returns an array with details for a language button.
-	 * @return array
 	 */
 	protected function getLanguageButton(): array {
 		return [
@@ -959,7 +934,6 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * Returns the javascript entry modules to load. Only modules that need to
 	 * be overriden or added conditionally should be placed here.
-	 * @return array
 	 */
 	public function getDefaultModules(): array {
 		$modules = parent::getDefaultModules();
@@ -996,8 +970,6 @@ class SkinMinerva extends SkinMustache {
 	 *
 	 * Any styles returned by this method are loaded on the critical rendering path as linked
 	 * stylesheets. I.e., they are required to load on the client before first paint.
-	 *
-	 * @return array
 	 */
 	protected function getPageSpecificStyles(): array {
 		$styles = [];
@@ -1044,8 +1016,6 @@ class SkinMinerva extends SkinMustache {
 	 *
 	 *  Any styles returned by this method are loaded on the critical rendering path as linked
 	 *  stylesheets. I.e., they are required to load on the client before first paint.
-	 *
-	 * @return array
 	 */
 	protected function getFeatureSpecificStyles(): array {
 		$styles = [];

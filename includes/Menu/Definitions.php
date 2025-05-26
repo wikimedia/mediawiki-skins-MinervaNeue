@@ -40,8 +40,6 @@ final class Definitions {
 
 	/**
 	 * Initialize definitions helper class
-	 *
-	 * @param SpecialPageFactory $specialPageFactory
 	 */
 	public function __construct(
 		SpecialPageFactory $specialPageFactory
@@ -79,8 +77,6 @@ final class Definitions {
 
 	/**
 	 * Creates a login or logout button with a profile button.
-	 *
-	 * @param Group $group
 	 */
 	public function insertAuthMenuItem( Group $group ): void {
 		$group->insertEntry( new AuthMenuEntry(
@@ -101,7 +97,6 @@ final class Definitions {
 
 	/**
 	 * If Nearby is supported, build and inject the Nearby link
-	 * @param Group $group
 	 */
 	public function insertNearbyIfSupported( Group $group ): void {
 		// Nearby link (if supported)
@@ -122,7 +117,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert the Settings link
-	 * @param Group $group
 	 */
 	public function insertMobileOptionsItem( Group $group ): void {
 		$title = $this->context->getTitle();
@@ -158,7 +152,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert the Preferences link
-	 * @param Group $group
 	 */
 	public function insertPreferencesItem( Group $group ): void {
 		$entry = $this->buildMenuEntry(
@@ -174,7 +167,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert About page link
-	 * @param Group $group
 	 */
 	public function insertAboutItem( Group $group ): void {
 		$msg = $this->context->msg( 'aboutsite' );
@@ -192,7 +184,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert Disclaimers link
-	 * @param Group $group
 	 */
 	public function insertDisclaimersItem( Group $group ): void {
 		$msg = $this->context->msg( 'disclaimers' );
@@ -211,7 +202,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert the RecentChanges link
-	 * @param Group $group
 	 */
 	public function insertRecentChanges( Group $group ): void {
 		$entry = $this->buildMenuEntry(
@@ -227,7 +217,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert the SpecialPages link
-	 * @param Group $group
 	 */
 	public function insertSpecialPages( Group $group ): void {
 		$entry = $this->buildMenuEntry(
@@ -243,7 +232,6 @@ final class Definitions {
 
 	/**
 	 * Build and insert the CommunityPortal link
-	 * @param Group $group
 	 */
 	public function insertCommunityPortal( Group $group ): void {
 		$msg = $this->context->msg( 'portal' );
@@ -266,10 +254,6 @@ final class Definitions {
 		$group->insertEntry( $entry );
 	}
 
-	/**
-	 * @param array $returnToQuery
-	 * @return array
-	 */
 	private function newLogInOutQuery( array $returnToQuery ): array {
 		$ret = [];
 		$title = $this->context->getTitle();
@@ -307,8 +291,6 @@ final class Definitions {
 
 	/**
 	 * Insert the Donate Link in the Mobile Menu.
-	 *
-	 * @param Group $group
 	 */
 	public function insertDonateItem( Group $group ): void {
 		$labelMsg = $this->context->msg( 'sitesupport' );

@@ -94,7 +94,6 @@ final class SkinOptions {
 
 	/**
 	 * override an existing option or options with new values
-	 * @param array $options
 	 */
 	public function setMultiple( array $options ): void {
 		foreach ( $options as $option => $value ) {
@@ -119,7 +118,6 @@ final class SkinOptions {
 
 	/**
 	 * Get all skin options
-	 * @return array
 	 */
 	public function getAll(): array {
 		return $this->skinOptions;
@@ -127,7 +125,6 @@ final class SkinOptions {
 
 	/**
 	 * Return whether any of the skin options have been set
-	 * @return bool
 	 */
 	public function hasSkinOptions(): bool {
 		foreach ( $this->skinOptions as $key => $val ) {
