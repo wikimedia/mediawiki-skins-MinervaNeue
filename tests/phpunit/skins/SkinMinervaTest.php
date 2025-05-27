@@ -191,7 +191,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::hasPageTabs
 	 */
 	public function testHasPageTabs( array $options, int $namespace, string $title, string $action, bool $expected ) {
-		$this->markTestSkipped( 'T395214' );
 		// both tabs on specials and talk at top default to true
 		$this->overrideSkinOptions( $options );
 
@@ -250,7 +249,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getTabsData when hasPageTabs is false
 	 */
 	public function testGetTabsDataNoPageTabs() {
-		$this->markTestSkipped( 'T395214' );
 		$context = new RequestContext();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
 		$context->setActionName( 'view' );
@@ -759,7 +757,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getSecondaryActions
 	 */
 	public function testMainPageTalkButton() {
-		$this->markTestSkipped( 'T395214' );
 		$mainPageTitle = Title::makeTitle( NS_MAIN, 'Main Page' );
 		$mainPageTitle->setContentModel( CONTENT_MODEL_WIKITEXT );
 
