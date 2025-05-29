@@ -1,7 +1,7 @@
 <form action="{{form-action}}" method="get" class="minerva-search-form">
 	<div class="search-box">
 		<input type="hidden" name="title" value="{{page-title}}"/>
-		<input class="search skin-minerva-search-trigger" id="searchInput"
+		<input class="search skin-minerva-search-trigger {{#is-typeahead}}cdx-text-input__input{{/is-typeahead}}" id="searchInput"
 			{{{html-input-attributes}}}>
 		{{#data-btn.data-icon}}<span class="search-box-icon-overlay">{{>Icon}}</span>{{/data-btn.data-icon}}
 	</div>

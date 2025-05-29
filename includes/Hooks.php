@@ -27,6 +27,7 @@ use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\PreferencesGetLayoutHook;
 use MediaWiki\Hook\UserLogoutCompleteHook;
 use MediaWiki\Html\Html;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Output\OutputPage;
@@ -279,8 +280,16 @@ class Hooks implements
 		Context $context,
 		array &$config
 	): void {
+		$mainConfig = MediaWikiServices::getInstance()->getMainConfig();
+		$typeaheadConfig = $mainConfig->get( 'MinervaTypeahead' );
+		$useTypeahead = $typeaheadConfig && $typeaheadConfig[ 'enabled' ];
+
 		if ( $context->getSkin() === 'minerva' ) {
-			$config['search'] = false;
+			if ( $useTypeahead ) {
+				$config['searchModule'] = 'skins.minerva.search';
+			} else {
+				$config['search'] = false;
+			}
 			// Enable collapsible styles on Minerva. Projects are already doing this via gadgets
 			// which creates an unpredictable testing environment so it is better to match production.
 			// NOTE: This is enabled despite the well documented problems with the current design on T111565.

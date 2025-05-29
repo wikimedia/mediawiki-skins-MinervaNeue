@@ -32,6 +32,13 @@
 				"amc": false
 			}
 		},
+		"MinervaTypeahead": {
+			"value": {
+				"apiUrl": null,
+				"recommendationApiUrl": null,
+				"enabled": false
+			}
+		},
 		"MinervaDonateLink": {
 			"value": {
 				"base": false
@@ -477,6 +484,28 @@
 				"resources/skins.minerva.loggedin.styles/styles.less"
 			]
 		},
+		"skins.minerva.search": {
+			"localBasePath": "resources/skins.minerva.search",
+			"remoteSkinPath": "MinervaNeue/resources/resources/skins.minerva.search",
+			"dependencies": [
+				"mediawiki.page.ready",
+				"mediawiki.router",
+				"mediawiki.skinning.typeaheadSearch"
+			],
+			"styles": [
+				"styles.less"
+			],
+			"packageFiles": [
+				"init.js",
+				{
+					"name": "searchConfig.json",
+					"config": [
+						"MinervaTypeahead"
+					]
+				},
+				"searchTypeahead.js"
+			]
+		},
 		"skins.minerva.scripts": {
 			"localBasePath": "resources/skins.minerva.scripts",
 			"remoteSkinPath": "MinervaNeue/resources/skins.minerva.scripts",
@@ -527,7 +556,6 @@
 				"reportIfNightModeWasDisabledOnPage.js",
 				"addPortletLink.js",
 				"initMobile.js",
-				"searchSuggestReveal.js",
 				"drawers.js",
 				"ctaDrawers.js",
 				"menu.js",
@@ -548,7 +576,13 @@
 				"TabScroll.js",
 				"Toolbar.js",
 				"mobileRedirect.js",
-				"search.js",
+				{
+					"name": "config.json",
+					"config": [
+						"MinervaTypeahead"
+					]
+				},
+				"searchLegacy.js",
 				"references.js",
 				"watchstar.js"
 			]
@@ -563,7 +597,8 @@
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"codexStyleOnly": true,
 			"codexComponents": [
-				"CdxButton"
+				"CdxButton",
+				"CdxSearchInput"
 			]
 		}
 	},
