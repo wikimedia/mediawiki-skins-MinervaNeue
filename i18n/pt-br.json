@@ -61,9 +61,17 @@
 	"minerva-page-actions-history": "Histórico",
 	"minerva-skin-desc": "Um tema responsivo otimizado para dispositivos móveis",
 	"skin-minerva-issue-learn-more": "Saiba mais",
+	"skin-minerva-time-ago-seconds": "há {{PLURAL:$1|um segundo|$1 segundos}}",
+	"skin-minerva-time-ago-minutes": "há {{PLURAL:$1|um minuto|$1 minutos}}",
+	"skin-minerva-time-ago-hours": "há {{PLURAL:$1|uma hora|$1 horas}}",
+	"skin-minerva-time-ago-days": "há {{PLURAL:$1|um dia|$1 dias}}",
+	"skin-minerva-time-ago-months": "há {{PLURAL:$1|um mês|$1 meses}}",
+	"skin-minerva-time-ago-years": "há {{PLURAL:$1|um ano|$1 anos}}",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Categorias",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Mostra as categorias das páginas",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "Tratamento aprimorado de problemas de página",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "Problemas de página (Template:ambox) serão incluídos no artigo.",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Infelizmente, o agrupamento de resultados por página não está disponível na versão de acesso móvel. Se pretende usar a funcionalidade de agrupamento por página visite a versão do ''site'' para acesso por computador de secretária."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Infelizmente, o agrupamento de resultados por página não está disponível na versão de acesso móvel. Se pretende usar a funcionalidade de agrupamento por página visite a versão do ''site'' para acesso por computador de secretária.",
+	"minerva.css": "/* Todo o CSS aqui será carregado para os usuários da skin MinervaNeue */",
+	"minerva.js": "/* Todo o JavaScript aqui será carregado para os usuários da skin MinervaNeue */"
 }
