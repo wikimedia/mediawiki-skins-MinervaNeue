@@ -126,12 +126,22 @@ class ToolbarBuilder {
 
 		$watchKey = $key = isset( $actions['unwatch'] ) ? 'unwatch' : 'watch';
 		// The watchstar is typically not shown to anonymous users but it is in Minerva.
-		$watchData = $actions[ $watchKey ] ?? [
-			'icon' => 'star',
-			'class' => '',
-			'href' => $this->getLoginUrl( [ 'returnto' => $this->title ] ),
-			'text' => $this->context->msg( 'watch' ),
-		];
+		$watchData = $actions[ $watchKey ] ?? null;
+		// If the watchstar doesn't exist AND the user is not named (e.g. anonymous )
+		// we inject a watchstar icon that links to the login page. This will open a drawer
+		// that informs the user that this feature exists.
+		// We don't want to do this in the case the user is already logged in (this situation
+		// arises when the ReadingList extension is installed which may unset the watchstar icon).
+		// If the watchstar is null and the user is logged in, it means the page is not watchable
+		// (for example special pages) so we should not worry about this case (L145 will ignore it).
+		if ( !$watchData && !$this->user->isNamed() ) {
+			$watchData = [
+				'icon' => 'star',
+				'class' => '',
+				'href' => $this->getLoginUrl( [ 'returnto' => $this->title ] ),
+				'text' => $this->context->msg( 'watch' ),
+			];
+		}
 		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) && $watchData ) {
 			$group->insertEntry( $this->createWatchPageAction( $watchKey, $watchData ) );
 		}
@@ -168,7 +178,9 @@ class ToolbarBuilder {
 					'page-actions-' . $key,
 					$viewData['text'] ?? $key,
 					$viewData['href'] ?? '#',
-					$viewData['class'] ?? ''
+					$viewData['class'] ?? '',
+					true,
+					$viewData['array-attributes'] ?? []
 				);
 
 				$entry
