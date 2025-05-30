@@ -35,8 +35,7 @@
 		"MinervaTypeahead": {
 			"value": {
 				"apiUrl": null,
-				"recommendationApiUrl": null,
-				"enabled": false
+				"recommendationApiUrl": null
 			}
 		},
 		"MinervaDonateLink": {
@@ -573,13 +572,6 @@
 				"TabScroll.js",
 				"Toolbar.js",
 				"mobileRedirect.js",
-				{
-					"name": "config.json",
-					"config": [
-						"MinervaTypeahead"
-					]
-				},
-				"searchLegacy.js",
 				"references.js",
 				"watchstar.js"
 			]

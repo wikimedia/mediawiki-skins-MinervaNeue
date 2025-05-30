@@ -12,8 +12,6 @@ module.exports = function () {
 		DateFormatter = require( 'mediawiki.DateFormatter' ),
 		preInit = require( './preInit.js' ),
 		mobileRedirect = require( './mobileRedirect.js' ),
-		config = require( './config.json' ),
-		searchLegacy = require( './searchLegacy.js' ),
 		references = require( './references.js' ),
 		TitleUtil = require( './TitleUtil.js' ),
 		issues = require( './page-issues/index.js' ),
@@ -377,10 +375,6 @@ module.exports = function () {
 		preInit();
 		// - references
 		references();
-		// - search legacy
-		if ( !config.MinervaTypeahead || !config.MinervaTypeahead.enabled ) {
-			searchLegacy();
-		}
 		// - mobile redirect
 		mobileRedirect( ms.amcOutreach, currentPage );
 
