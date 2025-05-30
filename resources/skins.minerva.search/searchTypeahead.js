@@ -3,18 +3,18 @@ const router = require( 'mediawiki.router' );
 const {
 	App, restSearchClient, urlGenerator
 } = require( 'mediawiki.skinning.typeaheadSearch' );
-const urlGeneratorInstance = urlGenerator( mw.config.get( 'wgScript' ) );
 const searchConfig = require( './searchConfig.json' ).MinervaTypeahead;
 const recommendationApiUrl = searchConfig.recommendationApiUrl;
 const searchApiUrl = searchConfig.apiUrl || `${ mw.config.get( 'wgScriptPath' ) }/rest.php`;
-const restClient = restSearchClient( searchApiUrl, urlGeneratorInstance, recommendationApiUrl );
 let appDefaults;
 
 /**
  * @ignore
+ * @param {Object} restClient
+ * @param {Object} urlGeneratorInstance
  * @return {Object}
  */
-function getSearchProps() {
+function getSearchProps( restClient, urlGeneratorInstance ) {
 	if ( appDefaults ) {
 		return appDefaults;
 	}
@@ -58,12 +58,14 @@ function getSearchProps() {
 
 /**
  * @ignore
+ * @param {Object} restClient
+ * @param {Object} urlGeneratorInstance
  * @return {Vue.Component}
  */
-function renderTypeaheadSearch() {
+function renderTypeaheadSearch( restClient, urlGeneratorInstance ) {
 	return Vue.createMwApp(
 		App,
-		getSearchProps()
+		getSearchProps( restClient, urlGeneratorInstance )
 	);
 }
 
@@ -71,15 +73,24 @@ let searchTypeaheadInitialized = false;
 
 /**
  * @ignore
- * @param {boolean} useOverlay whether the overlay should be launched.
+ * @param {Object} [restClient]
+ * @param {Object} [urlGeneratorInstance]
  * @return {Promise}
  */
-function searchTypeahead() {
+function searchTypeahead( restClient, urlGeneratorInstance ) {
 	// On first run we setup Vue app defaults, load and render the App.
 	// Since all these elements will get destroyed they are cached
 	// to appDefaults for future runs.
+	if ( !urlGeneratorInstance ) {
+		urlGeneratorInstance = urlGenerator( mw.config.get( 'wgScript' ) );
+	}
 	if ( !searchTypeaheadInitialized ) {
-		const app = renderTypeaheadSearch();
+		const app = renderTypeaheadSearch(
+			restClient || restSearchClient(
+				searchApiUrl, urlGeneratorInstance, recommendationApiUrl
+			),
+			urlGeneratorInstance
+		);
 		app.mount( document.querySelector( 'header .minerva-search-form .search-box' ) );
 		searchTypeaheadInitialized = true;
 	}

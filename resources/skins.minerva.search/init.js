@@ -1,7 +1,5 @@
-const { launchDialog, searchTypeahead } = require( './searchTypeahead.js' );
-searchTypeahead();
+const { searchTypeahead } = require( './searchTypeahead.js' );
 
 module.exports = {
-	searchTypeahead,
-	launchDialog
+	init: searchTypeahead
 };
