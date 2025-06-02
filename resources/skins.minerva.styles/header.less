@@ -56,10 +56,10 @@
 		cursor: text;
 	}
 
-	// FIXME: #searchInput for cached HTML
+	// FIXME: Delete this selector after cached HTML is resolved from I7d88ef62bffc7241f7778f5b079fcc9dc693eeaa
 	// stylelint-disable-next-line selector-max-id
-	.cdx-text-input #searchInput,
-	.cdx-text-input__input {
+	.search-box > .cdx-text-input #searchInput,
+	.search-box > .cdx-text-input__input {
 		padding-left: 60px;
 		line-height: 1;
 	}
@@ -78,6 +78,11 @@
 			display: block;
 			width: @width-search-box;
 			max-width: @width-search-box;
+		}
+
+		// stylelint-disable-next-line selector-max-id
+		#searchIcon {
+			display: none;
 		}
 	}
 }

@@ -40,7 +40,7 @@ function getSearchProps( restClient, urlGeneratorInstance ) {
 		id: 'minerva-overlay-search',
 		autofocusInput: true,
 		searchButtonLabel: '',
-		autoExpandWidth: false,
+		autoExpandWidth: true,
 		showThumbnail: true,
 		showEmptySearchRecommendations: !!recommendationApiUrl,
 		showDescription: true,

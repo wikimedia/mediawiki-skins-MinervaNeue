@@ -3,6 +3,12 @@
 @import 'mediawiki.mixins.less';
 @import 'icons.less';
 
+@size-icon-search: unit( ( 18 / @font-size-browser ), em );
+@size-icon-search-gutter: unit( ( 8 / @font-size-browser ), em );
+@size-modifier-border: unit( ( 1 / @font-size-browser ), em );
+@padding-vertical-search: 8px - @border-width-base;
+@padding-start-search-icon: @size-icon-search + ( 2 * @size-icon-search-gutter ) - @size-modifier-border;
+
 /* stylelint-disable no-descending-specificity */
 html,
 body {
@@ -83,7 +89,8 @@ ul {
 	flex-grow: 1;
 	align-items: center;
 
-	> button {
+	// stylelint-disable-next-line selector-max-id
+	#searchIcon {
 		margin-left: auto;
 	}
 }
@@ -95,11 +102,6 @@ ul {
 // Search input
 // Used in minerva header and search overlay header
 .search-box .search {
-	@size-icon-search: unit( ( 18 / @font-size-browser ), em );
-	@size-icon-search-gutter: unit( ( 8 / @font-size-browser ), em );
-	@size-modifier-border: unit( ( 1 / @font-size-browser ), em );
-	@padding-vertical-search: 8px - @border-width-base;
-	@padding-start-search-icon: @size-icon-search + ( 2 * @size-icon-search-gutter ) - @size-modifier-border;
 	background-color: @background-color-base; // Support Fennec, Opera Mini: Remove default background, see T38490.
 	// Support Safari: Get rid of rounded corners.
 	-webkit-appearance: none;
@@ -127,6 +129,13 @@ ul {
 	}
 }
 
+// FIXME: Merge these styles with above after minerva typeahead is enabled everywhere
+.search-box--typeahead .search {
+	padding: 4px 0 4px @padding-start-search-icon;
+	height: unset;
+}
+
+// FIXME: Delete this selector after cached HTML is resolved from I7d88ef62bffc7241f7778f5b079fcc9dc693eeaa
 .search-box-icon-overlay {
 	position: absolute;
 	display: flex;

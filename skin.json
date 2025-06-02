@@ -594,7 +594,7 @@
 			"codexStyleOnly": true,
 			"codexComponents": [
 				"CdxButton",
-				"CdxSearchInput"
+				"CdxTypeaheadSearch"
 			]
 		}
 	},
