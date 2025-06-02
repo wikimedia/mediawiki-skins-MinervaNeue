@@ -123,6 +123,8 @@ class ToolbarBuilder {
 				true
 			) );
 		}
+		// Don't render the "view" action.
+		unset( $views[  'view' ] );
 
 		$watchKey = $key = isset( $actions['unwatch'] ) ? 'unwatch' : 'watch';
 		// The watchstar is typically not shown to anonymous users but it is in Minerva.
@@ -147,6 +149,8 @@ class ToolbarBuilder {
 		}
 
 		$historyView = $views[ 'history'] ?? [];
+		unset( $views[ 'history' ] );
+
 		if ( $historyView && $permissions->isAllowed( IMinervaPagePermissions::HISTORY ) ) {
 			$group->insertEntry( $this->getHistoryPageAction( $historyView ) );
 		}
