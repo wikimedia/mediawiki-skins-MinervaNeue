@@ -80,6 +80,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "ページが属するカテゴリを表示",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、モバイルビューでは複数の変更をページごとにまとめて表示することはできません。ページごとにまとめて表示する機能を利用したい場合はデスクトップサイトにアクセスしてください。",
 	"skin-minerva-night-mode-unavailable": "このページはライトモードのみ利用可能です。",
-	"minerva.css": "/* ここに記述したCSSは、ミネルバ外装の利用者に読み込まれます　*/",
-	"minerva.js": "/* ここに記述したJavaScriptは、ミネルバ外装の利用者に読み込まれます　*/"
+	"minerva.css": "/* ここに記述した CSS は、MinervaNeue 外装の利用者に読み込まれます */",
+	"minerva.js": "/* ここに記述した JavaScript は、MinervaNeue 外装の利用者に読み込まれます */"
 }
