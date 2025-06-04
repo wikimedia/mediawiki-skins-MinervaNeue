@@ -421,6 +421,7 @@
 			"variants": [],
 			"useMaskImage": true,
 			"icons": [
+				"speechBubbleAdd",
 				"edit",
 				"wikiText",
 				"editLock",
