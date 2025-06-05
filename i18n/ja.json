@@ -82,6 +82,6 @@
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment": "ページの問題処理の改良",
 	"skin-minerva-mobile-option-MinervaPageIssuesNewTreatment-description": "ページの問題 (Template:ambox) は記事上でリンク表示します。",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、モバイルビューでは複数の変更をページごとにまとめて表示することはできません。ページごとにまとめて表示する機能を利用したい場合はデスクトップサイトにアクセスしてください。",
-	"minerva.css": "/* ここに記述したCSSは、ミネルバ外装の利用者に読み込まれます　*/",
-	"minerva.js": "/* ここに記述したJavaScriptは、ミネルバ外装の利用者に読み込まれます　*/"
+	"minerva.css": "/* ここに記述した CSS は、MinervaNeue 外装の利用者に読み込まれます */",
+	"minerva.js": "/* ここに記述した JavaScript は、MinervaNeue 外装の利用者に読み込まれます */"
 }
