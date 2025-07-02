@@ -9,7 +9,7 @@ module.exports = function () {
 	const defaultSearchPage = $searchInput.siblings( 'input[name=title]' ).val();
 	// eslint-disable-next-line no-jquery/no-global-selector
 	const $searchBar = $( '#searchInput, #searchIcon, .skin-minerva-search-trigger' );
-	const searchRoute = new RegExp( /\/search/ );
+	const searchRoute = new RegExp( /^\/search$/ );
 	let searchOverlayInstance;
 
 	// Only continue on mobile devices as it breaks desktop search
