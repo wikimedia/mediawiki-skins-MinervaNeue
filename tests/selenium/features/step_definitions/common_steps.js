@@ -80,7 +80,7 @@ const iShouldSeeAToastNotification = async () => {
 const iShouldSeeAToastNotificationWithMessage = async ( msg ) => {
 	await iShouldSeeAToastNotification();
 	const notificationBody = await ArticlePage.notification_element.$( '.mw-notification-content' );
-	await expect( notificationBody ).toHaveTextContaining( msg );
+	await expect( notificationBody ).toHaveText( expect.stringContaining( msg ) );
 };
 
 const iClickTheBrowserBackButton = async () => {
