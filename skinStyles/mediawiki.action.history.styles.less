@@ -229,6 +229,7 @@
 
 		.mw-tempuserlink {
 			background-color: transparent;
+			outline: 0;
 			padding: 0;
 
 			// Add the background color on the bdi instead
@@ -236,7 +237,7 @@
 			bdi {
 				// @background-color-interactive
 				background-color: @background-color-interactive;
-				padding: 2px 8px;
+				outline: 2px solid @background-color-interactive;
 				border-radius: @border-radius-base;
 			}
 		}
