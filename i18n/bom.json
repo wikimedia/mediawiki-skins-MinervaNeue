@@ -1,12 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gaison001"
+			"Gaison001",
+			"Rwang PS"
 		]
 	},
+	"mobile-frontend-history": "Be yong be Rani lang hemo",
 	"mobile-frontend-home-button": "lo",
 	"mobile-frontend-language-article-heading": "lem",
+	"mobile-frontend-main-menu-login": "Yel",
 	"mobile-frontend-main-menu-nearby": "bagad",
+	"mobile-frontend-main-menu-settings": "Yong",
+	"mobile-frontend-placeholder": "Ja",
 	"mobile-frontend-random-button": "kawemeh",
 	"minerva-page-actions-overflow": "gwe"
 }
