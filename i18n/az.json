@@ -9,7 +9,8 @@
 			"PPerviz",
 			"Toghrul Rahimli",
 			"Wertuose",
-			"Əkrəm"
+			"Əkrəm",
+			"Gadir"
 		]
 	},
 	"minerva-last-modified-date": "Sonuncu redaktə $2, $1 tarixində edilib",
@@ -33,7 +34,7 @@
 	"mobile-frontend-main-menu-watchlist": "İzləmə siyahısı",
 	"mobile-frontend-meta-data-issues": "Səhifədəki problemlər",
 	"mobile-frontend-meta-data-issues-categories": "Bu kateqoriya haqqında",
-	"mobile-frontend-meta-data-issues-header": "Səhifədəki problemlər",
+	"mobile-frontend-meta-data-issues-header": "Səhifədəki bildirişlər",
 	"minerva-meta-data-issues-section-header": "Bölmə problemləri",
 	"mobile-frontend-pageaction-edit-tooltip": "Bu səhifənin giriş hissəsini redaktə et",
 	"mobile-frontend-placeholder": "{{SITENAME}} layihəsində axtar",
