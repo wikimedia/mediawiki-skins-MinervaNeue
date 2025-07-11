@@ -264,7 +264,7 @@ class SkinMinerva extends SkinMustache {
 		$isUserPage = $this->skinUserPageHelper->isUserPage();
 		$isUserPageAccessible = $this->skinUserPageHelper->isUserPageAccessibleToCurrentUser();
 		if ( $isUserPage && $isUserPageAccessible ) {
-			$data['html-title-heading'] = $this->getUserPageHeadingHtml( $data['html-title-heading' ] );
+			$data['html-title-heading'] = $this->getUserPageHeadingHtml();
 		}
 
 		$usermessage = $data['html-user-message'] ?? '';
@@ -823,10 +823,9 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * Returns the HTML representing the heading.
 	 *
-	 * @param string $heading The heading suggested by core.
 	 * @return string HTML for header
 	 */
-	private function getUserPageHeadingHtml( string $heading ): string {
+	private function getUserPageHeadingHtml(): string {
 		// The heading is just the username without namespace
 		return Html::element( 'h1',
 			// These IDs and classes should match Skin::getTemplateData

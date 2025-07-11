@@ -87,7 +87,7 @@ final class Group {
 	private function throwIfNotUnique( string $name ): void {
 		try {
 			$this->search( $name );
-		} catch ( DomainException $exception ) {
+		} catch ( DomainException ) {
 			return;
 		}
 		throw new DomainException( "The \"{$name}\" entry already exists." );
