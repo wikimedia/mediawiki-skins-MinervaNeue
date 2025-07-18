@@ -222,7 +222,7 @@ class ToolbarBuilder {
 
 	/**
 	 * Creates the "edit" page action: the well-known pencil icon that, when tapped, will open an
-	 * editor with the lead section loaded.
+	 * editor.
 	 *
 	 * @param string $key
 	 * @param array $editAction
