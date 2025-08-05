@@ -5,10 +5,10 @@ Last Edited: 2024-06-10
 
 ## Update June 2024
 As of T363743, we will no longer be using CSS variables directly, rather we are
-back to using codex design tokens (LESS variables) so that the design system
+back to using Codex design tokens (Less variables) so that the design system
 team can maintain a unified source of truth and also supply fallback values
 
-Given that the LESS variables are still of type string, color function support
+Given that the Less variables are still of type string, color function support
 is still dropped
 
 ## Status
@@ -18,7 +18,7 @@ Updated
 ## Context
 
 In order to reduce the strain on other teams/developers to update their extensions to use
-CSS variables rather than LESS, we decided to use [Wikimedia skin variables](https://www.mediawiki.org/wiki/Codex#Using_Codex_design_tokens_in_MediaWiki_and_extensions) to re-map LESS variables to their
+CSS variables rather than Less, we decided to use [Wikimedia skin variables](https://www.mediawiki.org/wiki/Codex#Using_Codex_design_tokens_in_MediaWiki_and_extensions) to re-map Less variables to their
 CSS variable equivalent.
 
 e.i. `@color-progressive: var( --color-progressive )`;
@@ -26,15 +26,15 @@ e.i. `@color-progressive: var( --color-progressive )`;
 This is consistent with the Codex design token experimental build which we will
 make use of in [T358059](https://phabricator.wikimedia.org/T358059).
 
-This approach has implications on LESS function that manipulate colors, such as
+This approach has implications on Less function that manipulate colors, such as
 `average`, `fade` and `tint`. These functions expect a parameter of type color.
 This approach changes the variable type from color to string, causing these
 functions to fail.
 
 ## Decision
 
-Given there are few consumers of these LESS functions, we've decided to remove support
-for LESS functions that operate on colors. The benefit of this decision is that
+Given there are few consumers of these Less functions, we've decided to remove support
+for Less functions that operate on colors. The benefit of this decision is that
 it will reduce non-standard colors across the UI.
 
 ## Consequences
@@ -45,5 +45,5 @@ these function if they instead make use of hardcoded hex values (with an
 accompanying comment explaining this reason).
 
 We filed [a ticket](https://phabricator.wikimedia.org/T357740) for addressing this on the
-long term. This may require upgrading our version of LESS to a more modern
+long term. This may require upgrading our version of Less to a more modern
 version or a decision to drop support altogether.

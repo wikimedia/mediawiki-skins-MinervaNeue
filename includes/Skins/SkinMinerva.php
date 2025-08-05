@@ -1018,7 +1018,7 @@ class SkinMinerva extends SkinMustache {
 
 		// When any of these features are enabled in production
 		// remove the if condition
-		// and move the associated LESS file inside `skins.minerva.amc.styles`
+		// and move the associated Less file inside 'skins.minerva.amc.styles'
 		// into a more appropriate module.
 		if (
 			// T356117 - enable on all special pages - some special pages e.g. Special:Contribute have tabs.
