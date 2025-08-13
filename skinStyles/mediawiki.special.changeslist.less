@@ -197,10 +197,19 @@ ul.mw-contributions-list li .mw-rollback-link {
 
 		.mw-userlink {
 			color: @color-subtle;
-			display: block;
 
 			bdi {
 				word-break: break-word;
+			}
+
+			&::after {
+				display: block;
+				content: '';
+			}
+
+			// Only display the performer in a separate line; don't break the log action text into around target user
+			~ .mw-userlink::after {
+				display: none;
 			}
 		}
 
