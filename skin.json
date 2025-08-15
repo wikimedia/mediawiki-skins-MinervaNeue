@@ -196,7 +196,7 @@
 		"MediaWiki\\Minerva\\": "includes/"
 	},
 	"ConfigRegistry": {
-		"minerva": "GlobalVarConfig::newInstance"
+		"minerva": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"HookHandlers": {
 		"main": {
