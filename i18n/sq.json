@@ -12,7 +12,7 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Redakto",
-	"mobile-frontend-history": "Shih historikun e përpunimeve të kësaj faqeje.",
+	"mobile-frontend-history": "Shih historikun e redaktimeve të kësaj faqeje.",
 	"mobile-frontend-home-button": "Kreu",
 	"mobile-frontend-language-article-heading": "Lexojeni në një gjuhë tjetër",
 	"mobile-frontend-languages-not-available": "Kjo faqe nuk ekziston në gjuhët e tjera.",
@@ -23,5 +23,6 @@
 	"mobile-frontend-main-menu-watchlist": "Lista mbikëqyrëse",
 	"mobile-frontend-placeholder": "Kërko te {{SITENAME}}",
 	"mobile-frontend-random-button": "Kuturu",
+	"minerva-page-actions-editfull": "Redakto faqen e plotë",
 	"minerva-page-actions-overflow": "Më shumë"
 }
