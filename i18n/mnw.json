@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Htawmonzel",
 			"Ninjastrikers",
 			"Ranger-Mon",
 			"咽頭べさ"
@@ -13,5 +14,5 @@
 	"mobile-frontend-main-menu-nearby": "ဗဒဲါဒၞာဲဏအ်",
 	"mobile-frontend-main-menu-settings": "ဖျေဟ်ဒၞာဲ",
 	"mobile-frontend-placeholder": "ဂၠာဲ {{SITENAME}}",
-	"mobile-frontend-random-button": "ပရိုၚ်မွဲမွဲ"
+	"mobile-frontend-random-button": "ပရိုင်မွဲမွဲ"
 }
