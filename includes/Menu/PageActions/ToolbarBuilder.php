@@ -103,9 +103,10 @@ class ToolbarBuilder {
 	/**
 	 * @param array $actions
 	 * @param array $views
+	 * @param bool $isBookmarkEnabled
 	 * @return Group
 	 */
-	public function getGroup( array $actions, array $views ): Group {
+	public function getGroup( array $actions, array $views, bool $isBookmarkEnabled = false ): Group {
 		$group = new Group( 'p-views' );
 		$permissions = $this->permissions;
 		$userPageOrUserTalkPageWithOverflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
@@ -144,8 +145,15 @@ class ToolbarBuilder {
 				'text' => $this->context->msg( 'watch' ),
 			];
 		}
-		if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) && $watchData ) {
-			$group->insertEntry( $this->createWatchPageAction( $watchKey, $watchData ) );
+		if ( $isBookmarkEnabled ) {
+			// Relocate bookmark icon to front so it is consistent with watchstar position
+			self::copyItemToGroup( $views['bookmark'], 'bookmark', $group, $this->context );
+			unset( $views[ 'bookmark' ] );
+		} else {
+			// THIS WILL ONLY HAPPEN IF NO BOOKMARK IS DETECTED IN THE VIEWS MENU
+			if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) && $watchData ) {
+				$group->insertEntry( $this->createWatchPageAction( $watchKey, $watchData ) );
+			}
 		}
 
 		$historyView = $views[ 'history'] ?? [];
@@ -177,26 +185,35 @@ class ToolbarBuilder {
 					$group->insertEntry( $this->createEditPageAction( $key, $viewData ) );
 				}
 			} elseif ( isset( $viewData[ 'icon' ] ) ) {
-				// Everything else (e.g., 'bookmark', 'share') is added normally
-				$entry = new SingleMenuEntry(
-					'page-actions-' . $key,
-					$viewData['text'] ?? $key,
-					$viewData['href'] ?? '#',
-					$viewData['class'] ?? '',
-					true,
-					$viewData['array-attributes'] ?? []
-				);
-
-				$entry
-					->setIcon( $viewData['icon'] )
-					->trackClicks( $key )
-					->setTitle( $this->context->msg( 'tooltip-' . $key ) )
-					->setNodeID( 'ca-' . $key );
-
-				$group->insertEntry( $entry );
+				self::copyItemToGroup( $viewData, $key, $group, $this->context );
 			}
 		}
 		return $group;
+	}
+
+	/**
+	 * @param array $viewData
+	 * @param string $key
+	 * @param Group $group
+	 * @param IContextSource $context
+	 */
+	private static function copyItemToGroup( $viewData, $key, $group, $context ) {
+		$entry = new SingleMenuEntry(
+			'page-actions-' . $key,
+			$viewData['text'] ?? $key,
+			$viewData['href'] ?? '#',
+			$viewData['class'] ?? '',
+			true,
+			$viewData['array-attributes'] ?? []
+		);
+
+		$entry
+			->setIcon( $viewData['icon'] )
+			->trackClicks( $key )
+			->setTitle( $context->msg( 'tooltip-' . $key ) )
+			->setNodeID( 'ca-' . $key );
+
+		$group->insertEntry( $entry );
 	}
 
 	/**
