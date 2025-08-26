@@ -35,7 +35,11 @@
 		"MinervaTypeahead": {
 			"value": {
 				"apiUrl": null,
-				"recommendationApiUrl": null
+				"recommendationApiUrl": null,
+				"options": {
+					"showThumbnail": true,
+					"showDescription": true
+				}
 			}
 		},
 		"MinervaDonateLink": {

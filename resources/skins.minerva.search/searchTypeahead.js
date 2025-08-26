@@ -6,6 +6,7 @@ const {
 const searchConfig = require( './searchConfig.json' ).MinervaTypeahead;
 const recommendationApiUrl = searchConfig.recommendationApiUrl;
 const searchApiUrl = searchConfig.apiUrl || `${ mw.config.get( 'wgScriptPath' ) }/rest.php`;
+const searchOptions = searchConfig.options || {};
 let appDefaults;
 
 /**
@@ -41,9 +42,7 @@ function getSearchProps( restClient, urlGeneratorInstance ) {
 		autofocusInput: true,
 		searchButtonLabel: '',
 		autoExpandWidth: true,
-		showThumbnail: true,
 		showEmptySearchRecommendations: !!recommendationApiUrl,
-		showDescription: true,
 		action,
 		searchQuery,
 		searchTitle,
@@ -53,7 +52,7 @@ function getSearchProps( restClient, urlGeneratorInstance ) {
 		autocapitalizeValue,
 		searchAccessKey
 	};
-	return appDefaults;
+	return Object.assign( appDefaults, searchOptions );
 }
 
 /**
