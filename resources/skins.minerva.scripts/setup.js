@@ -5,6 +5,7 @@
  * @ignore
  */
 const ms = require( 'mobile.startup' );
+const watchstar = require( './watchstar.js' );
 const reportIfNightModeWasDisabledOnPage = require( './reportIfNightModeWasDisabledOnPage.js' );
 const addPortletLink = require( './addPortletLink.js' );
 const { teleportTarget, enableSearchDialog } = require( 'mediawiki.page.ready' );
@@ -16,9 +17,16 @@ function init() {
 
 	// eslint-disable-next-line no-jquery/no-global-selector
 	const $watch = $( '#page-actions-watch' );
+	// eslint-disable-next-line no-jquery/no-global-selector
+	const $watchInToolsMenu = $( '.page-actions-overflow-list .mw-watchlink' );
 
 	if ( permissions.watch ) {
-		require( './watchstar.js' ).init( $watch );
+		if ( $watch.length ) {
+			watchstar.init( $watch );
+		}
+		if ( $watchInToolsMenu.length ) {
+			watchstar.init( $watchInToolsMenu.parent() );
+		}
 	}
 
 	addPortletLink.init();
