@@ -444,7 +444,8 @@ class SkinMinerva extends SkinMustache {
 				$showDonateLink,
 				$this->getUser(),
 				$this->definitions,
-				$this->userIdentityUtils
+				$this->userIdentityUtils,
+				$this->skinOptions->get( SkinOptions::PERSONAL_MENU )
 			);
 		return new MainMenuDirector( $builder );
 	}

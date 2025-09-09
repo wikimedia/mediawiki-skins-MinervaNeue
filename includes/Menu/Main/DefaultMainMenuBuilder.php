@@ -37,6 +37,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	private User $user;
 	private Definitions $definitions;
 	private UserIdentityUtils $userIdentityUtils;
+	private bool $isPersonalModeEnabled;
 
 	/**
 	 * Initialize the Default Main Menu builder
@@ -46,19 +47,23 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 * @param User $user The current user
 	 * @param Definitions $definitions A menu items definitions set
 	 * @param UserIdentityUtils $userIdentityUtils
+	 * @param bool $isPersonalModeEnabled whether the rendering of personal links (e.g. login)
+	 *  is handled outside this menu. This corresponds to $wgMinervaPersonalMenu feature value.
 	 */
 	public function __construct(
 		$showMobileOptions,
 		$showDonateLink,
 		User $user,
 		Definitions $definitions,
-		UserIdentityUtils $userIdentityUtils
+		UserIdentityUtils $userIdentityUtils,
+		bool $isPersonalModeEnabled
 	) {
 		$this->showMobileOptions = $showMobileOptions;
 		$this->showDonateLink = $showDonateLink;
 		$this->user = $user;
 		$this->definitions = $definitions;
 		$this->userIdentityUtils = $userIdentityUtils;
+		$this->isPersonalModeEnabled = $isPersonalModeEnabled;
 	}
 
 	/**
@@ -98,7 +103,12 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 		$group = new Group( 'pt-preferences' );
 		// Show settings group for anon and temp users
 		$isTemp = $this->userIdentityUtils->isTemp( $this->user );
-		if ( $this->showMobileOptions && ( !$this->user->isRegistered() || $isTemp ) ) {
+
+		$settingsGroupNeeded = $this->isPersonalModeEnabled || (
+			( !$this->user->isRegistered() || $isTemp )
+		);
+
+		if ( $this->showMobileOptions && $settingsGroupNeeded ) {
 			$this->definitions->insertMobileOptionsItem( $group );
 		}
 		return $group;
@@ -114,6 +124,11 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	public function getPersonalToolsGroup( array $personalTools ): Group {
 		$group = new Group( 'p-personal' );
 		$excludeKeyList = [ 'betafeatures', 'mytalk', 'sandbox' ];
+
+		// If personal tools are handled elsewhere, no need to output them in this menu.
+		if ( $this->isPersonalModeEnabled ) {
+			return $group;
+		}
 
 		// For anonymous users exclude all links except login.
 		if ( !$this->user->isRegistered() ) {
