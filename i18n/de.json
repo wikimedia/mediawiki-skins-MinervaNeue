@@ -60,6 +60,6 @@
 	"skin-minerva-issue-learn-more": "Mehr erfahren",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Kategorien von Seiten ansehen",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Leider ist die Gruppierung der Ergebnisse nach Seiten in der mobilen Ansicht nicht möglich. Wenn du die Funktion Gruppierung nach Seiten nutzen möchtest, besuche bitte die Desktop-Ansicht.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Leider ist die Gruppierung der Ergebnisse nach Seiten in der mobilen Ansicht nicht möglich. Wenn {{#FORMAL:du|Sie}} die Funktion Gruppierung nach Seiten nutzen {{#FORMAL:möchtest|möchten}}, {{#FORMAL:besuche|besuchen Sie}} bitte die Desktop-Ansicht.",
 	"skin-minerva-night-mode-unavailable": "Seite nur im Farbschema „Hell“ verfügbar."
 }
