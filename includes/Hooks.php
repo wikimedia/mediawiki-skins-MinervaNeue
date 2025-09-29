@@ -31,8 +31,6 @@ use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
-use MediaWiki\RecentChanges\ChangesList;
-use MediaWiki\RecentChanges\ChangesListFilterGroup;
 use MediaWiki\RecentChanges\OldChangesList;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Context;
@@ -147,11 +145,8 @@ class Hooks implements
 	 * Disable recent changes enhanced mode (table mode)
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/FetchChangesList
 	 *
-	 * @param User $user
-	 * @param Skin $skin
-	 * @param ChangesList|null &$list
-	 * @param ChangesListFilterGroup[] $groups
-	 * @return bool|null
+	 * @inheritDoc
+	 * @return false|void False to stop others from interacting with the hook
 	 */
 	public function onFetchChangesList( $user, $skin, &$list, $groups ) {
 		if ( $skin->getSkinName() === 'minerva' ) {
