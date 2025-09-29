@@ -3,6 +3,7 @@
 		"authors": [
 			"Beta16",
 			"C.R.",
+			"Chelin",
 			"Cryptex nap",
 			"Finizio",
 			"Ruthven"
@@ -42,5 +43,6 @@
 	"mobile-frontend-user-newmessages": "Tenisse mmasciate nnove ncopp'â paggena 'e chiàcchiera toia",
 	"mobile-frontend-user-page-contributions": "Cuntribbute",
 	"mobile-frontend-user-page-member-since": "Membro d' 'o $1",
-	"mobile-frontend-user-page-talk": "Chiàcchiera"
+	"mobile-frontend-user-page-talk": "Chiàcchiera",
+	"minerva-page-actions-overflow": "Ato"
 }
