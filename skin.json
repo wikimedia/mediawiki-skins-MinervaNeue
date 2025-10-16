@@ -250,6 +250,9 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"minerva": {
+			"mediawiki.tempUserBanner": [
+				"skinStyles/mediawiki.tempUserBanner.less"
+			],
 			"ext.echo.styles.badge": [
 				"skinStyles/ext.echo.styles.badge.less"
 			],
