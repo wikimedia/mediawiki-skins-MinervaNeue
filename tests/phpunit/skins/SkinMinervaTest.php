@@ -704,7 +704,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( 'pt-preferences', $data['data-minerva-main-menu']['groups'][2]['id'] );
 		$this->assertEquals( '<div class="tagline">A description</div>', $data['html-minerva-tagline'] );
 		$this->assertTrue( isset( $data['html-minerva-user-menu'] ) );
-		$this->assertFalse( $data['is-minerva-beta'] );
 
 		$minervaTabs = $data['data-minerva-tabs'];
 

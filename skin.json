@@ -61,35 +61,30 @@
 		"MinervaTalkAtTop": {
 			"value": {
 				"base": false,
-				"beta": false,
 				"loggedin": true
 			}
 		},
 		"MinervaAdvancedMainMenu": {
 			"value": {
 				"base": false,
-				"beta": false,
 				"amc": true
 			}
 		},
 		"MinervaPersonalMenu": {
 			"value": {
 				"base": false,
-				"beta": false,
 				"amc": true
 			}
 		},
 		"MinervaHistoryInPageActions": {
 			"value": {
 				"base": false,
-				"beta": false,
 				"loggedin": true
 			}
 		},
 		"MinervaOverflowInPageActions": {
 			"value": {
 				"base": false,
-				"beta": false,
 				"amc": true,
 				"loggedin": true
 			}
@@ -103,8 +98,7 @@
 		},
 		"MinervaPageIssuesNewTreatment": {
 			"value": {
-				"base": true,
-				"beta": true
+				"base": true
 			}
 		},
 		"MinervaABSamplingRate": {

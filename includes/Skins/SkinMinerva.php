@@ -319,7 +319,6 @@ class SkinMinerva extends SkinMustache {
 				$this->getUser()->isAnon(),
 			'html-minerva-tagline' => $this->getTaglineHtml(),
 			'html-minerva-user-menu' => $this->getPersonalToolsMenu( $navUserMenu ),
-			'is-minerva-beta' => $this->skinOptions->get( SkinOptions::BETA_MODE ),
 			'data-minerva-notifications' => $notifications ? [
 				'array-buttons' => $this->getNotificationButtons( $notifications ),
 			] : null,
@@ -533,8 +532,6 @@ class SkinMinerva extends SkinMustache {
 	 */
 	public function getPageClasses( $title ): string {
 		$className = parent::getPageClasses( $title );
-		$className .= ' ' . ( $this->skinOptions->get( SkinOptions::BETA_MODE )
-				? 'beta' : 'stable' );
 
 		if ( $this->getUser()->isRegistered() ) {
 			$className .= ' is-authenticated';

@@ -36,7 +36,6 @@ final class SkinOptions {
 	public const MOBILE_OPTIONS = 'mobileOptionsLink';
 	public const CATEGORIES = 'categories';
 	public const PAGE_ISSUES = 'pageIssues';
-	public const BETA_MODE = 'beta';
 	public const TALK_AT_TOP = 'talkAtTop';
 	public const SHOW_DONATE = 'donate';
 	public const SHOW_DONATE_BANNER = 'donateBanner';
@@ -53,7 +52,6 @@ final class SkinOptions {
 	 * @var array skin specific options, initialized with default values
 	 */
 	private array $skinOptions = [
-		self::BETA_MODE => false,
 		self::SHOW_DONATE_BANNER => false,
 		self::SHOW_DONATE => true,
 		/**
@@ -175,14 +173,11 @@ final class SkinOptions {
 				$requiresHistoryLink = false;
 			}
 
-			$isBeta = $mobileContext->isBetaGroupMember();
 			$this->setMultiple( [
 				self::SHOW_DONATE_BANNER => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaDonateBanner' ),
 				self::SHOW_DONATE => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
 				self::TALK_AT_TOP => $isUserPageOrUserTalkPage ?
 					true : $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaTalkAtTop' ),
-				self::BETA_MODE
-					=> $isBeta,
 				self::CATEGORIES
 					=> $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaShowCategories' ),
 				self::PAGE_ISSUES
