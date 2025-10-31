@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Angpradesh",
+			"IND-ANP",
 			"Proabscorp!"
 		]
 	},
@@ -16,5 +17,6 @@
 	"mobile-frontend-main-menu-watchlist": "ध्यानसूची",
 	"mobile-frontend-placeholder": "{{SITENAME}} मँ खोजौ",
 	"mobile-frontend-random-button": "बेतरतीब",
-	"mobile-frontend-user-newmessages": "तोरौ वार्ता पृष्ट प एगो नैका संदेश प्राप्त होलौ छौं"
+	"mobile-frontend-user-newmessages": "तोरौ वार्ता पृष्ट प एगो नैका संदेश प्राप्त होलौ छौं",
+	"minerva-page-actions-overflow": "अधिक"
 }
