@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Angpradesh",
-			"Proabscorp!"
+			"Proabscorp!",
+			"IND-ANP"
 		]
 	},
 	"mobile-frontend-editor-edit": "संपादन करौ",
@@ -17,5 +18,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "इ पन्ना केरौ भूमिका क सम्पादित करौ",
 	"mobile-frontend-placeholder": "{{SITENAME}} मँ खोजौ",
 	"mobile-frontend-random-button": "बेतरतीब",
-	"mobile-frontend-user-newmessages": "तोरौ वार्ता पृष्ट प एगो नैका संदेश प्राप्त होलौ छौं"
+	"mobile-frontend-user-newmessages": "तोरौ वार्ता पृष्ट प एगो नैका संदेश प्राप्त होलौ छौं",
+	"minerva-page-actions-overflow": "अधिक"
 }
