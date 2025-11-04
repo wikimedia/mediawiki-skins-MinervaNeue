@@ -27,8 +27,8 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 				'value' => '/wiki/Main_Page',
 			],
 			[
-				'key' => 'data-mw',
-				'value' => 'interface',
+				'key' => 'data-mw-interface',
+				'value' => '1',
 			]
 		],
 		'classes' => 'menu__item--home',

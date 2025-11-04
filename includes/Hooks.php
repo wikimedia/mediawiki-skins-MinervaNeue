@@ -279,7 +279,7 @@ class Hooks implements
 			// which creates an unpredictable testing environment so it is better to match production.
 			// NOTE: This is enabled despite the well documented problems with the current design on T111565.
 			$config['collapsible'] = true;
-			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw="interface"]';
+			$config['selectorLogoutLink'] = 'a.menu__item--logout[data-mw-interface]';
 		}
 	}
 
