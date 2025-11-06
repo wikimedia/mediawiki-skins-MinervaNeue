@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Davidzdh",
 			"Itsmine",
 			"LNDDYL",
 			"LaMagiaaa",
@@ -21,7 +22,7 @@
 	"mobile-frontend-main-menu-button-tooltip": "啟主列",
 	"mobile-frontend-main-menu-login": "登簿",
 	"mobile-frontend-main-menu-logout": "出籍",
-	"mobile-frontend-main-menu-nearby": "近郊",
+	"mobile-frontend-main-menu-nearby": "左近",
 	"mobile-frontend-main-menu-settings": "簿註",
 	"mobile-frontend-main-menu-watchlist": "哨站",
 	"mobile-frontend-placeholder": "尋於{{SITENAME}}",
