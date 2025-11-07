@@ -9,6 +9,7 @@
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"test": "npm run lint && npm run doc && dev-scripts/svg_check.sh && npm run test:unit",
 		"test:unit": "jest --silent --passWithNoTests",
+		"coverage": "npm run test:unit",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/",
 		"doc": "jsdoc -c jsdoc.json",
 		"selenium-test-cucumber": "wdio tests/selenium/wdio.conf.cucumber.js",
