@@ -19,7 +19,8 @@
 			"Stryn",
 			"Syreeni",
 			"Valtlai",
-			"Valtlait"
+			"Valtlait",
+			"Yupik"
 		]
 	},
 	"minerva-last-modified-date": "Viimeksi muokattu $1 kello $2",
@@ -69,7 +70,7 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Luokat",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Näytä sivun luokat",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Valitettavasti tulosten ryhmittely sivun mukaan ei ole käytettävissä mobiilisivustolla. Jos haluat käyttää ryhmittele sivun mukaan -ominaisuutta, siirry työpöytäsivustolle.",
-	"skin-minerva-night-mode-unavailable": "Sivu saatavilla vain vaaleasssa väriteemassa.",
+	"skin-minerva-night-mode-unavailable": "Sivu saatavilla vain vaaleassa väriteemassa.",
 	"minerva.css": "/* Tämä sivu sisältää MinervaNeue-ulkoasua muuttavia tyylejä. */",
 	"minerva.js": "/* Tämän sivun JavaScript-koodi liitetään MinervaNeue-tyyliin */"
 }
