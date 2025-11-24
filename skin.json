@@ -73,6 +73,7 @@
 		"MinervaPersonalMenu": {
 			"value": {
 				"base": false,
+				"loggedin": true,
 				"amc": true
 			}
 		},

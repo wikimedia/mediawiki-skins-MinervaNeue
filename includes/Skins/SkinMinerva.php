@@ -457,7 +457,14 @@ class SkinMinerva extends SkinMustache {
 	 * @return string|null
 	 */
 	private function getPersonalToolsMenu( array $personalUrls ): ?string {
-		$builder = $this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ?
+		// MinervaAdvancedMainMenu/MAIN_MENU_EXPANDED is enabled for AMC users only
+		$isAMC = $this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED );
+		$hasPersonalMenu = $this->skinOptions->get( SkinOptions::PERSONAL_MENU );
+		if ( $hasPersonalMenu && !$isAMC ) {
+			unset( $personalUrls['sandbox'], $personalUrls['mytalk'] );
+		}
+
+		$builder = $hasPersonalMenu ?
 			new AdvancedUserMenuBuilder(
 				$this->getContext(),
 				$this->getUser(),
