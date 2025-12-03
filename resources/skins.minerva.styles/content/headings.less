@@ -101,9 +101,13 @@ h6 {
 		padding: @margin-heading 0;
 	}
 
-	// `h3`s need extra `margin-top` after paragraphs, see T219572.
+	// `h3`s need extra `margin-top` after paragraphs and sections, refer to T219572.
+	// Support Parsoid and select nested sections besides the first one with
+	// `[ data-mw-section-id ] [ data-mw-section-id ]:not( :first-child ) .mw-heading3`,
+	// other selectors for legacy parser. Rely on attribute selectors to avoid specificity issues.
+	// Refer to T374753.
 	p + .mw-heading3,
-	p + h3 {
+	[ data-mw-section-id ] [ data-mw-section-id ]:not( :first-child ) .mw-heading3 {
 		margin-top: @margin-heading * 3;
 	}
 
