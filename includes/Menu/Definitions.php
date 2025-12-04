@@ -24,6 +24,7 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Message\Message;
 use MediaWiki\Minerva\Menu\Entries\AuthMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
@@ -33,7 +34,6 @@ use MediaWiki\User\UserIdentity;
  */
 final class Definitions {
 
-	private SpecialPageFactory $specialPageFactory;
 	private IContextSource $context;
 	private UserIdentity $user;
 
@@ -41,9 +41,9 @@ final class Definitions {
 	 * Initialize definitions helper class
 	 */
 	public function __construct(
-		SpecialPageFactory $specialPageFactory
+		private readonly SpecialPageFactory $specialPageFactory,
+		private readonly ExtensionRegistry $extensionRegistry,
 	) {
-		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	public function setContext( IContextSource $context ): self {
@@ -99,7 +99,7 @@ final class Definitions {
 	 */
 	public function insertNearbyIfSupported( Group $group ): void {
 		// Nearby link (if supported)
-		if ( $this->specialPageFactory->exists( 'Nearby' ) ) {
+		if ( $this->extensionRegistry->isLoaded( 'NearbyPages' ) ) {
 			$entry = $this->buildMenuEntry(
 				'nearby',
 				$this->context->msg( 'mobile-frontend-main-menu-nearby' )->text(),

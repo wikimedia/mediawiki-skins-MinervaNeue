@@ -6,6 +6,7 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Message\Message;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPageFactory;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
@@ -35,6 +36,7 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		$factoryMock = $this->createMock( SpecialPageFactory::class );
 		$contextMock = $this->createMock( IContextSource::class );
 		$messageMock = $this->createMock( Message::class );
+		$registryMock = $this->createMock( ExtensionRegistry::class );
 		$specialPageMock->expects( $this->any() )
 			->method( 'getLocalURL' )
 			->willReturn( '/wiki/Special:DummyTest' );
@@ -56,8 +58,9 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		$userMock->expects( $this->any() )
 			->method( 'isRegistered' )
 			->willReturn( $isRegistered );
+		$registryMock->method( 'isLoaded' )->willReturn( true );
 
-		$definitions = new Definitions( $factoryMock );
+		$definitions = new Definitions( $factoryMock, $registryMock );
 		$definitions->setContext( $contextMock );
 		return new DefaultMainMenuBuilder(
 			$showMobileOptions,
