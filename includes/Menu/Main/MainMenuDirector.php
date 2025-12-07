@@ -24,14 +24,14 @@ namespace MediaWiki\Minerva\Menu\Main;
  */
 final class MainMenuDirector {
 
-	private IMainMenuBuilder $builder;
 	private ?array $menuData = null;
 
 	/**
 	 * Director responsible for Main Menu building
 	 */
-	public function __construct( IMainMenuBuilder $builder ) {
-		$this->builder = $builder;
+	public function __construct(
+		private readonly IMainMenuBuilder $builder,
+	) {
 	}
 
 	/**

@@ -24,7 +24,7 @@ use MessageLocalizer;
  * Model for a menu entry that represents log-in / profile+logout pair of links
  */
 final class AuthMenuEntry extends CompositeMenuEntry implements IProfileMenuEntry {
-	private ProfileMenuEntry $profileMenuEntry;
+	private readonly ProfileMenuEntry $profileMenuEntry;
 
 	/**
 	 * Initialize the Auth menu entry

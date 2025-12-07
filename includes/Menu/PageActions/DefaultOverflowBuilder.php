@@ -29,25 +29,11 @@ use MessageLocalizer;
 
 class DefaultOverflowBuilder implements IOverflowBuilder {
 
-	private Title $title;
-	private MessageLocalizer $messageLocalizer;
-	private IMinervaPagePermissions $permissions;
-
-	/**
-	 * Initialize Default overflow menu Group
-	 *
-	 * @param Title $title
-	 * @param MessageLocalizer $messageLocalizer
-	 * @param IMinervaPagePermissions $permissions Minerva permissions system
-	 */
 	public function __construct(
-		Title $title,
-		MessageLocalizer $messageLocalizer,
-		IMinervaPagePermissions $permissions
+		private readonly Title $title,
+		private readonly MessageLocalizer $messageLocalizer,
+		private readonly IMinervaPagePermissions $permissions,
 	) {
-		$this->title = $title;
-		$this->messageLocalizer = $messageLocalizer;
-		$this->permissions = $permissions;
 	}
 
 	public function getTitle(): Title {

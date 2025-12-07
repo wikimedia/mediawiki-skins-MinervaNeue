@@ -29,12 +29,9 @@ use MediaWiki\Title\Title;
  */
 class LanguagesHelper {
 
-	private LanguageConverterFactory $languageConverterFactory;
-
 	public function __construct(
-		LanguageConverterFactory $languageConverterFactory
+		private readonly LanguageConverterFactory $languageConverterFactory,
 	) {
-		$this->languageConverterFactory = $languageConverterFactory;
 	}
 
 	/**

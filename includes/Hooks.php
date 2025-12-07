@@ -66,21 +66,12 @@ class Hooks implements
 {
 	public const FEATURE_OVERFLOW_PAGE_ACTIONS = 'MinervaOverflowInPageActions';
 
-	private ConfiguredReadOnlyMode $configuredReadOnlyMode;
-	private SkinOptions $skinOptions;
-	private UserOptionsLookup $userOptionsLookup;
-	private ?MobileContext $mobileContext;
-
 	public function __construct(
-		ConfiguredReadOnlyMode $configuredReadOnlyMode,
-		SkinOptions $skinOptions,
-		UserOptionsLookup $userOptionsLookup,
-		?MobileContext $mobileContext
+		private readonly ConfiguredReadOnlyMode $configuredReadOnlyMode,
+		private readonly SkinOptions $skinOptions,
+		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly ?MobileContext $mobileContext,
 	) {
-		$this->configuredReadOnlyMode = $configuredReadOnlyMode;
-		$this->skinOptions = $skinOptions;
-		$this->userOptionsLookup = $userOptionsLookup;
-		$this->mobileContext = $mobileContext;
 	}
 
 	/**

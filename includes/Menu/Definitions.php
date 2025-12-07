@@ -37,9 +37,6 @@ final class Definitions {
 	private IContextSource $context;
 	private UserIdentity $user;
 
-	/**
-	 * Initialize definitions helper class
-	 */
 	public function __construct(
 		private readonly SpecialPageFactory $specialPageFactory,
 		private readonly ExtensionRegistry $extensionRegistry,

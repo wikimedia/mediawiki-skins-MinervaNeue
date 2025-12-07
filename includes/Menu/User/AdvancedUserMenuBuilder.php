@@ -30,21 +30,11 @@ use MessageLocalizer;
  * Logged-in, advanced Mobile Contributions user menu config generator.
  */
 final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
-	private MessageLocalizer $messageLocalizer;
-	private User $user;
-	private Definitions $definitions;
-
-	/**
-	 * @param MessageLocalizer $messageLocalizer
-	 * @param User $user
-	 * @param Definitions $definitions A menu items definitions set
-	 */
 	public function __construct(
-		MessageLocalizer $messageLocalizer, User $user, Definitions $definitions
+		private readonly MessageLocalizer $messageLocalizer,
+		private readonly User $user,
+		private readonly Definitions $definitions,
 	) {
-		$this->messageLocalizer = $messageLocalizer;
-		$this->user = $user;
-		$this->definitions = $definitions;
 	}
 
 	/**

@@ -66,19 +66,10 @@ class SkinMinerva extends SkinMustache {
 	/** @var string Name of this used template */
 	public $template = 'MinervaTemplate';
 
-	private GenderCache $genderCache;
-	private LinkRenderer $linkRenderer;
-	private LanguagesHelper $languagesHelper;
-	private Definitions $definitions;
-	private PageActions $pageActions;
-	private IMinervaPagePermissions $permissions;
-	private SkinOptions $skinOptions;
-	private SkinUserPageHelper $skinUserPageHelper;
-	private NamespaceInfo $namespaceInfo;
-	private RevisionLookup $revisionLookup;
-	private UserIdentityUtils $userIdentityUtils;
-	private UserOptionsManager $userOptionsManager;
-	private FeaturesHelper $featuresHelper;
+	private readonly Definitions $definitions;
+	private readonly IMinervaPagePermissions $permissions;
+	private readonly SkinUserPageHelper $skinUserPageHelper;
+	private readonly FeaturesHelper $featuresHelper;
 
 	/**
 	 * @param GenderCache $genderCache
@@ -97,38 +88,29 @@ class SkinMinerva extends SkinMustache {
 	 * @param array $options
 	 */
 	public function __construct(
-		GenderCache $genderCache,
-		LinkRenderer $linkRenderer,
-		LanguagesHelper $languagesHelper,
+		private readonly GenderCache $genderCache,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly LanguagesHelper $languagesHelper,
 		Definitions $definitions,
-		PageActions $pageActions,
+		private readonly PageActions $pageActions,
 		MinervaPagePermissions $permissions,
-		SkinOptions $skinOptions,
+		private readonly SkinOptions $skinOptions,
 		SkinUserPageHelper $skinUserPageHelper,
-		NamespaceInfo $namespaceInfo,
-		RevisionLookup $revisionLookup,
-		UserIdentityUtils $userIdentityUtils,
-		UserOptionsManager $userOptionsManager,
-		?ConfigHelper $configHelper,
+		private readonly NamespaceInfo $namespaceInfo,
+		private readonly RevisionLookup $revisionLookup,
+		private readonly UserIdentityUtils $userIdentityUtils,
+		private readonly UserOptionsManager $userOptionsManager,
+		private readonly ?ConfigHelper $configHelper,
 		$options = []
 	) {
 		parent::__construct( $options );
-		$this->genderCache = $genderCache;
-		$this->linkRenderer = $linkRenderer;
-		$this->languagesHelper = $languagesHelper;
 		$this->definitions = $definitions
 			->setContext( $this->getContext() );
-		$this->pageActions = $pageActions;
 		$this->permissions = $permissions
 			->setContext( $this->getContext() );
-		$this->skinOptions = $skinOptions;
 		$this->skinUserPageHelper = $skinUserPageHelper
 			->setContext( $this->getContext() )
 			->setTitle( $this->getTitle() );
-		$this->namespaceInfo = $namespaceInfo;
-		$this->revisionLookup = $revisionLookup;
-		$this->userIdentityUtils = $userIdentityUtils;
-		$this->userOptionsManager = $userOptionsManager;
 		$this->featuresHelper = new FeaturesHelper( $configHelper );
 	}
 

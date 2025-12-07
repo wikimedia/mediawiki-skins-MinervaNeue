@@ -26,12 +26,10 @@ use MessageLocalizer;
  * Director responsible for building the user menu.
  */
 final class UserMenuDirector {
-	private IUserMenuBuilder $builder;
-	private MessageLocalizer $localizer;
-
-	public function __construct( IUserMenuBuilder $builder, MessageLocalizer $localizer ) {
-		$this->builder = $builder;
-		$this->localizer = $localizer;
+	public function __construct(
+		private readonly IUserMenuBuilder $builder,
+		private readonly MessageLocalizer $localizer,
+	) {
 	}
 
 	/**

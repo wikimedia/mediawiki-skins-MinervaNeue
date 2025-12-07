@@ -25,9 +25,6 @@ use MessageLocalizer;
  */
 class LanguageSelectorEntry implements IMenuEntry {
 
-	private MessageLocalizer $messageLocalizer;
-	private Title $title;
-	private bool $doesPageHaveLanguages;
 	/** @var string Associated icon name */
 	private string $icon;
 	/** @var string A translatable label used as text and title */
@@ -42,15 +39,12 @@ class LanguageSelectorEntry implements IMenuEntry {
 	 * @param string $label Menu entry label and title
 	 */
 	public function __construct(
-		Title $title,
-		$doesPageHaveLanguages,
-		MessageLocalizer $messageLocalizer,
+		private readonly Title $title,
+		private readonly bool $doesPageHaveLanguages,
+		private readonly MessageLocalizer $messageLocalizer,
 		$isButton = false,
-		$label = 'mobile-frontend-language-article-heading'
+		$label = 'mobile-frontend-language-article-heading',
 	) {
-		$this->title = $title;
-		$this->doesPageHaveLanguages = $doesPageHaveLanguages;
-		$this->messageLocalizer = $messageLocalizer;
 		$this->icon = 'language';
 		$this->label = $label;
 	}

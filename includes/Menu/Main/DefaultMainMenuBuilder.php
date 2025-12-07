@@ -32,13 +32,6 @@ use MediaWiki\User\UserIdentityUtils;
  */
 final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 
-	private bool $showMobileOptions;
-	private bool $showDonateLink;
-	private User $user;
-	private Definitions $definitions;
-	private UserIdentityUtils $userIdentityUtils;
-	private bool $isPersonalModeEnabled;
-
 	/**
 	 * Initialize the Default Main Menu builder
 	 *
@@ -51,19 +44,13 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 *  is handled outside this menu. This corresponds to $wgMinervaPersonalMenu feature value.
 	 */
 	public function __construct(
-		$showMobileOptions,
-		$showDonateLink,
-		User $user,
-		Definitions $definitions,
-		UserIdentityUtils $userIdentityUtils,
-		bool $isPersonalModeEnabled
+		private readonly bool $showMobileOptions,
+		private readonly bool $showDonateLink,
+		private readonly User $user,
+		private readonly Definitions $definitions,
+		private readonly UserIdentityUtils $userIdentityUtils,
+		private readonly bool $isPersonalModeEnabled,
 	) {
-		$this->showMobileOptions = $showMobileOptions;
-		$this->showDonateLink = $showDonateLink;
-		$this->user = $user;
-		$this->definitions = $definitions;
-		$this->userIdentityUtils = $userIdentityUtils;
-		$this->isPersonalModeEnabled = $isPersonalModeEnabled;
 	}
 
 	/**

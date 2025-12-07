@@ -80,15 +80,10 @@ final class SkinOptions {
 		self::NIGHT_MODE => false,
 	];
 
-	private HookContainer $hookContainer;
-	private SkinUserPageHelper $skinUserPageHelper;
-
 	public function __construct(
-		HookContainer $hookContainer,
-		SkinUserPageHelper $skinUserPageHelper
+		private readonly HookContainer $hookContainer,
+		private readonly SkinUserPageHelper $skinUserPageHelper,
 	) {
-		$this->hookContainer = $hookContainer;
-		$this->skinUserPageHelper = $skinUserPageHelper;
 	}
 
 	/**

@@ -23,9 +23,7 @@ use MediaWiki\Message\Message;
  * Model for a simple menu entries with label and icon
  */
 class SingleMenuEntry implements IMenuEntry {
-	private string $name;
 	private array $attributes;
-	private array $customAttributes;
 	private bool $isJSOnly = false;
 
 	/**
@@ -41,14 +39,13 @@ class SingleMenuEntry implements IMenuEntry {
 	 * @param array $customAttributes attributes an array of objects with key and value (optional)
 	 */
 	public function __construct(
-		string $name,
+		private readonly string $name,
 		string $text,
 		string $url,
 		$className = '',
 		bool $isInterface = true,
-		array $customAttributes = []
+		private readonly array $customAttributes = [],
 	) {
-		$this->name = $name;
 		$menuClass = 'menu__item--' . $name;
 
 		$this->attributes = [
@@ -65,7 +62,6 @@ class SingleMenuEntry implements IMenuEntry {
 				implode( ' ', $className + [ $menuClass ] ) :
 					ltrim( $className . ' ' . $menuClass ),
 		];
-		$this->customAttributes = $customAttributes;
 		if ( $isInterface ) {
 			// This is needed when Minerva uses a standard MediaWiki button (such as the
 			// watchstar) for a different purpose than MediaWiki usually uses it for. Not setting
