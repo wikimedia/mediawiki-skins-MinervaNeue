@@ -4,15 +4,16 @@
 			"Ibrahim",
 			"TayfunEt.",
 			"ToJack",
-			"Zolgoyo"
+			"Zolgoyo",
+			"ZulfiqorF"
 		]
 	},
 	"mobile-frontend-editor-edit": "Вироиш",
-	"mobile-frontend-history": "Таърихи таҳрири ин саҳифаро бинед.",
+	"mobile-frontend-history": "Дидани таърихи таҳрири ин саҳифа",
 	"mobile-frontend-home-button": "Хона",
 	"mobile-frontend-language-article-heading": "Забон",
 	"mobile-frontend-main-menu-login": "Вуруд",
-	"mobile-frontend-main-menu-nearby": "Наздикӣ",
+	"mobile-frontend-main-menu-nearby": "Дар наздикӣ",
 	"mobile-frontend-main-menu-settings": "Танзимот",
 	"mobile-frontend-pageaction-edit-tooltip": "Қисмати асосии ин саҳифаро вироиш кунед.",
 	"mobile-frontend-placeholder": "Ҷустуҷӯ дар {{SITENAME}}",
