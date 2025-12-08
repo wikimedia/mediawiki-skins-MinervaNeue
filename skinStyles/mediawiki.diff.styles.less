@@ -323,6 +323,7 @@
 
 		.cdx-accordion--separation-minimal > summary {
 			padding: 0 0;
+			-webkit-tap-highlight-color: transparent;
 		}
 
 		.cdx-accordion[ open ] > summary::before {
@@ -365,6 +366,10 @@
 		.mw-diff-tool {
 			position: static !important;
 			order: 2;
+
+			> a {
+				min-width: 100%;
+			}
 
 			> .cdx-button,
 			> .jquery-confirmable-wrapper,
