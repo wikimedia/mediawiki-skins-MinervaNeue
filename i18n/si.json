@@ -5,10 +5,12 @@
 			"Roonyh",
 			"Shwetha",
 			"පසිඳු කාවින්ද",
-			"හරිත"
+			"හරිත",
+			"BuddhikaW88"
 		]
 	},
 	"mobile-frontend-editor-edit": "සංස්කරණය",
+	"mobile-frontend-history": "මෙම පිටුවේ අතීතය පෙන්වන්න",
 	"mobile-frontend-home-button": "මුල් පිටුව",
 	"mobile-frontend-language-article-heading": "භාෂාව",
 	"mobile-frontend-main-menu-button-tooltip": "ප්‍රධාන මෙනුව විවෘත කරන්න",
@@ -23,5 +25,6 @@
 	"mobile-frontend-pageaction-edit-tooltip": "මෙම පිටුවේ මුල් ඡේදය සංස්කරණය කරන්න.",
 	"mobile-frontend-placeholder": "{{SITENAME}} ගවේෂණය කරන්න",
 	"mobile-frontend-random-button": "අහඹු",
-	"mobile-frontend-user-page-contributions": "දායකත්ව"
+	"mobile-frontend-user-page-contributions": "දායකත්ව",
+	"minerva-page-actions-overflow": "තවත්"
 }
