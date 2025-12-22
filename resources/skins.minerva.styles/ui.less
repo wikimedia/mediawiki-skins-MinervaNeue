@@ -170,8 +170,11 @@ ul {
 			visibility: hidden;
 		}
 
-		&.open-block .mw-editsection,
-		.client-nojs & .mw-editsection {
+		// T407908: .section-heading (container) > h1-h6.open-block ~ .mw-editsection.
+		// TODO: Backward compatibility - Remove after 14 days: `&.open-block .mw-editsection` selector.
+		.open-block ~ .mw-editsection,
+		.client-nojs & .mw-editsection,
+		&.open-block .mw-editsection {
 			visibility: visible;
 		}
 	}
