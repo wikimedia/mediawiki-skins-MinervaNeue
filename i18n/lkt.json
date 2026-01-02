@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"AmazingJus",
 			"R12ntech"
 		]
 	},
 	"mobile-frontend-editor-edit": "Yutȟókeča",
 	"mobile-frontend-main-menu-login": "Čhaž’óigwa",
-	"mobile-frontend-placeholder": "{{SITENAME}} él wóle yo/ye"
+	"mobile-frontend-placeholder": "{{SITENAME}} él wóle {{GENDER:|yo|ye|yo/ye}}"
 }
