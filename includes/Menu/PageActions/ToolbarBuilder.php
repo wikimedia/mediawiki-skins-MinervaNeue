@@ -75,7 +75,7 @@ class ToolbarBuilder {
 		private readonly LanguagesHelper $languagesHelper,
 		ServiceOptions $options,
 		private readonly WatchlistManager $watchlistManager,
-		?Title $loginTitle = null
+		?Title $loginTitle = null,
 	) {
 		$this->watchlistExpiryEnabled = $options->get( 'WatchlistExpiry' );
 		$this->loginTitle = $loginTitle ?: SpecialPage::getTitleFor( 'Userlogin' );

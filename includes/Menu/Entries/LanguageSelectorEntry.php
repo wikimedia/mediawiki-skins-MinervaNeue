@@ -25,11 +25,6 @@ use MessageLocalizer;
  */
 class LanguageSelectorEntry implements IMenuEntry {
 
-	/** @var string Associated icon name */
-	private string $icon;
-	/** @var string A translatable label used as text and title */
-	private string $label;
-
 	/**
 	 * @param Title $title Current Title
 	 * @param bool $doesPageHaveLanguages Whether the page is also available in other
@@ -43,10 +38,8 @@ class LanguageSelectorEntry implements IMenuEntry {
 		private readonly bool $doesPageHaveLanguages,
 		private readonly MessageLocalizer $messageLocalizer,
 		$isButton = false,
-		$label = 'mobile-frontend-language-article-heading',
+		private readonly string $label = 'mobile-frontend-language-article-heading',
 	) {
-		$this->icon = 'language';
-		$this->label = $label;
 	}
 
 	/**
@@ -83,9 +76,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 				'isButton' => true,
 				'classes' => $switcherClasses,
 				'label' => $msg,
-				'data-icon' => [
-					'icon' => $this->icon,
-				],
+				'data-icon' => [ 'icon' => 'language' ],
 				'array-attributes' => [
 					[
 						'key' => 'href',

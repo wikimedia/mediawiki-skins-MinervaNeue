@@ -101,7 +101,7 @@ class SkinMinerva extends SkinMustache {
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly UserOptionsManager $userOptionsManager,
 		private readonly ?ConfigHelper $configHelper,
-		$options = []
+		$options = [],
 	) {
 		parent::__construct( $options );
 		$this->definitions = $definitions

@@ -36,7 +36,7 @@ final class AuthMenuEntry extends CompositeMenuEntry implements IProfileMenuEntr
 	public function __construct(
 		UserIdentity $user,
 		MessageLocalizer $messageLocalizer,
-		array $authLinksQuery
+		array $authLinksQuery,
 	) {
 		$this->profileMenuEntry = new ProfileMenuEntry( $user );
 		$entries = $user->isRegistered()
