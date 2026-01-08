@@ -105,8 +105,10 @@ h6 {
 	// Support Parsoid and select nested sections besides the first one with
 	// `[ data-mw-section-id ] [ data-mw-section-id ]:not( :first-child ) .mw-heading3`,
 	// other selectors for legacy parser. Rely on attribute selectors to avoid specificity issues.
-	// Refer to T374753.
+	// Refer to T374753 and T414041.
 	p + .mw-heading3,
+	ol + .mw-heading3,
+	ul + .mw-heading3,
 	[ data-mw-section-id ] [ data-mw-section-id ]:not( :first-child ) .mw-heading3 {
 		margin-top: @margin-heading * 3;
 	}
