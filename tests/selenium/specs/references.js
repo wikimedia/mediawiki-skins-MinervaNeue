@@ -11,12 +11,13 @@ const {
 		iShouldSeeNotTheReferenceDrawer,
 		iClickOnANestedReference,
 		iShouldSeeDrawerWithText
-	} = require( '../features/step_definitions/reference_steps' );
+	} = require( '../features/step_definitions/reference_steps' ),
+	Api = require( 'wdio-mediawiki/Api' );
 
 // @chrome @en.m.wikipedia.beta.wmflabs.org @firefox @test2.m.wikipedia.org @vagrant
 describe( 'Opening and closing the reference drawer', () => {
 
-	before( () => {
+	before( async function () {
 		pageExistsWithText( 'Selenium References test page', `MinervaNeue is a MediaWiki skin.
 {{#tag:ref|This is a note.<ref>This is a nested ref.</ref>|group=note}}
 ==Notes==
@@ -24,6 +25,24 @@ describe( 'Opening and closing the reference drawer', () => {
 ==References==
 <references/>
 		` );
+
+		// References are provided by the Cite extension which might not be available
+		await Api.bot().then(
+			( bot ) => bot.request( {
+				action: 'query',
+				format: 'json',
+				meta: 'siteinfo',
+				siprop: 'extensions'
+			} ).then( ( response ) => {
+				const installedExtensions = response.query.extensions.map(
+					( extension ) => extension.name
+				);
+				if ( !installedExtensions.includes( 'Cite' ) ) {
+					this.skip();
+				}
+			} )
+		);
+
 	} );
 
 	beforeEach( () => {
