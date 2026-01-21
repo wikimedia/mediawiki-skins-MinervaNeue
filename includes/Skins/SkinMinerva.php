@@ -372,8 +372,7 @@ class SkinMinerva extends SkinMustache {
 		$usermessage = $data['html-user-message'] ?? '';
 		if ( $usermessage ) {
 			$data['html-user-message'] = Html::warningBox(
-				'<span class="minerva-icon minerva-icon--userTalk-warning"></span>&nbsp;'
-					. $usermessage,
+				$usermessage,
 				'minerva-anon-talk-message'
 			);
 		}
