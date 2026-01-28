@@ -121,7 +121,14 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getRevisionLookup(),
 			$services->getUserIdentityUtils(),
 			$services->getUserOptionsManager(),
-			$services->getService( 'Vector.ConfigHelper' )
+			$services->getService( 'Vector.ConfigHelper' ),
+			[
+				'name' => 'minerva',
+				'menus' => [
+					'notifications',
+					'associated-pages'
+				]
+			]
 		);
 		if ( $context ) {
 			$skin->setContext( $context );
