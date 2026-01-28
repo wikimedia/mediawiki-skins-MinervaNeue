@@ -16,8 +16,6 @@
 	}
 
 	.branding-box {
-		opacity: @opacity-icon-subtle; // T251135
-
 		a {
 			float: left;
 			margin-left: 5px;
@@ -41,6 +39,12 @@
 				.beta & {
 					display: initial;
 				}
+			}
+
+			img {
+				// Applied to img tag only to support customizing the logo for special events
+				// https://www.mediawiki.org/wiki/Skin:Vector/Customizing_the_logo_for_special_events
+				opacity: @opacity-icon-subtle; // T251135
 			}
 		}
 	}
