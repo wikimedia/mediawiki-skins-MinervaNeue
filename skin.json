@@ -177,8 +177,14 @@
 						"skin-minerva-donate-banner-reduced-motion"
 					],
 					"menus": [
+						"actions",
+						"associated-pages",
+						"dock-bottom",
+						"languages",
 						"notifications",
-						"associated-pages"
+						"user-menu",
+						"variants",
+						"views"
 					],
 					"clientPrefEnabled": true,
 					"responsive": true,
