@@ -1,16 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"Letra.berdi",
 			"Waldir",
 			"Waldyrious"
 		]
 	},
-	"mobile-frontend-editor-edit": "Muda",
-	"mobile-frontend-history": "Odja istóriku di mudansa des pájina.",
-	"mobile-frontend-home-button": "Inísiu",
-	"mobile-frontend-language-article-heading": "Língua",
-	"mobile-frontend-main-menu-login": "Entra",
+	"mobile-frontend-editor-edit": "Idita",
+	"mobile-frontend-history": "Odja stóriku di idisons di es pájina.",
+	"mobile-frontend-home-button": "Inísi",
+	"mobile-frontend-language-article-heading": "Linga",
+	"mobile-frontend-main-menu-login": "Inisia sison",
+	"mobile-frontend-main-menu-nearby": "Na rudói",
 	"mobile-frontend-main-menu-settings": "Konfigurason",
-	"mobile-frontend-placeholder": "Buska na {{SITENAME}}",
-	"mobile-frontend-random-button": "Aleatóriu"
+	"mobile-frontend-placeholder": "Piskiza na {{SITENAME}}",
+	"mobile-frontend-random-button": "Aliatóri",
+	"minerva-page-actions-overflow": "Más"
 }

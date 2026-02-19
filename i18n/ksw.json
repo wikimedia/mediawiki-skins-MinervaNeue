@@ -4,6 +4,7 @@
 			"Jaeminlovetaejoon",
 			"Ninjastrikers",
 			"Nyi Nyi Minn Maung",
+			"SawEKP",
 			"SawJaemin"
 		]
 	},
@@ -13,5 +14,6 @@
 	"mobile-frontend-main-menu-login": "ဝၣ်နုာ်လီၤ",
 	"mobile-frontend-main-menu-settings": "တၢ်အိၣ်သးတဖၣ်",
 	"mobile-frontend-placeholder": "ကွၢ်ဃု {{SITENAME}}",
-	"mobile-frontend-random-button": "နါစိၤ"
+	"mobile-frontend-random-button": "နါစိၤ",
+	"minerva-page-actions-overflow": "အါထီၣ်"
 }
