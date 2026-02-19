@@ -139,10 +139,12 @@
 				"NamespaceInfo",
 				"RevisionLookup",
 				"UserIdentityUtils",
-				"UserOptionsManager"
+				"UserOptionsManager",
+				"ExtensionRegistry"
 			],
 			"optional_services": [
-				"Vector.ConfigHelper"
+				"Vector.ConfigHelper",
+				"TestKitchen.ExperimentManager"
 			],
 			"args": [
 				{

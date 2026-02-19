@@ -21,6 +21,7 @@
 namespace MediaWiki\Minerva\Skins;
 
 use MediaWiki\Cache\GenderCache;
+use MediaWiki\Extension\TestKitchen\Sdk\ExperimentManager;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
@@ -84,7 +85,9 @@ class SkinMinerva extends SkinMustache {
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserIdentityUtils $userIdentityUtils
 	 * @param UserOptionsManager $userOptionsManager
+	 * @param ExtensionRegistry $extensionRegistry
 	 * @param ConfigHelper|null $configHelper
+	 * @param ExperimentManager|null $experimentManager
 	 * @param array $options
 	 */
 	public function __construct(
@@ -100,7 +103,9 @@ class SkinMinerva extends SkinMustache {
 		private readonly RevisionLookup $revisionLookup,
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly UserOptionsManager $userOptionsManager,
+		private readonly ExtensionRegistry $extensionRegistry,
 		private readonly ?ConfigHelper $configHelper,
+		private readonly ?ExperimentManager $experimentManager,
 		$options = [],
 	) {
 		parent::__construct( $options );
@@ -433,6 +438,20 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
+	 * Determine if the user should view an account menu for the WE 1.8 Mobile Account Menu experiment.
+	 *
+	 * @return bool
+	 */
+	private function shouldShowAccountMenuForUser(): bool {
+		$shouldShowAccountMenuForUser = false;
+		if ( $this->extensionRegistry->isLoaded( 'TestKitchen' ) ) {
+			$experiment = $this->experimentManager->getExperiment( 'we-1-8-mobile-account-menu' );
+			$shouldShowAccountMenuForUser = $experiment->isAssignedGroup( 'treatment' );
+		}
+		return $shouldShowAccountMenuForUser;
+	}
+
+	/**
 	 * Prepare all Minerva menus
 	 *
 	 * @param array $personalUrls result of SkinTemplate::buildPersonalUrls
@@ -446,7 +465,14 @@ class SkinMinerva extends SkinMustache {
 			unset( $personalUrls['sandbox'], $personalUrls['mytalk'] );
 		}
 
-		$builder = $hasPersonalMenu ?
+		// TODO remove after experiment concludes, T418053
+		$shouldShowAccountMenuForUser = $this->shouldShowAccountMenuForUser();
+		if ( $shouldShowAccountMenuForUser && !$hasPersonalMenu ) {
+			$personalUrls["createaccount"]["icon"] = "userAvatar";
+		}
+
+		$displaysUserIcon = $hasPersonalMenu || $shouldShowAccountMenuForUser;
+		$builder = $displaysUserIcon ?
 			new AdvancedUserMenuBuilder(
 				$this->getContext(),
 				$this->getUser(),
@@ -458,6 +484,7 @@ class SkinMinerva extends SkinMustache {
 			$builder,
 			$this->getSkin()
 		);
+
 		return $userMenuDirector->renderMenuData( $personalUrls );
 	}
 
@@ -944,8 +971,10 @@ class SkinMinerva extends SkinMustache {
 			] );
 		}
 
-		$modules['styles']['skin.page'] = $this->getPageSpecificStyles();
-		$modules['styles']['skin.features'] = $this->getFeatureSpecificStyles();
+		// TODO remove after experiment concludes, T418053
+		$shouldShowAccountMenuForUser = $this->shouldShowAccountMenuforUser();
+		$modules['styles']['skin.page'] = $this->getPageSpecificStyles( $shouldShowAccountMenuForUser );
+		$modules['styles']['skin.features'] = $this->getFeatureSpecificStyles( $shouldShowAccountMenuForUser );
 
 		return $modules;
 	}
@@ -957,7 +986,7 @@ class SkinMinerva extends SkinMustache {
 	 * Any styles returned by this method are loaded on the critical rendering path as linked
 	 * stylesheets. I.e., they are required to load on the client before first paint.
 	 */
-	protected function getPageSpecificStyles(): array {
+	protected function getPageSpecificStyles( bool $shouldShowAccountMenuForUser ): array {
 		$styles = [];
 		$title = $this->getTitle();
 
@@ -980,11 +1009,13 @@ class SkinMinerva extends SkinMustache {
 			$title->isSpecialPage() ||
 			( $this->isHistoryPage() && !$this->shouldUseSpecialHistory( $title ) ) ||
 			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
+			$shouldShowAccountMenuForUser ||
 			$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) ||
 			$this->skinOptions->get( SkinOptions::HISTORY_IN_PAGE_ACTIONS ) ||
 			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 		) {
 			// SkinOptions::PERSONAL_MENU + SkinOptions::TOOLBAR_SUBMENU uses ToggleList
+			// when $shouldShowAccountMenuForUser is true, the menu uses ToggleList
 			// SkinOptions::TALK_AT_TOP uses tabs.less
 			// SkinOptions::HISTORY_IN_PAGE_ACTIONS + SkinOptions::TOOLBAR_SUBMENU uses pageactions.less
 			$styles[] = 'skins.minerva.amc.styles';
@@ -1000,7 +1031,7 @@ class SkinMinerva extends SkinMustache {
 	 *  Any styles returned by this method are loaded on the critical rendering path as linked
 	 *  stylesheets. I.e., they are required to load on the client before first paint.
 	 */
-	protected function getFeatureSpecificStyles(): array {
+	protected function getFeatureSpecificStyles( bool $shouldShowAccountMenuForUser ): array {
 		$styles = [];
 
 		if ( $this->hasCategoryLinks() ) {
@@ -1023,10 +1054,12 @@ class SkinMinerva extends SkinMustache {
 
 		if (
 			$this->skinOptions->get( SkinOptions::PERSONAL_MENU ) ||
+			$shouldShowAccountMenuForUser ||
 			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 		) {
 			// SkinOptions::PERSONAL_MENU requires the `userTalk` icon.
 			// SkinOptions::TOOLBAR_SUBMENU requires the rest of the icons including `overflow`.
+			// when $shouldShowAccountMenuForUser is true, the menu requires the `userAvatarOutline` icon.
 			// Note `skins.minerva.overflow.icons` is pulled down by skins.minerva.scripts but the menu can
 			// work without JS.
 			$styles[] = 'skins.minerva.overflow.icons';
