@@ -298,7 +298,7 @@ class ToolbarBuilder {
 	protected function getHistoryUrl( Title $title ): string {
 		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
 			   SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->user ) ?
-			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
+			SpecialPage::getTitleFor( 'History', $title->getFullText() )->getLocalURL() :
 			$title->getLocalURL( [ 'action' => 'history' ] );
 	}
 

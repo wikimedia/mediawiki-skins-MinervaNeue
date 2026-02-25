@@ -695,7 +695,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function getHistoryUrl( Title $title ): string {
 		return $this->shouldUseSpecialHistory( $title ) ?
-			SpecialPage::getTitleFor( 'History', $title )->getLocalURL() :
+			SpecialPage::getTitleFor( 'History', $title->getPrefixedText() )->getLocalURL() :
 			$title->getLocalURL( [ 'action' => 'history' ] );
 	}
 
@@ -788,7 +788,7 @@ class SkinMinerva extends SkinMustache {
 				// This is shown when js is disabled. js enhancement made due to caching
 				$tagline = $this->msg( 'mobile-frontend-user-page-member-since',
 						$this->getLanguage()->userDate( new MWTimestamp( $fromDateTs ), $this->getUser() ),
-						$pageUser )->text();
+						(string)$pageUser )->text();
 
 				// Define html attributes for usage with js enhancement (unix timestamp, gender)
 				$attrs = [ 'id' => 'tagline-userpage',
