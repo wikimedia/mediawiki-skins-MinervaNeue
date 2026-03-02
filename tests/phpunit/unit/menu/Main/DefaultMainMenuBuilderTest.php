@@ -27,13 +27,11 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		bool $isRegistered = true,
 		bool $isPersonalModeEnabled = false,
 		bool $showMobileOptions = true,
-		bool $showDonateLink = true,
-		bool $isTemp = false
+		bool $showDonateLink = true
 	) {
 		$title = $this->createMock( Title::class );
 		$userMock = $this->createMock( User::class );
 		$identityToolsMock = $this->createMock( UserIdentityUtils::class );
-		$identityToolsMock->method( 'isTemp' )->willReturn( $isTemp );
 		$specialPageMock = $this->createMock( Title::class );
 		$factoryMock = $this->createMock( SpecialPageFactory::class );
 		$contextMock = $this->createMock( IContextSource::class );
@@ -133,30 +131,6 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 			'personal tools group is empty if MinervaPersonalMenu is disabled.' );
 		$this->assertCount( 1, $settingsGroup->getEntries(),
 			'the settings has its own dedicated menu.' );
-	}
-
-	/**
-	 * @covers ::getPersonalToolsGroup
-	 */
-	public function testGetPersonalToolsGroupTempUserExcludesUserpage() {
-		$builder = $this->makeBuilder(
-			true,
-			false,
-			true,
-			true,
-			true
-		);
-		$personalToolsGroup = $builder->getPersonalToolsGroup( [
-			'userpage' => [ 'href' => '/wiki/User:~2026-1', 'text' => '~2026-1', 'icon' => 'userAvatar' ],
-			'watchlist' => [ 'href' => '/wiki/Special:Watchlist', 'text' => 'Watchlist', 'icon' => 'unStar' ],
-		] );
-		$entries = $personalToolsGroup->getEntries();
-		$entryNames = array_map( static fn ( $e ) => $e['name'], $entries );
-
-		$this->assertNotContains( 'userpage', $entryNames,
-			'userpage should be excluded for temp users' );
-		$this->assertNotContains( 'mycontris', $entryNames,
-			'mycontris should be excluded for temp users' );
 	}
 
 	/**

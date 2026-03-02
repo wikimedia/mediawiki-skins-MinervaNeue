@@ -17,6 +17,7 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 
@@ -83,7 +84,8 @@ final class ProfileMenuEntry implements IProfileMenuEntry {
 		$username = $this->user->getName();
 		return [ [
 			'data-icon' => [
-				'icon' => 'userAvatar',
+				'icon' => MediaWikiServices::getInstance()->getUserNameUtils()->isTemp( $username ) ?
+					'userTemporary' : 'userAvatar',
 			],
 			'label' => $this->customProfileLabel ?? $username,
 			'array-attributes' => [

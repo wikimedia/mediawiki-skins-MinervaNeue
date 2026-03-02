@@ -128,7 +128,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 		$isTemp = $this->userIdentityUtils->isTemp( $this->user );
 		if ( $isTemp ) {
 			$excludeKeyList[] = 'mycontris';
-			$excludeKeyList[] = 'userpage';
 		}
 		foreach ( $personalTools as $key => $item ) {
 			// Default to EditWatchlist if $user has no edits

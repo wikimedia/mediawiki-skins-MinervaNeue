@@ -62,10 +62,6 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 			if ( in_array( $key, [ 'preferences', 'betafeatures', 'uploads' ] ) ) {
 				continue;
 			}
-			// Hide userpage for temp users (T418220)
-			if ( $key === 'userpage' && $this->user->isTemp() ) {
-				continue;
-			}
 			// Special casing for userpage to support Extension:GrowthExperiments.
 			// This can be removed when T291568 is resolved.
 			if ( $key === 'userpage' ) {

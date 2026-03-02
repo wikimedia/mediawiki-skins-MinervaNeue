@@ -149,7 +149,7 @@
 					"name": "minerva",
 					"templateDirectory": "includes/Skins",
 					"templateSectionLinks": "SectionLinks",
-					"tempUserBanner": true,
+					"tempUserBanner": false,
 					"wrapSiteNotice": true,
 					"scripts": [
 						"skins.minerva.scripts"
@@ -413,6 +413,7 @@
 				"userAvatarOutline",
 				"userTalk",
 				"userAvatar",
+				"userTemporary",
 				"userTemporaryLocation",
 				"userAdd",
 				"userGroup"
