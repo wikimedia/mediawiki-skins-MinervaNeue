@@ -41,6 +41,7 @@ use MediaWiki\Skin\Skin;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Specials\Helpers\LoginHelper;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MobileContext;
@@ -161,6 +162,7 @@ class Hooks implements
 	 */
 	public function onSpecialPageBeforeExecute( $special, $subpage ) {
 		$name = $special->getName();
+		$loginHelper = new LoginHelper( $special->getContext() );
 		if ( !in_array( $name, [ 'Recentchanges', 'Userlogin', 'CreateAccount' ] ) ) {
 			return;
 		}
@@ -187,7 +189,8 @@ class Hooks implements
 				!$request->getCheck( 'warning' ) &&
 				!$request->getCheck( 'notice' ) &&
 				!$special->getUser()->isRegistered() &&
-				!$request->wasPosted()
+				!$request->wasPosted() &&
+				!$loginHelper->isDisplayModePopup()
 			) {
 				$request->setVal( 'notice', 'mobile-frontend-generic-login-new' );
 			}
