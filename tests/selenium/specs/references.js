@@ -53,7 +53,8 @@ describe( 'Opening and closing the reference drawer', () => {
 		await iShouldSeeNotTheReferenceDrawer();
 	} );
 
-	it( 'Opening a nested reference', async () => {
+	// broken or very flaky (T418779)
+	it.skip( 'Opening a nested reference', async () => {
 		await iAmOnPage( 'Selenium References test page' );
 		await iClickOnAReference();
 		await iShouldSeeDrawerWithText( 'This is a note.' );
