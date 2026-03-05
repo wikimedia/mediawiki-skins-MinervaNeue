@@ -3,16 +3,17 @@
 		"authors": [
 			"Waldir",
 			"Waldyrious",
-			"Letra.berdi"
+			"Letra.berdi",
+			"GrogeXaKaba"
 		]
 	},
 	"mobile-frontend-editor-edit": "Idita",
-	"mobile-frontend-history": "Odja stóriku di idisons di es pájina.",
+	"mobile-frontend-history": "Udja stóriku di idisons di es pájina.",
 	"mobile-frontend-home-button": "Inísi",
 	"mobile-frontend-language-article-heading": "Linga",
-	"mobile-frontend-main-menu-login": "Inisia sison",
+	"mobile-frontend-main-menu-login": "Kuneta",
 	"mobile-frontend-main-menu-nearby": "Na rudói",
-	"mobile-frontend-main-menu-settings": "Konfigurason",
+	"mobile-frontend-main-menu-settings": "Kunfigurason",
 	"mobile-frontend-placeholder": "Piskiza na {{SITENAME}}",
 	"mobile-frontend-random-button": "Aliatóri",
 	"minerva-page-actions-overflow": "Más"
