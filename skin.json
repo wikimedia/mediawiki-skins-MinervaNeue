@@ -151,7 +151,6 @@
 					"name": "minerva",
 					"templateDirectory": "includes/Skins",
 					"templateSectionLinks": "SectionLinks",
-					"tempUserBanner": false,
 					"wrapSiteNotice": true,
 					"scripts": [
 						"skins.minerva.scripts"
