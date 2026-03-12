@@ -44,6 +44,12 @@ final class UserMenuDirector {
 		$templateParser = new TemplateParser( __DIR__ . '/../../Skins' );
 		$toggleID = 'minerva-user-menu-toggle';
 		$checkboxID = 'minerva-user-menu-checkbox';
+		$userPageIcon = $personalTools['userpage']['icon'] ?? 'userAvatarOutline';
+		// For historic reasons and consistency with notification icon we
+		// show the outline version.
+		if ( $userPageIcon === 'userAvatar' ) {
+			$userPageIcon = 'userAvatarOutline';
+		}
 		return !$entries
 			? null
 			: $templateParser->processTemplate( 'ToggleList', [
@@ -54,7 +60,7 @@ final class UserMenuDirector {
 				'data-btn' => [
 					'tag-name' => 'label',
 					'data-icon' => [
-						'icon' => 'userAvatarOutline',
+						'icon' => $userPageIcon,
 					],
 					'classes' => 'toggle-list__toggle',
 					'array-attributes' => [
