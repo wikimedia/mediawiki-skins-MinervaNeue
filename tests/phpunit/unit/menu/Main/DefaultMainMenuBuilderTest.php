@@ -23,6 +23,15 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		'href' => '/wiki/Special:Preferences'
 	];
 
+	private const AUTH_PERSONAL_TOOLS = [
+		'createaccount' => [ 'href' => '/wiki/Special:CreateAccount',
+			'text' => 'Create Account',
+		],
+		'login' => [ 'href' => '/wiki/Special:Login',
+			'text' => 'Login',
+		],
+	];
+
 	private function makeBuilder(
 		bool $isRegistered = true,
 		bool $isPersonalModeEnabled = false,
@@ -82,10 +91,10 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 			// $wgMinervaPersonalMenu = true
 			true
 		);
-		$group = $builder->getPersonalToolsGroup( [] );
+		$group = $builder->getPersonalToolsGroup( [], false );
 		$personalToolsGroup = $builder->getPersonalToolsGroup( [
 			'preferences' => self::PREFERENCES_ITEM,
-		] );
+		], false );
 		$settingsGroup = $builder->getSettingsGroup();
 		$this->assertSame( 'settings', $settingsGroup->getEntries()[0]['name'],
 			'If logged out and personal tools is enabled, the mobile options page should be shown' );
@@ -105,7 +114,7 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		);
 		$personalToolsGroup = $builder->getPersonalToolsGroup( [
 			'preferences' => self::PREFERENCES_ITEM,
-		] );
+		], false );
 		$settingsGroup = $builder->getSettingsGroup();
 		$this->assertSame( 'settings', $settingsGroup->getEntries()[0]['name'] );
 		$this->assertCount( 0, $personalToolsGroup->getEntries(),
@@ -124,7 +133,7 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		);
 		$personalToolsGroup = $builder->getPersonalToolsGroup( [
 			'preferences' => self::PREFERENCES_ITEM,
-		] );
+		], false );
 		$settingsGroup = $builder->getSettingsGroup();
 
 		$this->assertCount( 0, $personalToolsGroup->getEntries(),
@@ -145,12 +154,27 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 		);
 		$personalToolsGroup = $builder->getPersonalToolsGroup( [
 			'preferences' => self::PREFERENCES_ITEM
-		] );
+		], false );
 		$settingsGroup = $builder->getSettingsGroup();
 
 		$this->assertCount( 1, $personalToolsGroup->getEntries(),
 			'for logged in users the `settings` option replaces the `preferences` option' );
 		$this->assertCount( 0, $settingsGroup->getEntries(),
 			'the settings menu is empty  in this case.' );
+	}
+
+	/**
+	 * @covers ::getPersonalToolsGroup
+	 */
+	public function testGetPersonalToolsGroupLoggedOutWhenShouldShowAccountMenuItems() {
+		$builder = $this->makeBuilder( false, false, true, true );
+		$personalToolsGroup = $builder->getPersonalToolsGroup( self::AUTH_PERSONAL_TOOLS, true );
+
+		$this->assertCount( 2, $personalToolsGroup->getEntries(),
+		'personal tools group should include two entries' );
+		$this->assertSame( 'createaccount',
+			$personalToolsGroup->getEntries()[0]['name'] );
+		$this->assertSame( 'login',
+			$personalToolsGroup->getEntries()[1]['name'] );
 	}
 }

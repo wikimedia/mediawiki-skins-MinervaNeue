@@ -53,6 +53,13 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 		];
 
 		foreach ( $personalTools as $key => $item ) {
+			// TODO Remove after T418053 is concluded
+			if ( $key === "login" ) {
+				$item['class'] = 'user-account-menu-login';
+			}
+			if ( $key === "createaccount" ) {
+				$item['class'] = 'user-account-menu-createaccount';
+			}
 			// Default to EditWatchlist if $user has no edits
 			// Many users use the watchlist like a favorites list without ever editing.
 			// [T88270].

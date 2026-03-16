@@ -52,7 +52,7 @@ final class AdvancedMainMenuBuilder implements IMainMenuBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getPersonalToolsGroup( array $personalTools ): Group {
+	public function getPersonalToolsGroup( array $personalTools, bool $shouldShowAccountMenuItems ): Group {
 		return BuilderUtil::getConfigurationTools( $this->definitions, $this->showMobileOptions );
 	}
 

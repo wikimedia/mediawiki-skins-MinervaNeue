@@ -108,7 +108,7 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 *
 	 * @inheritDoc
 	 */
-	public function getPersonalToolsGroup( array $personalTools ): Group {
+	public function getPersonalToolsGroup( array $personalTools, bool $shouldShowAccountMenuItems ): Group {
 		$group = new Group( 'p-personal' );
 		$excludeKeyList = [ 'betafeatures', 'mytalk', 'sandbox' ];
 
@@ -117,17 +117,26 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 			return $group;
 		}
 
-		// For anonymous users exclude all links except login.
-		if ( !$this->user->isRegistered() ) {
-			$excludeKeyList = array_diff(
-				array_keys( $personalTools ),
-				[ 'login', 'login-private' ]
-			);
-		}
-
 		$isTemp = $this->userIdentityUtils->isTemp( $this->user );
 		if ( $isTemp ) {
 			$excludeKeyList[] = 'mycontris';
+		}
+
+		if ( !$this->user->isRegistered() ) {
+			// For anonymous users exclude all links except login.
+			$keysToNotExclude = [ 'login', 'login-private' ];
+
+			// TODO remove after experiment concludes, T418053
+			// Display the Create Account button as well when
+			// a logged out user is in the we-1-8-mobile-account-menu treatment group
+			if ( $shouldShowAccountMenuItems ) {
+				$keysToNotExclude[] = 'createaccount';
+			}
+
+			$excludeKeyList = array_diff(
+				array_keys( $personalTools ),
+				$keysToNotExclude
+			);
 		}
 		foreach ( $personalTools as $key => $item ) {
 			// Default to EditWatchlist if $user has no edits
@@ -135,6 +144,12 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 			// [T88270].
 			if ( $key === 'watchlist' && $this->user->getEditCount() === 0 ) {
 				$item['href'] = Title::newFromText( 'Special:EditWatchlist' )->getLocalUrl();
+			}
+			// TODO remove after experiment concludes, T418053
+			// Display a different icon for the create account button when
+			// a logged out user is in the we-1-8-mobile-account-menu treatment group
+			if ( $key === 'createaccount' && $shouldShowAccountMenuItems ) {
+				$item['icon'] = 'userAvatar';
 			}
 			$href = $item['href'] ?? null;
 			if ( $href && !in_array( $key, $excludeKeyList ) ) {
