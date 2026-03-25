@@ -87,32 +87,6 @@ h6 {
 }
 
 .content {
-	// Deliberately not applied to h1
-	.mw-heading2,
-	.mw-heading3,
-	.mw-heading4,
-	.mw-heading5,
-	.mw-heading6,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		padding: @margin-heading 0;
-	}
-
-	// `h3`s need extra `margin-top` after paragraphs and sections, refer to T219572.
-	// Support Parsoid and select nested sections besides the first one with
-	// `[ data-mw-section-id ] [ data-mw-section-id ]:not( :first-child ) .mw-heading3`,
-	// other selectors for legacy parser. Rely on attribute selectors to avoid specificity issues.
-	// Refer to T374753 and T414041.
-	p + .mw-heading3,
-	ol + .mw-heading3,
-	ul + .mw-heading3,
-	[ data-mw-section-id ] [ data-mw-section-id ]:not( :first-child ) .mw-heading3 {
-		margin-top: @margin-heading * 3;
-	}
-
 	// Override the styles above for `hN` nested inside `.mw-heading`, as used on wikitext pages.
 	.mw-heading {
 		h1,
@@ -126,5 +100,17 @@ h6 {
 			padding: 0;
 			margin: 0;
 		}
+	}
+
+	.mw-heading2,
+	.mw-heading3,
+	.mw-heading4,
+	.mw-heading5,
+	.mw-heading6 {
+		// Headings should have extra spacing from its siblings, which is a
+		// <p> element most of the time. In this case, spacing from the heading
+		// the <p> is sufficient. However, we to account for cases
+		// where the previous sibling element doesnt have any spacing
+		margin: 0.75em 0 0.25em 0;
 	}
 }
