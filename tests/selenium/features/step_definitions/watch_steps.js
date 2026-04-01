@@ -21,7 +21,7 @@ const iClickTheUnwatchStar = async () => {
 
 const iShouldSeeTheWatchstarPopupWithMessage = async ( msg ) => {
 	const popup = await ArticlePage.watchstar_popup;
-	if ( !await popup.isExisting() ) {
+	if ( !await popup.waitForExist( { timeout: 500 } ).catch( () => false ) ) {
 		return false;
 	}
 	const popupMessage = popup.$( '.mw-watchstar-WatchstarPopup-message' );
