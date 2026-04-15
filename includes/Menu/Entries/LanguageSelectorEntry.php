@@ -17,8 +17,8 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Title\Title;
-use MessageLocalizer;
 
 /**
  * Model for a menu entry that represents a language selector for current title

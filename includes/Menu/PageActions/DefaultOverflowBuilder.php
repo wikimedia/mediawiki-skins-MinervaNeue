@@ -20,12 +20,12 @@
 
 namespace MediaWiki\Minerva\Menu\PageActions;
 
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Title\Title;
-use MessageLocalizer;
 
 class DefaultOverflowBuilder implements IOverflowBuilder {
 

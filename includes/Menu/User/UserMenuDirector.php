@@ -20,7 +20,7 @@
 namespace MediaWiki\Minerva\Menu\User;
 
 use MediaWiki\Html\TemplateParser;
-use MessageLocalizer;
+use MediaWiki\Language\MessageLocalizer;
 
 /**
  * Director responsible for building the user menu.

@@ -20,28 +20,28 @@
 
 namespace MediaWiki\Minerva;
 
-use DifferenceEngine;
 use MediaWiki\Config\Config;
+use MediaWiki\Diff\DifferenceEngine;
 use MediaWiki\Diff\Hook\DifferenceEngineViewHeaderHook;
-use MediaWiki\Hook\FetchChangesListHook;
 use MediaWiki\Hook\PreferencesGetLayoutHook;
-use MediaWiki\Hook\UserLogoutCompleteHook;
 use MediaWiki\Html\Html;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\RecentChanges\Hook\FetchChangesListHook;
 use MediaWiki\RecentChanges\OldChangesList;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
+use MediaWiki\Skin\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skin\Skin;
-use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\SpecialPage\Hook\SpecialPageBeforeExecuteHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Specials\Helpers\LoginHelper;
+use MediaWiki\Specials\Hook\UserLogoutCompleteHook;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MobileContext;

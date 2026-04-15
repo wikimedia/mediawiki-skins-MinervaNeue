@@ -19,7 +19,7 @@
  */
 namespace MediaWiki\Minerva\Menu\PageActions;
 
-use MessageLocalizer;
+use MediaWiki\Language\MessageLocalizer;
 
 /**
  * Director responsible for building Page Actions menu.

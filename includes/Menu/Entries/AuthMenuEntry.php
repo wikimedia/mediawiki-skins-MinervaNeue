@@ -17,8 +17,8 @@
 
 namespace MediaWiki\Minerva\Menu\Entries;
 
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\User\UserIdentity;
-use MessageLocalizer;
 
 /**
  * Model for a menu entry that represents log-in / profile+logout pair of links
