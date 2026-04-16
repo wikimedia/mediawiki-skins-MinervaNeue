@@ -186,18 +186,6 @@ class ToolbarBuilder {
 			) );
 		}
 
-		$primarySubscribeActionKey = self::findPrimarySubscribeAction( $views, $actions );
-		// This code adds the watchstar for anonymous users if it is not present in the $views array.
-		// On mobile we show it to anonymous user but we don't do this on desktop.
-		// In future we can consider removing this if we show bookmark to all logged out users.
-		// This code is intended to guarantee that every page has a primary subscribe action for
-		// logged out users.
-		if ( !$this->user->isNamed() && !isset( $views[ $primarySubscribeActionKey ] ) ) {
-			if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) ) {
-				$group->insertEntry( $this->createWatchPageAction( 'watch', $watchData ) );
-			}
-		}
-
 		$user = $this->relevantUserPageHelper->getPageUser();
 		$isUserPageAccessible = $this->relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
 		// needs to be inserted after history

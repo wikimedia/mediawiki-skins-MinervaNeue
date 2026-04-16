@@ -47,47 +47,6 @@ function initRedlinksCta( $redLinks ) {
 	} );
 }
 
-/**
- * A CtaDrawer should show for anonymous users.
- *
- * @param {jQuery} $watchstar
- * @ignore
- */
-function initWatchstarCta( $watchstar ) {
-	let watchCtaDrawer;
-	// show a CTA for anonymous users
-	$watchstar.on( 'click', ( ev ) => {
-		if ( !watchCtaDrawer ) {
-			watchCtaDrawer = CtaDrawer( {
-				content: mw.msg( 'minerva-watchlist-cta' ),
-				queryParams: {
-					notice: 'mobile-frontend-watchlist-purpose',
-					campaign: 'mobile_watchPageActionCta',
-					returntoquery: 'article_action=watch'
-				},
-				onBeforeHide: drawers.discardDrawer,
-				signupQueryParams: {
-					notice: 'mobile-frontend-watchlist-signup-action'
-				}
-			} );
-		}
-		// If it's already shown don't display again
-		// (if user is clicking fast since we are reusing the drawer
-		// this might result in the drawer opening and closing)
-		if ( !watchCtaDrawer.$el[ 0 ].parentNode ) {
-			drawers.displayDrawer( watchCtaDrawer, { hideOnScroll: true } );
-
-			// Originally added for experiment instrumentation, see T422175.
-			mw.hook( 'skin.minerva.watchstarCtaDrawer.open' ).fire();
-		}
-		// prevent default to stop the user
-		// being navigated to Special:UserLogin
-		ev.preventDefault();
-		// Don't stopPropagation, as we want WikimediaEvents to log clicks to this.
-	} );
-}
-
 module.exports = {
-	initWatchstarCta: initWatchstarCta,
-	initRedlinksCta: initRedlinksCta
+	initRedlinksCta
 };

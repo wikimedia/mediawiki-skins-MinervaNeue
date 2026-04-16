@@ -1,3 +1,14 @@
+// FIXME: For cached HTML hide watchstar for anonymous users
+// after I5589ead5bae5de43c13a4dba9a38dffb06f35f5d is merged for 2 weeks
+// stylelint-disable-next-line selector-max-id
+#page-actions-watch {
+	display: none;
+
+	body.is-authenticated & {
+		display: block;
+	}
+}
+
 .mw-watchlink {
 	.minerva-animations-ready & .minerva-icon {
 		transition: transform 0.5s;
