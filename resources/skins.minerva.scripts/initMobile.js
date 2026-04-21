@@ -133,13 +133,20 @@ module.exports = function () {
 
 	// Routes
 	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
-	overlayManager.add( /^\/languages$/, () => ms.languages.languageOverlay() );
-	// Register a LanguageInfo overlay which has no built-in functionality;
-	// a hook is fired when a language is selected, and extensions can respond
-	// to that hook. See GrowthExperiments WelcomeSurvey feature (in gerrit
-	// Ib558dc7c46cc56ff667957f9126bbe0471d25b8e for example usage).
-	overlayManager.add( /^\/languages\/all$/, () => ms.languages.languageInfoOverlay( api, true ) );
-	overlayManager.add( /^\/languages\/all\/no-suggestions$/, () => ms.languages.languageInfoOverlay( api, false ) );
+	// Register a route for the deprecated MobileFrontend overlay if ULS isn't providing one or is
+	// not installed.
+	const setupLegacyMobileFrontendLanguageOverlays = () => {
+		overlayManager.add( /^\/languages$/, () => ms.languages.languageOverlay() );
+		// Register a LanguageInfo overlay which has no built-in functionality;
+		// a hook is fired when a language is selected, and extensions can respond
+		// to that hook. See GrowthExperiments WelcomeSurvey feature (in gerrit
+		// Ib558dc7c46cc56ff667957f9126bbe0471d25b8e for example usage).
+		overlayManager.add( /^\/languages\/all$/, () => ms.languages.languageInfoOverlay( api, true ) );
+		overlayManager.add( /^\/languages\/all\/no-suggestions$/, () => ms.languages.languageInfoOverlay( api, false ) );
+	};
+	if ( !mw.config.get( 'wgULSLanguageSelectorV2Enabled' ) ) {
+		setupLegacyMobileFrontendLanguageOverlays();
+	}
 
 	// Setup
 	$( () => {
