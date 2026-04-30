@@ -76,6 +76,9 @@ function initWatchstarCta( $watchstar ) {
 		// this might result in the drawer opening and closing)
 		if ( !watchCtaDrawer.$el[ 0 ].parentNode ) {
 			drawers.displayDrawer( watchCtaDrawer, { hideOnScroll: true } );
+
+			// Originally added for experiment instrumentation, see T422175.
+			mw.hook( 'skin.minerva.watchstarCtaDrawer.open' ).fire();
 		}
 		// prevent default to stop the user
 		// being navigated to Special:UserLogin
