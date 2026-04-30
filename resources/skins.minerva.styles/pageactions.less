@@ -54,7 +54,8 @@
 		font-weight: 500;
 
 		@media all and ( min-width: @min-width-breakpoint-tablet ) {
-			padding: 0 @spacing-75;
+			// Enforce Codex button spacing of 12px minus the button border.
+			padding: 0 calc( @spacing-75 - @border-width-base );
 		}
 	}
 }
