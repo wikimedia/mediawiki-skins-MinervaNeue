@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Irus",
-			"ObaTango"
+			"ObaTango",
+			"Kallmemel"
 		]
 	},
 	"mobile-frontend-editor-edit": "Editá",
@@ -10,7 +11,9 @@
 	"mobile-frontend-home-button": "Página Prinsipal",
 	"mobile-frontend-language-article-heading": "Idioma",
 	"mobile-frontend-main-menu-login": "Registrá",
+	"mobile-frontend-main-menu-nearby": "Den serkania",
 	"mobile-frontend-main-menu-settings": "Konfigurashon",
 	"mobile-frontend-placeholder": "Búskeda di {{SITENAME}}",
-	"mobile-frontend-random-button": "Kualkier"
+	"mobile-frontend-random-button": "Kualkier",
+	"minerva-page-actions-overflow": "Mas"
 }
