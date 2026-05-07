@@ -63,7 +63,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 			],
 		] : [];
 		// watch icon appears in page actions rather than here.
-		$combinedMenu = array_merge( $toolbox, $override, $actions );
+		$combinedMenu = array_merge( $actions, $override, $toolbox );
 		// when the bookmark is not enabled the watchstar is promoted to the overflow menu.
 		if ( !$isBookmarkEnabled ) {
 			unset( $combinedMenu[ 'watch' ] );
