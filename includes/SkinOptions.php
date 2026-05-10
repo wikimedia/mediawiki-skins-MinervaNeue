@@ -45,7 +45,6 @@ final class SkinOptions {
 	public const TABS_ON_SPECIALS = 'tabsOnSpecials';
 	public const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
 	public const PERSONAL_MENU = 'personalMenu';
-	public const NIGHT_MODE = 'nightMode';
 
 	/**
 	 * Note stable skin options default to true for desktop-Minerva and are expected to be
@@ -76,8 +75,6 @@ final class SkinOptions {
 		self::PERSONAL_MENU => true,
 		/** whether to show a main menu with additional items */
 		self::MAIN_MENU_EXPANDED => true,
-		/** whether night mode is available to the user */
-		self::NIGHT_MODE => false,
 	];
 
 	public function __construct(
@@ -199,7 +196,6 @@ final class SkinOptions {
 						Hooks::FEATURE_OVERFLOW_PAGE_ACTIONS
 					),
 				self::TABS_ON_SPECIALS => true,
-				self::NIGHT_MODE => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaNightMode' ),
 			] );
 			( new HookRunner( $this->hookContainer ) )->onSkinMinervaOptionsInit( $skin, $this );
 		}

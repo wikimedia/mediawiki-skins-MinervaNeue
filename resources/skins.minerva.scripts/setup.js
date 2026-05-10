@@ -6,7 +6,6 @@
  */
 const ms = require( 'mobile.startup' );
 const watchstar = require( './watchstar.js' );
-const reportIfNightModeWasDisabledOnPage = require( './reportIfNightModeWasDisabledOnPage.js' );
 const addPortletLink = require( './addPortletLink.js' );
 const { teleportTarget, enableSearchDialog } = require( 'mediawiki.page.ready' );
 
@@ -48,9 +47,6 @@ function init() {
 
 	// Apply content styles to teleported elements
 	teleportTarget.classList.add( 'content' );
-	reportIfNightModeWasDisabledOnPage(
-		document.documentElement, mw.user.options, mw.user.isNamed()
-	);
 }
 
 if ( !window.QUnit ) {

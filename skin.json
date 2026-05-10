@@ -104,24 +104,6 @@
 		},
 		"MinervaABSamplingRate": {
 			"value": 0
-		},
-		"MinervaNightMode": {
-			"value": {
-				"base": true,
-				"loggedin": true,
-				"amc": true
-			}
-		},
-		"MinervaNightModeOptions": {
-			"value": {
-				"exclude": {
-					"mainpage": false,
-					"querystring": {},
-					"namespaces": [],
-					"pagetitles": []
-				}
-			},
-			"description": "options for configuring where Dark/Night Mode should and should not apply. More details can be found in Hooks::shouldDisableNightMode PHP documentation."
 		}
 	},
 	"ValidSkinNames": {
@@ -143,7 +125,6 @@
 				"ExtensionRegistry"
 			],
 			"optional_services": [
-				"Vector.ConfigHelper",
 				"TestKitchen.ExperimentManager"
 			],
 			"args": [
@@ -533,7 +514,6 @@
 				"mediawiki.page.watch.ajax"
 			],
 			"messages": [
-				"skin-minerva-night-mode-unavailable",
 				"echo-badge-count",
 				"skin-minerva-issue-learn-more",
 				"mobile-frontend-meta-data-issues",
@@ -557,7 +537,6 @@
 			},
 			"packageFiles": [
 				"setup.js",
-				"reportIfNightModeWasDisabledOnPage.js",
 				"addPortletLink.js",
 				"initMobile.js",
 				"drawers.js",

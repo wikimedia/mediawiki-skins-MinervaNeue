@@ -42,7 +42,6 @@ use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
-use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
@@ -70,7 +69,6 @@ class SkinMinerva extends SkinMustache {
 	private readonly Definitions $definitions;
 	private readonly IMinervaPagePermissions $permissions;
 	private readonly SkinUserPageHelper $skinUserPageHelper;
-	private readonly FeaturesHelper $featuresHelper;
 
 	/**
 	 * @param GenderCache $genderCache
@@ -86,7 +84,6 @@ class SkinMinerva extends SkinMustache {
 	 * @param UserIdentityUtils $userIdentityUtils
 	 * @param UserOptionsManager $userOptionsManager
 	 * @param ExtensionRegistry $extensionRegistry
-	 * @param ConfigHelper|null $configHelper
 	 * @param ExperimentManager|null $experimentManager
 	 * @param array $options
 	 */
@@ -104,7 +101,6 @@ class SkinMinerva extends SkinMustache {
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly UserOptionsManager $userOptionsManager,
 		private readonly ExtensionRegistry $extensionRegistry,
-		private readonly ?ConfigHelper $configHelper,
 		private readonly ?ExperimentManager $experimentManager,
 		$options = [],
 	) {
@@ -116,7 +112,6 @@ class SkinMinerva extends SkinMustache {
 		$this->skinUserPageHelper = $skinUserPageHelper
 			->setContext( $this->getContext() )
 			->setTitle( $this->getTitle() );
-		$this->featuresHelper = new FeaturesHelper( $configHelper );
 	}
 
 	private function hasPageActions(): bool {
@@ -602,44 +597,24 @@ class SkinMinerva extends SkinMustache {
 	/**
 	 * Provides skin-specific modifications to the HTML element attributes
 	 *
-	 * Currently only used for adding the night mode class
+	 * Adds the night mode / theme class based on user preference,
+	 * with an optional query parameter override for testing.
 	 */
 	public function getHtmlElementAttributes(): array {
 		$attributes = parent::getHtmlElementAttributes();
 
-		// check to see if night mode is enabled via query params or by config
-		$webRequest = $this->getRequest();
-		$forceNightMode = $webRequest->getRawVal( 'minervanightmode' );
+		$user = $this->getUser();
+		$value = $this->userOptionsManager->getOption( $user, 'minerva-theme' );
 
-		// get skin config of night mode to check what is execluded
-		$nightModeConfig = $this->getConfig()->get( 'MinervaNightModeOptions' );
-		$shouldDisableNightMode = $this->featuresHelper->shouldDisableNightMode( $nightModeConfig,
-			$webRequest,
-			$this->getTitle()
-		);
-
-		if (
-			$this->skinOptions->get( SkinOptions::NIGHT_MODE ) || $forceNightMode !== null
-		) {
-			$user = $this->getUser();
-			$value = $this->userOptionsManager->getOption( $user, 'minerva-theme' );
-
-			// if forcing a (valid) setting via query params, take priority over the user option
-			if ( $forceNightMode !== null && in_array( $forceNightMode, [ '1', '0', '2', 'day', 'night', 'os' ] ) ) {
-				$value = self::resolveNightModeQueryValue( $forceNightMode );
-			}
-
-			// For T356653 add a class to the page to allow the client to detect we've
-			// intentionally disabled night mode.
-			if ( $shouldDisableNightMode ) {
-				$attributes[ 'class' ] .= ' skin-night-mode-page-disabled';
-				return $attributes;
-			}
-
-			$attributes[ 'class' ] .= " skin-theme-clientpref-$value";
-			// Class for badges client side preference, e.g. donor badge. Refer to T425445.
-			$attributes[ 'class' ] .= ' minerva-badge-clientpref-0';
+		// Class for badges client side preference, e.g. donor badge. Refer to T425445.
+		$attributes[ 'class' ] .= ' minerva-badge-clientpref-0';
+		// Allow overriding via ?minervanightmode= for testing purposes
+		$forceNightMode = $this->getRequest()->getRawVal( 'minervanightmode' );
+		if ( $forceNightMode !== null && in_array( $forceNightMode, [ '1', '0', '2', 'day', 'night', 'os' ] ) ) {
+			$value = self::resolveNightModeQueryValue( $forceNightMode );
 		}
+
+		$attributes[ 'class' ] .= " skin-theme-clientpref-$value";
 
 		return $attributes;
 	}

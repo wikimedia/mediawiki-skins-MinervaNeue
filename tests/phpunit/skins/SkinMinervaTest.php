@@ -124,7 +124,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getUserIdentityUtils(),
 			$services->getUserOptionsManager(),
 			$services->getExtensionRegistry(),
-			$services->getService( 'Vector.ConfigHelper' ),
 			$services->getService( 'TestKitchen.ExperimentManager' ),
 			[
 				'name' => 'minerva',
@@ -363,21 +362,9 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getHtmlElementAttributes when night mode is not enabled via feature flag or query params
+	 * @covers ::getHtmlElementAttributes night mode theme class is always present
 	 */
-	public function testGetHtmlElementAttributesNoNightMode() {
-		$skin = $this->newSkinMinerva();
-
-		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringNotContainsString( 'skin-theme-clientpref-', $classes );
-	}
-
-	/**
-	 * @covers ::getHtmlElementAttributes when night mode is enabled via feature flag
-	 */
-	public function testGetHtmlElementAttributesNightMode() {
-		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
-
+	public function testGetHtmlElementAttributesThemeClass() {
 		$skin = $this->newSkinMinerva();
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
@@ -385,65 +372,17 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getHtmlElementAttributes when night mode is set via query params
+	 * @covers ::getHtmlElementAttributes night mode query param override
 	 */
 	public function testGetHtmlElementAttributesNightModeQueryParam() {
 		$context = new RequestContext();
-		$request = $context->getRequest();
-		$request->setVal( 'minervanightmode', '1' );
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'Test' ) );
+		$context->getRequest()->setVal( 'minervanightmode', '1' );
 
 		$skin = $this->newSkinMinerva( $context );
 
 		$classes = $skin->getHtmlElementAttributes()['class'];
 		$this->assertStringContainsString( 'skin-theme-clientpref-night', $classes );
-	}
-
-	/**
-	 * @covers ::getHtmlElementAttributes when night mode is set via query params to an invalid option
-	 */
-	public function testGetHtmlElementAttributesNightModeQueryParamInvalid() {
-		$context = new RequestContext();
-		$request = $context->getRequest();
-		$request->setVal( 'minervanightmode', '3' );
-
-		$skin = $this->newSkinMinerva( $context );
-
-		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
-	}
-
-	/**
-	 * @covers ::getHtmlElementAttributes when night mode is enabled and the value is not default
-	 */
-	public function testGetHtmlElementAttributesNightModeUserOption() {
-		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
-
-		$skin = $this->newSkinMinerva();
-
-		$user = $skin->getUser();
-		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-theme', 'day' );
-
-		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
-	}
-
-	/**
-	 * @covers ::getHtmlElementAttributes when night mode is enabled with non-default, and query param is invalid
-	 */
-	public function testGetHtmlElementAttributesNightModeUserOptionQueryParamInvalid() {
-		$this->overrideSkinOptions( [ SkinOptions::NIGHT_MODE => true ] );
-
-		$context = new RequestContext();
-		$request = $context->getRequest();
-		$request->setVal( 'minervanightmode', '3' );
-
-		$skin = $this->newSkinMinerva( $context );
-
-		$user = $skin->getUser();
-		$this->getServiceContainer()->getUserOptionsManager()->setOption( $user, 'minerva-theme', 'day' );
-
-		$classes = $skin->getHtmlElementAttributes()['class'];
-		$this->assertStringContainsString( 'skin-theme-clientpref-day', $classes );
 	}
 
 	/**
