@@ -302,6 +302,18 @@ class SkinMinerva extends SkinMustache {
 				$this->buildSidebar(),
 				$this->shouldShowAccountMenuItems()
 			)['items'],
+			'data-minerva-badge-container' => [
+				'array-attributes' => [
+					[
+						'key' => 'id',
+						'value' => 'minerva-badge',
+					],
+				],
+				'data-icon' => [
+					'icon' => 'badge',
+					'label' => 'badge',
+				],
+			],
 			// Refer to https://phabricator.wikimedia.org/T388036#10608151 for the following line:
 			'data-donation-banner' => $this->skinOptions->get( SkinOptions::SHOW_DONATE_BANNER ) &&
 				$this->getUser()->isAnon(),
@@ -625,6 +637,8 @@ class SkinMinerva extends SkinMustache {
 			}
 
 			$attributes[ 'class' ] .= " skin-theme-clientpref-$value";
+			// Class for badges client side preference, e.g. donor badge. Refer to T425445.
+			$attributes[ 'class' ] .= ' minerva-badge-clientpref-0';
 		}
 
 		return $attributes;

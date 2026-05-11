@@ -203,6 +203,12 @@ ul {
 		margin: 0;
 	}
 }
+
+// On root `html` element, add a class for the badge client preference, e.g. donor badge.
+// Refer to T425445.
+.minerva-badge-clientpref-0 .minerva-badge-container {
+	display: none;
+}
 // stylelint-enable selector-max-id
 
 @media all and ( min-width: @min-width-breakpoint-tablet ) {
