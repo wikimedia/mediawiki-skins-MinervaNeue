@@ -371,7 +371,7 @@ module.exports = function () {
 		}
 		TabScroll.initTabsScrollPosition();
 		// Setup the issues banner on the page
-		// Pages which dont exist (id 0) cannot have issues
+		// Pages which don't exist (id 0) cannot have issues
 		if (
 			!currentPage.isMissing &&
 			!currentPage.titleObj.isTalkPage()

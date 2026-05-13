@@ -39,7 +39,7 @@ function getSearchProps( restClient, urlGeneratorInstance ) {
 		supportsMobileExperience: true,
 		urlGenerator: urlGeneratorInstance,
 		id: 'minerva-overlay-search',
-		// Only take focus if the focus is currently on the elemnent that we are replacing
+		// Only take focus if the focus is currently on the element that we are replacing
 		autofocusInput: searchInput === document.activeElement,
 		searchButtonLabel: '',
 		autoExpandWidth: true,

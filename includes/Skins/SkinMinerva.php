@@ -937,7 +937,7 @@ class SkinMinerva extends SkinMustache {
 
 	/**
 	 * Returns the javascript entry modules to load. Only modules that need to
-	 * be overriden or added conditionally should be placed here.
+	 * be overridden or added conditionally should be placed here.
 	 */
 	public function getDefaultModules(): array {
 		$modules = parent::getDefaultModules();

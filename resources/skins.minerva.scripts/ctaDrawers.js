@@ -71,7 +71,7 @@ function initWatchstarCta( $watchstar ) {
 				}
 			} );
 		}
-		// If it's already shown dont display again
+		// If it's already shown don't display again
 		// (if user is clicking fast since we are reusing the drawer
 		// this might result in the drawer opening and closing)
 		if ( !watchCtaDrawer.$el[ 0 ].parentNode ) {
@@ -83,7 +83,7 @@ function initWatchstarCta( $watchstar ) {
 		// prevent default to stop the user
 		// being navigated to Special:UserLogin
 		ev.preventDefault();
-		// Don't stopProgation, as we want WikimediaEvents to log clicks to this.
+		// Don't stopPropagation, as we want WikimediaEvents to log clicks to this.
 	} );
 }
 

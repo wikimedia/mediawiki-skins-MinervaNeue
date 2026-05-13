@@ -50,7 +50,7 @@ final class Definitions {
 	}
 
 	/**
-	 * Builds a meny entry.
+	 * Builds a menu entry.
 	 *
 	 * @param string $name
 	 * @param string $text Entry label
