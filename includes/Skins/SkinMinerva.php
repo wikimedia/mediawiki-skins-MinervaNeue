@@ -476,7 +476,9 @@ class SkinMinerva extends SkinMustache {
 
 		// TODO remove after experiment concludes, T418053
 		$shouldShowAccountMenuItems = $this->shouldShowAccountMenuItems();
-		if ( $shouldShowAccountMenuItems && !$hasPersonalMenu ) {
+		if ( $shouldShowAccountMenuItems && !$hasPersonalMenu
+			&& isset( $personalUrls["createaccount"] )
+		) {
 			$personalUrls["createaccount"]["icon"] = "userAvatar";
 		}
 
