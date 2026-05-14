@@ -60,7 +60,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Κατηγορίες",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Προβολή κατηγοριών των σελίδων",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Δυστυχώς, η ομαδοποίηση αποτελεσμάτων ανά σελίδα δεν είναι διαθέσιμη σε κινητά. Εάν θέλετε να χρησιμοποιήσετε τη δυνατότητα ομάδας ανά σελίδα, επισκεφτείτε τον ιστότοπο για υπολογιστές.",
-	"skin-minerva-night-mode-unavailable": "Η σελίδα είναι διαθέσιμη μόνο με θέμα χρώματος «Φωτεινό».",
 	"minerva.css": "/* Όλα τα CSS εδώ θα φορτώσουν για χρήστες του MinervaNeue skin */",
 	"minerva.js": "/* Όλη η JavaScript εδώ θα φορτωθεί για χρήστες που χρησιμοποιούν το MinervaNeue skin */"
 }

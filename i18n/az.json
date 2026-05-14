@@ -60,7 +60,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kateqoriyalar",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Səhifələrin kateqoriyalarına baxmaq",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Təəssüf ki, nəticələrin səhifəyə görə qruplaşdırılması mobil cihazlar üçün mövcud deyil. Əgər səhifəyə görə qruplaşdırma funksiyasından istifadə etmək istəyirsinizsə, xahiş olunur, saytın iş masası versiyasına daxil olun.",
-	"skin-minerva-night-mode-unavailable": "Səhifə yalnız \"Gündüz\" temasında mövcuddur.",
 	"minerva.css": "/* Buradakı bütün CSS MinervaNeue istifadəçiləri üçün yüklənəcək */",
 	"minerva.js": "/* Buradakı JavaScript MinervaNeue istifadəçiləri üçün yüklənəcək */"
 }

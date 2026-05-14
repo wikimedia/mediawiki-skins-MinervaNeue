@@ -62,7 +62,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorie",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Zobrazit kategorie stránek",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Seskupování výsledků podle stránky bohužel v mobilní verzi není k dispozici. Pokud chcete použít funkci seskupování podle stránky, navštivte webovou stránku pro počítače.",
-	"skin-minerva-night-mode-unavailable": "Stránka je dostupná jen v barvě „Světlá“.",
 	"minerva.css": "/* Veškeré zde uvedené CSS bude načítáno uživatelům vzhledu „MinervaNeue“ */",
 	"minerva.js": "/* Veškerý zde uvedený JavaScript bude načítán uživatelům vzhledu „MinervaNeue“ */"
 }

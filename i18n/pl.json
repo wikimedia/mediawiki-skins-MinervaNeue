@@ -62,7 +62,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorie",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Zobacz kategorie stron",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Niestety, grupowanie wyników według stron nie jest dostępne w wersji mobilnej. Jeżeli chcesz korzystać z tej funkcji, przejdź do wersji standardowej strony.",
-	"skin-minerva-night-mode-unavailable": "Ta strona jest dostępna wyłącznie w motywie jasnym.",
 	"minerva.css": "/* Umieszczony tutaj kod CSS zostanie załadowany przez użytkowników korzystających ze skórki MinervaNeue */",
 	"minerva.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany przez użytkowników korzystających ze skórki MinervaNeue */"
 }

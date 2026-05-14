@@ -56,7 +56,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorije",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Prikazuje kategorije stranica",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Grupisanje rezultata po stranici nije dostupno na mobilnim uređajima. Ako želite da koristite funkciju, posetite sajt za računare.",
-	"skin-minerva-night-mode-unavailable": "Stranica dostupna samo u svetloj temi.",
 	"minerva.css": "/* CSS postavljen ovde učitaće se svim korisnicima Minerva (novo) teme */",
 	"minerva.js": "/* JavaScript postavljen ovde učitaće se svim korisnicima Minerva (novo) teme */"
 }

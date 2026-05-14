@@ -57,7 +57,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Categorías",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Amosa as categorías das páxinas",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Desafortunadamente, a agrupación de resultados por páxina non está dispoñible no móbil. Se queres usar a función de grupo por páxina, visita o sitio de escritorio.",
-	"skin-minerva-night-mode-unavailable": "A páxina só está dispoñible no tema \"Claro\".",
 	"minerva.css": "/* O CSS colocado aquí afectará aos usuarios da aparencia MinervaNeue */",
 	"minerva.js": "/* O código JavaScript colocado aquí cargarase para os usuarios que utilicen a aparencia MinervaNeue */"
 }

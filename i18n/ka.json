@@ -57,7 +57,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "კატეგორიები",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "გვერდების კატეგორიების ხილვა",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "სამწუხაროდ, გვერდის მიხედვით შედეგების დაჯგუფება მობილური ვერსიისათვის ხელმისაწვდომი არ არის. თუკი ამ ფუნქციის გამოყენება გსურთ, ეწვიეთ დესკტოპის ვერსიას.",
-	"skin-minerva-night-mode-unavailable": "გვერდი ხელმისაწვდომია მხოლოდ „ნათელ“ ფერში.",
 	"minerva.css": "/* აქ მოცემული ყველა CSS ჩაიტვირთება MinervaNeue გარეკანის ყველა მომხმარებლისათვის */",
 	"minerva.js": "/* აქ მოცემული ყველა JavaScript ჩაიტვირთება MinervaNeue გარეკანის ყველა მომხმარებლისათვის */"
 }

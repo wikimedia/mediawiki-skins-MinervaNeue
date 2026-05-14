@@ -71,7 +71,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories": "Catégories",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Afficher les catégories des pages",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Malheureusement, regrouper les résultats par page n’est pas disponible sur mobile. Si vous voulez utiliser la fonctionnalité de regroupement par page, veuillez visiter le site pour bureau.",
-	"skin-minerva-night-mode-unavailable": "Page disponible uniquement avec le thème de couleur « Clair ».",
 	"minerva.css": "/* Tout CSS placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */",
 	"minerva.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */"
 }
