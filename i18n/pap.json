@@ -6,7 +6,7 @@
 			"ObaTango"
 		]
 	},
-	"minerva-last-modified-date": "Lastu edishon riba $1, rònt di $2",
+	"minerva-last-modified-date": "Adaptá lastu riba $1, rònt di $2",
 	"minerva-watchlist-cta": "Tene kuenta ku e página aki i tur kambio na dje.",
 	"mobile-frontend-editor-edit": "Editá",
 	"mobile-frontend-history": "Mira historia di adaptashon di e página aki.",
@@ -22,7 +22,7 @@
 	"mobile-frontend-meta-data-issues-header": "Problemanan di página",
 	"minerva-meta-data-issues-section-header": "Problemanan di sekshon",
 	"mobile-frontend-placeholder": "Listra {{SITENAME}}",
-	"mobile-frontend-random-button": "Kualkier",
+	"mobile-frontend-random-button": "Kalke",
 	"mobile-frontend-redirected-from": "Redirigí for di \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-filepage": "Bai bèk na fail \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Bai bèk na página \"$1\".",
