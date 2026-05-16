@@ -131,6 +131,11 @@
 			'foo bar',
 			'fragment is decoded'
 		);
+		assert.strictEqual(
+			TitleUtil.newFromUri( authority + '/wiki/Foo#%!' ).getPrefixedDb(),
+			'Foo',
+			'malformed fragment is ignored'
+		);
 
 		assert.strictEqual(
 			TitleUtil.newFromUri( authority + '/w/index.php?title=Title', validateReadOnlyLink ).getPrefixedDb(),

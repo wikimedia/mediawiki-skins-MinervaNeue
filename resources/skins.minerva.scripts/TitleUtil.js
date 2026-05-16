@@ -104,7 +104,13 @@ function newFromUri( url, options ) {
 	}
 
 	// Append the fragment, if present.
-	title += newURL.hash ? '#' + decodeURIComponent( newURL.hash.slice( 1 ) ) : '';
+	if ( newURL.hash ) {
+		try {
+			title += '#' + decodeURIComponent( newURL.hash.slice( 1 ) );
+		} catch ( e ) {
+			// Ignore malformed fragments.
+		}
+	}
 
 	return mw.Title.newFromText( title );
 }
