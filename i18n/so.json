@@ -7,6 +7,7 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Wax ka beddel",
+	"minerva-download": "Soo deji PDF",
 	"mobile-frontend-history": "Fiiri taariikhda wax ka bedelka boggan",
 	"mobile-frontend-home-button": "Bogga Hore",
 	"mobile-frontend-language-article-heading": "Luuqadda",
@@ -17,9 +18,15 @@
 	"mobile-frontend-main-menu-settings": "Dookhyada",
 	"mobile-frontend-placeholder": "Raadin {{SITENAME}}",
 	"mobile-frontend-random-button": "Samayn, dhacdo ama doorasho aan laga fiirsan",
+	"mobile-frontend-redirected-from": "Laga soo leexiyay \"[[$1]]\"",
 	"mobile-frontend-talk-back-to-page": "Ku noqo boga \"$1\".",
 	"mobile-frontend-user-newmessages": "Waxaad leedahay farriimo cusub oo ku jira bogaaga dooda",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Ku biiray}} $1",
+	"minerva-user-navigation": "Socodka isticmaalaha",
 	"minerva-page-actions-editfull": "Tafatir boga oo dhan",
-	"minerva-page-actions-language-switcher": "Luqadaha"
+	"minerva-page-actions-overflow": "Dheeraad",
+	"minerva-page-actions-language-switcher": "Luqadaha",
+	"minerva-page-actions-history": "Taariikh",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Dood]",
+	"skin-minerva-mobile-option-MinervaShowCategories-description": "Eeg qaybaha bogagga"
 }
