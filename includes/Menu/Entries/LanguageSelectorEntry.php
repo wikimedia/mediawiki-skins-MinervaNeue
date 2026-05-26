@@ -74,7 +74,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 			[
 				'tag-name' => 'a',
 				'isButton' => true,
-				'classes' => $switcherClasses . ' mw-interlanguage-selector',
+				'classes' => $switcherClasses,
 				'label' => $msg,
 				'data-icon' => [ 'icon' => 'language' ],
 				'array-attributes' => [
