@@ -284,14 +284,16 @@ final class Definitions {
 			$urlMsg->text(),
 			[ 'wmf_key' => 'minerva' ]
 		);
-		$entry = $this->buildMenuEntry(
+		$entry = new SingleMenuEntry(
 			'donate',
 			$labelMsg->text(),
 			$url,
 			'',
-			'heart',
-			true
+			true,
+			[ [ 'key' => 'data-mw-donate-attempt', 'value' => 'mobile_menu' ] ]
 		);
+		$entry->trackClicks( 'donate' );
+		$entry->setIcon( 'heart' );
 		$group->insertEntry( $entry );
 	}
 }
