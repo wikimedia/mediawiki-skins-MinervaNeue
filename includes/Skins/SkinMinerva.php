@@ -720,7 +720,7 @@ class SkinMinerva extends SkinMustache {
 			$historyLink = $this->getGenericHistoryLink( $title );
 		} else {
 			// Get rev_timestamp of current revision (preloaded by MediaWiki core)
-			$timestamp = $out->getRevisionTimestamp();
+			$timestamp = $out->getMetadata()->getRevisionTimestamp();
 			if ( !$timestamp ) {
 				# No cached timestamp, load it from the database
 				$timestamp = $this->revisionLookup->getTimestampFromId( $out->getRevisionId() );
