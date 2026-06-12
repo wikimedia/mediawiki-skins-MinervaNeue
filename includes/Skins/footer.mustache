@@ -1,4 +1,3 @@
-{{#data-footer}}
 {{! `role` is implied in `footer` element, but added to mitigate a VoiceOver bug. }}
 <footer class="mw-footer minerva-footer" role="contentinfo">
 {{#data-minerva-history-link}}
@@ -9,10 +8,15 @@
 	{{>LanguageSection}}
 	<div class="minerva-footer-logo">
 		{{#data-logos}}{{>Logo}}{{/data-logos}}
-		{{#data-icons}}{{>footerIconList}}{{/data-icons}}
+		{{#data-portlets.data-footer-icons}}
+		{{>footerIconList}}
+		{{/data-portlets.data-footer-icons}}
 	</div>
-	{{#data-info}}{{>footerItemList}}{{/data-info}}
-	{{#data-places}}{{>footerItemList}}{{/data-places}}
+	{{#data-portlets.data-footer-info}}
+	{{>footerItemList}}
+	{{/data-portlets.data-footer-info}}
+	{{#data-portlets.data-footer-places}}
+	{{>footerItemList}}
+	{{/data-portlets.data-footer-places}}
 	</div>
 </footer>
-{{/data-footer}}
