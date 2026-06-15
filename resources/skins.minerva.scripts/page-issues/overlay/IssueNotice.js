@@ -12,7 +12,9 @@ module.exports = function issueNotice( issue ) {
 		'skins.minerva.scripts',
 		'IssueNotice.mustache'
 	).render( issue );
-	$renderedTemplate.prepend( issue.issue.iconElement );
+	$renderedTemplate.prepend(
+		issue.issue.iconElement.cloneNode( true )
+	);
 	return View.make( {
 		tagName: 'li'
 	}, [ $renderedTemplate ] );
