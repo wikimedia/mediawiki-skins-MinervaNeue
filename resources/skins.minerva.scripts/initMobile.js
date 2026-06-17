@@ -321,6 +321,13 @@ module.exports = function () {
 
 				// Mark as read.
 				echoBtn.dataset.counterNum = 0;
+				// Assumption: Message provided by ext.echo.mobile
+				// If missing please update ext.echo.mobile
+				//
+				// The message is not registered in the Minerva resource loader
+				// module which, on CI, let us skip adding Echo as a dependency
+				//
+				// See https://phabricator.wikimedia.org/T429501
 				echoBtn.dataset.counterText = mw.msg( 'echo-badge-count',
 					mw.language.convertNumber( 0 )
 				);

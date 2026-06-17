@@ -514,7 +514,6 @@
 				"mediawiki.page.watch.ajax"
 			],
 			"messages": [
-				"echo-badge-count",
 				"skin-minerva-issue-learn-more",
 				"mobile-frontend-meta-data-issues",
 				"minerva-meta-data-issues-section-header",
