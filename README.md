@@ -107,32 +107,6 @@ Controls whether the history link appears in the page actions menu.
 ```
 Controls whether the main menu is expanded to contain recent changes and various options.
 
-Note, if enabled, then `$wgMinervaPersonalMenu` must also be enabled.
-
-#### $wgMinervaPersonalMenu
-* Type: `Array`
-* Default:
-```php
-  [
-    'base' => false,
-    'amc' => true,
-  ]
-```
-Controls whether a personal menu appears in the header chrome. This menu contains pages such as Special:Watchlist. Note,
-the links displayed in this menu depend on the configuration of `$wgMinervaAdvancedMainMenu`.
-
-When enabled, for logged out users, users will see:
-* log in
-* create account link
-
-When enabled for logged in or AMC users, users will see:
-* user page
-* a sandbox link (if the extension `SandboxLink` is enabled)
-* talk page
-* watchlist
-* contributions
-* log out
-
 #### $wgMinervaOverflowInPageActions
 
 * Type: `Array`

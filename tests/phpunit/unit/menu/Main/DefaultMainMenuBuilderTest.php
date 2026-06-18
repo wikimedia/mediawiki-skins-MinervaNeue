@@ -34,7 +34,6 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 
 	private function makeBuilder(
 		bool $isRegistered = true,
-		bool $isPersonalModeEnabled = false,
 		bool $showMobileOptions = true,
 		bool $showDonateLink = true
 	) {
@@ -77,27 +76,25 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 			$userMock,
 			$definitions,
 			$identityToolsMock,
-			$isPersonalModeEnabled
 		);
 	}
 
 	/**
 	 * @covers ::getPersonalToolsGroup
 	 */
-	public function testGetPersonalToolsGroupWithPersonalModeAnon() {
+	public function testGetPersonalToolsGroupAnonymousUserOnMobile() {
 		$builder = $this->makeBuilder(
 			// anon
 			false,
-			// $wgMinervaPersonalMenu = true
+			// $showMobileOptions = true
 			true
 		);
-		$group = $builder->getPersonalToolsGroup( [], false );
 		$personalToolsGroup = $builder->getPersonalToolsGroup( [
 			'preferences' => self::PREFERENCES_ITEM,
-		], false );
+		] );
 		$settingsGroup = $builder->getSettingsGroup();
 		$this->assertSame( 'settings', $settingsGroup->getEntries()[0]['name'],
-			'If logged out and personal tools is enabled, the mobile options page should be shown' );
+			'the settings has its own dedicated menu' );
 		$this->assertCount( 0, $personalToolsGroup->getEntries(),
 			'personal tools group should be empty' );
 	}
@@ -105,62 +102,22 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @covers ::getPersonalToolsGroup
 	 */
-	public function testGetPersonalToolsGroupWithPersonalModeRegistered() {
-		$builder = $this->makeBuilder(
-			// registered user.
-			true,
-			// $wgMinervaPersonalMenu = true
-			true
-		);
-		$personalToolsGroup = $builder->getPersonalToolsGroup( [
-			'preferences' => self::PREFERENCES_ITEM,
-		], false );
-		$settingsGroup = $builder->getSettingsGroup();
-		$this->assertSame( 'settings', $settingsGroup->getEntries()[0]['name'] );
-		$this->assertCount( 0, $personalToolsGroup->getEntries(),
-			'personal group should be empty - handled in separate menu' );
-	}
-
-	/**
-	 * @covers ::getPersonalToolsGroup
-	 */
-	public function testGetPersonalToolsGroupWithoutPersonalModeAnon() {
-		$builder = $this->makeBuilder(
-			// anon user.
-			false,
-			// $wgMinervaPersonalMenu = false
-			false
-		);
-		$personalToolsGroup = $builder->getPersonalToolsGroup( [
-			'preferences' => self::PREFERENCES_ITEM,
-		], false );
-		$settingsGroup = $builder->getSettingsGroup();
-
-		$this->assertCount( 0, $personalToolsGroup->getEntries(),
-			'personal tools group is empty if MinervaPersonalMenu is disabled.' );
-		$this->assertCount( 1, $settingsGroup->getEntries(),
-			'the settings has its own dedicated menu.' );
-	}
-
-	/**
-	 * @covers ::getPersonalToolsGroup
-	 */
-	public function testGetPersonalToolsGroupWithoutPersonalModeRegistered() {
+	public function testGetPersonalToolsGroupOnMobileRegistered() {
 		$builder = $this->makeBuilder(
 			// registered user
 			true,
-			// $wgMinervaPersonalMenu = false
-			false
+			// $showMobileOptions = true
+			true
 		);
 		$personalToolsGroup = $builder->getPersonalToolsGroup( [
 			'preferences' => self::PREFERENCES_ITEM
-		], false );
+		] );
 		$settingsGroup = $builder->getSettingsGroup();
 
-		$this->assertCount( 1, $personalToolsGroup->getEntries(),
-			'for logged in users the `settings` option replaces the `preferences` option' );
-		$this->assertCount( 0, $settingsGroup->getEntries(),
-			'the settings menu is empty  in this case.' );
+		$this->assertCount( 0, $personalToolsGroup->getEntries(),
+			'for logged in users the personal tools are handled elsewhere' );
+		$this->assertCount( 1, $settingsGroup->getEntries(),
+			'the settings menu has one entry in this case.' );
 	}
 
 	/**
@@ -168,7 +125,7 @@ class DefaultMainMenuBuilderTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testGetPersonalToolsGroupLoggedOutWhenShouldShowAccountMenuItems() {
 		$builder = $this->makeBuilder( false, false, true, true );
-		$personalToolsGroup = $builder->getPersonalToolsGroup( self::AUTH_PERSONAL_TOOLS, true );
+		$personalToolsGroup = $builder->getPersonalToolsGroup( self::AUTH_PERSONAL_TOOLS );
 
 		$this->assertCount( 2, $personalToolsGroup->getEntries(),
 		'personal tools group should include two entries' );

@@ -27,7 +27,6 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\Skin\Skin;
 use MobileContext;
 use OutOfBoundsException;
-use RuntimeException;
 
 /**
  * A wrapper for all available Skin options.
@@ -44,7 +43,6 @@ final class SkinOptions {
 	public const TOOLBAR_SUBMENU = 'overflowSubmenu';
 	public const TABS_ON_SPECIALS = 'tabsOnSpecials';
 	public const MAIN_MENU_EXPANDED = 'mainMenuExpanded';
-	public const PERSONAL_MENU = 'personalMenu';
 
 	/**
 	 * Note stable skin options default to true for desktop-Minerva and are expected to be
@@ -71,8 +69,6 @@ final class SkinOptions {
 		self::TOOLBAR_SUBMENU => true,
 		/** Whether to show tabs on special pages */
 		self::TABS_ON_SPECIALS => true,
-		/** whether to show a personal menu */
-		self::PERSONAL_MENU => true,
 		/** whether to show a main menu with additional items */
 		self::MAIN_MENU_EXPANDED => true,
 	];
@@ -165,18 +161,9 @@ final class SkinOptions {
 				$requiresHistoryLink = false;
 			}
 
-			$personalMenu = $featuresManager->isFeatureAvailableForCurrentUser(
-				'MinervaPersonalMenu'
-			);
 			$advancedMenu = $featuresManager->isFeatureAvailableForCurrentUser(
 				'MinervaAdvancedMainMenu'
 			);
-			if ( !$personalMenu && $advancedMenu ) {
-				throw new RuntimeException(
-					'Enabling $wgMinervaAdvancedMainMenu requires $wgMinervaPersonalMenu ' .
-						'to avoid loss of login features'
-				);
-			}
 			$this->setMultiple( [
 				self::SHOW_DONATE_BANNER => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaDonateBanner' ),
 				self::SHOW_DONATE => $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaDonateLink' ),
@@ -187,7 +174,6 @@ final class SkinOptions {
 				self::PAGE_ISSUES
 					=> $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaPageIssuesNewTreatment' ),
 				self::MOBILE_OPTIONS => true,
-				self::PERSONAL_MENU => $personalMenu,
 				self::MAIN_MENU_EXPANDED => $advancedMenu,
 				self::HISTORY_IN_PAGE_ACTIONS => $requiresHistoryLink ?
 					true : $featuresManager->isFeatureAvailableForCurrentUser( 'MinervaHistoryInPageActions' ),

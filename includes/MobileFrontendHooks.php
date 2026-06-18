@@ -92,13 +92,6 @@ class MobileFrontendHooks implements
 					$config->get( 'MinervaAdvancedMainMenu' )
 				)
 			);
-			$featuresManager->registerFeature(
-				new Feature(
-					'MinervaPersonalMenu',
-					'skin-minerva',
-					$config->get( 'MinervaPersonalMenu' )
-				)
-			);
 
 		} catch ( RuntimeException ) {
 			// features already registered...

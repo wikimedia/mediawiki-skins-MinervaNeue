@@ -7,10 +7,6 @@ $cfg['directory_list'] = array_merge(
 	[
 		'../../skins/Vector',
 		'../../extensions/MobileFrontend',
-		'../../extensions/EventBus',
-		'../../extensions/EventStreamConfig',
-		'../../extensions/EventLogging',
-		'../../extensions/TestKitchen',
 	]
 );
 
@@ -19,10 +15,6 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	[
 		'../../skins/Vector',
 		'../../extensions/MobileFrontend',
-		'../../extensions/EventBus',
-		'../../extensions/EventStreamConfig',
-		'../../extensions/EventLogging',
-		'../../extensions/TestKitchen',
 	]
 );
 

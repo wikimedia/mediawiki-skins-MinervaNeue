@@ -70,13 +70,6 @@
 				"amc": true
 			}
 		},
-		"MinervaPersonalMenu": {
-			"value": {
-				"base": false,
-				"loggedin": true,
-				"amc": true
-			}
-		},
 		"MinervaHistoryInPageActions": {
 			"value": {
 				"base": false,
@@ -121,12 +114,9 @@
 				"NamespaceInfo",
 				"RevisionLookup",
 				"UserIdentityUtils",
-				"UserOptionsManager",
-				"ExtensionRegistry"
+				"UserOptionsManager"
 			],
-			"optional_services": [
-				"TestKitchen.ExperimentManager"
-			],
+			"optional_services": [],
 			"args": [
 				{
 					"name": "minerva",
@@ -365,11 +355,6 @@
 				}
 			}
 		},
-		"skins.minerva.amc.styles": {
-			"styles": [
-				"resources/skins.minerva.amc.styles/index.less"
-			]
-		},
 		"skins.minerva.overflow.icons": {
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"useDataURI": false,
@@ -392,7 +377,6 @@
 				"quotes",
 				"unBlock",
 				"unLock",
-				"userAvatarOutline",
 				"userTalk",
 				"userAvatar",
 				"userTemporary",
@@ -432,6 +416,8 @@
 				"settings",
 				"userContributions",
 				"unStar",
+				"userAvatarOutline",
+				"userAdd",
 				"watchlist"
 			]
 		},
@@ -445,17 +431,6 @@
 				"resources/skins.minerva.userpage.styles/userpage.less"
 			]
 		},
-		"skins.minerva.personalMenu.icons": {
-			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
-			"variants": [],
-			"useMaskImage": true,
-			"selectorWithoutVariant": ".minerva-icon--{name}",
-			"defaultColor": "#54595d",
-			"icons": [
-				"sandbox"
-			],
-			"useDataURI": false
-		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"useMaskImage": true,
@@ -464,7 +439,8 @@
 			"icons": [
 				"recentChanges",
 				"specialPages",
-				"speechBubbles"
+				"speechBubbles",
+				"sandbox"
 			],
 			"variants": [],
 			"useDataURI": false

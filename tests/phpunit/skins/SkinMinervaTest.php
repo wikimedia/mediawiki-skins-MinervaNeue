@@ -108,7 +108,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		if ( $context ) {
 			$permissions->setContext( $context );
 		}
-		$this->markTestSkippedIfExtensionNotLoaded( 'TestKitchen' );
 
 		$skin = new SkinMinerva(
 			$services->getGenderCache(),
@@ -123,8 +122,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getRevisionLookup(),
 			$services->getUserIdentityUtils(),
 			$services->getUserOptionsManager(),
-			$services->getExtensionRegistry(),
-			$services->getService( 'TestKitchen.ExperimentManager' ),
 			[
 				'name' => 'minerva',
 				'menus' => [

@@ -40,8 +40,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 * @param User $user The current user
 	 * @param Definitions $definitions A menu items definitions set
 	 * @param UserIdentityUtils $userIdentityUtils
-	 * @param bool $isPersonalModeEnabled whether the rendering of personal links (e.g. login)
-	 *  is handled outside this menu. This corresponds to $wgMinervaPersonalMenu feature value.
 	 */
 	public function __construct(
 		private readonly bool $showMobileOptions,
@@ -49,7 +47,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 		private readonly User $user,
 		private readonly Definitions $definitions,
 		private readonly UserIdentityUtils $userIdentityUtils,
-		private readonly bool $isPersonalModeEnabled,
 	) {
 	}
 
@@ -88,14 +85,8 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 */
 	public function getSettingsGroup(): Group {
 		$group = new Group( 'pt-preferences' );
-		// Show settings group for anon and temp users
-		$isTemp = $this->userIdentityUtils->isTemp( $this->user );
-
-		$settingsGroupNeeded = $this->isPersonalModeEnabled || (
-			( !$this->user->isRegistered() || $isTemp )
-		);
-
-		if ( $this->showMobileOptions && $settingsGroupNeeded ) {
+		// Show settings group always, since personal mode has been removed
+		if ( $this->showMobileOptions ) {
 			$this->definitions->insertMobileOptionsItem( $group );
 		}
 		return $group;
@@ -108,30 +99,23 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 	 *
 	 * @inheritDoc
 	 */
-	public function getPersonalToolsGroup( array $personalTools, bool $shouldShowAccountMenuItems ): Group {
+	public function getPersonalToolsGroup( array $personalTools ): Group {
 		$group = new Group( 'p-personal' );
 		$excludeKeyList = [ 'betafeatures', 'mytalk', 'sandbox' ];
-
-		// If personal tools are handled elsewhere, no need to output them in this menu.
-		if ( $this->isPersonalModeEnabled ) {
-			return $group;
-		}
 
 		$isTemp = $this->userIdentityUtils->isTemp( $this->user );
 		if ( $isTemp ) {
 			$excludeKeyList[] = 'mycontris';
 		}
 
-		if ( !$this->user->isRegistered() ) {
-			// For anonymous users exclude all links except login.
-			$keysToNotExclude = [ 'login', 'login-private' ];
+		// If personal tools are handled elsewhere, no need to output them in this menu.
+		if ( $this->user->isRegistered() ) {
+			return $group;
+		}
 
-			// TODO remove after experiment concludes, T418053
-			// Display the Create Account button as well when
-			// a logged out user is in the we-1-8-mobile-account-menu treatment group
-			if ( $shouldShowAccountMenuItems ) {
-				$keysToNotExclude[] = 'createaccount';
-			}
+		if ( !$this->user->isRegistered() ) {
+			// For anonymous users exclude all links except login and create account.
+			$keysToNotExclude = [ 'login', 'login-private', 'createaccount' ];
 
 			$excludeKeyList = array_diff(
 				array_keys( $personalTools ),
@@ -144,12 +128,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 			// [T88270].
 			if ( $key === 'watchlist' && $this->user->getEditCount() === 0 ) {
 				$item['href'] = SpecialPage::getTitleFor( 'EditWatchlist' )->getLocalURL();
-			}
-			// TODO remove after experiment concludes, T418053
-			// Display a different icon for the create account button when
-			// a logged out user is in the we-1-8-mobile-account-menu treatment group
-			if ( $key === 'createaccount' && $shouldShowAccountMenuItems ) {
-				$item['icon'] = 'userAvatar';
 			}
 			$href = $item['href'] ?? null;
 			if ( $href && !in_array( $key, $excludeKeyList ) ) {

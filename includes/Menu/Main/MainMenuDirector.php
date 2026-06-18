@@ -39,15 +39,13 @@ final class MainMenuDirector {
 	 *
 	 * @param array $userMenuPortletData
 	 * @param array $sidebar
-	 * @param bool $shouldShowAccountMenuItems
 	 * @return array
 	 */
-	public function getMenuData( array $userMenuPortletData, array $sidebar, bool $shouldShowAccountMenuItems ): array {
+	public function getMenuData( array $userMenuPortletData, array $sidebar ): array {
 		if ( $this->menuData === null ) {
 			$this->menuData = $this->buildMenu(
 				$userMenuPortletData,
 				$sidebar,
-				$shouldShowAccountMenuItems
 			);
 		}
 		return $this->menuData;
@@ -58,10 +56,9 @@ final class MainMenuDirector {
 	 *
 	 * @param array $userMenuPortletData
 	 * @param array $sidebar
-	 * @param bool $shouldShowAccountMenuItems
 	 * @return array
 	 */
-	private function buildMenu( array $userMenuPortletData, array $sidebar, bool $shouldShowAccountMenuItems ): array {
+	private function buildMenu( array $userMenuPortletData, array $sidebar ): array {
 		$builder = $this->builder;
 		$menuData = [
 			'items' => [
@@ -74,7 +71,7 @@ final class MainMenuDirector {
 			// sidebar comes from MediaWiki:Sidebar so we can't assume it doesn't exist.
 			$builder->getDiscoveryGroup( $sidebar['navigation'] ?? [] ),
 			$builder->getInteractionToolsGroup(),
-			$builder->getPersonalToolsGroup( $userMenuPortletData, $shouldShowAccountMenuItems ),
+			$builder->getPersonalToolsGroup( $userMenuPortletData ),
 			$builder->getSettingsGroup(),
 			$builder->getDonateGroup(),
 		];
