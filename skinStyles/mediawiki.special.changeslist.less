@@ -132,10 +132,13 @@ ul.mw-contributions-list li .mw-rollback-link {
 // It is unnecessary on Special:Contributions since all contributions are by the same user.
 .mw-special-Watchlist,
 .mw-special-Recentchanges {
-	.mw-userlink,
-	.mw-usertoollinks {
-		float: none;
+	.mw-userlink {
+		float: left;
 		clear: both;
+	}
+
+	.mw-usertoollinks {
+		float: inline-start;
 	}
 
 	.mw-userlink::before,
