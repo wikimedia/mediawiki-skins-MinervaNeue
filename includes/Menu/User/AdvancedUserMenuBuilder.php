@@ -24,7 +24,7 @@ use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\ProfileMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
-use MediaWiki\Title\Title;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 
 /**
@@ -64,7 +64,7 @@ final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 			// Many users use the watchlist like a favorites list without ever editing.
 			// [T88270].
 			if ( $key === 'watchlist' && $this->user->getEditCount() === 0 ) {
-				$item['href'] = Title::newFromText( 'Special:EditWatchlist' )->getLocalUrl();
+				$item['href'] = SpecialPage::getTitleFor( 'EditWatchlist' )->getLocalURL();
 			}
 			if ( in_array( $key, [ 'preferences', 'betafeatures', 'uploads' ] ) ) {
 				continue;
