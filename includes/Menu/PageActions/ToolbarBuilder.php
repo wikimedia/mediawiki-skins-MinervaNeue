@@ -84,10 +84,11 @@ class ToolbarBuilder {
 	/**
 	 * @param array $actions
 	 * @param array $views
-	 * @param bool $isBookmarkEnabled
+	 * @param bool $isBookmarkOrSubscribeEnabled
 	 * @return Group
 	 */
-	public function getGroup( array $actions, array $views, bool $isBookmarkEnabled = false ): Group {
+	public function getGroup( array $actions, array $views,
+		bool $isBookmarkOrSubscribeEnabled = false ): Group {
 		$group = new Group( 'p-views' );
 		$permissions = $this->permissions;
 		$userPageOrUserTalkPageWithOverflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
@@ -126,10 +127,13 @@ class ToolbarBuilder {
 				'text' => $this->context->msg( 'watch' ),
 			];
 		}
-		if ( $isBookmarkEnabled ) {
-			// Relocate bookmark icon to front so it is consistent with watchstar position
-			self::copyItemToGroup( $views['bookmark'], 'bookmark', $group, $this->context );
-			unset( $views[ 'bookmark' ] );
+		if ( $isBookmarkOrSubscribeEnabled ) {
+			$key = isset( $views['bookmark'] ) ? 'bookmark' : 'dt-page-subscribe';
+			if ( isset( $views[$key] ) ) {
+				// Relocate bookmark icon to front so it is consistent with watchstar position
+				self::copyItemToGroup( $views[$key], $key, $group, $this->context );
+				unset( $views[ $key ] );
+			}
 		} else {
 			// THIS WILL ONLY HAPPEN IF NO BOOKMARK IS DETECTED IN THE VIEWS MENU
 			if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) && $watchData ) {

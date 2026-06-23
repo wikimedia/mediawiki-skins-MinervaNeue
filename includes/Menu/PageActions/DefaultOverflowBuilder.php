@@ -51,7 +51,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getGroup( array $toolbox, array $actions, bool $isBookmarkEnabled = false ): Group {
+	public function getGroup( array $toolbox, array $actions, bool $isBookmarkOrSubscribeEnabled = false ): Group {
 		$group = new Group( 'p-tb' );
 
 		$override = $this->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE ) ? [
@@ -65,7 +65,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 		// watch icon appears in page actions rather than here.
 		$combinedMenu = array_merge( $actions, $override, $toolbox );
 		// when the bookmark is not enabled the watchstar is promoted to the overflow menu.
-		if ( !$isBookmarkEnabled ) {
+		if ( !$isBookmarkOrSubscribeEnabled ) {
 			unset( $combinedMenu[ 'watch' ] );
 			unset( $combinedMenu[ 'unwatch' ] );
 		}
