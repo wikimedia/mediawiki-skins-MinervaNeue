@@ -790,7 +790,7 @@ class SkinMinerva extends SkinMustache {
 	 */
 	protected function prepareBanners( string $siteNotice ): array {
 		$banners = [];
-		if ( $siteNotice && $this->getConfig()->get( 'MinervaEnableSiteNotice' ) ) {
+		if ( $siteNotice ) {
 			$banners[] = $siteNotice;
 		} else {
 			$banners[] = '<div id="siteNotice"></div>';

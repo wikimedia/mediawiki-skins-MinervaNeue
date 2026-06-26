@@ -52,9 +52,6 @@
 				0
 			]
 		},
-		"MinervaEnableSiteNotice": {
-			"value": true
-		},
 		"MinervaAlwaysShowLanguageButton": {
 			"value": true
 		},
