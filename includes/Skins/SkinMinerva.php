@@ -973,15 +973,14 @@ class SkinMinerva extends SkinMustache {
 			$styles[] = 'skins.minerva.categories.styles';
 		}
 
+		// The overflow icon is enabled for ALL users.
+		$styles[] = 'skins.minerva.overflow.icons';
 		if (
 			$this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED )
 		) {
-			// If ever enabled as the default, please review skins.minerva.mainMenu.icons
-			// and remove any unneeded icons
-			array_push( $styles,
-				'skins.minerva.mainMenu.advanced.icons',
-				'skins.minerva.overflow.icons'
-			);
+			// If ever enabled as the default, please merge with
+			// skins.minerva.icons
+			$styles[] = 'skins.minerva.mainMenu.advanced.icons';
 		}
 
 		return $styles;
