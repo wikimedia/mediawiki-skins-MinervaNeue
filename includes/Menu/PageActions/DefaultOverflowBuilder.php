@@ -17,7 +17,6 @@
  *
  * @file
  */
-
 namespace MediaWiki\Minerva\Menu\PageActions;
 
 use MediaWiki\Language\MessageLocalizer;
@@ -51,7 +50,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getGroup( array $toolbox, array $actions, bool $isBookmarkOrSubscribeEnabled = false ): Group {
+	public function getGroup( array $toolbox, array $actions ): Group {
 		$group = new Group( 'p-tb' );
 
 		$override = $this->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE ) ? [
@@ -64,11 +63,7 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 		] : [];
 		// watch icon appears in page actions rather than here.
 		$combinedMenu = array_merge( $actions, $override, $toolbox );
-		// when the bookmark is not enabled the watchstar is promoted to the overflow menu.
-		if ( !$isBookmarkOrSubscribeEnabled ) {
-			unset( $combinedMenu[ 'watch' ] );
-			unset( $combinedMenu[ 'unwatch' ] );
-		}
+
 		foreach ( $combinedMenu as $key => $definition ) {
 			$icon = $definition['icon'] ?? null;
 			// Only menu items with icons can be displayed here.

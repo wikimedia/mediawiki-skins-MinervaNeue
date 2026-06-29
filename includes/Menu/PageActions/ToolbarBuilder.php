@@ -30,13 +30,11 @@ use MediaWiki\Minerva\Menu\Group;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
-use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Watchlist\WatchlistManager;
-use SpecialMobileHistory;
 
 class ToolbarBuilder {
 
@@ -75,20 +73,46 @@ class ToolbarBuilder {
 		private readonly LanguagesHelper $languagesHelper,
 		ServiceOptions $options,
 		private readonly WatchlistManager $watchlistManager,
-		?Title $loginTitle = null,
+		?Title $loginTitle = null
 	) {
 		$this->watchlistExpiryEnabled = $options->get( 'WatchlistExpiry' );
 		$this->loginTitle = $loginTitle ?: SpecialPage::getTitleFor( 'Userlogin' );
 	}
 
 	/**
+	 * Return the primary subscribe action for this page. Loops through all
+	 * potential actions in order of priority and returns the first one found.
+	 *
+	 * @param array $views as provided by Skin::getTemplateData
+	 * @param array $actions as provided by Skin::getTemplateData
+	 * @return string of what should be considered the primary action key. Will return
+	 * 	watch if none of the actions are found in $views or $actions.
+	 */
+	public static function findPrimarySubscribeAction( array $views, array $actions ): string {
+		$primarySubscribeAction = [
+			// 'bookmark' defined in ReadingLists
+			'bookmark',
+			// "subscribe" icon on talk pages defined in Extension:DiscussionTools
+			'dt-page-subscribe',
+			// watchstar provided by core fallback if neither of the above is present
+			'unwatch',
+			'watch'
+		];
+		foreach ( $primarySubscribeAction as $actionKey ) {
+			if ( isset( $views[ $actionKey ] ) || isset( $actions[ $actionKey ] ) ) {
+				return $actionKey;
+			}
+		}
+		// Return the last item in $primarySubscribeAction
+		return $actionKey;
+	}
+
+	/**
 	 * @param array $actions
 	 * @param array $views
-	 * @param bool $isBookmarkOrSubscribeEnabled
 	 * @return Group
 	 */
-	public function getGroup( array $actions, array $views,
-		bool $isBookmarkOrSubscribeEnabled = false ): Group {
+	public function getGroup( array $actions, array $views ): Group {
 		$group = new Group( 'p-views' );
 		$permissions = $this->permissions;
 		$userPageOrUserTalkPageWithOverflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
@@ -106,50 +130,29 @@ class ToolbarBuilder {
 				true
 			) );
 		}
-		// Don't render the "view" action.
-		unset( $views[  'view' ] );
 
-		$watchKey = $key = isset( $actions['unwatch'] ) ? 'unwatch' : 'watch';
-		// The watchstar is typically not shown to anonymous users but it is in Minerva.
-		$watchData = $actions[ $watchKey ] ?? null;
-		// If the watchstar doesn't exist AND the user is not named (e.g. anonymous )
-		// we inject a watchstar icon that links to the login page. This will open a drawer
-		// that informs the user that this feature exists.
-		// We don't want to do this in the case the user is already logged in (this situation
-		// arises when the ReadingList extension is installed which may unset the watchstar icon).
-		// If the watchstar is null and the user is logged in, it means the page is not watchable
-		// (for example special pages) so we should not worry about this case (L145 will ignore it).
-		if ( !$watchData && !$this->user->isNamed() ) {
+		$primarySubscribeActionKey = self::findPrimarySubscribeAction( $views, $actions );
+		// This code adds the watchstar for anonymous users if it is not present in the $views array.
+		// On mobile we show it to anonymous user but we don't do this on desktop.
+		// In future we can consider removing this if we show bookmark to all logged out users.
+		// This code is intended to guarantee that every page has a primary subscribe action for
+		// logged out users.
+		if ( !$this->user->isNamed() && !isset( $views[ $primarySubscribeActionKey ] ) ) {
+			// no action was found so force insert a watchstar
 			$watchData = [
 				'icon' => 'star',
 				'class' => '',
 				'href' => $this->getLoginUrl( [ 'returnto' => $this->title ] ),
 				'text' => $this->context->msg( 'watch' ),
 			];
-		}
-		if ( $isBookmarkOrSubscribeEnabled ) {
-			$key = isset( $views['bookmark'] ) ? 'bookmark' : 'dt-page-subscribe';
-			if ( isset( $views[$key] ) ) {
-				// Relocate bookmark icon to front so it is consistent with watchstar position
-				self::copyItemToGroup( $views[$key], $key, $group, $this->context );
-				unset( $views[ $key ] );
+			if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) ) {
+				$group->insertEntry( $this->createWatchPageAction( 'watch', $watchData ) );
 			}
-		} else {
-			// THIS WILL ONLY HAPPEN IF NO BOOKMARK IS DETECTED IN THE VIEWS MENU
-			if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) && $watchData ) {
-				$group->insertEntry( $this->createWatchPageAction( $watchKey, $watchData ) );
-			}
-		}
-
-		$historyView = $views[ 'history'] ?? [];
-		unset( $views[ 'history' ] );
-
-		if ( $historyView && $permissions->isAllowed( IMinervaPagePermissions::HISTORY ) ) {
-			$group->insertEntry( $this->getHistoryPageAction( $historyView ) );
 		}
 
 		$user = $this->relevantUserPageHelper->getPageUser();
 		$isUserPageAccessible = $this->relevantUserPageHelper->isUserPageAccessibleToCurrentUser();
+		// needs to be inserted after history
 		if ( $user && $isUserPageAccessible ) {
 			// T235681: Contributions icon should be added to toolbar on user pages
 			// and user talk pages for all users
@@ -290,20 +293,6 @@ class ToolbarBuilder {
 		$entry->setIcon( $icon )
 			->trackClicks( 'history' );
 		return $entry;
-	}
-
-	/**
-	 * Get the URL for the history page for the given title using Special:History
-	 * when available.
-	 * FIXME: temporary duplicated code, same as SkinMinerva::getHistoryUrl()
-	 * @param Title $title The Title object of the page being viewed
-	 * @return string
-	 */
-	protected function getHistoryUrl( Title $title ): string {
-		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			   SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->user ) ?
-			SpecialPage::getTitleFor( 'History', $title->getFullText() )->getLocalURL() :
-			$title->getLocalURL( [ 'action' => 'history' ] );
 	}
 
 	/**

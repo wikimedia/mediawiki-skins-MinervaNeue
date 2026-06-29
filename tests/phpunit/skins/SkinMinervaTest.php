@@ -599,6 +599,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 		// Unset items which can vary depending on what extensions are installed
 		// and what hooks run
+		$data['data-minerva-page-actions']['toolbar'] = [];
 		unset( $data['data-minerva-page-actions']['overflowMenu']['items'] );
 
 		$this->assertTrue( $data['has-minerva-languages'] );

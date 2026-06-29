@@ -41,8 +41,8 @@ class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 	/**
 	 * @inheritDoc
 	 */
-	public function getGroup( array $toolbox, array $actions, bool $isBookmarkEnabled = false ): Group {
-		$group = parent::getGroup( $toolbox, $actions, $isBookmarkEnabled );
+	public function getGroup( array $toolbox, array $actions ): Group {
+		$group = parent::getGroup( $toolbox, $actions );
 
 		if ( $this->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->prependEntry( new LanguageSelectorEntry(

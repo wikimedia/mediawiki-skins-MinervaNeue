@@ -31,12 +31,12 @@ use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
 use MediaWiki\Minerva\Menu\PageActions\PageActions;
+use MediaWiki\Minerva\Menu\PageActions\ToolbarBuilder;
 use MediaWiki\Minerva\Menu\User\AdvancedUserMenuBuilder;
 use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
@@ -46,7 +46,6 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\Utils\MWTimestamp;
-use SpecialMobileHistory;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -135,7 +134,37 @@ class SkinMinerva extends SkinMustache {
 
 		$pageActionsDirector = $this->pageActions->getPageActionsDirector( $this->getContext() );
 		$sidebar = $this->buildSidebar();
-		return $pageActionsDirector->buildMenu( $sidebar['TOOLBOX'], $actions, $views );
+
+		// Promote the primary subscribe item
+		$primarySubscribeActionKey = ToolbarBuilder::findPrimarySubscribeAction( $views, $actions );
+		// Don't render the "view" action.
+		unset( $views[ 'view' ] );
+
+		// Remove history if permissions do not allow it
+		// We hide history link for logged out users (the last modified bar is used
+		// as the entry point instead)
+		if ( !$this->permissions->isAllowed( IMinervaPagePermissions::HISTORY ) ) {
+			unset( $views['history'] );
+		}
+
+		// reorder
+		$sortedViews = [];
+		foreach ( [ $primarySubscribeActionKey, 'history' ] as $key ) {
+			if ( isset( $views[ $key ] ) ) {
+				$sortedViews[ $key ] = $views[ $key ];
+				unset( $views[ $key ] );
+			}
+			if ( isset( $actions[ $key ] ) ) {
+				$sortedViews[ $key ] = $actions[ $key ];
+				unset( $actions[ $key ] );
+			}
+		}
+		$sortedViews += $views;
+		return $pageActionsDirector->buildMenu(
+			$sidebar['TOOLBOX'],
+			$actions,
+			$sortedViews
+		);
 	}
 
 	/**
@@ -644,25 +673,13 @@ class SkinMinerva extends SkinMustache {
 	}
 
 	/**
-	 * Checks if the Special:History page is being used.
-	 * @param Title $title The Title object of the page being viewed
-	 * @return bool
-	 */
-	private function shouldUseSpecialHistory( Title $title ): bool {
-		return ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			SpecialMobileHistory::shouldUseSpecialHistory( $title, $this->getUser() );
-	}
-
-	/**
 	 * Get the URL for the history page for the given title using Special:History
 	 * when available.
 	 * @param Title $title The Title object of the page being viewed
 	 * @return string
 	 */
 	protected function getHistoryUrl( Title $title ): string {
-		return $this->shouldUseSpecialHistory( $title ) ?
-			SpecialPage::getTitleFor( 'History', $title->getPrefixedText() )->getLocalURL() :
-			$title->getLocalURL( [ 'action' => 'history' ] );
+		return $title->getLocalURL( [ 'action' => 'history' ] );
 	}
 
 	/**

@@ -30,7 +30,7 @@ final class PageActionsDirector {
 	public function __construct(
 		private readonly ToolbarBuilder $toolbarBuilder,
 		private readonly IOverflowBuilder $overflowBuilder,
-		private readonly MessageLocalizer $messageLocalizer,
+		private readonly MessageLocalizer $messageLocalizer
 	) {
 	}
 
@@ -42,9 +42,8 @@ final class PageActionsDirector {
 	 * @return array
 	 */
 	public function buildMenu( array $toolbox, array $actions, array $views ): array {
-		$isBookmarkOrSubscribeEnabled = isset( $views['bookmark'] ) || isset( $views['dt-page-subscribe'] );
-		$toolbar = $this->toolbarBuilder->getGroup( $actions, $views, $isBookmarkOrSubscribeEnabled );
-		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox, $actions, $isBookmarkOrSubscribeEnabled );
+		$toolbar = $this->toolbarBuilder->getGroup( $actions, $views );
+		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox, $actions );
 
 		$menu = [
 			'toolbar' => $toolbar->getEntries()

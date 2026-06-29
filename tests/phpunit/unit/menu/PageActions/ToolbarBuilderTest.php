@@ -24,6 +24,7 @@ class ToolbarBuilderTest extends MediaWikiUnitTestCase {
 		$title = $this->createMock( Title::class );
 		$outputPage = $this->createMock( OutputPage::class );
 		$loginTitle = $this->createMock( Title::class );
+		$loginTitle->method( 'getLocalURL' )->willReturn( '' );
 		$user = $this->createMock( User::class );
 		$ctx = $this->createMock( RequestContext::class );
 		$msg = $this->createMock( Message::class );
@@ -85,6 +86,7 @@ class ToolbarBuilderTest extends MediaWikiUnitTestCase {
 			],
 			[
 				'history' => [
+					'icon' => 'clock',
 					'href' => '?action=history',
 					'text' => 'history',
 					'class' => 'history-link',
