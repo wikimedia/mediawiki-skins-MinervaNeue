@@ -6,14 +6,6 @@
 		]
 	},
 	"mobile-frontend-editor-edit": "Редактаре",
-	"mobile-frontend-history": "Вези историкул модификэрилор акеастеи паӂини.",
-	"mobile-frontend-home-button": "Принчипалэ",
-	"mobile-frontend-language-article-heading": "Лимбэ",
-	"mobile-frontend-main-menu-login": "Презентаци-вэ",
 	"mobile-frontend-main-menu-logout": "Ынкееря сесиуний",
-	"mobile-frontend-main-menu-nearby": "Ын апропиере",
-	"mobile-frontend-main-menu-settings": "Сетэрь",
-	"mobile-frontend-placeholder": "Кэутаре ын {{SITENAME}}",
-	"mobile-frontend-random-button": "Ынтымплэтор",
-	"minerva-page-actions-overflow": "Май мулт"
+	"mobile-frontend-random-button": "Ынтымплэтор"
 }
