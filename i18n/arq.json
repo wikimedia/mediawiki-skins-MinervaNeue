@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bachounda",
+			"GeekEmad"
+		]
+	},
+	"mobile-frontend-editor-edit": "بدّل",
+	"mobile-frontend-history": "شوف تاريخ التعديلات تاع هاد الباج.",
+	"mobile-frontend-home-button": "اللوله",
+	"mobile-frontend-language-article-heading": "لوغه",
+	"mobile-frontend-main-menu-button-tooltip": "حل القايمه اللوله",
+	"mobile-frontend-main-menu-login": "تسجال الدخول",
+	"mobile-frontend-main-menu-nearby": "قريب منهنا",
+	"mobile-frontend-main-menu-settings": "إعدادات",
+	"mobile-frontend-main-menu-watchlist": "ليستة تاع المتابعة",
+	"mobile-frontend-placeholder": " فتّش في {{SITENAME}}",
+	"mobile-frontend-random-button": "زهراني",
+	"minerva-page-actions-overflow": "زيادة"
+}
