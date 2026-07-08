@@ -509,9 +509,17 @@ class SkinMinerva extends SkinMustache {
 	final protected function doEditSectionLinksHTML( array $links, Language $lang ): string {
 		$transformedLinks = [];
 		foreach ( $links as $key => $link ) {
+			$icon = $link['icon'] ?? null;
+			// Temporarily drop the share button from section links
+			// https://phabricator.wikimedia.org/T18691
+			// Don't remove until A/B test in https://phabricator.wikimedia.org/T431514
+			// has been concluded.
+			if ( $icon === 'share' ) {
+				break;
+			}
 			$transformedLinks[] = $link + [
 				'data-icon' => [
-					'icon' => $link['icon'],
+					'icon' => $icon,
 				],
 			];
 		}
