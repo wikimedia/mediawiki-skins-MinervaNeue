@@ -515,7 +515,7 @@ class SkinMinerva extends SkinMustache {
 			// Don't remove until A/B test in https://phabricator.wikimedia.org/T431514
 			// has been concluded.
 			if ( $icon === 'share' ) {
-				break;
+				continue;
 			}
 			$transformedLinks[] = $link + [
 				'data-icon' => [
