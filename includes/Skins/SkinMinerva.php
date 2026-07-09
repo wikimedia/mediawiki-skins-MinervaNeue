@@ -27,6 +27,7 @@ use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Definitions;
+use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
 use MediaWiki\Minerva\Menu\Main\AdvancedMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\DefaultMainMenuBuilder;
 use MediaWiki\Minerva\Menu\Main\MainMenuDirector;
@@ -37,6 +38,9 @@ use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Page\WikiPage;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
@@ -165,6 +169,77 @@ class SkinMinerva extends SkinMustache {
 			$actions,
 			$sortedViews
 		);
+	}
+
+	/**
+	 * Returns tags for the page, if any.
+	 *
+	 * @return array|null
+	 */
+	private function getPageTags(): ?array {
+		if ( !$this->skinOptions->get( SkinOptions::MINIMAL ) ) {
+			return null;
+		}
+
+		// TODO: this certainly merits refactoring, but until this
+		// experiment has proven successful, it's too early to build out
+		// a comprehensive thing where other extensions could  potentially
+		// plug into, we have yet to even figure out what kind of
+		// information could appear in other namespaces, wikis, etc.
+
+		$tags = [];
+
+		// X languages
+		$languages = $this->languagesHelper->getLanguagesAndVariants(
+			$this->getContext()->getOutput(),
+			$this->getTitle()
+		);
+		if ( $this->permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
+			$entry = new LanguageSelectorEntry(
+				$this->getTitle(),
+				true,
+				$this->getContext(),
+				true
+			);
+			$tags[] = array_merge(
+				$entry->getComponents()[0],
+				[
+					'status' => 'progressive',
+					'label' => wfMessage( 'minerva-page-tags-language-switcher' )
+						->numParams( count( $languages ) ),
+					'data-icon' => ( $entry->getComponents()[0]['data-icon'] ?? [] ) +
+						[ 'size' => 'small' ],
+				]
+			);
+		}
+
+		// X comments
+		$talkTitle = $this->getTitle()->getTalkPageIfDefined();
+		if ( $talkTitle ) {
+			// TODO: We're going to reach into another page's output, which
+			// might have unwanted performance implications. If we want
+			// to iterate on this post-experiment, this would need to be
+			// addressed!
+			$wikiPage = new WikiPage( $talkTitle );
+			$parserOptions = ParserOptions::newFromAnon();
+			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
+			$tocInfo = $parserOutput ? $parserOutput->getExtensionData( 'DiscussionTools-tocInfo' ) : [];
+			$commentCount = array_reduce(
+				$tocInfo,
+				static fn ( int $sum, array $info ) => $sum + $info['commentCount'],
+				0,
+			);
+			$tags[] = [
+				'href' => $talkTitle->getLocalURL(),
+				'label' => ExtensionRegistry::getInstance()->isLoaded( 'DiscussionTools' ) ?
+					wfMessage( 'minerva-page-tags-talkpage' )->numParams( $commentCount ) :
+					wfMessage( 'minerva-page-tags-talkpage-generic' ),
+				'status' => 'progressive',
+				'data-icon' => [ 'icon' => 'speechBubbles', 'size' => 'small' ],
+			];
+		}
+
+		return $tags ? [ 'items' => $tags ] : null;
 	}
 
 	/**
@@ -341,6 +416,7 @@ class SkinMinerva extends SkinMustache {
 			] : null,
 			'data-minerva-tabs' => $this->getTabsData( $associatedPagesPortletData, $associatedPages['id'] ?? null ),
 			'data-minerva-page-actions' => $this->getPageActions( $actions, $views ),
+			'data-minerva-page-tags' => $this->getPageTags(),
 			'data-minerva-secondary-actions' => $this->getSecondaryActions( $associatedPagesPortletData ),
 			'html-minerva-subject-link' => $this->getSubjectPage(),
 			'data-minerva-history-link' => $this->getHistoryLink( $this->getTitle() ),
@@ -1006,6 +1082,10 @@ class SkinMinerva extends SkinMustache {
 			// If ever enabled as the default, please merge with
 			// skins.minerva.icons
 			$styles[] = 'skins.minerva.mainMenu.advanced.icons';
+		}
+
+		if ( $this->skinOptions->get( SkinOptions::MINIMAL ) ) {
+			$styles[] = 'skins.minerva.minimal.styles';
 		}
 
 		return $styles;

@@ -1,0 +1,26 @@
+@import 'mediawiki.skin.variables.less';
+
+.minerva--minimal {
+	.minerva__page-tags-container {
+		width: 100%;
+		display: flex;
+		gap: @spacing-50;
+		overflow: auto;
+		margin-bottom: @spacing-50;
+
+		.cdx-info-chip {
+			border: 0;
+			border-radius: 4px;
+			padding: @spacing-6 @spacing-35;
+			gap: 3px;
+
+			.cdx-info-chip__text {
+				color: @color-progressive;
+			}
+
+			.minerva-icon {
+				background-color: @color-progressive;
+			}
+		}
+	}
+}

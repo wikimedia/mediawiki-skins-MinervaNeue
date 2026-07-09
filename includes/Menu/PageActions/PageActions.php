@@ -86,7 +86,8 @@ class PageActions {
 		return new PageActionsDirector(
 			$toolbarBuilder,
 			$overflowBuilder,
-			$context
+			$context,
+			$this->skinOptions->get( SkinOptions::MINIMAL ) ? 1 : null
 		);
 	}
 

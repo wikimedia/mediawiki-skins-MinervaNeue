@@ -50,4 +50,26 @@ class LanguagesHelper {
 		$langConv = $this->languageConverterFactory->getLanguageConverter( $title->getPageLanguage() );
 		return $langConv->hasVariants();
 	}
+
+	/**
+	 * @param OutputPage $out Output page to fetch language links
+	 * @param Title $title
+	 * @return string[] Array of language codes
+	 */
+	public function getLanguagesAndVariants(
+		OutputPage $out,
+		Title $title
+	): array {
+		$langlinks = array_map(
+			static fn ( string $langlink ) => explode( ':', $langlink, 2 )[ 0 ],
+			$out->getLanguageLinks(),
+		);
+
+		$langConv = $this->languageConverterFactory->getLanguageConverter( $title->getPageLanguage() );
+
+		return array_unique( array_merge(
+			$langlinks,
+			$langConv->getVariants()
+		) );
+	}
 }

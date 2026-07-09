@@ -381,6 +381,7 @@
 				"userTemporaryLocation",
 				"userGroup",
 				"speechBubbleAdd",
+				"speechBubbles",
 				"edit",
 				"wikiText",
 				"editLock",
@@ -434,6 +435,24 @@
 		"skins.minerva.loggedin.styles": {
 			"styles": [
 				"resources/skins.minerva.loggedin.styles/styles.less"
+			]
+		},
+		"skins.minerva.minimal.styles": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxInfoChip",
+				"CdxIcon"
+			],
+			"styles": [
+				"resources/skins.minerva.minimal/header.less",
+				"resources/skins.minerva.minimal/headings.less",
+				"resources/skins.minerva.minimal/Menus/tabs.less",
+				"resources/skins.minerva.minimal/pageactions.less",
+				"resources/skins.minerva.minimal/pagetags.less"
+			],
+			"dependencies": [
+				"skins.minerva.icons"
 			]
 		},
 		"skins.minerva.search": {

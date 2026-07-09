@@ -30,7 +30,8 @@ final class PageActionsDirector {
 	public function __construct(
 		private readonly ToolbarBuilder $toolbarBuilder,
 		private readonly IOverflowBuilder $overflowBuilder,
-		private readonly MessageLocalizer $messageLocalizer
+		private readonly MessageLocalizer $messageLocalizer,
+		private ?int $toolbarLimit = null,
 	) {
 	}
 
@@ -46,7 +47,7 @@ final class PageActionsDirector {
 		$overflowMenu = $this->overflowBuilder->getGroup( $toolbox, $actions );
 
 		$menu = [
-			'toolbar' => $toolbar->getEntries()
+			'toolbar' => array_slice( $toolbar->getEntries(), 0, $this->toolbarLimit ),
 		];
 		if ( $overflowMenu->hasEntries() ) {
 			// See includes/Skins/ToggleList.
@@ -83,7 +84,12 @@ final class PageActionsDirector {
 				],
 				'listID' => $overflowMenu->getId(),
 				'listClass' => 'page-actions-overflow-list toggle-list__list--drop-down',
-				'items' => $overflowMenu->getEntries()
+				'items' => array_merge(
+					$this->toolbarLimit === null ?
+						[] :
+						array_slice( $toolbar->getEntries(), $this->toolbarLimit ),
+					$overflowMenu->getEntries()
+				)
 			];
 		}
 		return $menu;

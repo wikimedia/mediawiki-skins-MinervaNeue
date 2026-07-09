@@ -118,8 +118,13 @@ class ToolbarBuilder {
 		$userPageOrUserTalkPageWithOverflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 			&& $this->relevantUserPageHelper->isUserPage();
 
-		if ( !$userPageOrUserTalkPageWithOverflowMode && $permissions->isAllowed(
-			IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
+		// @todo language should be conditional somehow - don't want it here if we already have a chip
+		if (
+			!$userPageOrUserTalkPageWithOverflowMode &&
+			$permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) &&
+			// Don't include language in minimal minerva; it's elsewhere already
+			!$this->skinOptions->get( SkinOptions::MINIMAL )
+		) {
 			$group->insertEntry( new LanguageSelectorEntry(
 				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants(
@@ -170,7 +175,13 @@ class ToolbarBuilder {
 			if ( $isEditAction ) {
 				// Only insert edit actions if user has permission
 				if ( $permissions->isAllowed( IMinervaPagePermissions::CONTENT_EDIT ) ) {
-					$group->insertEntry( $this->createEditPageAction( $key, $viewData ) );
+					if ( !$this->skinOptions->get( SkinOptions::MINIMAL ) ) {
+						$group->insertEntry( $this->createEditPageAction( $key, $viewData ) );
+					} else {
+						// In minimal minerva, we're only showing the first action directly (rest is
+						// hidden in the overflow menu) and we want to make sure "edit" is it for now.
+						$group->prependEntry( $this->createEditPageAction( $key, $viewData ) );
+					}
 				}
 			} elseif ( isset( $viewData[ 'icon' ] ) ) {
 				self::copyItemToGroup( $viewData, $key, $group, $this->context );

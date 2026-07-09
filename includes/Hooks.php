@@ -240,6 +240,11 @@ class Hooks implements
 			$classes .= ' minerva--history-page-action-enabled';
 		}
 
+		if ( $isMinerva && $this->skinOptions->get( SkinOptions::MINIMAL ) ) {
+			// Class is used when page actions is modified to contain more elements
+			$classes .= ' minerva--minimal';
+		}
+
 		if ( $isMinerva ) {
 			$bodyAttrs['class'] .= ' ' . $classes;
 		}

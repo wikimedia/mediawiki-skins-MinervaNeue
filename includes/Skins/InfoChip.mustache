@@ -1,0 +1,9 @@
+<div{{#isButton}} role="button"{{/isButton}}{{!
+    }}{{#array-attributes}} {{key}}="{{value}}"{{/array-attributes}}{{!
+    }} class="cdx-info-chip{{#status}} cdx-info-chip--{{.}}{{/status}}{{#classes}} {{.}}{{/classes}}"
+>
+    {{#href}}<a href="{{.}}">{{/href}}
+        {{#data-icon}}{{>Icon}}{{/data-icon}}
+        <span class="cdx-info-chip__text">{{ label }}</span>
+    {{#href}}</a>{{/href}}
+</div>

@@ -1,0 +1,61 @@
+@import 'mediawiki.skin.variables.less';
+
+.minerva--minimal {
+	.heading-holder {
+		display: flex;
+		flex-wrap: wrap;
+		gap: @spacing-25 @spacing-100;
+		margin-bottom: @spacing-50;
+	}
+
+	.page-heading {
+		flex: 1;
+		margin-bottom: @spacing-50;
+	}
+
+	// stylelint-disable-next-line selector-max-id
+	#mw-content-subtitle {
+		width: 100%;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.page-actions-menu {
+		border: 0;
+
+		.page-actions-menu__list {
+			height: unset;
+			gap: @spacing-25;
+		}
+
+		.page-actions-menu__list-item {
+			.cdx-button--size-large {
+				// Note: While this is still experimental, I didn't want to mess
+				// with the code that actually sets this `cdx-button--size-large`
+				// class. If this persists, we should update these buttons to be
+				// --size-medium, rather than keeping them --size-large and then
+				// overriding their dimensions.
+				min-width: @size-200;
+				min-height: @size-200;
+			}
+
+			.minerva-icon {
+				background-color: @color-neutral;
+			}
+		}
+
+		.page-actions-overflow-list .toggle-list-item__anchor {
+			.toggle-list-item__label {
+				color: @color-base;
+			}
+
+			&:hover {
+				.toggle-list-item__label {
+					color: @color-base--hover;
+				}
+			}
+		}
+	}
+}
