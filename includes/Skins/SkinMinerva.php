@@ -999,7 +999,7 @@ class SkinMinerva extends SkinMustache {
 		}
 
 		// The overflow icon is enabled for ALL users.
-		$styles[] = 'skins.minerva.overflow.icons';
+		$styles[] = 'skins.minerva.icons';
 		if (
 			$this->skinOptions->get( SkinOptions::MAIN_MENU_EXPANDED )
 		) {

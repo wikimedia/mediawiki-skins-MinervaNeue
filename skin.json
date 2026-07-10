@@ -355,7 +355,7 @@
 				}
 			}
 		},
-		"skins.minerva.overflow.icons": {
+		"skins.minerva.icons": {
 			"selectorWithoutVariant": ".minerva-icon--{name}",
 			"useDataURI": false,
 			"defaultColor": "#54595d",
@@ -368,8 +368,8 @@
 				"articleRedirect",
 				"infoFilled",
 				"link",
-				"move",
 				"lock",
+				"move",
 				"trash",
 				"listBullet",
 				"logoWikidata",
@@ -377,22 +377,9 @@
 				"quotes",
 				"unBlock",
 				"unLock",
-				"userTalk",
-				"userAvatar",
 				"userTemporary",
 				"userTemporaryLocation",
-				"userAdd",
-				"userGroup"
-			]
-		},
-		"skins.minerva.icons": {
-			"selectorWithoutVariant": ".minerva-icon--{name}",
-			"useDataURI": false,
-			"defaultColor": "#54595d",
-			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
-			"variants": [],
-			"useMaskImage": true,
-			"icons": [
+				"userGroup",
 				"speechBubbleAdd",
 				"edit",
 				"wikiText",
@@ -406,7 +393,6 @@
 				"userTalk",
 				"star",
 				"halfStar",
-				"unStar",
 				"die",
 				"heart",
 				"home",
