@@ -3,12 +3,14 @@
 		"authors": [
 			"Diamantino Soares",
 			"MF-Warburg",
-			"Binsar"
+			"Binsar",
+			"Robertsky"
 		]
 	},
 	"mobile-frontend-editor-edit": "Edita",
 	"mobile-frontend-language-article-heading": "Le'e iha lian seluk",
 	"mobile-frontend-main-menu-login": "Tama",
 	"mobile-frontend-main-menu-nearby": "Besik",
-	"mobile-frontend-main-menu-settings": "Konfigurasaun"
+	"mobile-frontend-main-menu-settings": "Konfigurasaun",
+	"mobile-frontend-random-button": "Aleatóriu"
 }
