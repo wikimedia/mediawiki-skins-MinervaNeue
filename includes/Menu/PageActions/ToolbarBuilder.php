@@ -114,16 +114,38 @@ class ToolbarBuilder {
 	 */
 	public function getGroup( array $actions, array $views ): Group {
 		$group = new Group( 'p-views' );
+
+		// Two modes: minimal and standard.
+		// Minimal mode displays constant edit and watch actions only.
+		$editData = [
+			'icon' => 'edit',
+			'class' => '',
+			'href' => $this->title->getEditURL(),
+			'text' => $this->context->msg( 'edit' ),
+		];
+		// NOTE Also used in standard mode for logged-out users.
+		$watchData = [
+			'icon' => 'star',
+			'class' => '',
+			'href' => $this->getLoginUrl( [ 'returnto' => $this->title ] ),
+			'text' => $this->context->msg( 'watch' ),
+		];
+
+		if ( $this->skinOptions->get( SkinOptions::MINIMAL ) ) {
+			$group->insertEntry( $this->createEditPageAction( 'edit', $editData ) );
+			$group->insertEntry( $this->createWatchPageAction( 'watch', $watchData ) );
+
+			return $group;
+		}
+
+		// Standard mode shows all actions.
 		$permissions = $this->permissions;
 		$userPageOrUserTalkPageWithOverflowMode = $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU )
 			&& $this->relevantUserPageHelper->isUserPage();
 
-		// @todo language should be conditional somehow - don't want it here if we already have a chip
 		if (
 			!$userPageOrUserTalkPageWithOverflowMode &&
-			$permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) &&
-			// Don't include language in minimal minerva; it's elsewhere already
-			!$this->skinOptions->get( SkinOptions::MINIMAL )
+			$permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE )
 		) {
 			$group->insertEntry( new LanguageSelectorEntry(
 				$this->title,
@@ -143,13 +165,6 @@ class ToolbarBuilder {
 		// This code is intended to guarantee that every page has a primary subscribe action for
 		// logged out users.
 		if ( !$this->user->isNamed() && !isset( $views[ $primarySubscribeActionKey ] ) ) {
-			// no action was found so force insert a watchstar
-			$watchData = [
-				'icon' => 'star',
-				'class' => '',
-				'href' => $this->getLoginUrl( [ 'returnto' => $this->title ] ),
-				'text' => $this->context->msg( 'watch' ),
-			];
 			if ( $permissions->isAllowed( IMinervaPagePermissions::WATCHABLE ) ) {
 				$group->insertEntry( $this->createWatchPageAction( 'watch', $watchData ) );
 			}
@@ -175,18 +190,13 @@ class ToolbarBuilder {
 			if ( $isEditAction ) {
 				// Only insert edit actions if user has permission
 				if ( $permissions->isAllowed( IMinervaPagePermissions::CONTENT_EDIT ) ) {
-					if ( !$this->skinOptions->get( SkinOptions::MINIMAL ) ) {
-						$group->insertEntry( $this->createEditPageAction( $key, $viewData ) );
-					} else {
-						// In minimal minerva, we're only showing the first action directly (rest is
-						// hidden in the overflow menu) and we want to make sure "edit" is it for now.
-						$group->prependEntry( $this->createEditPageAction( $key, $viewData ) );
-					}
+					$group->insertEntry( $this->createEditPageAction( $key, $viewData ) );
 				}
 			} elseif ( isset( $viewData[ 'icon' ] ) ) {
 				self::copyItemToGroup( $viewData, $key, $group, $this->context );
 			}
 		}
+
 		return $group;
 	}
 

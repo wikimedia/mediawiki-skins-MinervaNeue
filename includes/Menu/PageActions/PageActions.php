@@ -66,7 +66,18 @@ class PageActions {
 				$context->getConfig() ),
 			$this->watchlistManager
 		);
-		if ( $this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) ) {
+
+		// Minimal mode should activate for logged-out (anonymous) users only.
+		// Implementation example in SkinMinervaOptionsInitHook::onSkinMinervaOptionsInit:
+		// if ( $skin->getUser()->isAnon() ) {
+		//     $skinOptions->setMultiple( [ SkinOptions::MINIMAL => true ] );
+		// }
+		$isMinimalMode = $this->skinOptions->get( SkinOptions::MINIMAL );
+		if (
+			$this->skinOptions->get( SkinOptions::TOOLBAR_SUBMENU ) &&
+			// Minimal mode never shows the overflow menu
+			!$isMinimalMode
+		) {
 			$overflowBuilder = $this->skinUserPageHelper->isUserPage() ?
 				new UserNamespaceOverflowBuilder(
 					$title,
@@ -83,11 +94,15 @@ class PageActions {
 			$overflowBuilder = new EmptyOverflowBuilder();
 		}
 
+		// Minimal mode only displays two actions in the visible toolbar,
+		// see ToolbarBuilder::getGroup.
+		$toolbarLimit = $isMinimalMode ? 2 : null;
+
 		return new PageActionsDirector(
 			$toolbarBuilder,
 			$overflowBuilder,
 			$context,
-			$this->skinOptions->get( SkinOptions::MINIMAL ) ? 1 : null
+			$toolbarLimit
 		);
 	}
 
