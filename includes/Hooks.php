@@ -182,18 +182,6 @@ class Hooks implements
 					$special->msg( 'skin-minerva-recentchanges-warning-enhanced-not-supported' )->parse()
 				) );
 			}
-		} else {
-			// Add default notice message to Special:UserLogin and Special:UserCreate
-			// if no warning or notice message is set.
-			if (
-				!$request->getCheck( 'warning' ) &&
-				!$request->getCheck( 'notice' ) &&
-				!$special->getUser()->isRegistered() &&
-				!$request->wasPosted() &&
-				!$loginHelper->isDisplayModePopup()
-			) {
-				$request->setVal( 'notice', 'mobile-frontend-generic-login-new' );
-			}
 		}
 	}
 
