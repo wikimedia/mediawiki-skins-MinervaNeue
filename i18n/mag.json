@@ -4,7 +4,7 @@
 			"ऐक्टिवेटेड्"
 		]
 	},
-	"minerva-last-modified-date": "अन्तिम बेर $1 के $2 बजे सम्पादित कैल गेल",
+	"minerva-last-modified-date": "अन्तिम बेर $1 के $2 बजे सम्पादित कैल गेलै",
 	"minerva-watchlist-cta": "ई पन्ना आउ एकरा पर सभ परिवर्तन पर ध्यान रखथिन ।",
 	"mobile-frontend-cookies-required": "दृश्य मोड बदलेला कुकी के आवश्यकता हे । कृपया ओकरा सक्रिय करथिन आउ पुनः प्रयास करथिन ।",
 	"mobile-frontend-editor-edit": "सम्पादित करथिन",
@@ -17,7 +17,7 @@
 	"mobile-frontend-language-article-heading": "भाषा",
 	"mobile-frontend-languages-not-available": "ई पन्ना अन्य भाषामे नै उपलब्ध हे ।",
 	"mobile-frontend-main-menu-button-tooltip": "मुख्य मेनू खोलथिन",
-	"mobile-frontend-main-menu-contributions": "जोगदान",
+	"mobile-frontend-main-menu-contributions": "योगदान",
 	"mobile-frontend-main-menu-login": "प्रवेश करथिन",
 	"mobile-frontend-main-menu-logout": "प्रस्थान करथिन",
 	"mobile-frontend-main-menu-nearby": "निकट",
@@ -50,6 +50,6 @@
 	"skin-minerva-issue-learn-more": "अधिक जानथिन",
 	"skin-minerva-mobile-option-MinervaShowCategories": "श्रेणी",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "पन्नाके श्रेणी देखथिन",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "दुर्भागसे, मोबाइल पर परिणामके समूहन सम्भव नै हे । यदि अपने पन्नाके आधार पर समूहन सुविधाके प्रयोग कैल चाह हथिन त कृपया डेस्कटाप जालस्थान पर जैथिन ।",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "दुर्भागसे, मोबाइल पर परिणामके समूहन सम्भव नै हे । यदि अपने पन्नाके आधार पर समूहन सुविधाके प्रयोग कैल चाह हथिन त कृपया डेस्कटाप जालस्थल पर जैथिन ।",
 	"skin-minerva-night-mode-unavailable": "पन्ना खाली \"इञ्जोर\" रङ्गबिषयमे उपलब्ध हे ।"
 }
