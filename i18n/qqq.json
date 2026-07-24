@@ -75,5 +75,6 @@
 	"skin-minerva-donate-banner-reduced-motion": "{{notranslate}}",
 	"skin-minerva-donate-banner-url": "{{notranslate}}",
 	"minerva.css": "{{optional}}\n{{related/css}}",
-	"minerva.js": "{{optional}}\n{{related/js}}"
+	"minerva.js": "{{optional}}\n{{related/js}}",
+	"minimal-minerva-lead-section-read-more": "Label for button that expands the lead section in minimal mode."
 }

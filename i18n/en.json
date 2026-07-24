@@ -59,5 +59,6 @@
 	"skin-minerva-donate-banner-reduced-motion": "",
 	"skin-minerva-donate-banner-url": "",
 	"minerva.css": "/* All CSS here will be loaded for users of the MinervaNeue skin */",
-	"minerva.js": "/* All JavaScript here will be loaded for users of the MinervaNeue skin */"
+	"minerva.js": "/* All JavaScript here will be loaded for users of the MinervaNeue skin */",
+	"minimal-minerva-lead-section-read-more": "Read more"
 }

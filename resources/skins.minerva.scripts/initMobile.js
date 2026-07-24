@@ -15,6 +15,7 @@ module.exports = function () {
 		TitleUtil = require( './TitleUtil.js' ),
 		issues = require( './page-issues/index.js' ),
 		Toolbar = require( './Toolbar.js' ),
+		truncateLeadSection = require( './truncateLeadSection.js' ),
 		ToggleList = require( '../../includes/Skins/ToggleList/ToggleList.js' ),
 		TabScroll = require( './TabScroll.js' ),
 		router = require( 'mediawiki.router' ),
@@ -391,6 +392,11 @@ module.exports = function () {
 			navigationDrawerMask.removeAttribute( 'for' );
 		}
 		TabScroll.initTabsScrollPosition();
+
+		// In Minimal Minerva, truncate the lead section of the article page
+		// if it exceeds a threshold of text lines.
+		truncateLeadSection.init();
+
 		// Setup the issues banner on the page
 		// Pages which don't exist (id 0) cannot have issues
 		if (

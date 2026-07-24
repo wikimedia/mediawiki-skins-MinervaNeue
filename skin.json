@@ -507,10 +507,12 @@
 				"mobile-frontend-editor-redlink-explain",
 				"minerva-download",
 				"minerva-watchlist-cta",
-				"mobile-frontend-redirected-from"
+				"mobile-frontend-redirected-from",
+				"minimal-minerva-lead-section-read-more"
 			],
 			"styles": [
-				"styles.less"
+				"styles.less",
+				"truncateLeadSection.less"
 			],
 			"templates": {
 				"IssueNotice.mustache": "page-issues/overlay/IssueNotice.mustache"
@@ -540,7 +542,8 @@
 				"Toolbar.js",
 				"mobileRedirect.js",
 				"references.js",
-				"watchstar.js"
+				"watchstar.js",
+				"truncateLeadSection.js"
 			]
 		},
 		"skins.minerva.categories.styles": {
