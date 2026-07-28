@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Albinfo",
+			"Terfili"
+		]
+	},
+	"mobile-frontend-editor-edit": "Modifitgar",
+	"mobile-frontend-history": "Mussar la cronologia da questa pagina",
+	"mobile-frontend-home-button": "Pagina principala",
+	"mobile-frontend-language-article-heading": "Leger en in'autra lingua",
+	"mobile-frontend-main-menu-login": "T'annunziar",
+	"mobile-frontend-main-menu-nearby": "Sper",
+	"mobile-frontend-main-menu-settings": "Configuraziun",
+	"mobile-frontend-main-menu-watchlist": "Glista d'observaziun",
+	"mobile-frontend-placeholder": "Tschertgar {{SITENAME}}",
+	"mobile-frontend-random-button": "Pagina casuala",
+	"minerva-page-actions-overflow": "Dapli"
+}
