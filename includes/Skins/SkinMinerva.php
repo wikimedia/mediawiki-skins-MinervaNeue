@@ -223,7 +223,11 @@ class SkinMinerva extends SkinMustache {
 			$wikiPage = new WikiPage( $talkTitle );
 			$parserOptions = ParserOptions::newFromAnon();
 			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
-			$tocInfo = $parserOutput ? $parserOutput->getExtensionData( 'DiscussionTools-tocInfo' ) : [];
+			if ( $parserOutput ) {
+				$tocInfo = $parserOutput->getExtensionData( 'DiscussionTools-tocInfo' ) ?? [];
+			} else {
+				$tocInfo = [];
+			}
 			$commentCount = array_reduce(
 				$tocInfo,
 				static fn ( int $sum, array $info ) => $sum + $info['commentCount'],
