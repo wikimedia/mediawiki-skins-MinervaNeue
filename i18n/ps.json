@@ -49,11 +49,15 @@
 	"minerva-page-actions-overflow": "نور",
 	"minerva-page-actions-language-switcher": "ژبې",
 	"minerva-page-actions-history": "پېښليک",
+	"minerva-page-tags-language-switcher": "{{PLURAL:$1|$1 ژبه|$1 ژبې}}",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 څرگندونه|$1 څرگندونې}}",
+	"minerva-page-tags-talkpage-generic": "څرگندونې",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue شننه]",
 	"skinname-minerva": "مينېروانيو",
 	"minerva-skin-desc": "موبايل لومړۍ ځوابگره پوښۍ",
 	"skin-minerva-issue-learn-more": "نور مالومات",
 	"skin-minerva-mobile-option-MinervaShowCategories": "وېشنيزې",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "مخونو وېشنيزې کتل",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "له بده مرغه، د مخ له مخې د ډلبندي کولو پايلې په موبايل کې د لاسرسي وړ نه دي. که تاسو د مخ له مخې د ډلبندۍ بڼه کارول غواړئ؛ نو مهرباني وکړئ، ډېسکټاپ بڼه وگورئ."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "له بده مرغه، د مخ له مخې د ډلبندي کولو پايلې په موبايل کې د لاسرسي وړ نه دي. که تاسو د مخ له مخې د ډلبندۍ بڼه کارول غواړئ؛ نو مهرباني وکړئ، ډېسکټاپ بڼه وگورئ.",
+	"minimal-minerva-lead-section-read-more": "نور ولولئ"
 }
