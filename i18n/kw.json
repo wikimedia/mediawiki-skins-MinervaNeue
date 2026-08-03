@@ -22,5 +22,7 @@
 	"mobile-frontend-placeholder": "Hwilas yn {{SITENAME}}",
 	"mobile-frontend-random-button": "Chonsus",
 	"mobile-frontend-user-button-tooltip": "Diskwedhes ow gwarnyansow",
-	"minerva-page-actions-overflow": "Moy"
+	"minerva-page-actions-overflow": "Moy",
+	"minerva-page-tags-talkpage-generic": "kampollow",
+	"minimal-minerva-lead-section-read-more": "Redya moy"
 }

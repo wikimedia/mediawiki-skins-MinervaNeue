@@ -57,5 +57,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Погл. категории на страници",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "За жал, групирањето на исходни ставки по страница е недостапно за мобилен уред. За таа цел, ќе мора да отворите од сметач.",
 	"minerva.css": "/* Тука поставениот CSS се однесува на корисниците на рувото „MinervaNeue“ */",
-	"minerva.js": "/* Сиот тука поставен JavaScript ќе им се вчитува на корисниците што го користат рувото „MinervaNeue“ */"
+	"minerva.js": "/* Сиот тука поставен JavaScript ќе им се вчитува на корисниците што го користат рувото „MinervaNeue“ */",
+	"minimal-minerva-lead-section-read-more": "Прочитајте повеќе"
 }
