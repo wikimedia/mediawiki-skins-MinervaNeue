@@ -108,6 +108,25 @@ class ToolbarBuilder {
 	}
 
 	/**
+	 * Return the key of the primary edit-type action present in $views, or null
+	 * if none is available. The first edit-type action in $views order is
+	 * returned so that minimal mode's single edit button matches the leading
+	 * edit action that standard mode renders (see getGroup()). A read-only
+	 * "view source" action renders a lock icon via createEditPageAction().
+	 *
+	 * @param array $views provided by Skin::getTemplateData
+	 * @return string|null
+	 */
+	private function findEditActionKey( array $views ): ?string {
+		foreach ( array_keys( $views ) as $key ) {
+			if ( in_array( $key, [ 've-edit', 'viewsource', 'edit' ], true ) ) {
+				return $key;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * @param array $actions
 	 * @param array $views
 	 * @return Group
@@ -116,13 +135,7 @@ class ToolbarBuilder {
 		$group = new Group( 'p-views' );
 
 		// Two modes: minimal and standard.
-		// Minimal mode displays constant edit and watch actions only.
-		$editData = [
-			'icon' => 'edit',
-			'class' => '',
-			'href' => $this->title->getEditURL(),
-			'text' => $this->context->msg( 'edit' ),
-		];
+		// Minimal mode displays a constant watch action plus, when available, a single edit action.
 		// NOTE Also used in standard mode for logged-out users.
 		$watchData = [
 			'icon' => 'star',
@@ -132,7 +145,20 @@ class ToolbarBuilder {
 		];
 
 		if ( $this->skinOptions->get( SkinOptions::MINIMAL ) ) {
-			$group->insertEntry( $this->createEditPageAction( 'edit', $editData ) );
+			// Follow the same logic as standard mode for the edit action: only
+			// show it when the user is allowed to edit the content, and let the
+			// icon reflect the user's permissions and the page's protection
+			// status (a plain pencil for editable pages, a lock for read-only
+			// "view source" pages). See createEditPageAction().
+			$editActionKey = $this->findEditActionKey( $views );
+			if (
+				$editActionKey !== null &&
+				$this->permissions->isAllowed( IMinervaPagePermissions::CONTENT_EDIT )
+			) {
+				$group->insertEntry(
+					$this->createEditPageAction( $editActionKey, $views[ $editActionKey ] )
+				);
+			}
 			$group->insertEntry( $this->createWatchPageAction( 'watch', $watchData ) );
 
 			return $group;
