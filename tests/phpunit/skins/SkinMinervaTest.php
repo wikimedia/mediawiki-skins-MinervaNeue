@@ -21,9 +21,9 @@ use Wikimedia\TestingAccessWrapper;
 class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	use MockAuthorityTrait;
 
-	private const MAIN_MENU_HOME_ENTRY = [
+	private const MAIN_MENU_MAIN_PAGE_ENTRY = [
 		'tag-name' => 'a',
-		'label' => 'Home',
+		'label' => 'Main Page',
 		'array-attributes' => [
 			[
 				'key' => 'href',
@@ -34,16 +34,16 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 				'value' => '1',
 			]
 		],
-		'classes' => 'menu__item--home',
+		'classes' => 'menu__item--main-page',
 		'data-icon' => [
 			'icon' => 'home',
 		],
 		'isButton' => true,
 	];
-	private const MAIN_MENU_HOME = [
-		'name' => 'home',
+	private const MAIN_MENU_MAIN_PAGE = [
+		'name' => 'main-page',
 		'components' => [
-			self::MAIN_MENU_HOME_ENTRY
+			self::MAIN_MENU_MAIN_PAGE_ENTRY
 		]
 	];
 	private const PAGE_ACTIONS = [
@@ -662,7 +662,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertTrue( isset( $data['data-minerva-main-menu']['sitelinks'] ) );
 		$this->assertEquals( 'p-navigation', $data['data-minerva-main-menu']['groups'][0]['id'] );
-		$this->assertEquals( self::MAIN_MENU_HOME, $data['data-minerva-main-menu']['groups'][0]['entries'][0] );
+		$this->assertEquals( self::MAIN_MENU_MAIN_PAGE, $data['data-minerva-main-menu']['groups'][0]['entries'][0] );
 		$this->assertEquals( 'p-interaction', $data['data-minerva-main-menu']['groups'][1]['id'] );
 		$this->assertEquals( 'pt-preferences', $data['data-minerva-main-menu']['groups'][2]['id'] );
 		$this->assertEquals( '<div class="tagline">A description</div>', $data['html-minerva-tagline'] );

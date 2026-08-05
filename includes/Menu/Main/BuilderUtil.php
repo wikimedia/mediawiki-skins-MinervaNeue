@@ -60,8 +60,8 @@ final class BuilderUtil {
 
 		$entryDefinitions = [
 			'n-mainpage-description' => [
-				'name' => 'home',
-				'text' => $definitions->msg( 'mobile-frontend-home-button' ),
+				'name' => 'main-page',
+				'text' => $definitions->msg( 'mobile-frontend-main-page-button' ),
 				'icon' => 'home',
 				'class' => '',
 				'href' => Title::newMainPage()->getLocalURL(),
