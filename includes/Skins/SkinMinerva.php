@@ -203,13 +203,32 @@ class SkinMinerva extends SkinMustache {
 				$this->getContext(),
 				true
 			);
+			$component = $entry->getComponents()[0];
+			// LanguageSelectorEntry exposes the href via `array-attributes`
+			// (shaped for the Button template). Repackage it into a `link`
+			// object; the InfoChip template renders it as a focusable
+			// <a role="button"> (isButton adds the role). The link data must be
+			// nested rather than top-level: InfoChip builds the <a> inside a
+			// `{{#link}}` block, and Mustache template resolves href/isButton
+			// as direct properties of that pushed context.
+			$href = '#p-lang';
+			$arrayAttributes = [];
+			foreach ( $component['array-attributes'] ?? [] as $attr ) {
+				if ( $attr['key'] === 'href' ) {
+					$href = $attr['value'];
+				} else {
+					$arrayAttributes[] = $attr;
+				}
+			}
 			$tags[] = array_merge(
-				$entry->getComponents()[0],
+				$component,
 				[
+					'link' => [ 'href' => $href, 'isButton' => true ],
+					'array-attributes' => $arrayAttributes,
 					'status' => 'progressive',
 					'label' => wfMessage( 'minerva-page-tags-language-switcher' )
 						->numParams( count( $languages ) ),
-					'data-icon' => ( $entry->getComponents()[0]['data-icon'] ?? [] ) +
+					'data-icon' => ( $component['data-icon'] ?? [] ) +
 						[ 'size' => 'small' ],
 				]
 			);
@@ -236,7 +255,7 @@ class SkinMinerva extends SkinMustache {
 				0,
 			);
 			$tags[] = [
-				'href' => $talkTitle->getLocalURL(),
+				'link' => [ 'href' => $talkTitle->getLocalURL() ],
 				'label' => ExtensionRegistry::getInstance()->isLoaded( 'DiscussionTools' ) ?
 					wfMessage( 'minerva-page-tags-talkpage' )->numParams( $commentCount ) :
 					wfMessage( 'minerva-page-tags-talkpage-generic' ),
