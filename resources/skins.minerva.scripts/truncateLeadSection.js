@@ -1,5 +1,5 @@
 /**
- * Lead section truncation for Minimal Minerva.
+ * Lead section truncation.
  *
  * Given a lead section of an article page that exceeds a threshold,
  * collapses it, and appends a "Read more" button that expands the section on tap.
@@ -23,15 +23,6 @@ const LEAD_SECTION_SELECTOR = 'section[data-mw-section-id="0"]';
 
 ( function () {
 	'use strict';
-
-	/**
-	 * Whether Minimal Minerva is enabled.
-	 *
-	 * @return {boolean}
-	 */
-	function isMinimalMinerva() {
-		return document.body.classList.contains( 'minerva--minimal' );
-	}
 
 	/**
 	 * Measure line height from computed styles.
@@ -126,10 +117,6 @@ const LEAD_SECTION_SELECTOR = 'section[data-mw-section-id="0"]';
 
 	/** @return {void} */
 	function init() {
-		if ( !isMinimalMinerva() ) {
-			return;
-		}
-
 		const leadSectionElement = document.querySelector( LEAD_SECTION_SELECTOR );
 		if ( leadSectionElement === null ) {
 			return;

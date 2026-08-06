@@ -217,6 +217,9 @@ class Hooks implements
 			$vars += [
 				'wgMinervaABSamplingRate' => $config->get( 'MinervaABSamplingRate' ),
 				'wgMinervaReadOnly' => $this->configuredReadOnlyMode->isReadOnly(),
+				// The lead section's truncation feature is client-side,
+				// so expose the config flag to the client.
+				'wgMinervaTruncateLeadSection' => $config->get( 'MinervaTruncateLeadSection' ),
 			];
 		}
 	}

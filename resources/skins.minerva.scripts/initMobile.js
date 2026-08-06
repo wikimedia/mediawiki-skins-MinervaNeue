@@ -393,9 +393,10 @@ module.exports = function () {
 		}
 		TabScroll.initTabsScrollPosition();
 
-		// In Minimal Minerva, truncate the lead section of the article page
-		// if it exceeds a threshold of text lines.
-		truncateLeadSection.init();
+		if ( mw.config.get( 'wgMinervaTruncateLeadSection' ) ) {
+			// Truncate the article page's lead section if it exceeds a threshold of text lines
+			truncateLeadSection.init();
+		}
 
 		// Setup the issues banner on the page
 		// Pages which don't exist (id 0) cannot have issues

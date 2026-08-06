@@ -1,44 +1,42 @@
 @import 'mediawiki.skin.variables.less';
 
-.minerva--minimal {
-	.minerva--lead-section-container {
-		position: relative;
-		overflow: visible;
+.minerva--lead-section-container {
+	position: relative;
+	overflow: visible;
 
-		.minerva--lead-section--collapsed {
-			height: var( --mw-lead-section-container-height, auto );
-			overflow: hidden;
-		}
+	.minerva--lead-section--collapsed {
+		height: var( --mw-lead-section-container-height, auto );
+		overflow: hidden;
+	}
 
-		.minerva--lead-fade-container {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			height: 72px;
-			background: linear-gradient( to bottom, transparent, @background-color-base );
-		}
+	.minerva--lead-fade-container {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 72px;
+		background: linear-gradient( to bottom, transparent, @background-color-base );
+	}
 
-		.minerva--lead-section__button {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			margin: 0;
-			padding: 0;
-			height: 40px;
-			line-height: 40px;
-			background: @background-color-base;
-			border: @border-subtle;
-			color: @color-progressive;
-			font-weight: @font-weight-bold;
-			font-family: @font-family-base;
-			cursor: pointer;
-			text-align: center;
-		}
+	.minerva--lead-section__button {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		height: 40px;
+		line-height: 40px;
+		background: @background-color-base;
+		border: @border-subtle;
+		color: @color-progressive;
+		font-weight: @font-weight-bold;
+		font-family: @font-family-base;
+		cursor: pointer;
+		text-align: center;
+	}
 
-		.minerva--lead-section__button:hover {
-			background-color: @background-color-interactive-subtle;
-		}
+	.minerva--lead-section__button:hover {
+		background-color: @background-color-interactive-subtle;
 	}
 }

@@ -94,6 +94,9 @@
 		},
 		"MinervaABSamplingRate": {
 			"value": 0
+		},
+		"MinervaTruncateLeadSection": {
+			"value": false
 		}
 	},
 	"ValidSkinNames": {
