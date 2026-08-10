@@ -122,6 +122,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 			$services->getRevisionLookup(),
 			$services->getUserIdentityUtils(),
 			$services->getUserOptionsManager(),
+			$services->getWikiPageFactory(),
 			[
 				'name' => 'minerva',
 				'menus' => [

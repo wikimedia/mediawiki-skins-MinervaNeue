@@ -38,7 +38,7 @@ use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
-use MediaWiki\Page\WikiPage;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionLookup;
@@ -84,6 +84,7 @@ class SkinMinerva extends SkinMustache {
 	 * @param RevisionLookup $revisionLookup
 	 * @param UserIdentityUtils $userIdentityUtils
 	 * @param UserOptionsManager $userOptionsManager
+	 * @param WikiPageFactory $wikiPageFactory
 	 * @param array $options
 	 */
 	public function __construct(
@@ -99,6 +100,7 @@ class SkinMinerva extends SkinMustache {
 		private readonly RevisionLookup $revisionLookup,
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly UserOptionsManager $userOptionsManager,
+		private readonly WikiPageFactory $wikiPageFactory,
 		$options = [],
 	) {
 		parent::__construct( $options );
@@ -220,7 +222,7 @@ class SkinMinerva extends SkinMustache {
 			// might have unwanted performance implications. If we want
 			// to iterate on this post-experiment, this would need to be
 			// addressed!
-			$wikiPage = new WikiPage( $talkTitle );
+			$wikiPage = $this->wikiPageFactory->newFromTitle( $talkTitle );
 			$parserOptions = ParserOptions::newFromAnon();
 			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
 			if ( $parserOutput ) {

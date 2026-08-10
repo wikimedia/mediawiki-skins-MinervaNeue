@@ -111,7 +111,8 @@
 				"NamespaceInfo",
 				"RevisionLookup",
 				"UserIdentityUtils",
-				"UserOptionsManager"
+				"UserOptionsManager",
+				"WikiPageFactory"
 			],
 			"optional_services": [],
 			"args": [
