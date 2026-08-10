@@ -4,6 +4,7 @@
 			"Dušan Kreheľ",
 			"Helix84",
 			"Jaroslav.micek",
+			"KormiSK",
 			"LacoR",
 			"Luky001",
 			"Teslaton",
@@ -64,5 +65,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Zobraziť kategórie stránok",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Zoskupovanie výsledkov podľa stránok bohužiaľ nie je na mobile dostupné. Ak chcete použiť funkciu zoskupovania podľa stránok, navštívte desktopovú verziu.",
 	"minerva.css": "/* CSS umiestnené tu sa načíta používateľom témy vzhľadu MinervaNeue */",
-	"minerva.js": "/* JavaScript umiestnený tu sa načíta používateľom témy vzhľadu MinervaNeue */"
+	"minerva.js": "/* JavaScript umiestnený tu sa načíta používateľom témy vzhľadu MinervaNeue */",
+	"minimal-minerva-lead-section-read-more": "Čítať viac"
 }
