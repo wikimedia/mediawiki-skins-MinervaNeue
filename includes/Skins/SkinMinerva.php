@@ -249,18 +249,19 @@ class SkinMinerva extends SkinMustache {
 			$parserOptions = ParserOptions::newFromAnon();
 			$parserOutput = $wikiPage->getParserOutput( $parserOptions );
 			if ( $parserOutput ) {
-				$tocInfo = $parserOutput->getExtensionData( 'DiscussionTools-tocInfo' ) ?? [];
+				$tocInfo = $parserOutput->getExtensionData( 'DiscussionTools-tocInfo' );
+				if ( is_array( $tocInfo ) ) {
+					$commentCount = count( $tocInfo );
+				} else {
+					$tocData = $parserOutput->getTOCData();
+					$commentCount = $tocData ? count( $tocData->getSections() ) : 0;
+				}
 			} else {
-				$tocInfo = [];
+				$commentCount = 0;
 			}
-			$commentCount = array_reduce(
-				$tocInfo,
-				static fn ( int $sum, array $info ) => $sum + $info['commentCount'],
-				0,
-			);
 			$tags[] = [
 				'link' => [ 'href' => $talkTitle->getLocalURL() ],
-				'label' => ExtensionRegistry::getInstance()->isLoaded( 'DiscussionTools' ) ?
+				'label' => ( ExtensionRegistry::getInstance()->isLoaded( 'DiscussionTools' ) || $commentCount > 0 ) ?
 					wfMessage( 'minerva-page-tags-talkpage' )->numParams( $commentCount ) :
 					wfMessage( 'minerva-page-tags-talkpage-generic' ),
 				'status' => 'progressive',
