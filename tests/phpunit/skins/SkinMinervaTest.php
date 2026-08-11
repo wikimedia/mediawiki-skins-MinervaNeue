@@ -751,4 +751,20 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$actions = $skin->getSecondaryActions( $contentNavigationUrls );
 		$this->assertArrayNotHasKey( 'talk', $actions );
 	}
+
+	/**
+	 * @covers ::getPageTags
+	 */
+	public function testGetPageTagsDisabledWhenTalkNotAllowed() {
+		$this->overrideSkinOptions( [ SkinOptions::MINIMAL => true, SkinOptions::TALK_AT_TOP => false ] );
+		$context = new RequestContext();
+		$title = Title::makeTitle( NS_MAIN, 'Main Page' );
+		$context->setTitle( $title );
+
+		$skin = $this->newSkinMinerva( $context );
+		$wrapper = TestingAccessWrapper::newFromObject( $skin );
+
+		$tags = $wrapper->getPageTags();
+		$this->assertNull( $tags );
+	}
 }

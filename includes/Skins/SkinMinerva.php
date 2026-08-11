@@ -236,7 +236,11 @@ class SkinMinerva extends SkinMustache {
 
 		// X comments
 		$talkTitle = $this->getTitle()->getTalkPageIfDefined();
-		if ( $talkTitle ) {
+		if (
+			$talkTitle &&
+			$this->skinOptions->get( SkinOptions::TALK_AT_TOP ) &&
+			$this->permissions->isTalkAllowed()
+		) {
 			// TODO: We're going to reach into another page's output, which
 			// might have unwanted performance implications. If we want
 			// to iterate on this post-experiment, this would need to be
