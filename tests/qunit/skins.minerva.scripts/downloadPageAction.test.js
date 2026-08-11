@@ -104,6 +104,21 @@
 		assert.true( this.isAvailable( VALID_UA ) );
 	} );
 
+	QUnit.test( 'isAvailable() returns false for Minimal Minerva', function ( assert ) {
+		const mockWindow = {
+			document: {
+				body: {
+					classList: {
+						contains: function ( cls ) {
+							return cls === 'minerva--minimal';
+						}
+					}
+				}
+			}
+		};
+		assert.false( isAvailable( this.config, VALID_UA, mockWindow ) );
+	} );
+
 	QUnit.test( 'isAvailable() handles properly not supported namespace', ( assert ) => {
 		const config = new MockConfig( {
 			wgMinervaDownloadNamespaces: [ 9999 ]

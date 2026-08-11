@@ -22,12 +22,19 @@ function isIos( userAgent ) {
  * @param {mw.config} mw.config instance
  * @param config
  * @param {string} userAgent User agent
+ * @param {Window} [windowObj] window object
  * @return {boolean}
  */
-function isAvailable( config, userAgent ) {
+function isAvailable( config, userAgent, windowObj ) {
 	const supportedNamespaces = config.get( 'wgMinervaDownloadNamespaces', [] );
 	if ( typeof window.print !== 'function' ) {
 		// T309591: No window.print support
+		return false;
+	}
+
+	const doc = ( windowObj && windowObj.document ) || document;
+	if ( doc && doc.body && doc.body.classList.contains( 'minerva--minimal' ) ) {
+		// Minimal Minerva does not display the download button
 		return false;
 	}
 
@@ -107,7 +114,7 @@ function downloadPageAction( config, windowObj, overflowList ) {
 
 	if (
 		isAvailable(
-			config, navigator.userAgent
+			config, navigator.userAgent, windowObj
 		)
 	) {
 		// FIXME: Use p-views when cache has cleared.
