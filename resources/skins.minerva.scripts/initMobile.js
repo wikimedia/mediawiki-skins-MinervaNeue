@@ -5,7 +5,6 @@
 module.exports = function () {
 	const
 		ms = require( 'mobile.startup' ),
-		PageHTMLParser = ms.PageHTMLParser,
 		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		time = ms.time,
 		DateFormatter = require( 'mediawiki.DateFormatter' ),
@@ -20,93 +19,10 @@ module.exports = function () {
 		TabScroll = require( './TabScroll.js' ),
 		router = require( 'mediawiki.router' ),
 		ctaDrawers = require( './ctaDrawers.js' ),
-		desktopMMV = mw.loader.getState( 'mmv.bootstrap' ),
 		overlayManager = ms.getOverlayManager(),
 		currentPage = ms.currentPage(),
 		currentPageHTMLParser = ms.currentPageHTMLParser(),
-		api = new mw.Api(),
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
-
-	/**
-	 * Event handler for clicking on an image thumbnail
-	 *
-	 * @param {MouseEvent} ev
-	 * @ignore
-	 */
-	function onClickImage( ev ) {
-		// Do not interfere when a modifier key is pressed.
-		if ( ev.altKey || ev.ctrlKey || ev.shiftKey || ev.metaKey ) {
-			return;
-		}
-
-		const el = ev.target.closest( PageHTMLParser.THUMB_SELECTOR );
-		if ( !el ) {
-			return;
-		}
-
-		const thumb = currentPageHTMLParser.getThumbnail( $( el ) );
-		if ( !thumb ) {
-			return;
-		}
-
-		ev.preventDefault();
-		routeThumbnail( thumb );
-	}
-
-	/**
-	 * @param {jQuery.Element} thumbnail
-	 * @ignore
-	 */
-	function routeThumbnail( thumbnail ) {
-		router.navigate( '#/media/' + encodeURIComponent( thumbnail.getFileName() ) );
-	}
-
-	/**
-	 * Add routes to images and handle clicks
-	 *
-	 * @method
-	 * @ignore
-	 * @param {HTMLElement} container Container to search within
-	 */
-	function initMediaViewer( container ) {
-		// T360781 Ensure correct type before using `addEventListener`.
-		if ( container instanceof HTMLElement ) {
-			container.addEventListener( 'click', onClickImage );
-		}
-	}
-
-	/**
-	 * Returns a rejected promise if MultimediaViewer is available. Otherwise
-	 * returns the mediaViewerOverlay
-	 *
-	 * @method
-	 * @ignore
-	 * @param {string} title the title of the image
-	 * @return {void|Overlay} note must return void if the overlay should not show (see T262703)
-	 *  otherwise an Overlay is expected and this can lead to e.on/off is not a function
-	 */
-	function makeMediaViewerOverlayIfNeeded( title ) {
-		if ( mw.loader.getState( 'mmv.bootstrap' ) === 'ready' ) {
-			// This means MultimediaViewer has been installed and is loaded.
-			// Avoid loading it (T169622)
-			return;
-		}
-		try {
-			title = decodeURIComponent( title );
-		} catch ( e ) {
-			// e.g. https://ro.m.wikipedia.org/wiki/Elisabeta_I_a_Angliei#/media/Fi%C8%18ier:Elizabeth_I_Rainbow_Portrait.jpg
-			return;
-		}
-
-		return ms.mediaViewer.overlay( {
-			api,
-			thumbnails: currentPageHTMLParser.getThumbnails(),
-			title
-		} );
-	}
-
-	// Routes
-	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
 
 	/**
 	 * Initialisation function for last modified module.
@@ -352,11 +268,6 @@ module.exports = function () {
 		// This should probably be done in the parser.
 		// setup toc icons
 		mw.hook( 'wikipage.content' ).add( ( $container ) => {
-			// If the MMV module is missing or disabled from the page, initialise our version
-			if ( desktopMMV === null || desktopMMV === 'registered' ) {
-				initMediaViewer( $container[ 0 ] );
-			}
-
 			// Mutate TOC.
 			const $toctitle = $container.find( '.toctitle' );
 			$( '<span>' ).addClass( 'toc-title-icon' ).prependTo( $toctitle );
