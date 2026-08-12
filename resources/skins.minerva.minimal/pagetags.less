@@ -24,17 +24,24 @@
 			text-decoration: none;
 			outline-offset: -2px;
 			height: @size-150;
+			color: @color-progressive;
 
 			&:hover {
 				background-color: @background-color-progressive-subtle--hover;
+				color: @color-progressive--hover;
+			}
+
+			&:active {
+				background-color: @background-color-progressive-subtle--active;
+				color: @color-progressive--active;
 			}
 
 			.cdx-info-chip__text {
-				color: @color-progressive;
+				color: inherit;
 			}
 
 			.minerva-icon {
-				background-color: @color-progressive;
+				background-color: currentColor;
 			}
 		}
 	}
