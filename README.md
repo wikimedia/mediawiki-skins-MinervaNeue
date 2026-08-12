@@ -149,3 +149,10 @@ Group membership can be debugged from the console via:
 
 And since session ID is an input in calculating the group, reassignment occurs
 when clearing it: `mw.storage.session.remove('mwuser-sessionId')`.
+
+#### $wgMinervaTruncateLeadSection
+
+* Type: `Boolean`
+* Default: `false`
+
+Whether to truncate the lead section of an article page via a "Read more" button.
