@@ -12,10 +12,6 @@ const iAmUsingTheMobileSite = async () => {
 	await ArticlePage.setMobileMode();
 };
 
-const iAmInBetaMode = async () => {
-	await ArticlePage.setBetaMode();
-};
-
 const iAmOnPage = async ( article ) => {
 	await ArticlePage.open( article );
 	// Make sure the article opened and JS loaded.
@@ -53,12 +49,6 @@ const iShouldSeeAToastNotification = async () => {
 	await ArticlePage.notification_element.waitForDisplayed();
 };
 
-const iShouldSeeAToastNotificationWithMessage = async ( msg ) => {
-	await iShouldSeeAToastNotification();
-	const notificationBody = await ArticlePage.notification_element.$( '.mw-notification-content' );
-	await expect( notificationBody ).toHaveText( expect.stringContaining( msg ) );
-};
-
 const iClickTheBrowserBackButton = async () => {
 	await browser.back();
 };
@@ -79,8 +69,7 @@ export {
 	createPage,
 	pageExistsWithText,
 	pageExists, iAmOnAPageThatDoesNotExist, iShouldSeeAToastNotification,
-	iShouldSeeAToastNotificationWithMessage,
 	iAmLoggedIntoTheMobileWebsite,
 	iAmUsingTheMobileSite,
-	iAmLoggedIn, iAmOnPage, iAmInBetaMode
+	iAmLoggedIn, iAmOnPage
 };

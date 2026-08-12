@@ -7,7 +7,6 @@ import {
 	iClickOnAReference,
 	iClickOnTheMask,
 	iShouldSeeNotTheReferenceDrawer,
-	iClickOnANestedReference,
 	iShouldSeeDrawerWithText
 } from '../features/step_definitions/reference_steps.js';
 import { createApiClient } from 'wdio-mediawiki/Api.js';
@@ -51,14 +50,5 @@ describe( 'Opening and closing the reference drawer', () => {
 		await iShouldSeeDrawerWithText( 'This is a note.' );
 		await iClickOnTheMask();
 		await iShouldSeeNotTheReferenceDrawer();
-	} );
-
-	// broken or very flaky (T418779)
-	it.skip( 'Opening a nested reference', async () => {
-		await iAmOnPage( 'Selenium References test page' );
-		await iClickOnAReference();
-		await iShouldSeeDrawerWithText( 'This is a note.' );
-		await iClickOnANestedReference();
-		await iShouldSeeDrawerWithText( 'This is a nested ref.' );
 	} );
 } );

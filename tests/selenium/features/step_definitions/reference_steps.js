@@ -14,14 +14,6 @@ const iClickOnAReference = async () => {
 	await ArticlePage.reference_element.click();
 };
 
-const iClickOnANestedReference = async () => {
-	await ArticlePage.drawer_reference_element.waitForClickable();
-	// Wait for a short while to allow event listeners to be registered on the nested reference.
-	// eslint-disable-next-line wdio/no-pause
-	await browser.pause( 100 );
-	await ArticlePage.drawer_reference_element.click();
-};
-
 const iShouldSeeDrawerWithText = async ( text ) => {
 	await ArticlePage.drawer_element.waitForDisplayed();
 	await browser.waitUntil( async () => ( await ArticlePage.drawer_element.getText() ).includes( text ) );
@@ -31,6 +23,5 @@ export {
 	iClickOnAReference,
 	iClickOnTheMask,
 	iShouldSeeNotTheReferenceDrawer,
-	iClickOnANestedReference,
 	iShouldSeeDrawerWithText
 };
