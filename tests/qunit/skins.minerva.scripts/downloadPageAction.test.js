@@ -1,10 +1,6 @@
 ( function () {
 	const VALID_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Mobile Safari/537.36';
 	const VALID_SUPPORTED_NAMESPACES = [ 0 ];
-	const spinner = () => ( {
-		$el: $( '<span>' )
-	} );
-	const Deferred = $.Deferred;
 	const downloadAction = require( 'skins.minerva.scripts/downloadPageAction.js' );
 	const onClick = downloadAction.test.onClick;
 	const isAvailable = downloadAction.test.isAvailable;
@@ -26,11 +22,10 @@
 
 	QUnit.module( 'Minerva DownloadIcon', {
 		beforeEach: function () {
-			this.getOnClickHandler = function ( onLoadAllImages ) {
-				const portletLink = document.createElement( 'li' );
-
+			this.clock = this.sandbox.useFakeTimers();
+			this.getOnClickHandler = function () {
 				return function () {
-					onClick( portletLink, spinner(), onLoadAllImages );
+					onClick();
 				};
 			};
 		}
@@ -38,54 +33,24 @@
 
 	QUnit.test( '#getOnClickHandler (print after image download)', function ( assert ) {
 		const
-			d = Deferred(),
-			handler = this.getOnClickHandler( () => d.resolve() ),
+			handler = this.getOnClickHandler(),
 			spy = this.sandbox.stub( window, 'print' );
 
 		handler();
-		d.then( () => {
-			assert.strictEqual( spy.callCount, 1, 'Print occurred.' );
-		} );
-
-		return d;
-	} );
-
-	QUnit.test( '#getOnClickHandler (print via timeout)', function ( assert ) {
-		const
-			d = Deferred(),
-			handler = this.getOnClickHandler( () => d.resolve() ),
-			spy = this.sandbox.stub( window, 'print' );
-
-		window.setTimeout( () => {
-			d.resolve();
-		}, 3400 );
-
-		handler();
-		d.then( () => {
-			assert.strictEqual( spy.callCount, 1,
-				'Print was called once despite loadImages resolving after MAX_PRINT_TIMEOUT' );
-		} );
-
-		return d;
+		this.clock.tick( 1000 );
+		assert.strictEqual( spy.callCount, 1, 'Print occurred.' );
 	} );
 
 	QUnit.test( '#getOnClickHandler (multiple clicks)', function ( assert ) {
-		const d = Deferred(),
-			handler = this.getOnClickHandler( () => d.resolve() ),
+		const
+			handler = this.getOnClickHandler(),
 			spy = this.sandbox.stub( window, 'print' );
 
-		window.setTimeout( () => {
-			d.resolve();
-		}, 3400 );
-
 		handler();
 		handler();
-		d.then( () => {
-			assert.strictEqual( spy.callCount, 1,
-				'Print was called once despite multiple clicks' );
-		} );
-
-		return d;
+		this.clock.tick( 1000 );
+		assert.strictEqual( spy.callCount, 1,
+			'Print was called once despite multiple clicks' );
 	} );
 
 	QUnit.module( 'Minerva DownloadIcon isAvailable()', {

@@ -1,7 +1,5 @@
 const track = mw.track;
-const MAX_PRINT_TIMEOUT = 3000;
 let printSetTimeoutReference = 0;
-const mobile = require( 'mobile.startup' );
 
 /**
  * Helper function to detect iOs
@@ -57,40 +55,23 @@ function isAvailable( config, userAgent, windowObj ) {
  * onClick handler for button that invokes print function
  *
  * @private
- * @param {HTMLElement} portletItem
- * @param {Icon} spinner
- * @param {Function} [loadAllImagesInPage]
  */
-function onClick( portletItem, spinner, loadAllImagesInPage ) {
-	const icon = portletItem.querySelector( '.minerva-icon--download' );
-	function doPrint() {
-		printSetTimeoutReference = clearTimeout( printSetTimeoutReference );
-		track( 'minerva.downloadAsPDF', {
-			action: 'callPrint'
-		} );
-		window.print();
-		$( icon ).show();
-		spinner.$el.hide();
-	}
-
-	function doPrintBeforeTimeout() {
-		if ( printSetTimeoutReference ) {
-			doPrint();
+function onClick() {
+	track( 'minerva.downloadAsPDF', {
+		action: 'callPrint'
+	} );
+	printSetTimeoutReference = clearTimeout( printSetTimeoutReference );
+	// The beforeprint wont necessarily be called when calling window.print
+	// programmatically (e.g. Chrome) so strip loading attribute from any
+	// images before invoking print.
+	Array.prototype.forEach.call(
+		document.querySelectorAll( 'img[loading]' ),
+		( img ) => {
+			img.loading = 'eager';
 		}
-	}
-	// The click handler may be invoked multiple times so if a pending print is occurring
-	// do nothing.
+	);
 	if ( !printSetTimeoutReference ) {
-		track( 'minerva.downloadAsPDF', {
-			action: 'fetchImages'
-		} );
-		$( icon ).hide();
-		spinner.$el.show();
-		// If all image downloads are taking longer to load then the MAX_PRINT_TIMEOUT
-		// abort the spinner and print regardless.
-		printSetTimeoutReference = setTimeout( doPrint, MAX_PRINT_TIMEOUT );
-		( loadAllImagesInPage || mobile.loadAllImagesInPage )()
-			.then( doPrintBeforeTimeout, doPrintBeforeTimeout );
+		printSetTimeoutReference = setTimeout( window.print, 500 );
 	}
 }
 
@@ -107,11 +88,6 @@ function onClick( portletItem, spinner, loadAllImagesInPage ) {
  * @return {jQuery|null}
  */
 function downloadPageAction( config, windowObj, overflowList ) {
-	const spinner = ( overflowList ) ? mobile.spinner( {
-		label: '',
-		isIconOnly: false
-	} ) : mobile.spinner();
-
 	if (
 		isAvailable(
 			config, navigator.userAgent, windowObj
@@ -133,15 +109,12 @@ function downloadPageAction( config, windowObj, overflowList ) {
 		);
 		if ( portletLink ) {
 			portletLink.addEventListener( 'click', () => {
-				onClick( portletLink, spinner, mobile.loadAllImagesInPage );
+				onClick();
 			} );
 			const iconElement = portletLink.querySelector( '.minerva-icon' );
 			if ( iconElement ) {
 				iconElement.classList.add( 'minerva-icon--download' );
 			}
-			spinner.$el.hide().insertBefore(
-				$( portletLink ).find( '.minerva-icon' )
-			);
 		}
 		return portletLink;
 	} else {
