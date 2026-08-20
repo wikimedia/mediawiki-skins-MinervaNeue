@@ -196,10 +196,11 @@ class SkinMinerva extends SkinMustache {
 			$this->getContext()->getOutput(),
 			$this->getTitle()
 		);
+		$hasLanguages = count( $languages ) > 0;
 		if ( $this->permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$entry = new LanguageSelectorEntry(
 				$this->getTitle(),
-				true,
+				$hasLanguages,
 				$this->getContext(),
 				true
 			);
@@ -211,7 +212,7 @@ class SkinMinerva extends SkinMustache {
 			// nested rather than top-level: InfoChip builds the <a> inside a
 			// `{{#link}}` block, and Mustache template resolves href/isButton
 			// as direct properties of that pushed context.
-			$href = '#p-lang';
+			$href = false;
 			$arrayAttributes = [];
 			foreach ( $component['array-attributes'] ?? [] as $attr ) {
 				if ( $attr['key'] === 'href' ) {
@@ -226,8 +227,10 @@ class SkinMinerva extends SkinMustache {
 					'link' => [ 'href' => $href, 'isButton' => true ],
 					'array-attributes' => $arrayAttributes,
 					'status' => 'progressive',
-					'label' => wfMessage( 'minerva-page-tags-language-switcher' )
-						->numParams( count( $languages ) ),
+					'label' => $hasLanguages ?
+						wfMessage( 'minerva-page-tags-language-switcher' )
+							->numParams( count( $languages ) ) :
+						$component['label'],
 					'data-icon' => ( $component['data-icon'] ?? [] ) +
 						[ 'size' => 'small' ],
 				]

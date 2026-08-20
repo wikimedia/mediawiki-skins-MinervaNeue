@@ -66,10 +66,11 @@ class LanguagesHelper {
 		);
 
 		$langConv = $this->languageConverterFactory->getLanguageConverter( $title->getPageLanguage() );
+		$variants = $langConv->hasVariants() ? $langConv->getVariants() : [];
 
 		return array_unique( array_merge(
 			$langlinks,
-			$langConv->getVariants()
+			$variants
 		) );
 	}
 }
