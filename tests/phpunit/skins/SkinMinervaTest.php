@@ -3,6 +3,8 @@
 namespace MediaWiki\Minerva;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Language\ILanguageConverter;
+use MediaWiki\Language\LanguageConverterFactory;
 use MediaWiki\Minerva\Skins\SkinMinerva;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
@@ -98,6 +100,17 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		'value' => "Your alerts",
 	];
 
+	private function setLanguagesHelperMock( bool $hasVariants = false, array $variants = [] ): void {
+		$langConv = $this->createMock( ILanguageConverter::class );
+		$langConv->method( 'hasVariants' )->willReturn( $hasVariants );
+		$langConv->method( 'getVariants' )->willReturn( $variants );
+		$langConvFactory = $this->createMock( LanguageConverterFactory::class );
+		$langConvFactory->method( 'getLanguageConverter' )->willReturn( $langConv );
+
+		$helper = new LanguagesHelper( $langConvFactory );
+		$this->setService( 'Minerva.LanguagesHelper', $helper );
+	}
+
 	/**
 	 * @param RequestContext|null $context
 	 * @return SkinMinerva
@@ -105,9 +118,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	private function newSkinMinerva( $context = null ): SkinMinerva {
 		$services = $this->getServiceContainer();
 		$permissions = $services->getService( 'Minerva.Permissions' );
-		if ( $context ) {
-			$permissions->setContext( $context );
-		}
 
 		$skin = new SkinMinerva(
 			$services->getGenderCache(),
@@ -134,6 +144,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		if ( $context ) {
 			$skin->setContext( $context );
 			$context->setSkin( $skin );
+			$permissions->setContext( $context );
 		}
 		return $skin;
 	}
@@ -756,9 +767,11 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getPageTags
 	 */
 	public function testGetPageTagsDisabledWhenTalkNotAllowed() {
+		$this->setLanguagesHelperMock();
 		$this->overrideSkinOptions( [ SkinOptions::MINIMAL => true, SkinOptions::TALK_AT_TOP => false ] );
+		$this->overrideConfigValue( 'MinervaAlwaysShowLanguageButton', false );
 		$context = new RequestContext();
-		$title = Title::makeTitle( NS_MAIN, 'Main Page' );
+		$title = Title::makeTitle( NS_MAIN, 'Test Page' );
 		$context->setTitle( $title );
 
 		$skin = $this->newSkinMinerva( $context );
@@ -766,5 +779,51 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 		$tags = $wrapper->getPageTags();
 		$this->assertNull( $tags );
+	}
+
+	/**
+	 * @covers ::getPageTags
+	 */
+	public function testGetPageTagsWithLanguages() {
+		$this->setLanguagesHelperMock();
+		$this->overrideSkinOptions( [ SkinOptions::MINIMAL => true, SkinOptions::TALK_AT_TOP => false ] );
+		$this->overrideConfigValue( 'MinervaAlwaysShowLanguageButton', true );
+		$context = new RequestContext();
+		$title = Title::makeTitle( NS_MAIN, 'Test Page' );
+		$context->setTitle( $title );
+		$context->getOutput()->addLanguageLinks( [ 'fr:Test Page', 'de:Test Page' ] );
+
+		$skin = $this->newSkinMinerva( $context );
+		$wrapper = TestingAccessWrapper::newFromObject( $skin );
+
+		$tags = $wrapper->getPageTags();
+		$this->assertNotNull( $tags );
+		$this->assertCount( 1, $tags['items'] );
+		$this->assertSame( '#p-lang', $tags['items'][0]['link']['href'] );
+		$this->assertSame( 'minerva-page-tags-language-switcher', $tags['items'][0]['label']->getKey() );
+		$params = $tags['items'][0]['label']->getParams();
+		$this->assertSame( 2, is_object( $params[0] ) ? $params[0]->getValue() : $params[0] );
+	}
+
+	/**
+	 * @covers ::getPageTags
+	 */
+	public function testGetPageTagsWithoutLanguages() {
+		$this->setLanguagesHelperMock();
+		$this->overrideSkinOptions( [ SkinOptions::MINIMAL => true, SkinOptions::TALK_AT_TOP => false ] );
+		$this->overrideConfigValue( 'MinervaAlwaysShowLanguageButton', true );
+		$context = new RequestContext();
+		$title = Title::makeTitle( NS_MAIN, 'Test Page' );
+		$context->setTitle( $title );
+
+		$skin = $this->newSkinMinerva( $context );
+		$wrapper = TestingAccessWrapper::newFromObject( $skin );
+
+		$tags = $wrapper->getPageTags();
+		$this->assertNotNull( $tags );
+		$this->assertCount( 1, $tags['items'] );
+		$this->assertFalse( $tags['items'][0]['link']['href'] );
+		$this->assertStringContainsString( 'disabled', $tags['items'][0]['classes'] );
+		$this->assertSame( 'mobile-frontend-language-article-heading', $tags['items'][0]['label']->getKey() );
 	}
 }

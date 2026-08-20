@@ -76,4 +76,57 @@ class LanguagesHelperTest extends MediaWikiIntegrationTestCase {
 			[ true, [], true ],
 		];
 	}
+
+	/**
+	 * @dataProvider provideGetLanguagesAndVariants
+	 * @covers ::getLanguagesAndVariants
+	 */
+	public function testGetLanguagesAndVariants(
+		bool $hasVariants,
+		array $variants,
+		array $langLinks,
+		array $expected
+	) {
+		$langConv = $this->createMock( ILanguageConverter::class );
+		$langConv->method( 'hasVariants' )->willReturn( $hasVariants );
+		$langConv->method( 'getVariants' )->willReturn( $variants );
+		$langConvFactory = $this->createMock( LanguageConverterFactory::class );
+		$langConvFactory->method( 'getLanguageConverter' )->willReturn( $langConv );
+
+		$helper = new LanguagesHelper( $langConvFactory );
+
+		$this->assertSame( $expected, array_values( $helper->getLanguagesAndVariants(
+			$this->getOutput( $langLinks ),
+			$this->getTitle()
+		) ) );
+	}
+
+	public static function provideGetLanguagesAndVariants() {
+		return [
+			'no links and no variants' => [
+				false,
+				[ 'en' ],
+				[],
+				[],
+			],
+			'links present, no variants' => [
+				false,
+				[ 'en' ],
+				[ 'pl:StronaTestowa', 'de:TestPage' ],
+				[ 'pl', 'de' ],
+			],
+			'no links, variants present' => [
+				true,
+				[ 'zh', 'zh-hans', 'zh-hant' ],
+				[],
+				[ 'zh', 'zh-hans', 'zh-hant' ],
+			],
+			'links and variants present' => [
+				true,
+				[ 'sr', 'sr-ec', 'sr-el' ],
+				[ 'en:TestPage' ],
+				[ 'en', 'sr', 'sr-ec', 'sr-el' ],
+			],
+		];
+	}
 }
