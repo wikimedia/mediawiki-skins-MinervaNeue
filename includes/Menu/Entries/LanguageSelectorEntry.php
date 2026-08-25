@@ -65,6 +65,8 @@ class LanguageSelectorEntry implements IMenuEntry {
 
 		if ( $this->doesPageHaveLanguages ) {
 			$switcherLink = '#p-lang';
+			// ULS binds a delegated click handler on this class.
+			$switcherClasses .= ' mw-interlanguage-selector';
 		} else {
 			$switcherClasses .= ' disabled';
 		}

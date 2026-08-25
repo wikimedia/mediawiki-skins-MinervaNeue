@@ -945,7 +945,8 @@ class SkinMinerva extends SkinMustache {
 			],
 			'tag-name' => 'a',
 			'isButton' => true,
-			'classes' => 'language-selector button',
+			// ULS binds a delegated click handler on mw-interlanguage-selector.
+			'classes' => 'language-selector button mw-interlanguage-selector',
 			'label' => $this->msg( 'mobile-frontend-language-article-heading' )->text()
 		];
 	}

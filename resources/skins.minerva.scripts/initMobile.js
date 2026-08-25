@@ -76,43 +76,6 @@ module.exports = function () {
 	}
 
 	/**
-	 * Hijack the Special:Languages link and replace it with a trigger to a languageOverlay
-	 * that displays the same data
-	 *
-	 * @ignore
-	 * @param {boolean} ulsV2Enabled Whether ULS V2's content language selector is enabled
-	 */
-	function initButton( ulsV2Enabled ) {
-		// This catches language selectors in page actions and in secondary actions (e.g. Main Page)
-		// eslint-disable-next-line no-jquery/no-global-selector
-		const $primaryBtn = $( '.language-selector' );
-
-		if ( !$primaryBtn.length ) {
-			return;
-		}
-
-		if ( ulsV2Enabled ) {
-			// Hand the click off to ULS V2's delegated handler on
-			// `.mw-interlanguage-selector`.
-			$primaryBtn.addClass( 'mw-interlanguage-selector' );
-			return;
-		}
-
-		// We only bind the click event to the first language switcher in page
-		$primaryBtn.on( 'click', ( ev ) => {
-			ev.preventDefault();
-
-			if ( $primaryBtn.attr( 'href' ) || $primaryBtn.find( 'a' ).length ) {
-				router.navigate( '/languages' );
-			} else {
-				mw.notify( mw.msg( 'mobile-frontend-languages-not-available' ), {
-					tag: 'languages-not-available'
-				} );
-			}
-		} );
-	}
-
-	/**
 	 * Returns a rejected promise if MultimediaViewer is available. Otherwise
 	 * returns the mediaViewerOverlay
 	 *
@@ -144,15 +107,6 @@ module.exports = function () {
 
 	// Routes
 	overlayManager.add( /^\/media\/(.+)$/, makeMediaViewerOverlayIfNeeded );
-
-	// ULS V2 owns the content language selector (it binds a delegated click
-	// handler on `.mw-interlanguage-selector`, wired up in initButton).
-	const isULSV2Enabled = mw.config.get( 'wgULSLanguageSelectorV2Enabled' );
-
-	// Setup
-	$( () => {
-		initButton( isULSV2Enabled );
-	} );
 
 	/**
 	 * Initialisation function for last modified module.
