@@ -237,7 +237,7 @@ class SkinMinerva extends SkinMustache {
 			);
 		}
 
-		// X comments
+		// X discussions (talk page topics)
 		$talkTitle = $this->getTitle()->getTalkPageIfDefined();
 		if (
 			$talkTitle &&
@@ -254,18 +254,18 @@ class SkinMinerva extends SkinMustache {
 			if ( $parserOutput ) {
 				$tocInfo = $parserOutput->getExtensionData( 'DiscussionTools-tocInfo' );
 				if ( is_array( $tocInfo ) ) {
-					$commentCount = count( $tocInfo );
+					$topicCount = count( $tocInfo );
 				} else {
 					$tocData = $parserOutput->getTOCData();
-					$commentCount = $tocData ? count( $tocData->getSections() ) : 0;
+					$topicCount = $tocData ? count( $tocData->getSections() ) : 0;
 				}
 			} else {
-				$commentCount = 0;
+				$topicCount = 0;
 			}
 			$tags[] = [
 				'link' => [ 'href' => $talkTitle->getLocalURL() ],
-				'label' => ( ExtensionRegistry::getInstance()->isLoaded( 'DiscussionTools' ) || $commentCount > 0 ) ?
-					wfMessage( 'minerva-page-tags-talkpage' )->numParams( $commentCount ) :
+				'label' => ( ExtensionRegistry::getInstance()->isLoaded( 'DiscussionTools' ) || $topicCount > 0 ) ?
+					wfMessage( 'minerva-page-tags-talkpage' )->numParams( $topicCount ) :
 					wfMessage( 'minerva-page-tags-talkpage-generic' ),
 				'status' => 'progressive',
 				'data-icon' => [ 'icon' => 'speechBubbles', 'size' => 'small' ],
