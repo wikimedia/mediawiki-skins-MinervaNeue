@@ -53,7 +53,8 @@ class DefaultOverflowBuilder implements IOverflowBuilder {
 	public function getGroup( array $toolbox, array $actions ): Group {
 		$group = new Group( 'p-tb' );
 
-		$override = $this->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE ) ? [
+		$override = ( $this->isAllowed( IMinervaPagePermissions::EDIT_OR_CREATE )
+			&& $this->title->getContentModel() === CONTENT_MODEL_WIKITEXT ) ? [
 			'editfull' => [
 				'icon' => 'edit',
 				'text' => $this->messageLocalizer->msg( 'minerva-page-actions-editfull' ),
