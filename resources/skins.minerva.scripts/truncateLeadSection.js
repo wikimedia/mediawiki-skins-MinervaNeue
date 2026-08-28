@@ -98,7 +98,12 @@ const LEAD_SECTION_SELECTOR = 'section[data-mw-section-id="0"]';
 		// Expand button
 		const button = document.createElement( 'button' );
 		button.type = 'button';
-		button.className = 'minerva--lead-section__button';
+		button.classList.add(
+			'minerva--lead-section__button',
+			'cdx-button',
+			'cdx-button--size-large',
+			'cdx-button--weight-quiet'
+		);
 		button.textContent = mw.msg( 'minimal-minerva-lead-section-read-more' );
 
 		buttonWrapper.appendChild( button );

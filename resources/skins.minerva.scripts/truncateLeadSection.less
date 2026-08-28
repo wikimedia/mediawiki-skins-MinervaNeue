@@ -1,4 +1,8 @@
 @import 'mediawiki.skin.variables.less';
+@fade-height: 84px;
+// Where the solid color should kick in, measured from the top of the fade
+// container, so the solid portion matches the button's height.
+@fade-stop: @fade-height - @min-size-interactive-touch;
 
 .minerva--lead-section-container {
 	position: relative;
@@ -14,8 +18,8 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		height: 84px;
-		background: linear-gradient( to bottom, transparent, @background-color-base );
+		height: @fade-height;
+		background: linear-gradient( to bottom, transparent, @background-color-base @fade-stop );
 	}
 
 	.minerva--lead-section__button {
@@ -23,20 +27,6 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		margin: 0;
-		padding: 0;
-		height: 40px;
-		line-height: 40px;
-		background: @background-color-base;
-		border: @border-subtle;
 		color: @color-progressive;
-		font-weight: @font-weight-bold;
-		font-family: @font-family-base;
-		cursor: pointer;
-		text-align: center;
-	}
-
-	.minerva--lead-section__button:hover {
-		background-color: @background-color-interactive-subtle;
 	}
 }
