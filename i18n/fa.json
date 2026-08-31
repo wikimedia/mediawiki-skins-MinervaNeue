@@ -63,6 +63,8 @@
 	"minerva-page-actions-overflow": "بیشتر",
 	"minerva-page-actions-language-switcher": "زبان‌ها",
 	"minerva-page-actions-history": "تاریخچه",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 بحث}}",
+	"minerva-page-tags-talkpage-generic": "بحث",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue بحث]",
 	"skinname-minerva": "مینروانوئه",
 	"minerva-skin-desc": "پوستۀ واکنش‌گرای موبایل",
