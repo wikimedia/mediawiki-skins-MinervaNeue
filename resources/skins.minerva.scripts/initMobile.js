@@ -313,6 +313,7 @@ module.exports = function () {
 		// Enhance timestamps on last-modified bar and watchlist
 		// to show relative time.
 		initModifiedInfo();
+		mw.hook( 'wikipage.diff' ).add( initModifiedInfo );
 		initRegistrationInfo();
 
 		if ( toolbarElement ) {
