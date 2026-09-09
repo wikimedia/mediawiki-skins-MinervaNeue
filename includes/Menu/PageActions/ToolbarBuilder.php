@@ -22,6 +22,7 @@ namespace MediaWiki\Minerva\Menu\PageActions;
 
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\IContextSource;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
@@ -45,7 +46,7 @@ class ToolbarBuilder {
 	 * ServiceOptions needed.
 	 */
 	public const CONSTRUCTOR_OPTIONS = [
-		'WatchlistExpiry',
+		MainConfigNames::WatchlistExpiry,
 	];
 
 	/**
@@ -62,6 +63,7 @@ class ToolbarBuilder {
 	 * @param LanguagesHelper $languagesHelper Helper to check title languages/variants
 	 * @param ServiceOptions $options
 	 * @param WatchlistManager $watchlistManager
+	 * @param Title|null $loginTitle
 	 */
 	public function __construct(
 		private readonly Title $title,
@@ -75,8 +77,8 @@ class ToolbarBuilder {
 		private readonly WatchlistManager $watchlistManager,
 		?Title $loginTitle = null
 	) {
-		$this->watchlistExpiryEnabled = $options->get( 'WatchlistExpiry' );
-		$this->loginTitle = $loginTitle ?: SpecialPage::getTitleFor( 'Userlogin' );
+		$this->watchlistExpiryEnabled = $options->get( MainConfigNames::WatchlistExpiry );
+		$this->loginTitle = $loginTitle ?? SpecialPage::getTitleFor( 'Userlogin' );
 	}
 
 	/**
