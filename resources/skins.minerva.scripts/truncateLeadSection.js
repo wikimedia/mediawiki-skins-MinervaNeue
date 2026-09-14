@@ -18,8 +18,12 @@
 
 const MAX_LINES = 30;
 const DEFAULT_LINE_HEIGHT_IN_PIXELS = 22;
-// https://www.mediawiki.org/wiki/Specs/HTML#Headings_and_Sections
-const LEAD_SECTION_SELECTOR = 'section[data-mw-section-id="0"]';
+// Parsoid output marks the lead section with data-mw-section-id="0"
+// (https://www.mediawiki.org/wiki/Specs/HTML#Headings_and_Sections). Legacy
+// parser output is sectioned separately by MakeSectionsTransform, which gives
+// the lead section id="mf-section-0" instead. Match either shape so truncation
+// still applies on wikis still on the legacy parser.
+const LEAD_SECTION_SELECTOR = 'section[data-mw-section-id="0"], section#mf-section-0';
 
 ( function () {
 	'use strict';
