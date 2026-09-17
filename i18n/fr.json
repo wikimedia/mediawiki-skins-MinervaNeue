@@ -4,6 +4,7 @@
 			"0x010C",
 			"DavidL",
 			"Gomoko",
+			"Jdlrobson",
 			"Jean-Frédéric",
 			"Louperivois",
 			"Macofe",
@@ -72,5 +73,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Afficher les catégories des pages",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Malheureusement, regrouper les résultats par page n’est pas disponible sur mobile. Si vous voulez utiliser la fonctionnalité de regroupement par page, veuillez visiter le site pour bureau.",
 	"minerva.css": "/* Tout CSS placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */",
-	"minerva.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */"
+	"minerva.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage MinervaNeue */",
+	"minimal-minerva-lead-section-read-more": "En savoir plus"
 }
