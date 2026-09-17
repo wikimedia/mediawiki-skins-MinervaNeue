@@ -6,6 +6,7 @@
 			"Fryed-peach",
 			"Funa-enpitu",
 			"Hinaloe",
+			"Jdlrobson",
 			"Kkairri",
 			"Kokage si",
 			"Marine-Blue",
@@ -73,5 +74,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "ページが属するカテゴリを表示",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "残念ながら、モバイルビューでは複数の変更をページごとにまとめて表示することはできません。ページごとにまとめて表示する機能を利用したい場合はデスクトップサイトにアクセスしてください。",
 	"minerva.css": "/* ここに記述した CSS は、MinervaNeue 外装の利用者に読み込まれます */",
-	"minerva.js": "/* ここに記述した JavaScript は、MinervaNeue 外装の利用者に読み込まれます */"
+	"minerva.js": "/* ここに記述した JavaScript は、MinervaNeue 外装の利用者に読み込まれます */",
+	"minimal-minerva-lead-section-read-more": "続きを読む"
 }
