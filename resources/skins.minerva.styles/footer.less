@@ -27,7 +27,7 @@
 		li {
 			line-height: 2;
 
-			&::after {
+			&::before {
 				color: @color-progressive;
 			}
 		}
@@ -70,6 +70,12 @@
 	#footer-places-about,
 	#footer-info-lastmod {
 		display: none;
+	}
+
+	// The last modified item is first in its list, so the item after it is
+	// the first one shown and should not start with a separator.
+	#footer-info-lastmod + li::before {
+		content: none !important;
 	}
 }
 
