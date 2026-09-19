@@ -81,7 +81,9 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testWatchAndEditNotAllowedOnMainPage() {
 		$user = $this->mockAnonNullAuthority();
-		$permsAnon = $this->buildPermissionsObject( Title::newMainPage(), [], null, $user );
+		$permsAnon = $this->buildPermissionsObject(
+			Title::newMainPage(), [ SkinOptions::TALK_AT_TOP => false ], null, $user
+		);
 		$perms = $this->buildPermissionsObject( Title::newMainPage() );
 
 		$this->assertFalse( $perms->isAllowed( IMinervaPagePermissions::WATCH ) );
@@ -91,6 +93,17 @@ class MinervaPagePermissionsTest extends MediaWikiIntegrationTestCase {
 		// Check to make sure 'talk' and 'switch-language' are enabled on the Main page.
 		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::TALK ) );
 		$this->assertTrue( $perms->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) );
+	}
+
+	/**
+	 * @covers ::isAllowed
+	 */
+	public function testTalkAllowedOnMainPageForAnonsWhenTalkAtTop() {
+		$permsAnon = $this->buildPermissionsObject(
+			Title::newMainPage(), [ SkinOptions::TALK_AT_TOP => true ], null, $this->mockAnonNullAuthority()
+		);
+
+		$this->assertTrue( $permsAnon->isAllowed( IMinervaPagePermissions::TALK ) );
 	}
 
 	/**

@@ -105,9 +105,10 @@ final class MinervaPagePermissions implements IMinervaPagePermissions {
 			}
 
 			if ( $action === self::TALK ) {
-				// Talk page is allowed on the main page provided user is registered.
-				// Talk page permission is disabled on mobile for anons, T54165
-				return $this->performer->isRegistered();
+				// Talk is hidden from anons on the main page (T54165), unless the wiki
+				// shows talk to anons on other pages as well (T402936).
+				return $this->performer->isRegistered() ||
+					$this->skinOptions->get( SkinOptions::TALK_AT_TOP );
 			} elseif ( $action === self::HISTORY ) {
 				// History link will be shown on main page diff-view only, T363916
 				return ( $this->title->exists() &&

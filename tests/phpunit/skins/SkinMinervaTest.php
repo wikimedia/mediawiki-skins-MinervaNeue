@@ -734,6 +734,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getSecondaryActions
 	 */
 	public function testMainPageTalkButton() {
+		$this->overrideSkinOptions( [ SkinOptions::TALK_AT_TOP => false ] );
 		$mainPageTitle = Title::makeTitle( NS_MAIN, 'Main Page' );
 		$mainPageTitle->setContentModel( CONTENT_MODEL_WIKITEXT );
 
@@ -759,8 +760,28 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 		// Unregistered users do not have talk button on mainpage
 		$context->setAuthority( $this->mockAnonUltimateAuthority() );
+		$this->getServiceContainer()->getService( 'Minerva.Permissions' )->setContext( $context );
 		$actions = $skin->getSecondaryActions( $contentNavigationUrls );
 		$this->assertArrayNotHasKey( 'talk', $actions );
+	}
+
+	/**
+	 * @covers ::getSecondaryActions
+	 */
+	public function testMainPageTalkButtonForAnonsWhenTalkAtTop() {
+		$this->overrideSkinOptions( [ SkinOptions::TALK_AT_TOP => true ] );
+		$mainPageTitle = Title::makeTitle( NS_MAIN, 'Main Page' );
+		$mainPageTitle->setContentModel( CONTENT_MODEL_WIKITEXT );
+
+		$context = RequestContext::getMain();
+		$context->setTitle( $mainPageTitle );
+		$context->setActionName( 'view' );
+		$context->setAuthority( $this->mockAnonUltimateAuthority() );
+		$this->newSkinMinerva( $context );
+		$skin = TestingAccessWrapper::newFromObject( $context->getSkin() );
+
+		$actions = $skin->getSecondaryActions( [ 'talk' => [ 'text' => 'discuss' ] ] );
+		$this->assertArrayHasKey( 'talk', $actions );
 	}
 
 	/**

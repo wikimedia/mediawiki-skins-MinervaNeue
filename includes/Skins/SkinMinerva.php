@@ -996,8 +996,10 @@ class SkinMinerva extends SkinMustache {
 			$this->permissions->isTalkAllowed() && $talkAtBottom &&
 			// When showing talk at the bottom we restrict this so it is not shown to anons
 			// https://phabricator.wikimedia.org/T54165
+			// The main page always shows talk at the bottom, so there the permission
+			// check above decides (T402936).
 			// This whole code block can be removed when SkinOptions::TALK_AT_TOP is always true
-			$this->getUser()->isRegistered()
+			( $this->getUser()->isRegistered() || $subjectPage->isMainPage() )
 		) {
 			// FIXME [core]: This seems unnecessary..
 			$subjectId = $title->getNamespaceKey( '' );
