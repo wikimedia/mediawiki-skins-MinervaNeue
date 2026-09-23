@@ -46,10 +46,14 @@
 	"minerva-page-actions-overflow": "Vairāk",
 	"minerva-page-actions-language-switcher": "Valodas",
 	"minerva-page-actions-history": "Vēsture",
+	"minerva-page-tags-language-switcher": "{{PLURAL:$1|$1 valodas|$1 valoda|$1 valodas}}",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 diskusijas|$1 diskusija|$1 diskusijas}}",
+	"minerva-page-tags-talkpage-generic": "diskusijas",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Diskusija]",
 	"minerva-skin-desc": "Responsīva apdare mobilajām iekārtām",
 	"skin-minerva-issue-learn-more": "Uzzināt vairāk",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorijas",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Skatīt lapu kategorijas",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Diemžēl, rezultātu grupēšana pēc lapas nav pieejama mobilajā skatā. Ja tu vēlies lietot grupēšanu pēc lapas, lūdzu, izmanto darbvirsmas skatu."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Diemžēl, rezultātu grupēšana pēc lapas nav pieejama mobilajā skatā. Ja tu vēlies lietot grupēšanu pēc lapas, lūdzu, izmanto darbvirsmas skatu.",
+	"minimal-minerva-lead-section-read-more": "Lasīt vairāk"
 }
