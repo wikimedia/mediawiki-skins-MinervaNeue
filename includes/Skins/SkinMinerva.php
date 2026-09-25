@@ -228,8 +228,8 @@ class SkinMinerva extends SkinMustache {
 					'array-attributes' => $arrayAttributes,
 					'status' => 'progressive',
 					'label' => $hasLanguages ?
-						wfMessage( 'minerva-page-tags-language-switcher' )
-							->numParams( count( $languages ) ) :
+						$this->msg( 'minerva-page-tags-language-switcher' )
+							->numParams( count( $languages ) )->text() :
 						$component['label'],
 					'data-icon' => ( $component['data-icon'] ?? [] ) +
 						[ 'size' => 'small' ],

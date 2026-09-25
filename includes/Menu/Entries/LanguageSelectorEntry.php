@@ -70,7 +70,7 @@ class LanguageSelectorEntry implements IMenuEntry {
 		} else {
 			$switcherClasses .= ' disabled';
 		}
-		$msg = $this->messageLocalizer->msg( $this->label );
+		$msg = $this->messageLocalizer->msg( $this->label )->text();
 
 		return [
 			[

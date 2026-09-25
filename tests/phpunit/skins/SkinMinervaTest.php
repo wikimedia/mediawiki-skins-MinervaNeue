@@ -792,6 +792,8 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$title = Title::makeTitle( NS_MAIN, 'Test Page' );
 		$context->setTitle( $title );
 		$context->getOutput()->addLanguageLinks( [ 'fr:Test Page', 'de:Test Page' ] );
+		$context->setUser( $this->getTestUser()->getUser() );
+		$context->setLanguage( 'qqx' );
 
 		$skin = $this->newSkinMinerva( $context );
 		$wrapper = TestingAccessWrapper::newFromObject( $skin );
@@ -800,9 +802,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $tags );
 		$this->assertCount( 1, $tags['items'] );
 		$this->assertSame( '#p-lang', $tags['items'][0]['link']['href'] );
-		$this->assertSame( 'minerva-page-tags-language-switcher', $tags['items'][0]['label']->getKey() );
-		$params = $tags['items'][0]['label']->getParams();
-		$this->assertSame( 2, is_object( $params[0] ) ? $params[0]->getValue() : $params[0] );
+		$this->assertSame( '(minerva-page-tags-language-switcher: 2)', $tags['items'][0]['label'] );
 	}
 
 	/**
@@ -815,6 +815,8 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$context = new RequestContext();
 		$title = Title::makeTitle( NS_MAIN, 'Test Page' );
 		$context->setTitle( $title );
+		$context->setUser( $this->getTestUser()->getUser() );
+		$context->setLanguage( 'qqx' );
 
 		$skin = $this->newSkinMinerva( $context );
 		$wrapper = TestingAccessWrapper::newFromObject( $skin );
@@ -824,6 +826,6 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		$this->assertCount( 1, $tags['items'] );
 		$this->assertFalse( $tags['items'][0]['link']['href'] );
 		$this->assertStringContainsString( 'disabled', $tags['items'][0]['classes'] );
-		$this->assertSame( 'mobile-frontend-language-article-heading', $tags['items'][0]['label']->getKey() );
+		$this->assertSame( '(mobile-frontend-language-article-heading)', $tags['items'][0]['label'] );
 	}
 }
