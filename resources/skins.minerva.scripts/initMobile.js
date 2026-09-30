@@ -19,7 +19,6 @@ module.exports = function () {
 		router = require( 'mediawiki.router' ),
 		ctaDrawers = require( './ctaDrawers.js' ),
 		overlayManager = ms.getOverlayManager(),
-		currentPage = ms.currentPage(),
 		currentPageHTMLParser = ms.currentPageHTMLParser(),
 		namespaceIDs = mw.config.get( 'wgNamespaceIds' );
 
@@ -254,9 +253,9 @@ module.exports = function () {
 
 		// Setup the issues banner on the page
 		// Pages which don't exist (id 0) cannot have issues
+		// Setup the issues banner on the page as long as it is not a talk page
 		if (
-			!currentPage.isMissing &&
-			!currentPage.titleObj.isTalkPage()
+			mw.config.get( 'wgNamespaceNumber' ) % 2 === 0
 		) {
 			issues.init( overlayManager, currentPageHTMLParser );
 		}
