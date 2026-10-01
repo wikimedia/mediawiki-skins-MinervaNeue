@@ -15,7 +15,6 @@
 		]
 	},
 	"minerva-last-modified-date": "Zuletzt bearbeitet am $1 um $2",
-	"minerva-watchlist-cta": "{{#FORMAL:Verfolge|Verfolgen Sie}} diese Seite und alle Änderungen an ihr.",
 	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte {{#FORMAL:aktiviere|aktivieren Sie}} sie und {{#FORMAL:versuche|versuchen Sie}} es erneut.",
 	"mobile-frontend-editor-edit": "Bearbeiten",
 	"minerva-download": "PDF herunterladen",
