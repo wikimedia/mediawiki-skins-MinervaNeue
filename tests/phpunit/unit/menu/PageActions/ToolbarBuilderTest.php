@@ -127,18 +127,19 @@ class ToolbarBuilderTest extends MediaWikiUnitTestCase {
 		);
 
 		$entries = $group->getEntries();
-		$this->assertCount( 6, $entries );
+		$this->assertCount( 7, $entries );
 		$this->assertSame( 'language-selector', $entries[0]['name'], 'check language presence' );
-		$this->assertSame( 'page-actions-history', $entries[1]['name'], 'check history presence' );
-		$this->assertSame( 'page-actions-ve-edit', $entries[2]['name'], 'check ve presence' );
-		$this->assertSame( 'page-actions-viewsource', $entries[3]['name'], 'check view source presence' );
-		$this->assertSame( 'page-actions-edit', $entries[4]['name'], 'check edit wikitext presence' );
+		$this->assertSame( 'page-actions-watch', $entries[1]['name'], 'check watchstar presence' );
+		$this->assertSame( 'page-actions-history', $entries[2]['name'], 'check history presence' );
+		$this->assertSame( 'page-actions-ve-edit', $entries[3]['name'], 'check ve presence' );
+		$this->assertSame( 'page-actions-viewsource', $entries[4]['name'], 'check view source presence' );
+		$this->assertSame( 'page-actions-edit', $entries[5]['name'], 'check edit wikitext presence' );
 		$this->assertSame(
 			'page-actions-ext-view-icon',
-			$entries[5]['name'],
+			$entries[6]['name'],
 			'check the view with an icon declaration got added and the one without got ignored' );
 
-		$viewAttributes = $entries[5]['components'][0]['array-attributes'];
+		$viewAttributes = $entries[6]['components'][0]['array-attributes'];
 		$viewAttributeKeys = array_map( static function ( $attrValueDef ) {
 			return $attrValueDef[ 'key' ];
 		}, $viewAttributes );

@@ -5,6 +5,7 @@
 module.exports = function () {
 	const
 		ms = require( 'mobile.startup' ),
+		permissions = mw.config.get( 'wgMinervaPermissions' ) || {},
 		time = ms.time,
 		DateFormatter = require( 'mediawiki.DateFormatter' ),
 		preInit = require( './preInit.js' ),
@@ -192,6 +193,8 @@ module.exports = function () {
 	}
 
 	$( () => {
+		// eslint-disable-next-line no-jquery/no-global-selector
+		const $watch = $( '#page-actions-watch' );
 		const toolbarElement = document.querySelector( Toolbar.selector );
 		const userMenu = document.querySelector( '.minerva-user-menu' ); // See UserMenuDirector.
 		const navigationDrawer = document.querySelector( '.navigation-drawer' );
@@ -279,6 +282,11 @@ module.exports = function () {
 			);
 			initUserRedLinks( $redLinks );
 		} );
+
+		// wire up watch icon if necessary
+		if ( permissions.watchable && !permissions.watch ) {
+			ctaDrawers.initWatchstarCta( $watch );
+		}
 
 		// If Echo is installed, wire it up.
 		const echoState = mw.loader.getState( 'ext.echo.mobile' );
