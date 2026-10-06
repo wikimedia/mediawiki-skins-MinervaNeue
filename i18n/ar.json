@@ -28,6 +28,7 @@
 		]
 	},
 	"minerva-last-modified-date": "آخر تعديل بتاريخ $1، في $2",
+	"minerva-watchlist-cta": "تتبع هذه الصفحة وجميع التغييرات عليها.",
 	"mobile-frontend-cookies-required": "إن ملفات تعريف الإرتباط (كوكيز) ضرورية لتغيير واجهة العرض; الرجاء تفعيل خاصية الاحتفاظ بهذه الملفات والمحاولة مرة أخرى.",
 	"mobile-frontend-editor-edit": "عدل",
 	"minerva-download": "تنزيل بصيغة PDF",
@@ -69,7 +70,7 @@
 	"minerva-page-actions-history": "التاريخ",
 	"minerva-page-tags-language-switcher": "{{PLURAL:$1| $1 لغة}}",
 	"minerva-page-tags-talkpage": "{{PLURAL:$1| $1 تعليق}}",
-	"minerva-page-tags-talkpage-generic": "تعليقات",
+	"minerva-page-tags-talkpage-generic": "المناقشات",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue مناقشة]",
 	"skinname-minerva": "منيرفانيو",
 	"minerva-skin-desc": "واجهة أولى ذات تصميم مستجيب للمحمول",
