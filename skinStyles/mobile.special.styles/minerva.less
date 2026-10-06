@@ -1,4 +1,3 @@
-// stylelint-disable selector-max-id
 @import '../../minerva.less/minerva.variables.less';
 @import '../../minerva.less/minerva.mixins.less';
 @import 'mediawiki.mixins.less';
@@ -37,30 +36,8 @@
 	}
 }
 
-// Used by MobileSpecialPageFeed.php in MobileFrontend
-.truncated-text {
-	.text-overflow( @visible: false );
-
-	// FIXME: this works only in WebKit
-	&.multi-line {
-		white-space: normal;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-	}
-
-	&.two-line {
-		-webkit-line-clamp: 2;
-		// fallback for non-WebKit
-		max-height: 2.6em;
-	}
-}
-
 /* Watchlist with AMC disabled */
 html.mw-mf-amc-clientpref-0 body.mw-special-Watchlist {
-	#mw-content-subtitle {
-		margin: 0;
-	}
-
 	.watchlistDetails,
 	.mw-rcfilters-head,
 	.mw-fr-reviewlink,
@@ -74,18 +51,6 @@ html.mw-mf-amc-clientpref-0 body.mw-special-Watchlist {
 		margin: 20px 0 0;
 		width: 100%;
 		max-width: none;
-	}
-}
-
-/* Hide edit raw watchlist and clear watchlist options for non-advanced logged in users */
-html.mw-mf-amc-clientpref-0 {
-	body.mw-special-Watchlist,
-	body.mw-special-EditWatchlist {
-		/* Hide third and forth tabs */
-		#p-associated-pages .minerva__tab:nth-child( 3 ),
-		#p-associated-pages .minerva__tab:nth-child( 4 ) {
-			display: none;
-		}
 	}
 }
 
@@ -135,30 +100,5 @@ body.mw-special-Newpages {
 
 	.mw-changeslist-time {
 		display: inline-block;
-	}
-}
-
-.mw-mf-special-page {
-	#bodyContent.content {
-		max-width: none;
-		margin: 0;
-		width: auto;
-
-		ul {
-			list-style: none;
-			padding: 0;
-		}
-
-		// override core .content li rule
-		.page-header-bar li {
-			margin-bottom: 0;
-		}
-
-		.mw-mf-history-wrap-link {
-			@media all and ( min-width: @min-width-breakpoint-desktop ) {
-				margin: 0;
-				max-width: none;
-			}
-		}
 	}
 }
