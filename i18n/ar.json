@@ -69,7 +69,7 @@
 	"minerva-page-actions-language-switcher": "اللغات",
 	"minerva-page-actions-history": "التاريخ",
 	"minerva-page-tags-language-switcher": "{{PLURAL:$1| $1 لغة}}",
-	"minerva-page-tags-talkpage": "{{PLURAL:$1| $1 تعليق}}",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|مناقشة $1|مناقشات $1}}",
 	"minerva-page-tags-talkpage-generic": "المناقشات",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue مناقشة]",
 	"skinname-minerva": "منيرفانيو",
