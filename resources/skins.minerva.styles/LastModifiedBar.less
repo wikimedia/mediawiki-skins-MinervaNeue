@@ -14,6 +14,7 @@ a.last-modified-bar {
 	transition-duration: @transition-duration-medium;
 
 	.minerva-icon {
+		flex-shrink: 0;
 		background-color: @color-subtle;
 	}
 }
@@ -25,6 +26,7 @@ a.last-modified-bar {
 
 .last-modified-bar__text {
 	@end-padding: @width-icon-gutter + @width-icon-gutter + @size-icon;
+	min-width: 0;
 	padding-right: @end-padding;
 	padding-left: @icon-padding-medium;
 	line-height: @line-height-content;
