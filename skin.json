@@ -597,6 +597,18 @@
 				"minerva"
 			]
 		},
+		"UniversalLanguageSelector": {
+			"SkinConfig": {
+				"minerva": {
+					"CoreFeaturesOnly": true,
+					"Features": {
+						"LanguageDescriptions": true,
+						"LanguageSettingsQuickAction": false
+					},
+					"FloatingPlacement": "bottom-start"
+				}
+			}
+		},
 		"VisualEditor": {
 			"IconSkins": [
 				"minerva"
