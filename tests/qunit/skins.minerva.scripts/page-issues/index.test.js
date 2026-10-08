@@ -1,5 +1,9 @@
 QUnit.module( 'Minerva pageIssues', () => {
 	const mobile = require( 'mobile.startup' );
+	if ( !mobile || mobile.stub || typeof mobile.getOverlayManager !== 'function' || !mobile.PageHTMLParser ) {
+		QUnit.skip( 'Skipped: MobileFrontend is not available', () => {} );
+		return;
+	}
 	const pageIssues = require( 'skins.minerva.scripts/page-issues/index.js' );
 	const insertBannersOrNotice = pageIssues.test.insertBannersOrNotice;
 	const PageHTMLParser = mobile.PageHTMLParser;
