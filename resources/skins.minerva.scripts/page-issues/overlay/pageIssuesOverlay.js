@@ -25,7 +25,7 @@ function pageIssuesOverlay( issues, section, namespaceID ) {
 
 	const overlay = new Overlay( {
 		className: 'overlay overlay-issues',
-		heading: '<strong>' + headingText + '</strong>'
+		heading: '<strong>' + mw.html.escape( headingText ) + '</strong>'
 	} );
 
 	overlay.$el.find( '.overlay-content' ).append(
