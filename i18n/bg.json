@@ -50,12 +50,19 @@
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Член}} от $1",
 	"mobile-frontend-user-page-talk": "Беседа",
 	"minerva-user-menu-button": "Потребителско меню",
+	"minerva-user-navigation": "Потребителска навигация",
+	"minerva-page-actions-editfull": "Редактиране на цялата страница",
 	"minerva-page-actions-overflow": "Още",
 	"minerva-page-actions-language-switcher": "Езици",
 	"minerva-page-actions-history": "История",
+	"minerva-page-tags-language-switcher": "{{PLURAL:$1|$1 език|$1 езика}}",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 дискусия|$1 дискусии}}",
+	"minerva-page-tags-talkpage-generic": "дискусии",
+	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Дискусия]",
 	"minerva-skin-desc": "Адаптивен облик преди всичко за мобилна употреба",
 	"skin-minerva-issue-learn-more": "Научете повече",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Категории",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Преглед на категории на страници",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "За съжаление, групирането на резултатите по страница не е достъпно на мобилни устройства. Ако искате да използвате функцията за група по страница, моля, посетете сайта на настолната версия."
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "За съжаление, групирането на резултатите по страница не е достъпно на мобилни устройства. Ако искате да използвате функцията за група по страница, моля, посетете сайта на настолната версия.",
+	"minimal-minerva-lead-section-read-more": "Прочетете повече"
 }
