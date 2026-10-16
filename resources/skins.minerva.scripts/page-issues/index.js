@@ -127,12 +127,6 @@ function initPageIssues( overlayManager, pageHTMLParser ) {
 	const issueOverlayShowAll = CURRENT_NS === NS_CATEGORY || !$lead;
 	const inline = newTreatmentEnabled && CURRENT_NS === NS_MAIN;
 
-	// set A-B test class.
-	// When wgMinervaPageIssuesNewTreatment is the default this can be removed.
-	if ( newTreatmentEnabled ) {
-		$( document.documentElement ).addClass( 'issues-group-B' );
-	}
-
 	if ( CURRENT_NS === NS_CATEGORY ) {
 		section = KEYWORD_ALL_SECTIONS;
 		// e.g. Template:English variant category; Template:WikiProject

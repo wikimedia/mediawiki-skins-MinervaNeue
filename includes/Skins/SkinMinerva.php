@@ -38,6 +38,7 @@ use MediaWiki\Minerva\Menu\User\UserMenuDirector;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\Permissions\MinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Registration\ExtensionRegistry;
@@ -664,27 +665,11 @@ class SkinMinerva extends SkinMustache {
 		return parent::doEditSectionLinksHTML( $transformedLinks, $lang );
 	}
 
-	/**
-	 * Takes a title and returns classes to apply to the body tag
-	 * @param Title $title
-	 * @return string
-	 */
-	public function getPageClasses( $title ): string {
-		$className = parent::getPageClasses( $title );
-
+	public function initPage( OutputPage $out ) {
+		parent::initPage( $out );
 		if ( $this->getUser()->isRegistered() ) {
-			$className .= ' is-authenticated';
+			$out->addHtmlClasses( 'minerva-user-is-authenticated' );
 		}
-
-		// The new treatment should only apply to the main namespace
-		if (
-			$title->getNamespace() === NS_MAIN &&
-			$this->skinOptions->get( SkinOptions::PAGE_ISSUES )
-		) {
-			$className .= ' issues-group-B';
-		}
-
-		return $className;
 	}
 
 	/**

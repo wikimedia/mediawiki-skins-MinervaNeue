@@ -4,12 +4,6 @@
 		border: 0;
 	}
 
-	&.is-authenticated {
-		.pre-content {
-			display: block;
-		}
-	}
-
 	#page-secondary-actions a {
 		margin-top: 1em;
 	}
@@ -17,6 +11,10 @@
 	.page-actions-menu {
 		display: none;
 	}
+}
+
+html.minerva-user-is-authenticated .page-Main_Page .pre-content {
+	display: block;
 }
 
 // stylelint-enable selector-max-id
