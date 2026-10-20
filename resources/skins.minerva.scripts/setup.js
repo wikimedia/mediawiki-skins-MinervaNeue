@@ -15,7 +15,7 @@ function init() {
 	enableSearchDialog( searchIcon );
 
 	// eslint-disable-next-line no-jquery/no-global-selector
-	const $watch = $( '#page-actions-watch' );
+	const $watch = $( '#page-actions-watch, #page-actions-unwatch' );
 	// eslint-disable-next-line no-jquery/no-global-selector
 	const $watchInToolsMenu = $( '.page-actions-overflow-list .mw-watchlink' );
 
