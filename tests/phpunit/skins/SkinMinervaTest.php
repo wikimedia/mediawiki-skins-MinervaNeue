@@ -10,6 +10,7 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
+use Wikimedia\HtmlArmor\HtmlArmor;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -728,6 +729,35 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 				'size' => 'small'
 			],
 		], $data['data-minerva-history-link'] );
+	}
+
+	/**
+	 * @covers ::getUserPageHeadingHtml
+	 */
+	public function testUserPageHeadingShowsUserName() {
+		$user = $this->getTestUser()->getUser();
+		$context = new RequestContext();
+		$context->setTitle( $user->getUserPage() );
+		$skin = TestingAccessWrapper::newFromObject( $this->newSkinMinerva( $context ) );
+
+		$html = $skin->getUserPageHeadingHtml();
+		$this->assertStringContainsString( 'mw-minerva-user-heading', $html );
+		$this->assertStringContainsString( '>' . htmlspecialchars( $user->getName() ) . '</h1>', $html );
+	}
+
+	/**
+	 * @covers ::getUserPageHeadingHtml
+	 */
+	public function testUserPageHeadingUsesDisplayTitle() {
+		$user = $this->getTestUser()->getUser();
+		$context = new RequestContext();
+		$context->setTitle( $user->getUserPage() );
+		$context->getOutput()->setDisplayTitleParts( 'User', ':', new HtmlArmor( '<i>Display title</i>' ) );
+		$skin = TestingAccessWrapper::newFromObject( $this->newSkinMinerva( $context ) );
+
+		$html = $skin->getUserPageHeadingHtml();
+		$this->assertStringContainsString( '><i>Display title</i></h1>', $html );
+		$this->assertStringNotContainsString( 'User:', $html );
 	}
 
 	/**
