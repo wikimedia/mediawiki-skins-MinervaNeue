@@ -50,6 +50,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\Utils\MWTimestamp;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 /**
  * Minerva: Born from the godhead of Jupiter with weapons!
@@ -903,14 +904,16 @@ class SkinMinerva extends SkinMustache {
 	 * @return string HTML for header
 	 */
 	private function getUserPageHeadingHtml(): string {
-		// The heading is just the username without namespace
-		return Html::element( 'h1',
+		// The heading is the title without namespace. Use the main part of the
+		// display title, so that {{DISPLAYTITLE}} is respected (T423028).
+		[ , , $mainTitle ] = $this->getOutput()->getDisplayTitleParts();
+		return Html::rawElement( 'h1',
 			// These IDs and classes should match Skin::getTemplateData
 			[
 				'id' => 'firstHeading',
 				'class' => 'firstHeading mw-first-heading mw-minerva-user-heading',
 			],
-			$this->skinUserPageHelper->getPageUser()->getName()
+			HtmlArmor::getHtml( $mainTitle )
 		);
 	}
 
