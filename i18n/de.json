@@ -15,7 +15,8 @@
 		]
 	},
 	"minerva-last-modified-date": "Zuletzt bearbeitet am $1 um $2",
-	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte aktiviere sie und versuche es erneut.",
+	"minerva-watchlist-cta": "{{#FORMAL:Verfolge|Verfolgen Sie}} diese Seite und alle Änderungen an ihr.",
+	"mobile-frontend-cookies-required": "Cookies sind erforderlich, um zwischen Ansichtsmodi zu wechseln. Bitte {{#FORMAL:aktiviere|aktivieren Sie}} sie und {{#FORMAL:versuche|versuchen Sie}} es erneut.",
 	"mobile-frontend-editor-edit": "Bearbeiten",
 	"minerva-download": "PDF herunterladen",
 	"mobile-frontend-editor-redlink-create": "Seite erstellen",
@@ -45,7 +46,7 @@
 	"mobile-frontend-talk-back-to-projectpage": "Zurück zur Projektseite „$1“.",
 	"mobile-frontend-talk-back-to-userpage": "Zurück zur Benutzerseite von „{{GENDER:$1|$1}}“.",
 	"mobile-frontend-user-button-tooltip": "Meine Benachrichtigungen anzeigen",
-	"mobile-frontend-user-newmessages": "Du hast neue Nachrichten auf deiner Diskussionsseite",
+	"mobile-frontend-user-newmessages": "{{#FORMAL:Du hast|Sie haben}} neue Nachrichten auf {{#FORMAL:deiner|Ihrer}} Diskussionsseite",
 	"mobile-frontend-user-page-contributions": "Beiträge",
 	"mobile-frontend-user-page-member-since": "{{GENDER:$2|Beigetreten}} $1",
 	"mobile-frontend-user-page-talk": "Diskussion",
@@ -66,6 +67,6 @@
 	"skin-minerva-time-ago-years": "Vor {{PLURAL:$1|1 Jahr|$1 Jahren}}",
 	"skin-minerva-mobile-option-MinervaShowCategories": "Kategorien",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Kategorien von Seiten ansehen",
-	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Leider ist die Gruppierung der Ergebnisse nach Seiten in der mobilen Ansicht nicht möglich. Wenn du die Funktion Gruppierung nach Seiten nutzen möchtest, besuche bitte die Desktop-Ansicht.",
+	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Leider ist die Gruppierung der Ergebnisse nach Seiten in der mobilen Ansicht nicht möglich. Wenn {{#FORMAL:du|Sie}} die Funktion Gruppierung nach Seiten nutzen {{#FORMAL:möchtest|möchten}}, {{#FORMAL:besuche|besuchen Sie}} bitte die Desktop-Ansicht.",
 	"skin-minerva-night-mode-unavailable": "Seite nur im Farbschema „Hell“ verfügbar."
 }
