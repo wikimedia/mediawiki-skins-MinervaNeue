@@ -48,7 +48,7 @@
 	"minerva-page-actions-history": "تاريخ",
 	"minerva-page-tags-language-switcher": "{{PLURAL:$1|لغه وحده|$1 لغات}}",
 	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 تعليق|$1 تعليقات}}",
-	"minerva-page-tags-talkpage-generic": "تعليقات",
+	"minerva-page-tags-talkpage-generic": "مناقشات",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue مناقشة]",
 	"minerva-skin-desc": "واجهة متجاوبة تاع الموبايل أولاً",
 	"skin-minerva-issue-learn-more": "أعرف كتر",
