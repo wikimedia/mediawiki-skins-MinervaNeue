@@ -23,7 +23,6 @@ namespace MediaWiki\Minerva\Menu\Main;
 use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
-use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentityUtils;
 
@@ -123,12 +122,6 @@ final class DefaultMainMenuBuilder implements IMainMenuBuilder {
 			);
 		}
 		foreach ( $personalTools as $key => $item ) {
-			// Default to EditWatchlist if $user has no edits
-			// Many users use the watchlist like a favorites list without ever editing.
-			// [T88270].
-			if ( $key === 'watchlist' && $this->user->getEditCount() === 0 ) {
-				$item['href'] = SpecialPage::getTitleFor( 'EditWatchlist' )->getLocalURL();
-			}
 			$href = $item['href'] ?? null;
 			if ( $href && !in_array( $key, $excludeKeyList ) ) {
 				// Substitute preference if $showMobileOptions is set.
