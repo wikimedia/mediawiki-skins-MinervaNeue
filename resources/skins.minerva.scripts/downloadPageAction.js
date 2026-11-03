@@ -95,6 +95,11 @@ function downloadPageAction( config, windowObj, overflowList ) {
 	) {
 		// FIXME: Use p-views when cache has cleared.
 		const actionID = document.querySelector( '#p-views' ) ? 'p-views' : 'page-actions';
+		// T443387: Put the link before the subscribe action. The actions after the first one
+		// align to the end of the toolbar, so the visible icons do not move.
+		// Anonymous users get the ReadingLists bookmark in place of the watchstar.
+		const nextNode = document.getElementById( 'page-actions-watch' ) ||
+			document.getElementById( 'page-actions-bookmark' );
 		const portletLink = mw.util.addPortletLink(
 			overflowList ? 'page-actions-overflow' : actionID,
 			'#',
@@ -105,7 +110,7 @@ function downloadPageAction( config, windowObj, overflowList ) {
 			mw.msg( 'minerva-download' ),
 			// access key
 			'p',
-			overflowList ? null : document.getElementById( 'page-actions-watch' )
+			overflowList ? null : nextNode
 		);
 		if ( portletLink ) {
 			portletLink.addEventListener( 'click', () => {

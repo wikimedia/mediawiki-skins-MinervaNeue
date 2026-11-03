@@ -53,6 +53,37 @@
 			'Print was called once despite multiple clicks' );
 	} );
 
+	QUnit.module( 'Minerva DownloadIcon downloadPageAction()', {
+		beforeEach: function () {
+			this.renderToolbar = function ( itemIds ) {
+				const list = document.createElement( 'ul' );
+				list.id = 'p-views';
+				itemIds.forEach( ( id ) => {
+					const item = document.createElement( 'li' );
+					item.id = id;
+					list.appendChild( item );
+				} );
+				document.getElementById( 'qunit-fixture' ).appendChild( list );
+				downloadAction.downloadPageAction( new MockConfig( {} ) );
+				return Array.from( list.children, ( item ) => item.id );
+			};
+		}
+	} );
+
+	QUnit.test( 'adds the link before the watchstar', function ( assert ) {
+		assert.deepEqual(
+			this.renderToolbar( [ 'language-selector', 'page-actions-watch', 'page-actions-edit' ] ),
+			[ 'language-selector', 'minerva-download', 'page-actions-watch', 'page-actions-edit' ]
+		);
+	} );
+
+	QUnit.test( 'adds the link before the bookmark when there is no watchstar', function ( assert ) {
+		assert.deepEqual(
+			this.renderToolbar( [ 'language-selector', 'page-actions-bookmark', 'page-actions-edit' ] ),
+			[ 'language-selector', 'minerva-download', 'page-actions-bookmark', 'page-actions-edit' ]
+		);
+	} );
+
 	QUnit.module( 'Minerva DownloadIcon isAvailable()', {
 		beforeEach: function () {
 			this.config = new MockConfig( {} );
