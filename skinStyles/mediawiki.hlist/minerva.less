@@ -24,18 +24,16 @@ ul.hlist,
 	}
 }
 
-// The separator is placed before each item (rather than after) so that an item
-// hidden with display: none also hides its own separator (T387797).
 .hlist-separated {
-	li::before {
+	li::after {
 		// Make sure we override any site styles
 		content: '•' !important;
-		padding-right: 8px;
+		padding-left: 8px;
 		font-size: 1em;
 		line-height: 1;
 	}
 
-	:first-child::before {
+	:last-child::after {
 		content: none !important;
 	}
 }
