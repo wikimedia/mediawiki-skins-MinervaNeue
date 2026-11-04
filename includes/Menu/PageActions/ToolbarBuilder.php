@@ -20,9 +20,7 @@
 
 namespace MediaWiki\Minerva\Menu\PageActions;
 
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\IContextSource;
-use MediaWiki\MainConfigNames;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Menu\Entries\IMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\LanguageSelectorEntry;
@@ -35,19 +33,10 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use MediaWiki\Watchlist\WatchlistManager;
 
 class ToolbarBuilder {
 
-	private readonly bool $watchlistExpiryEnabled;
 	private readonly Title $loginTitle;
-
-	/**
-	 * ServiceOptions needed.
-	 */
-	public const CONSTRUCTOR_OPTIONS = [
-		MainConfigNames::WatchlistExpiry,
-	];
 
 	/**
 	 * Build Group containing icons for toolbar
@@ -61,8 +50,6 @@ class ToolbarBuilder {
 	 * user talk page, UserPageHelper should be instantiated with the user page
 	 * Title and NOT with the user talk page Title.
 	 * @param LanguagesHelper $languagesHelper Helper to check title languages/variants
-	 * @param ServiceOptions $options
-	 * @param WatchlistManager $watchlistManager
 	 * @param Title|null $loginTitle
 	 */
 	public function __construct(
@@ -73,11 +60,8 @@ class ToolbarBuilder {
 		private readonly SkinOptions $skinOptions,
 		private readonly SkinUserPageHelper $relevantUserPageHelper,
 		private readonly LanguagesHelper $languagesHelper,
-		ServiceOptions $options,
-		private readonly WatchlistManager $watchlistManager,
 		?Title $loginTitle = null
 	) {
-		$this->watchlistExpiryEnabled = $options->get( MainConfigNames::WatchlistExpiry );
 		$this->loginTitle = $loginTitle ?? SpecialPage::getTitleFor( 'Userlogin' );
 	}
 
@@ -176,7 +160,6 @@ class ToolbarBuilder {
 			$permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE )
 		) {
 			$group->insertEntry( new LanguageSelectorEntry(
-				$this->title,
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants(
 					$this->context->getOutput(),
 					$this->title

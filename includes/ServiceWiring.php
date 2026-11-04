@@ -47,7 +47,6 @@ return [
 			$services->getService( 'Minerva.Permissions' ),
 			$services->getService( 'Minerva.SkinOptions' ),
 			$services->getService( 'Minerva.SkinUserPageHelper' ),
-			$services->getWatchlistManager(),
 		);
 	},
 	'Minerva.Permissions' => static function ( MediaWikiServices $services ): IMinervaPagePermissions {

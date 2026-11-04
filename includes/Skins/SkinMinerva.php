@@ -217,7 +217,6 @@ class SkinMinerva extends SkinMustache {
 		$hasLanguages = count( $languages ) > 0;
 		if ( $this->permissions->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$entry = new LanguageSelectorEntry(
-				$this->getTitle(),
 				$hasLanguages,
 				$this->getContext(),
 				true
@@ -605,11 +604,7 @@ class SkinMinerva extends SkinMustache {
 			unset( $personalUrls['sandbox'], $personalUrls['mytalk'] );
 		}
 
-		$builder = new AdvancedUserMenuBuilder(
-				$this->getContext(),
-				$this->getUser(),
-				$this->definitions
-		);
+		$builder = new AdvancedUserMenuBuilder( $this->getUser() );
 
 		$userMenuDirector = new UserMenuDirector(
 			$builder,

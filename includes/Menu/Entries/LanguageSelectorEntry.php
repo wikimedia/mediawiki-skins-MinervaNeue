@@ -18,7 +18,6 @@
 namespace MediaWiki\Minerva\Menu\Entries;
 
 use MediaWiki\Language\MessageLocalizer;
-use MediaWiki\Title\Title;
 
 /**
  * Model for a menu entry that represents a language selector for current title
@@ -26,7 +25,6 @@ use MediaWiki\Title\Title;
 class LanguageSelectorEntry implements IMenuEntry {
 
 	/**
-	 * @param Title $title Current Title
 	 * @param bool $doesPageHaveLanguages Whether the page is also available in other
 	 * languages or variants
 	 * @param MessageLocalizer $messageLocalizer Used for translation texts
@@ -34,7 +32,6 @@ class LanguageSelectorEntry implements IMenuEntry {
 	 * @param string $label Menu entry label and title
 	 */
 	public function __construct(
-		private readonly Title $title,
 		private readonly bool $doesPageHaveLanguages,
 		private readonly MessageLocalizer $messageLocalizer,
 		$isButton = false,

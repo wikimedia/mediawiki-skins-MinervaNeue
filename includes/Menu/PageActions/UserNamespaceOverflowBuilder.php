@@ -46,7 +46,6 @@ class UserNamespaceOverflowBuilder extends DefaultOverflowBuilder {
 
 		if ( $this->isAllowed( IMinervaPagePermissions::SWITCH_LANGUAGE ) ) {
 			$group->prependEntry( new LanguageSelectorEntry(
-				$this->getTitle(),
 				$this->languagesHelper->doesTitleHasLanguagesOrVariants(
 					$this->context->getOutput(),
 					$this->getTitle()

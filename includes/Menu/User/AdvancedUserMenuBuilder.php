@@ -19,8 +19,6 @@
  */
 namespace MediaWiki\Minerva\Menu\User;
 
-use MediaWiki\Language\MessageLocalizer;
-use MediaWiki\Minerva\Menu\Definitions;
 use MediaWiki\Minerva\Menu\Entries\ProfileMenuEntry;
 use MediaWiki\Minerva\Menu\Entries\SingleMenuEntry;
 use MediaWiki\Minerva\Menu\Group;
@@ -31,9 +29,7 @@ use MediaWiki\User\User;
  */
 final class AdvancedUserMenuBuilder implements IUserMenuBuilder {
 	public function __construct(
-		private readonly MessageLocalizer $messageLocalizer,
 		private readonly User $user,
-		private readonly Definitions $definitions,
 	) {
 	}
 

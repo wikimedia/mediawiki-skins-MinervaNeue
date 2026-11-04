@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Minerva;
 
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Message\Message;
@@ -12,7 +11,6 @@ use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use MediaWiki\Watchlist\WatchlistManager;
 use MediaWikiUnitTestCase;
 
 /**
@@ -33,9 +31,6 @@ class ToolbarBuilderTest extends MediaWikiUnitTestCase {
 		$permissions = $this->createMock( IMinervaPagePermissions::class );
 		$relevantUserPageHelper = $this->createMock( SkinUserPageHelper::class );
 		$languagesHelper = $this->createMock( LanguagesHelper::class );
-		$serviceOptions = $this->createMock( ServiceOptions::class );
-		$serviceOptions->method( 'get' )->willReturn( 1 );
-		$watchlistManager = $this->createMock( WatchlistManager::class );
 		$hookContainer = $this->createMock( HookContainer::class );
 		$permissions->method( 'isAllowed' )->willReturn( true );
 		$relevantUserPageHelper->method( 'isUserPageAccessibleToCurrentUser' )->willReturn( false );
@@ -53,8 +48,6 @@ class ToolbarBuilderTest extends MediaWikiUnitTestCase {
 			$skinOptions,
 			$relevantUserPageHelper,
 			$languagesHelper,
-			$serviceOptions,
-			$watchlistManager,
 			$loginTitle
 		);
 	}

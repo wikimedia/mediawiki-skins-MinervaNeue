@@ -20,14 +20,12 @@
 
 namespace MediaWiki\Minerva\Menu\PageActions;
 
-use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Minerva\LanguagesHelper;
 use MediaWiki\Minerva\Permissions\IMinervaPagePermissions;
 use MediaWiki\Minerva\SkinOptions;
 use MediaWiki\Minerva\Skins\SkinUserPageHelper;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Watchlist\WatchlistManager;
 
 class PageActions {
 
@@ -36,7 +34,6 @@ class PageActions {
 		private readonly IMinervaPagePermissions $permissions,
 		private readonly SkinOptions $skinOptions,
 		private readonly SkinUserPageHelper $skinUserPageHelper,
-		private readonly WatchlistManager $watchlistManager,
 	) {
 	}
 
@@ -62,9 +59,6 @@ class PageActions {
 			$this->skinOptions,
 			$this->skinUserPageHelper,
 			$this->languagesHelper,
-			new ServiceOptions( ToolbarBuilder::CONSTRUCTOR_OPTIONS,
-				$context->getConfig() ),
-			$this->watchlistManager
 		);
 
 		// Minimal mode should activate for logged-out (anonymous) users only.
