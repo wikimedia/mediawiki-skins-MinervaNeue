@@ -21,6 +21,7 @@
 namespace MediaWiki\Minerva\Skins;
 
 use MediaWiki\Cache\GenderCache;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
@@ -70,7 +71,7 @@ class SkinMinerva extends SkinMustache {
 	public $template = 'MinervaTemplate';
 
 	private readonly Definitions $definitions;
-	private readonly IMinervaPagePermissions $permissions;
+	private readonly MinervaPagePermissions $permissions;
 	private readonly SkinUserPageHelper $skinUserPageHelper;
 
 	/**
@@ -113,6 +114,21 @@ class SkinMinerva extends SkinMustache {
 		$this->skinUserPageHelper = $skinUserPageHelper
 			->setContext( $this->getContext() )
 			->setTitle( $this->getTitle() );
+	}
+
+	/**
+	 * @inheritDoc
+	 *
+	 * Callers (notably tests) may construct this skin and then call setContext()
+	 * afterwards with the real context. Re-propagate it to the dependents that
+	 * were bound to the constructor-time context, or they keep stale state
+	 * (e.g. a null title) from before the real context was set.
+	 */
+	public function setContext( IContextSource $context ) {
+		parent::setContext( $context );
+		$this->definitions->setContext( $context );
+		$this->permissions->setContext( $context );
+		$this->skinUserPageHelper->setContext( $context )->setTitle( $this->getTitle() );
 	}
 
 	private function hasPageActions(): bool {

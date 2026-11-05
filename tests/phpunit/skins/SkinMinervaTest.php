@@ -23,7 +23,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 
 	private const MAIN_MENU_MAIN_PAGE_ENTRY = [
 		'tag-name' => 'a',
-		'label' => 'Main Page',
+		'label' => '(mobile-frontend-main-page-button)',
 		'array-attributes' => [
 			[
 				'key' => 'href',
