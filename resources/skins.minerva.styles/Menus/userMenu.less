@@ -1,4 +1,16 @@
+@import 'mediawiki.skin.variables.less';
 @import '../../../minerva.less/minerva.variables.less';
+
+.minerva-user-menu .toggle-list__toggle {
+	gap: 0;
+	padding-right: @spacing-horizontal-button;
+	padding-left: @spacing-horizontal-button;
+
+	&::after {
+		content: '';
+		.cdx-mixin-css-icon( @cdx-icon-expand, @color-subtle, @size-icon-small );
+	}
+}
 
 // The list that opens underneath the button.
 .minerva-user-menu-list {
