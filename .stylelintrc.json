@@ -8,6 +8,7 @@
 		"declaration-property-unit-disallowed-list": null,
 		"selector-class-pattern": null,
 		"value-keyword-case": null,
-		"declaration-property-value-keyword-no-deprecated": null
+		"declaration-property-value-keyword-no-deprecated": null,
+		"wikimedia/selector-class-prefix": null
 	}
 }
