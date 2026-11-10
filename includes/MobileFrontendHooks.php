@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Minerva;
 
-use MediaWiki\Config\ConfigFactory;
+use MediaWiki\Config\Config;
 use MediaWiki\Skin\Skin;
 use MobileContext;
 use MobileFrontend\Features\Feature;
@@ -20,7 +20,7 @@ class MobileFrontendHooks implements
 	RequestContextCreateSkinMobileHook
 {
 	public function __construct(
-		private readonly ConfigFactory $configFactory,
+		private readonly Config $config,
 		private readonly SkinOptions $skinOptions,
 	) {
 	}
@@ -33,63 +33,61 @@ class MobileFrontendHooks implements
 	 * @param FeaturesManager $featuresManager
 	 */
 	public function onMobileFrontendFeaturesRegistration( FeaturesManager $featuresManager ) {
-		$config = $this->configFactory->makeConfig( 'minerva' );
-
 		try {
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaShowCategories',
 					'skin-minerva',
-					$config->get( 'MinervaShowCategories' )
+					$this->config->get( 'MinervaShowCategories' )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaPageIssuesNewTreatment',
 					'skin-minerva',
-					$config->get( 'MinervaPageIssuesNewTreatment' )
+					$this->config->get( 'MinervaPageIssuesNewTreatment' )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaTalkAtTop',
 					'skin-minerva',
-					$config->get( 'MinervaTalkAtTop' )
+					$this->config->get( 'MinervaTalkAtTop' )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaDonateLink',
 					'skin-minerva',
-					$config->get( 'MinervaDonateLink' )
+					$this->config->get( 'MinervaDonateLink' )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaDonateBanner',
 					'skin-minerva',
-					$config->get( 'MinervaDonateBanner' )
+					$this->config->get( 'MinervaDonateBanner' )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaHistoryInPageActions',
 					'skin-minerva',
-					$config->get( 'MinervaHistoryInPageActions' )
+					$this->config->get( 'MinervaHistoryInPageActions' )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					Hooks::FEATURE_OVERFLOW_PAGE_ACTIONS,
 					'skin-minerva',
-					$config->get( Hooks::FEATURE_OVERFLOW_PAGE_ACTIONS )
+					$this->config->get( Hooks::FEATURE_OVERFLOW_PAGE_ACTIONS )
 				)
 			);
 			$featuresManager->registerFeature(
 				new Feature(
 					'MinervaAdvancedMainMenu',
 					'skin-minerva',
-					$config->get( 'MinervaAdvancedMainMenu' )
+					$this->config->get( 'MinervaAdvancedMainMenu' )
 				)
 			);
 

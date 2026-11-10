@@ -176,9 +176,6 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Minerva\\": "includes/"
 	},
-	"ConfigRegistry": {
-		"minerva": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
-	},
 	"HookHandlers": {
 		"main": {
 			"class": "MediaWiki\\Minerva\\Hooks",
@@ -194,7 +191,7 @@
 		"mobilefrontend": {
 			"class": "MediaWiki\\Minerva\\MobileFrontendHooks",
 			"services": [
-				"ConfigFactory",
+				"MainConfig",
 				"Minerva.SkinOptions"
 			]
 		}
