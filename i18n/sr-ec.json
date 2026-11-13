@@ -21,7 +21,6 @@
 	"mobile-frontend-editor-redlink-explain": "Страница још није направљена.",
 	"mobile-frontend-editor-redlink-leave": "Не, хвала.",
 	"mobile-frontend-history": "Историја измена ове странице",
-	"mobile-frontend-home-button": "Почетна",
 	"mobile-frontend-language-article-heading": "Језик",
 	"mobile-frontend-languages-not-available": "Страница није доступна на другим језицима.",
 	"mobile-frontend-main-menu-button-tooltip": "Отворите главни мени",
@@ -53,6 +52,9 @@
 	"minerva-page-actions-overflow": "Више",
 	"minerva-page-actions-language-switcher": "Језици",
 	"minerva-page-actions-history": "Историја",
+	"minerva-page-tags-language-switcher": "{{PLURAL:$1|$1 језик|$1 језика}}",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 разговор|$1 разговора}}",
+	"minerva-page-tags-talkpage-generic": "разговор",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Дискусија]",
 	"skinname-minerva": "Минерва (ново)",
 	"minerva-skin-desc": "Одзивна тема првенствено за употребу на мобилним уређајима",
@@ -61,5 +63,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Приказује категорије страница",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "Груписање резултата по страници није доступно на мобилним уређајима. Ако желите да користите функцију, посетите сајт за рачунаре.",
 	"minerva.css": "/* CSS постављен овде учитаће се свим корисницима Минерва (ново) теме */",
-	"minerva.js": "/* JavaScript постављен овде учитаће се свим корисницима Минерва (ново) теме */"
+	"minerva.js": "/* JavaScript постављен овде учитаће се свим корисницима Минерва (ново) теме */",
+	"minimal-minerva-lead-section-read-more": "Учитај још"
 }

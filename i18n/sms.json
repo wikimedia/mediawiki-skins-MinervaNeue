@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Miilehti",
 			"Tynnoel",
 			"Yupik"
 		]
@@ -11,7 +12,6 @@
 	"mobile-frontend-editor-redlink-create": "Raaj seeid",
 	"mobile-frontend-editor-redlink-leave": "Ij späʹsseb.",
 	"mobile-frontend-history": "Čuäʹjet tän seeid muʹttemhistoria.",
-	"mobile-frontend-home-button": "Ouddseidd",
 	"mobile-frontend-language-article-heading": "Ǩiõll",
 	"mobile-frontend-languages-not-available": "Tät seidd iʹlla vuäǯǯamnalla jeeʹres ǩiõlid.",
 	"mobile-frontend-main-menu-button-tooltip": "Ääʹved väʹlddvaʹlljõõǥǥ",
@@ -24,7 +24,7 @@
 	"mobile-frontend-meta-data-issues-categories": "Lââʹssteâđ tän kategoria pirr",
 	"mobile-frontend-meta-data-issues-header": "Seeid čuõlm",
 	"mobile-frontend-placeholder": "Ooʒʒ {{SITENAME}} -seiddõõzzâst",
-	"mobile-frontend-random-button": "Håʹt mii seidd",
+	"mobile-frontend-random-button": "Sättnallšem seidd",
 	"mobile-frontend-talk-back-to-filepage": "Määʹcc teâttõʹsse \"$1\".",
 	"mobile-frontend-talk-back-to-page": "Määʹcc sijddu \"$1\".",
 	"mobile-frontend-user-newmessages": "Tuʹst lie ođđ saaǥǥ saǥstõõllâmseeidast",
