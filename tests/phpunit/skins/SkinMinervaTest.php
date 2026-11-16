@@ -21,6 +21,13 @@ use Wikimedia\TestingAccessWrapper;
 class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 	use MockAuthorityTrait;
 
+	protected function setUp(): void {
+		parent::setUp();
+		// Reset the shared SkinOptions service to its default values before each
+		// test, so tests are not affected by state another test may have left on it.
+		$this->overrideSkinOptions( [] );
+	}
+
 	private const MAIN_MENU_MAIN_PAGE_ENTRY = [
 		'tag-name' => 'a',
 		'label' => '(mobile-frontend-main-page-button)',
