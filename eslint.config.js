@@ -55,7 +55,12 @@ module.exports = defineConfig( [
 		'libs/',
 		'vendor/',
 		'tests/resource-loader-bundlesize.js',
-		'coverage/'
+		'coverage/',
+
+		// Language files written automatically by TranslateWiki
+		'**/i18n/**/*.json',
+		'!**/i18n/**/en.json',
+		'!**/i18n/**/qqq.json'
 	] ),
 
 	// Gruntfile.js, etc.
