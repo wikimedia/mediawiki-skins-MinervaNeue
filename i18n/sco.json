@@ -4,18 +4,20 @@
 			"AmaryllisGardener",
 			"C1614",
 			"Caliburn",
-			"MinecraftAustralia"
+			"MinecraftAustralia",
+			"Monospaced"
 		]
 	},
 	"mobile-frontend-editor-edit": "Eedit",
-	"mobile-frontend-history": "View eedit history o this page.",
+	"mobile-frontend-history": "See the edit history o this page.",
 	"mobile-frontend-home-button": "Hame",
 	"mobile-frontend-language-article-heading": "Leid",
 	"mobile-frontend-main-menu-button-tooltip": "Open main menu",
 	"mobile-frontend-main-menu-login": "Log in",
-	"mobile-frontend-main-menu-nearby": "Nearbi",
+	"mobile-frontend-main-menu-nearby": "Nearhaun",
 	"mobile-frontend-main-menu-settings": "Settins",
 	"mobile-frontend-main-menu-watchlist": "Watchleet",
 	"mobile-frontend-placeholder": "Sairch {{SITENAME}}",
-	"mobile-frontend-random-button": "Random"
+	"mobile-frontend-random-button": "Random",
+	"minerva-page-actions-overflow": "Mair"
 }

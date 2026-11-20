@@ -7,7 +7,8 @@
 			"Hakim1bal",
 			"Mdb897",
 			"YesIn",
-			"ⵕⴰⵊⵉ"
+			"ⵕⴰⵊⵉ",
+			"Daoudsfouli"
 		]
 	},
 	"mobile-frontend-editor-edit": "ⵙⵏⴼⵍ",
@@ -21,8 +22,14 @@
 	"mobile-frontend-main-menu-watchlist": "ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵔ",
 	"mobile-frontend-placeholder": "ⵔⵣⵓ ⴳ {{SITENAME}}",
 	"mobile-frontend-random-button": "ⴰⴷⵀⵎⴰⵙ",
+	"mobile-frontend-user-page-contributions": "ⵜⵉⴱⵣⴰⵔⵉⵏ",
+	"mobile-frontend-user-page-talk": "ⴰⵎⵙⴰⵡⴰⵍ",
+	"minerva-user-navigation": "ⴰⵙⵙⴰⵔⴰ ⵏ ⵓⵏⵙⵎⵔⴰⵙ",
+	"minerva-page-actions-editfull": "ⵙⵏⴼⵍ ⵜⴰⵙⴰ ⵜⴰⵏⵎⴷⵓⵜ",
 	"minerva-page-actions-overflow": "ⵓⴳⴳⴰⵔ",
 	"minerva-page-actions-language-switcher": "ⵜⵓⵜⵍⴰⵢⵉⵏ",
+	"minerva-page-actions-history": "ⴰⵎⵣⵔⵓⵢ",
+	"skin-minerva-issue-learn-more": "ⵍⵎⴷ ⵓⴳⴳⴰⵔ",
 	"skin-minerva-mobile-option-MinervaShowCategories": "ⵉⵙⵎⵉⵍⵏ",
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "ⵙⴽⵏ ⵉⵙⵎⵉⵍⵏ ⵏ ⵜⴰⵙⵏⵉⵡⵉⵏ"
 }
