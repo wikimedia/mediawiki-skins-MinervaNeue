@@ -8,7 +8,8 @@
 			"Minisarm",
 			"NGC 54",
 			"Paloi Sciurala",
-			"Strainu"
+			"Strainu",
+			"Vellion Eagle"
 		]
 	},
 	"minerva-last-modified-date": "Ultima modificare pe $1, la $2",
@@ -20,6 +21,7 @@
 	"mobile-frontend-editor-redlink-explain": "Această pagină nu a fost creată încă.",
 	"mobile-frontend-editor-redlink-leave": "Nu, mulțumesc.",
 	"mobile-frontend-history": "Vezi istoricul modificărilor aceastei pagini.",
+	"mobile-frontend-main-page-button": "Pagina principală",
 	"mobile-frontend-language-article-heading": "Limbă",
 	"mobile-frontend-languages-not-available": "Această pagină nu este disponibilă în alte limbi.",
 	"mobile-frontend-main-menu-button-tooltip": "Deschide meniul principal",

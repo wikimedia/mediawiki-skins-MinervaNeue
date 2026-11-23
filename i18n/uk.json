@@ -10,6 +10,7 @@
 			"Microcell",
 			"Movses",
 			"Piramidion",
+			"Repakr",
 			"Yasen igra",
 			"Ата",
 			"Максим Підліснюк",
@@ -25,6 +26,7 @@
 	"mobile-frontend-editor-redlink-explain": "Цю сторінку ще не було створено.",
 	"mobile-frontend-editor-redlink-leave": "Ні, дякую.",
 	"mobile-frontend-history": "Переглянути історію редагувань цієї сторінки.",
+	"mobile-frontend-main-page-button": "Головна сторінка",
 	"mobile-frontend-language-article-heading": "Мова",
 	"mobile-frontend-languages-not-available": "Ця сторінка не доступна іншими мовами.",
 	"mobile-frontend-main-menu-button-tooltip": "Відкрити головне меню",
@@ -56,6 +58,9 @@
 	"minerva-page-actions-overflow": "Більше",
 	"minerva-page-actions-language-switcher": "Мови",
 	"minerva-page-actions-history": "Історія",
+	"minerva-page-tags-language-switcher": "{{PLURAL:$1|$1 мова|$1 мови|$1 мов}}",
+	"minerva-page-tags-talkpage": "{{PLURAL:$1|$1 обговорення|$1 обговорення|$1 обговорень}}",
+	"minerva-page-tags-talkpage-generic": "обговорення",
 	"minerva-prefs-talkpage": "[https://www.mediawiki.org/wiki/Skin_talk:Minerva_Neue Обговорення]",
 	"minerva-skin-desc": "Перша адаптивна мобільна тема оформлення",
 	"skin-minerva-issue-learn-more": "Дізнатися більше",
@@ -63,5 +68,6 @@
 	"skin-minerva-mobile-option-MinervaShowCategories-description": "Переглянути категорії сторінок",
 	"skin-minerva-recentchanges-warning-enhanced-not-supported": "На жаль, групування результатів за сторінками не доступне у мобільному вигляді. Якщо ви хочете скористатися функцією групування за сторінками, будь ласка, відкрийте стаціонарну версію сайту.",
 	"minerva.css": "/* Усі CSS тут будуть завантажені для користувачів скіна MinervaNeue */",
-	"minerva.js": "/* Усі JavaScript тут будуть завантажені для користувачів скіна MinervaNeue */"
+	"minerva.js": "/* Усі JavaScript тут будуть завантажені для користувачів скіна MinervaNeue */",
+	"minimal-minerva-lead-section-read-more": "Читати більше"
 }
