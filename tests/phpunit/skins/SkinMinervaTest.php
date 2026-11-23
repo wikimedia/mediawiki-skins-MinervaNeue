@@ -43,7 +43,7 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		],
 		'classes' => 'menu__item--main-page',
 		'data-icon' => [
-			'icon' => 'home',
+			'icon' => 'newspaper',
 		],
 		'isButton' => true,
 	];
@@ -669,7 +669,15 @@ class SkinMinervaTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertTrue( isset( $data['data-minerva-main-menu']['sitelinks'] ) );
 		$this->assertEquals( 'p-navigation', $data['data-minerva-main-menu']['groups'][0]['id'] );
-		$this->assertEquals( self::MAIN_MENU_MAIN_PAGE, $data['data-minerva-main-menu']['groups'][0]['entries'][0] );
+		// The Main page icon comes from core (Skin::getSidebarIcon), which is moving
+		// from 'home' to 'newspaper' (T434015), so accept either here.
+		$mainPageEntry = $data['data-minerva-main-menu']['groups'][0]['entries'][0];
+		$this->assertContains(
+			$mainPageEntry['components'][0]['data-icon']['icon'],
+			[ 'home', 'newspaper' ]
+		);
+		$mainPageEntry['components'][0]['data-icon']['icon'] = 'newspaper';
+		$this->assertEquals( self::MAIN_MENU_MAIN_PAGE, $mainPageEntry );
 		$this->assertEquals( 'p-interaction', $data['data-minerva-main-menu']['groups'][1]['id'] );
 		$this->assertEquals( 'pt-preferences', $data['data-minerva-main-menu']['groups'][2]['id'] );
 		$this->assertEquals( '<div class="tagline">A description</div>', $data['html-minerva-tagline'] );

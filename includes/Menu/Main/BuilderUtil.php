@@ -62,7 +62,7 @@ final class BuilderUtil {
 			'n-mainpage-description' => [
 				'name' => 'main-page',
 				'text' => $definitions->msg( 'mobile-frontend-main-page-button' ),
-				'icon' => 'home',
+				'icon' => 'newspaper',
 				'class' => '',
 				'href' => Title::newMainPage()->getLocalURL(),
 			],
